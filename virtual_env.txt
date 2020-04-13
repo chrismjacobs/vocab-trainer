@@ -1,0 +1,46 @@
+PS C:\Users\jacob\Documents\vscode\vuebootcamp> cd backend
+PS C:\Users\jacob\Documents\vscode\vuebootcamp\backend> python -m venv backend_env
+PS C:\Users\jacob\Documents\vscode\vuebootcamp\backend> ls
+
+
+    Directory: C:\Users\jacob\Documents\vscode\vuebootcamp\backend
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----        4/13/2020  10:41 AM                backend_env
+
+PS C:\Users\jacob\Documents\vscode\vuebootcamp\backend> cd backend_env
+PS C:\Users\jacob\Documents\vscode\vuebootcamp\backend\backend_env> cd .\Scripts\
+PS C:\Users\jacob\Documents\vscode\vuebootcamp\backend\backend_env\Scripts> ls
+
+
+    Directory: C:\Users\jacob\Documents\vscode\vuebootcamp\backend\backend_env\Scripts
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----        4/13/2020  10:41 AM           2333 activate
+-a----        4/13/2020  10:41 AM           1067 activate.bat
+-a----        4/13/2020  10:41 AM           1538 Activate.ps1
+-a----        4/13/2020  10:41 AM            368 deactivate.bat
+-a----        4/13/2020  10:41 AM          93093 easy_install-3.7.exe
+-a----        4/13/2020  10:41 AM          93093 easy_install.exe
+-a----        4/13/2020  10:41 AM          93075 pip.exe
+-a----        4/13/2020  10:41 AM          93075 pip3.7.exe
+-a----        4/13/2020  10:41 AM          93075 pip3.exe
+-a----        4/13/2020  10:41 AM         415248 python.exe
+-a----        4/13/2020  10:41 AM         414736 pythonw.exe
+
+
+PS C:\Users\jacob\Documents\vscode\vuebootcamp\backend\backend_env\Scripts>
+
+workspace setting 
+json view
+
+"settings": {    
+    "python.pythonPath": "C:\\Users\\jacob\\Documents\\vscode\\vuebootcamp\\backend\\backend_env\\Scripts\\python"
+  }
+
+PS C:\Users\jacob\Documents\vscode\vuebootcamp\backend> backend_env\Scripts\activate
+(backend_env) PS C:\Users\jacob\Documents\vscode\vuebootcamp\backend> pip freeze
