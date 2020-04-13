@@ -14,10 +14,12 @@ app = Flask(__name__,
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 print(app.template_folder)
-import devConfig
-
-app.config.from_object('devConfig.KEYS')
-
+try:
+    import devConfig
+    app.config.from_object('devConfig.KEYS')
+except:
+    app.debug = True
+    
 
 @app.route('/api/random')
 def random_number():
