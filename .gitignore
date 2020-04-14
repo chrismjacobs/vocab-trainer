@@ -1,4 +1,7 @@
 
+venv
+.env
+devConfig.py
 venv.txt
 installs.txt
 

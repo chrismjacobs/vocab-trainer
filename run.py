@@ -5,10 +5,12 @@ import os
 
 
 app = Flask(__name__, 
-        static_folder = "../dist/static",          
+        static_folder = "dist/static",          
         instance_relative_config=True,
-        template_folder = "../dist",
+        template_folder = "dist",
         )
+
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 ## see documentation
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
