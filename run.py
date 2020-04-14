@@ -3,7 +3,8 @@ from flask_cors import CORS
 from random import *
 import os
 
-
+##gunicorn==19.9.0
+##web: gunicorn run (py file):app (flask name) 
 app = Flask(__name__, 
         static_folder = "dist/static",          
         instance_relative_config=True,
