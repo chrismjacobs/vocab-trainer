@@ -1,0 +1,27 @@
+{ 
+    "Africa" : {
+        "kk" : "[ˋæfrɪkə]", 
+        "part" : 1,
+        "eng" : "https://lms-tester.s3-ap-northeast-1.amazonaws.com/audio_en/Africa.mp3", 
+        "tag" : "prop",
+        "gr" : "n.",         
+        "pdef" : "非洲"
+        
+    }, 
+    "air" : {
+        "kk" : "[ɛr]",
+        "part" : 1,
+        "eng" : "https://lms-tester.s3-ap-northeast-1.amazonaws.com/audio_en/air.mp3", 
+        "tag" : null,
+        "gr" : "n.", 
+        "pdef" : "空中"        
+    },
+    "airline" : {
+        "kk" : "[ˋɛrˏlaɪn]",
+        "part" : 1,
+        "eng" : "https://lms-tester.s3-ap-northeast-1.amazonaws.com/audio_en/airline.mp3", 
+        "tag" : null,
+        "gr" : "n.", 
+        "pdef" : "航空公司"        
+    }
+}
