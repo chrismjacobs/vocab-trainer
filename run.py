@@ -41,7 +41,7 @@ except:
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  
     app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('SQLALCHEMY_DATABASE_URI')
     app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
-    app.config['DEBUG'] = os.environ.get('DEBUG')    
+    app.config['DEBUG'] = False   
 
 
 @app.route('/api/random')
