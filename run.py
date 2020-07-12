@@ -29,9 +29,6 @@ socketio = SocketIO(app, manage_session=False)
 #def load_user(id):
     #return User.query.get(int(id))
 
-  
-SECRET_KEY = os.environ.get('SECRET_KEY')
-
 ## see documentation
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
@@ -39,12 +36,12 @@ print(app.template_folder)
 try:
     import devConfig
     app.config.from_object('devConfig.KEYS')
-except:
-    class KEYS():
-        SECRET_KEY = os.environ.get('SECRET_KEY')    
-        SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI')
-        DEBUG = False    
-    app.config.from_object('KEYS')
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+except:  
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('SQLALCHEMY_DATABASE_URI')
+    app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
+    app.config['DEBUG'] = os.environ.get('DEBUG')    
 
 
 @app.route('/api/random')
