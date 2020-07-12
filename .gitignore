@@ -4,6 +4,7 @@ venv
 devConfig.py
 venv.txt
 installs.txt
+notes.txt
 
 
 __pycache__

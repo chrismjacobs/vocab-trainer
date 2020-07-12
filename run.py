@@ -8,12 +8,13 @@ from random import *
 import os
 import requests
 
+
 ##gunicorn==19.9.0
 ##web: gunicorn run (py file):app (flask name) 
 app = Flask(__name__, 
         static_folder = "dist/static",          
         instance_relative_config=True,
-        template_folder = "dist",
+        template_folder = "dist"       
         )
 
 db = SQLAlchemy(app)
@@ -39,8 +40,12 @@ try:
     import devConfig
     app.config.from_object('devConfig.KEYS')
 except:
-    app.debug = True
-    
+    class KEYS():
+        SECRET_KEY = os.environ.get('SECRET_KEY')    
+        SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI')
+        DEBUG = False    
+    app.config.from_object('KEYS')
+
 
 @app.route('/api/random')
 def random_number():

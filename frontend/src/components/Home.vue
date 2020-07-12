@@ -1,7 +1,8 @@
-
 <template>
   <div>
     <p>Home page</p>
+    <a href="" class="button is-primary">Link</a>
+    <h1 class="is-small">Yes</h1>
     <p>Random number from backend: {{ randomNumber }}</p>
     <button @click="getRandomFromBackend">New random number</button>
   </div>

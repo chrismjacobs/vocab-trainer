@@ -1,4 +1,4 @@
-# frontend
+# spa-vbc
 
 > A Vue.js project
 
