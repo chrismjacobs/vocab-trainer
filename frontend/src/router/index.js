@@ -4,6 +4,8 @@ import Router from 'vue-router'
 const routerOptions = [
   {path: '/', component: 'Home'},
   {path: '/about', component: 'About'},
+  {path: '/login', component: 'Login'},
+  {path: '/number', component: 'Number'},
   {path: '*', component: 'NotFound'}
 ]
 

@@ -1,5 +1,5 @@
 {
-  "name": "spa-vbc",
+  "name": "spa-bs",
   "version": "1.0.0",
   "description": "A Vue.js project",
   "author": "ChrisEng0212 <cjx02121981@gmail.com>",
@@ -12,12 +12,9 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
-    "buefy": "^0.8.20",
-    "js-yaml": "^3.14.0",
-    "node-sass": "^4.14.1",
-    "sass-loader": "^9.0.2",
-    "serialize-javascript": "^4.0.0",
-    "vue": "^2.5.2",
+    "bootstrap": "^4.5.0",
+    "bootstrap-vue": "^2.15.0",
+    "vue": "^2.6.11",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {

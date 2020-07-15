@@ -17,6 +17,18 @@ app = Flask(__name__,
         template_folder = "dist"       
         )
 
+# print(app.template_folder)  --> PRINT dist
+try:    
+    import devConfig
+    app.config.from_object('devConfig.KEYS')
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    print('DEV_MODE')
+except:  
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('SQLALCHEMY_DATABASE_URI')
+    app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
+    app.config['DEBUG'] = False   
+
 db = SQLAlchemy(app)
 bcrypt = Bcrypt()
 login = LoginManager(app)
@@ -32,32 +44,11 @@ socketio = SocketIO(app, manage_session=False)
 ## see documentation
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
-print(app.template_folder)
-try:
-    import devConfig
-    app.config.from_object('devConfig.KEYS')
-    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-except:  
-    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  
-    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('SQLALCHEMY_DATABASE_URI')
-    app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
-    app.config['DEBUG'] = False   
+from routes import *
+from admin import *
 
 
-@app.route('/api/random')
-def random_number():
-    response = { 
-        'randomNumber' : randint(1,100)
-    }
-    return jsonify(response)
 
-@app.route('/', defaults={'path': ''})
-@app.route('/<path:path>')
-def catch_all(path):
-    if app.debug:
-        print('request 8080')
-        return requests.get('http://localhost:8080/{}'.format(path)).text
-    return render_template("index.html")
 
 
 if __name__ == '__main__': 

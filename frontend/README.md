@@ -1,4 +1,4 @@
-# spa-vbc
+# spa-bs
 
 > A Vue.js project
 
