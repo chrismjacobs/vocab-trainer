@@ -1,7 +1,7 @@
 import datetime
 import ast
 import json
-import boto
+import boto3
 from random import randint
 from flask import jsonify  
 from run import app, db, bcrypt
