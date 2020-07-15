@@ -4,7 +4,8 @@ from random import randint
 from datetime import datetime, timedelta
 import ast
 import json
-from flask import jsonify  
+import requests
+from flask import jsonify, render_template  
 from run import app, db
 from flask_login import current_user, login_required
 from pprint import pprint
