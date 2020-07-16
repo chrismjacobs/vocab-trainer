@@ -2,9 +2,11 @@
 venv
 .env
 devConfig.py
+config.py
 venv.txt
 installs.txt
 notes.txt
+sockets.py
 
 
 __pycache__

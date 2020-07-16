@@ -4,12 +4,12 @@
 
         <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
 
-        <b-navbar-brand href="#">Vocab BC</b-navbar-brand>
+        <b-navbar-brand @click="goTo('home')">Vocab BC</b-navbar-brand>
 
         <b-collapse is-nav id="nav_collapse">
 
         <b-navbar-nav>
-          <b-nav-item href="/login">Link</b-nav-item>
+          <b-nav-item @click="goTo('login')">Link</b-nav-item>
         </b-navbar-nav>
 
         <!-- Right aligned nav items -->
@@ -19,8 +19,10 @@
             <template slot="button-content">
               <em><b-icon-person-fill></b-icon-person-fill></em>
             </template>
-            <b-dropdown-item href="#">Profile</b-dropdown-item>
-            <b-dropdown-item href="#">Signout</b-dropdown-item>
+            <b-dropdown-item v-if="isAuthenticated" href="#">Profile</b-dropdown-item>
+            <b-dropdown-item v-if="isAuthenticated" href="#">Signout</b-dropdown-item>
+            <b-dropdown-item v-if="!isAuthenticated" @click="goTo('login')">Login</b-dropdown-item>
+            <b-dropdown-item v-if="!isAuthenticated" @click="goTo('register')">Create Account</b-dropdown-item>
           </b-nav-item-dropdown>
         </b-navbar-nav>
       </b-collapse>
@@ -28,35 +30,82 @@
 
     <b-row>
         <b-col cols="2">
-          <b-container class="border-right border-warning d-sm-none d-md-block h-100">
-            <b-nav vertical class="w-25 h-100">
-              <b-nav-item active>Active</b-nav-item>
-              <b-nav-item>Link</b-nav-item>
-              <b-nav-item>Another Link</b-nav-item>
-            </b-nav>
-          </b-container>
-      </b-col>
-      <b-col><router-view/></b-col>
-      <b-col cols="2">
+        <b-card
+        v-if="isAuthenticated"
+          no-body
+          class="m-3"
+        >
+          <template v-slot:header>
+            <h4 class="mb-2">Work Station</h4>
+          </template>
 
+            <b-list-group flush>
+              <b-list-group-item><b-icon-arrow-up></b-icon-arrow-up> &nbsp; English-Chinese</b-list-group-item>
+              <b-list-group-item><b-icon-box-arrow-up-left></b-icon-box-arrow-up-left> &nbsp; Chinese-English</b-list-group-item>
+              <b-list-group-item><b-icon-caret-right-square-fill></b-icon-caret-right-square-fill>&nbsp; English Listening</b-list-group-item>
+              <b-list-group-item><b-icon-caret-right-square></b-icon-caret-right-square>&nbsp; Chinese Listening</b-list-group-item>
+              <b-list-group-item>Games</b-list-group-item>
+            </b-list-group>
+                <b-card-footer>This is a footer</b-card-footer>
+            </b-card>
+          </b-col>
+
+      <b-col>
+        <router-view/>
       </b-col>
-    </b-row>
-  </div>
-</template>
+
+      <b-col cols="2" align-self="stretch">
+        <b-card
+          no-body
+          class="m-3"
+          v-if="isAuthenticated"
+        >
+          <template v-slot:header>
+            <div class="m-2" align="center">
+              <b-avatar src="https://placekitten.com/300/300" size="4rem"></b-avatar>
+            </div>
+            <h4 class="mb-2">Profile Dash</h4>
+          </template>
+
+            <b-list-group flush>
+              <b-list-group-item>Cras justo odio</b-list-group-item>
+              <b-list-group-item>Dapibus ac facilisis in</b-list-group-item>
+              <b-list-group-item>Vestibulum at eros</b-list-group-item>
+            </b-list-group>
+                <b-card-footer>This is a footer</b-card-footer>
+            </b-card>
+          </b-col>
+        </b-row>
+      </div>
+    </template>
 
 <script>
 // Andre Madarang https://www.youtube.com/watch?v=Vu5QKn24uYs
-import master from './assets/json/PVQCmaster.json'
-console.log(master)
+import Login from './components/Login'
+import Register from './components/Register'
+import Landing from './components/Landing'
+
 export default {
   name: 'app',
   components: {
+    Login,
+    Register,
+    Landing
   },
   data () {
     return {
+      auth: false
+    }
+  },
+  computed: {
+    isAuthenticated () {
+      return this.$store.getters.isAuthenticated
     }
   },
   methods: {
+    goTo: function (arg) {
+      this.$router.push(arg)
+    }
   }
 }
 </script>
