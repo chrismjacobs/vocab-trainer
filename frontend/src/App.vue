@@ -68,16 +68,16 @@
           </template>
 
             <b-list-group flush>
-              <b-list-group-item>Cras justo odio</b-list-group-item>
-              <b-list-group-item>Dapibus ac facilisis in</b-list-group-item>
-              <b-list-group-item>Vestibulum at eros</b-list-group-item>
+              <b-list-group-item @click="goTo('dictionary')">My Dictionary</b-list-group-item>
+              <b-list-group-item @click="goTo('home')">Dapibus ac facilisis in</b-list-group-item>
+              <b-list-group-item @click="goTo('dictionary')">Vestibulum at eros</b-list-group-item>
             </b-list-group>
                 <b-card-footer>This is a footer</b-card-footer>
             </b-card>
           </b-col>
         </b-row>
       </div>
-    </template>
+</template>
 
 <script>
 // Andre Madarang https://www.youtube.com/watch?v=Vu5QKn24uYs
