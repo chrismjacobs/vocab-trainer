@@ -5,7 +5,7 @@ import { isValidJwt, parseLocal } from '@/utils'
 import { authenticate, register, updateRecAPI } from '@/api'
 import tourism from '../assets/json/master.json'
 
-let dict = {
+let dictionaries = {
   'tourism': tourism,
   'high': null,
   'foodViet': null
@@ -103,7 +103,7 @@ const mutations = {
   },
   setMaster (state, payload) {
     console.log('setMaster payload = ', payload)
-    state.master = dict[payload.vocab]
+    state.master = dictionaries[payload.vocab]
   },
   resetSettings (state) {
     state.settings = {}
