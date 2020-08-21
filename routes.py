@@ -38,10 +38,10 @@ def update_record():
 
     token = payload['jwt']
     data = jwt.decode(token, app.config['SECRET_KEY'])
-    user = User.query.filter_by(studentID=data['sub']).first()
+    user = User.query.get(data['sub'])
 
-    key = "jfolder/" + user.username + user.studentID + '/settings.json'
-    content_object = s3_resource.Object( 'lms-tester', key )
+    key = "jfolder/" + str(user.id) + '/settings.json'
+    content_object = s3_resource.Object( 'vocab-lms', key)
     file_content = content_object.get()['Body'].read().decode('utf-8')
     print(file_content)
     print(json.dumps({}))
@@ -61,14 +61,14 @@ def update_record():
             db.session.add(entry)
             db.session.commit()
 
-    bucket_name = 'lms-tester'
+    bucket_name = 'vocab-lms'
 
     jstring1 = json.dumps(userSettings)
-    file_name1 = "jfolder/" + user.username + user.studentID +  '/settings.json'
+    file_name1 = "jfolder/" + str(user.id) +  '/settings.json'
     s3_resource.Bucket(bucket_name).put_object(Key=file_name1, Body=str(jstring1))
 
     jstring2 = json.dumps(payload['userRecord'])
-    file_name2 = "jfolder/" + user.username + user.studentID +  '/records.json'
+    file_name2 = "jfolder/" + str(user.id) +  '/records.json'
     s3_resource.Bucket(bucket_name).put_object(Key=file_name2, Body=str(jstring2))
 
     response = {
@@ -89,19 +89,21 @@ def login():
         print('INVALID')
         return jsonify({ 'msg': 'Invalid credentials', 'authenticated': False }), 401
 
-    key = "jfolder/" + user.id + '/records.json'
-    #s3_location = "https://lms-tester.s3-ap-northeast-1.amazonaws.com/" + file_name
-    content_object = s3_resource.Object( 'lms-tester', key )
+    key = "jfolder/" + str(user.id) + '/records.json'
+    content_object = s3_resource.Object( 'vocab-lms', key )
     file_content = content_object.get()['Body'].read().decode('utf-8')
     userRecord = json.loads(file_content)
     print(userRecord)
 
     userProfile = {
         'username' : user.username,
+        'userID' : user.id,
         'studentID' : user.studentID,
         'image' : user.image_file,
         'school' : user.school,
-        'email' : user.email
+        'email' : user.email,
+        'classroom' : user.classroom,
+        'vocab' : user.vocab
     }
 
     token = jwt.encode({
@@ -135,21 +137,22 @@ def register():
         print('EMAIL ERROR')
         return jsonify({'msg' : 'This email has been used already.', 'err': 1})
 
+
+    hashed_password = bcrypt.generate_password_hash(data['password']).decode('utf-8')
+    newUser = User(username=data['username'], email=data['email'], password=hashed_password)
+    db.session.add(newUser)
+    db.session.commit()
+
+    user = User.query.filter_by(username=data['username']).first()
+
     jstring = json.dumps({})
-    bucket_name = 'lms-tester'
-    file_name1 = "jfolder/" + data['username'] + data['studentID'] +  '/records.json'
-    file_name2 = "jfolder/" + data['username'] + data['studentID'] +  '/settings.json'
+    bucket_name = 'vocab-lms'
+    file_name1 = "jfolder/" + str(user.id) +  '/records.json'
+    file_name2 = "jfolder/" + str(user.id) +  '/settings.json'
 
     s3_resource.Bucket(bucket_name).put_object(Key=file_name1, Body=str(jstring))
     s3_resource.Bucket(bucket_name).put_object(Key=file_name2, Body=str(jstring))
 
-    jocation = "https://lms-tester.s3-ap-northeast-1.amazonaws.com/" + "jfolder/" + data['username'] + data['studentID'] + '/'
-
-    hashed_password = bcrypt.generate_password_hash(data['password']).decode('utf-8')
-    user = User(username=data['username'], studentID = data['studentID'], email=data['email'], password=hashed_password, jocation=jocation, school=data['school'])
-
-    db.session.add(user)
-    db.session.commit()
 
 
     response = {

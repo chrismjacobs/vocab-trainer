@@ -88,8 +88,6 @@ export default {
     return {
       form: {
         username: '',
-        studentID: '',
-        school: '',
         email: '',
         password: '',
         confirm: ''

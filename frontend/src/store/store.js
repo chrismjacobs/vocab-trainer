@@ -3,7 +3,13 @@ import Vuex from 'vuex'
 import router from '../router'
 import { isValidJwt, parseLocal } from '@/utils'
 import { authenticate, register, updateRecAPI } from '@/api'
-import master from '../assets/json/master.json'
+import tourism from '../assets/json/master.json'
+
+let dict = {
+  'tourism': tourism,
+  'high': null,
+  'foodViet': null
+}
 
 Vue.use(Vuex)
 
@@ -13,7 +19,7 @@ const state = {
   settings: parseLocal(localStorage.settings) || {},
   currentRecord: parseLocal(localStorage.currentRecord) || {},
   jwt: localStorage.token || '',
-  master: master
+  master: null
 }
 
 const actions = {
@@ -24,6 +30,7 @@ const actions = {
       .then(function (response) {
         context.commit('setJwtToken', { jwt: response.data.token, msg: response.data.msg })
         context.commit('setProfile', { userProfile: response.data.userProfile, userRecord: response.data.userRecord })
+        context.commit('setMaster', { userProfile: response.data.userProfile })
         router.push('/home')
       })
       .catch(error => {
@@ -93,6 +100,10 @@ const mutations = {
 
     localStorage.setItem('userRecord', JSON.stringify(payload.userRecord))
     state.userRecord = payload.userRecord
+  },
+  setMaster (state, payload) {
+    console.log('setMaster payload = ', payload)
+    state.master = dict[payload.vocab]
   },
   resetSettings (state) {
     state.settings = {}

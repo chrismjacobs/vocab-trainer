@@ -15,7 +15,7 @@ export function openSocket () {
 
   socket.on('connect', function () {
     // sends to app.py as msg which it prints
-    socket.emit('online', { username: userProfile.username, studentID: userProfile.studentID })
+    socket.emit('online', { username: userProfile.username, email: userProfile.email })
   })
 
   socket.on('onlineUsers', function (data) {

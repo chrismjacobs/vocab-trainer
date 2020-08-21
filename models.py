@@ -7,15 +7,19 @@ from flask_admin.contrib.sqla import ModelView
 class User(db.Model): #import the model
     id = db.Column(db.Integer, primary_key=True) #kind of value and the key unique to the user
     date_added = db.Column(db.DateTime, nullable=False, default=datetime.now)
-    username =  db.Column(db.String(20), nullable=False) #must be a unique name and cannot be null
-    studentID = db.Column(db.String())
+    username =  db.Column(db.String(20), unique=True, nullable=False) #must be a unique name and cannot be null
     email = db.Column(db.String(120), unique=True, nullable=False)
-    image_file = db.Column(db.String(), nullable=False, default='profiles/default.PNG') #images will be hashed to 20 and images could be the same
+    studentID = db.Column(db.String())
+    vocab = db.Column(db.String(), nullable=False, default='tourism')
+    image_file = db.Column(db.String(), nullable=False, default='public/profiles/default.PNG') #images will be hashed to 20 and images could be the same
     password = db.Column(db.String(60), nullable=False)
     school = db.Column(db.String(20))
-    jocation = db.Column(db.String(120), unique=True, nullable=False)
+    classroom = db.Column(db.String(20))
     extraStr = db.Column(db.String())
     extraInt = db.Column(db.Integer())
+    connects = db.relationship('Connected', backref='connected')
+    rooms = db.relationship('Room', secondary='ready', backref=db.backref('players', lazy='dynamic'))
+
 
 class Settings(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -25,34 +29,35 @@ class Settings(db.Model):
     extraStr = db.Column(db.String())
     extraInt = db.Column(db.Integer())
 
-class Connect(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username =  db.Column(db.String(20), nullable=False) #must be a unique name and cannot be null
-    studentID = db.Column(db.String(), nullable=False)
 
 class Connected(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username =  db.Column(db.String(20), nullable=False) #must be a unique name and cannot be null
-    studentID = db.Column(db.String(), nullable=False)
-    room = db.Column(db.String())
     extraStr = db.Column(db.String())
     extraInt = db.Column(db.Integer())
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
+class Room(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    room = db.Column(db.String())
 
-
+association_table = db.Table('ready',
+    db.Column('user_id', db.Integer, db.ForeignKey('user.id')),
+    db.Column('room_id', db.Integer, db.ForeignKey('room.id'))
+)
 
 def authenticate(**kwargs): # cls represents iteself in this case User
-    studentID = kwargs['userData']['studentID']
+    email= kwargs['userData']['email']
     password = kwargs['userData']['password']
 
     print('AUTH', kwargs)
 
-    if not studentID or not password:
+    if not email or not password:
         print('NONE')
         return None
 
     print('CHECK USER')
-    user = User.query.filter_by(studentID=studentID).first()
+    user = User.query.filter_by(email=email).first()
     print(user)
 
     if not user or not bcrypt.check_password_hash(user.password, password):
@@ -82,6 +87,7 @@ admin = Admin(app)
 admin.add_view(MyModelView(User, db.session))
 admin.add_view(MyModelView(Settings, db.session))
 admin.add_view(MyModelView(Connected, db.session))
+admin.add_view(MyModelView(Room, db.session))
 
 
 

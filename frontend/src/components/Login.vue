@@ -6,14 +6,14 @@
         <b-card v-if="waiting" header="Login" header-bg-variant="primary" header-text-variant="info" header-tag="h3">
           <b-form @submit="onSubmit" @reset="onReset" v-if="show">
 
-            <b-input-group label="Student ID:" label-for="exampleInput1">
+            <b-input-group label="Email:" label-for="exampleInput1">
                 <b-input-group-prepend inline is-text>
                   <b-icon icon="person-fill"></b-icon>
                 </b-input-group-prepend>
                 <b-form-input id="exampleInput1"
-                            v-model="form.studentID"
+                            v-model="form.email"
                             required
-                            placeholder="Enter Student ID">
+                            placeholder="Enter Email">
                 </b-form-input>
             </b-input-group>
 
@@ -61,7 +61,7 @@ export default {
   data () {
     return {
       form: {
-        studentID: '',
+        email: '',
         password: ''
       },
       show: true,
@@ -77,7 +77,7 @@ export default {
     onReset (evt) {
       evt.preventDefault()
       /* Reset our form values */
-      this.form.studentID = ''
+      this.form.email = ''
       this.form.password = ''
       /* Trick to reset/clear native browser form validation state */
       this.show = false

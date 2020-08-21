@@ -80,7 +80,7 @@ export default {
     return {
       pageHead: 'Matching',
       username: null,
-      studentID: null,
+      userID: null,
       tableItems: null,
       stringItems: null,
       matchNumber: 6,
@@ -114,10 +114,10 @@ export default {
       // this.shuffle(this.buttons)
     },
     joinRoom: function () {
-      this.socket.emit('join_room', {room: this.room, username: this.username, studentID: this.studentID})
+      this.socket.emit('join_room', {room: this.room, username: this.username, userID: this.userID})
     },
     startRoom: function () {
-      this.socket.emit('start_room', {room: this.room, username: this.username, studentID: this.studentID})
+      this.socket.emit('start_room', {room: this.room, username: this.username, userID: this.userID})
     },
     clearSync: function () {
       for (let btn in this.buttons) {
@@ -207,13 +207,13 @@ export default {
   },
   created () {
     this.username = this.$store.state.userProfile.username
-    this.studentID = this.$store.state.userProfile.studentID
+    this.userID = this.$store.state.userProfile.userID
     this.tableItems = this.$store.getters.makeList
     this.stringItems = JSON.stringify(this.tableItems)
     this.socket = openSocket()
   },
   beforeDestroy () {
-    this.socket.emit('offline', { username: this.username, studentID: this.studentID, room: this.room })
+    this.socket.emit('offline', { username: this.username, userID: this.userID, room: this.room })
     this.socket.close()
   },
   mounted () {

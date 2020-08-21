@@ -39,8 +39,6 @@
                     </div>
                   <h4 class="mb-2">Profile Dash</h4>
                   <h6> {{ $store.state.userProfile.username}}</h6>
-                  <h6> {{ $store.state.userProfile.studentID}}</h6>
-                  <h6> {{ $store.state.userProfile.school}}</h6>
                   <h6> This Session:</h6>
                   <h6> Translation {{ transRec[0] }} </h6>
                   <h6> Score {{ transRec[1] }} </h6>

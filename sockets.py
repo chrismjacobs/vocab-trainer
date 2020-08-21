@@ -15,12 +15,14 @@ def online(data):
     """User joins a room"""
     print('user online', data)
 
+    user = User.query.get(data['id'])
+
     check = Connected.query.filter_by(username=data['username'], studentID=data['studentID']).first()
 
     if check:
         pass
     else:
-        user = Connected(username=data['username'], studentID=data['studentID'])
+        player = Connected(user.username, player_id=user)
         db.session.add(user)
         db.session.commit()
 
