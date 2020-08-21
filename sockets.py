@@ -1,79 +1,138 @@
-import sys, boto3, random
-import random
-from datetime import datetime, timedelta
-import ast
+
+from app import app, db, socketio, cors
 import json
-from flask import render_template, url_for, flash, redirect, request, abort, jsonify  
-from app import app, db, bcrypt, socketio, login
-from flask_login import LoginManager, login_user, current_user, logout_user, login_required
-from forms import LoginForm
 from pprint import pprint
 from models import *
-from flask_socketio import SocketIO, join_room, leave_room, send, emit
+from flask import request
+from flask_socketio import SocketIO, join_room, leave_room, send, emit, rooms
+from flask_cors import CORS
 
+print('SOCKETS')
+
+
+@socketio.on('online')
+def online(data):
+    """User joins a room"""
+    print('user online', data)
+
+    check = Connected.query.filter_by(username=data['username'], studentID=data['studentID']).first()
+
+    if check:
+        pass
+    else:
+        user = Connected(username=data['username'], studentID=data['studentID'])
+        db.session.add(user)
+        db.session.commit()
+
+    userSearch = Connected.query.all()
+    userDict = {}
+
+    for user in userSearch:
+        userDict[user.username] = user.studentID
+
+    userList = json.dumps(userDict)
+    print(type(userList), userList)
+
+    emit('onlineUsers', {'userList' : userList})
+
+
+@socketio.on('offline')
+def on_disconnected(data):
+    check = Connected.query.filter_by(username=data['username'], studentID=data['studentID']).first()
+
+    if check:
+        Connected.query.filter_by(username=data['username'], studentID=data['studentID']).delete()
+        db.session.commit()
+
+    leave_room(data['room'])
+
+    print(data['username'], 'offline')
+
+
+
+@socketio.on('disconnect')
+def on_disconnect():
+
+    print('Client Disconnected')
 
 @socketio.on('connect')
 def on_connect():
     """User connects"""
     print('connect_python')
-    send({"username": current_user.username})
+    send({"username": 'Chris'})
+
+@socketio.on('start_room')
+def on_start(data):
+    """User starts a room"""
+    print(data)
+    room = data['username'][:2].lower() + data['studentID'][:2] + request.sid[:2]
+    print('room started', room)
+
+    user = Connected.query.filter_by(username=data['username'], studentID=data['studentID']).first()
+    clients = Connected.query.filter_by(room=room).count()
+
+    error = 5
+    msg = "..."
+
+    if clients == 0:
+        user.room = room
+        db.session.commit()
+        msg = 'Room Ready'
+        join_room(room)
+        error = 0
+    elif user.room == room:
+        msg = 'Room already started'
+        error = 1
+    elif clients > 0:
+        msg = 'This room cannot be started'
+        error = 2
+
+    print(msg)
+    socket_id = request.sid
+    print(rooms(socket_id))
+
+    emit('roomReady', {'msg': msg,  'error': error, 'clients': clients, 'room': room}, room )
 
 
-@socketio.on('join')
+@socketio.on('join_room')
 def on_join(data):
     """User joins a room"""
-    print('join started')
-    player_game = set_game(None)
-    #return {'player': player, 'game': game 'qString': qString}
-    if player_game == None:
-        return 'ERROR - No Game Set'
-    print (player_game)
-    room = player_game['room']
-    player = player_game['player']
-    qString = player_game['qString']
-    pDict = player_game['pDict']
-    qs = player_game['qs']
-    
-    join_room(room)      
-    
-    emit('playerReady', {'player': player, 'room': room, 'qString': qString, 'pDict': pDict, 'qs': qs}, room=room)
-
-@socketio.on('bot')
-def bot_mode(data):
-    Games = set_environment()[0] 
 
     room = data['room']
-    gameID = int(room.split('_')[0])
-    #using 'room' as an argument means the bot will be loaded
-    player_game = set_game(room)  
-    qs = player_game['qs'] 
-    pDict = player_game['pDict']      
+    print('room joined', room)
 
-    game = Games.query.filter_by(id=gameID).first()
-    results = ast.literal_eval(game.results)
-    
-    botDict = {}
-    count = 1
-    for vocab in results:
-        botDict[count] = results[vocab]['Bot'][1]        
-        count += 1
-    print ('botDict ', botDict)
+    user = Connected.query.filter_by(username=data['username'], studentID=data['studentID']).first()
+    clients = Connected.query.filter_by(room=room).count()
 
-    emit('botReady', {'pDict': pDict, 'botDict': botDict, 'qs':qs}, room=room)
+    error = 5
+    msg = "..."
 
+    if clients == 1:
+        user.room = room
+        db.session.commit()
+        msg = 'Room Ready'
+        error = 0
+        join_room(data['room'])
+    elif user.room == room:
+        msg = 'Room already joined'
+        error = 1
+    elif clients == 0:
+        msg = 'This room does not exist'
+        error = 2
+    elif clients == 2:
+        msg = 'This room does not exist'
+        error = 3
 
-@socketio.on('choice_made')
-def choice_made(data):
-    print ('choice', data)  
+    print(msg)
+    socket_id = request.sid
+    print(rooms(socket_id))
 
-    room = data['room']
-    username = data['username'] 
-    player = data['player']  
-    
-    socketio.emit('turn', {'player' : player}, room=room)
+    emit('playerReady', {'msg': msg, 'error': error, 'clients': clients, 'room': room}, room)
 
+@socketio.on('buttons')
+def on_buttons(data):
+    """User joins a room"""
+    print('buttons changed')
 
+    emit('buttons', {'buttons': json.loads(data['buttons'])}, data['room'])
 
-@socketio.on('disconnect')
-def test_disconnect():
-    print('Client Disconnected')

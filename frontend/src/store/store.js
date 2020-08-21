@@ -1,57 +1,144 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { isValidJwt, EventBus } from '@/utils'
-import { authenticate, register } from '@/api'
-import master from '../assets/json/PVQCmaster.json'
+import router from '../router'
+import { isValidJwt, parseLocal } from '@/utils'
+import { authenticate, register, updateRecAPI } from '@/api'
+import master from '../assets/json/master.json'
 
 Vue.use(Vuex)
-console.log('store')
 
 const state = {
-  user: {},
-  jwt: '',
-  masterPVQC: master
+  userProfile: parseLocal(localStorage.userProfile) || {},
+  userRecord: parseLocal(localStorage.userRecord) || {},
+  settings: parseLocal(localStorage.settings) || {},
+  currentRecord: parseLocal(localStorage.currentRecord) || {},
+  jwt: localStorage.token || '',
+  master: master
 }
 
 const actions = {
   // communicate with backend API
   login (context, userData) {
     // mutation action to set userData after login
-    context.commit('setUserData', { userData })
     return authenticate(userData)
-      .then(response => context.commit('setJwtToken', { jwt: response.data }))
+      .then(function (response) {
+        context.commit('setJwtToken', { jwt: response.data.token, msg: response.data.msg })
+        context.commit('setProfile', { userProfile: response.data.userProfile, userRecord: response.data.userRecord })
+        router.push('/home')
+      })
       .catch(error => {
         // log and signal to app
+        alert('An error has occured', error)
         console.log('Error Authenticating: ', error)
-        EventBus.$emit('failedAuthentication', error)
       })
   },
   register (context, userData) {
-    // mutation action to set user data??
-    context.commit('setUserData', { userData })
+    console.log(context)
     return register(userData)
-      .then(context.dispatch('login', userData))
+      .then(function (response) {
+        alert(response.data.msg)
+        if (!response.data.err) {
+          router.push('/login')
+        }
+      })
       .catch(error => {
         console.log('Error Registering: ', error)
-        EventBus.$emit('failedRegistering: ', error)
       })
+  },
+  updateRecord (context, answerData) {
+    console.log('record', answerData)
+    context.commit('setNewRecord', answerData)
+  },
+  logout (context) {
+    console.log('logout...')
+    context.commit('destroyToken')
+  },
+  checkLogin (context) {
+    console.log('check...')
+    return isValidJwt(state.jwt)
+  },
+  saveData (context) {
+    if (state.settings === {}) {
+      console.log('No new Settings')
+      return false
+    } else {
+      return updateRecAPI({userRecord: state.userRecord, jwt: state.jwt, settings: state.settings})
+        .then(function (response) {
+          context.commit('resetSettings')
+          console.log('RECORD UPDATED', response, context)
+        })
+        .catch(error => {
+          // log and signal to app
+          alert('An error has occured', error)
+          console.log('Error Authenticating: ', error)
+        })
+    }
   }
 }
 
 const mutations = {
   // mutation can change the state variables
-  setUserData (state, payload) {
-    console.log('setUserData payload = ', payload)
-    state.userData = payload.userData
-  },
   // set token into local storage and store state
   setJwtToken (state, payload) {
-    console.log('setJwtToken payload = ', payload)
-    alert(payload.jwt.msg)
-    localStorage.token = payload.jwt.token
-    console.log(state.jwt)
-    state.jwt = payload.jwt.token
-    console.log(state.jwt)
+    console.log('setJwtToken payload = ', payload.jwt)
+    alert(payload.msg)
+    localStorage.token = payload.jwt
+    state.jwt = payload.jwt
+  },
+  setProfile (state, payload) {
+    console.log('setProfile payload = ', payload)
+
+    localStorage.setItem('userProfile', JSON.stringify(payload.userProfile))
+    state.userProfile = payload.userProfile
+
+    localStorage.setItem('userRecord', JSON.stringify(payload.userRecord))
+    state.userRecord = payload.userRecord
+  },
+  resetSettings (state) {
+    state.settings = {}
+    localStorage.settings = JSON.stringify({})
+  },
+  setNewRecord (state, payload) {
+    console.log('setNewEC payload = ', payload)
+    // localStorage.userProfile = payload.userProfile
+    for (let index in payload.answerData) {
+      let mode = payload.mode
+      let ans = payload.answerData[index]
+
+      // set data in currentRecord Object
+      if (!state.currentRecord[mode]) {
+        Vue.set(state.currentRecord, mode, {})
+      }
+      if (!state.currentRecord[mode][ans.English]) {
+        Vue.set(state.currentRecord[mode], ans.English, 0)
+      }
+      state.currentRecord[mode][ans.English] += ans.Score
+
+      // set data in currentRecord Object
+      if (!state.userRecord[mode]) {
+        Vue.set(state.userRecord, mode, {})
+      }
+      if (!state.userRecord[mode][ans.English]) {
+        Vue.set(state.userRecord[mode], ans.English, 0)
+      }
+      state.userRecord[mode][ans.English] += ans.Score
+    }
+
+    if (!state.settings[JSON.stringify(payload.settingsData)]) {
+      Vue.set(state.settings, JSON.stringify(payload.settingsData), 1)
+    } else {
+      state.settings[JSON.stringify(payload.settingsData)] += 1
+    }
+    console.log('SETTINGS', state.settings)
+
+    localStorage.setItem('settings', JSON.stringify(state.settings))
+    localStorage.setItem('userRecords', JSON.stringify(state.userRecords))
+    localStorage.setItem('currentRecord', JSON.stringify(state.currentRecord))
+  },
+  destroyToken (state) {
+    console.log('destroyToken')
+    state.jwt = ''
+    localStorage.clear()
   }
 }
 
@@ -60,6 +147,74 @@ const getters = {
   isAuthenticated (state) {
     console.log(state.jwt)
     return isValidJwt(state.jwt)
+  },
+  makeList (state) {
+    let tableItems = []
+    let dict = state.master
+    for (let vocab in dict) {
+      let chinese
+      let chineseExt
+      if (dict[vocab].defch2) {
+        chinese = dict[vocab].defch1
+        chineseExt = dict[vocab].defch1 + ';' + dict[vocab].defch2
+      } else {
+        chinese = dict[vocab].defch1
+        chineseExt = dict[vocab].defch1
+      }
+
+      let transScore = 0
+      if (!state.userRecord.trans) {
+        // pass
+      } else if (state.userRecord.trans[vocab]) {
+        // console.log('trans', vocab)
+        transScore = state.userRecord.trans[vocab]
+        if (transScore > 2) {
+          transScore = 2
+        } else if (transScore < -2) {
+          transScore = -2
+        }
+      }
+      let spellScore = 0
+      if (!state.userRecord.spell) {
+        // pass
+      } else if (state.userRecord.spell[vocab]) {
+        spellScore = state.userRecord.spell[vocab]
+        if (spellScore > 2) {
+          spellScore = 2
+        } else if (spellScore < -2) {
+          spellScore = -2
+        }
+      }
+      let variant = null
+      let total = transScore + spellScore
+      if (total >= 2) {
+        variant = 'success'
+      } else if (total === 1) {
+        variant = 'primary'
+      } else if (total === 0) {
+        variant = null
+      } else if (total === -1) {
+        variant = 'warning'
+      } else {
+        variant = 'danger'
+      }
+
+      // state.currentRecord.trans.vocab
+      tableItems.push({
+        English: vocab,
+        Category: vocab[0].toUpperCase(),
+        Chinese: chinese,
+        ChineseExt: chineseExt,
+        Gr: dict[vocab].gl,
+        mp3en: dict[vocab].mp3en,
+        mp3ch: dict[vocab].mp3ch,
+        transScore: transScore,
+        spellScore: spellScore,
+        totalScore: total,
+        _rowVariant: variant
+      })
+    }
+    return tableItems
   }
 }
 

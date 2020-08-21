@@ -1,22 +1,27 @@
 <template>
   <div class="dict">
-    <audio id="audio" controls autoplay></audio>
+    <audio id="audio" autoplay></audio>
     <b-container>
       <b-card class="m-3">
         <b-row>
         <b-col>
-          <b-form-select v-model="selected" :options="options" :select-size="4"></b-form-select>
-          <div class="mt-3">Selected: <strong>{{ selected }}</strong></div>
+          <b-form-select v-model="selected[0]" :options="optionsA" :select-size="4"></b-form-select>
+          <div class="mt-3">Selected: <strong>{{ selected[0] }}</strong></div>
         </b-col>
         <b-col>
-          test
+          <b-form-select v-model="selected[1]" :options="optionsG" :select-size="4"></b-form-select>
+          <div class="mt-3">Selected: <strong>{{ selected[1] }}</strong></div>
+        </b-col>
+        <b-col>
+          <b-form-select v-model="selected[2]" :options="optionsR" :select-size="4"></b-form-select>
+          <div class="mt-3">Selected: <strong>{{ selected[2] }}</strong></div>
         </b-col>
         </b-row>
       </b-card>
     </b-container>
     <b-container>
       <b-table
-      striped hover sticky-header
+      striped hover
       :items="tableItems"
       :fields="fields"
       :filter="selected"
@@ -39,19 +44,41 @@ export default {
       fields: [
         {key: 'English', label: 'Vocab', sortable: true},
         {key: 'Gr', label: 'Gr.', sortable: false},
-        {key: 'Chinese', sortable: true},
+        {key: 'ChineseExt', label: 'Chinese', sortable: true},
         {key: 'mp3en', label: 'Listen'}
       ],
       tableItems: null,
-      selected: 'A',
-      options: []
+      selected: ['A', null, null],
+      optionsA: [],
+      optionsG: [
+        { value: null, text: '---' },
+        { value: 'v.', text: 'verbs' },
+        { value: 'adj.', text: 'adjectives' },
+        { value: 'n.', text: 'nouns' },
+        { value: 'phr.', text: 'phrases' },
+        { value: 'abbr.', text: 'abbreviations' },
+        { value: 'prop.', text: 'proper nouns' }
+      ],
+      optionsR: [
+        { value: null, text: '---' },
+        { value: 1, text: 'okay' },
+        { value: 2, text: 'well' },
+        { value: -1, text: 'trouble' },
+        { value: -2, text: 'bad' }
+      ]
     }
   },
   methods: {
-    test: function () {
-    },
     filterTable: function (row, filter) {
-      if (row.Category === filter) {
+      if (filter[2] != null) {
+        if (row.totalScore === filter[2]) {
+          return true
+        }
+      } else if (filter[1] === null) {
+        if (row.Category === filter[0]) {
+          return true
+        }
+      } else if (row.Category === filter[0] && row.Gr === filter[1]) {
         return true
       } else {
         return false
@@ -60,48 +87,27 @@ export default {
     alphabet: function () {
       let alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
       for (let letter in alphabet) {
-        this.options.push({ value: alphabet[letter], text: alphabet[letter] })
+        this.optionsA.push({ value: alphabet[letter], text: alphabet[letter] })
       }
     },
     playAudio: function (arg) {
       console.log(arg)
       document.getElementById('audio').src = arg
-    },
-    makeList: function () {
-      let tableItems = []
-      let dict = this.$store.state.masterPVQC
-      for (let vocab in dict) {
-        let chinese
-        if (dict[vocab].defch2) {
-          chinese = dict[vocab].defch1 + ';' + dict[vocab].defch2
-        } else {
-          chinese = dict[vocab].defch1
-        }
-        let acronym = false
-        let propernoun = false
-        if (vocab[0] === vocab[0].toUpperCase() && vocab[1] === vocab[1].toUpperCase()) {
-          acronym = true
-        } else if (vocab[0] === vocab[0].toUpperCase()) {
-          propernoun = true
-        }
-        tableItems.push({
-          English: vocab,
-          Category: vocab[0].toUpperCase(),
-          Chinese: chinese,
-          Propernoun: propernoun,
-          Acronym: acronym,
-          Gr: dict[vocab].gl,
-          mp3en: dict[vocab].mp3en
-        })
-      }
-      this.tableItems = tableItems
     }
   },
   computed: {
+    isAuthenticated () {
+      if (!this.$store.getters.isAuthenticated) {
+        alert('Your login has expired and you must login again')
+        this.goTo('login')
+      }
+      return this.$store.getters.isAuthenticated
+    }
   },
   created () {
     this.alphabet()
-    this.makeList()
+    this.tableItems = this.$store.getters.makeList
+    // console.log(this.tableItems)
     if (!this.$store.getters.isAuthenticated) {
       this.$router.push('login')
     }

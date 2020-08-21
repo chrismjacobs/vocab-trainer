@@ -1,7 +1,9 @@
 
 venv
 .env
-devConfig.py
+audio/
+audio.py
+dictionary.py
 config.py
 venv.txt
 installs.txt

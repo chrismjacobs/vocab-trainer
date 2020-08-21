@@ -1,48 +1,54 @@
 <template>
     <div class="login">
-    <b-container>
-    <b-row class="mt-5" style="background:blue">
+    <b-container style="height:100vh">
+    <b-row class="mt-5">
       <b-col>
-        <b-card class="p-3" border-variant="primary" header="Login" header-bg-variant="primary" header-text-variant="white" header-tag="h3">
+        <b-card v-if="waiting" header="Login" header-bg-variant="primary" header-text-variant="info" header-tag="h3">
           <b-form @submit="onSubmit" @reset="onReset" v-if="show">
-            <b-form-group id="exampleInputGroup1"
-                            label="Student ID:"
-                            label-for="exampleInput1"
-                            >
+
+            <b-input-group label="Student ID:" label-for="exampleInput1">
+                <b-input-group-prepend inline is-text>
+                  <b-icon icon="person-fill"></b-icon>
+                </b-input-group-prepend>
                 <b-form-input id="exampleInput1"
                             v-model="form.studentID"
                             required
                             placeholder="Enter Student ID">
                 </b-form-input>
-            </b-form-group>
-            <b-form-group id="exampleInputGroup2"
-                            label="Password:"
-                            label-for="exampleInput2">
+            </b-input-group>
+
+            <b-input-group class="my-4" label="Password:" label-for="exampleInput2">
+                <b-input-group-prepend inline is-text>
+                  <b-icon icon="lock-fill"></b-icon>
+                </b-input-group-prepend>
                 <b-form-input id="exampleInput2"
                             type="password"
                             v-model="form.password"
                             required
                             placeholder="Enter Password">
                 </b-form-input>
-            </b-form-group>
+            </b-input-group>
 
             <div class="d-flex justify-content-between">
                 <div>
-                <b-button type="submit" variant="primary">Submit</b-button>&nbsp;
+                <b-button type="submit" variant="primary" v-b-modal.modal1>Submit</b-button>&nbsp;
                 <b-button type="reset" variant="danger">Reset</b-button>
                 </div>
             </div>
           </b-form>
           <template v-slot:footer>
-            <em><a href="#" v-b-modal.modal1>Forgot Password</a></em>
+            <em><a href="#">Forgot Password</a></em>
           </template>
         </b-card>
+      <b-card v-else align="center">
+        <b-icon icon="three-dots" animation="cylon" font-scale="6"></b-icon>
+      </b-card>
       </b-col>
     </b-row>
   </b-container>
 
-  <b-modal id="modal1" title="Forgot Password">
-      <p> Would you like to reset your password?</p>
+  <b-modal id="modal1" title="Logging in...">
+      <p> Please wait a moment while we log you in</p>
   </b-modal>
   </div>
 
@@ -58,7 +64,9 @@ export default {
         studentID: '',
         password: ''
       },
-      show: true
+      show: true,
+      waiting: true
+
     }
   },
   methods: {
@@ -76,8 +84,9 @@ export default {
       this.$nextTick(() => { this.show = true })
     },
     authenticate () {
+      this.waiting = false
       this.$store.dispatch('login', { userData: this.form })
-        .then(() => this.$router.push('/'))
+        .then(() => console.log('login action'))
     }
   }
 }

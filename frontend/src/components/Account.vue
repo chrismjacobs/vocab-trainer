@@ -17,11 +17,35 @@
                             placeholder="Enter username">
                 </b-form-input>
                 <b-form-invalid-feedback :state="validName">
-                  Your username must be 3-12 characters long.
+                  Your user ID must be 3-12 characters long.
                 </b-form-invalid-feedback>
                 <b-form-valid-feedback :state="validName">
                   Looks Good.
                 </b-form-valid-feedback>
+            </b-input-group>
+
+            <b-input-group class="my-4" label="Student ID:" label-for="exampleInput2">
+                <b-input-group-prepend inline is-text>
+                  <b-icon icon="person-fill"></b-icon>
+                </b-input-group-prepend>
+                <b-form-input
+                            id="student ID"
+                            v-model="form.studentID"
+                            required
+                            placeholder="Enter student ID">
+                </b-form-input>
+            </b-input-group>
+
+            <b-input-group class="my-4" label="School:" label-for="exampleInput3">
+              <b-input-group-prepend inline is-text>
+                  <b-icon icon="geo-alt"></b-icon>
+                </b-input-group-prepend>
+                <b-form-input
+                            id="school"
+                            v-model="form.school"
+                            required
+                            placeholder="Enter school name">
+                </b-form-input>
             </b-input-group>
 
             <b-input-group class="my-4" label="Email address:" label-for="exampleInput4">
