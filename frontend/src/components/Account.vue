@@ -3,36 +3,53 @@
     <b-container>
     <b-row class="mt-5 mx-auto">
       <b-col>
-        <b-card v-if="waiting" header="Register" header-bg-variant="primary" header-text-variant="info" header-tag="h3">
+        <b-card v-if="waiting" header="Account Information" header-bg-variant="primary" header-text-variant="info" header-tag="h3">
           <b-form @submit="onSubmit" @reset="onReset" v-if="show">
+            <div class="d-flex">
+              <b-avatar src="s3 + userProfile.image" size="6rem" :text="userProfile.username[0]"></b-avatar>
+              <h2 > {{ userProfile.username }} </h2>
+            </div>
+            <br>
 
-            <b-input-group class="my-4" label="Username:" label-for="exampleInput1">
-                <b-input-group-prepend inline is-text>
-                  <b-icon icon="person-fill"></b-icon>
-                </b-input-group-prepend>
-                <b-form-input
-                            id="username"
-                            v-model="form.username"
-                            required
-                            placeholder="Enter username">
-                </b-form-input>
-                <b-form-invalid-feedback :state="validName">
-                  Your user ID must be 3-12 characters long.
-                </b-form-invalid-feedback>
-                <b-form-valid-feedback :state="validName">
-                  Looks Good.
-                </b-form-valid-feedback>
-            </b-input-group>
-
+            <b-form-file accept="image/*" placeholder="Change Avatar"></b-form-file>
+            <br>
             <b-input-group class="my-4" label="Student ID:" label-for="exampleInput2">
                 <b-input-group-prepend inline is-text>
                   <b-icon icon="person-fill"></b-icon>
                 </b-input-group-prepend>
+                <b-form-input id="student ID" v-model="userProfile.username" disabled placeholder="Student ID (if joining a class)">
+                </b-form-input>
+            </b-input-group>
+
+            <b-input-group class="my-4" label="Email address:" label-for="exampleInput4">
+              <b-input-group-prepend inline is-text>
+                  <b-icon icon="envelope"></b-icon>
+                </b-input-group-prepend>
+                <b-form-input id="email"
+                required
+                v-model="userProfile.email"
+                placeholder="Email (required)"
+                >
+                </b-form-input>
+            </b-input-group>
+
+            <div v-if="join">
+            <b-input-group class="my-4" label="Classroom:" label-for="exampleInput3">
+              <b-input-group-prepend inline is-text>
+                  <b-icon icon="people"></b-icon>
+                </b-input-group-prepend>
                 <b-form-input
-                            id="student ID"
-                            v-model="form.studentID"
-                            required
-                            placeholder="Enter student ID">
+                            id="school"
+                            v-model="userProfile.classroom"
+                            placeholder="Classroom (provided by your teacher)">
+                </b-form-input>
+            </b-input-group>
+
+            <b-input-group class="my-4" label="Student ID:" label-for="exampleInput2">
+                <b-input-group-prepend inline is-text>
+                  <b-icon icon="grid3x2-gap"></b-icon>
+                </b-input-group-prepend>
+                <b-form-input id="student ID" v-model="userProfile.studentID" placeholder="Student ID (if joining a class)">
                 </b-form-input>
             </b-input-group>
 
@@ -42,48 +59,13 @@
                 </b-input-group-prepend>
                 <b-form-input
                             id="school"
-                            v-model="form.school"
+                            v-model="userProfile.school"
                             required
-                            placeholder="Enter school name">
+                            placeholder="School name (not required)">
                 </b-form-input>
             </b-input-group>
 
-            <b-input-group class="my-4" label="Email address:" label-for="exampleInput4">
-              <b-input-group-prepend inline is-text>
-                  <b-icon icon="envelope"></b-icon>
-                </b-input-group-prepend>
-                <b-form-input
-                            type="email"
-                            v-model="form.email"
-                            required
-                            placeholder="Enter email">
-                </b-form-input>
-            </b-input-group>
-
-            <b-input-group id="password" label="Password:" label-for="exampleInput2">
-                <b-input-group-prepend inline is-text>
-                  <b-icon icon="lock-fill"></b-icon>
-                </b-input-group-prepend>
-                <b-form-input id="exampleInput2"
-                            type="password"
-                            v-model="form.password"
-                            required>
-                </b-form-input>
-            </b-input-group>
-
-            <b-input-group class="my-4" id="exampleInputGroup3" label="Confirm Password:" label-for="exampleInput3">
-                <b-input-group-prepend inline is-text>
-                  <b-icon icon="lock-fill"></b-icon>
-                </b-input-group-prepend>
-                <b-form-input id="exampleInput3"
-                            type="password"
-                            v-model="form.confirm"
-                            required>
-                </b-form-input>
-                <b-form-invalid-feedback :state="validPass">
-                  You must enter the same password
-                </b-form-invalid-feedback>
-            </b-input-group>
+            </div>
 
             <div class="d-flex justify-content-between">
                 <div>
@@ -110,6 +92,9 @@ export default {
   name: 'app',
   data () {
     return {
+      s3: 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/',
+      join: true,
+      userProfile: null,
       form: {
         username: '',
         studentID: '',
@@ -125,9 +110,6 @@ export default {
   computed: {
     validName () {
       return this.form.username.length > 2 && this.form.username.length < 13
-    },
-    validPass () {
-      return this.form.password === this.form.confirm
     }
   },
   methods: {
@@ -154,6 +136,9 @@ export default {
       this.$store.dispatch('register', { userData: this.form })
         .then(() => console.log('registration action'))
     }
+  },
+  created () {
+    this.userProfile = this.$store.state.userProfile
   }
 }
 </script>

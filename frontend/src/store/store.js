@@ -19,8 +19,7 @@ const state = {
   settings: parseLocal(localStorage.settings) || {},
   currentRecord: parseLocal(localStorage.currentRecord) || {},
   jwt: localStorage.token || '',
-  master: null,
-  check: 'check'
+  master: null
 }
 
 const actions = {

@@ -43,6 +43,8 @@
                   <h6> Translation {{ transRec[0] }} </h6>
                   <h6> Score {{ transRec[1] }} </h6>
                   <button @click="saveData()"> SAVE DATA </button>
+                  <br>
+                  <button @click="goTo('Account')"> My Account </button>
               </div>
               <div v-else align="center" >
                 <h1>Welcome :) </h1>
