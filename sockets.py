@@ -10,51 +10,72 @@ from flask_cors import CORS
 print('SOCKETS')
 
 
-@socketio.on('online')
-def online(data):
-    """User joins a room"""
-    print('user online', data)
-
-    user = User.query.get(data['id'])
-
-    check = Connected.query.filter_by(username=data['username'], studentID=data['studentID']).first()
-
-    if check:
-        pass
-    else:
-        player = Connected(user.username, player_id=user)
-        db.session.add(user)
-        db.session.commit()
-
+def getUsers ():
     userSearch = Connected.query.all()
     userDict = {}
 
     for user in userSearch:
-        userDict[user.username] = user.studentID
+        userDict[user.connected.id] = {
+            'username': user.username,
+            'userID': user.connected.id
+        }
 
     userList = json.dumps(userDict)
-    print(type(userList), userList)
+    return userList
 
-    emit('onlineUsers', {'userList' : userList})
+
+
+@socketio.on('online')
+def online(data):
+    """User joins a room"""
+    print('user online', data)
+    userProfile = data['userProfile']
+    user = User.query.get(userProfile['userID'])
+    check = Connected.query.filter_by(connected=user).first()
+
+    if check:
+        pass
+    else:
+        player = Connected(username=user.username, connected=user)
+        db.session.add(player)
+        db.session.commit()
+
+    join_room(user.id)
+
+    emit('onlineUsers', {'userList': getUsers()}, broadcast=True)
 
 
 @socketio.on('offline')
 def on_disconnected(data):
-    check = Connected.query.filter_by(username=data['username'], studentID=data['studentID']).first()
+    userProfile = data['userProfile']
+    user = User.query.get(userProfile['userID'])
+    check = Connected.query.filter_by(connected=user).first()
 
     if check:
-        Connected.query.filter_by(username=data['username'], studentID=data['studentID']).delete()
+        Connected.query.filter_by(connected=user).delete()
         db.session.commit()
 
-    leave_room(data['room'])
+    leave_room(user.id)
+    emit('onlineUsers', {'userList' : getUsers()}, broadcast=True)
 
-    print(data['username'], 'offline')
+    print(user.username, 'offline')
+
+@socketio.on('sayHi')
+def on_sayHi(data):
+    target = data['target']
+    userID = data['userID']
+    username = data['username']
+
+    user = User.query.get(userID)
+
+    emit('sayHi', {'sender' : username}, target )
+
+    print('sayHI', 'target:', target, 'sender:', userID)
 
 
 
 @socketio.on('disconnect')
 def on_disconnect():
-
     print('Client Disconnected')
 
 @socketio.on('connect')
@@ -70,7 +91,7 @@ def on_start(data):
     room = data['username'][:2].lower() + data['studentID'][:2] + request.sid[:2]
     print('room started', room)
 
-    user = Connected.query.filter_by(username=data['username'], studentID=data['studentID']).first()
+    user = Connected.query.filter_by(username=data['username']).first()
     clients = Connected.query.filter_by(room=room).count()
 
     error = 5
@@ -103,7 +124,7 @@ def on_join(data):
     room = data['room']
     print('room joined', room)
 
-    user = Connected.query.filter_by(username=data['username'], studentID=data['studentID']).first()
+    user = Connected.query.filter_by(username=data['username']).first()
     clients = Connected.query.filter_by(room=room).count()
 
     error = 5

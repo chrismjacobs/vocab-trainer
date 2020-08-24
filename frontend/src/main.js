@@ -16,8 +16,6 @@ Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
 /* eslint-disable no-new */
 
-console.log('test')
-
 new Vue({
   el: '#app',
   store,

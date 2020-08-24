@@ -12,8 +12,11 @@ const routerOptions = [
   {path: '/transeng', component: 'TransEng'},
   {path: '/transengtest', component: 'TransEngTest'},
   {path: '/transchtest', component: 'TransChTest'},
+  {path: '/transengmatch', component: 'TransEngMatch'},
+  {path: '/transchmatch', component: 'TransChMatch'},
   {path: '/typetest', component: 'TypeTest'},
   {path: '/matchtest', component: 'MatchTest'},
+  {path: '/match', component: 'Match'},
   {path: '*', component: 'NotFound'}
 ]
 

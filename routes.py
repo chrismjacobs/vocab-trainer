@@ -1,5 +1,6 @@
 import boto3
 import random
+import base64
 from random import randint
 import ast
 import json
@@ -11,6 +12,8 @@ from flask import jsonify, render_template, request
 from app import app, db, bcrypt, s3_resource
 from pprint import pprint
 from models import *
+from PIL import Image
+bucket_name = 'vocab-lms'
 
 
 @app.route('/', defaults={'path': ''})
@@ -60,8 +63,6 @@ def update_record():
             entry = Settings(settings=key, count=1)
             db.session.add(entry)
             db.session.commit()
-
-    bucket_name = 'vocab-lms'
 
     jstring1 = json.dumps(userSettings)
     file_name1 = "jfolder/" + str(user.id) +  '/settings.json'
@@ -146,7 +147,6 @@ def register():
     user = User.query.filter_by(username=data['username']).first()
 
     jstring = json.dumps({})
-    bucket_name = 'vocab-lms'
     file_name1 = "jfolder/" + str(user.id) +  '/records.json'
     file_name2 = "jfolder/" + str(user.id) +  '/settings.json'
 
@@ -159,6 +159,44 @@ def register():
         'msg' : 'Hi ' + data['username'] + ', you have been registered. Please log in to continue'
     }
     return jsonify(response)
+
+
+@app.route("/api/updateAccount", methods=['POST']) #and now the form accepts the submit POST
+def updateAccount():
+    print('ACCOUNT')
+    data = request.get_json()['userData']
+    #pprint(data)
+    storeB64(data['imageData'], data['userID'], 'profile')
+
+    response = {
+        'msg' : 'Thank you ' + data['username'] + ', your account information has been changed'
+    }
+    return jsonify(response)
+
+
+def storeB64(fileData, sid, mode):
+
+    if fileData['image64'] and mode == 'profile':
+        link = 'profileLink'
+        b64data = fileData['image64']
+        fileType = 'jpg'
+        location = 'public/profiles/'
+
+    ## if want to delete old file
+    filename = location + str(sid) + '.' + fileType
+    if filename:
+        print('filename_found ', filename)
+        s3_resource.Object(bucket_name, filename).delete()
+    else:
+        print('no file_key found')
+
+
+    print('PROCESSING: ' + link)
+    data = base64.b64decode(b64data)
+    s3_resource.Bucket(bucket_name).put_object(Key=filename, Body=data)
+
+    return filename
+
 
 
 def send_reset_email(user):

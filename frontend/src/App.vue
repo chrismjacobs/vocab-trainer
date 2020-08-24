@@ -22,7 +22,7 @@
         <div :class="navSide('EC')" @click="goTo('TransEngTest'), btnSelect='EC'"><b-icon-box-arrow-up-right></b-icon-box-arrow-up-right> <br> <span class="d-none d-xl-inline"> Eng-Ch </span> </div>
         <div :class="navSide('CE')" @click="goTo('TransChTest'), btnSelect='CE'"><b-icon-box-arrow-up-left></b-icon-box-arrow-up-left> <br> <span class="d-none d-xl-inline"> Ch-Eng </span></div>
         <div :class="navSide('T')" @click="goTo('TypeTest'), btnSelect='T'"><b-icon icon="grid3x3-gap-fill"></b-icon> <br> <span class="d-none d-xl-inline"> Type </span></div>
-        <div :class="navSide('M')" @click="goTo('MatchTest'), btnSelect='M'"><b-icon icon="gear-fill"></b-icon> <br> <span class="d-none d-xl-inline "> Match </span></div>
+        <div :class="navSide('M')" @click="goTo('Match'), btnSelect='M'"><b-icon icon="gear-fill"></b-icon> <br> <span class="d-none d-xl-inline "> Match </span></div>
       </b-col>
 
       <b-col :class="contClass()" style="min-height:100vh">
@@ -45,6 +45,8 @@
                   <button @click="saveData()"> SAVE DATA </button>
                   <br>
                   <button @click="goTo('Account')"> My Account </button>
+                  <br>
+                  <button @click="logout()"> Log Out </button>
               </div>
               <div v-else align="center" >
                 <h1>Welcome :) </h1>
@@ -60,7 +62,7 @@
         <div :class="navStyle('EC')" @click="goTo('TransEngTest'), btnSelect='EC'"><b-icon-box-arrow-up-right></b-icon-box-arrow-up-right>  <span class="d-none d-md-inline"> &nbsp; Eng-Ch </span> </div>
         <div :class="navStyle('CE')" @click="goTo('TransChTest'), btnSelect='CE'"><b-icon-box-arrow-up-left></b-icon-box-arrow-up-left>  <span class="d-none d-md-inline"> &nbsp; Ch-Eng </span></div>
         <div :class="navStyle('T')" @click="goTo('TypeTest'), btnSelect='T'"><b-icon icon="grid3x3-gap-fill"></b-icon> <span class="d-none d-md-inline"> &nbsp; Type </span></div>
-        <div :class="navStyle('M')" @click="goTo('MatchTest'), btnSelect='M'"><b-icon icon="gear-fill"></b-icon> <span class="d-none d-md-inline"> &nbsp; Match </span></div>
+        <div :class="navStyle('M')" @click="goTo('Match'), btnSelect='M'"><b-icon icon="gear-fill"></b-icon> <span class="d-none d-md-inline"> &nbsp; Match </span></div>
     </div>
   </div>
 

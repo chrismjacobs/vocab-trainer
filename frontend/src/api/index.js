@@ -23,3 +23,9 @@ export function updateRecAPI (payload) {
   console.log('update', host)
   return axios.post(host + '/api/updateRecord', payload)
 }
+
+export function updateAccount (payload) {
+  console.log('account', host)
+  console.log(payload)
+  return axios.post(host + '/api/updateAccount', payload)
+}

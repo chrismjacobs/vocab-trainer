@@ -33,6 +33,43 @@ export function parseLocal (localObject) {
   }
 }
 
+export function imageValidation (fileInput) {
+  // console.log('file', fileInput)
+  var filePath = fileInput.value
+  // console.log(filePath)
+  let fileType = filePath.split('.')[1]
+
+  var allowedExtensions = /(\.jpeg|\.png|\.jpg)$/i
+
+  if (fileInput.files[0].size > 4000000) { // 7 mb for video option
+    alert('File is too big!')
+    fileInput.value = ''
+    return false
+  } else if (!allowedExtensions.exec(filePath)) {
+    alert('Please upload image: .jpeg/.png only.')
+    fileInput.value = ''
+    return false
+  } else {
+    console.dir(fileInput.files[0])
+    var url = window.URL.createObjectURL(fileInput.files[0])
+    fetch(url)
+      .then(function (res) {
+        console.log('blob')
+        return res.blob()
+      })
+      .then(function (savedBlob) {
+        var reader = new FileReader()
+        reader.readAsDataURL(savedBlob)
+        reader.onloadend = function () {
+          let image64 = reader.result.split(',')[1]
+          console.log('blob2', image64)
+          localStorage.setItem('imageData', JSON.stringify({ 'image64': image64, 'fileType': fileType }))
+          return { 'image64': image64, 'fileType': fileType }
+        }
+      })
+  }
+}
+
 export function wordFix (string, cut) {
   // Split string so it's a sequence of characters (ex. "Well hi!" => ["W","e","l","l"," ","h","i","!"])
   let characterArray = string.split('')

@@ -4,14 +4,19 @@
     <b-row class="mt-5 mx-auto">
       <b-col>
         <b-card v-if="waiting" header="Account Information" header-bg-variant="primary" header-text-variant="info" header-tag="h3">
-          <b-form @submit="onSubmit" @reset="onReset" v-if="show">
+          <b-form @submit="onSubmit" v-if="show">
             <div class="d-flex">
-              <b-avatar src="s3 + userProfile.image" size="6rem" :text="userProfile.username[0]"></b-avatar>
-              <h2 > {{ userProfile.username }} </h2>
+              <b-col >
+                <b-avatar :src="s3 + userProfile.userID + '.jpg'" size="6rem" :text="userProfile.username[0]"></b-avatar>
+              </b-col>
+              <b-col >
+                <h2> {{ userProfile.username }} </h2>
+                <h3> #{{ userProfile.userID }} </h3>
+              </b-col>
             </div>
             <br>
 
-            <b-form-file accept="image/*" placeholder="Change Avatar"></b-form-file>
+            <b-form-file accept="image/*" placeholder="Change Avatar" type="file" id="file" ref="file" v-on:change="handleFileUpload()" ></b-form-file>
             <br>
             <b-input-group class="my-4" label="Student ID:" label-for="exampleInput2">
                 <b-input-group-prepend inline is-text>
@@ -27,6 +32,7 @@
                 </b-input-group-prepend>
                 <b-form-input id="email"
                 required
+                type="email"
                 v-model="userProfile.email"
                 placeholder="Email (required)"
                 >
@@ -60,20 +66,20 @@
                 <b-form-input
                             id="school"
                             v-model="userProfile.school"
-                            required
                             placeholder="School name (not required)">
                 </b-form-input>
             </b-input-group>
 
             </div>
-
             <div class="d-flex justify-content-between">
                 <div>
-                <b-button type="submit" variant="primary">Submit</b-button>&nbsp;
-                <b-button type="reset" variant="danger">Reset</b-button>
+                <b-button type="submit" variant="primary">Submit</b-button>
+
                 </div>
             </div>
+
           </b-form>
+
         </b-card>
         <b-card v-else align="center">
             <b-icon icon="three-dots" animation="cylon" font-scale="6"></b-icon>
@@ -87,12 +93,13 @@
 </template>
 
 <script>
+import { imageValidation } from '@/utils'
 
 export default {
   name: 'app',
   data () {
     return {
-      s3: 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/',
+      s3: 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/profiles/',
       join: true,
       userProfile: null,
       form: {
@@ -104,7 +111,8 @@ export default {
         confirm: ''
       },
       show: true,
-      waiting: true
+      waiting: true,
+      fileData: null
     }
   },
   computed: {
@@ -115,30 +123,24 @@ export default {
   methods: {
     onSubmit (evt) {
       evt.preventDefault()
-      if (this.validName && this.validPass) {
-        this.register()
-        // alert(JSON.stringify(this.form))
-      } else {
-        alert('form is not complete')
-      }
+      // check all is okay
+      this.account()
     },
-    onReset (evt) {
-      evt.preventDefault()
-      /* Reset our form values */
-      for (let item in this.form) {
-        this.form[item] = ''
-      }
-      /* Trick to reset/clear native browser form validation state */
-      this.show = false
-      this.$nextTick(() => { this.show = true })
+    account () {
+      this.userProfile.imageData = JSON.parse(localStorage.imageData)
+      console.log(this.userProfile)
+      this.$store.dispatch('account', { userData: this.userProfile })
+        .then(() => console.log('account action'))
+      localStorage.removeItem('imageData')
     },
-    register () {
-      this.$store.dispatch('register', { userData: this.form })
-        .then(() => console.log('registration action'))
+    handleFileUpload () {
+      imageValidation(document.getElementById('file'))
     }
   },
   created () {
     this.userProfile = this.$store.state.userProfile
+    this.userProfile.imageData = ''
+    console.log(this.userProfile)
   }
 }
 </script>

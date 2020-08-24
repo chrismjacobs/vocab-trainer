@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import router from '../router'
 import { isValidJwt, parseLocal } from '@/utils'
-import { authenticate, register, updateRecAPI } from '@/api'
+import { authenticate, register, updateRecAPI, updateAccount } from '@/api'
 import tourism from '../assets/json/master.json'
 
 let dictionaries = {
@@ -19,7 +19,7 @@ const state = {
   settings: parseLocal(localStorage.settings) || {},
   currentRecord: parseLocal(localStorage.currentRecord) || {},
   jwt: localStorage.token || '',
-  master: null
+  master: dictionaries[parseLocal(localStorage.userProfile).vocab]
 }
 
 const actions = {
@@ -49,6 +49,19 @@ const actions = {
         }
       })
       .catch(error => {
+        console.log('Error Registering: ', error)
+      })
+  },
+  account (context, userData) {
+    console.log(context, userData)
+    return updateAccount(userData)
+      .then(function (response) {
+        alert(response.data.msg)
+        location.reload(true)
+      })
+      .catch(error => {
+        alert('An error has occured - your account has not been updated')
+        router.push('/account')
         console.log('Error Registering: ', error)
       })
   },
@@ -103,7 +116,7 @@ const mutations = {
   },
   setMaster (state, payload) {
     console.log('setMaster payload = ', payload)
-    state.master = dictionaries[payload.vocab]
+    state.master = dictionaries[payload.userProfile.vocab]
   },
   resetSettings (state) {
     state.settings = {}
