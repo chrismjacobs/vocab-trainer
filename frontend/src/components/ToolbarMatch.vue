@@ -7,21 +7,29 @@
               {{ testType }}
             </h2>
       </div>
+      <div class="mt-2 bg-info p-2">
+             <b-avatar :src="s3 + p1.toString() + '.jpg'" :text="p1name[0]" class="mr-3" variant='p1'></b-avatar>
+              <span class="mr-auto">{{ p1name }}</span>
+             <b-avatar :src="s3 + p2.toString() + '.jpg'" :text="p2name[0]" class="mr-3" variant='p2'></b-avatar>
+              <span class="mr-auto">{{ p2name }}</span>
+      </div>
       <div class="bg-primary p-2 mt-0">
         <b-row>
           <b-col>
-            <b-button variant="primary" block class="md-3" @click="makeTest(), showToolbar=false">Start</b-button>
-          </b-col>
-          <b-col v-if="showAnswers">
-            <b-button  variant="warning" block class="md-3" @click="retryTest()">Retry</b-button>
-          </b-col>
-          <b-col>
-            <b-button variant="info" block class="md-3" @click="showToolbar=true">Settings</b-button>
+            <b-button :variant="player" block class="md-3" @click="playerReady(), waiting=1">Ready</b-button>
           </b-col>
         </b-row>
       </div>
 
-      <div class="bg-grey p-2 pb-4" v-if="showToolbar">
+      <b-card v-if="waiting === 1" align="center">
+        <b-icon icon="three-dots" animation="cylon" font-scale="6" :variant="player"></b-icon>
+      </b-card>
+
+      <b-card v-if="waiting === 2" align="center">
+        <b-icon icon="caret-right-square-fill" animation="throb" font-scale="6" :variant="player"></b-icon>
+      </b-card>
+
+      <div class="bg-grey p-2 pb-4" v-if="waiting === 0 && player==='p1'">
         <b-row cols="2" cols-md="4" cols-lg="6" >
           <b-col class="mt-3">
               <h6 align="center">Words</h6>
@@ -96,12 +104,20 @@ export default {
   name: 'ToolbarMatch',
   props: {
     toolbarShow: Boolean,
+    showToolbar: Boolean,
     showAnswers: Boolean,
-    testType: String
+    testType: String,
+    p1: Number,
+    p1name: String,
+    p2: Number,
+    p2name: String,
+    player: String,
+    waiting: Number,
+    socket: Object
   },
   data () {
     return {
-      showToolbar: true,
+      s3: 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/profiles/',
       wordsReset: '6',
       words: 6,
       choices: 4,
@@ -213,12 +229,8 @@ export default {
         choices: this.choices
       }
 
-      // console.log(this.testItemsRoot)
-
-      this.$emit('newTest', {
-        test: this.testItemsRoot,
-        settings: JSON.stringify(this.toolbarSettings)
-      })
+      this.socket.emit('ready', {room: this.p1, player: this.player, testItems: this.testItemsRoot})
+      console.log(this.testItemsRoot)
 
       if (this.words < 6) {
         this.words = parseInt(this.wordsReset)
@@ -267,6 +279,9 @@ export default {
         settings: JSON.stringify(this.toolbarSettings)
       })
 
+      this.socket.emit('ready', {room: this.p1, player: this.player, testItems: this.testItemsRoot})
+      console.log(this.testItemsRoot)
+
       if (this.words < 6) {
         this.words = parseInt(this.wordsReset)
       }
@@ -310,6 +325,13 @@ export default {
     },
     goTo: function (arg) {
       this.$router.push(arg)
+    },
+    playerReady: function () {
+      if (this.player === 'p1') {
+        this.makeTest()
+      } else {
+        this.socket.emit('ready', {room: this.p1, player: this.player, testItems: this.testItemsRoot})
+      }
     }
   },
   watch: {

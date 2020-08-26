@@ -3,7 +3,7 @@
 
       <audio id="audio" autoplay></audio>
 
-    <Toolbar :toolbarShow='showTest' :showAnswers='showAnswers' :testType="testType" v-on:newTest="start($event)" v-on:retry="start()"></Toolbar>
+    <ToolbarMatch :toolbarShow='showTest' :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :socket="socket" :player="player" :waiting="waiting" :showAnswers='showAnswers' :testType="testType"></ToolbarMatch>
 
       <b-card class="mt-2" v-if="showTest">
          <b-progress :value="filter" :max="testItems.length" show-progress animated></b-progress>
@@ -26,7 +26,7 @@
           <b-col>
               <b-card v-if="testItems.indexOf(item) === filter">
                 <div v-for="(choice, index) in item.Choices" :key="index">
-                  <b-button block @click="recordAnswer(item.English, item.Chinese, choice.Chinese)">
+                  <b-button :name="item.English" :id="item.English + choice.Chinese" variant="success" block @click="recordAnswer(item.English, item.Chinese, choice.Chinese)">
                     {{ choice.Chinese }}
                   </b-button>
                     <br>
@@ -52,52 +52,55 @@
 </template>
 
 <script>
-import Toolbar from './Toolbar'
+import ToolbarMatch from './ToolbarMatch'
 
 export default {
   name: 'TransEngMatch',
   components: {
-    Toolbar
+    ToolbarMatch
+  },
+  props: {
+    testType: String,
+    p1: Number,
+    p1name: String,
+    p2: Number,
+    p2name: String,
+    player: String,
+    socket: Object
   },
   data () {
     return {
+      waiting: 0,
       pageHead: 'English --> Chinese',
-      testType: 'Trans-Eng Match',
       toolbarShow: true,
+      showToolbar: true,
       hover: false,
       showAnswers: false,
+      ready: [],
+      answered: [],
       showTest: false,
       answerData: [],
       filter: null,
       testItems: [],
       settings: {},
-      fields: ['English', 'Chinese', 'Choice']
+      fields: ['English', 'Chinese'],
+      clock: null,
+      time: 0
     }
   },
   methods: {
     recordAnswer: function (english, chinese, choice) {
       // console.log(data)
-
       let correct = chinese
-      let score
-      let _rowVariant
+      let btnID = english + choice
+
       if (choice === correct) {
-        score = 1
-        _rowVariant = 'success'
+        this.socket.emit('answer', {room: this.p1, name: english, chinese: chinese, btnID: btnID, player: this.player, state: true})
       } else {
-        score = -1
-        _rowVariant = 'danger'
+        this.socket.emit('answer', {room: this.p1, name: english, chinese: chinese, btnID: btnID, player: this.player, state: false})
       }
-      let entry = {
-        English: english,
-        Chinese: chinese,
-        Choice: choice,
-        Score: score,
-        _rowVariant: _rowVariant
-      }
-
-      this.answerData.push(entry)
-
+    },
+    filterToggle: function () {
       if (this.filter + 1 < this.testItems.length) {
         console.log(this.filter, this.testItems.length)
         this.filter += 1
@@ -106,6 +109,41 @@ export default {
         this.filter = null
         this.showTest = false
         this.checkAnswers()
+      }
+      this.clock = null
+      this.time = 5000
+    },
+    disable: function (name, btnID, player, state, chinese) {
+      let btnClass = 'btn-' + player
+      let button = document.getElementById(btnID)
+      if (state) {
+        button.style.color = 'green'
+      } else {
+        button.style.color = 'red'
+      }
+      button.classList.add(btnClass)
+      button.disabled = true
+
+      let buttons = document.getElementsByName(name)
+      console.log(buttons)
+      if (player === this.player) {
+        for (let i = 0; i < buttons.length; i++) {
+          buttons[i].disabled = true
+        }
+      }
+      if (state) {
+        for (let i = 0; i < buttons.length; i++) {
+          buttons[i].disabled = true
+        }
+      }
+      this.answered += 1
+      if (state || this.answered > 1) {
+        let _this = this
+        setTimeout(function () {
+          _this.answered = 0
+          _this.filterToggle()
+          _this.enterResult(name, chinese, player, state)
+        }, 2000)
       }
     },
     start: function (data) {
@@ -118,12 +156,37 @@ export default {
         this.settings = JSON.parse(data.settings)
       }
     },
+    enterResult: function (english, chinese, player, state) {
+      console.log(state)
+      let _rowVariant = 'warning'
+      if (state) {
+        _rowVariant = player
+      }
+      let entry = {
+        English: english,
+        Chinese: chinese,
+        _rowVariant: _rowVariant
+      }
+      this.answerData.push(entry)
+    },
     checkAnswers: function () {
       this.showAnswers = true
-      this.$store.dispatch('updateRecord', { mode: 'trans', answerData: this.answerData, settingsData: this.settings })
+      this.$store.dispatch('updateRecord', { mode: 'matchTransEng' })
     },
     playAudio: function (arg) {
       document.getElementById('audio').src = arg
+    },
+    readyCheck: function () {
+      console.log('length', this.ready, this.ready.length)
+      if (this.ready.length === 2) {
+        this.waiting = 2
+        let _this = this
+        setTimeout(function () {
+          _this.start()
+          _this.waiting = 0
+          _this.ready = []
+        }, 3000)
+      }
     }
   },
   watch: {
@@ -145,6 +208,24 @@ export default {
     isAuthenticated () {
       return this.$store.getters.isAuthenticated
     }
+  },
+  mounted () {
+    let _this = this
+    _this.socket.on('go', function (data) {
+      console.log('roomReady', data, data.testItems.length)
+      _this.room = data.room
+      if (data.testItems.length > 0) {
+        _this.testItems = data.testItems
+      }
+      if (!_this.ready.includes(data.player)) {
+        _this.ready.push(data.player)
+        console.log(data.player)
+      }
+      _this.readyCheck()
+    })
+    _this.socket.on('answer', function (data) {
+      _this.disable(data.name, data.btnID, data.player, data.state, data.chinese)
+    })
   }
 }
 </script>
@@ -155,12 +236,8 @@ export default {
   background: rgb(95, 216, 95);
 }
 
-.btn-purple {
-    background-color: green;
-}
-
-.table-danger {
-  color:red
+.btn .mistake {
+  border: 2px solid #4CAF50; /* Green */
 }
 
 </style>
