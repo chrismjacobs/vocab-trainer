@@ -65,8 +65,7 @@ export default {
     p1name: String,
     p2: Number,
     p2name: String,
-    player: String,
-    socket: Object
+    player: String
   },
   data () {
     return {
@@ -85,7 +84,8 @@ export default {
       settings: {},
       fields: ['English', 'Chinese'],
       clock: null,
-      time: 0
+      time: 0,
+      socket: this.$store.state.socket
     }
   },
   methods: {
@@ -106,6 +106,7 @@ export default {
         this.filter += 1
       } else {
         console.log('filterMax')
+        this.$store.dispatch('testActive')
         this.filter = null
         this.showTest = false
         this.checkAnswers()
@@ -183,6 +184,7 @@ export default {
         let _this = this
         setTimeout(function () {
           _this.start()
+          _this.$store.dispatch('testActive')
           _this.waiting = 0
           _this.ready = []
         }, 3000)

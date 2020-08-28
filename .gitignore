@@ -4,6 +4,8 @@ venv
 .env
 audio/
 audio.py
+high.py
+food.py
 dictionary.py
 config.py
 venv.txt

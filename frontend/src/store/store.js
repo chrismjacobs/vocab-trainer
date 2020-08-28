@@ -2,13 +2,15 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import router from '../router'
 import { isValidJwt, parseLocal } from '@/utils'
+import { openSocket } from '@/sockets'
 import { authenticate, register, updateRecAPI, updateAccount } from '@/api'
 import tourism from '../assets/json/master.json'
+import food from '../assets/json/food.json'
 
 let dictionaries = {
   'tourism': tourism,
   'high': null,
-  'foodViet': null
+  'food': food
 }
 
 Vue.use(Vuex)
@@ -19,7 +21,9 @@ const state = {
   settings: parseLocal(localStorage.settings) || {},
   currentRecord: parseLocal(localStorage.currentRecord) || {},
   jwt: localStorage.token || '',
-  master: dictionaries[parseLocal(localStorage.userProfile).vocab]
+  master: dictionaries[parseLocal(localStorage.userProfile).vocab],
+  testActive: false,
+  socket: null
 }
 
 const actions = {
@@ -74,8 +78,14 @@ const actions = {
     context.commit('destroyToken')
   },
   checkLogin (context) {
-    console.log('check...')
+    console.log('check login...')
     return isValidJwt(state.jwt)
+  },
+  testActive (context) {
+    context.commit('setTestActive')
+  },
+  openSocket (context) {
+    context.commit('setSocket')
   },
   saveData (context) {
     if (state.settings === {}) {
@@ -115,8 +125,12 @@ const mutations = {
     state.userRecord = payload.userRecord
   },
   setMaster (state, payload) {
-    console.log('setMaster payload = ', payload)
+    console.log('setMaster payload = ', payload.userProfile.vocab)
     state.master = dictionaries[payload.userProfile.vocab]
+  },
+  setSocket (state) {
+    console.log('setSocket')
+    state.socket = openSocket()
   },
   resetSettings (state) {
     state.settings = {}
@@ -163,6 +177,11 @@ const mutations = {
     console.log('destroyToken')
     state.jwt = ''
     localStorage.clear()
+  },
+  setTestActive (state) {
+    state.testActive = !state.testActive
+    console.log('testActive', state.testActive)
+    return true
   }
 }
 
@@ -171,6 +190,10 @@ const getters = {
   isAuthenticated (state) {
     console.log(state.jwt)
     return isValidJwt(state.jwt)
+  },
+  isActive (state) {
+    console.log('getterActive', state.testActive)
+    return state.testActive
   },
   makeList (state) {
     let tableItems = []
@@ -223,6 +246,13 @@ const getters = {
         variant = 'danger'
       }
 
+      let s3
+      if (state.userProfile.vocab === 'tourism') {
+        s3 = 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/audio_'
+      } else if (state.userProfile.vocab === 'food') {
+        s3 = 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/foodio_'
+      }
+
       // state.currentRecord.trans.vocab
       tableItems.push({
         English: vocab,
@@ -230,8 +260,8 @@ const getters = {
         Chinese: chinese,
         ChineseExt: chineseExt,
         Gr: dict[vocab].gl,
-        mp3en: dict[vocab].mp3en,
-        mp3ch: dict[vocab].mp3ch,
+        mp3en: s3 + 'en/' + vocab + '.mp3',
+        mp3ch: s3 + 'ch/' + vocab + '.mp3',
         transScore: transScore,
         spellScore: spellScore,
         totalScore: total,

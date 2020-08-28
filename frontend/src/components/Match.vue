@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TransEngMatch :testType="testType" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" :socket="socket" v-if="testType === 'TransEng'"></TransEngMatch>
+    <TransEngMatch :testType="testType" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" v-if="testType === 'TransEng'"></TransEngMatch>
 
     <b-container v-if="testType === null">
             <div class="mt-2 bg-secondary p-2">
@@ -44,7 +44,6 @@
 </template>
 
 <script>
-import {openSocket} from '@/sockets'
 import TransEngMatch from './TransEngMatch'
 
 export default {
@@ -119,7 +118,8 @@ export default {
   created () {
     this.userID = this.$store.state.userProfile.userID
     this.username = this.$store.state.userProfile.username
-    this.socket = openSocket()
+    this.$store.dispatch('openSocket')
+    this.socket = this.$store.state.socket
   },
   beforeDestroy () {
     this.socket.emit('offline', { userProfile: this.$store.state.userProfile })
@@ -127,14 +127,6 @@ export default {
   },
   mounted () {
     let _this = this
-    _this.socket.on('roomReady', function (data) {
-      console.log('roomReady', data)
-      _this.room = data.room
-    })
-    _this.socket.on('playerReady', function (data) {
-      console.log('roomReady', data)
-      _this.room = data.room
-    })
     _this.socket.on('onlineUsers', function (data) {
       console.log('onlineUsers', data)
       _this.onlineUsers = JSON.parse(data.userList)
@@ -143,6 +135,9 @@ export default {
     _this.socket.on('sayHi', function (data) {
       console.log(data)
       alert('Hello, from ' + data.sender)
+    })
+    _this.socket.on('disconnect', function (data) {
+      console.log('disconnect')
     })
     _this.socket.on('challenge', function (data) {
       console.log('challenge', data)

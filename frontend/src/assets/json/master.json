@@ -15934,8 +15934,8 @@
         "mp3en": "https://lms-tester.s3-ap-northeast-1.amazonaws.com/audio_en/engineer.mp3",
         "part": "2-1",
         "gl": "v.",
-        "defch1": "\u706b\u8eca\u53f8\u6a5f",
-        "defch2": "\u5de5\u7a0b\u5e2b;\u5efa\u9020",
+        "defch1": "\u5de5\u7a0b\u5e2b",
+        "defch2": "\u706b\u8eca\u53f8\u6a5f;\u5efa\u9020",
         "mp3ch": "https://lms-tester.s3-ap-northeast-1.amazonaws.com/audio_ch/engineer.mp3"
     },
     "entry lock": {

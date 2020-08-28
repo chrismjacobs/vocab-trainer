@@ -18,11 +18,11 @@
 
     <b-row no-gutters>
       <b-col cols="1" class="bg-primary d-none d-lg-block">
-        <div :class="navSide('D')" @click="goTo('Dictionary'), btnSelect='D'"><b-icon-card-list></b-icon-card-list> <br> <span class="d-none d-xl-inline"> DICT </span> </div>
-        <div :class="navSide('EC')" @click="goTo('TransEngTest'), btnSelect='EC'"><b-icon-box-arrow-up-right></b-icon-box-arrow-up-right> <br> <span class="d-none d-xl-inline"> Eng-Ch </span> </div>
-        <div :class="navSide('CE')" @click="goTo('TransChTest'), btnSelect='CE'"><b-icon-box-arrow-up-left></b-icon-box-arrow-up-left> <br> <span class="d-none d-xl-inline"> Ch-Eng </span></div>
-        <div :class="navSide('T')" @click="goTo('TypeTest'), btnSelect='T'"><b-icon icon="grid3x3-gap-fill"></b-icon> <br> <span class="d-none d-xl-inline"> Type </span></div>
-        <div :class="navSide('M')" @click="goTo('Match'), btnSelect='M'"><b-icon icon="gear-fill"></b-icon> <br> <span class="d-none d-xl-inline "> Match </span></div>
+        <div :class="navSide('/Dictionary')" @click="goTo('Dictionary')"><b-icon-card-list></b-icon-card-list> <br> <span class="d-none d-xl-inline"> DICT </span> </div>
+        <div :class="navSide('/TransEngTest')" @click="goTo('TransEngTest')"><b-icon-box-arrow-up-right></b-icon-box-arrow-up-right> <br> <span class="d-none d-xl-inline"> Eng-Ch </span> </div>
+        <div :class="navSide('/TransChTest')" @click="goTo('TransChTest')"><b-icon-box-arrow-up-left></b-icon-box-arrow-up-left> <br> <span class="d-none d-xl-inline"> Ch-Eng </span></div>
+        <div :class="navSide('/TypeTest')" @click="goTo('TypeTest')"><b-icon icon="grid3x3-gap-fill"></b-icon> <br> <span class="d-none d-xl-inline"> Type </span></div>
+        <div :class="navSide('/Match')" @click="goTo('Match')"><b-icon icon="gear-fill"></b-icon> <br> <span class="d-none d-xl-inline "> Match </span></div>
       </b-col>
 
       <b-col :class="contClass()" style="min-height:100vh">
@@ -57,12 +57,12 @@
           </b-card>
         </b-col>
     </b-row>
-    <div class="btnNav d-lg-none">
-        <div :class="navStyle('D')" @click="goTo('Dictionary'), btnSelect='D'"><b-icon-card-list></b-icon-card-list>  <span class="d-none d-md-inline" text=""> &nbsp; DICT </span> </div>
-        <div :class="navStyle('EC')" @click="goTo('TransEngTest'), btnSelect='EC'"><b-icon-box-arrow-up-right></b-icon-box-arrow-up-right>  <span class="d-none d-md-inline"> &nbsp; Eng-Ch </span> </div>
-        <div :class="navStyle('CE')" @click="goTo('TransChTest'), btnSelect='CE'"><b-icon-box-arrow-up-left></b-icon-box-arrow-up-left>  <span class="d-none d-md-inline"> &nbsp; Ch-Eng </span></div>
-        <div :class="navStyle('T')" @click="goTo('TypeTest'), btnSelect='T'"><b-icon icon="grid3x3-gap-fill"></b-icon> <span class="d-none d-md-inline"> &nbsp; Type </span></div>
-        <div :class="navStyle('M')" @click="goTo('Match'), btnSelect='M'"><b-icon icon="gear-fill"></b-icon> <span class="d-none d-md-inline"> &nbsp; Match </span></div>
+    <div v-if="!isActiveCheck" class="btnNav d-lg-none">
+        <div :class="navStyle('/Dictionary')" @click="goTo('Dictionary')"><b-icon-card-list></b-icon-card-list>  <span class="d-none d-md-inline" text=""> &nbsp; DICT </span> </div>
+        <div :class="navStyle('/TransEngTest')" @click="goTo('TransEngTest')"><b-icon-box-arrow-up-right></b-icon-box-arrow-up-right>  <span class="d-none d-md-inline"> &nbsp; Eng-Ch </span> </div>
+        <div :class="navStyle('/TransChTest')" @click="goTo('TransChTest')"><b-icon-box-arrow-up-left></b-icon-box-arrow-up-left>  <span class="d-none d-md-inline"> &nbsp; Ch-Eng </span></div>
+        <div :class="navStyle('/TypeTest')" @click="goTo('TypeTest')"><b-icon icon="grid3x3-gap-fill"></b-icon> <span class="d-none d-md-inline"> &nbsp; Type </span></div>
+        <div :class="navStyle('/Match')" @click="goTo('Match')"><b-icon icon="gear-fill"></b-icon> <span class="d-none d-md-inline"> &nbsp; Match </span></div>
     </div>
   </div>
 
@@ -76,17 +76,15 @@ export default {
   name: 'app',
   data () {
     return {
-      auth: this.isAuthenticated,
-      btnSelect: null,
+      part: this.$route.path,
       contColor: 'bg-info',
-      contMode: {
-        D: 'bg-warning',
-        M: 'bg-sand',
-        EC: 'bg-info',
-        CE: 'bg-info',
-        T: 'bg-info'
-      },
-      connection: null
+      btnCodes: {
+        '/TransChTest': 'bg-info',
+        '/TransEngTest': 'bg-info',
+        '/TypeTest': 'bg-info',
+        '/Match': 'bg-sand',
+        '/Dictionary': 'bg-warning',
+      }
     }
   },
   computed: {
@@ -95,6 +93,9 @@ export default {
         router.push('/home')
       }
       return this.$store.getters.isAuthenticated
+    },
+    isActiveCheck () {
+      return this.$store.getters.isActive
     },
     transRec () {
       let count = 0
@@ -111,18 +112,27 @@ export default {
   },
   methods: {
     contClass: function () {
-      return this.contColor
+      if (this.getPath() in this.btnCodes){
+        return this.btnCodes[this.getPath()]
+      } else {
+        return this.contColor
+      }
+    },
+    getPath: function () {
+      return this.$route.path
     },
     navStyle: function (arg) {
-      if (arg === this.btnSelect) {
-        return 'tabLink text-primary ' + this.contMode[arg]
+      let path = this.getPath()
+      if (path in this.btnCodes && path === arg) {
+        return 'tabLink text-primary ' + this.btnCodes[path]
       } else {
         return 'tabLink bg-primary text-info'
       }
     },
     navSide: function (arg) {
-      if (arg === this.btnSelect) {
-        return 'sideLink h4 text-primary ' + this.contMode[arg]
+      let path = this.getPath()
+      if (path in this.btnCodes && path === arg) {
+        return 'sideLink h4 text-primary ' + this.btnCodes[path]
       } else {
         return 'sideLink h5 bg-primary text-info'
       }
@@ -165,7 +175,13 @@ export default {
         // console.log('Not logged in: created')
       }
     }
-  }
+  },
+  beforeDestroy () {
+    if (this.$store.state.socket) {
+      this.$store.state.socket.emit('offline', { userProfile: this.$store.state.userProfile })
+      this.$store.state.socket.close()
+    }
+  },
 }
 </script>
 

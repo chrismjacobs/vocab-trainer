@@ -30,6 +30,7 @@ def online(data):
     userProfile = data['userProfile']
     user = User.query.get(userProfile['userID'])
     check = Connected.query.filter_by(connected=user).first()
+    print(check, user)
 
     if check:
         pass
@@ -53,13 +54,20 @@ def on_disconnected(data):
     userProfile = data['userProfile']
     user = User.query.get(userProfile['userID'])
     check = Connected.query.filter_by(connected=user).first()
+    room = Room.query.filter_by(room=user.id).first()
 
     if check:
         Connected.query.filter_by(connected=user).delete()
         db.session.commit()
 
+    print(room)
+    if room:
+        Room.query.filter_by(room=user.id).delete()
+        db.session.commit()
+
     leave_room(user.id)
     emit('onlineUsers', {'userList' : getUsers()}, broadcast=True)
+    emit('disconnect', {'userID': user.id}, user.id)
 
     print(user.username, 'offline')
 
