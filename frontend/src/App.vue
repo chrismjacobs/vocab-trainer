@@ -187,7 +187,6 @@ export default {
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200&display=swap');
-@import "assets/scss/custom.scss";
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 @import "../node_modules/bootstrap-vue/dist/bootstrap-vue.css";
 
