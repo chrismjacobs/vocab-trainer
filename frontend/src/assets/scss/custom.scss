@@ -1,12 +1,9 @@
 
-
+$body-bg: () !default;
 $body-bg: #ebe8c9 !important;
-$body-color: #1e3747;
 
-// Bootstrap and its default variables
-@import '../node_modules/bootstrap/scss/bootstrap';
-// BootstrapVue and its default variables
-@import '../node_modules/bootstrap-vue/src/index.scss';
+$body-color: () !default ;
+$body-color: #1e3747;
 
 $theme-colors: (
   "prime": #205372,
@@ -27,4 +24,10 @@ $theme-colors: (
   "p1":  #60dfff,
   "p2":  #d260ff,
 );
+
+// Bootstrap and its default variables
+@import '../node_modules/bootstrap/scss/bootstrap';
+// BootstrapVue and its default variables
+@import '../node_modules/bootstrap-vue/src/index.scss';
+
 
