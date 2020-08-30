@@ -309,7 +309,6 @@ export default {
         this.words = this.amendedList.length
         // console.log('few words', this.amendedList)
       }
-
       if (this.testType === 'TypeTest') {
         this.makeSpelling()
       } else {
@@ -320,7 +319,7 @@ export default {
       let i = 0
       while (i < this.words) {
         var randomItem = this.amendedList[Math.floor(Math.random() * this.amendedList.length)]
-        // console.log(this.testItems, randomItem)
+        console.log('MAKE CHOICES', this.testItemsRoot, randomItem, this.checkDuplicate(randomItem))
         if (!this.checkDuplicate(randomItem)) {
           console.log('pass', randomItem)
         } else {
@@ -344,6 +343,7 @@ export default {
               j++
             } else {
               let randomChoice = this.amendedList[Math.floor(Math.random() * this.amendedList.length)]
+              console.log(randomChoice, choices)
 
               if (!choices.includes(randomChoice)) {
                 choices.push({
@@ -438,6 +438,18 @@ export default {
         this.words = parseInt(this.wordsReset)
       }
     },
+    checkDuplicate: function (rand) {
+      for (let testEntry in this.testItemsRoot) {
+        console.log('check duplicate', this.testItemsRoot[testEntry].English, rand.English)
+        if (this.testItemsRoot[testEntry].English === rand.English) {
+          console.log('found', rand)
+          return false
+        } else {
+          console.log('clear', rand)
+        }
+      }
+      return true
+    },
     typoFix: function (english) {
       // console.log('typos', english)
       let words = english.split(' ')
@@ -456,16 +468,6 @@ export default {
       for (let letter in alphabet) {
         this.optionsA.push({ value: alphabet[letter], text: alphabet[letter] })
       }
-    },
-    checkDuplicate: function (rand) {
-      for (let testEntry in this.testItems) {
-        //  console.log(this.testItems[testEntry].English, rand.English)
-        if (this.testItems[testEntry].English === rand.English) {
-          console.log('found', rand)
-          return false
-        }
-      }
-      return true
     },
     shuffle: function (array) {
       // Fisher-Yates shuffle
