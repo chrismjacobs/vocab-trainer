@@ -20,17 +20,34 @@
       </b-card>
     </b-container>
     <b-container>
+      <div class="d-md-none">
       <b-table
       striped hover
       :items="tableItems"
       :fields="fields"
       :filter="selected"
       :filter-function="filterTable"
+      stacked
       >
         <template v-slot:cell(mp3en)="data">
             <b-icon-soundwave @click="playAudio(data.value)"></b-icon-soundwave>
          </template>
       </b-table>
+      </div>
+      <div class="d-none d-md-block">
+      <b-table
+      striped hover
+      :items="tableItems"
+      :fields="fields"
+      :filter="selected"
+      :filter-function="filterTable"
+      sticky-header="400px"
+      >
+        <template v-slot:cell(mp3en)="data">
+            <b-icon-soundwave @click="playAudio(data.value)"></b-icon-soundwave>
+         </template>
+      </b-table>
+      </div>
     </b-container>
   </div>
 </template>
@@ -93,15 +110,6 @@ export default {
     playAudio: function (arg) {
       console.log(arg)
       document.getElementById('audio').src = arg
-    }
-  },
-  computed: {
-    isAuthenticated () {
-      if (!this.$store.getters.isAuthenticated) {
-        alert('Your login has expired and you must login again')
-        this.goTo('login')
-      }
-      return this.$store.getters.isAuthenticated
     }
   },
   created () {

@@ -2,134 +2,143 @@
   <div class="toolbar" v-if="!toolbarShow">
     <div>
 
-      <div class="mt-2 bg-secondary p-2">
-            <h2 class="text-sand" align="center">
-              {{ testType }}
+      <div class="mt-2 bg-second p-2">
+            <h2 class="text-cream" align="center">
+              {{ title }}
             </h2>
       </div>
-      <div class="bg-primary p-2 mt-0">
+      <div class="bg-prime p-2 mt-0">
         <b-row>
-          <b-col>
-            <b-button variant="primary" block class="md-3" @click="makeTest(), showToolbar=false">Start</b-button>
+          <b-col align="center">
+            <b-button variant="info" style="width: 50%" class="md-3" @click="makeTest(), showToolbar=false">Start</b-button>
           </b-col>
+        </b-row>
+        <b-row class="mt-2">
           <b-col v-if="showAnswers">
-            <b-button  variant="warning" block class="md-3" @click="retryTest()">Retry</b-button>
+            <b-button  variant="warn" block class="md-3" @click="retryTest()">Retry</b-button>
           </b-col>
           <b-col>
-            <b-button variant="info" block class="md-3" @click="showToolbar=true">Settings</b-button>
+            <b-button v-if="showAnswers" variant="grey" block class="md-3" @click="showToolbar=true">Settings</b-button>
           </b-col>
         </b-row>
       </div>
 
-      <div class="bg-grey p-2 pb-4" v-if="showToolbar">
-        <b-row cols="2" cols-md="4" cols-lg="6" >
-          <b-col class="mt-3">
-              <h6 align="center">Words</h6>
-              <!--<div align="center" class="d-block d-lg-none">
-                <b-form-spinbutton v-model="words" min="6" max="30" step=2 ></b-form-spinbutton>
-              </div> -->
+      <div class="bg-fourth p-2 pb-4 mb-5" v-if="showToolbar">
+        <b-row cols="2" cols-lg="4" cols-xl="6" >
+          <b-col class="mt-4">
               <div align="center">
-                <b-form-spinbutton v-model="words" min="6" max="30" step=2 vertical style="height:125px"></b-form-spinbutton>
+                <div class="headDiv">
+                  Words
+                </div>
+                <div class="spinDiv">
+                  <b-form-spinbutton v-model="words" min="6" max="30" step=2 vertical style="height:125px"></b-form-spinbutton>
+                </div>
+
               </div>
             </b-col>
 
-          <b-col class="mt-3" v-if="testType === 'TransEng' || testType === 'TransCh'">
-              <h6 align="center">Choices</h6>
-              <!-- <div align="center" class="d-block d-lg-none">
-                <b-form-spinbutton v-model="choices" min="2" max="6" ></b-form-spinbutton>
-              </div>-->
+          <b-col class="mt-4" v-if="testType === 'TransEng' || testType === 'TransCh'">
               <div align="center">
+                <div class="headDiv">
+                  Choices
+                </div>
+                <div class="spinDiv">
                 <b-form-spinbutton v-model="choices" min="2" max="6" vertical style="height:125px"></b-form-spinbutton>
+                </div>
               </div>
           </b-col>
 
-          <b-col class="mt-3">
-            <h6 align="center">Sound</h6>
+          <b-col class="mt-4">
             <div align="center">
+              <div class="headDiv"> Sound </div>
               <b-form-radio-group
+                style="width:120px"
                 v-model="sound"
                 :options="soundOptions"
-                button-variant="outline-danger"
+                button-variant="outline-alert"
                 buttons
-                class="radioBTN"
                 stacked
               ></b-form-radio-group>
             </div>
           </b-col>
 
-          <b-col class="mt-3" v-if="testType === 'TypeTest'">
-             <h6 align="center">Display</h6>
+          <b-col class="mt-4" v-if="testType === 'TypeTest'">
             <div align="center">
+              <div class="headDiv"> Display </div>
               <b-form-radio-group
+              style="width:120px"
               v-model="display"
               :options="displayOptions"
               buttons
-              button-variant="outline-primary"
+              button-variant="outline-prime"
               stacked
             ></b-form-radio-group>
             </div>
           </b-col>
 
-          <b-col class="mt-3" v-if="testType === 'TypeTest'">
-             <h6 align="center">Feedback</h6>
+          <b-col class="mt-4" v-if="testType === 'TypeTest'">
              <div align="center">
+              <div class="headDiv"> Feedback </div>
               <b-form-radio-group
+              style="width:120px"
               v-model="feedback"
               :options="feedbackOptions"
               buttons
-              button-variant="outline-primary"
+              button-variant="outline-grape"
               stacked
             ></b-form-radio-group>
             </div>
           </b-col>
 
-          <b-col class="mt-3" v-if="testType === 'TransEng' || testType === 'TransCh'">
-            <h6 align="center">Grammar</h6>
+          <b-col class="mt-4" v-if="testType === 'TransEng' || testType === 'TransCh'">
             <div align="center">
+              <div class="headDiv"> Grammar </div>
               <b-form-radio-group
+                  style="width:120px"
                   v-model="label"
                   :options="labelOptions"
                   buttons
-                  button-variant="outline-primary"
+                  button-variant="outline-safe"
                   stacked
                 ></b-form-radio-group>
             </div>
           </b-col>
 
-          <b-col class="mt-3" v-if="testType === 'TransEng' || testType === 'TransCh'">
-            <h6 align="center"> Sort </h6>
+          <b-col class="mt-4" v-if="testType === 'TransEng' || testType === 'TransCh'">
             <div align="center">
+                <div class="headDiv"> Sort </div>
               <b-form-radio-group
+                style="width:120px"
                 v-model="sort"
                 :options="sortOptions"
                 buttons
-                button-variant="outline-primary"
+                button-variant="outline-warn"
                 stacked
               ></b-form-radio-group>
             </div>
           </b-col>
-          <b-col class="mt-3" v-if="testType === 'TransEng' || testType === 'TransCh'">
+          <b-col class="mt-4" v-if="testType === 'TransEng' || testType === 'TransCh'">
             <div class="mt-5"></div>
             <b-form-select v-if="sort=='srtLet'" class="selectColor" v-model="selected" :options="optionsA" ></b-form-select>
             <b-form-select v-if="sort=='srtGram'" class="selectColor" v-model="selected" :options="optionsG"></b-form-select>
             <b-form-select v-if="sort=='srtDiff'" class="selectColor" v-model="selected" :options="optionsR"></b-form-select>
           </b-col>
 
-          <b-col class="mt-3" v-if="testType === 'TypeTest'">
-            <h6 align="center"> Spelling </h6>
+          <b-col class="mt-4" v-if="testType === 'TypeTest'">
             <div align="center">
+            <div class="headDiv"> Spelling </div>
             <b-dropdown :text="spellingText">
               <div>
-                  <b-dropdown-item v-for="(btn, index) in optionsO" :key="index" @click="spelling=btn.value; spellingText=btn.text "> {{ btn.text }} </b-dropdown-item>
+                  <b-dropdown-item v-for="(btn, index) in optionsO" :key="index" @click="spelling=btn.value; spellingText=btn.text " > {{ btn.text }} </b-dropdown-item>
               </div>
             </b-dropdown>
             </div>
           </b-col>
 
-          <b-col class="mt-3" v-if="testType === 'TypeTest'">
-            <h6 align="center"> Sort </h6>
+          <b-col class="mt-4" v-if="testType === 'TypeTest'">
             <div align="center">
-            <b-dropdown :text="specialText" variant="warning">
+              <div class="headDiv"> Sort </div>
+            <b-dropdown :text="specialText" variant="warn">
               <div>
                   <b-dropdown-item v-for="(btn, index) in optionsS" :key="index" @click="special=btn.value; specialText=btn.text"> {{ btn.text }} </b-dropdown-item>
               </div>
@@ -139,7 +148,10 @@
         </b-row>
       </div>
 
+      <div>
+      </div>
     </div>
+
   </div>
 </template>
 
@@ -151,7 +163,8 @@ export default {
   props: {
     toolbarShow: Boolean,
     showAnswers: Boolean,
-    testType: String
+    testType: String,
+    title: String
   },
   data () {
     return {
@@ -176,7 +189,7 @@ export default {
       ],
       optionsR: [
         { value: null, text: '---' },
-        { value: 0, text: 'neutral score' },
+        { value: 0, text: 'normal' },
         { value: 1, text: 'easier words' },
         { value: -1, text: 'harder words' }
       ],
@@ -196,23 +209,23 @@ export default {
       ],
       sound: 'sdEx',
       soundOptions: [
-        { text: 'exam mode', value: 'sdEx' },
+        { text: 'exam mode', value: 'sdEx', class: 'bg-grey' },
         { text: 'auto play', value: 'sdOn' },
         { text: 'None', value: 'sdOff' }
       ],
       spelling: null,
-      spellingText: '-----',
+      spellingText: '-------------',
       optionsO: [
         { value: null, text: '---' },
-        { value: 'const', text: 'show vowels' },
-        { value: 'vowels', text: 'show consonants' },
-        { value: 'blanks', text: 'show blanks' },
-        { value: 'all', text: 'show all' },
-        { value: 'showFL', text: 'show words' },
+        { value: 'const', text: 'vowels' },
+        { value: 'vowels', text: 'consonants' },
+        { value: 'blanks', text: 'blanks' },
+        { value: 'all', text: 'all' },
+        { value: 'showFL', text: 'words' },
         { value: 'typos', text: 'typos' },
-        { value: 'scramble', text: 'scramble letter' }
+        { value: 'scramble', text: 'scramble' }
       ],
-      specialText: '-----',
+      specialText: '-------------',
       special: null,
       optionsS: [
         { value: null, text: '---' },
@@ -504,6 +517,22 @@ export default {
 <style scoped>
 
 .form-control {
+  background-color:  #bbe0eb;
+}
+
+.headDiv {
   background-color:lightgrey;
+  width:120px;
+  font-weight:500;
+  border-radius: 5px;
+  border: 0px solid #73AD21;
+}
+
+.spinDiv {
+  background-color:#bbe0eb;
+  width:120px;
+  font-weight:500;
+  border-radius: 5px;
+  border: 0px solid #73AD21;
 }
 </style>

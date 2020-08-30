@@ -3,7 +3,7 @@
     <b-container>
     <b-row class="mt-5 mx-auto">
       <b-col>
-        <b-card v-if="waiting" header="Register" header-bg-variant="primary" header-text-variant="info" header-tag="h3">
+        <b-card v-if="waiting" header="Register" header-bg-variant="prime" header-text-variant="info" header-tag="h3">
           <b-form @submit="onSubmit" @reset="onReset" v-if="show">
 
             <b-input-group class="my-4" label="Username:" label-for="exampleInput1">
@@ -63,7 +63,7 @@
 
             <div class="d-flex justify-content-between">
                 <div>
-                <b-button type="submit" variant="primary">Submit</b-button>&nbsp;
+                <b-button type="submit" variant="prime">Submit</b-button>&nbsp;
                 <b-button type="reset" variant="danger">Reset</b-button>
                 </div>
             </div>

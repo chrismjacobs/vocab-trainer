@@ -26,7 +26,7 @@
           <b-col>
               <b-card v-if="testItems.indexOf(item) === filter">
                 <div v-for="(choice, index) in item.Choices" :key="index">
-                  <b-button :name="item.English" :id="item.English + choice.Chinese" variant="success" block @click="recordAnswer(item.English, item.Chinese, choice.Chinese)">
+                  <b-button :name="item.English" :id="item.English + choice.Chinese" variant="safe" block @click="recordAnswer(item.English, item.Chinese, choice.Chinese)">
                     {{ choice.Chinese }}
                   </b-button>
                     <br>
@@ -159,7 +159,7 @@ export default {
     },
     enterResult: function (english, chinese, player, state) {
       console.log(state)
-      let _rowVariant = 'warning'
+      let _rowVariant = 'warn'
       if (state) {
         _rowVariant = player
       }

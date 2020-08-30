@@ -3,7 +3,7 @@
     <b-container style="height:100vh">
     <b-row class="mt-5">
       <b-col>
-        <b-card v-if="waiting" header="Login" header-bg-variant="primary" header-text-variant="info" header-tag="h3">
+        <b-card v-if="waiting" header="Login" header-bg-variant="prime" header-text-variant="info" header-tag="h3">
           <b-form @submit="onSubmit" @reset="onReset" v-if="show">
 
             <b-input-group label="Email:" label-for="exampleInput1">

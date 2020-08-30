@@ -87,8 +87,8 @@ export default {
       let testVocab = vocab.slice(0, this.matchNumber)
       for (let item in testVocab) {
         this.buttons.push(
-          { caption: testVocab[item].English, state: false, disabled: false, variant: 'outline-primary', name: testVocab[item].English },
-          { caption: testVocab[item].Chinese, state: false, disabled: false, variant: 'outline-primary', name: testVocab[item].English }
+          { caption: testVocab[item].English, state: false, disabled: false, variant: 'outline-prime', name: testVocab[item].English },
+          { caption: testVocab[item].Chinese, state: false, disabled: false, variant: 'outline-prime', name: testVocab[item].English }
         )
       }
       this.showTest = true
@@ -118,8 +118,8 @@ export default {
       this.answerMax += 1
       let newItem = this.shuffle(this.tableItems)[0]
       newButtons.push(
-        { caption: newItem.English, state: false, disabled: false, variant: 'outline-primary', name: newItem.English },
-        { caption: newItem.Chinese, state: false, disabled: false, variant: 'outline-primary', name: newItem.English }
+        { caption: newItem.English, state: false, disabled: false, variant: 'outline-prime', name: newItem.English },
+        { caption: newItem.Chinese, state: false, disabled: false, variant: 'outline-prime', name: newItem.English }
       )
       // this.buttons = this.shuffle(newButtons)
       this.buttons = newButtons
@@ -127,7 +127,7 @@ export default {
     markButtons: function (label) {
       for (let btn in this.buttons) {
         if (this.buttons[btn].name === label) {
-          this.buttons[btn].variant = 'warning'
+          this.buttons[btn].variant = 'warn'
           this.buttons[btn].disabled = true
         }
       }

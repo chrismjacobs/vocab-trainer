@@ -2,18 +2,18 @@
   <div class="toolbar" v-if="!toolbarShow">
     <div>
 
-      <div class="mt-2 bg-secondary p-2">
+      <div class="mt-2 bg-second p-2">
             <h2 class="text-sand" align="center">
               {{ testType }}
             </h2>
       </div>
-      <div class="mt-2 bg-info p-2">
+      <div class="mt-2 bg-third p-2">
              <b-avatar :src="s3 + p1.toString() + '.jpg'" :text="p1name[0]" class="mr-3" variant='p1'></b-avatar>
               <span class="mr-auto">{{ p1name }}</span>
              <b-avatar :src="s3 + p2.toString() + '.jpg'" :text="p2name[0]" class="mr-3" variant='p2'></b-avatar>
               <span class="mr-auto">{{ p2name }}</span>
       </div>
-      <div class="bg-primary p-2 mt-0">
+      <div class="bg-prime p-2 mt-0">
         <b-row>
           <b-col>
             <b-button :variant="player" block class="md-3" @click="playerReady(), waiting=1">Ready</b-button>
@@ -73,7 +73,7 @@
               v-model="feedback"
               :options="feedbackOptions"
               buttons
-              button-variant="outline-primary"
+              button-variant="outline-prime"
               stacked
             ></b-form-radio-group>
             </div>

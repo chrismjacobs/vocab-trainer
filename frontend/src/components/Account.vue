@@ -1,9 +1,9 @@
 <template>
     <div class="register">
     <b-container>
-    <b-row class="mt-5 mx-auto">
+    <b-row class="mt-3 mx-auto">
       <b-col>
-        <b-card v-if="waiting" header="Account Information" header-bg-variant="primary" header-text-variant="info" header-tag="h3">
+        <b-card v-if="waiting" header="Account Information" header-bg-variant="prime" header-text-variant="info" header-tag="h3">
           <b-form @submit="onSubmit" v-if="show">
             <div class="d-flex">
               <b-col >
@@ -73,7 +73,7 @@
             </div>
             <div class="d-flex justify-content-between">
                 <div>
-                <b-button type="submit" variant="primary">Submit</b-button>
+                <b-button type="submit" variant="prime">Submit</b-button>
 
                 </div>
             </div>

@@ -116,6 +116,10 @@ export default {
     }
   },
   created () {
+    if (!this.$store.getters.isAuthenticated) {
+      this.$router.push('login')
+      return false
+    }
     this.userID = this.$store.state.userProfile.userID
     this.username = this.$store.state.userProfile.username
     this.$store.dispatch('openSocket')

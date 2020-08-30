@@ -35,7 +35,7 @@
             <h4>{{time/1000}}</h4>
           </b-col>
           <b-col cols="11" class="mt-1">
-            <b-progress :value="time" max="60000" animated style="height:30px" variant="danger"></b-progress>
+            <b-progress :value="time" max="60000" animated style="height:30px" variant="alert"></b-progress>
           </b-col>
         </b-row>
       </b-card>
@@ -94,7 +94,7 @@ export default {
       clock: null,
       socket: null,
       room: null,
-      basicClass: 'basic bg-primary text-warning p-3 m-1'
+      basicClass: 'basic bg-prime text-warn p-3 m-1'
     }
   },
   methods: {
@@ -173,7 +173,7 @@ export default {
     buttonChange: function (b) {
       for (let btn in this.buttons) {
         if (this.buttons[btn] === b) {
-          this.buttons[btn].class = 'basic bg-warning text-primary p-3 m-1'
+          this.buttons[btn].class = 'basic bg-warn text-prime p-3 m-1'
         }
       }
     }

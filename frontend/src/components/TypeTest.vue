@@ -3,13 +3,13 @@
 
     <audio id="audio" autoplay></audio>
 
-    <Toolbar :toolbarShow='showTest' :showAnswers='showAnswers' :testType="testType" v-on:newTest="start($event)" v-on:retry="start()"></Toolbar>
+    <Toolbar :toolbarShow='showTest' :showAnswers='showAnswers' :testType="testType" :title="title" v-on:newTest="start($event)" v-on:retry="start()"></Toolbar>
 
       <b-card class="mt-2" cols="10" v-if="showTest">
 
-            <b-progress :value="filter" :max="testItems.length" animated variant="success"></b-progress>
+            <b-progress :value="filter" :max="testItems.length" animated variant="safe"></b-progress>
                <br>
-            <b-progress :value="time" max="60000" animated variant="danger"></b-progress>
+            <b-progress :value="time" max="60000" animated variant="alert"></b-progress>
 
       </b-card>
 
@@ -91,6 +91,7 @@ export default {
       pageHead: 'Typing Test',
       toolbarShow: true,
       testType: 'TypeTest',
+      title: 'Typing',
       time: 60000,
       clock: null,
       mistakes: 0,
@@ -105,7 +106,7 @@ export default {
       currentAnswer: null,
       testItems: [],
       settings: {},
-      fields: ['Chinese', 'English', 'Choice', 'Time']
+      fields: ['Chinese', 'English', 'Answer', 'Time']
     }
   },
   methods: {
@@ -116,10 +117,10 @@ export default {
       let _rowVariant
       if (choice === correct || choice === correct + ' ') {
         score = 1
-        _rowVariant = 'success'
+        _rowVariant = 'safe'
       } else {
         score = -1
-        _rowVariant = 'danger'
+        _rowVariant = 'alert'
       }
 
       // calculate error rate
@@ -140,7 +141,7 @@ export default {
       let entry = {
         English: english,
         Chinese: chinese,
-        Choice: choice,
+        Answer: choice,
         Score: score,
         Time: time,
         Error: errorRate,
@@ -198,15 +199,15 @@ export default {
     },
     validStyle: function () {
       if (this.settings['feedback'] === 'fbComp' && !this.validCheck) {
-        return 'bg-sand'
+        return 'bg-cream'
       } else if (this.settings['feedback'] === 'fbComp' && this.validCheck) {
-        return 'bg-info text-primary'
+        return 'bg-safe-light text-prime'
       } else if (this.settings['feedback'] === 'fbConst' && !this.validAnswer) {
-        return 'bg-danger text-sand'
+        return 'bg-alert-light text-prime'
       } else if (this.settings['feedback'] === 'fbConst' && this.validAnswer) {
-        return 'bg-info text-primary'
+        return 'bg-third text-prime'
       } else {
-        return 'bg-sand'
+        return 'bg-cream'
       }
     }
   },
@@ -254,7 +255,7 @@ export default {
     },
     hover: function () {
       if (this.hover === true) {
-        this.hoverStyle = 'bg-success'
+        this.hoverStyle = 'bg-safe'
         let sound = this.testItems[this.filter]
         this.playAudio(sound.sdEn)
         let _this = this
@@ -266,7 +267,7 @@ export default {
     },
     hoverCh: function () {
       if (this.hoverCh === true) {
-        this.hoverStyleCh = 'bg-success'
+        this.hoverStyleCh = 'bg-safe'
         let sound = this.testItems[this.filter]
         this.playAudio(sound.sdCh)
         let _this = this
@@ -276,16 +277,16 @@ export default {
         }, 1800)
       }
     }
+  },
+  created () {
+    if (!this.$store.getters.isAuthenticated) {
+      this.$router.push('login')
+    }
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.active {
-  background: rgb(95, 216, 95);
-}
-.active2 {
-  background: rgb(192, 95, 216);
-}
+
 </style>

@@ -3,21 +3,22 @@
     <b-navbar toggleable sticky>
       <b-navbar-brand href="#">Vocab Trainer</b-navbar-brand>
 
-      <b-navbar-toggle target="navbar-toggle-collapse" class="d-block d-lg-none">
-        <b-avatar src="https://placekitten.com/300/300" size="3rem"></b-avatar>
+      <b-navbar-toggle v-if="isAuthenticated" target="navbar-toggle-collapse" class="d-block d-lg-none">
+        <b-avatar :src="s3 + userProfile.userID + '.jpg'" size="3rem" :text="userProfile.username[0]"></b-avatar>
       </b-navbar-toggle>
 
       <b-collapse id="navbar-toggle-collapse" is-nav>
         <b-navbar-nav class="ml-auto">
-          <b-nav-item href="#">Link 1</b-nav-item>
-          <b-nav-item href="#">Link 2</b-nav-item>
-          <b-nav-item href="#" disabled>Disabled</b-nav-item>
+           <div v-if="!isActiveCheck" class="d-lg-none">
+                <div :class="navStyle('/Dictionary')" @click="goTo('Logout')"><b-icon-power></b-icon-power>  <span text=""> &nbsp; Logout </span> </div>
+                <div :class="navStyle('/TransEngTest')" @click="goTo('Account')"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp; Account </span> </div>
+            </div>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
 
     <b-row no-gutters>
-      <b-col cols="1" class="bg-primary d-none d-lg-block">
+      <b-col cols="1" class="bg-prime d-none d-lg-block">
         <div :class="navSide('/Dictionary')" @click="goTo('Dictionary')"><b-icon-card-list></b-icon-card-list> <br> <span class="d-none d-xl-inline"> DICT </span> </div>
         <div :class="navSide('/TransEngTest')" @click="goTo('TransEngTest')"><b-icon-box-arrow-up-right></b-icon-box-arrow-up-right> <br> <span class="d-none d-xl-inline"> Eng-Ch </span> </div>
         <div :class="navSide('/TransChTest')" @click="goTo('TransChTest')"><b-icon-box-arrow-up-left></b-icon-box-arrow-up-left> <br> <span class="d-none d-xl-inline"> Ch-Eng </span></div>
@@ -32,21 +33,21 @@
       </b-col>
 
       <b-col cols="2" class="d-none d-lg-block">
-          <b-card style="height:100vh">
+          <div class="p-2 bg-warn" style="height:100vh">
               <div align="center" v-if="isAuthenticated">
                     <div class="m-2">
-                    <b-avatar src="https://placekitten.com/300/300" size="4rem"></b-avatar>
+                    <b-avatar :src="s3 + userProfile.userID + '.jpg'" size="4rem" :text="userProfile.username[0]"></b-avatar>
                     </div>
                   <h4 class="mb-2">Profile Dash</h4>
                   <h6> {{ $store.state.userProfile.username}}</h6>
+                  <h6> #{{ $store.state.userProfile.userID}}</h6>
                   <h6> This Session:</h6>
-                  <h6> Translation {{ transRec[0] }} </h6>
-                  <h6> Score {{ transRec[1] }} </h6>
-                  <button @click="saveData()"> SAVE DATA </button>
-                  <br>
-                  <button @click="goTo('Account')"> My Account </button>
-                  <br>
-                  <button @click="logout()"> Log Out </button>
+                  <div>
+                    <b-table striped hover small borderless :items="currentRecItems"></b-table>
+                  </div>
+                  <div class="sideBtn" @click="goTo('Account')"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp; Account </span> </div>
+                  <div class="sideBtn" @click="logout()"><b-icon-power></b-icon-power>  <span text=""> &nbsp; Logout </span> </div>
+
               </div>
               <div v-else align="center" >
                 <h1>Welcome :) </h1>
@@ -54,7 +55,7 @@
                   <br>
                   <b-button @click="goTo('Register')"> Register </b-button>
               </div>
-          </b-card>
+          </div>
         </b-col>
     </b-row>
     <div v-if="!isActiveCheck" class="btnNav d-lg-none">
@@ -76,14 +77,21 @@ export default {
   name: 'app',
   data () {
     return {
-      part: this.$route.path,
-      contColor: 'bg-info',
+      path: this.$route.path,
+      s3: 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/profiles/',
+      userProfile: null,
+      contColor: 'bg-cream',
       btnCodes: {
-        '/TransChTest': 'bg-info',
-        '/TransEngTest': 'bg-info',
-        '/TypeTest': 'bg-info',
-        '/Match': 'bg-sand',
-        '/Dictionary': 'bg-warning',
+        '/TransChTest': 'bg-third',
+        '/TransEngTest': 'bg-third',
+        '/TypeTest': 'bg-third',
+        '/Match': 'bg-grape-light',
+        '/Dictionary': 'bg-cream',
+      },
+      typeHeaders: {
+        'transEng': 'Eng',
+        'transCh': 'Ch',
+        'type': 'Type'
       }
     }
   },
@@ -97,18 +105,22 @@ export default {
     isActiveCheck () {
       return this.$store.getters.isActive
     },
-    transRec () {
-      let count = 0
-      let score = 0
-      let obj = this.$store.state.currentRecord.trans
-      for (let index in obj) {
-        if (index) {
-          count += 1
-          score += this.$store.state.currentRecord.trans[index]
+    currentRecItems () {
+      let currentRecItems = []
+      for (let type in this.$store.state.currentRecord) {
+        let count = 0
+        let score = 0
+        let obj = this.$store.state.currentRecord[type]
+        for (let index in obj) {
+          if (index) {
+            count += 1
+            score += this.$store.state.currentRecord[type][index]
+          }
         }
+        currentRecItems.push({mode:this.typeHeaders[type], count:count, score:score})
       }
-      return [count, score]
-    }
+      return currentRecItems
+    },
   },
   methods: {
     contClass: function () {
@@ -124,17 +136,17 @@ export default {
     navStyle: function (arg) {
       let path = this.getPath()
       if (path in this.btnCodes && path === arg) {
-        return 'tabLink text-primary ' + this.btnCodes[path]
+        return 'tabLink text-prime ' + this.btnCodes[path]
       } else {
-        return 'tabLink bg-primary text-info'
+        return 'tabLink bg-prime text-cream'
       }
     },
     navSide: function (arg) {
       let path = this.getPath()
       if (path in this.btnCodes && path === arg) {
-        return 'sideLink h4 text-primary ' + this.btnCodes[path]
+        return 'sideLink h4 text-prime ' + this.btnCodes[path]
       } else {
-        return 'sideLink h5 bg-primary text-info'
+        return 'sideLink h5 bg-prime text-cream'
       }
     },
     goTo: function (arg) {
@@ -161,13 +173,22 @@ export default {
       if (this.btnSelect !== null) {
         this.contColor = this.contMode[this.btnSelect]
       }
+    },
+    $route (to, from){
+        console.log('path change')
+        if (this.$store.state.updateStatus === false) {
+          this.$store.dispatch('saveData')
+        }
     }
   },
   updated () {
-    // check the login status everytime the page is changed
+    // check the login status everytime the page is change
     this.$store.dispatch('checkLogin')
   },
   created () {
+    if (this.$store.state.userProfile.username !== 'undefined') {
+      this.userProfile = this.$store.state.userProfile
+    }
     window.onbeforeunload = function () {
       if (this.isAuthenticated) {
         this.saveData()
@@ -187,24 +208,26 @@ export default {
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200&display=swap');
+@import "assets/scss/custom.scss";
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 @import "../node_modules/bootstrap-vue/dist/bootstrap-vue.css";
 
 body {
-  background: #EEF1F4 !important;
   font-family: 'Inconsolata', !important;
-}
-.nav-background {
-  background: #353535;
 }
 
 .navbar {
-  background-color: #2c3531;
-  color: #ffcb98
+  background-color: theme-color("prime");
+  color: theme-color("cream");
+  border-bottom: 4px solid theme-color("warn");
 }
 
 .navbar .navbar-brand {
-  color: #ffcb98
+  color: theme-color("cream")
+}
+
+.navbar .nav-item {
+  color: theme-color("cream")
 }
 
 .navbar .navbar-toggler {
@@ -218,6 +241,16 @@ body {
 .btnNav {
   position: fixed;
   bottom: 0px;
+  width: 100%;
+  height: 53px;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+.sideBtn {
+  background-color:theme-color('prime');
+  color:theme-color('cream');
   width: 100%;
   height: 53px;
   display: flex;
@@ -264,6 +297,14 @@ body {
 
 .container-fluid {
     padding: 20px;
+}
+
+.active {
+  background: theme-color('safe');
+}
+
+.active2 {
+  background: theme-color('grape-light');
 }
 
 </style>

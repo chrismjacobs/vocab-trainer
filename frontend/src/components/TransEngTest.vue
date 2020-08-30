@@ -3,14 +3,14 @@
 
       <audio id="audio" autoplay></audio>
 
-    <Toolbar :toolbarShow='showTest' :showAnswers='showAnswers' :testType="testType" v-on:newTest="start($event)" v-on:retry="start()"></Toolbar>
+    <Toolbar :toolbarShow='showTest' :showAnswers='showAnswers' :testType="testType" :title="title" v-on:newTest="start($event)" v-on:retry="start()"></Toolbar>
 
       <b-card class="mt-2" v-if="showTest">
          <b-progress :value="filter" :max="testItems.length" show-progress animated></b-progress>
       </b-card>
 
     <div>
-      <b-card class="mt-2" v-if="showTest">
+      <div class="mt-2 bg-warn" v-if="showTest">
        <div v-for="(item, key) in testItems" :key="key">
         <b-row>
           <b-col>
@@ -37,7 +37,7 @@
           </b-col>
         </b-row>
        </div>
-      </b-card>
+      </div>
     </div>
     <div v-if="showAnswers">
       <b-card class="mt-2">
@@ -64,6 +64,7 @@ export default {
     return {
       pageHead: 'English --> Chinese',
       testType: 'TransEng',
+      title: 'English Test',
       toolbarShow: true,
       hover: false,
       showAnswers: false,
@@ -84,10 +85,10 @@ export default {
       let _rowVariant
       if (choice === correct) {
         score = 1
-        _rowVariant = 'success'
+        _rowVariant = 'safe'
       } else {
         score = -1
-        _rowVariant = 'danger'
+        _rowVariant = 'warn'
       }
       let entry = {
         English: english,
@@ -121,7 +122,7 @@ export default {
     },
     checkAnswers: function () {
       this.showAnswers = true
-      this.$store.dispatch('updateRecord', { mode: 'trans', answerData: this.answerData, settingsData: this.settings })
+      this.$store.dispatch('updateRecord', { mode: 'transEng', answerData: this.answerData, settingsData: this.settings })
     },
     playAudio: function (arg) {
       document.getElementById('audio').src = arg
@@ -142,9 +143,9 @@ export default {
       }
     }
   },
-  computed: {
-    isAuthenticated () {
-      return this.$store.getters.isAuthenticated
+  mounted () {
+    if (!this.$store.getters.isAuthenticated) {
+      this.$router.push('login')
     }
   }
 }
@@ -152,16 +153,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.active {
-  background: rgb(95, 216, 95);
-}
-
-.btn-purple {
-    background-color: green;
-}
-
-.table-danger {
-  color:red
-}
 
 </style>

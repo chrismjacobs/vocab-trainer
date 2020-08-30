@@ -3,13 +3,13 @@
 
     <audio id="audio" autoplay></audio>
 
-    <Toolbar :toolbarShow='showTest' :showAnswers='showAnswers' :testType="testType" v-on:newTest="start($event)" v-on:retry="start()"></Toolbar>
+    <Toolbar :toolbarShow='showTest' :showAnswers='showAnswers' :testType="testType" :title="title" v-on:newTest="start($event)" v-on:retry="start()"></Toolbar>
 
       <div class="mt-2 bg-sand p-2" v-if="showTest">
          <b-progress :value="filter" :max="testItems.length" show-progress animated></b-progress>
       </div>
 
-      <div class="mt-2 bg-success" v-if="showTest">
+      <div class="mt-2 bg-safe" v-if="showTest">
         <div v-for="(item, key) in testItems" :key="key">
           <b-row>
             <b-col>
@@ -25,7 +25,7 @@
             <b-col>
               <b-card v-if="testItems.indexOf(item) === filter">
                 <div v-for="(choice, index) in item.Choices" :key="index">
-                  <b-button class="bg-primary" :style="buttonStyle[index]" block @click="recordAnswer(item.English, item.Chinese, choice.English)">
+                  <b-button class="bg-prime" :style="buttonStyle[index]" block @click="recordAnswer(item.English, item.Chinese, choice.English)">
                    <span v-if="settings.sound === 'sdEx'"> <b-icon-soundwave @mouseover="hoverAns=choice.sdEn" @mouseleave="hoverAns=null"></b-icon-soundwave> </span>
                    <span v-else-if="settings.label === 'lbAn' || settings.sound !== 'sdEx'"> ({{ choice.Gr }}) &nbsp;  {{ choice.English }} </span>
                    <span v-else>{{ choice.English }}</span>
@@ -67,6 +67,7 @@ export default {
       max: 100,
       value: 20,
       testType: 'TransCh',
+      title: 'Chinese',
       buttonRotate: null,
       hover: false,
       hoverAns: false,
@@ -96,7 +97,7 @@ export default {
       let _rowVariant
       if (choice === correct) {
         score = 1
-        _rowVariant = 'success'
+        _rowVariant = 'safe'
       } else {
         score = -1
         _rowVariant = 'danger'
@@ -145,7 +146,7 @@ export default {
     },
     checkAnswers: function () {
       this.showAnswers = true
-      this.$store.dispatch('updateRecord', { mode: 'trans', answerData: this.answerData, settingsData: this.settings })
+      this.$store.dispatch('updateRecord', { mode: 'transCh', answerData: this.answerData, settingsData: this.settings })
     },
     playAudio: function (arg) {
       document.getElementById('audio').src = arg
@@ -191,13 +192,16 @@ export default {
         this.playAudio(sound)
       }
     }
+  },
+  created () {
+    if (!this.$store.getters.isAuthenticated) {
+      this.$router.push('login')
+    }
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.active {
-  background: rgb(95, 216, 95);
-}
+
 </style>

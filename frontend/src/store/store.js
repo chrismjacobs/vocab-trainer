@@ -20,6 +20,7 @@ const state = {
   userRecord: parseLocal(localStorage.userRecord) || {},
   settings: parseLocal(localStorage.settings) || {},
   currentRecord: parseLocal(localStorage.currentRecord) || {},
+  updateStatus: true,
   jwt: localStorage.token || '',
   master: dictionaries[parseLocal(localStorage.userProfile).vocab],
   testActive: false,
@@ -77,7 +78,7 @@ const actions = {
     console.log('logout...')
     context.commit('destroyToken')
   },
-  checkLogin (context) {
+  checkLogin () {
     console.log('check login...')
     return isValidJwt(state.jwt)
   },
@@ -88,21 +89,8 @@ const actions = {
     context.commit('setSocket')
   },
   saveData (context) {
-    if (state.settings === {}) {
-      console.log('No new Settings')
-      return false
-    } else {
-      return updateRecAPI({userRecord: state.userRecord, jwt: state.jwt, settings: state.settings})
-        .then(function (response) {
-          context.commit('resetSettings')
-          console.log('RECORD UPDATED', response, context)
-        })
-        .catch(error => {
-          // log and signal to app
-          alert('An error has occured', error)
-          console.log('Error Authenticating: ', error)
-        })
-    }
+    console.log('save data...')
+    context.commit('sendRecords')
   }
 }
 
@@ -132,9 +120,20 @@ const mutations = {
     console.log('setSocket')
     state.socket = openSocket()
   },
-  resetSettings (state) {
-    state.settings = {}
-    localStorage.settings = JSON.stringify({})
+  sendRecords (state) {
+    updateRecAPI({userRecord: state.userRecord, jwt: state.jwt, settings: state.settings})
+      .then(function (response) {
+        state.settings = {}
+        localStorage.settings = JSON.stringify({})
+        console.log('RECORDS UPDATED', response)
+      })
+      .catch(error => {
+        // log and signal to app
+        if (state.jwt !== '') {
+          alert('A recording error has occured', error)
+        }
+        console.log('Error Authenticating: ', error)
+      })
   },
   setNewRecord (state, payload) {
     console.log('setNewEC payload = ', payload)
@@ -167,11 +166,12 @@ const mutations = {
     } else {
       state.settings[JSON.stringify(payload.settingsData)] += 1
     }
-    console.log('SETTINGS', state.settings)
 
     localStorage.setItem('settings', JSON.stringify(state.settings))
-    localStorage.setItem('userRecords', JSON.stringify(state.userRecords))
+    localStorage.setItem('userRecord', JSON.stringify(state.userRecord))
     localStorage.setItem('currentRecord', JSON.stringify(state.currentRecord))
+    // data is waiting to be updated
+    state.updateStatus = false
   },
   destroyToken (state) {
     console.log('destroyToken')
@@ -235,15 +235,15 @@ const getters = {
       let variant = null
       let total = transScore + spellScore
       if (total >= 2) {
-        variant = 'success'
+        variant = 'safe'
       } else if (total === 1) {
-        variant = 'primary'
+        variant = 'prime'
       } else if (total === 0) {
         variant = null
       } else if (total === -1) {
-        variant = 'warning'
+        variant = 'warn'
       } else {
-        variant = 'danger'
+        variant = 'alert'
       }
 
       let s3
