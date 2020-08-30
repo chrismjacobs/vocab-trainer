@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <b-navbar toggleable sticky>
-      <b-navbar-brand href="#">Vocab Trainer</b-navbar-brand>
+      <b-navbar-brand href="#"><span class="text-cream"> Vocab Trainer </span> </b-navbar-brand>
 
       <b-navbar-toggle v-if="isAuthenticated" target="navbar-toggle-collapse" class="d-block d-lg-none">
         <b-avatar :src="s3 + userProfile.userID + '.jpg'" size="3rem" :text="userProfile.username[0]"></b-avatar>
@@ -19,7 +19,7 @@
 
     <b-row no-gutters>
       <b-col cols="1" class="bg-prime d-none d-lg-block">
-        <div :class="navSide('/Dictionary')" @click="goTo('Dictionary')"><b-icon-card-list></b-icon-card-list> <br> <span class="d-none d-xl-inline"> DICT </span> </div>
+        <div :class="navSide('/Dictionary')" @click="goTo('Dictionary')"><b-icon-card-list></b-icon-card-list> <br> <span class="d-none d-xl-inline"> List </span> </div>
         <div :class="navSide('/TransEngTest')" @click="goTo('TransEngTest')"><b-icon-box-arrow-up-right></b-icon-box-arrow-up-right> <br> <span class="d-none d-xl-inline"> Eng-Ch </span> </div>
         <div :class="navSide('/TransChTest')" @click="goTo('TransChTest')"><b-icon-box-arrow-up-left></b-icon-box-arrow-up-left> <br> <span class="d-none d-xl-inline"> Ch-Eng </span></div>
         <div :class="navSide('/TypeTest')" @click="goTo('TypeTest')"><b-icon icon="grid3x3-gap-fill"></b-icon> <br> <span class="d-none d-xl-inline"> Type </span></div>
@@ -59,7 +59,7 @@
         </b-col>
     </b-row>
     <div v-if="!isActiveCheck" class="btnNav d-lg-none">
-        <div :class="navStyle('/Dictionary')" @click="goTo('Dictionary')"><b-icon-card-list></b-icon-card-list>  <span class="d-none d-md-inline" text=""> &nbsp; DICT </span> </div>
+        <div :class="navStyle('/Dictionary')" @click="goTo('Dictionary')"><b-icon-card-list></b-icon-card-list>  <span class="d-none d-md-inline" text=""> &nbsp; List </span> </div>
         <div :class="navStyle('/TransEngTest')" @click="goTo('TransEngTest')"><b-icon-box-arrow-up-right></b-icon-box-arrow-up-right>  <span class="d-none d-md-inline"> &nbsp; Eng-Ch </span> </div>
         <div :class="navStyle('/TransChTest')" @click="goTo('TransChTest')"><b-icon-box-arrow-up-left></b-icon-box-arrow-up-left>  <span class="d-none d-md-inline"> &nbsp; Ch-Eng </span></div>
         <div :class="navStyle('/TypeTest')" @click="goTo('TypeTest')"><b-icon icon="grid3x3-gap-fill"></b-icon> <span class="d-none d-md-inline"> &nbsp; Type </span></div>
@@ -209,10 +209,8 @@ export default {
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200&display=swap');
 @import "assets/scss/custom.scss";
-@import "../node_modules/bootstrap/scss/bootstrap.scss";
-@import "../node_modules/bootstrap-vue/dist/bootstrap-vue.css";
 
-body {
+.body {
   font-family: 'Inconsolata', !important;
 }
 
@@ -220,18 +218,6 @@ body {
   background-color: theme-color("prime");
   color: theme-color("cream");
   border-bottom: 4px solid theme-color("warn");
-}
-
-.navbar .navbar-brand {
-  color: theme-color("cream")
-}
-
-.navbar .nav-item {
-  color: theme-color("cream")
-}
-
-.navbar .navbar-toggler {
-  color: #ffcb98
 }
 
 .navbar .navbar-toggler:focus {
@@ -287,7 +273,7 @@ body {
 .select option {
     margin: 40px;
     background-color: rgba(0, 0, 0, 0.3);
-    color: #fff;
+    color: red;
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
 }
 
@@ -306,5 +292,8 @@ body {
 .active2 {
   background: theme-color('grape-light');
 }
+
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import "../node_modules/bootstrap-vue/dist/bootstrap-vue.css";
 
 </style>

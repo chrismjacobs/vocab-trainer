@@ -1,10 +1,12 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200&display=swap');
 
 $body-bg: #ebe8c9 !important;
 $body-color: #1e3747;
 
-@import "../node_modules/bootstrap/scss/bootstrap";
+// Bootstrap and its default variables
+@import '../node_modules/bootstrap/scss/bootstrap';
+// BootstrapVue and its default variables
+@import '../node_modules/bootstrap-vue/src/index.scss';
 
 $theme-colors: (
   "prime": #205372,

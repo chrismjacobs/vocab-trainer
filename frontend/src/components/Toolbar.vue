@@ -262,16 +262,16 @@ export default {
         this.amendedList = vocabList
       } else if (this.sort === 'srtDiff') {
         for (let item in vocabList) {
-          if (this.selected === 0 && vocabList[item].transScore === 0) {
+          if (this.selected === 0 && vocabList[item].totalScore === 0) {
             this.amendedList.push(vocabList[item])
           }
-          if (this.selected === 0 && vocabList[item].transScore === null) {
+          if (this.selected === 0 && vocabList[item].totalScore === null) {
             this.amendedList.push(vocabList[item])
           }
-          if (this.selected === -1 && vocabList[item].transScore <= -1) {
+          if (this.selected === -1 && vocabList[item].totalScore <= -1) {
             this.amendedList.push(vocabList[item])
           }
-          if (this.selected === 1 && vocabList[item].transScore >= 1) {
+          if (this.selected === 1 && vocabList[item].totalScore >= 1) {
             this.amendedList.push(vocabList[item])
           }
         }

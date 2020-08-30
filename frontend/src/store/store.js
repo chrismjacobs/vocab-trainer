@@ -209,16 +209,28 @@ const getters = {
         chineseExt = dict[vocab].defch1
       }
 
-      let transScore = 0
-      if (!state.userRecord.trans) {
+      let transEngScore = 0
+      if (!state.userRecord.transEng) {
         // pass
-      } else if (state.userRecord.trans[vocab]) {
+      } else if (state.userRecord.transEng[vocab]) {
         // console.log('trans', vocab)
-        transScore = state.userRecord.trans[vocab]
-        if (transScore > 2) {
-          transScore = 2
-        } else if (transScore < -2) {
-          transScore = -2
+        transEngScore = state.userRecord.transEng[vocab]
+        if (transEngScore > 2) {
+          transEngScore = 2
+        } else if (transEngScore < -2) {
+          transEngScore = -2
+        }
+      }
+      let transChScore = 0
+      if (!state.userRecord.transCh) {
+        // pass
+      } else if (state.userRecord.transCh[vocab]) {
+        // console.log('trans', vocab)
+        transChScore = state.userRecord.transCh[vocab]
+        if (transChScore > 2) {
+          transChScore = 2
+        } else if (transChScore < -2) {
+          transChScore = -2
         }
       }
       let spellScore = 0
@@ -233,7 +245,7 @@ const getters = {
         }
       }
       let variant = null
-      let total = transScore + spellScore
+      let total = transEngScore + spellScore + transChScore
       if (total >= 2) {
         variant = 'safe'
       } else if (total === 1) {
@@ -262,7 +274,8 @@ const getters = {
         Gr: dict[vocab].gl,
         mp3en: s3 + 'en/' + vocab + '.mp3',
         mp3ch: s3 + 'ch/' + vocab + '.mp3',
-        transScore: transScore,
+        transEngScore: transEngScore,
+        transChScore: transChScore,
         spellScore: spellScore,
         totalScore: total,
         _rowVariant: variant
