@@ -91,7 +91,7 @@ export default {
       pageHead: 'Typing Test',
       toolbarShow: true,
       testType: 'TypeTest',
-      title: 'Typing',
+      title: 'Typing Test',
       time: 60000,
       clock: null,
       mistakes: 0,

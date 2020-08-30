@@ -67,7 +67,7 @@ export default {
       max: 100,
       value: 20,
       testType: 'TransCh',
-      title: 'Chinese',
+      title: 'Chinese -> English',
       buttonRotate: null,
       hover: false,
       hoverAns: false,
