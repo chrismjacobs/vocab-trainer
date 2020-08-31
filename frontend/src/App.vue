@@ -1,24 +1,29 @@
 <template>
   <div id="app">
-    <b-navbar toggleable sticky>
+    <b-navbar  v-if="!isActiveCheck" toggleable sticky>
       <b-navbar-brand href="#"><span class="text-cream"> Vocab Trainer </span> </b-navbar-brand>
 
-      <b-navbar-toggle v-if="isAuthenticated" target="navbar-toggle-collapse" class="d-block d-lg-none">
-        <b-avatar :src="s3 + userProfile.userID + '.jpg'" size="3rem" :text="userProfile.username[0]"></b-avatar>
+      <b-navbar-toggle  target="navbar-toggle-collapse" class="d-block d-lg-none">
+        <b-avatar v-if="isAuthenticated" :src="s3 + $store.state.userProfile.userID + '.jpg'" size="3rem" :text="$store.state.userProfile.username[0]"></b-avatar>
+       <b-avatar v-else size="3rem" text="VC"></b-avatar>
       </b-navbar-toggle>
 
       <b-collapse id="navbar-toggle-collapse" is-nav>
         <b-navbar-nav class="ml-auto">
-           <div v-if="!isActiveCheck" class="d-lg-none">
-                <div :class="navStyle('/Dictionary')" @click="goTo('Logout')"><b-icon-power></b-icon-power>  <span text=""> &nbsp; Logout </span> </div>
-                <div :class="navStyle('/TransEngTest')" @click="goTo('Account')"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp; Account </span> </div>
+           <div v-if="isAuthenticated">
+                <div class="sideBtn" @click="logout()"><b-icon-power></b-icon-power>  <span text=""> Logout </span> </div>
+                <div class="sideBtn" @click="goTo('Account')"><b-icon-person-fill></b-icon-person-fill>  <span> Account </span> </div>
+            </div>
+           <div v-else>
+                <div class="sideBtn" @click="goTo('Login')"><b-icon-power></b-icon-power>  <span text=""> Login </span> </div>
+                <div class="sideBtn" @click="goTo('Register')"><b-icon-person-fill></b-icon-person-fill> <span> Register </span> </div>
             </div>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
 
     <b-row no-gutters>
-      <b-col cols="1" class="bg-prime d-none d-lg-block">
+      <b-col v-if="isAuthenticated" cols="1" class="bg-prime d-none d-lg-block">
         <div :class="navSide('/Dictionary')" @click="goTo('Dictionary')"><b-icon-card-list></b-icon-card-list> <br> <span class="d-none d-xl-inline"> List </span> </div>
         <div :class="navSide('/TransEngTest')" @click="goTo('TransEngTest')"><b-icon-box-arrow-up-right></b-icon-box-arrow-up-right> <br> <span class="d-none d-xl-inline"> Eng-Ch </span> </div>
         <div :class="navSide('/TransChTest')" @click="goTo('TransChTest')"><b-icon-box-arrow-up-left></b-icon-box-arrow-up-left> <br> <span class="d-none d-xl-inline"> Ch-Eng </span></div>
@@ -34,31 +39,33 @@
 
       <b-col cols="2" class="d-none d-lg-block">
           <div class="p-2 bg-warn" style="height:100vh">
-              <div align="center" v-if="isAuthenticated">
+              <div align="center">
                     <div class="m-2">
-                    <b-avatar :src="s3 + userProfile.userID + '.jpg'" size="4rem" :text="userProfile.username[0]"></b-avatar>
+                      <b-avatar v-if="isAuthenticated" :src="s3 + $store.state.userProfile.userID + '.jpg'" size="4rem" :text="$store.state.userProfile.username[0]"></b-avatar>
+                      <b-avatar v-else size="4rem" text="VC"></b-avatar>
                     </div>
-                  <h4 class="mb-2">Profile Dash</h4>
-                  <h6> {{ $store.state.userProfile.username}}</h6>
-                  <h6> #{{ $store.state.userProfile.userID}}</h6>
-                  <h6> This Session:</h6>
-                  <div>
-                    <b-table striped hover small borderless :items="currentRecItems"></b-table>
-                  </div>
-                  <div class="sideBtn" @click="goTo('Account')"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp; Account </span> </div>
-                  <div class="sideBtn" @click="logout()"><b-icon-power></b-icon-power>  <span text=""> &nbsp; Logout </span> </div>
-
-              </div>
-              <div v-else align="center" >
-                <h1>Welcome :) </h1>
-                  <b-button @click="goTo('Login')"> Login </b-button>
-                  <br>
-                  <b-button @click="goTo('Register')"> Register </b-button>
+                    <div v-if="isAuthenticated" >
+                      <h4 class="mb-2">Profile Dash</h4>
+                      <h6> {{ $store.state.userProfile.username}}</h6>
+                      <h6> #{{ $store.state.userProfile.userID}}</h6>
+                      <h6> This Session:</h6>
+                      <div>
+                        <b-table striped hover small borderless :items="currentRecItems"></b-table>
+                      </div>
+                    </div>
+                    <div v-if="isAuthenticated">
+                      <div class="sideBtn" @click="goTo('Account')"><b-icon-person-fill></b-icon-person-fill>  <span> Account </span> </div>
+                      <div class="sideBtn" @click="logout()"><b-icon-power></b-icon-power>  <span text=""> Logout </span> </div>
+                    </div>
+                    <div v-else>
+                       <div class="sideBtn" @click="goTo('Login')"><b-icon-power></b-icon-power>  <span text=""> Login </span> </div>
+                        <div class="sideBtn" @click="goTo('Register')"><b-icon-person-fill></b-icon-person-fill> <span> Register </span> </div>
+                    </div>
               </div>
           </div>
         </b-col>
     </b-row>
-    <div v-if="!isActiveCheck" class="btnNav d-lg-none">
+    <div v-if="!isActiveCheck && isAuthenticated" class="btnNav d-lg-none">
         <div :class="navStyle('/Dictionary')" @click="goTo('Dictionary')"><b-icon-card-list></b-icon-card-list>  <span class="d-none d-md-inline" text=""> &nbsp; List </span> </div>
         <div :class="navStyle('/TransEngTest')" @click="goTo('TransEngTest')"><b-icon-box-arrow-up-right></b-icon-box-arrow-up-right>  <span class="d-none d-md-inline"> &nbsp; Eng-Ch </span> </div>
         <div :class="navStyle('/TransChTest')" @click="goTo('TransChTest')"><b-icon-box-arrow-up-left></b-icon-box-arrow-up-left>  <span class="d-none d-md-inline"> &nbsp; Ch-Eng </span></div>
@@ -155,9 +162,6 @@ export default {
     logout: function (arg) {
       this.$store.dispatch('logout')
     },
-    saveData: function (arg) {
-      this.$store.dispatch('saveData')
-    },
     currentCount: function () {
       let count = 0
       for (let key in this.$store.state.currentActivity) {
@@ -184,16 +188,12 @@ export default {
   updated () {
     // check the login status everytime the page is change
     this.$store.dispatch('checkLogin')
+    this.userProfile = this.$store.state.userProfile
   },
   created () {
-    if (this.$store.state.userProfile.username !== 'undefined') {
-      this.userProfile = this.$store.state.userProfile
-    }
     window.onbeforeunload = function () {
-      if (this.isAuthenticated) {
-        this.saveData()
-      } else {
-        // console.log('Not logged in: created')
+      if (this.isAuthenticated && this.$store.state.updateStatus === false) {
+        this.$store.dispatch('saveData')
       }
     }
   },
@@ -293,7 +293,20 @@ body {
   background: theme-color('grape-light');
 }
 
-@import "../node_modules/bootstrap/scss/bootstrap.scss";
-@import "../node_modules/bootstrap-vue/dist/bootstrap-vue.css";
+.buttonDiv {
+    display:inline-block;
+    color: theme-color('prime');
+    border:0px solid #CCC;
+    border-radius: 5px;
+    box-shadow: 0 0 5px -1px rgba(0,0,0,0.2);
+    cursor:pointer;
+    vertical-align:middle;
+    padding: 5px;
+    text-align: center;
+}
+.buttonDiv:active {
+    color: theme-color('cream');
+    box-shadow: 0 0 5px -1px rgba(0,0,0,0.6);
+}
 
 </style>

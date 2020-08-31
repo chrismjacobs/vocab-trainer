@@ -6,7 +6,11 @@
     <ToolbarMatch :toolbarShow='showTest' :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :socket="socket" :player="player" :waiting="waiting" :showAnswers='showAnswers' :testType="testType"></ToolbarMatch>
 
       <b-card class="mt-2" v-if="showTest">
-         <b-progress :value="filter" :max="testItems.length" show-progress animated></b-progress>
+         <b-progress :max="testItems.length"  class="mt-2" show-value>
+            <b-progress-bar :value="progressValues.p1" variant="p1"></b-progress-bar>
+            <b-progress-bar :value="progressValues.warn" variant="warn-light"></b-progress-bar>
+            <b-progress-bar :value="progressValues.p2" variant="p2"></b-progress-bar>
+          </b-progress>
       </b-card>
 
     <div>
@@ -85,7 +89,12 @@ export default {
       fields: ['English', 'Chinese'],
       clock: null,
       time: 0,
-      socket: this.$store.state.socket
+      socket: this.$store.state.socket,
+      progressValues: {
+        p1: 0,
+        p2: 0,
+        warn: 0
+      }
     }
   },
   methods: {
@@ -94,11 +103,8 @@ export default {
       let correct = chinese
       let btnID = english + choice
 
-      if (choice === correct) {
-        this.socket.emit('answer', {room: this.p1, name: english, chinese: chinese, btnID: btnID, player: this.player, state: true})
-      } else {
-        this.socket.emit('answer', {room: this.p1, name: english, chinese: chinese, btnID: btnID, player: this.player, state: false})
-      }
+      let result = (choice === correct)
+      this.socket.emit('answer', {room: this.p1, name: english, chinese: chinese, btnID: btnID, player: this.player, state: result})
     },
     filterToggle: function () {
       if (this.filter + 1 < this.testItems.length) {
@@ -159,15 +165,22 @@ export default {
     },
     enterResult: function (english, chinese, player, state) {
       console.log(state)
+
       let _rowVariant = 'warn'
+
       if (state) {
         _rowVariant = player
       }
+
       let entry = {
         English: english,
         Chinese: chinese,
         _rowVariant: _rowVariant
       }
+
+      this.progressValues[rowVariant] += 1
+      console.log(_rowVariant, this.progressValues)
+
       this.answerData.push(entry)
     },
     checkAnswers: function () {

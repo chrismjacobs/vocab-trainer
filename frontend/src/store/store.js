@@ -40,7 +40,7 @@ const actions = {
       })
       .catch(error => {
         // log and signal to app
-        alert('An error has occured', error)
+        alert('An error has occured - please check your email and password', error)
         console.log('Error Authenticating: ', error)
       })
   },
@@ -88,6 +88,9 @@ const actions = {
   openSocket (context) {
     context.commit('setSocket')
   },
+  closeSocket (context) {
+    context.commit('closeSocket')
+  },
   saveData (context) {
     console.log('save data...')
     context.commit('sendRecords')
@@ -119,6 +122,23 @@ const mutations = {
   setSocket (state) {
     console.log('setSocket')
     state.socket = openSocket()
+  },
+  closeSocket (state) {
+    console.log('closeSocket')
+    if (state.socket) {
+      state.socket.close()
+      state.socket = null
+    }
+  },
+  destroyToken (state) {
+    console.log('destroyToken')
+    state.jwt = ''
+    localStorage.clear()
+  },
+  setTestActive (state) {
+    state.testActive = !state.testActive
+    console.log('testActive', state.testActive)
+    return true
   },
   sendRecords (state) {
     updateRecAPI({userRecord: state.userRecord, jwt: state.jwt, settings: state.settings})
@@ -172,16 +192,6 @@ const mutations = {
     localStorage.setItem('currentRecord', JSON.stringify(state.currentRecord))
     // data is waiting to be updated
     state.updateStatus = false
-  },
-  destroyToken (state) {
-    console.log('destroyToken')
-    state.jwt = ''
-    localStorage.clear()
-  },
-  setTestActive (state) {
-    state.testActive = !state.testActive
-    console.log('testActive', state.testActive)
-    return true
   }
 }
 

@@ -56,6 +56,8 @@ def authenticate(**kwargs): # cls represents iteself in this case User
         print('NONE')
         return None
 
+    email = (email.lower()).strip()
+
     print('CHECK USER')
     user = User.query.filter_by(email=email).first()
     print(user)

@@ -122,6 +122,7 @@ export default {
     }
     this.userID = this.$store.state.userProfile.userID
     this.username = this.$store.state.userProfile.username
+    console.log('opening new SOCKET')
     this.$store.dispatch('openSocket')
     this.socket = this.$store.state.socket
   },

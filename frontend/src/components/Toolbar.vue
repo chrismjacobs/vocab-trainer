@@ -10,15 +10,15 @@
       <div class="bg-prime p-2 mt-0">
         <b-row>
           <b-col align="center">
-            <b-button variant="info" style="width: 50%" class="md-3" @click="makeTest(), showToolbar=false">Start</b-button>
+            <div class="buttonDiv bg-info" style="width: 45%" @click="makeTest(), showToolbar=false">Start</div>
           </b-col>
         </b-row>
-        <b-row class="mt-2">
-          <b-col v-if="showAnswers">
-            <b-button  variant="warn" block class="md-3" @click="retryTest()">Retry</b-button>
+        <b-row class="mt-2" v-if="showAnswers && !showToolbar">
+          <b-col>
+            <div class="buttonDiv bg-warn" style="width: 100%" @click="retryTest()">Retry</div>
           </b-col>
           <b-col>
-            <b-button v-if="showAnswers" variant="grey" block class="md-3" @click="showToolbar=true">Settings</b-button>
+            <div class="buttonDiv bg-grey" style="width: 100%" @click="showToolbar=true">Settings</div>
           </b-col>
         </b-row>
       </div>
@@ -70,7 +70,7 @@
               v-model="display"
               :options="displayOptions"
               buttons
-              button-variant="outline-prime"
+              button-variant="outline-second"
               stacked
             ></b-form-radio-group>
             </div>
@@ -84,7 +84,7 @@
               v-model="feedback"
               :options="feedbackOptions"
               buttons
-              button-variant="outline-grape"
+              button-variant="outline-grape-light"
               stacked
             ></b-form-radio-group>
             </div>
@@ -127,7 +127,7 @@
           <b-col class="mt-4" v-if="testType === 'TypeTest'">
             <div align="center">
             <div class="headDiv"> Spelling </div>
-            <b-dropdown :text="spellingText">
+            <b-dropdown :text="spellingText" variant="outline-dark">
               <div>
                   <b-dropdown-item v-for="(btn, index) in optionsO" :key="index" @click="spelling=btn.value; spellingText=btn.text " > {{ btn.text }} </b-dropdown-item>
               </div>
@@ -138,7 +138,7 @@
           <b-col class="mt-4" v-if="testType === 'TypeTest'">
             <div align="center">
               <div class="headDiv"> Sort </div>
-            <b-dropdown :text="specialText" variant="warn">
+            <b-dropdown :text="specialText" variant="outline-info">
               <div>
                   <b-dropdown-item v-for="(btn, index) in optionsS" :key="index" @click="special=btn.value; specialText=btn.text"> {{ btn.text }} </b-dropdown-item>
               </div>

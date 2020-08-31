@@ -128,19 +128,21 @@ def register():
     data = request.get_json()['userData']
     pprint(data)
 
-    name = User.query.filter_by(username=data['username']).first()
-    email = User.query.filter_by(email=data['email']).first()
+    email = (data['email'].lower()).strip()
 
-    if name:
+    checkName = User.query.filter_by(username=data['username']).first()
+    checkEmail = User.query.filter_by(email=email).first()
+
+    if checkName:
         print('NAME ERROR')
         return jsonify({'msg' : 'This name has been used already.', 'err': 1})
-    if email:
+    if checkEmail:
         print('EMAIL ERROR')
         return jsonify({'msg' : 'This email has been used already.', 'err': 1})
 
 
     hashed_password = bcrypt.generate_password_hash(data['password']).decode('utf-8')
-    newUser = User(username=data['username'], email=data['email'], password=hashed_password)
+    newUser = User(username=data['username'], email=email, password=hashed_password)
     db.session.add(newUser)
     db.session.commit()
 
@@ -152,8 +154,6 @@ def register():
 
     s3_resource.Bucket(bucket_name).put_object(Key=file_name1, Body=str(jstring))
     s3_resource.Bucket(bucket_name).put_object(Key=file_name2, Body=str(jstring))
-
-
 
     response = {
         'msg' : 'Hi ' + data['username'] + ', you have been registered. Please log in to continue'
