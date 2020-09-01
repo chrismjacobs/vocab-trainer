@@ -114,7 +114,8 @@ export default {
       this.clock = setInterval(function () {
         if (_this.time === 0) {
           _this.disableAll()
-          _this.time -= 100
+          _this.clock = null
+          _this.time = null
         } else {
           _this.time -= 100
         }
@@ -168,8 +169,8 @@ export default {
         _this.answered = 0
         if (_this.answerData.length === _this.filter) {
           _this.enterResult(english, chinese, null, false)
-          _this.time = 5000
           _this.filterToggle()
+          _this.setCountdown()
         } else {
           console.log('duplicate answer', 'timeout')
         }
@@ -236,6 +237,7 @@ export default {
     filterToggle: function () {
       if (this.filter + 1 < this.testItems.length) {
         console.log(this.filter, this.testItems.length)
+        this.time = 5000
         this.filter += 1
       } else {
         console.log('filterMax')
