@@ -159,8 +159,10 @@ export default {
       let buttons = document.getElementsByName(english)
       console.log(buttons)
       for (let b in buttons) {
-        console.log('buttons', b, buttons[b])
-        buttons[b].disabled = true
+        console.log('buttons', b, buttons[b], this.time)
+        if (b != 'length') {
+          buttons[b].disabled = true
+        }
       }
       setTimeout(function () {
         _this.answered = 0
