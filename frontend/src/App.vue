@@ -287,8 +287,8 @@ body {
     padding: 20px;
 }
 
-.active {
-  background: theme-color('safe') !important;
+.active1 {
+  background: theme-color('third') !important;
 }
 
 .active2 {

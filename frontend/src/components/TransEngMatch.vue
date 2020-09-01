@@ -22,7 +22,7 @@
 
             <br>
 
-            <b-progress v-if="time" :value="time" max="5000" animated variant="alert"></b-progress>
+            <b-progress :value="time" max="5000" animated variant="alert"></b-progress>
           </div>
       </div>
 
@@ -98,7 +98,7 @@ export default {
       testItems: [],
       settings: {},
       fields: ['English', 'Chinese'],
-      time: null,
+      time: 0,
       clock: null,
       progressValues: {
         p1: 0,
@@ -161,7 +161,7 @@ export default {
       console.log(buttons)
       for (let b in buttons) {
         console.log('buttons', b, buttons[b], this.time)
-        if (b != 'length') {
+        if (b !== 'length') {
           buttons[b].disabled = true
         }
       }
@@ -202,9 +202,9 @@ export default {
       this.answered += 1
 
       if (state || this.answered > 1) {
+        let _this = this
         clearInterval(_this.clock)
         _this.time = 5000
-        let _this = this
         setTimeout(function () {
           _this.answered = 0
           if (_this.answerData.length === _this.filter) {
@@ -240,7 +240,6 @@ export default {
     filterToggle: function () {
       if (this.filter + 1 < this.testItems.length) {
         console.log(this.filter, this.testItems.length)
-        this.time = 5000
         this.filter += 1
       } else {
         console.log('filterMax')
