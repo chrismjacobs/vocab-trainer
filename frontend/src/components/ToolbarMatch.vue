@@ -7,16 +7,10 @@
               {{ testType }}
             </h2>
       </div>
-      <div class="mt-2 bg-third p-2">
-             <b-avatar :src="s3 + p1.toString() + '.jpg'" :text="p1name[0]" class="mr-3" variant='p1'></b-avatar>
-              <span class="mr-auto">{{ p1name }}</span>
-             <b-avatar :src="s3 + p2.toString() + '.jpg'" :text="p2name[0]" class="mr-3" variant='p2'></b-avatar>
-              <span class="mr-auto">{{ p2name }}</span>
-      </div>
       <div class="bg-prime p-2 mt-0">
         <b-row>
           <b-col>
-            <b-button :variant="player" block class="md-3" @click="playerReady(), waiting=1">Ready</b-button>
+            <b-button :variant="player" block class="md-3" @click="playerReady(), emitWaiting(1)">Ready</b-button>
           </b-col>
         </b-row>
       </div>
@@ -29,25 +23,28 @@
         <b-icon icon="caret-right-square-fill" animation="throb" font-scale="6" :variant="player"></b-icon>
       </b-card>
 
-      <div class="bg-grey p-2 pb-4" v-if="waiting === 0 && player==='p1'">
+      <div class="bg-grey p-2 pb-4" v-if="waiting === 0">
         <b-row cols="2" cols-md="4" cols-lg="6" >
           <b-col class="mt-3">
-              <h6 align="center">Words</h6>
-              <!--<div align="center" class="d-block d-lg-none">
-                <b-form-spinbutton v-model="words" min="6" max="30" step=2 ></b-form-spinbutton>
-              </div> -->
               <div align="center">
-                <b-form-spinbutton v-model="words" min="6" max="30" step=2 vertical style="height:125px"></b-form-spinbutton>
+                <div class="headDiv">
+                  Words
+                </div>
+                <div class="spinDiv">
+                  <b-form-spinbutton v-if="player === 'p1'" v-model="words" min="6" max="30" step=2 vertical style="height:125px"></b-form-spinbutton>
+                  <b-form-spinbutton v-else disabled v-model="words" min="6" max="30" step=2 vertical style="height:125px"></b-form-spinbutton>
+                </div>
               </div>
             </b-col>
-
           <b-col class="mt-3" v-if="testType === 'TransEng' || testType === 'TransCh'">
-              <h6 align="center">Choices</h6>
-              <!-- <div align="center" class="d-block d-lg-none">
-                <b-form-spinbutton v-model="choices" min="2" max="6" ></b-form-spinbutton>
-              </div>-->
               <div align="center">
-                <b-form-spinbutton v-model="choices" min="2" max="6" vertical style="height:125px"></b-form-spinbutton>
+                <div class="headDiv">
+                  Choices
+                </div>
+                <div class="spinDiv">
+                <b-form-spinbutton v-if="player === 'p1'" v-model="choices" min="2" max="6" vertical style="height:125px"></b-form-spinbutton>
+                <b-form-spinbutton v-else disabled v-model="choices" min="2" max="6" vertical style="height:125px"></b-form-spinbutton>
+                </div>
               </div>
           </b-col>
           <!--
@@ -117,7 +114,6 @@ export default {
   },
   data () {
     return {
-      s3: 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/profiles/',
       wordsReset: '6',
       words: 6,
       choices: 4,
@@ -332,18 +328,40 @@ export default {
       } else {
         this.socket.emit('ready', {room: this.p1, player: this.player, testItems: this.testItemsRoot})
       }
+    },
+    settingsSend: function (arg) {
+      console.log('settingsSend')
+      let toolbarSettings = {
+        type: this.testType,
+        sound: this.sound,
+        label: this.label,
+        words: this.words,
+        choices: this.choices,
+        spelling: this.spelling,
+        display: this.display,
+        feedback: this.feedback
+      }
+      this.socket.emit('settingsData', {room: this.p1, settingsData: toolbarSettings})
+    },
+    emitWaiting: function (arg) {
+      this.$emit('waitUpdate', {
+        wait: arg
+      })
     }
   },
   watch: {
     words: function () {
-      if (this.words === 0) {
-        alert('There are no words that meet your selection')
-        this.words = parseInt(this.wordsReset)
+      if (this.player === 'p1') {
+        this.settingsSend()
+      }
+    },
+    choices: function () {
+      if (this.player === 'p1') {
+        this.settingsSend()
       }
     }
   },
   created () {
-    this.alphabet()
     this.tableItems = this.$store.getters.makeList
     this.stringItems = JSON.stringify(this.tableItems)
 
@@ -364,6 +382,17 @@ export default {
         { text: 'None', value: 'sdOff' }
       ]
     }
+  },
+  mounted () {
+    let _this = this
+    _this.socket.on('newSettings', function (data) {
+      console.log('settingsReceived', data)
+      if (_this.player === 'p2') {
+        for (let set in data.settingsData) {
+          _this[set] = data.settingsData[set]
+        }
+      }
+    })
   }
 }
 </script>

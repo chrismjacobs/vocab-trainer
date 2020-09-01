@@ -33,7 +33,6 @@
                 <div class="spinDiv">
                   <b-form-spinbutton v-model="words" min="6" max="30" step=2 vertical style="height:125px"></b-form-spinbutton>
                 </div>
-
               </div>
             </b-col>
 

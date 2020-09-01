@@ -22,7 +22,6 @@ def getUsers ():
     return userList
 
 
-
 @socketio.on('online')
 def online(data):
     """User joins a room"""
@@ -30,21 +29,21 @@ def online(data):
     userProfile = data['userProfile']
     user = User.query.get(userProfile['userID'])
     check = Connected.query.filter_by(connected=user).first()
-    print(check, user)
+    print('checkUser', check, user)
 
     if check:
         pass
     else:
-        player = Connected(username=user.username, connected=user)
+        player = Connected(username=user.username, connected=user, extraStr=request.sid)
         db.session.add(player)
         db.session.commit()
 
     join_room(user.id)
 
-    newRoom = Room(room=user.id)
-    db.session.add(newRoom)
-    newRoom.players.append(user)
-    db.session.commit()
+    ##newRoom = Room(room=user.id)
+    ##db.session.add(newRoom)
+    ##newRoom.players.append(user)
+    ##db.session.commit()
 
     emit('onlineUsers', {'userList': getUsers()}, broadcast=True)
 
@@ -53,19 +52,30 @@ def online(data):
 def on_disconnected(data):
     userProfile = data['userProfile']
     user = User.query.get(userProfile['userID'])
+
+    print('user', user)
     check = Connected.query.filter_by(connected=user).first()
-    room = Room.query.filter_by(room=user.id).first()
+    print('check', check)
 
     if check:
         Connected.query.filter_by(connected=user).delete()
         db.session.commit()
 
-    print(room)
-    if room:
-        Room.query.filter_by(room=user.id).delete()
+    """if room:
+        User.rooms = None
         db.session.commit()
+        Room.query.filter_by(room=str(user.id)).delete()
+        db.session.commit()"""
 
-    leave_room(user.id)
+    sid = request.sid
+    print(sid)
+    roomList = rooms(sid=sid)
+    print(roomList)
+
+    for r in roomList:
+        leave_room(r)
+        emit('leftRoom', {'sender': userProfile['username'], 'userID': userProfile['userID']}, r)
+
     emit('onlineUsers', {'userList' : getUsers()}, broadcast=True)
     emit('disconnect', {'userID': user.id}, user.id)
 
@@ -105,11 +115,11 @@ def on_accept(data):
     leave_room(p2)
     join_room(p1)
 
-    newRoom = Room(room=p1)
-    db.session.add(newRoom)
-    newRoom.players.append(User.query.get(p2))
-    db.session.commit()
-    print(newRoom.players)
+    #newRoom = Room(room=p1)
+    #db.session.add(newRoom)
+    #newRoom.players.append(User.query.get(p2))
+    #db.session.commit()
+    #print(newRoom.players)
 
     emit('start', {'p1': p1, 'p1name': p1name, 'p2': p2, 'p2name': p2name, 'mode': mode}, p1)
 
@@ -136,12 +146,23 @@ def on_answer(data):
 
     emit('answer', {'player': player, 'name': name, 'chinese': chinese, 'btnID': btnID, 'state': state}, room)
 
-    print('wrong', 'room', room, 'player', player)
+    print('answer:', 'room', room, 'player', player)
+
+@socketio.on('settingsData')
+def on_settings(data):
+    room = data['room']
+    settingsData =  data['settingsData']
+
+
+    emit('newSettings', {'settingsData': settingsData}, room)
+
+    print('newSettings:', 'room', room, 'settings', settingsData)
 
 
 
 @socketio.on('disconnect')
 def on_disconnect():
+    print(request.sid)
     print('Client Disconnected')
 
 @socketio.on('connect')

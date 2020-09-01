@@ -1,56 +1,60 @@
 <template>
   <div class="TransEng">
+    <audio id="audio" autoplay></audio>
 
-      <audio id="audio" autoplay></audio>
+     <div class="bg-second p-3" v-if="showProgress">
+         <div class="mt-2 bg-third p-2" style="height:100px" align="center">
+           <div style="width:45%;height:70px;display:inline-block;" class="">
+             <b-avatar :src="s3 + p1.toString() + '.jpg'"  size="72px" :badge="p1name" badge-offset="-0.5em" badge-variant="p1"></b-avatar>
+             <b-avatar v-if="ready.includes('p1')" icon="person-check" variant="safe"></b-avatar>
+           </div>
+           <div style="width:45%;height:70px;display:inline-block;" class="">
+             <b-avatar :src="s3 + p2.toString() + '.jpg'" size="72px" :badge="p2name" badge-offset="-0.5em" badge-variant="p2"></b-avatar>
+             <b-avatar v-if="ready.includes('p2')" icon="person-check" variant="safe"></b-avatar>
+           </div>
+         </div>
+         <div>
+            <b-progress :max="testItems.length"  class="mt-2" show-value>
+                <b-progress-bar :value="progressValues.p1" variant="p1"></b-progress-bar>
+                <b-progress-bar :value="progressValues.warn" variant="warn-light"></b-progress-bar>
+                <b-progress-bar :value="progressValues.p2" variant="p2"></b-progress-bar>
+              </b-progress>
+          </div>
+      </div>
 
-    <ToolbarMatch :toolbarShow='showTest' :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :socket="socket" :player="player" :waiting="waiting" :showAnswers='showAnswers' :testType="testType"></ToolbarMatch>
+    <ToolbarMatch :toolbarShow='showTest' :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :socket="socket" :player="player" :waiting="waiting" :showAnswers='showAnswers' :testType="testType" v-on:waitUpdate="waiting=1"></ToolbarMatch>
 
-      <b-card class="mt-2" v-if="showTest">
-         <b-progress :max="testItems.length"  class="mt-2" show-value>
-            <b-progress-bar :value="progressValues.p1" variant="p1"></b-progress-bar>
-            <b-progress-bar :value="progressValues.warn" variant="warn-light"></b-progress-bar>
-            <b-progress-bar :value="progressValues.p2" variant="p2"></b-progress-bar>
-          </b-progress>
-      </b-card>
-
-    <div>
-      <b-card class="mt-2" v-if="showTest">
+      <div v-if="showTest">
        <div v-for="(item, key) in testItems" :key="key">
-        <b-row>
-          <b-col>
-            <b-card @mouseover="hover=true" @mouseleave="hover=false" :class="{ active: hover }" v-if="testItems.indexOf(item) === filter" align="center">
-                <h3>
-                  <span v-if="settings.sound !== 'sdEx' || hover == true"> {{ item.English }} </span>
-                  <span v-if="settings.sound == 'sdEx' || settings.sound == 'sdOn'"> <b-icon-soundwave></b-icon-soundwave></span>
-                </h3>
-            </b-card>
-          </b-col>
-         </b-row>
-        <b-row>
-          <b-col>
-              <b-card v-if="testItems.indexOf(item) === filter">
-                <div v-for="(choice, index) in item.Choices" :key="index">
-                  <b-button :name="item.English" :id="item.English + choice.Chinese" variant="safe" block @click="recordAnswer(item.English, item.Chinese, choice.Chinese)">
-                    {{ choice.Chinese }}
-                  </b-button>
-                    <br>
-                    <br>
-                </div>
-              </b-card>
-          </b-col>
-        </b-row>
+          <div class="bg-third p-3" @mouseover="hover=true" @mouseleave="hover=false" :class="{ active: hover }" v-if="testItems.indexOf(item) === filter" align="center">
+              <h3>
+                <span v-if="settings.sound !== 'sdEx' || hover == true"> {{ item.English }} </span>
+                <span v-if="settings.sound == 'sdEx' || settings.sound == 'sdOn'"> <b-icon-soundwave></b-icon-soundwave></span>
+              </h3>
+          </div>
+
+          <div v-if="testItems.indexOf(item) === filter">
+            <div v-for="(choice, index) in item.Choices" :key="index">
+              <button class="answerBtn bg-warn-light" :name="item.English" :id="item.English + choice.Chinese" block @click="recordAnswer(item.English, item.Chinese, choice.Chinese)">
+                {{ choice.Chinese }}
+              </button>
+                <br>
+                <br>
+            </div>
+          </div>
+
        </div>
-      </b-card>
-    </div>
+      </div>
+
     <div v-if="showAnswers">
-      <b-card class="mt-2">
+      <div class="mt-2">
         <b-table
         striped hover
         :items="answerData"
         :fields="fields"
         >
         </b-table>
-      </b-card>
+      </div>
     </div>
   </div>
 </template>
@@ -69,7 +73,9 @@ export default {
     p1name: String,
     p2: Number,
     p2name: String,
-    player: String
+    player: String,
+    socket: Object,
+    s3: String
   },
   data () {
     return {
@@ -77,11 +83,12 @@ export default {
       pageHead: 'English --> Chinese',
       toolbarShow: true,
       showToolbar: true,
-      hover: false,
       showAnswers: false,
+      showTest: false,
+      showProgress: true,
+      hover: false,
       ready: [],
       answered: [],
-      showTest: false,
       answerData: [],
       filter: null,
       testItems: [],
@@ -89,7 +96,6 @@ export default {
       fields: ['English', 'Chinese'],
       clock: null,
       time: 0,
-      socket: this.$store.state.socket,
       progressValues: {
         p1: 0,
         p2: 0,
@@ -98,35 +104,44 @@ export default {
     }
   },
   methods: {
+    start: function () {
+      this.showAnswers = false
+      this.filter = 0
+      this.answerData = []
+      this.showTest = true
+    },
+    readyCheck: function () {
+      console.log('length', this.ready, this.ready.length)
+      if (this.ready.length === 2) {
+        this.waiting = 2
+        let _this = this
+        setTimeout(function () {
+          _this.start()
+          // go to true
+          _this.$store.dispatch('testActive')
+          _this.waiting = 0
+          _this.ready = []
+        }, 3000)
+      }
+    },
     recordAnswer: function (english, chinese, choice) {
       // console.log(data)
       let correct = chinese
+      // required for disbaling buttons
       let btnID = english + choice
-
+      // show if player was correct of not
       let result = (choice === correct)
+      console.log('RESULT', result)
+
       this.socket.emit('answer', {room: this.p1, name: english, chinese: chinese, btnID: btnID, player: this.player, state: result})
     },
-    filterToggle: function () {
-      if (this.filter + 1 < this.testItems.length) {
-        console.log(this.filter, this.testItems.length)
-        this.filter += 1
-      } else {
-        console.log('filterMax')
-        this.$store.dispatch('testActive')
-        this.filter = null
-        this.showTest = false
-        this.checkAnswers()
-      }
-      this.clock = null
-      this.time = 5000
-    },
     disable: function (name, btnID, player, state, chinese) {
-      let btnClass = 'btn-' + player
+      let btnClass = 'bg-' + player
       let button = document.getElementById(btnID)
       if (state) {
-        button.style.color = 'green'
+        button.classList.add('text-safe')
       } else {
-        button.style.color = 'red'
+        button.classList.add('text-alert')
       }
       button.classList.add(btnClass)
       button.disabled = true
@@ -153,16 +168,6 @@ export default {
         }, 2000)
       }
     },
-    start: function (data) {
-      this.showAnswers = false
-      this.filter = 0
-      this.answerData = []
-      this.showTest = true
-      if (data) {
-        this.testItems = data.test
-        this.settings = JSON.parse(data.settings)
-      }
-    },
     enterResult: function (english, chinese, player, state) {
       console.log(state)
 
@@ -178,30 +183,32 @@ export default {
         _rowVariant: _rowVariant
       }
 
-      this.progressValues[rowVariant] += 1
+      this.progressValues[_rowVariant] += 1
       console.log(_rowVariant, this.progressValues)
 
       this.answerData.push(entry)
     },
+    filterToggle: function () {
+      if (this.filter + 1 < this.testItems.length) {
+        console.log(this.filter, this.testItems.length)
+        this.filter += 1
+      } else {
+        console.log('filterMax')
+        // go back to false
+        this.$store.dispatch('testActive')
+        this.filter = null
+        this.showTest = false
+        this.checkAnswers()
+      }
+      this.clock = null
+      this.time = 5000
+    },
     checkAnswers: function () {
       this.showAnswers = true
-      this.$store.dispatch('updateRecord', { mode: 'matchTransEng' })
+      // this.$store.dispatch('updateRecord', { mode: 'matchTransEng' })
     },
     playAudio: function (arg) {
       document.getElementById('audio').src = arg
-    },
-    readyCheck: function () {
-      console.log('length', this.ready, this.ready.length)
-      if (this.ready.length === 2) {
-        this.waiting = 2
-        let _this = this
-        setTimeout(function () {
-          _this.start()
-          _this.$store.dispatch('testActive')
-          _this.waiting = 0
-          _this.ready = []
-        }, 3000)
-      }
     }
   },
   watch: {
@@ -247,12 +254,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.active {
-  background: rgb(95, 216, 95);
-}
-
-.btn .mistake {
-  border: 2px solid #4CAF50; /* Green */
-}
 
 </style>

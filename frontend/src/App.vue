@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <b-navbar  v-if="!isActiveCheck" toggleable sticky>
+    <b-navbar toggleable sticky>
       <b-navbar-brand href="#"><span class="text-cream"> Vocab Trainer </span> </b-navbar-brand>
 
       <b-navbar-toggle  target="navbar-toggle-collapse" class="d-block d-lg-none">
@@ -33,7 +33,7 @@
 
       <b-col :class="contClass()" style="min-height:100vh">
         <b-container fluid >
-           <router-view ></router-view>
+           <router-view :s3="s3"></router-view>
         </b-container>
       </b-col>
 
@@ -65,7 +65,7 @@
           </div>
         </b-col>
     </b-row>
-    <div v-if="!isActiveCheck && isAuthenticated" class="btnNav d-lg-none">
+    <div v-if="isAuthenticated" class="btnNav d-lg-none">
         <div :class="navStyle('/Dictionary')" @click="goTo('Dictionary')"><b-icon-card-list></b-icon-card-list>  <span class="d-none d-md-inline" text=""> &nbsp; List </span> </div>
         <div :class="navStyle('/TransEngTest')" @click="goTo('TransEngTest')"><b-icon-box-arrow-up-right></b-icon-box-arrow-up-right>  <span class="d-none d-md-inline"> &nbsp; Eng-Ch </span> </div>
         <div :class="navStyle('/TransChTest')" @click="goTo('TransChTest')"><b-icon-box-arrow-up-left></b-icon-box-arrow-up-left>  <span class="d-none d-md-inline"> &nbsp; Ch-Eng </span></div>
@@ -75,7 +75,6 @@
   </div>
 
 </template>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
 
 <script>
 import router from './router/index'
@@ -93,7 +92,7 @@ export default {
         '/TransEngTest': 'bg-third',
         '/TypeTest': 'bg-third',
         '/Match': 'bg-grape-light',
-        '/Dictionary': 'bg-cream',
+        '/Dictionary': 'bg-cream'
       },
       typeHeaders: {
         'transEng': 'Eng',
@@ -124,14 +123,14 @@ export default {
             score += this.$store.state.currentRecord[type][index]
           }
         }
-        currentRecItems.push({mode:this.typeHeaders[type], count:count, score:score})
+        currentRecItems.push({mode: this.typeHeaders[type], count: count, score: score})
       }
       return currentRecItems
-    },
+    }
   },
   methods: {
     contClass: function () {
-      if (this.getPath() in this.btnCodes){
+      if (this.getPath() in this.btnCodes) {
         return this.btnCodes[this.getPath()]
       } else {
         return this.contColor
@@ -157,7 +156,13 @@ export default {
       }
     },
     goTo: function (arg) {
-      this.$router.push(arg)
+      // router will be disbaled is game is active
+      if (!this.$store.state.testActive) {
+        this.$router.push(arg)
+      } else {
+        this.navStyle()
+        this.navSide()
+      }
     },
     logout: function (arg) {
       this.$store.dispatch('logout')
@@ -178,11 +183,11 @@ export default {
         this.contColor = this.contMode[this.btnSelect]
       }
     },
-    $route (to, from){
-        console.log('path change')
-        if (this.$store.state.updateStatus === false) {
-          this.$store.dispatch('saveData')
-        }
+    $route (to, from) {
+      console.log('path change')
+      if (this.isAuthenticated && this.$store.state.updateStatus === false) {
+        this.$store.dispatch('saveData')
+      }
     }
   },
   updated () {
@@ -191,18 +196,15 @@ export default {
     this.userProfile = this.$store.state.userProfile
   },
   created () {
+    let _this = this
     window.onbeforeunload = function () {
-      if (this.isAuthenticated && this.$store.state.updateStatus === false) {
-        this.$store.dispatch('saveData')
+      if (_this.isAuthenticated && _this.$store.state.updateStatus === false) {
+        _this.$store.dispatch('saveData')
       }
+      return undefined
     }
-  },
-  beforeDestroy () {
-    if (this.$store.state.socket) {
-      this.$store.state.socket.emit('offline', { userProfile: this.$store.state.userProfile })
-      this.$store.state.socket.close()
-    }
-  },
+  }
+
 }
 </script>
 
@@ -225,7 +227,7 @@ body {
 }
 
 .btnNav {
-  position: fixed;
+  position: sticky;
   bottom: 0px;
   width: 100%;
   height: 53px;
@@ -286,7 +288,7 @@ body {
 }
 
 .active {
-  background: theme-color('safe');
+  background: theme-color('safe') !important;
 }
 
 .active2 {
@@ -305,8 +307,44 @@ body {
     text-align: center;
 }
 .buttonDiv:active {
-    color: theme-color('cream');
+    color: theme-color('warn');
     box-shadow: 0 0 5px -1px rgba(0,0,0,0.6);
+}
+
+.buttonDiv:hover {
+    color: theme-color('cream');
+}
+
+.answerBtn {
+    display:inline-block;
+    color: theme-color('prime');
+    border:0px solid #CCC;
+    border-radius: 5px;
+    box-shadow: 0 0 5px -1px rgba(0,0,0,0.2);
+    cursor:pointer;
+    font-size: 30px;
+    vertical-align:middle;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    height: 70px
+}
+
+.answerBtn:active {
+    color: theme-color('warn');
+    box-shadow: 0 0 5px -1px rgba(0,0,0,0.6);
+}
+
+.answerBtn:disabled {
+    color: theme-color('prime');
+    background: theme-color('grey');
+    opacity: 0.5;
+    cursor: none;
+    pointer-events: none;
+}
+
+.answerBtn:hover {
+    color: theme-color('cream');
 }
 
 </style>

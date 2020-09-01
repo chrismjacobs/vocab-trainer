@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TransEngMatch :testType="testType" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" v-if="testType === 'TransEng'"></TransEngMatch>
+    <TransEngMatch :testType="testType" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" :socket="socket" v-if="testType === 'TransEng'"></TransEngMatch>
 
     <b-container v-if="testType === null">
             <div class="mt-2 bg-secondary p-2">
@@ -45,15 +45,18 @@
 
 <script>
 import TransEngMatch from './TransEngMatch'
+import { openSocket } from '@/sockets'
 
 export default {
   name: 'Match',
+  props: {
+    s3: String
+  },
   components: {
     TransEngMatch
   },
   data () {
     return {
-      s3: 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/profiles/',
       pageHead: 'Match Area',
       username: null,
       userID: null,
@@ -97,6 +100,13 @@ export default {
     },
     acceptChallenge: function (uid, p1name, mode) {
       this.socket.emit('accept', {p2: this.userID, p2name: this.username, p1: uid, p1name: p1name, mode: mode})
+    },
+    startSocket: function () {
+      this.socket = openSocket()
+    },
+    closeSocket: function () {
+      this.socket.emit('offline', { userProfile: this.$store.state.userProfile })
+      this.socket.close()
     }
   },
   watch: {
@@ -122,20 +132,17 @@ export default {
     }
     this.userID = this.$store.state.userProfile.userID
     this.username = this.$store.state.userProfile.username
-    console.log('opening new SOCKET')
-    this.$store.dispatch('openSocket')
-    this.socket = this.$store.state.socket
+    this.startSocket()
   },
   beforeDestroy () {
-    this.socket.emit('offline', { userProfile: this.$store.state.userProfile })
-    this.socket.close()
+    console.log('beforeDestroyMatch')
+    this.closeSocket()
   },
   mounted () {
     let _this = this
     _this.socket.on('onlineUsers', function (data) {
       console.log('onlineUsers', data)
       _this.onlineUsers = JSON.parse(data.userList)
-      console.log(_this.onlineUsers)
     })
     _this.socket.on('sayHi', function (data) {
       console.log(data)

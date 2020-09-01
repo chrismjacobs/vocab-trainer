@@ -2,7 +2,6 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import router from '../router'
 import { isValidJwt, parseLocal } from '@/utils'
-import { openSocket } from '@/sockets'
 import { authenticate, register, updateRecAPI, updateAccount } from '@/api'
 import tourism from '../assets/json/master.json'
 import food from '../assets/json/food.json'
@@ -23,8 +22,7 @@ const state = {
   updateStatus: true,
   jwt: localStorage.token || '',
   master: dictionaries[parseLocal(localStorage.userProfile).vocab],
-  testActive: false,
-  socket: null
+  testActive: false
 }
 
 const actions = {
@@ -119,17 +117,6 @@ const mutations = {
     console.log('setMaster payload = ', payload.userProfile.vocab)
     state.master = dictionaries[payload.userProfile.vocab]
   },
-  setSocket (state) {
-    console.log('setSocket')
-    state.socket = openSocket()
-  },
-  closeSocket (state) {
-    console.log('closeSocket')
-    if (state.socket) {
-      state.socket.close()
-      state.socket = null
-    }
-  },
   destroyToken (state) {
     console.log('destroyToken')
     state.jwt = ''
@@ -138,18 +125,19 @@ const mutations = {
   setTestActive (state) {
     state.testActive = !state.testActive
     console.log('testActive', state.testActive)
-    return true
   },
   sendRecords (state) {
+    let _state = state
     updateRecAPI({userRecord: state.userRecord, jwt: state.jwt, settings: state.settings})
       .then(function (response) {
-        state.settings = {}
+        _state.settings = {}
+        _state.updateStatus = true
         localStorage.settings = JSON.stringify({})
         console.log('RECORDS UPDATED', response)
       })
       .catch(error => {
         // log and signal to app
-        if (state.jwt !== '') {
+        if (_state.jwt !== '') {
           alert('A recording error has occured', error)
         }
         console.log('Error Authenticating: ', error)
