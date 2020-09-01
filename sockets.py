@@ -32,7 +32,9 @@ def online(data):
     print('checkUser', check, user)
 
     if check:
-        pass
+        if check.extraStr != request.sid:
+            check.extraStr = request.sid
+            db.session.commit()
     else:
         player = Connected(username=user.username, connected=user, extraStr=request.sid)
         db.session.add(player)

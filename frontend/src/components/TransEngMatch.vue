@@ -114,6 +114,7 @@ export default {
       this.clock = setInterval(function () {
         if (_this.time === 0) {
           _this.disableAll()
+          _this.time -= 100
         } else {
           _this.time -= 100
         }
@@ -159,7 +160,7 @@ export default {
       console.log(buttons)
       for (let b in buttons) {
         console.log('buttons', b, buttons[b])
-        buttons[b - 1].disbaled = true
+        buttons[b].disabled = true
       }
       setTimeout(function () {
         _this.answered = 0
