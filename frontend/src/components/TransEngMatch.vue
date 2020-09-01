@@ -98,7 +98,7 @@ export default {
       testItems: [],
       settings: {},
       fields: ['English', 'Chinese'],
-      time: 0,
+      time: null,
       clock: null,
       progressValues: {
         p1: 0,
@@ -114,7 +114,6 @@ export default {
       this.clock = setInterval(function () {
         if (_this.time === 0) {
           clearInterval(_this.clock)
-          _this.time = 5000
           _this.disableAll()
         } else {
           _this.time -= 100
@@ -126,7 +125,7 @@ export default {
       this.filter = 0
       this.answerData = []
       this.showTest = true
-      this.setCountdown()
+      // this.setCountdown()
     },
     readyCheck: function () {
       console.log('length', this.ready, this.ready.length)
@@ -159,18 +158,15 @@ export default {
       let chinese = this.testItems[this.filter].Chinese
       let buttons = document.getElementsByName(english)
       console.log(buttons)
-      for (let b in buttons) {
-        console.log('buttons', b, buttons[b], this.time)
-        if (b !== 'length') {
-          buttons[b].disabled = true
-        }
+      for (let i = 0; i < buttons.length; i++) {
+        buttons[i].disabled = true
       }
       setTimeout(function () {
         _this.answered = 0
         if (_this.answerData.length === _this.filter) {
           _this.enterResult(english, chinese, null, false)
           _this.filterToggle()
-          _this.setCountdown()
+          // _this.setCountdown()
         } else {
           console.log('duplicate answer', 'timeout')
         }
@@ -198,24 +194,25 @@ export default {
         for (let i = 0; i < buttons.length; i++) {
           buttons[i].disabled = true
         }
+        this.nextQuestion(name, chinese, player, state)
+      } else if (this.answered === 1) {
+        // false answer already given so go to next question
+        this.nextQuestion(name, chinese, player, state)
+      } else {
+        // first answer is false so start timer
+        this.answered = 1
+        this.setCountdown()
       }
-      this.answered += 1
-
-      if (state || this.answered > 1) {
-        let _this = this
-        clearInterval(_this.clock)
-        _this.time = 5000
-        setTimeout(function () {
-          _this.answered = 0
-          if (_this.answerData.length === _this.filter) {
-            _this.enterResult(name, chinese, player, state)
-            _this.filterToggle()
-            _this.setCountdown()
-          } else {
-            console.log('duplicate answer', player)
-          }
-        }, 2000)
-      }
+    },
+    nextQuestion: function (name, chinese, player, state) {
+      clearInterval(this.clock)
+      this.time = null
+      let _this = this
+      setTimeout(function () {
+        _this.answered = 0
+        _this.enterResult(name, chinese, player, state)
+        _this.filterToggle()
+      }, 2000)
     },
     enterResult: function (english, chinese, player, state) {
       console.log(state)

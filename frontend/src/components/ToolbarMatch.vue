@@ -11,11 +11,11 @@
             <div :class="'buttonDiv bg-' + player" style="width: 60%" @click="playerReady(), emitWaiting(1)">Ready</div>
       </div>
 
-      <div v-if="waiting === 1" align="center" class="bg-prime">
-        <b-icon icon="three-dots" animation="cylon" font-scale="5" :variant="player"></b-icon>
+      <div v-if="waiting === 1" align="center" class="bg-prime p-2">
+        <b-icon icon="three-dots" animation="cylon" font-scale="4" :variant="player"></b-icon>
       </div>
 
-      <div v-if="waiting === 2" align="center" class="bg-prime">
+      <div v-if="waiting === 2" align="center" class="bg-prime p-2">
         <b-icon icon="caret-right-square-fill" animation="throb" font-scale="4" :variant="player"></b-icon>
       </div>
 
