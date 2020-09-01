@@ -113,9 +113,9 @@ export default {
       let _this = this
       this.clock = setInterval(function () {
         if (_this.time === 0) {
-          _this.disableAll()
-          _this.clock = null
+          clearInterval(_this.clock)
           _this.time = 5000
+          _this.disableAll()
         } else {
           _this.time -= 100
         }
@@ -202,14 +202,15 @@ export default {
       this.answered += 1
 
       if (state || this.answered > 1) {
-        this.clock = null
-        this.time = 5000
+        clearInterval(_this.clock)
+        _this.time = 5000
         let _this = this
         setTimeout(function () {
           _this.answered = 0
           if (_this.answerData.length === _this.filter) {
             _this.enterResult(name, chinese, player, state)
             _this.filterToggle()
+            _this.setCountdown()
           } else {
             console.log('duplicate answer', player)
           }
