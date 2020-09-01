@@ -14,11 +14,15 @@
            </div>
          </div>
          <div>
-            <b-progress :max="testItems.length"  class="mt-2" show-value>
+            <b-progress  style="height:30px" :max="testItems.length"  class="mt-2" show-value>
                 <b-progress-bar :value="progressValues.p1" variant="p1"></b-progress-bar>
                 <b-progress-bar :value="progressValues.warn" variant="warn-light"></b-progress-bar>
                 <b-progress-bar :value="progressValues.p2" variant="p2"></b-progress-bar>
               </b-progress>
+
+            <br>
+
+            <b-progress v-if="time" :value="time" max="5000" animated variant="alert"></b-progress>
           </div>
       </div>
 
@@ -35,7 +39,7 @@
 
           <div v-if="testItems.indexOf(item) === filter">
             <div v-for="(choice, index) in item.Choices" :key="index">
-              <button class="answerBtn bg-warn-light" :name="item.English" :id="item.English + choice.Chinese" block @click="recordAnswer(item.English, item.Chinese, choice.Chinese)">
+              <button class="answerBtn bg-grey" :name="item.English" :id="item.English + choice.Chinese" block @click="recordAnswer(item.English, item.Chinese, choice.Chinese)">
                 {{ choice.Chinese }}
               </button>
                 <br>
@@ -94,8 +98,8 @@ export default {
       testItems: [],
       settings: {},
       fields: ['English', 'Chinese'],
+      time: null,
       clock: null,
-      time: 0,
       progressValues: {
         p1: 0,
         p2: 0,
@@ -104,11 +108,23 @@ export default {
     }
   },
   methods: {
+    setCountdown: function () {
+      this.time = 5000
+      let _this = this
+      this.clock = setInterval(function () {
+        if (_this.time === 0) {
+          _this.disableAll()
+        } else {
+          _this.time -= 100
+        }
+      }, 100)
+    },
     start: function () {
       this.showAnswers = false
       this.filter = 0
       this.answerData = []
       this.showTest = true
+      this.setCountdown()
     },
     readyCheck: function () {
       console.log('length', this.ready, this.ready.length)
@@ -135,6 +151,27 @@ export default {
 
       this.socket.emit('answer', {room: this.p1, name: english, chinese: chinese, btnID: btnID, player: this.player, state: result})
     },
+    disableAll: function () {
+      let _this = this
+      let english = this.testItems[this.filter].English
+      let chinese = this.testItems[this.filter].Chinese
+      let buttons = document.getElementsByName(english)
+      console.log(buttons)
+      for (let b in buttons) {
+        console.log('buttons', b, buttons[b])
+        buttons[b - 1].disbaled = true
+      }
+      setTimeout(function () {
+        _this.answered = 0
+        if (_this.answerData.length === _this.filter) {
+          _this.enterResult(english, chinese, null, false)
+          _this.time = 5000
+          _this.filterToggle()
+        } else {
+          console.log('duplicate answer', 'timeout')
+        }
+      }, 2000)
+    },
     disable: function (name, btnID, player, state, chinese) {
       let btnClass = 'bg-' + player
       let button = document.getElementById(btnID)
@@ -159,12 +196,17 @@ export default {
         }
       }
       this.answered += 1
+
       if (state || this.answered > 1) {
         let _this = this
         setTimeout(function () {
           _this.answered = 0
-          _this.filterToggle()
-          _this.enterResult(name, chinese, player, state)
+          if (_this.answerData.length === _this.filter) {
+            _this.enterResult(name, chinese, player, state)
+            _this.filterToggle()
+          } else {
+            console.log('duplicate answer', player)
+          }
         }, 2000)
       }
     },
@@ -200,8 +242,6 @@ export default {
         this.showTest = false
         this.checkAnswers()
       }
-      this.clock = null
-      this.time = 5000
     },
     checkAnswers: function () {
       this.showAnswers = true

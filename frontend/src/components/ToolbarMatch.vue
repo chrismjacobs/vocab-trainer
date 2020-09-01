@@ -7,21 +7,17 @@
               {{ testType }}
             </h2>
       </div>
-      <div class="bg-prime p-2 mt-0">
-        <b-row>
-          <b-col>
-            <b-button :variant="player" block class="md-3" @click="playerReady(), emitWaiting(1)">Ready</b-button>
-          </b-col>
-        </b-row>
+      <div class="bg-prime p-2 mt-0" align="center">
+            <div :class="'buttonDiv bg-' + player" style="width: 60%" @click="playerReady(), emitWaiting(1)">Ready</div>
       </div>
 
-      <b-card v-if="waiting === 1" align="center">
-        <b-icon icon="three-dots" animation="cylon" font-scale="6" :variant="player"></b-icon>
-      </b-card>
+      <div v-if="waiting === 1" align="center" class="bg-prime">
+        <b-icon icon="three-dots" animation="cylon" font-scale="5" :variant="player"></b-icon>
+      </div>
 
-      <b-card v-if="waiting === 2" align="center">
-        <b-icon icon="caret-right-square-fill" animation="throb" font-scale="6" :variant="player"></b-icon>
-      </b-card>
+      <div v-if="waiting === 2" align="center" class="bg-prime">
+        <b-icon icon="caret-right-square-fill" animation="throb" font-scale="4" :variant="player"></b-icon>
+      </div>
 
       <div class="bg-grey p-2 pb-4" v-if="waiting === 0">
         <b-row cols="2" cols-md="4" cols-lg="6" >
