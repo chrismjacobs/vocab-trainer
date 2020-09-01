@@ -115,7 +115,7 @@ export default {
         if (_this.time === 0) {
           _this.disableAll()
           _this.clock = null
-          _this.time = null
+          _this.time = 5000
         } else {
           _this.time -= 100
         }
@@ -202,6 +202,8 @@ export default {
       this.answered += 1
 
       if (state || this.answered > 1) {
+        this.clock = null
+        this.time = 5000
         let _this = this
         setTimeout(function () {
           _this.answered = 0
