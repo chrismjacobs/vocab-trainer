@@ -1,44 +1,72 @@
 <template>
   <div>
-    <TransEngMatch :testType="testType" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" :socket="socket" v-if="testType === 'TransEng'"></TransEngMatch>
+    <TransEngMatch :testType="testType" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" :socket="socket" :s3="s3" v-if="testType === 'TransEng'"></TransEngMatch>
 
     <b-container v-if="testType === null">
-            <div class="mt-2 bg-secondary p-2">
-            <h2 class="text-sand" align="center">
+            <div class="mt-2 bg-prime p-2">
+            <h2 class="text-third" align="center">
               Online Area
             </h2>
             </div>
-          <div>
-            <h3> Friends Online  </h3>
+            <div class="mt-2 bg-prime p-2">
+              <b-form inline>
+                <b-input
+                  id="inline-form-input-name"
+                  class="mb-2 mr-sm-2 mb-sm-0"
+                  placeholder="Friend name"
+                ></b-input>
+                <b-input-group prepend="#" class="mb-2 mr-sm-2 mb-sm-0">
+                  <b-input id="inline-form-input-username" placeholder="user ID"></b-input>
+                </b-input-group>
+                <b-button variant="primary">Add</b-button>
+              </b-form>
+
+            </div>
+          <div class="mt-2 bg-second p-2">
+            <h3> Friends Online </h3>
             <b-list-group>
             <div v-for="(user, index) in onlineUsers" :key="index">
-            <b-list-group-item  v-if="!challengeList.includes(user.userID)" class="d-flex align-items-center">
-                  <b-avatar :src="s3 + user.userID + '.jpg'" :text="user.username[0]" class="mr-3"></b-avatar>
-                <span class="mr-auto">{{ user.username }}</span>
-                <div v-if="user.userID !== userID">
-                  <b-button  @click="sayHi(user.userID)"> Say Hi </b-button>
-                  <b-button  @click="challenge(user.userID, 'TransEng')"> TransEng Match </b-button>
-                </div>
+            <b-list-group-item  v-if="!challengeList.includes(user.userID) && user.userID !== userID" class="d-flex align-items-center bg-cream">
+                  <b-avatar :src="s3 + user['userID'].toString() + '.jpg'"  size="50px" :badge="user.username" badge-offset="-0.5em" badge-variant="safe"></b-avatar>
+
+                  <button class="buttonDiv bg-third mx-3 " @click="sayHi(user.userID)"> Say Hi </button>
+                  <button class="buttonDiv bg-warn-light mx-3 " @click="challenge(user.userID, 'TransEng')"> TransEng Match </button>
+
             </b-list-group-item>
             </div>
           </b-list-group>
           </div>
 
-          <div>
+          <div class="mt-2 bg-second p-2">
             <h3> Challengers </h3>
             <b-list-group>
               <div v-for="(chall, index) in challengeUsers" :key="index" >
-                <b-list-group-item v-if="userList.includes(chall.userID)" class="d-flex align-items-center">
-                  <b-avatar :id="index" :src="s3 + chall.userID + '.jpg'" :text="chall.sender[0]" class="mr-3"></b-avatar>
-                  <span class="mr-auto">{{ chall.sender }}</span>
-                  <span class="mr-auto">{{ chall.mode }}</span>
-                  <b-button @click="acceptChallenge(chall.userID, chall.sender, chall.mode)"> Accept </b-button>
-                  <b-button @click="declineChallenge(chall.userID)"> Decline </b-button>
+                <b-list-group-item v-if="userList.includes(chall.userID)" class="d-flex align-items-center bg-cream">
+                  <b-avatar :src="s3 + chall['userID'].toString() + '.jpg'"  size="50px" :badge="chall.sender" badge-offset="-0.5em" badge-variant="p1"></b-avatar>
+
+                  <button class="buttonDiv bg-safe mx-3 " @click="acceptChallenge(chall.userID, chall.sender, chall.mode)"> Accept </button>
+                  <button class="buttonDiv bg-alert mx-3 " @click="declineChallenge(chall.userID)"> Decline </button>
                 </b-list-group-item>
               </div>
           </b-list-group>
           </div>
+
+          <div class="mt-2 bg-second p-2">
+            <h3> Friends </h3>
+            <b-list-group>
+            <div v-for="(user, index) in friends" :key="index">
+            <b-list-group-item  v-if="!challengeList.includes(user.userID) && user.userID !== userID" class="d-flex align-items-center bg-cream">
+                  <b-avatar :src="s3 + user['userID'].toString() + '.jpg'"  size="50px" :badge="user.username" badge-offset="-0.5em" badge-variant="alert"></b-avatar>
+            </b-list-group-item>
+            </div>
+          </b-list-group>
+          </div>
+
     </b-container>
+
+    <b-modal ref="my-modal" id="bv-modal-example" title="Logging in...">
+      <p> {{message}} </p>
+    </b-modal>
 
   </div>
 </template>
@@ -58,6 +86,7 @@ export default {
   data () {
     return {
       pageHead: 'Match Area',
+      friends: [{userID: 4, username: 'Bob'}, {userID: 5, username: 'Sally'}],
       username: null,
       userID: null,
       onlineUsers: {},
@@ -70,7 +99,8 @@ export default {
       p2: null,
       p1name: null,
       p2name: null,
-      player: null
+      player: null,
+      message: null
     }
   },
   methods: {
@@ -126,6 +156,7 @@ export default {
     }
   },
   created () {
+    console.log(this.s3)
     if (!this.$store.getters.isAuthenticated) {
       this.$router.push('login')
       return false
@@ -133,6 +164,14 @@ export default {
     this.userID = this.$store.state.userProfile.userID
     this.username = this.$store.state.userProfile.username
     this.startSocket()
+
+    let _this = this
+    window.onbeforeunload = function () {
+      if (_this.isAuthenticated && _this.$store.state.updateStatus === false) {
+        _this.closeSocket()
+      }
+      return undefined
+    }
   },
   beforeDestroy () {
     console.log('beforeDestroyMatch')
@@ -179,6 +218,16 @@ export default {
         _this.player = 'p2'
       }
       console.log('player', _this.player)
+    })
+    _this.socket.on('leftRoom', function (data) {
+      console.log('left', data)
+      _this.message = 'Sorry, ' + data.sender + ' has left the game'
+      _this.$refs['my-modal'].show()
+      _this.testType = null
+      _this.p1 = null
+      _this.p1name = null
+      _this.p2 = null
+      _this.p2name = null
     })
   }
 }

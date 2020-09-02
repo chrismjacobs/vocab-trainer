@@ -27,9 +27,9 @@
           <b-col>
               <b-card v-if="testItems.indexOf(item) === filter">
                 <div v-for="(choice, index) in item.Choices" :key="index">
-                  <b-button block @click="recordAnswer(item.English, item.Chinese, choice.Chinese)">
+                  <button class="answerBtn bg-third" @click="recordAnswer(item.English, item.Chinese, choice.Chinese)">
                    <span v-if="settings.label === 'lbAn' || settings.label === 'lbOn'"> ({{ choice.Gr }}) &nbsp; </span>  {{ choice.Chinese }}
-                  </b-button>
+                  </button>
                     <br>
                     <br>
                 </div>
@@ -153,5 +153,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+.active {
+  background: #bbe0eb;
+}
 
 </style>

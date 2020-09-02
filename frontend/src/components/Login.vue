@@ -31,8 +31,8 @@
 
             <div class="d-flex justify-content-between">
                 <div>
-                <b-button type="submit" variant="prime" v-b-modal.modal1>Submit</b-button>&nbsp;
-                <b-button type="reset" variant="outline-alert">Reset</b-button>
+                <button class="buttonDiv bg-third px-3" type="submit" v-b-modal.modal1>Submit</button>
+                <button class="buttonDiv bg-warn px-3 mx-2" type="reset">Reset</button>
                 </div>
             </div>
           </b-form>

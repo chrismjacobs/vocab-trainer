@@ -51,7 +51,7 @@ def online(data):
 
 
 @socketio.on('offline')
-def on_disconnected(data):
+def on_offline(data):
     userProfile = data['userProfile']
     user = User.query.get(userProfile['userID'])
 
@@ -63,20 +63,6 @@ def on_disconnected(data):
         Connected.query.filter_by(connected=user).delete()
         db.session.commit()
 
-    """if room:
-        User.rooms = None
-        db.session.commit()
-        Room.query.filter_by(room=str(user.id)).delete()
-        db.session.commit()"""
-
-    sid = request.sid
-    print(sid)
-    roomList = rooms(sid=sid)
-    print(roomList)
-
-    for r in roomList:
-        leave_room(r)
-        emit('leftRoom', {'sender': userProfile['username'], 'userID': userProfile['userID']}, r)
 
     emit('onlineUsers', {'userList' : getUsers()}, broadcast=True)
     emit('disconnect', {'userID': user.id}, user.id)
@@ -132,8 +118,9 @@ def on_ready(data):
     room = data['room']
     player = data['player']
     testItems = data['testItems']
+    timeReset = data['timeReset']
 
-    emit('go', {'player': player, 'testItems': testItems}, room)
+    emit('go', {'player': player, 'testItems': testItems, 'timeReset': timeReset}, room)
 
     print('ready', 'room', room, 'player', player, 'testItems', testItems )
 
@@ -164,7 +151,29 @@ def on_settings(data):
 
 @socketio.on('disconnect')
 def on_disconnect():
-    print(request.sid)
+    sid = request.sid
+    print(sid)
+    roomList = rooms(sid=sid)
+    print(roomList)
+
+    check = Connected.query.filter_by(extraStr=sid).first()
+    print('check', check)
+
+    username = None
+    userID = None
+
+    if check:
+        user = check.connected
+        username = user.username
+        userID = user.id
+        Connected.query.filter_by(extraStr=sid).delete()
+        db.session.commit()
+
+    for r in roomList:
+        leave_room(r)
+        print('LEAVE ROOM', r)
+        emit('leftRoom', {'sender': username, 'userID': userID}, r)
+
     print('Client Disconnected')
 
 @socketio.on('connect')

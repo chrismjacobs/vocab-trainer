@@ -25,11 +25,11 @@
             <b-col>
               <b-card v-if="testItems.indexOf(item) === filter">
                 <div v-for="(choice, index) in item.Choices" :key="index">
-                  <b-button class="bg-prime" :style="buttonStyle[index]" block @click="recordAnswer(item.English, item.Chinese, choice.English)">
+                  <button class="answerBtn bg-third" :style="buttonStyle[index]" block @click="recordAnswer(item.English, item.Chinese, choice.English)">
                    <span v-if="settings.sound === 'sdEx'"> <b-icon-soundwave @mouseover="hoverAns=choice.sdEn" @mouseleave="hoverAns=null"></b-icon-soundwave> </span>
                    <span v-else-if="settings.label === 'lbAn' || settings.sound !== 'sdEx'"> ({{ choice.Gr }}) &nbsp;  {{ choice.English }} </span>
                    <span v-else>{{ choice.English }}</span>
-                  </b-button>
+                  </button>
                     <br>
                     <br>
                 </div>
@@ -80,12 +80,12 @@ export default {
       timer: null,
       fields: ['Chinese', 'English', 'Choice'],
       buttonStyle: {
-        0: { color: 'white' },
-        1: { color: 'white' },
-        2: { color: 'white' },
-        3: { color: 'white' },
-        4: { color: 'white' },
-        5: { color: 'white' }
+        0: { color: 'blue' },
+        1: { color: 'blue' },
+        2: { color: 'blue' },
+        3: { color: 'blue' },
+        4: { color: 'blue' },
+        5: { color: 'blue' }
       }
     }
   },
@@ -155,8 +155,8 @@ export default {
       let _this = this
       this.timer = setInterval(function () {
         console.log('buttonRotate', _this.buttonRotate, _this.settings.choices, _this.testItems[_this.filter])
-        _this.buttonStyle[_this.buttonRotate - 1] = { color: 'white' }
-        _this.buttonStyle[_this.buttonRotate] = { color: 'yellow' }
+        _this.buttonStyle[_this.buttonRotate - 1] = { color: 'blue' }
+        _this.buttonStyle[_this.buttonRotate] = { color: 'orange' }
 
         if (_this.buttonRotate < _this.settings.choices) {
           let media = _this.testItems[_this.filter]['Choices'][_this.buttonRotate]

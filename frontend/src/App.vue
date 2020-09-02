@@ -11,12 +11,16 @@
       <b-collapse id="navbar-toggle-collapse" is-nav>
         <b-navbar-nav class="ml-auto">
            <div v-if="isAuthenticated">
-                <div class="sideBtn" @click="logout()"><b-icon-power></b-icon-power>  <span text=""> Logout </span> </div>
-                <div class="sideBtn" @click="goTo('Account')"><b-icon-person-fill></b-icon-person-fill>  <span> Account </span> </div>
+                <b-nav-item @click="logout()"><div class="sideBtn"><b-icon-power></b-icon-power>  <span text=""> Logout </span></div></b-nav-item>
+                <b-nav-item @click="goTo('Account')"><div class="sideBtn"><b-icon-person-fill></b-icon-person-fill>  <span> Account #{{$store.state.userProfile.userID}} </span></div></b-nav-item>
+                <br>
+                <div>
+                  <b-table class="text-cream" striped hover small borderless :items="currentRecItems"></b-table>
+                </div>
             </div>
            <div v-else>
-                <div class="sideBtn" @click="goTo('Login')"><b-icon-power></b-icon-power>  <span text=""> Login </span> </div>
-                <div class="sideBtn" @click="goTo('Register')"><b-icon-person-fill></b-icon-person-fill> <span> Register </span> </div>
+                <b-nav-item @click="goTo('Login')"><div class="sideBtn"><b-icon-power></b-icon-power>  <span> Login </span></div></b-nav-item>
+                <b-nav-item @click="goTo('Register')"><div class="sideBtn"><b-icon-person-fill></b-icon-person-fill>  <span> Register </span></div></b-nav-item>
             </div>
         </b-navbar-nav>
       </b-collapse>
@@ -287,28 +291,22 @@ body {
     padding: 20px;
 }
 
-.active1 {
-  background: theme-color('third') !important;
-}
-
-.active2 {
-  background: theme-color('grape-light');
-}
-
 .buttonDiv {
     display:inline-block;
     color: theme-color('prime');
     border:0px solid #CCC;
     border-radius: 5px;
-    box-shadow: 0 0 5px -1px rgba(0,0,0,0.2);
+    box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.2);
     cursor:pointer;
     vertical-align:middle;
     padding: 5px;
     text-align: center;
 }
+
 .buttonDiv:active {
     color: theme-color('warn');
     box-shadow: 0 0 5px -1px rgba(0,0,0,0.6);
+    border:0px solid #CCC;
 }
 
 .buttonDiv:hover {

@@ -21,8 +21,10 @@
               </b-progress>
 
             <br>
+          <div style="height:30px">
+            <b-progress v-if="time" :value="time" :max="timeReset" animated variant="warn"></b-progress>
+          </div>
 
-            <b-progress :value="time" max="5000" animated variant="alert"></b-progress>
           </div>
       </div>
 
@@ -30,7 +32,7 @@
 
       <div v-if="showTest">
        <div v-for="(item, key) in testItems" :key="key">
-          <div class="bg-third p-3" @mouseover="hover=true" @mouseleave="hover=false" :class="{ active: hover }" v-if="testItems.indexOf(item) === filter" align="center">
+          <div class="bg-third p-3" @mouseover="hover=true" @mouseleave="hover=false" :class="{ active: 'active1' }" v-if="testItems.indexOf(item) === filter" align="center">
               <h3>
                 <span v-if="settings.sound !== 'sdEx' || hover == true"> {{ item.English }} </span>
                 <span v-if="settings.sound == 'sdEx' || settings.sound == 'sdOn'"> <b-icon-soundwave></b-icon-soundwave></span>
@@ -90,9 +92,10 @@ export default {
       showAnswers: false,
       showTest: false,
       showProgress: true,
+      timeReset: null,
       hover: false,
       ready: [],
-      answered: [],
+      answered: 0,
       answerData: [],
       filter: null,
       testItems: [],
@@ -104,17 +107,18 @@ export default {
         p1: 0,
         p2: 0,
         warn: 0
-      }
+      },
+      btnIDMarker: null
     }
   },
   methods: {
     setCountdown: function () {
-      this.time = 5000
+      this.time = this.timeReset
       let _this = this
       this.clock = setInterval(function () {
         if (_this.time === 0) {
           clearInterval(_this.clock)
-          _this.disableAll()
+          _this.recordDisable()
         } else {
           _this.time -= 100
         }
@@ -152,6 +156,11 @@ export default {
 
       this.socket.emit('answer', {room: this.p1, name: english, chinese: chinese, btnID: btnID, player: this.player, state: result})
     },
+    recordDisable: function () {
+      console.log('DISABLE RESULT')
+
+      this.socket.emit('answer', {room: this.p1, name: null, chinese: null, btnID: null, player: this.player, state: false})
+    },
     disableAll: function () {
       let _this = this
       let english = this.testItems[this.filter].English
@@ -161,51 +170,57 @@ export default {
       for (let i = 0; i < buttons.length; i++) {
         buttons[i].disabled = true
       }
+      // abstract set timer function to deal with all scenarios
       setTimeout(function () {
         _this.answered = 0
-        if (_this.answerData.length === _this.filter) {
-          _this.enterResult(english, chinese, null, false)
-          _this.filterToggle()
-          // _this.setCountdown()
-        } else {
-          console.log('duplicate answer', 'timeout')
-        }
+        _this.enterResult(english, chinese, null, false)
+        _this.filterToggle()
       }, 2000)
     },
     disable: function (name, btnID, player, state, chinese) {
       let btnClass = 'bg-' + player
       let button = document.getElementById(btnID)
-      if (state) {
-        button.classList.add('text-safe')
-      } else {
-        button.classList.add('text-alert')
-      }
-      button.classList.add(btnClass)
-      button.disabled = true
 
-      let buttons = document.getElementsByName(name)
-      console.log(buttons)
-      if (player === this.player) {
+      if (button) {
+        // deal normal answer
+        if (state) {
+          button.classList.add('text-safe')
+        } else {
+          button.classList.add('text-alert')
+        }
+        button.classList.add(btnClass)
+        button.disabled = true
+        let buttons = document.getElementsByName(name)
+        console.log(buttons)
+        if (player === this.player) {
+          for (let i = 0; i < buttons.length; i++) {
+            buttons[i].disabled = true
+          }
+        }
+      } else {
+        // deal with disable answer
+        name = this.testItems[this.filter].English
+        chinese = this.testItems[this.filter].Chinese
+        let buttons = document.getElementsByName(name)
         for (let i = 0; i < buttons.length; i++) {
           buttons[i].disabled = true
         }
       }
-      if (state) {
-        for (let i = 0; i < buttons.length; i++) {
-          buttons[i].disabled = true
-        }
+      console.log(state, this.answered)
+      if (state || this.answered === 1) {
+        this.answered = 1
         this.nextQuestion(name, chinese, player, state)
-      } else if (this.answered === 1) {
-        // false answer already given so go to next question
-        this.nextQuestion(name, chinese, player, state)
-      } else {
+      } else if (this.answered === 0) {
         // first answer is false so start timer
         this.answered = 1
         this.setCountdown()
+      } else {
+        console.log('LOGIC ERROR')
       }
     },
     nextQuestion: function (name, chinese, player, state) {
       clearInterval(this.clock)
+      this.answered = 2
       this.time = null
       let _this = this
       setTimeout(function () {
@@ -231,7 +246,6 @@ export default {
 
       this.progressValues[_rowVariant] += 1
       console.log(_rowVariant, this.progressValues)
-
       this.answerData.push(entry)
     },
     filterToggle: function () {
@@ -282,6 +296,7 @@ export default {
       _this.room = data.room
       if (data.testItems.length > 0) {
         _this.testItems = data.testItems
+        _this.timeReset = data.timeReset * 1000
       }
       if (!_this.ready.includes(data.player)) {
         _this.ready.push(data.player)
@@ -290,7 +305,13 @@ export default {
       _this.readyCheck()
     })
     _this.socket.on('answer', function (data) {
-      _this.disable(data.name, data.btnID, data.player, data.state, data.chinese)
+      // check if same button was pressed by each player --> prevent duplicate answer
+      if (data.btnID === _this.btnIDMarker) {
+        console.log('duplicate answer')
+      } else {
+        _this.btnIDMarker = data.btnID
+        _this.disable(data.name, data.btnID, data.player, data.state, data.chinese)
+      }
     })
   }
 }

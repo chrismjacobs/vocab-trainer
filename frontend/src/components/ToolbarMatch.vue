@@ -2,25 +2,21 @@
   <div class="toolbar" v-if="!toolbarShow">
     <div>
 
-      <div class="mt-2 bg-second p-2">
+      <div class="bg-third p-2">
             <h2 class="text-sand" align="center">
               {{ testType }}
             </h2>
       </div>
-      <div class="bg-prime p-2 mt-0" align="center">
-            <div :class="'buttonDiv bg-' + player" style="width: 60%" @click="playerReady(), emitWaiting(1)">Ready</div>
-      </div>
 
-      <div v-if="waiting === 1" align="center" class="bg-prime p-2">
-        <b-icon icon="three-dots" animation="cylon" font-scale="4" :variant="player"></b-icon>
-      </div>
-
-      <div v-if="waiting === 2" align="center" class="bg-prime p-2">
-        <b-icon icon="caret-right-square-fill" animation="throb" font-scale="4" :variant="player"></b-icon>
+      <div align="center" class="bg-prime p-2">
+        <div v-if="waiting === 0" :class="'buttonDiv bg-' + player" style="width: 60%" @click="playerReady(), emitWaiting(1)">Ready</div>
+        <b-icon-backspace-reverse-fill v-if="waiting === 0" variant="warn" class="mt-1 ml-3" style="float:right" @click="leave()" font-scale="1.5"></b-icon-backspace-reverse-fill>
+        <b-icon v-if="waiting === 1" icon="three-dots" animation="cylon" font-scale="4" :variant="player"></b-icon>
+        <b-icon v-if="waiting === 2" icon="caret-right-square-fill" animation="throb" font-scale="4" :variant="player"></b-icon>
       </div>
 
       <div class="bg-grey p-2 pb-4" v-if="waiting === 0">
-        <b-row cols="2" cols-md="4" cols-lg="6" >
+        <b-row cols="3" >
           <b-col class="mt-3">
               <div align="center">
                 <div class="headDiv">
@@ -28,7 +24,7 @@
                 </div>
                 <div class="spinDiv">
                   <b-form-spinbutton v-if="player === 'p1'" v-model="words" min="6" max="30" step=2 vertical style="height:125px"></b-form-spinbutton>
-                  <b-form-spinbutton v-else disabled v-model="words" min="6" max="30" step=2 vertical style="height:125px"></b-form-spinbutton>
+                  <b-form-spinbutton v-else disabled v-model="words" min="6" max="30" step=2 vertical style="height:125px;color:red"></b-form-spinbutton>
                 </div>
               </div>
             </b-col>
@@ -39,7 +35,18 @@
                 </div>
                 <div class="spinDiv">
                 <b-form-spinbutton v-if="player === 'p1'" v-model="choices" min="2" max="6" vertical style="height:125px"></b-form-spinbutton>
-                <b-form-spinbutton v-else disabled v-model="choices" min="2" max="6" vertical style="height:125px"></b-form-spinbutton>
+                <b-form-spinbutton v-else disabled v-model="choices" min="2" max="6" vertical style="height:125px;color:red"></b-form-spinbutton>
+                </div>
+              </div>
+          </b-col>
+          <b-col class="mt-3" v-if="testType === 'TransEng' || testType === 'TransCh'">
+              <div align="center">
+                <div class="headDiv">
+                  Timer
+                </div>
+                <div class="spinDiv">
+                <b-form-spinbutton v-if="player === 'p1'" v-model="timeReset" min="4" max="12" step=2 vertical style="height:125px"></b-form-spinbutton>
+                <b-form-spinbutton v-else disabled v-model="timeReset" min="4" max="12" vertical step=2 style="height:125px;color:red"></b-form-spinbutton>
                 </div>
               </div>
           </b-col>
@@ -113,6 +120,7 @@ export default {
       wordsReset: '6',
       words: 6,
       choices: 4,
+      timeReset: 6,
       retry: false,
       testItemsRoot: [],
       amendedList: [],
@@ -214,19 +222,8 @@ export default {
         }
       }
 
-      this.toolbarSettings = {
-        type: this.testType,
-        sound: this.sound,
-        words: this.words,
-        choices: this.choices
-      }
-
-      this.socket.emit('ready', {room: this.p1, player: this.player, testItems: this.testItemsRoot})
+      this.socket.emit('ready', {room: this.p1, player: this.player, testItems: this.testItemsRoot, timeReset: this.timeReset})
       console.log(this.testItemsRoot)
-
-      if (this.words < 6) {
-        this.words = parseInt(this.wordsReset)
-      }
     },
     makeSpelling: function () {
       let i = 0
@@ -255,23 +252,7 @@ export default {
         }
       }
 
-      this.toolbarSettings = {
-        type: this.testType,
-        sound: this.sound,
-        label: this.label,
-        words: this.words,
-        choices: this.choices,
-        spelling: this.spelling,
-        display: this.display,
-        feedback: this.feedback
-      }
-
-      this.$emit('newTest', {
-        test: this.testItemsRoot,
-        settings: JSON.stringify(this.toolbarSettings)
-      })
-
-      this.socket.emit('ready', {room: this.p1, player: this.player, testItems: this.testItemsRoot})
+      this.socket.emit('ready', {room: this.p1, player: this.player, testItems: this.testItemsRoot, timeReset: this.timeReset})
       console.log(this.testItemsRoot)
 
       if (this.words < 6) {
@@ -322,7 +303,7 @@ export default {
       if (this.player === 'p1') {
         this.makeTest()
       } else {
-        this.socket.emit('ready', {room: this.p1, player: this.player, testItems: this.testItemsRoot})
+        this.socket.emit('ready', {room: this.p1, player: this.player, testItems: this.testItemsRoot, timeReset: null})
       }
     },
     settingsSend: function (arg) {
@@ -332,6 +313,7 @@ export default {
         sound: this.sound,
         label: this.label,
         words: this.words,
+        timeReset: this.timeReset,
         choices: this.choices,
         spelling: this.spelling,
         display: this.display,
@@ -352,6 +334,11 @@ export default {
       }
     },
     choices: function () {
+      if (this.player === 'p1') {
+        this.settingsSend()
+      }
+    },
+    timeReset: function () {
       if (this.player === 'p1') {
         this.settingsSend()
       }
