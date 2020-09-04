@@ -7,11 +7,11 @@
             </h2>
     </div>
 
-      <div class="bg-grey">
+      <div class="bg-grey p-2">
         <b-row>
         <b-col>
           Search by Letter:
-          <b-form-select class="bg-warn"  v-model="selected[0]" :options="optionsA" :select-size="7"></b-form-select>
+          <b-form-select class="bg-warn-light"  v-model="selected[0]" :options="optionsA" :select-size="7"></b-form-select>
         </b-col>
         <b-col>
           Search by Grammar:
@@ -24,24 +24,19 @@
             <br>
             <br>
 
-            <b-form-group label="Button style radios with outline-primary variant and size lg">
-      <b-form-radio-group
-        id="btn-radios-2"
-        v-model="selected"
-        :options="options"
-        buttons
-        button-variant="outline-primary"
-        size="lg"
-        name="radio-btn-outline"
-      ></b-form-radio-group>
-    </b-form-group>
+        <b-form-group>
+          <b-form-radio-group
+            id="btn-radios-2"
+            v-model="selected[2]"
+            :options="optionsR"
+            style="width:100%;color:red"
+            buttons
+            :button-variant="color[this.selected[2]]"
+            size="lg"
+            name="radio-btn-outline"
+          ></b-form-radio-group>
+        </b-form-group>
 
-            <button class="buttonDiv bg-alert px-1" @click="levels('-2')" style="width:15%" > <h5>--</h5> </button>
-            <button class="buttonDiv bg-warn px-1" @click="levels('-1')" style="width:15%" > <h5>-</h5> </button>
-            <button class="buttonDiv bg-smoke px-1" @click="levels(0)" style="width:15%" > <h5>o</h5> </button>
-            <button class="buttonDiv bg-second px-1" @click="levels(1)" style="width:15%" > <h5>+</h5> </button>
-            <button class="buttonDiv bg-safe px-1" @click="levels(2)" style="width:15%" > <h5>++</h5> </button>
-            <button class="buttonDiv bg-grey px-1" @click="levels(null)" style="width:15%" > <h5>None</h5> </button>
           </b-col>
         </b-row>
       </div>
@@ -104,19 +99,26 @@ export default {
         { value: 'prop.', text: 'proper nouns' }
       ],
       optionsR: [
-        { value: null, text: '---' },
-        { value: 2, text: 'good' },
-        { value: 1, text: 'fine' },
-        { value: 0, text: 'middle' },
-        { value: -1, text: 'low' },
-        { value: -2, text: 'bad' }
-      ]
+        { value: null, text: 'none' },
+        { value: -2, text: '--' },
+        { value: -1, text: '-' },
+        { value: 0, text: 'o' },
+        { value: 1, text: '+' },
+        { value: 2, text: '++' }
+      ],
+      color: {
+        2: 'safe',
+        1: 'third',
+        0: 'smoke',
+        '-1': 'warn',
+        '-2': 'alert'
+      }
     }
   },
   methods: {
     filterTable: function (row, filter) {
       if (filter[2] != null) {
-        if (row.totalScore === filter[2]) {
+        if (row.totalScore === filter[2] && row.tested) {
           return true
         }
       } else if (filter[1] === null) {
