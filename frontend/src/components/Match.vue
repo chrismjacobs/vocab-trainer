@@ -29,7 +29,6 @@
             <b-list-group-item  v-if="!challengeList.includes(user.userID) && user.userID !== userID" class="d-flex align-items-center bg-cream">
                   <b-avatar :src="s3 + user['userID'].toString() + '.jpg'"  size="50px" :badge="user.username" badge-offset="-0.5em" badge-variant="safe"></b-avatar>
 
-                  <button class="buttonDiv bg-third mx-3 " @click="sayHi(user.userID)"> Say Hi </button>
                   <button class="buttonDiv bg-warn-light mx-3 " @click="challenge(user.userID, 'TransEng')"> TransEng Match </button>
 
             </b-list-group-item>

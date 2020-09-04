@@ -17,8 +17,8 @@ Vue.use(Vuex)
 const state = {
   userProfile: parseLocal(localStorage.userProfile) || {},
   userRecord: parseLocal(localStorage.userRecord) || {},
-  settings: parseLocal(localStorage.settings) || {},
   currentRecord: parseLocal(localStorage.currentRecord) || {},
+  logsRecord: parseLocal(localStorage.logsRecord) || {},
   updateStatus: true,
   jwt: localStorage.token || '',
   master: dictionaries[parseLocal(localStorage.userProfile).vocab],
@@ -32,13 +32,19 @@ const actions = {
     return authenticate(userData)
       .then(function (response) {
         context.commit('setJwtToken', { jwt: response.data.token, msg: response.data.msg })
-        context.commit('setProfile', { userProfile: response.data.userProfile, userRecord: response.data.userRecord })
+        context.commit('setProfile', { userProfile: response.data.userProfile, userRecord: response.data.userRecord, logsRecord: response.data.logsRecord })
         context.commit('setMaster', { userProfile: response.data.userProfile })
-        router.push('/home')
+        alert(response.data.msg)
+        let pushList = {
+          false: '/account',
+          true: '/home'
+        }
+        router.push(pushList[response.data.init])
       })
       .catch(error => {
         // log and signal to app
         alert('An error has occured - please check your email and password', error)
+        router.push('/home')
         console.log('Error Authenticating: ', error)
       })
   },
@@ -60,7 +66,12 @@ const actions = {
     return updateAccount(userData)
       .then(function (response) {
         alert(response.data.msg)
-        location.reload(true)
+        context.commit('setAccount', {dataReturn: response.data.dataReturn, newVocab: response.data.newVocab})
+        console.log('new', response.data.dataReturn)
+        if (response.data.newVocab) {
+          alert('Your are changing your word list to ' + response.data.dataReturn['vocab'] + '. Please log in again to update')
+          context.dispatch('logout')
+        }
       })
       .catch(error => {
         alert('An error has occured - your account has not been updated')
@@ -68,9 +79,10 @@ const actions = {
         console.log('Error Registering: ', error)
       })
   },
-  updateRecord (context, answerData) {
-    console.log('record', answerData)
-    context.commit('setNewRecord', answerData)
+  updateRecord (context, payload) {
+    // this.$store.dispatch('updateRecord', { mode: 'transEng', answerData: this.answerData, settingsData: this.settings })
+    console.log('record', payload)
+    context.commit('setNewRecord', payload)
   },
   logout (context) {
     console.log('logout...')
@@ -100,7 +112,6 @@ const mutations = {
   // set token into local storage and store state
   setJwtToken (state, payload) {
     console.log('setJwtToken payload = ', payload.jwt)
-    alert(payload.msg)
     localStorage.token = payload.jwt
     state.jwt = payload.jwt
   },
@@ -112,10 +123,26 @@ const mutations = {
 
     localStorage.setItem('userRecord', JSON.stringify(payload.userRecord))
     state.userRecord = payload.userRecord
+
+    localStorage.setItem('logsRecord', JSON.stringify(payload.logsRecord))
+    state.logsRecord = payload.logsRecord
+
+    localStorage.setItem('currentRecord', JSON.stringify({}))
+    state.currentRecord = {}
+    state.updateStatus = true
+    state.testActive = false
   },
   setMaster (state, payload) {
     console.log('setMaster payload = ', payload.userProfile.vocab)
     state.master = dictionaries[payload.userProfile.vocab]
+  },
+  setAccount (state, payload) {
+    console.log('setAccount payload = ', payload.dataReturn)
+    for (let item in payload.dataReturn) {
+      if (item !== 'imageData') {
+        state[item] = payload.dataReturn[item]
+      }
+    }
   },
   destroyToken (state) {
     console.log('destroyToken')
@@ -128,28 +155,26 @@ const mutations = {
   },
   sendRecords (state) {
     let _state = state
-    updateRecAPI({userRecord: state.userRecord, jwt: state.jwt, settings: state.settings})
+    updateRecAPI({userRecord: state.userRecord, userID: state.userProfile.userID, logsRecord: state.logsRecord})
       .then(function (response) {
-        _state.settings = {}
         _state.updateStatus = true
-        localStorage.settings = JSON.stringify({})
+        // localStorage.settings = JSON.stringify({})
         console.log('RECORDS UPDATED', response)
       })
       .catch(error => {
         // log and signal to app
         if (_state.jwt !== '') {
-          alert('A recording error has occured', error)
+          alert('Sorry, an updating error has occured', error)
         }
         console.log('Error Authenticating: ', error)
       })
   },
   setNewRecord (state, payload) {
     console.log('setNewEC payload = ', payload)
-    // localStorage.userProfile = payload.userProfile
-    for (let index in payload.answerData) {
-      let mode = payload.mode
-      let ans = payload.answerData[index]
+    let mode = payload.mode
 
+    for (let index in payload.answerData) {
+      let ans = payload.answerData[index]
       // set data in currentRecord Object
       if (!state.currentRecord[mode]) {
         Vue.set(state.currentRecord, mode, {})
@@ -169,13 +194,22 @@ const mutations = {
       state.userRecord[mode][ans.English] += ans.Score
     }
 
-    if (!state.settings[JSON.stringify(payload.settingsData)]) {
-      Vue.set(state.settings, JSON.stringify(payload.settingsData), 1)
-    } else {
-      state.settings[JSON.stringify(payload.settingsData)] += 1
+    if (!state.logsRecord.settings[mode]) {
+      Vue.set(state.logsRecord.settings, mode)
     }
 
-    localStorage.setItem('settings', JSON.stringify(state.settings))
+    // console.log('LOGSRECORD', state.logsRecord, state.logsRecord.settings, state.logsRecord.logs)
+
+    state.logsRecord.settings[mode] = payload.settingsData
+
+    if (!state.logsRecord.logs.mode) {
+      Vue.set(state.logsRecord.logs, mode, {words: 0, tests: 0})
+    }
+
+    state.logsRecord.logs.mode.words += (payload.answerData).length
+    state.logsRecord.logs.mode.tests += 1
+
+    localStorage.setItem('logsRecord', JSON.stringify(state.logsRecord))
     localStorage.setItem('userRecord', JSON.stringify(state.userRecord))
     localStorage.setItem('currentRecord', JSON.stringify(state.currentRecord))
     // data is waiting to be updated
@@ -207,11 +241,14 @@ const getters = {
         chineseExt = dict[vocab].defch1
       }
 
+      let tested = false
+
       let transEngScore = 0
       if (!state.userRecord.transEng) {
         // pass
       } else if (state.userRecord.transEng[vocab]) {
-        // console.log('trans', vocab)
+        // note that this word has been tested
+        tested = true
         transEngScore = state.userRecord.transEng[vocab]
         if (transEngScore > 2) {
           transEngScore = 2
@@ -223,7 +260,8 @@ const getters = {
       if (!state.userRecord.transCh) {
         // pass
       } else if (state.userRecord.transCh[vocab]) {
-        // console.log('trans', vocab)
+        // note that this word has been tested
+        tested = true
         transChScore = state.userRecord.transCh[vocab]
         if (transChScore > 2) {
           transChScore = 2
@@ -235,6 +273,8 @@ const getters = {
       if (!state.userRecord.spell) {
         // pass
       } else if (state.userRecord.spell[vocab]) {
+        // note that this word has been tested
+        tested = true
         spellScore = state.userRecord.spell[vocab]
         if (spellScore > 2) {
           spellScore = 2
@@ -247,9 +287,11 @@ const getters = {
       if (total >= 2) {
         variant = 'safe'
       } else if (total === 1) {
-        variant = 'prime'
-      } else if (total === 0) {
-        variant = null
+        variant = 'second'
+      } else if (total === 0 && tested === true) {
+        variant = 'smoke'
+      } else if (total === 0 && tested === false) {
+        variant = 'null'
       } else if (total === -1) {
         variant = 'warn'
       } else {
@@ -276,7 +318,8 @@ const getters = {
         transChScore: transChScore,
         spellScore: spellScore,
         totalScore: total,
-        _rowVariant: variant
+        _rowVariant: variant,
+        tested: tested
       })
     }
     return tableItems

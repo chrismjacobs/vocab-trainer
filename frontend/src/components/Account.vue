@@ -3,8 +3,8 @@
     <b-container>
     <b-row class="mt-3 mx-auto">
       <b-col>
-        <b-card v-if="waiting" header="Account Information" header-bg-variant="prime" header-text-variant="info" header-tag="h3">
-          <b-form @submit="onSubmit" v-if="show">
+        <b-card header="Account Information" header-bg-variant="prime" header-text-variant="info" header-tag="h3">
+          <b-form @submit="onSubmit">
             <div class="d-flex">
               <b-col >
                 <b-avatar :src="s3 + userProfile.userID + '.jpg'" size="6rem" :text="userProfile.username[0]"></b-avatar>
@@ -37,6 +37,18 @@
                 placeholder="Email (required)"
                 >
                 </b-form-input>
+            </b-input-group>
+
+            <b-input-group class="my-4" label="Vocab:" label-for="exampleInput7">
+              <b-input-group-prepend inline is-text>
+                  <b-icon icon="card-list"></b-icon>
+                </b-input-group-prepend>
+                <b-form-select id="vocab"
+                required
+                :options="vocabs"
+                v-model="userProfile.vocab"
+                >
+                </b-form-select>
             </b-input-group>
 
             <div v-if="join">
@@ -73,17 +85,14 @@
             </div>
             <div class="d-flex justify-content-between">
                 <div>
-                <b-button type="submit" variant="prime">Submit</b-button>
-
+                <button class="buttonDiv bg-info px-3" style="width:120px" type="submit"> <b-icon-forward variant="cream" font-scale="1.5"></b-icon-forward></button>
                 </div>
             </div>
 
           </b-form>
 
         </b-card>
-        <b-card v-else align="center">
-            <b-icon icon="three-dots" animation="cylon" font-scale="6"></b-icon>
-        </b-card>
+
       </b-col>
     </b-row>
   </b-container>
@@ -100,24 +109,19 @@ export default {
   data () {
     return {
       s3: 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/profiles/',
-      join: true,
+
       userProfile: null,
-      form: {
-        username: '',
-        studentID: '',
-        school: '',
-        email: '',
-        password: '',
-        confirm: ''
-      },
-      show: true,
-      waiting: true,
-      fileData: null
+      join: false,
+      fileData: null,
+      vocabs: [
+        {text: 'ESP Tourism', value: 'tourism'},
+        {text: 'Food Viet', value: 'food'}
+      ]
     }
   },
   computed: {
     validName () {
-      return this.form.username.length > 2 && this.form.username.length < 13
+      return this.userProfile.username.length > 2 && this.userProfile.username.length < 13
     }
   },
   methods: {
@@ -127,7 +131,13 @@ export default {
       this.account()
     },
     account () {
-      this.userProfile.imageData = JSON.parse(localStorage.imageData)
+      console.log(localStorage.imageData)
+      if (localStorage.imageData) {
+        this.userProfile.imageData = JSON.parse(localStorage.imageData)
+      } else {
+        this.userProfile.imageData = null
+      }
+
       console.log(this.userProfile)
       this.$store.dispatch('account', { userData: this.userProfile })
         .then(() => console.log('account action'))

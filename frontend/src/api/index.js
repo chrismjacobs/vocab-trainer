@@ -25,6 +25,7 @@ export function updateRecAPI (payload) {
 }
 
 export function updateAccount (payload) {
+  // update SQL model and save image
   console.log('account', host)
   console.log(payload)
   return axios.post(host + '/api/updateAccount', payload)

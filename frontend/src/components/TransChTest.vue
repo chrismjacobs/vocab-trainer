@@ -66,7 +66,7 @@ export default {
       toolbarShow: true,
       max: 100,
       value: 20,
-      testType: 'TransCh',
+      testType: 'transCh',
       title: 'Chinese -> English',
       buttonRotate: null,
       hover: false,

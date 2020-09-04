@@ -5,50 +5,39 @@
 
     <Toolbar :toolbarShow='showTest' :showAnswers='showAnswers' :testType="testType" :title="title" v-on:newTest="start($event)" v-on:retry="start()"></Toolbar>
 
-      <b-card class="mt-2" v-if="showTest">
-         <b-progress :value="filter" :max="testItems.length" show-progress animated></b-progress>
-      </b-card>
+      <b-progress v-if="showTest" :value="filter" style="height:30px" :max="testItems.length" show-progress variant="warn-light" animated></b-progress>
 
-    <div>
-      <div class="mt-2 bg-warn" v-if="showTest">
-       <div v-for="(item, key) in testItems" :key="key">
-        <b-row>
-          <b-col>
-            <b-card @mouseover="hover=true" @mouseleave="hover=false" :class="{ active: hover }" v-if="testItems.indexOf(item) === filter" align="center">
-                <h3>
-                  <span v-if="settings.sound !== 'sdEx' || hover == true"> {{ item.English }} </span>
-                  <span v-if="settings.label==='lbOn' && settings.sound !== 'sdEx'" > &nbsp; ({{item.Gr}}) </span>
-                  <span v-if="settings.sound == 'sdEx' || settings.sound == 'sdOn'"> <b-icon-soundwave></b-icon-soundwave></span>
-                </h3>
-            </b-card>
-          </b-col>
-         </b-row>
-        <b-row>
-          <b-col>
-              <b-card v-if="testItems.indexOf(item) === filter">
-                <div v-for="(choice, index) in item.Choices" :key="index">
-                  <button class="answerBtn bg-third" @click="recordAnswer(item.English, item.Chinese, choice.Chinese)">
-                   <span v-if="settings.label === 'lbAn' || settings.label === 'lbOn'"> ({{ choice.Gr }}) &nbsp; </span>  {{ choice.Chinese }}
-                  </button>
-                    <br>
-                    <br>
-                </div>
-              </b-card>
-          </b-col>
-        </b-row>
-       </div>
+      <div class="bg-grey" v-if="showTest">
+            <div v-for="(item, key) in testItems" :key="key">
+                  <div v-if="testItems.indexOf(item) === filter">
+                          <button class="questionDiv bg-second"  @mouseover="hover=true" @mouseleave="hover=false" :class="{ active: hover }" >
+                                <span v-if="settings.sound !== 'sdEx' || hover == true"> {{ item.English }} </span>
+                                <span v-if="settings.label==='lbOn' && settings.sound !== 'sdEx'" > &nbsp; ({{item.Gr}}) </span>
+                                <span v-if="settings.sound == 'sdEx' || settings.sound == 'sdOn'"> <b-icon-soundwave></b-icon-soundwave></span>
+                          </button>
+
+                          <div class="p-3">
+                              <div v-for="(choice, index) in item.Choices" :key="index">
+                                <button class="answerBtn bg-third" @click="recordAnswer(item.English, item.Chinese, choice.Chinese)">
+                                <span v-if="settings.label === 'lbAn' || settings.label === 'lbOn'"> ({{ choice.Gr }}) &nbsp; </span>  {{ choice.Chinese }}
+                                </button>
+                                  <br>
+                                  <br>
+                              </div>
+                          </div>
+                    </div>
+            </div>
       </div>
-    </div>
-    <div v-if="showAnswers">
-      <b-card class="mt-2">
+
+      <div class="bg-smoke mt-2" v-if="showAnswers">
         <b-table
         striped hover
         :items="answerData"
         :fields="fields"
         >
         </b-table>
-      </b-card>
-    </div>
+      </div>
+
   </div>
 </template>
 
@@ -63,8 +52,8 @@ export default {
   data () {
     return {
       pageHead: 'English --> Chinese',
-      testType: 'TransEng',
-      title: 'English Test',
+      testType: 'transEng',
+      title: 'English --> Chinese',
       toolbarShow: true,
       hover: false,
       showAnswers: false,

@@ -31,8 +31,7 @@
 
             <div class="d-flex justify-content-between">
                 <div>
-                <button class="buttonDiv bg-third px-3" type="submit" v-b-modal.modal1>Submit</button>
-                <button class="buttonDiv bg-warn px-3 mx-2" type="reset">Reset</button>
+                <button class="buttonDiv bg-warn px-3" style="width:100px" type="submit" v-b-modal.modal1> <b-icon-forward variant="cream" font-scale="1.5"></b-icon-forward></button>
                 </div>
             </div>
           </b-form>
@@ -40,9 +39,9 @@
             <em><a href="#">Forgot Password</a></em>
           </template>
         </b-card>
-      <b-card v-else align="center">
-        <b-icon icon="three-dots" animation="cylon" font-scale="6"></b-icon>
-      </b-card>
+      <div v-else align="center">
+        <b-icon icon="three-dots" animation="cylon" variant="prime" font-scale="6"></b-icon>
+      </div>
       </b-col>
     </b-row>
   </b-container>

@@ -10,15 +10,15 @@
       <div class="bg-prime p-2 mt-0">
         <b-row>
           <b-col align="center">
-            <div class="buttonDiv bg-info" style="width: 45%" @click="makeTest(), showToolbar=false">Start</div>
+            <button class="buttonDiv bg-info px-3" style="width:45%; height:50px" @click="makeTest(), showToolbar=false"> <b-icon-forward variant="cream" font-scale="1.5"></b-icon-forward></button>
           </b-col>
         </b-row>
-        <b-row class="mt-2" v-if="showAnswers && !showToolbar">
+        <b-row class="mt-2" v-if="showAnswers && !showToolbar"  align="center">
           <b-col>
-            <div class="buttonDiv bg-warn" style="width: 100%" @click="retryTest()">Retry</div>
-          </b-col>
+            <button class="buttonDiv bg-warn" style="width:100%" @click="retryTest()"> <b-icon-arrow-clockwise variant="cream" font-scale="1.5"></b-icon-arrow-clockwise></button>
+         </b-col>
           <b-col>
-            <div class="buttonDiv bg-grey" style="width: 100%" @click="showToolbar=true">Settings</div>
+            <button class="buttonDiv bg-grey" style="width:100%" @click="showToolbar=true"> <b-icon-tools variant="cream" font-scale="1.5"></b-icon-tools></button>
           </b-col>
         </b-row>
       </div>
@@ -36,7 +36,7 @@
               </div>
             </b-col>
 
-          <b-col class="mt-4" v-if="testType === 'TransEng' || testType === 'TransCh'">
+          <b-col class="mt-4" v-if="testType === 'transEng' || testType === 'transCh'">
               <div align="center">
                 <div class="headDiv">
                   Choices
@@ -61,7 +61,7 @@
             </div>
           </b-col>
 
-          <b-col class="mt-4" v-if="testType === 'TypeTest'">
+          <b-col class="mt-4" v-if="testType === 'typeTest'">
             <div align="center">
               <div class="headDiv"> Display </div>
               <b-form-radio-group
@@ -75,7 +75,7 @@
             </div>
           </b-col>
 
-          <b-col class="mt-4" v-if="testType === 'TypeTest'">
+          <b-col class="mt-4" v-if="testType === 'typeTest'">
              <div align="center">
               <div class="headDiv"> Feedback </div>
               <b-form-radio-group
@@ -89,7 +89,7 @@
             </div>
           </b-col>
 
-          <b-col class="mt-4" v-if="testType === 'TransEng' || testType === 'TransCh'">
+          <b-col class="mt-4" v-if="testType === 'transEng' || testType === 'transCh'">
             <div align="center">
               <div class="headDiv"> Grammar </div>
               <b-form-radio-group
@@ -103,7 +103,7 @@
             </div>
           </b-col>
 
-          <b-col class="mt-4" v-if="testType === 'TransEng' || testType === 'TransCh'">
+          <b-col class="mt-4" v-if="testType === 'transEng' || testType === 'transCh'">
             <div align="center">
                 <div class="headDiv"> Sort </div>
               <b-form-radio-group
@@ -116,14 +116,14 @@
               ></b-form-radio-group>
             </div>
           </b-col>
-          <b-col class="mt-4" v-if="testType === 'TransEng' || testType === 'TransCh'">
+          <b-col class="mt-4" v-if="testType === 'transEng' || testType === 'transCh'">
             <div class="mt-5"></div>
             <b-form-select v-if="sort=='srtLet'" class="selectColor" v-model="selected" :options="optionsA" ></b-form-select>
             <b-form-select v-if="sort=='srtGram'" class="selectColor" v-model="selected" :options="optionsG"></b-form-select>
             <b-form-select v-if="sort=='srtDiff'" class="selectColor" v-model="selected" :options="optionsR"></b-form-select>
           </b-col>
 
-          <b-col class="mt-4" v-if="testType === 'TypeTest'">
+          <b-col class="mt-4" v-if="testType === 'typeTest'">
             <div align="center">
             <div class="headDiv"> Spelling </div>
             <b-dropdown :text="spellingText" variant="outline-dark">
@@ -134,7 +134,7 @@
             </div>
           </b-col>
 
-          <b-col class="mt-4" v-if="testType === 'TypeTest'">
+          <b-col class="mt-4" v-if="testType === 'typeTest'">
             <div align="center">
               <div class="headDiv"> Sort </div>
             <b-dropdown :text="specialText" variant="outline-info">
@@ -194,7 +194,7 @@ export default {
       ],
       label: 'lbAn',
       labelOptions: [
-        { text: 'answer', value: 'lbAn' },
+        { text: 'answers', value: 'lbAn' },
         { text: 'question', value: 'lbQu' },
         { text: 'all off', value: 'lbOff' },
         { text: 'all on', value: 'lbOn' }
@@ -216,7 +216,7 @@ export default {
       spellingText: '-------------',
       optionsO: [
         { value: null, text: '---' },
-        { value: 'const', text: 'vowels' },
+        { value: 'cons', text: 'vowels' },
         { value: 'vowels', text: 'consonants' },
         { value: 'blanks', text: 'blanks' },
         { value: 'all', text: 'all' },
@@ -308,7 +308,7 @@ export default {
         this.words = this.amendedList.length
         // console.log('few words', this.amendedList)
       }
-      if (this.testType === 'TypeTest') {
+      if (this.testType === 'typeTest') {
         this.makeSpelling()
       } else {
         this.makeChoices()
@@ -493,7 +493,7 @@ export default {
     this.tableItems = this.$store.getters.makeList
     this.stringItems = JSON.stringify(this.tableItems)
 
-    if (this.testType === 'TransCh') {
+    if (this.testType === 'transCh') {
       this.sortOptions.pop()
       this.soundOptions = [
         { text: 'exam mode', value: 'sdEx' },
@@ -502,13 +502,23 @@ export default {
       ]
     }
 
-    if (this.testType === 'TypeTest') {
+    if (this.testType === 'typeTest') {
       this.sound = 'sdEn'
       this.soundOptions = [
         { text: 'English', value: 'sdEn' },
         { text: 'Chinese', value: 'sdCh' },
         { text: 'None', value: 'sdOff' }
       ]
+    }
+    console.log(this.testType)
+    console.log(this.$store.state.logsRecord.settings)
+    if (this.$store.state.logsRecord.settings[this.testType]) {
+      let settings = this.$store.state.logsRecord.settings[this.testType]
+      for (let item in settings) {
+        if (item !== 'type') {
+          this[item] = settings[item]
+        }
+      }
     }
   }
 }
@@ -536,4 +546,5 @@ export default {
   border-radius: 5px;
   border: 0px solid #73AD21;
 }
+
 </style>

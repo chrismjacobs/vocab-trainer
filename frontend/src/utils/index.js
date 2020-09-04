@@ -13,6 +13,7 @@ export function isValidJwt (jwt) {
   const now = new Date()
   // console.log('VALIDATION DATA', data, exp, now)
   if (now > exp) {
+    store.dispatch('saveData')
     store.dispatch('logout')
     alert('Your login has expired')
     router.push('/login')

@@ -1,25 +1,51 @@
 <template>
   <div class="dict">
     <audio id="audio" autoplay></audio>
-    <b-container>
-      <b-card class="m-3">
+    <div class="mt-2 bg-second p-2">
+            <h2 class="text-cream" align="center">
+              Word List
+            </h2>
+    </div>
+
+      <div class="bg-grey">
         <b-row>
         <b-col>
-          <b-form-select v-model="selected[0]" :options="optionsA" :select-size="4"></b-form-select>
-          <div class="mt-3">Selected: <strong>{{ selected[0] }}</strong></div>
+          Search by Letter:
+          <b-form-select class="bg-warn"  v-model="selected[0]" :options="optionsA" :select-size="7"></b-form-select>
         </b-col>
         <b-col>
-          <b-form-select v-model="selected[1]" :options="optionsG" :select-size="4"></b-form-select>
-          <div class="mt-3">Selected: <strong>{{ selected[1] }}</strong></div>
-        </b-col>
-        <b-col>
-          <b-form-select v-model="selected[2]" :options="optionsR" :select-size="4"></b-form-select>
-          <div class="mt-3">Selected: <strong>{{ selected[2] }}</strong></div>
+          Search by Grammar:
+          <b-form-select class="bg-third" style="overflow-y: hidden" v-model="selected[1]" :options="optionsG" :select-size="7"></b-form-select>
         </b-col>
         </b-row>
-      </b-card>
-    </b-container>
-    <b-container>
+        <b-row class="mt-3 pb-3" align="center">
+          <b-col>
+            Search by Score:
+            <br>
+            <br>
+
+            <b-form-group label="Button style radios with outline-primary variant and size lg">
+      <b-form-radio-group
+        id="btn-radios-2"
+        v-model="selected"
+        :options="options"
+        buttons
+        button-variant="outline-primary"
+        size="lg"
+        name="radio-btn-outline"
+      ></b-form-radio-group>
+    </b-form-group>
+
+            <button class="buttonDiv bg-alert px-1" @click="levels('-2')" style="width:15%" > <h5>--</h5> </button>
+            <button class="buttonDiv bg-warn px-1" @click="levels('-1')" style="width:15%" > <h5>-</h5> </button>
+            <button class="buttonDiv bg-smoke px-1" @click="levels(0)" style="width:15%" > <h5>o</h5> </button>
+            <button class="buttonDiv bg-second px-1" @click="levels(1)" style="width:15%" > <h5>+</h5> </button>
+            <button class="buttonDiv bg-safe px-1" @click="levels(2)" style="width:15%" > <h5>++</h5> </button>
+            <button class="buttonDiv bg-grey px-1" @click="levels(null)" style="width:15%" > <h5>None</h5> </button>
+          </b-col>
+        </b-row>
+      </div>
+
       <div class="d-md-none">
       <b-table
       striped hover
@@ -41,6 +67,7 @@
       :fields="fields"
       :filter="selected"
       :filter-function="filterTable"
+      head-variant="dark"
       sticky-header="400px"
       >
         <template v-slot:cell(mp3en)="data">
@@ -48,7 +75,7 @@
          </template>
       </b-table>
       </div>
-    </b-container>
+
   </div>
 </template>
 
@@ -65,7 +92,7 @@ export default {
         {key: 'mp3en', label: 'Listen'}
       ],
       tableItems: null,
-      selected: ['A', null, null],
+      selected: ['A', null, -1],
       optionsA: [],
       optionsG: [
         { value: null, text: '---' },
@@ -78,9 +105,10 @@ export default {
       ],
       optionsR: [
         { value: null, text: '---' },
-        { value: 1, text: 'okay' },
-        { value: 2, text: 'well' },
-        { value: -1, text: 'trouble' },
+        { value: 2, text: 'good' },
+        { value: 1, text: 'fine' },
+        { value: 0, text: 'middle' },
+        { value: -1, text: 'low' },
         { value: -2, text: 'bad' }
       ]
     }
@@ -100,6 +128,10 @@ export default {
       } else {
         return false
       }
+    },
+    levels: function (arg) {
+      this.filter[2] = arg
+      console.log(this.selected)
     },
     alphabet: function () {
       let alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
@@ -133,5 +165,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+.selectColor{
+    background-color: #e7e7e7;
+}
 
 </style>

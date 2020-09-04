@@ -90,7 +90,7 @@ export default {
     return {
       pageHead: 'Typing Test',
       toolbarShow: true,
-      testType: 'TypeTest',
+      testType: 'typeTest',
       title: 'Typing Test',
       time: 60000,
       clock: null,
@@ -184,7 +184,7 @@ export default {
     },
     checkAnswers: function () {
       this.showAnswers = true
-      this.$store.dispatch('updateRecord', { mode: 'type', answerData: this.answerData, settingsData: this.settings })
+      this.$store.dispatch('updateRecord', { mode: 'typeTest', answerData: this.answerData, settingsData: this.settings })
     },
     playAudio: function (arg) {
       // console.log(arg)

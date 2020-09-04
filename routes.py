@@ -25,103 +25,6 @@ def catch_all(path):
     return render_template("index.html")
 
 
-@app.route('/api/random')
-def random_number():
-    print('Number')
-    response = {
-        'randomNumber' : randint(1,100)
-    }
-    return jsonify(response)
-
-@app.route('/api/updateRecord', methods=['POST'])
-def update_record():
-    print('UPDATE')
-    payload = request.get_json()
-    pprint(payload)
-
-    token = payload['jwt']
-    data = jwt.decode(token, app.config['SECRET_KEY'])
-    user = User.query.get(data['sub'])
-
-    key = "jfolder/" + str(user.id) + '/settings.json'
-    content_object = s3_resource.Object( 'vocab-lms', key)
-    file_content = content_object.get()['Body'].read().decode('utf-8')
-    print(file_content)
-    print(json.dumps({}))
-    userSettings = json.loads(json.dumps({}))
-    print(type(userSettings), userSettings)
-    for key in payload['settings']:
-        print(key)
-        if key in userSettings:
-            userSettings[key] += 1
-        else:
-            userSettings[key] = 1
-        entry = Settings.query.filter_by(settings=key).first()
-        if entry:
-            entry.count += 1
-        else:
-            entry = Settings(settings=key, count=1)
-            db.session.add(entry)
-            db.session.commit()
-
-    jstring1 = json.dumps(userSettings)
-    file_name1 = "jfolder/" + str(user.id) +  '/settings.json'
-    s3_resource.Bucket(bucket_name).put_object(Key=file_name1, Body=str(jstring1))
-
-    jstring2 = json.dumps(payload['userRecord'])
-    file_name2 = "jfolder/" + str(user.id) +  '/records.json'
-    s3_resource.Bucket(bucket_name).put_object(Key=file_name2, Body=str(jstring2))
-
-    response = {
-        'msg' : 'success'
-    }
-    return jsonify(response)
-
-
-@app.route("/api/login", methods=['POST'])
-def login():
-    print('LOGIN')
-    data = request.get_json()
-    pprint(data)
-
-    user = authenticate(**data)
-
-    if not user:
-        print('INVALID')
-        return jsonify({ 'msg': 'Invalid credentials', 'authenticated': False }), 401
-
-    key = "jfolder/" + str(user.id) + '/records.json'
-    content_object = s3_resource.Object( 'vocab-lms', key )
-    file_content = content_object.get()['Body'].read().decode('utf-8')
-    userRecord = json.loads(file_content)
-    print(userRecord)
-
-    userProfile = {
-        'username' : user.username,
-        'userID' : user.id,
-        'studentID' : user.studentID,
-        'image' : user.image_file,
-        'school' : user.school,
-        'email' : user.email,
-        'classroom' : user.classroom,
-        'vocab' : user.vocab
-    }
-
-    token = jwt.encode({
-        'sub': user.id,
-        'iat':datetime.utcnow(),
-        'exp': datetime.utcnow() + timedelta(minutes=240)},
-        app.config['SECRET_KEY'])
-    print(token)
-
-    return jsonify({
-        'token': token.decode('UTF-8'),
-        'msg': 'Welcome ' + user.username + ', you have been logged in.',
-        'userProfile': userProfile,
-        'userRecord': userRecord
-        })
-
-
 @app.route("/api/register", methods=['POST']) #and now the form accepts the submit POST
 def register():
     print('REGISTER')
@@ -148,15 +51,95 @@ def register():
 
     user = User.query.filter_by(username=data['username']).first()
 
-    jstring = json.dumps({})
-    file_name1 = "jfolder/" + str(user.id) +  '/records.json'
-    file_name2 = "jfolder/" + str(user.id) +  '/settings.json'
-
-    s3_resource.Bucket(bucket_name).put_object(Key=file_name1, Body=str(jstring))
-    s3_resource.Bucket(bucket_name).put_object(Key=file_name2, Body=str(jstring))
-
     response = {
         'msg' : 'Hi ' + data['username'] + ', you have been registered. Please log in to continue'
+    }
+    return jsonify(response)
+
+
+@app.route("/api/login", methods=['POST'])
+def login():
+    print('LOGIN')
+    data = request.get_json()
+    pprint(data)
+
+    user = authenticate(**data)
+
+    if not user:
+        print('INVALID')
+        return jsonify({ 'msg': 'Invalid credentials', 'authenticated': False }), 401
+
+    content = jChecker(user, True, True, False)
+
+    userRecord = content['userRecord']
+    logsRecord = content['logsRecord']
+
+
+    logsRecord['logs'] = {'time': datetime.utcnow()}
+
+    print(userRecord)
+    print(logsRecord)
+
+    userProfile = {
+        'username' : user.username,
+        'userID' : user.id,
+        'studentID' : user.studentID,
+        'school' : user.school,
+        'email' : user.email,
+        'classroom' : user.classroom,
+        'vocab' : user.vocab
+    }
+
+    token = jwt.encode({
+                'sub': user.id,
+                'iat':datetime.utcnow(),
+                'exp': datetime.utcnow() + timedelta(minutes=240)
+                }, app.config['SECRET_KEY'])
+
+    print(token)
+
+
+    if user.vocab == 'general':
+        msg = 'Welcome ' + user.username + ', please set up your account.'
+        init = False
+    else:
+        msg = 'Welcome ' + user.username + ', you have been logged in.'
+        init = True
+
+    return jsonify({
+        'token': token.decode('UTF-8'),
+        'msg': msg,
+        'init': init,
+        'userProfile': userProfile,
+        'userRecord': userRecord,
+        'logsRecord': logsRecord
+        })
+
+@app.route('/api/updateRecord', methods=['POST'])
+def update_record():
+    print('UPDATE')
+    payload = request.get_json()
+    pprint(payload)
+
+    userRecord = payload['userRecord']
+    newLogsRecord = payload['logsRecord']
+
+    userID = payload['userID']
+    user = User.query.get(userID)
+
+    content = jChecker(user, True, True, False)
+    print(content)
+    # {'vocab_content': '{}', 'logs_content': '{"friends": [], "settings": {}, "logs": []}', 'dictionary_content': None}
+    historyLogsRecord = content['logsRecord']
+
+    ## update logs
+    historyLogsRecord['settings'] = newLogsRecord['settings']
+    historyLogsRecord['logs'].append(newLogsRecord['logs'])
+
+    jStorer(user, historyLogsRecord, userRecord, None)
+
+    response = {
+        'msg' : 'success'
     }
     return jsonify(response)
 
@@ -165,16 +148,30 @@ def register():
 def updateAccount():
     print('ACCOUNT')
     data = request.get_json()['userData']
-    #pprint(data)
-    storeB64(data['imageData'], data['userID'], 'profile')
+    pprint(data)
+    if data['imageData']:
+        storeB64(data['imageData'], data['userID'], 'profile')
+
+    current_user = User.query.get(data['userID'])
+
+    newVocab = False
+    if current_user.vocab != data['vocab']:
+        newVocab = True
+
+    current_user.classroom = data['classroom']
+    current_user.studentID = data['studentID']
+    current_user.vocab = data['vocab']
+    current_user.school = data['school']
+    db.session.commit()
 
     response = {
-        'msg' : 'Thank you ' + data['username'] + ', your account information has been changed'
+        'msg' : 'Thank you ' + data['username'] + ', your account information has been changed',
+        'dataReturn' : data,
+        'newVocab' : newVocab
     }
     return jsonify(response)
 
-
-def storeB64(fileData, sid, mode):
+def storeB64(fileData, uid, mode):
 
     if fileData['image64'] and mode == 'profile':
         link = 'profileLink'
@@ -183,7 +180,7 @@ def storeB64(fileData, sid, mode):
         location = 'public/profiles/'
 
     ## if want to delete old file
-    filename = location + str(sid) + '.' + fileType
+    filename = location + str(uid) + '.' + fileType
     if filename:
         print('filename_found ', filename)
         s3_resource.Object(bucket_name, filename).delete()
@@ -197,42 +194,69 @@ def storeB64(fileData, sid, mode):
 
     return filename
 
+''' ############ json handlers ############'''
+
+def jChecker(user, vocab, logs, dictionary):
+
+    vocab_content = '{}'
+    logs_content = '{}'
+    dictionary_content = '{}'
+
+    if vocab:
+        vocabKey = "jfolder/" + str(user.id) + '/' + user.vocab + '/records.json'
+        try:
+            content_object = s3_resource.Object( 'vocab-lms', vocabKey )
+            vocab_content = content_object.get()['Body'].read().decode('utf-8')
+        except:
+            vocab_content = json.dumps({})
+            s3_resource.Bucket(bucket_name).put_object(Key=vocabKey, Body=str(vocab_content))
+
+    if logs:
+        logsKey = "jfolder/" + str(user.id) + '/logs.json'
+        logs = {
+            'friends': [],
+            'settings': {},
+            'logs': []
+        }
+        try:
+            content_object = s3_resource.Object( 'vocab-lms', logsKey )
+            logs_content = content_object.get()['Body'].read().decode('utf-8')
+        except:
+            logs_content = json.dumps(logs)
+            s3_resource.Bucket(bucket_name).put_object(Key=logsKey, Body=str(logs_content))
+
+    if dictionary:
+        dictionaryKey = "jfolder/" + str(user.id) + '/' + user.vocab + '/dictionary.json'
+        try:
+            content_object = s3_resource.Object( 'vocab-lms', dictionaryKey )
+            dictionary_content = content_object.get()['Body'].read().decode('utf-8')
+        except:
+            dictionary_content = json.dumps(json.dumps({}))
+            s3_resource.Bucket(bucket_name).put_object(Key=dictionaryKey, Body=str(dictionary_content))
+
+    return {'userRecord': json.loads(vocab_content), 'logsRecord': json.loads(logs_content), 'dictRecord': json.loads(dictionary_content)}
 
 
-def send_reset_email(user):
-    token = user.get_reset_token()
-    msg = Message('Password Reset Request',
-                sender='chrisflask0212@gmail.com',
-                recipients=[user.email])
-    msg.body = f'''To reset your password, visit the following link:
-    {url_for('reset_token', token=token, _external=True)}
-    If you did not request this email then please ignore'''
-    #jinja2 template can be used to make more complex emails
-    mail.send(msg)
+def jStorer(user, logsRecord, userRecord, userDictionary):
+    vocabKey = "jfolder/" + str(user.id) + '/' + user.vocab + '/records.json'
+    dictionaryKey = "jfolder/" + str(user.id) + '/' + user.vocab + '/dictionary.json'
+    logsKey = "jfolder/" + str(user.id) + '/logs.json'
 
+    if logsRecord:
+        logs_content = json.dumps(logsRecord)
+        s3_resource.Bucket(bucket_name).put_object(Key=logsKey, Body=str(logs_content))
 
-@app.route("/reset_password")
-def reset_request():
-    data = request.get_json()
-    email = data['email']
-    user = User.query.filter_by(email=email).first()
-    send_reset_email(user)
+    if userRecord:
+        vocab_content = json.dumps(userRecord)
+        s3_resource.Bucket(bucket_name).put_object(Key=vocabKey, Body=str(vocab_content))
+
+    if userDictionary:
+        dictionary_content = json.dumps(userDictionary)
+        s3_resource.Bucket(bucket_name).put_object(Key=dictionaryKey, Body=str(dictionary_content))
+
     return True
 
+''' ########## email feature ###########'''
 
-@app.route("/reset_password/<token>")
-def reset_token(token):
-    if current_user.is_authenticated:
-        return True
-    user = User.verify_reset_token(token)
-    if user is None:
-        #flash('That is an invalid or expired token', 'warning')
-        return False
-
-    hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-    user.password = hashed_password
-    db.session.commit()
-    #flash('Your password has been updated, please login', 'success')
-    return True
 
 

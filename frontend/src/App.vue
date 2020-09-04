@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <b-navbar toggleable sticky>
-      <b-navbar-brand href="#"><span class="text-cream"> Vocab Trainer </span> </b-navbar-brand>
+      <b-navbar-brand @click="goTo('Home')"><span class="text-cream" > Vocab Trainer </span> </b-navbar-brand>
 
       <b-navbar-toggle  target="navbar-toggle-collapse" class="d-block d-lg-none">
         <b-avatar v-if="isAuthenticated" :src="s3 + $store.state.userProfile.userID + '.jpg'" size="3rem" :text="$store.state.userProfile.username[0]"></b-avatar>
@@ -11,16 +11,16 @@
       <b-collapse id="navbar-toggle-collapse" is-nav>
         <b-navbar-nav class="ml-auto">
            <div v-if="isAuthenticated">
-                <b-nav-item @click="logout()"><div class="sideBtn"><b-icon-power></b-icon-power>  <span text=""> Logout </span></div></b-nav-item>
-                <b-nav-item @click="goTo('Account')"><div class="sideBtn"><b-icon-person-fill></b-icon-person-fill>  <span> Account #{{$store.state.userProfile.userID}} </span></div></b-nav-item>
+                <b-nav-item @click="logout(), goTo('Home')"><div class="sideBtn"><b-icon-power></b-icon-power>  <span text=""> &nbsp;Logout </span></div></b-nav-item>
+                <b-nav-item @click="goTo('Account')"><div class="sideBtn"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp;Account #{{$store.state.userProfile.userID}} </span></div></b-nav-item>
                 <br>
                 <div>
                   <b-table class="text-cream" striped hover small borderless :items="currentRecItems"></b-table>
                 </div>
             </div>
            <div v-else>
-                <b-nav-item @click="goTo('Login')"><div class="sideBtn"><b-icon-power></b-icon-power>  <span> Login </span></div></b-nav-item>
-                <b-nav-item @click="goTo('Register')"><div class="sideBtn"><b-icon-person-fill></b-icon-person-fill>  <span> Register </span></div></b-nav-item>
+                <b-nav-item @click="goTo('Login')"><div class="sideBtn"><b-icon-power></b-icon-power>  <span> &nbsp;Login </span></div></b-nav-item>
+                <b-nav-item @click="goTo('Register')"><div class="sideBtn"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp;Register </span></div></b-nav-item>
             </div>
         </b-navbar-nav>
       </b-collapse>
@@ -53,23 +53,24 @@
                       <h6> {{ $store.state.userProfile.username}}</h6>
                       <h6> #{{ $store.state.userProfile.userID}}</h6>
                       <h6> This Session:</h6>
+                      <span v-if="currentRecItems.length === 0"> No new words </span>
                       <div>
                         <b-table striped hover small borderless :items="currentRecItems"></b-table>
                       </div>
                     </div>
                     <div v-if="isAuthenticated">
-                      <div class="sideBtn" @click="goTo('Account')"><b-icon-person-fill></b-icon-person-fill>  <span> Account </span> </div>
-                      <div class="sideBtn" @click="logout()"><b-icon-power></b-icon-power>  <span text=""> Logout </span> </div>
+                      <div class="sideBtn" @click="goTo('Account')"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp;Account </span> </div>
+                      <div class="sideBtn" @click="logout()"><b-icon-power></b-icon-power>  <span text=""> &nbsp;Logout </span> </div>
                     </div>
                     <div v-else>
-                       <div class="sideBtn" @click="goTo('Login')"><b-icon-power></b-icon-power>  <span text=""> Login </span> </div>
-                        <div class="sideBtn" @click="goTo('Register')"><b-icon-person-fill></b-icon-person-fill> <span> Register </span> </div>
+                       <div class="sideBtn" @click="goTo('Login')"><b-icon-power></b-icon-power>  <span text=""> &nbsp;Login </span> </div>
+                        <div class="sideBtn" @click="goTo('Register')"><b-icon-person-fill></b-icon-person-fill> <span> &nbsp;Register </span> </div>
                     </div>
               </div>
           </div>
         </b-col>
     </b-row>
-    <div v-if="isAuthenticated" class="btnNav d-lg-none">
+    <div v-if="isAuthenticated" class="btnNav d-lg-none" style="z-index: 2">
         <div :class="navStyle('/Dictionary')" @click="goTo('Dictionary')"><b-icon-card-list></b-icon-card-list>  <span class="d-none d-md-inline" text=""> &nbsp; List </span> </div>
         <div :class="navStyle('/TransEngTest')" @click="goTo('TransEngTest')"><b-icon-box-arrow-up-right></b-icon-box-arrow-up-right>  <span class="d-none d-md-inline"> &nbsp; Eng-Ch </span> </div>
         <div :class="navStyle('/TransChTest')" @click="goTo('TransChTest')"><b-icon-box-arrow-up-left></b-icon-box-arrow-up-left>  <span class="d-none d-md-inline"> &nbsp; Ch-Eng </span></div>
@@ -101,7 +102,8 @@ export default {
       typeHeaders: {
         'transEng': 'Eng',
         'transCh': 'Ch',
-        'type': 'Type'
+        'typeTest': 'Type',
+        'match': 'Match'
       }
     }
   },
@@ -169,6 +171,7 @@ export default {
       }
     },
     logout: function (arg) {
+      this.$store.dispatch('saveData')
       this.$store.dispatch('logout')
     },
     currentCount: function () {
@@ -189,9 +192,9 @@ export default {
     },
     $route (to, from) {
       console.log('path change')
-      if (this.isAuthenticated && this.$store.state.updateStatus === false) {
-        this.$store.dispatch('saveData')
-      }
+      // if (this.isAuthenticated && this.$store.state.updateStatus === false) {
+      //   this.$store.dispatch('saveData')
+      // }
     }
   },
   updated () {
@@ -295,6 +298,7 @@ body {
     display:inline-block;
     color: theme-color('prime');
     border:0px solid #CCC;
+    outline:none;
     border-radius: 5px;
     box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.2);
     cursor:pointer;
@@ -307,10 +311,31 @@ body {
     color: theme-color('warn');
     box-shadow: 0 0 5px -1px rgba(0,0,0,0.6);
     border:0px solid #CCC;
+    outline:none;
 }
 
 .buttonDiv:hover {
     color: theme-color('cream');
+    outline:none
+}
+
+.buttonDiv:after {
+    outline:none
+}
+
+.questionDiv {
+    display:inline-block;
+    color: theme-color('cream');
+    border:0px solid #CCC;
+    border-radius: 5px;
+    box-shadow: 0 0 5px -1px rgba(0,0,0,0.2);
+    cursor:pointer;
+    font-size: 30px;
+    vertical-align:middle;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    height: 70px
 }
 
 .answerBtn {
@@ -320,7 +345,7 @@ body {
     border-radius: 5px;
     box-shadow: 0 0 5px -1px rgba(0,0,0,0.2);
     cursor:pointer;
-    font-size: 30px;
+    font-size: 20px;
     vertical-align:middle;
     padding: 10px;
     text-align: center;
