@@ -144,6 +144,35 @@ def update_record():
     return jsonify(response)
 
 
+@app.route('/api/updateFriends', methods=['POST'])
+def update_friends():
+    print('FRIENDS')
+    payload = request.get_json()
+    pprint(payload)
+
+    friends = payload['logsRecord']['friends']
+    print(friends, type(friends))
+
+    userID = payload['userID']
+    user = User.query.get(userID)
+
+    #jChecker(user, vocab, logs, dictionary)
+    content = jChecker(user, False, True, False)
+
+    # {'vocab_content': '{}', 'logs_content': '{"friends": [], "settings": {}, "logs": []}', 'dictionary_content': None}
+    logsRecord = content['logsRecord']
+
+    ## update logs
+    logsRecord['friends'] = friends
+
+    jStorer(user, logsRecord, None, None)
+
+    response = {
+        'msg' : 'success'
+    }
+    return jsonify(response)
+
+
 @app.route("/api/updateAccount", methods=['POST']) #and now the form accepts the submit POST
 def updateAccount():
     print('ACCOUNT')

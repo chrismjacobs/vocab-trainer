@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import router from '../router'
 import { isValidJwt, parseLocal } from '@/utils'
-import { authenticate, register, updateRecAPI, updateAccount } from '@/api'
+import { authenticate, register, updateRecAPI, updateAccount, updateFriends } from '@/api'
 import tourism from '../assets/json/master.json'
 import food from '../assets/json/food.json'
 
@@ -104,6 +104,10 @@ const actions = {
   saveData (context) {
     console.log('save data...')
     context.commit('sendRecords')
+  },
+  addFriend (context, payload) {
+    console.log('friend data...')
+    context.commit('setFriend', payload)
   }
 }
 
@@ -214,6 +218,17 @@ const mutations = {
     localStorage.setItem('currentRecord', JSON.stringify(state.currentRecord))
     // data is waiting to be updated
     state.updateStatus = false
+  },
+  setFriend (state, payload) {
+    console.log(payload)
+    state.logsRecord.friends.push(payload.friendData)
+    updateFriends({logsRecord: state.logsRecord, userID: state.userProfile.userID})
+      .then(function (response) {
+        console.log('FRIENDS UPDATED', response)
+      })
+      .catch(error => {
+        console.log('Error Authenticating: ', error)
+      })
   }
 }
 

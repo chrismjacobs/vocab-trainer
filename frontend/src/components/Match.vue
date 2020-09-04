@@ -12,13 +12,15 @@
               <b-form inline>
                 <b-input
                   id="inline-form-input-name"
+                  v-model="friend.username"
                   class="mb-2 mr-sm-2 mb-sm-0"
                   placeholder="Friend name"
                 ></b-input>
                 <b-input-group prepend="#" class="mb-2 mr-sm-2 mb-sm-0">
-                  <b-input id="inline-form-input-username" placeholder="user ID"></b-input>
+                  <b-input id="inline-form-input-username" placeholder="user ID" v-model="friend.userID"></b-input>
                 </b-input-group>
-                <b-button variant="primary">Add</b-button>
+                <b-button variant="primary" @click="addFriend('add')">Add</b-button>
+                <b-button variant="danger" @click="addFriend('delete')">Delete</b-button>
               </b-form>
 
             </div>
@@ -85,7 +87,12 @@ export default {
   data () {
     return {
       pageHead: 'Match Area',
-      friends: [{userID: 4, username: 'Bob'}, {userID: 5, username: 'Sally'}],
+      friendss: [{userID: 4, username: 'Bob'}, {userID: 5, username: 'Sally'}],
+      friends: this.$store.state.logsRecord.friends,
+      friend: {
+        username: null,
+        userID: null
+      },
       username: null,
       userID: null,
       onlineUsers: {},
@@ -136,6 +143,10 @@ export default {
     closeSocket: function () {
       this.socket.emit('offline', { userProfile: this.$store.state.userProfile })
       this.socket.close()
+    },
+    addFriend: function (arg) {
+      this.$store.dispatch('addFriend', { friendData: this.friend, mode: arg })
+        .then(() => console.log('friend action'))
     }
   },
   watch: {
