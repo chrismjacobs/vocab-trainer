@@ -20,12 +20,19 @@ export function authenticate (userData) {
 export function updateRecAPI (payload) {
   return axios.post(host + '/api/updateRecord', payload)
 }
-export function updateFriends (payload) {
-  return axios.post(host + '/api/updateFriends', payload)
+export function checkFriend (payload) {
+  return axios.post(host + '/api/checkFriend', payload)
 }
 
 export function updateAccount (payload) {
   // update SQL model and save image
-  console.log(payload)
   return axios.post(host + '/api/updateAccount', payload)
+}
+
+export function getRecordAPI (payload) {
+  return axios.post(host + '/api/getRecord', payload)
+}
+
+export function addImage (payload) {
+  return axios.post(host + '/api/addImage', payload)
 }

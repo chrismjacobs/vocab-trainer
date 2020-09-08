@@ -4,51 +4,46 @@
     <audio id="audio" autoplay></audio>
 
     <Toolbar :toolbarShow='showTest' :showAnswers='showAnswers' :testType="testType" :title="title" v-on:newTest="start($event)" v-on:retry="start()"></Toolbar>
+      <b-row no-gutters v-if="showTest" >
+      <b-col cols="11">
+            <b-progress :value="filter" style="height:30px" :max="testItems.length" variant="warn-light" show-progress animated></b-progress>
+      </b-col>
+      <b-col cols="1">
+        <button class="buttonDiv bg-warn" style="height:30px;width:100%" @click="cancel()"><b-icon icon="x-circle" variant="cream"></b-icon></button>
+      </b-col>
+      </b-row>
 
-      <div class="mt-2 bg-sand p-2" v-if="showTest">
-         <b-progress :value="filter" :max="testItems.length" show-progress animated></b-progress>
-      </div>
-
-      <div class="mt-2 bg-safe" v-if="showTest">
+      <div class="bg-grey" v-if="showTest">
         <div v-for="(item, key) in testItems" :key="key">
-          <b-row>
-            <b-col>
-              <div @mouseover="hover=true" @mouseleave="hover=false" :class="{ active: hover }" v-if="testItems.indexOf(item) === filter" align="center">
-                  <h3>
+            <div v-if="testItems.indexOf(item) === filter">
+                  <button class="questionDiv bg-second" @mouseover="hover=true" @mouseleave="hover=false" :class="{ active: hover }" >
                     <span v-if="settings.label==='lbOn' || settings.label==='lbQu' "> &nbsp; ({{item.Gr}}) </span>
                     <span> {{ item.Chinese }} </span>
-                  </h3>
-              </div>
-            </b-col>
-          </b-row>
-          <b-row>
-            <b-col>
-              <b-card v-if="testItems.indexOf(item) === filter">
-                <div v-for="(choice, index) in item.Choices" :key="index">
-                  <button class="answerBtn bg-third" :style="buttonStyle[index]" block @click="recordAnswer(item.English, item.Chinese, choice.English)">
-                   <span v-if="settings.sound === 'sdEx'"> <b-icon-soundwave @mouseover="hoverAns=choice.sdEn" @mouseleave="hoverAns=null"></b-icon-soundwave> </span>
-                   <span v-else-if="settings.label === 'lbAn' || settings.sound !== 'sdEx'"> ({{ choice.Gr }}) &nbsp;  {{ choice.English }} </span>
-                   <span v-else>{{ choice.English }}</span>
                   </button>
-                    <br>
-                    <br>
-                </div>
-              </b-card>
-            </b-col>
-          </b-row>
-        </div>
-      </div>
 
-    <b-container v-if="showAnswers">
-      <b-card class="mt-2">
+                <div class="p-3">
+                  <div v-for="(choice, index) in item.Choices" :key="index">
+                    <button class="answerBtn" :style="buttonStyle[index]" block @click="recordAnswer(item.English, item.Chinese, choice.English)">
+                      <span v-if="settings.sound === 'sdEx'"> <b-icon-soundwave @mouseover="hoverAns=choice.sdEn" @mouseleave="hoverAns=null" font-scale="1.5"></b-icon-soundwave> </span>
+                      <span v-else-if="settings.label === 'lbAn' || settings.sound !== 'sdEx'"> ({{ choice.Gr }}) &nbsp;  {{ choice.English }} </span>
+                      <span v-else>{{ choice.English }}</span>
+                     </button>
+                      <br>
+                      <br>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-smoke"  v-if="showAnswers">
         <b-table
         striped hover
         :items="answerData"
         :fields="fields"
         >
         </b-table>
-      </b-card>
-    </b-container>
+    </div>
   </div>
 </template>
 
@@ -79,13 +74,15 @@ export default {
       settings: {},
       timer: null,
       fields: ['Chinese', 'English', 'Choice'],
+      prime: '#205372',
+      warn: '#E8804C',
       buttonStyle: {
-        0: { color: 'blue' },
-        1: { color: 'blue' },
-        2: { color: 'blue' },
-        3: { color: 'blue' },
-        4: { color: 'blue' },
-        5: { color: 'blue' }
+        0: { color: this.prime },
+        1: { color: this.prime },
+        2: { color: this.prime },
+        3: { color: this.prime },
+        4: { color: this.prime },
+        5: { color: this.prime }
       }
     }
   },
@@ -100,7 +97,7 @@ export default {
         _rowVariant = 'safe'
       } else {
         score = -1
-        _rowVariant = 'danger'
+        _rowVariant = 'warn'
       }
       let entry = {
         English: english,
@@ -115,7 +112,7 @@ export default {
       if (this.filter + 1 < this.testItems.length) {
         console.log('filterCheck', this.filter, this.testItems.length)
         if (this.settings.sound === 'sdEx') {
-          this.buttonStyle[this.buttonRotate - 1] = { color: 'white' }
+          this.buttonStyle[this.buttonRotate - 1] = { color: this.prime }
           clearInterval(this.timer)
           this.buttonRotate = 0
           this.timerSet()
@@ -151,12 +148,19 @@ export default {
     playAudio: function (arg) {
       document.getElementById('audio').src = arg
     },
+    cancel: function () {
+      console.log('cancel')
+      clearInterval(this.timer)
+      this.filter = null
+      this.showTest = false
+      this.checkAnswers()
+    },
     timerSet: function () {
       let _this = this
       this.timer = setInterval(function () {
         console.log('buttonRotate', _this.buttonRotate, _this.settings.choices, _this.testItems[_this.filter])
-        _this.buttonStyle[_this.buttonRotate - 1] = { color: 'blue' }
-        _this.buttonStyle[_this.buttonRotate] = { color: 'orange' }
+        _this.buttonStyle[_this.buttonRotate - 1] = { color: _this.prime }
+        _this.buttonStyle[_this.buttonRotate] = { color: _this.warn }
 
         if (_this.buttonRotate < _this.settings.choices) {
           let media = _this.testItems[_this.filter]['Choices'][_this.buttonRotate]

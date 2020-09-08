@@ -4,77 +4,83 @@
     <audio id="audio" autoplay></audio>
 
     <Toolbar :toolbarShow='showTest' :showAnswers='showAnswers' :testType="testType" :title="title" v-on:newTest="start($event)" v-on:retry="start()"></Toolbar>
-
-      <b-card class="mt-2" cols="10" v-if="showTest">
-
-            <b-progress :value="filter" :max="testItems.length" animated variant="safe"></b-progress>
-               <br>
-            <b-progress :value="time" max="60000" animated variant="alert"></b-progress>
-
-      </b-card>
-
-      <div v-for="(item, key) in testItems" :key="key">
-      <b-card class="mt-2" v-if="testItems.indexOf(item) === filter">
-        <b-row>
-           <b-card @click="hover=true" @mouseover="hover=true" @mouseleave="hover=false" :class="hoverStyle" align="center" class="mx-auto">
-              <h3>
-                <div v-if="!item.Spelling">
-                  <span style="width:100%"> <b-icon-soundwave></b-icon-soundwave> </span>
-                </div>
-                <div v-else>
-                  <span v-html="item.Spelling">  </span>
-                </div>
-                <span v-if="settings.sound == 'sdOnly' || settings.sound == 'sdOn' "> <b-icon-soundwave></b-icon-soundwave></span>
-              </h3>
-           </b-card>
-
-        </b-row>
-        <br>
-        <b-row>
-           <b-card @click="hoverCh=true" @mouseover="hoverCh=true" @mouseleave="hoverCh=false" :class="hoverStyleCh" align="center" class="mx-auto">
-              <h3>
-                <span v-if="settings.display === 'ch_text_On' || settings.display === 'ch_lb_On'" v-html="item.Chinese" ></span>
-                <span v-if="settings.display ==='ch_lb_On' || settings.display === 'lb_On'"> &nbsp; ({{item.Gr}}) </span>
-              </h3>
-           </b-card>
-        </b-row>
-
-      <b-row class="justify-content-center">
-            <b-form-group>
-
-              <b-form-input align="center" :class="validStyle()" onblur="this.focus()" autofocus autocomplete="off" size="lg" v-on:keyup.enter="recordAnswer(item.English, item.Chinese, currentAnswer) " id="type"  v-model="currentAnswer" class="mt-5"></b-form-input>
-
-            <div v-if="settings.feedback === 'fbConst'">
-              <b-form-invalid-feedback :state="validAnswer">
-                checking...
-              </b-form-invalid-feedback>
-              <b-form-valid-feedback :state="validAnswer">
-                Looks Good :)
-              </b-form-valid-feedback>
-            </div>
-            <div v-if="settings.feedback === 'fbComp'">
-              <b-form-invalid-feedback :state="validCheck">
-                checking...
-              </b-form-invalid-feedback>
-              <b-form-valid-feedback :state="validCheck">
-                Looks Good :)
-              </b-form-valid-feedback>
-            </div>
-
-          </b-form-group>
+      <b-row no-gutters v-if="showTest" >
+      <b-col cols="8">
+            <b-progress :value="filter" style="height:30px" :max="testItems.length" animated variant="safe"></b-progress>
+      </b-col>
+      <b-col cols="3">
+        <b-progress :value="time" style="height:30px" max="60000" animated variant="alert"></b-progress>
+      </b-col>
+      <b-col cols="1">
+        <button class="buttonDiv bg-alert" style="height:30px;width:100%" @click="cancel()"><b-icon icon="x-circle" variant="cream"></b-icon></button>
+      </b-col>
       </b-row>
-      </b-card>
 
+      <div class="bg-grey" v-if="showTest">
+          <div v-for="(item, key) in testItems" :key="key">
+              <div v-if="testItems.indexOf(item) === filter">
+                    <br>
+                    <b-row class="px-5">
+                      <button class="questionDiv bg-warn" @click="hover=true" @mouseover="hover=true" @mouseleave="hover=false" :class="hoverStyle" align="center">
+                          <h3>
+                            <div v-if="!item.Spelling">
+                              <span style="width:100%"> <b-icon-soundwave></b-icon-soundwave> </span>
+                            </div>
+                            <div v-else>
+                              <span v-html="item.Spelling">  </span>
+                            </div>
+                            <span v-if="settings.sound == 'sdOnly' || settings.sound == 'sdOn' "> <b-icon-soundwave></b-icon-soundwave></span>
+                          </h3>
+                      </button>
+                    </b-row>
+
+                    <b-row class="px-5 mt-3">
+                      <button class="answerBtn bg-third" @click="hoverCh=true" @mouseover="hoverCh=true" @mouseleave="hoverCh=false" :class="hoverStyleCh" align="center" >
+                          <h3>
+                            <span v-if="settings.display === 'ch_text_On' || settings.display === 'ch_lb_On'" v-html="item.Chinese" ></span>
+                            <span v-if="settings.display ==='ch_lb_On' || settings.display === 'lb_On'"> &nbsp; ({{item.Gr}}) </span>
+                          </h3>
+                      </button>
+                    </b-row>
+
+                    <b-row align-h="center" class="mt-4">
+                      <b-col cols="10">
+                        <b-form-group>
+                          <div>
+                            <b-form-input align="center" style="font-size:30px;width:100%;text-align:center" :class="validStyle()" onblur="this.focus()" autofocus autocomplete="off" v-on:keyup.enter="recordAnswer(item.English, item.Chinese, currentAnswer) " id="type"  v-model="currentAnswer"></b-form-input>
+                          </div>
+                          <div align="center" v-if="settings.feedback === 'fbConst'">
+                            <b-form-invalid-feedback :state="validAnswer">
+                              checking...
+                            </b-form-invalid-feedback>
+                            <b-form-valid-feedback :state="validAnswer">
+                              Looks Good :)
+                            </b-form-valid-feedback>
+                          </div>
+                          <div align="center" v-if="settings.feedback === 'fbComp'">
+                            <b-form-invalid-feedback :state="validCheck">
+                              checking...
+                            </b-form-invalid-feedback>
+                            <b-form-valid-feedback :state="validCheck">
+                              Looks Good :)
+                            </b-form-valid-feedback>
+                          </div>
+                        </b-form-group>
+                      </b-col>
+                    </b-row>
+
+              </div>
+          </div>
       </div>
 
-      <b-card v-if="showAnswers" class="mt-2">
+      <div v-if="showAnswers" class="bg-smoke">
       <b-table
       striped hover
       :items="answerData"
       :fields="fields"
       >
       </b-table>
-      </b-card>
+      </div>
   </div>
 </template>
 
@@ -176,11 +182,11 @@ export default {
       }
     },
     cancel: function () {
-      this.showAnswers = false
       this.filter = null
-      this.answerData = []
+      this.mistakes = 0
       this.showTest = false
       document.getElementById('type').value = ''
+      this.checkAnswers()
     },
     checkAnswers: function () {
       this.showAnswers = true
@@ -255,7 +261,7 @@ export default {
     },
     hover: function () {
       if (this.hover === true) {
-        this.hoverStyle = 'bg-safe'
+        this.hoverStyle = 'bg-warn-light'
         let sound = this.testItems[this.filter]
         this.playAudio(sound.sdEn)
         let _this = this
@@ -267,7 +273,7 @@ export default {
     },
     hoverCh: function () {
       if (this.hoverCh === true) {
-        this.hoverStyleCh = 'bg-safe'
+        this.hoverStyleCh = 'bg-prime'
         let sound = this.testItems[this.filter]
         this.playAudio(sound.sdCh)
         let _this = this

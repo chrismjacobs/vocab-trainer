@@ -19,8 +19,7 @@
                 <b-input-group prepend="#" class="mb-2 mr-sm-2 mb-sm-0">
                   <b-input id="inline-form-input-username" placeholder="user ID" v-model="friend.userID"></b-input>
                 </b-input-group>
-                <b-button variant="primary" @click="addFriend('add')">Add</b-button>
-                <b-button variant="danger" @click="addFriend('delete')">Delete</b-button>
+                <b-button variant="primary" @click="addFriend()">Add</b-button>
               </b-form>
 
             </div>
@@ -29,7 +28,7 @@
             <b-list-group>
             <div v-for="(user, index) in onlineUsers" :key="index">
             <b-list-group-item  v-if="!challengeList.includes(user.userID) && user.userID !== userID" class="d-flex align-items-center bg-cream">
-                  <b-avatar :src="s3 + user['userID'].toString() + '.jpg'"  size="50px" :badge="user.username" badge-offset="-0.5em" badge-variant="safe"></b-avatar>
+                  <b-avatar :src="s3 + user['userID'].toString() + '/avatar.jpg'"  size="50px" :badge="user.username" badge-offset="-0.5em" badge-variant="safe"></b-avatar>
 
                   <button class="buttonDiv bg-warn-light mx-3 " @click="challenge(user.userID, 'TransEng')"> TransEng Match </button>
 
@@ -43,7 +42,7 @@
             <b-list-group>
               <div v-for="(chall, index) in challengeUsers" :key="index" >
                 <b-list-group-item v-if="userList.includes(chall.userID)" class="d-flex align-items-center bg-cream">
-                  <b-avatar :src="s3 + chall['userID'].toString() + '.jpg'"  size="50px" :badge="chall.sender" badge-offset="-0.5em" badge-variant="p1"></b-avatar>
+                  <b-avatar :src="s3 + chall['userID'].toString() + '/avatar.jpg'"  size="50px" :badge="chall.sender" badge-offset="-0.5em" badge-variant="p1"></b-avatar>
 
                   <button class="buttonDiv bg-safe mx-3 " @click="acceptChallenge(chall.userID, chall.sender, chall.mode)"> Accept </button>
                   <button class="buttonDiv bg-alert mx-3 " @click="declineChallenge(chall.userID)"> Decline </button>
@@ -57,7 +56,7 @@
             <b-list-group>
             <div v-for="(user, index) in friends" :key="index">
             <b-list-group-item  v-if="!challengeList.includes(user.userID) && user.userID !== userID" class="d-flex align-items-center bg-cream">
-                  <b-avatar :src="s3 + user['userID'].toString() + '.jpg'"  size="50px" :badge="user.username" badge-offset="-0.5em" badge-variant="alert"></b-avatar>
+                  <b-avatar :src="s3 + user['userID'].toString() + '/avatar.jpg'"  size="50px" :badge="user.username" badge-offset="-0.5em" badge-variant="alert"></b-avatar>
             </b-list-group-item>
             </div>
           </b-list-group>
@@ -75,6 +74,7 @@
 <script>
 import TransEngMatch from './TransEngMatch'
 import { openSocket } from '@/sockets'
+import { checkFriend } from '@/api'
 
 export default {
   name: 'Match',
@@ -144,9 +144,21 @@ export default {
       this.socket.emit('offline', { userProfile: this.$store.state.userProfile })
       this.socket.close()
     },
-    addFriend: function (arg) {
-      this.$store.dispatch('addFriend', { friendData: this.friend, mode: arg })
-        .then(() => console.log('friend action'))
+    addFriend: function () {
+      let _this = this
+      return checkFriend({username: this.friend.username, userID: this.friend.userID})
+        .then(function (response) {
+          if (response.data.check) {
+            console.log('response', response, response.data)
+            _this.$store.dispatch('addFriend', {friendData: {username: response.data.username, userID: response.data.userID}})
+              .then(() => console.log('friend action'))
+          } else {
+            alert('Friend not found. Please check username and user ID')
+          }
+        })
+        .catch(error => {
+          console.log('Error Registering: ', error)
+        })
     }
   },
   watch: {

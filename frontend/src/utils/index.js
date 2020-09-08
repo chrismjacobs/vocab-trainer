@@ -33,7 +33,6 @@ export function parseLocal (localObject) {
     return false
   }
 }
-
 export function imageValidation (fileInput) {
   // console.log('file', fileInput)
   var filePath = fileInput.value

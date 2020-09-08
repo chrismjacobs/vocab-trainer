@@ -4,7 +4,7 @@
       <b-navbar-brand @click="goTo('Home')"><span class="text-cream" > Vocab Trainer </span> </b-navbar-brand>
 
       <b-navbar-toggle  target="navbar-toggle-collapse" class="d-block d-lg-none">
-        <b-avatar v-if="isAuthenticated" :src="s3 + $store.state.userProfile.userID + '.jpg'" size="3rem" :text="$store.state.userProfile.username[0]"></b-avatar>
+        <b-avatar v-if="isAuthenticated" :src="s3 + $store.state.userProfile.userID + '/avatar.jpg'" size="3rem" :text="$store.state.userProfile.username[0]"></b-avatar>
        <b-avatar v-else size="3rem" text="VC"></b-avatar>
       </b-navbar-toggle>
 
@@ -32,7 +32,7 @@
         <div :class="navSide('/TransEngTest')" @click="goTo('TransEngTest')"><b-icon-box-arrow-up-right></b-icon-box-arrow-up-right> <br> <span class="d-none d-xl-inline"> Eng-Ch </span> </div>
         <div :class="navSide('/TransChTest')" @click="goTo('TransChTest')"><b-icon-box-arrow-up-left></b-icon-box-arrow-up-left> <br> <span class="d-none d-xl-inline"> Ch-Eng </span></div>
         <div :class="navSide('/TypeTest')" @click="goTo('TypeTest')"><b-icon icon="grid3x3-gap-fill"></b-icon> <br> <span class="d-none d-xl-inline"> Type </span></div>
-        <div :class="navSide('/Match')" @click="goTo('Match')"><b-icon icon="gear-fill"></b-icon> <br> <span class="d-none d-xl-inline "> Match </span></div>
+        <div :class="navSide('/Match')" @click="goTo('Match')"><b-icon icon="fullscreen-exit"></b-icon> <br> <span class="d-none d-xl-inline "> Match </span></div>
       </b-col>
 
       <b-col :class="contClass()" style="min-height:100vh">
@@ -45,11 +45,10 @@
           <div class="p-2 bg-warn" style="height:100vh">
               <div align="center">
                     <div class="m-2">
-                      <b-avatar v-if="isAuthenticated" :src="s3 + $store.state.userProfile.userID + '.jpg'" size="4rem" :text="$store.state.userProfile.username[0]"></b-avatar>
+                      <b-avatar v-if="isAuthenticated" :src="s3 + $store.state.userProfile.userID + '/avatar.jpg'" size="4rem" :text="$store.state.userProfile.username[0]"></b-avatar>
                       <b-avatar v-else size="4rem" text="VC"></b-avatar>
                     </div>
                     <div v-if="isAuthenticated" >
-                      <h4 class="mb-2">Profile Dash</h4>
                       <h6> {{ $store.state.userProfile.username}}</h6>
                       <h6> #{{ $store.state.userProfile.userID}}</h6>
                       <h6> This Session:</h6>
@@ -57,14 +56,32 @@
                       <div>
                         <b-table striped hover small borderless :items="currentRecItems"></b-table>
                       </div>
-                    </div>
+
+                   <h6> Your levels:</h6>
+                  <table class="table table-striped table-hover table-sm table-borderless">
+                  <tbody>
+                    <tr v-for="(item, key) in userRecItems" :key="key">
+                      <td><span :class="getClass(key)">&nbsp;&nbsp;</span></td>
+                      <td>{{key}}</td>
+                      <td><span class="pr-5">{{item}}</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                </div>
                     <div v-if="isAuthenticated">
-                      <div class="sideBtn" @click="goTo('Account')"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp;Account </span> </div>
-                      <div class="sideBtn" @click="logout()"><b-icon-power></b-icon-power>  <span text=""> &nbsp;Logout </span> </div>
+                      <button class="buttonDiv bg-prime text-cream px-1" style="height:50px; width:100%" @click="goTo('Account')"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp;Account </span> </button>
+                      <br>
+                      <br>
+                      <button class="buttonDiv bg-prime text-cream px-1" style="height:50px; width:100%" @click="logout()"><b-icon-power></b-icon-power>  <span text=""> &nbsp;Logout </span> </button>
                     </div>
                     <div v-else>
-                       <div class="sideBtn" @click="goTo('Login')"><b-icon-power></b-icon-power>  <span text=""> &nbsp;Login </span> </div>
-                        <div class="sideBtn" @click="goTo('Register')"><b-icon-person-fill></b-icon-person-fill> <span> &nbsp;Register </span> </div>
+                       <br>
+                      <br>
+                       <button class="buttonDiv bg-prime text-cream px-2" style="height:50px; width:100%" @click="goTo('Login')"><b-icon-power></b-icon-power>  <span text=""> &nbsp;Login </span> </button>
+                      <br>
+                      <br>
+                      <button class="buttonDiv bg-prime text-cream px-2" style="height:50px; width:100%" @click="goTo('Register')"><b-icon-person-fill></b-icon-person-fill> <span> &nbsp;Register </span> </button>
                     </div>
               </div>
           </div>
@@ -75,7 +92,7 @@
         <div :class="navStyle('/TransEngTest')" @click="goTo('TransEngTest')"><b-icon-box-arrow-up-right></b-icon-box-arrow-up-right>  <span class="d-none d-md-inline"> &nbsp; Eng-Ch </span> </div>
         <div :class="navStyle('/TransChTest')" @click="goTo('TransChTest')"><b-icon-box-arrow-up-left></b-icon-box-arrow-up-left>  <span class="d-none d-md-inline"> &nbsp; Ch-Eng </span></div>
         <div :class="navStyle('/TypeTest')" @click="goTo('TypeTest')"><b-icon icon="grid3x3-gap-fill"></b-icon> <span class="d-none d-md-inline"> &nbsp; Type </span></div>
-        <div :class="navStyle('/Match')" @click="goTo('Match')"><b-icon icon="gear-fill"></b-icon> <span class="d-none d-md-inline"> &nbsp; Match </span></div>
+        <div :class="navStyle('/Match')" @click="goTo('Match')"><b-icon icon="gem"></b-icon> <span class="d-none d-md-inline"> &nbsp; Match </span></div>
     </div>
   </div>
 
@@ -92,10 +109,11 @@ export default {
       s3: 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/profiles/',
       userProfile: null,
       contColor: 'bg-cream',
+      tableItems: [],
       btnCodes: {
         '/TransChTest': 'bg-third',
         '/TransEngTest': 'bg-third',
-        '/TypeTest': 'bg-third',
+        '/TypeTest': 'bg-warn-light',
         '/Match': 'bg-grape-light',
         '/Dictionary': 'bg-cream'
       },
@@ -132,9 +150,48 @@ export default {
         currentRecItems.push({mode: this.typeHeaders[type], count: count, score: score})
       }
       return currentRecItems
+    },
+    userRecItems () {
+      let counter = {
+        strong: 0,
+        good: 0,
+        okay: 0,
+        weak: 0,
+        problem: 0,
+        'not tested': 0
+      }
+
+      for (let item in this.tableItems) {
+        let row = this.tableItems[item]
+        if (row.totalScore >= 2) {
+          counter.strong += 1
+        } else if (row.totalScore === 1) {
+          counter.good += 1
+        } else if (row.totalScore === 0 && row.tested) {
+          counter.okay += 1
+        } else if (row.totalScore === -1) {
+          counter.weak += 1
+        } else if (row.totalScore <= -2) {
+          counter.problem += 1
+        } else {
+          counter['not tested'] += 1
+        }
+      }
+      return counter
     }
   },
   methods: {
+    getClass: function (arg) {
+      let styles = {
+        strong: 'spanDiv bg-safe-light',
+        good: 'spanDiv bg-third',
+        okay: 'spanDiv bg-grey',
+        weak: 'spanDiv bg-warn-light',
+        problem: 'spanDiv bg-alert-light',
+        'not tested': 'spanDiv bg-cream'
+      }
+      return styles[arg]
+    },
     contClass: function () {
       if (this.getPath() in this.btnCodes) {
         return this.btnCodes[this.getPath()]
@@ -201,8 +258,14 @@ export default {
     // check the login status everytime the page is change
     this.$store.dispatch('checkLogin')
     this.userProfile = this.$store.state.userProfile
+    this.tableItems = this.$store.getters.makeList
   },
   created () {
+    if (!this.$store.state.userRecord && this.isAuthenticated) {
+      console.log('created: get api records')
+      this.$store.dispatch('apiRecords', { userID: this.$store.state.userProfile.userID })
+    }
+
     let _this = this
     window.onbeforeunload = function () {
       if (_this.isAuthenticated && _this.$store.state.updateStatus === false) {
@@ -307,6 +370,20 @@ body {
     text-align: center;
 }
 
+.spanDiv {
+    display:inline-block;
+    color: theme-color('prime');
+    height: 15px;
+    width: 60%;
+    border:0px solid #CCC;
+    outline:none;
+    border-radius: 5px;
+    box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.2);
+    vertical-align:middle;
+    padding: 1px;
+    text-align: center;
+}
+
 .buttonDiv:active {
     color: theme-color('warn');
     box-shadow: 0 0 5px -1px rgba(0,0,0,0.6);
@@ -335,7 +412,7 @@ body {
     padding: 10px;
     text-align: center;
     width: 100%;
-    height: 70px
+    min-height: 70px
 }
 
 .answerBtn {
@@ -345,12 +422,12 @@ body {
     border-radius: 5px;
     box-shadow: 0 0 5px -1px rgba(0,0,0,0.2);
     cursor:pointer;
-    font-size: 20px;
+    font-size: 25px;
     vertical-align:middle;
     padding: 10px;
     text-align: center;
     width: 100%;
-    height: 70px
+    min-height: 70px
 }
 
 .answerBtn:active {
@@ -360,7 +437,7 @@ body {
 
 .answerBtn:disabled {
     color: theme-color('prime');
-    background: theme-color('grey');
+    background: theme-color('cream');
     opacity: 0.5;
     cursor: none;
     pointer-events: none;
@@ -368,6 +445,7 @@ body {
 
 .answerBtn:hover {
     color: theme-color('cream');
+    background: theme-color('grey');
 }
 
 </style>

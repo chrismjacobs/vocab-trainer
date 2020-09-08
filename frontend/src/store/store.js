@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import router from '../router'
 import { isValidJwt, parseLocal } from '@/utils'
-import { authenticate, register, updateRecAPI, updateAccount, updateFriends } from '@/api'
+import { authenticate, register, updateRecAPI, updateAccount, getRecordAPI } from '@/api'
 import tourism from '../assets/json/master.json'
 import food from '../assets/json/food.json'
 
@@ -16,13 +16,15 @@ Vue.use(Vuex)
 
 const state = {
   userProfile: parseLocal(localStorage.userProfile) || {},
-  userRecord: parseLocal(localStorage.userRecord) || {},
+  userRecord: null,
   currentRecord: parseLocal(localStorage.currentRecord) || {},
-  logsRecord: parseLocal(localStorage.logsRecord) || {},
+  logsRecord: null,
+  dictRecord: null,
   updateStatus: true,
   jwt: localStorage.token || '',
   master: dictionaries[parseLocal(localStorage.userProfile).vocab],
-  testActive: false
+  testActive: false,
+  alert: 'null'
 }
 
 const actions = {
@@ -32,7 +34,7 @@ const actions = {
     return authenticate(userData)
       .then(function (response) {
         context.commit('setJwtToken', { jwt: response.data.token, msg: response.data.msg })
-        context.commit('setProfile', { userProfile: response.data.userProfile, userRecord: response.data.userRecord, logsRecord: response.data.logsRecord })
+        context.commit('setProfile', { userProfile: response.data.userProfile, userRecord: response.data.userRecord, logsRecord: response.data.logsRecord, dictRecord: response.data.dictRecord })
         context.commit('setMaster', { userProfile: response.data.userProfile })
         alert(response.data.msg)
         let pushList = {
@@ -66,6 +68,7 @@ const actions = {
     return updateAccount(userData)
       .then(function (response) {
         alert(response.data.msg)
+        context.commit('setAlert', {msg: response.data.msg})
         context.commit('setAccount', {dataReturn: response.data.dataReturn, newVocab: response.data.newVocab})
         console.log('new', response.data.dataReturn)
         if (response.data.newVocab) {
@@ -108,6 +111,25 @@ const actions = {
   addFriend (context, payload) {
     console.log('friend data...')
     context.commit('setFriend', payload)
+  },
+  newWord (context, payload) {
+    console.log('new word data...')
+    context.commit('setNewWord', payload)
+  },
+  deleteWord (context, payload) {
+    console.log('new word data...')
+    context.commit('setDeleteWord', payload)
+  },
+  apiRecords (context, payload) {
+    console.log('record request...')
+    return getRecordAPI(payload)
+      .then(function (response) {
+        console.log(response.data)
+        context.commit('setRecords', response.data)
+      })
+      .catch(error => {
+        console.log('Error Registering: ', error)
+      })
   }
 }
 
@@ -125,11 +147,11 @@ const mutations = {
     localStorage.setItem('userProfile', JSON.stringify(payload.userProfile))
     state.userProfile = payload.userProfile
 
-    localStorage.setItem('userRecord', JSON.stringify(payload.userRecord))
     state.userRecord = payload.userRecord
 
-    localStorage.setItem('logsRecord', JSON.stringify(payload.logsRecord))
     state.logsRecord = payload.logsRecord
+
+    state.dictRecord = payload.dictRecord
 
     localStorage.setItem('currentRecord', JSON.stringify({}))
     state.currentRecord = {}
@@ -140,6 +162,24 @@ const mutations = {
     console.log('setMaster payload = ', payload.userProfile.vocab)
     state.master = dictionaries[payload.userProfile.vocab]
   },
+  setAlert (state, payload) {
+    console.log('setAlert payload = ', payload)
+    state.alert = payload.msg
+    // state.alert = null
+  },
+  setRecords (state, payload) {
+    /// set records on page refresh
+    // not equal to {} means the students has records already
+    if (state.logsRecord !== {}) {
+      state.logsRecord = payload.logsRecord
+    }
+    if (state.userRecord !== {}) {
+      state.userRecord = payload.userRecord
+    }
+    if (state.dictRecord !== {}) {
+      state.dictRecord = payload.dictRecord
+    }
+  },
   setAccount (state, payload) {
     console.log('setAccount payload = ', payload.dataReturn)
     for (let item in payload.dataReturn) {
@@ -147,6 +187,17 @@ const mutations = {
         state[item] = payload.dataReturn[item]
       }
     }
+    localStorage.setItem('userProfile', JSON.stringify(state.userProfile))
+  },
+  setNewWord (state, payload) {
+    console.log('setNewWord payload = ', payload)
+    state.dictRecord[payload.newWord.word] = payload.newWord.text
+    state.updateStatus = false
+  },
+  setDeleteWord (state, payload) {
+    console.log('setDeleteWord payload = ', payload)
+    delete state.dictRecord[payload.word]
+    state.updateStatus = false
   },
   destroyToken (state) {
     console.log('destroyToken')
@@ -159,10 +210,12 @@ const mutations = {
   },
   sendRecords (state) {
     let _state = state
-    updateRecAPI({userRecord: state.userRecord, userID: state.userProfile.userID, logsRecord: state.logsRecord})
+    updateRecAPI({userRecord: state.userRecord, userID: state.userProfile.userID, logsRecord: state.logsRecord, dictRecord: state.dictRecord})
       .then(function (response) {
         _state.updateStatus = true
         // localStorage.settings = JSON.stringify({})
+        localStorage.setItem('userProfile', JSON.stringify(state.userProfile))
+        localStorage.setItem('currentRecord', JSON.stringify(state.currentRecord))
         console.log('RECORDS UPDATED', response)
       })
       .catch(error => {
@@ -202,19 +255,18 @@ const mutations = {
       Vue.set(state.logsRecord.settings, mode)
     }
 
-    // console.log('LOGSRECORD', state.logsRecord, state.logsRecord.settings, state.logsRecord.logs)
+    console.log('LOGSRECORD', state.logsRecord, state.logsRecord.settings, state.logsRecord.logs)
 
     state.logsRecord.settings[mode] = payload.settingsData
 
     if (!state.logsRecord.logs.mode) {
       Vue.set(state.logsRecord.logs, mode, {words: 0, tests: 0})
     }
+    console.log('logs', state.logsRecord.logs[mode])
 
-    state.logsRecord.logs.mode.words += (payload.answerData).length
-    state.logsRecord.logs.mode.tests += 1
+    state.logsRecord.logs[mode]['words'] += (payload.answerData).length
+    state.logsRecord.logs[mode]['tests'] += 1
 
-    localStorage.setItem('logsRecord', JSON.stringify(state.logsRecord))
-    localStorage.setItem('userRecord', JSON.stringify(state.userRecord))
     localStorage.setItem('currentRecord', JSON.stringify(state.currentRecord))
     // data is waiting to be updated
     state.updateStatus = false
@@ -222,13 +274,7 @@ const mutations = {
   setFriend (state, payload) {
     console.log(payload)
     state.logsRecord.friends.push(payload.friendData)
-    updateFriends({logsRecord: state.logsRecord, userID: state.userProfile.userID})
-      .then(function (response) {
-        console.log('FRIENDS UPDATED', response)
-      })
-      .catch(error => {
-        console.log('Error Authenticating: ', error)
-      })
+    state.updateStatus = false
   }
 }
 
@@ -241,6 +287,10 @@ const getters = {
   isActive (state) {
     console.log('getterActive', state.testActive)
     return state.testActive
+  },
+  isAlert (state) {
+    console.log('getterAlert', state.testActive)
+    return state.alert
   },
   makeList (state) {
     let tableItems = []

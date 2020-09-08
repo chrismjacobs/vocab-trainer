@@ -3,13 +3,14 @@
     <b-container>
     <b-row class="mt-3 mx-auto">
       <b-col>
-        <b-card header="Account Information" header-bg-variant="prime" header-text-variant="info" header-tag="h3">
+        <b-card header="Account Information" header-bg-variant="prime" header-text-variant="cream" header-tag="h3">
           <b-form @submit="onSubmit">
             <div class="d-flex">
               <b-col >
-                <b-avatar :src="s3 + userProfile.userID + '.jpg'" size="6rem" :text="userProfile.username[0]"></b-avatar>
+                <b-avatar :src="s3 + userProfile.userID + '/avatar.jpg'" size="6rem" :text="userProfile.username[0]"></b-avatar>
               </b-col>
               <b-col >
+                {{ alert }}
                 <h2> {{ userProfile.username }} </h2>
                 <h3> #{{ userProfile.userID }} </h3>
               </b-col>
@@ -109,19 +110,32 @@ export default {
   data () {
     return {
       s3: 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/profiles/',
-
       userProfile: null,
       join: false,
       fileData: null,
       vocabs: [
         {text: 'ESP Tourism', value: 'tourism'},
         {text: 'Food Viet', value: 'food'}
-      ]
+      ],
+      alert: this.checkAlert
     }
   },
   computed: {
     validName () {
       return this.userProfile.username.length > 2 && this.userProfile.username.length < 13
+    },
+    checkAlert () {
+      return this.$store.state.alert
+    }
+  },
+  watch: {
+    validName () {
+      return this.userProfile.username.length > 2 && this.userProfile.username.length < 13
+    },
+    alert () {
+      if (this.alert) {
+        alert(this.alert, 'text')
+      }
     }
   },
   methods: {

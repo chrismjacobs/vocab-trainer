@@ -69,10 +69,11 @@ def login():
         print('INVALID')
         return jsonify({ 'msg': 'Invalid credentials', 'authenticated': False }), 401
 
-    content = jChecker(user, True, True, False)
+    content = jChecker(user, True, True, True)
 
     userRecord = content['userRecord']
     logsRecord = content['logsRecord']
+    dictRecord = content['dictRecord']
 
 
     logsRecord['logs'] = {'time': datetime.utcnow()}
@@ -112,7 +113,26 @@ def login():
         'init': init,
         'userProfile': userProfile,
         'userRecord': userRecord,
-        'logsRecord': logsRecord
+        'logsRecord': logsRecord,
+        'dictRecord': dictRecord
+        })
+
+@app.route("/api/getRecord", methods=['POST'])
+def get_records():
+    print('RECORDS')
+    userID = request.get_json()['userID']
+    user = User.query.get(userID)
+
+    content = jChecker(user, True, True, True)
+    userRecord = content['userRecord']
+    dictRecord = content['dictRecord']
+    logsRecord = content['logsRecord']
+    logsRecord['logs'] = {'time': datetime.utcnow()}
+
+    return jsonify({
+        'userRecord': userRecord,
+        'logsRecord': logsRecord,
+        'dictRecord': dictRecord
         })
 
 @app.route('/api/updateRecord', methods=['POST'])
@@ -122,21 +142,24 @@ def update_record():
     pprint(payload)
 
     userRecord = payload['userRecord']
+    dictRecord = payload['dictRecord']
     newLogsRecord = payload['logsRecord']
 
     userID = payload['userID']
     user = User.query.get(userID)
 
-    content = jChecker(user, True, True, False)
-    print(content)
+    content = jChecker(user, False, True, False)
+
     # {'vocab_content': '{}', 'logs_content': '{"friends": [], "settings": {}, "logs": []}', 'dictionary_content': None}
     historyLogsRecord = content['logsRecord']
-
+    print(type(content['logsRecord']), content['logsRecord'])
     ## update logs
     historyLogsRecord['settings'] = newLogsRecord['settings']
     historyLogsRecord['logs'].append(newLogsRecord['logs'])
 
-    jStorer(user, historyLogsRecord, userRecord, None)
+    jStorer(user, historyLogsRecord, userRecord, dictRecord)
+
+    print('updateRecord', user)
 
     response = {
         'msg' : 'success'
@@ -144,34 +167,38 @@ def update_record():
     return jsonify(response)
 
 
-@app.route('/api/updateFriends', methods=['POST'])
-def update_friends():
-    print('FRIENDS')
+@app.route('/api/checkFriend', methods=['POST'])
+def checkFriend():
+    print('FRIEND')
     payload = request.get_json()
     pprint(payload)
-
-    friends = payload['logsRecord']['friends']
-    print(friends, type(friends))
-
+    username = payload['username']
     userID = payload['userID']
+
+    print(username)
+    print(userID)
+
     user = User.query.get(userID)
 
-    #jChecker(user, vocab, logs, dictionary)
-    content = jChecker(user, False, True, False)
+    print(user)
 
-    # {'vocab_content': '{}', 'logs_content': '{"friends": [], "settings": {}, "logs": []}', 'dictionary_content': None}
-    logsRecord = content['logsRecord']
+    check = True
 
-    ## update logs
-    logsRecord['friends'] = friends
-
-    jStorer(user, logsRecord, None, None)
+    if user:
+        checkName1 = (username.lower()).strip()
+        checkName2 = (user.username.lower()).strip()
+        print(checkName1, checkName2)
+        if checkName1 != checkName2:
+            check = False
+    else:
+        check = False
 
     response = {
-        'msg' : 'success'
+        'check' : check,
+        'username' : user.username,
+        'userID': userID
     }
     return jsonify(response)
-
 
 @app.route("/api/updateAccount", methods=['POST']) #and now the form accepts the submit POST
 def updateAccount():
@@ -200,22 +227,56 @@ def updateAccount():
     }
     return jsonify(response)
 
+@app.route("/api/addImage", methods=['POST']) #and now the form accepts the submit POST
+def addImage():
+    print('IMAGE')
+    userID = request.get_json()['userID']
+
+    vocab = request.get_json()['vocab']
+    word = request.get_json()['word']
+    mode = [word['word'], vocab]
+
+    print(vocab, word['word'], mode)
+
+    try:
+        stringData = request.get_json()['imageData']
+        imageData = json.loads(stringData)
+        storeB64(imageData, userID, mode)
+    except:
+        pass
+
+    response = {
+        'msg' : 'Your image has been added'
+    }
+    return jsonify(response)
+
 def storeB64(fileData, uid, mode):
+    user = User.query.get(uid)
 
     if fileData['image64'] and mode == 'profile':
         link = 'profileLink'
         b64data = fileData['image64']
-        fileType = 'jpg'
-        location = 'public/profiles/'
+        fileType = '.jpg'
+        location = 'public/profiles/' + str(uid) + '/'
+        filename = location + 'avatar' + fileType
+    elif fileData['image64']:
+        print(mode)
+        word = mode[0]
+        vocab = mode[1]
+        link = 'dictionaryLink'
+        b64data = fileData['image64']
+        fileType = '.jpg'
+        location = 'public/profiles/' + str(uid) + '/' + vocab + '/'
+        filename = location + word + fileType
 
     ## if want to delete old file
-    filename = location + str(uid) + '.' + fileType
+    '''
     if filename:
         print('filename_found ', filename)
         s3_resource.Object(bucket_name, filename).delete()
     else:
         print('no file_key found')
-
+    '''
 
     print('PROCESSING: ' + link)
     data = base64.b64decode(b64data)
@@ -272,14 +333,17 @@ def jStorer(user, logsRecord, userRecord, userDictionary):
     logsKey = "jfolder/" + str(user.id) + '/logs.json'
 
     if logsRecord:
+        print('logs stored')
         logs_content = json.dumps(logsRecord)
         s3_resource.Bucket(bucket_name).put_object(Key=logsKey, Body=str(logs_content))
 
     if userRecord:
+        print('vocab stored')
         vocab_content = json.dumps(userRecord)
         s3_resource.Bucket(bucket_name).put_object(Key=vocabKey, Body=str(vocab_content))
 
     if userDictionary:
+        print('dict stored')
         dictionary_content = json.dumps(userDictionary)
         s3_resource.Bucket(bucket_name).put_object(Key=dictionaryKey, Body=str(dictionary_content))
 

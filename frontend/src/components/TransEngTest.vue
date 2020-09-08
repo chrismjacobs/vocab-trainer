@@ -4,8 +4,14 @@
       <audio id="audio" autoplay></audio>
 
     <Toolbar :toolbarShow='showTest' :showAnswers='showAnswers' :testType="testType" :title="title" v-on:newTest="start($event)" v-on:retry="start()"></Toolbar>
-
-      <b-progress v-if="showTest" :value="filter" style="height:30px" :max="testItems.length" show-progress variant="warn-light" animated></b-progress>
+      <b-row no-gutters v-if="showTest" >
+      <b-col cols="11">
+            <b-progress :value="filter" style="height:30px" :max="testItems.length" variant="warn-light" show-progress animated></b-progress>
+      </b-col>
+      <b-col cols="1">
+        <button class="buttonDiv bg-warn" style="height:30px;width:100%" @click="cancel()"><b-icon icon="x-circle" variant="cream"></b-icon></button>
+      </b-col>
+      </b-row>
 
       <div class="bg-grey" v-if="showTest">
             <div v-for="(item, key) in testItems" :key="key">
@@ -18,7 +24,7 @@
 
                           <div class="p-3">
                               <div v-for="(choice, index) in item.Choices" :key="index">
-                                <button class="answerBtn bg-third" @click="recordAnswer(item.English, item.Chinese, choice.Chinese)">
+                                <button class="answerBtn" @click="recordAnswer(item.English, item.Chinese, choice.Chinese)">
                                 <span v-if="settings.label === 'lbAn' || settings.label === 'lbOn'"> ({{ choice.Gr }}) &nbsp; </span>  {{ choice.Chinese }}
                                 </button>
                                   <br>
@@ -29,7 +35,7 @@
             </div>
       </div>
 
-      <div class="bg-smoke mt-2" v-if="showAnswers">
+      <div class="bg-smoke" v-if="showAnswers">
         <b-table
         striped hover
         :items="answerData"
@@ -112,6 +118,13 @@ export default {
     checkAnswers: function () {
       this.showAnswers = true
       this.$store.dispatch('updateRecord', { mode: 'transEng', answerData: this.answerData, settingsData: this.settings })
+    },
+    cancel: function () {
+      console.log('cancel')
+      clearInterval(this.timer)
+      this.filter = null
+      this.showTest = false
+      this.checkAnswers()
     },
     playAudio: function (arg) {
       document.getElementById('audio').src = arg

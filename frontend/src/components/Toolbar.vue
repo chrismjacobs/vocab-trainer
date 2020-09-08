@@ -126,7 +126,7 @@
           <b-col class="mt-4" v-if="testType === 'typeTest'">
             <div align="center">
             <div class="headDiv"> Spelling </div>
-            <b-dropdown :text="spellingText" variant="outline-dark">
+            <b-dropdown :text="spelling" variant="outline-dark">
               <div>
                   <b-dropdown-item v-for="(btn, index) in optionsO" :key="index" @click="spelling=btn.value; spellingText=btn.text " > {{ btn.text }} </b-dropdown-item>
               </div>
@@ -137,7 +137,7 @@
           <b-col class="mt-4" v-if="testType === 'typeTest'">
             <div align="center">
               <div class="headDiv"> Sort </div>
-            <b-dropdown :text="specialText" variant="outline-info">
+            <b-dropdown :text="special" variant="outline-info">
               <div>
                   <b-dropdown-item v-for="(btn, index) in optionsS" :key="index" @click="special=btn.value; specialText=btn.text"> {{ btn.text }} </b-dropdown-item>
               </div>
@@ -216,19 +216,19 @@ export default {
       spellingText: '-------------',
       optionsO: [
         { value: null, text: '---' },
-        { value: 'cons', text: 'vowels' },
-        { value: 'vowels', text: 'consonants' },
-        { value: 'blanks', text: 'blanks' },
-        { value: 'all', text: 'all' },
-        { value: 'showFL', text: 'words' },
+        { value: 'const', text: 'no consonants' },
+        { value: 'vowels', text: 'no vowels' },
+        { value: 'blanks', text: ' all blanks' },
+        { value: 'all', text: 'show all' },
         { value: 'typos', text: 'typos' },
         { value: 'scramble', text: 'scramble' }
+        // { value: 'showFL', text: 'words' }
       ],
       specialText: '-------------',
       special: null,
       optionsS: [
         { value: null, text: '---' },
-        { value: 'punc', text: 'punctuation' },
+        { value: 'punc.', text: 'punctuation' },
         { value: 'phr.', text: 'phrases' },
         { value: 'abbr.', text: 'abbreviations' },
         { value: 'prop.', text: 'proper nouns' }
@@ -292,7 +292,7 @@ export default {
             this.amendedList.push(vocabList[item])
           }
         }
-      } else if (this.special === 'punc') {
+      } else if (this.special === 'punc.') {
         for (let item in vocabList) {
           if (vocabList[item].English.includes('-') ||
               vocabList[item].English.includes("'") ||
