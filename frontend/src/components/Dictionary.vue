@@ -71,8 +71,9 @@
       >
         <template v-slot:cell(english)="data">
              <b-icon-card-image :variant="getVariant(data.value)" @click="editWord(data.value)"></b-icon-card-image> &nbsp;
-             {{data.value}}
-             <b-icon-soundwave @click="playAudio(data.value)"></b-icon-soundwave>
+             {{data.value}}  &nbsp;
+             <b-icon-soundwave @click="playAudio(data.value, '_en/')"></b-icon-soundwave> &nbsp;
+             <b-icon-soundwave @click="playAudio(data.value, '_ch/')"></b-icon-soundwave> &nbsp;
          </template>
       </b-table>
       </div>
@@ -243,13 +244,13 @@ export default {
       }
       return v
     },
-    playAudio: function (arg) {
+    playAudio: function (arg, folder) {
       let s3audio = 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/'
       let links = {
-        tourism: 'audio_en/',
-        food: 'foodio_en/'
+        tourism: 'audio',
+        food: 'foodio'
       }
-      let audioLink = s3audio + links[this.vocabList] + arg + '.mp3'
+      let audioLink = s3audio + links[this.vocabList] + folder + arg + '.mp3'
       console.log(audioLink)
       document.getElementById('audio').src = audioLink
     },

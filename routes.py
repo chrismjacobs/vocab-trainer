@@ -288,9 +288,9 @@ def storeB64(fileData, uid, mode):
 
 def jChecker(user, vocab, logs, dictionary):
 
-    vocab_content = '{}'
-    logs_content = '{}'
-    dictionary_content = '{}'
+    vocab_content = json.dumps({})
+    logs_content = json.dumps({})
+    dictionary_content = json.dumps({})
 
     if vocab:
         vocabKey = "jfolder/" + str(user.id) + '/' + user.vocab + '/records.json'
@@ -298,7 +298,6 @@ def jChecker(user, vocab, logs, dictionary):
             content_object = s3_resource.Object( 'vocab-lms', vocabKey )
             vocab_content = content_object.get()['Body'].read().decode('utf-8')
         except:
-            vocab_content = json.dumps({})
             s3_resource.Bucket(bucket_name).put_object(Key=vocabKey, Body=str(vocab_content))
 
     if logs:
@@ -321,8 +320,9 @@ def jChecker(user, vocab, logs, dictionary):
             content_object = s3_resource.Object( 'vocab-lms', dictionaryKey )
             dictionary_content = content_object.get()['Body'].read().decode('utf-8')
         except:
-            dictionary_content = json.dumps(json.dumps({}))
             s3_resource.Bucket(bucket_name).put_object(Key=dictionaryKey, Body=str(dictionary_content))
+
+    print(type(json.loads(logs_content)), type(json.loads(dictionary_content)))
 
     return {'userRecord': json.loads(vocab_content), 'logsRecord': json.loads(logs_content), 'dictRecord': json.loads(dictionary_content)}
 
