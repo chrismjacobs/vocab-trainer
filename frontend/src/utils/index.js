@@ -118,10 +118,10 @@ export function wordFix (string, cut) {
       if (cut === 'vowels' && /[aeiouyAEIOUY]/.test(character)) {
         character = '_'
         return character
-      } else if (cut === 'const' && /[bcdfghjklmnpqrstvwxyBCDFGHJKLMNPQRSTVWXYZ]/.test(character)) {
+      } else if (cut === 'const' && /[bcdfghjklmnpqrstvwxzBCDFGHJKLMNPQRSTVWXZ]/.test(character)) {
         character = '_'
         return character
-      } else if (cut === 'blanks' && /[bcdfghjklmnpqrstvwxyBCDFGHJKLMNPQRSTVWXYZaeiouAEIOU]/.test(character)) {
+      } else if (cut === 'blanks' && /[bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZaeiouAEIOU]/.test(character)) {
         character = '_'
         return character
       } else if (/[ ]/.test(character)) {

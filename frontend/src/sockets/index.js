@@ -12,10 +12,11 @@ export function openSocket () {
   }
   const socket = io.connect(host)
   let userProfile = store.state.userProfile
+  let friends = store.state.logsRecord.friends
 
   socket.on('connect', function () {
     // sends to app.py as msg which it prints
-    socket.emit('online', { userProfile: userProfile })
+    socket.emit('online', { userProfile: userProfile, friends: friends })
   })
 
   return socket

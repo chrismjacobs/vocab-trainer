@@ -15,7 +15,7 @@ def getUsers ():
     userDict = {}
 
     for user in userSearch:
-        userDict[user.connected.id] = {'username': user.username, 'userID': user.connected.id}
+        userDict[user.connected.id] = {'username': user.connected.username, 'userID': user.connected.id}
 
 
     userList = json.dumps(userDict)
@@ -27,44 +27,60 @@ def online(data):
     """User joins a room"""
     print('user online', data)
     userProfile = data['userProfile']
-    user = User.query.get(userProfile['userID'])
+    friends = data['friends']
+    userID = userProfile['userID']
+    user = User.query.get(userID)
     check = Connected.query.filter_by(connected=user).first()
-    print('checkUser', check, user)
+    print('checkUser', check, user, friends)
 
     if check:
         if check.extraStr != request.sid:
             check.extraStr = request.sid
             db.session.commit()
     else:
-        player = Connected(username=user.username, connected=user, extraStr=request.sid)
+        player = Connected(username=user.username, friends=json.dumps(friends), connected=user, extraStr=request.sid)
         db.session.add(player)
         db.session.commit()
 
     join_room(user.id)
 
-    ##newRoom = Room(room=user.id)
-    ##db.session.add(newRoom)
-    ##newRoom.players.append(user)
-    ##db.session.commit()
+    checkAll = Connected.query.all()
 
-    emit('onlineUsers', {'userList': getUsers()}, broadcast=True)
+    for c in checkAll:
+        print('check1', c.connected.id, friends)
+        if str(c.connected.id) in friends:
+            emit('onlineUsers', {'userID': c.connected.id, 'username': c.connected.username}, user.id)
+
+
+    for f in friends:
+        print('online friend emit', int(f))
+        emit('onlineUsers', {'userID': user.id, 'username': user.username}, int(f))
+
+
 
 
 @socketio.on('offline')
 def on_offline(data):
-    userProfile = data['userProfile']
-    user = User.query.get(userProfile['userID'])
+    print(data)
+    userID = data['userID']
+    user = User.query.get(userID)
 
     print('user', user)
     check = Connected.query.filter_by(connected=user).first()
     print('check', check)
 
+    friends = {}
+
     if check:
+        friends = json.loads(check.friends)
         Connected.query.filter_by(connected=user).delete()
         db.session.commit()
 
 
-    emit('onlineUsers', {'userList' : getUsers()}, broadcast=True)
+    for f in friends:
+        print('friend', int(f))
+        emit('offlineUsers', {'userID' : user.id}, int(f))
+
     emit('disconnect', {'userID': user.id}, user.id)
 
     print(user.username, 'offline')
@@ -83,14 +99,13 @@ def on_sayHi(data):
 
 @socketio.on('challenge')
 def on_challenge(data):
-    target = data['target']
+    targetID = data['targetID']
     userID = data['userID']
     username = data['username']
     mode = data['mode']
 
-    emit('challenge', {'sender': username, 'mode': mode, 'userID': userID}, target )
-
-    print('challenge', 'target:', target, 'sender:', userID, 'mode', mode)
+    emit('challenge', {'sender': username, 'mode': mode, 'userID': userID}, int(targetID))
+    print('challenge', 'target:', targetID, 'sender:', userID, 'mode', mode)
 
 @socketio.on('accept')
 def on_accept(data):
@@ -162,7 +177,10 @@ def on_disconnect():
     username = None
     userID = None
 
+    friendList = {}
+
     if check:
+        friendList = json.loads(check.friends)
         user = check.connected
         username = user.username
         userID = user.id
@@ -173,6 +191,10 @@ def on_disconnect():
         leave_room(r)
         print('LEAVE ROOM', r)
         emit('leftRoom', {'sender': username, 'userID': userID}, r)
+
+    for f in friendList:
+        print('Offline Signal: ', int(f))
+        emit('offlineUsers', {'userID': userID}, int(f))
 
     print('Client Disconnected')
 

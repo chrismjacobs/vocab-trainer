@@ -75,11 +75,14 @@ def login():
     logsRecord = content['logsRecord']
     dictRecord = content['dictRecord']
 
+    print('check', dictRecord, type(dictRecord))
 
-    logsRecord['logs'] = {'time': datetime.utcnow()}
+    count = len(logsRecord['logs'])
+    print('count', count)
 
-    print(userRecord)
-    print(logsRecord)
+    #pprint(userRecord)
+    print('login_logs:')
+    pprint(logsRecord)
 
     userProfile = {
         'username' : user.username,
@@ -98,7 +101,6 @@ def login():
                 }, app.config['SECRET_KEY'])
 
     print(token)
-
 
     if user.vocab == 'general':
         msg = 'Welcome ' + user.username + ', please set up your account.'
@@ -127,7 +129,6 @@ def get_records():
     userRecord = content['userRecord']
     dictRecord = content['dictRecord']
     logsRecord = content['logsRecord']
-    logsRecord['logs'] = {'time': datetime.utcnow()}
 
     return jsonify({
         'userRecord': userRecord,
@@ -143,21 +144,22 @@ def update_record():
 
     userRecord = payload['userRecord']
     dictRecord = payload['dictRecord']
-    newLogsRecord = payload['logsRecord']
+    logsRecord = payload['logsRecord']
 
     userID = payload['userID']
     user = User.query.get(userID)
 
+    '''
     content = jChecker(user, False, True, False)
-
     # {'vocab_content': '{}', 'logs_content': '{"friends": [], "settings": {}, "logs": []}', 'dictionary_content': None}
     historyLogsRecord = content['logsRecord']
     print(type(content['logsRecord']), content['logsRecord'])
     ## update logs
     historyLogsRecord['settings'] = newLogsRecord['settings']
-    historyLogsRecord['logs'].append(newLogsRecord['logs'])
+    historyLogsRecord['logs'].append(newLogsRecord['logs'])'''
 
-    jStorer(user, historyLogsRecord, userRecord, dictRecord)
+    #jStorer(user, logsRecord, userRecord, userDictionary)
+    jStorer(user, logsRecord, userRecord, dictRecord)
 
     print('updateRecord', user)
 
@@ -172,31 +174,48 @@ def checkFriend():
     print('FRIEND')
     payload = request.get_json()
     pprint(payload)
-    username = payload['username']
+    friendName = payload['friendName']
+    friendID = payload['friendID']
     userID = payload['userID']
 
-    print(username)
+    print(friendName)
+    print(friendID)
     print(userID)
 
+    friend = User.query.get(friendID)
     user = User.query.get(userID)
+    friends = {}
 
-    print(user)
+    print(friend)
 
     check = True
 
-    if user:
-        checkName1 = (username.lower()).strip()
-        checkName2 = (user.username.lower()).strip()
+    if friend:
+        checkName1 = (friendName.lower()).strip()
+        checkName2 = (friend.username.lower()).strip()
         print(checkName1, checkName2)
         if checkName1 != checkName2:
             check = False
     else:
         check = False
 
+    if check:
+        conUser = Connected.query.filter_by(connected=user).first()
+        print(conUser)
+        friends = json.loads(conUser.friends)
+        print(friends, type(friends))
+        friends[friend.id] = friend.username
+        conUser.friends = json.dumps(friends)
+        print(conUser.friends, type(conUser.friends))
+        friendString = conUser.friends
+        db.session.commit()
+
+    print(friends, type(friends))
     response = {
         'check' : check,
-        'username' : user.username,
-        'userID': userID
+        'friendName' : friend.username,
+        'friendID': friend.id,
+        'friends': friendString
     }
     return jsonify(response)
 
@@ -287,40 +306,51 @@ def storeB64(fileData, uid, mode):
 ''' ############ json handlers ############'''
 
 def jChecker(user, vocab, logs, dictionary):
+    print('##jChecker')
 
     vocab_content = json.dumps({})
     logs_content = json.dumps({})
     dictionary_content = json.dumps({})
 
+    #print(type(json.loads(logs_content)), type(json.loads(dictionary_content)))
+
     if vocab:
         vocabKey = "jfolder/" + str(user.id) + '/' + user.vocab + '/records.json'
+        vocab = {}
         try:
             content_object = s3_resource.Object( 'vocab-lms', vocabKey )
             vocab_content = content_object.get()['Body'].read().decode('utf-8')
         except:
-            s3_resource.Bucket(bucket_name).put_object(Key=vocabKey, Body=str(vocab_content))
+            vocab_content = json.dumps(vocab)
+            s3_resource.Bucket(bucket_name).put_object(Key=vocabKey, Body=vocab_content)
 
     if logs:
         logsKey = "jfolder/" + str(user.id) + '/logs.json'
         logs = {
-            'friends': [],
+            'friends': {},
             'settings': {},
-            'logs': []
+            'logs': {}
         }
         try:
             content_object = s3_resource.Object( 'vocab-lms', logsKey )
             logs_content = content_object.get()['Body'].read().decode('utf-8')
+            print('try', logs_content)
         except:
             logs_content = json.dumps(logs)
-            s3_resource.Bucket(bucket_name).put_object(Key=logsKey, Body=str(logs_content))
+            s3_resource.Bucket(bucket_name).put_object(Key=logsKey, Body=logs_content)
+            print('except', logs_content)
 
     if dictionary:
         dictionaryKey = "jfolder/" + str(user.id) + '/' + user.vocab + '/dictionary.json'
+        dictionary = {}
         try:
             content_object = s3_resource.Object( 'vocab-lms', dictionaryKey )
             dictionary_content = content_object.get()['Body'].read().decode('utf-8')
+            print('try', dictionary_content)
         except:
-            s3_resource.Bucket(bucket_name).put_object(Key=dictionaryKey, Body=str(dictionary_content))
+            dictionary_content = json.dumps(dictionary)
+            s3_resource.Bucket(bucket_name).put_object(Key=dictionaryKey, Body=dictionary_content)
+            print('except', dictionary_content)
 
     print(type(json.loads(logs_content)), type(json.loads(dictionary_content)))
 
@@ -328,9 +358,12 @@ def jChecker(user, vocab, logs, dictionary):
 
 
 def jStorer(user, logsRecord, userRecord, userDictionary):
+    print('jStorer')
     vocabKey = "jfolder/" + str(user.id) + '/' + user.vocab + '/records.json'
     dictionaryKey = "jfolder/" + str(user.id) + '/' + user.vocab + '/dictionary.json'
     logsKey = "jfolder/" + str(user.id) + '/logs.json'
+
+    print(vocabKey, dictionaryKey, logsKey)
 
     if logsRecord:
         print('logs stored')

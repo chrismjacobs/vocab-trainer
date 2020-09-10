@@ -24,7 +24,8 @@ const state = {
   jwt: localStorage.token || '',
   master: dictionaries[parseLocal(localStorage.userProfile).vocab],
   testActive: false,
-  alert: 'null'
+  alert: 'null',
+  loginTime: localStorage.loginTime || ''
 }
 
 const actions = {
@@ -74,6 +75,7 @@ const actions = {
         if (response.data.newVocab) {
           alert('Your are changing your word list to ' + response.data.dataReturn['vocab'] + '. Please log in again to update')
           context.dispatch('logout')
+          router.push('/login')
         }
       })
       .catch(error => {
@@ -146,12 +148,13 @@ const mutations = {
 
     localStorage.setItem('userProfile', JSON.stringify(payload.userProfile))
     state.userProfile = payload.userProfile
-
+    state.dictRecord = payload.dictRecord
     state.userRecord = payload.userRecord
 
     state.logsRecord = payload.logsRecord
-
-    state.dictRecord = payload.dictRecord
+    state.loginTime = new Date()
+    localStorage.setItem('loginTime', new Date())
+    state.logsRecord.logs[state.loginTime] = {}
 
     localStorage.setItem('currentRecord', JSON.stringify({}))
     state.currentRecord = {}
@@ -172,6 +175,9 @@ const mutations = {
     // not equal to {} means the students has records already
     if (state.logsRecord !== {}) {
       state.logsRecord = payload.logsRecord
+    }
+    if (!state.logsRecord.logs[state.loginTime]) {
+      Vue.set(state.logsRecord.logs, state.loginTime, {})
     }
     if (state.userRecord !== {}) {
       state.userRecord = payload.userRecord
@@ -201,6 +207,11 @@ const mutations = {
   },
   destroyToken (state) {
     console.log('destroyToken')
+    state.userProfile = {}
+    state.userRecord = {}
+    state.currentRecord = {}
+    state.logsRecord = {}
+    state.dictRecord = {}
     state.jwt = ''
     localStorage.clear()
   },
@@ -259,13 +270,17 @@ const mutations = {
 
     state.logsRecord.settings[mode] = payload.settingsData
 
-    if (!state.logsRecord.logs.mode) {
-      Vue.set(state.logsRecord.logs, mode, {words: 0, tests: 0})
+    if (!state.logsRecord.logs[state.loginTime]['vocab']) {
+      Vue.set(state.logsRecord.logs[state.loginTime], 'vocab', state.userProfile.vocab)
     }
-    console.log('logs', state.logsRecord.logs[mode])
+    if (!state.logsRecord.logs[state.loginTime].mode) {
+      Vue.set(state.logsRecord.logs[state.loginTime], mode, {words: 0, tests: 0})
+    }
 
-    state.logsRecord.logs[mode]['words'] += (payload.answerData).length
-    state.logsRecord.logs[mode]['tests'] += 1
+    console.log('logs', state.logsRecord.logs[state.loginTime][mode])
+
+    state.logsRecord.logs[state.loginTime][mode]['words'] += (payload.answerData).length
+    state.logsRecord.logs[state.loginTime][mode]['tests'] += 1
 
     localStorage.setItem('currentRecord', JSON.stringify(state.currentRecord))
     // data is waiting to be updated
@@ -273,7 +288,8 @@ const mutations = {
   },
   setFriend (state, payload) {
     console.log(payload)
-    state.logsRecord.friends.push(payload.friendData)
+    // state.logsRecord.friends = {}
+    state.logsRecord.friends = payload.friendData
     state.updateStatus = false
   }
 }

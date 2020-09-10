@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <b-navbar toggleable sticky>
-      <b-navbar-brand @click="goTo('Home')"><span class="text-cream" > Vocab Trainer </span> </b-navbar-brand>
+      <b-navbar-brand @click="goTo('Home')"><span class="text-cream" > VOCAB TRAINER </span> </b-navbar-brand>
 
       <b-navbar-toggle  target="navbar-toggle-collapse" class="d-block d-lg-none">
         <b-avatar v-if="isAuthenticated" :src="s3 + $store.state.userProfile.userID + '/avatar.jpg'" size="3rem" :text="$store.state.userProfile.username[0]"></b-avatar>
@@ -34,6 +34,8 @@
         <div :class="navSide('/TypeTest')" @click="goTo('TypeTest')"><b-icon icon="grid3x3-gap-fill"></b-icon> <br> <span class="d-none d-xl-inline"> Type </span></div>
         <div :class="navSide('/Match')" @click="goTo('Match')"><b-icon icon="fullscreen-exit"></b-icon> <br> <span class="d-none d-xl-inline "> Match </span></div>
       </b-col>
+      <b-col v-else cols="1" class="bg-prime d-none d-lg-block">
+      </b-col>
 
       <b-col :class="contClass()" style="min-height:100vh">
         <b-container fluid >
@@ -42,23 +44,29 @@
       </b-col>
 
       <b-col cols="2" class="d-none d-lg-block">
-          <div class="p-2 bg-warn" style="height:100vh">
-              <div align="center">
-                    <div class="m-2">
-                      <b-avatar v-if="isAuthenticated" :src="s3 + $store.state.userProfile.userID + '/avatar.jpg'" size="4rem" :text="$store.state.userProfile.username[0]"></b-avatar>
-                      <b-avatar v-else size="4rem" text="VC"></b-avatar>
-                    </div>
+          <div class="p-2 bg-warn" style="height:100%">
+              <div>
+                <b-row no-gutters>
+                  <b-col>
+                    <b-avatar class="ml-3" v-if="isAuthenticated" :src="s3 + $store.state.userProfile.userID + '/avatar.jpg'" size="4rem" :text="$store.state.userProfile.username[0]"></b-avatar>
+                    <b-avatar v-else size="4rem" text="VC"></b-avatar>
+                  </b-col>
+                  <b-col class="text-cream">
+                    <h4> {{ $store.state.userProfile.username}}</h4>
+                    <h4> #{{ $store.state.userProfile.userID}}</h4>
+                  </b-col>
+                </b-row>
+                    <hr>
                     <div v-if="isAuthenticated" >
-                      <h6> {{ $store.state.userProfile.username}}</h6>
-                      <h6> #{{ $store.state.userProfile.userID}}</h6>
                       <h6> This Session:</h6>
                       <span v-if="currentRecItems.length === 0"> No new words </span>
                       <div>
-                        <b-table striped hover small borderless :items="currentRecItems"></b-table>
+                        <b-table class="text-cream" striped hover small borderless :items="currentRecItems"></b-table>
                       </div>
+                    <hr>
 
-                   <h6> Your levels:</h6>
-                  <table class="table table-striped table-hover table-sm table-borderless">
+                   <h6> Your Levels:</h6>
+                  <table class="table table-striped table-hover table-sm table-borderless text-cream">
                   <tbody>
                     <tr v-for="(item, key) in userRecItems" :key="key">
                       <td><span :class="getClass(key)">&nbsp;&nbsp;</span></td>
@@ -67,6 +75,8 @@
                     </tr>
                   </tbody>
                 </table>
+
+                <hr>
 
                 </div>
                     <div v-if="isAuthenticated">
@@ -121,7 +131,7 @@ export default {
         'transEng': 'Eng',
         'transCh': 'Ch',
         'typeTest': 'Type',
-        'match': 'Match'
+        'matchEng': 'Match'
       }
     }
   },
@@ -228,7 +238,9 @@ export default {
       }
     },
     logout: function (arg) {
-      this.$store.dispatch('saveData')
+      if (!this.$store.state.updateStatus) {
+        this.$store.dispatch('saveData')
+      }
       this.$store.dispatch('logout')
     },
     currentCount: function () {
@@ -368,6 +380,18 @@ body {
     vertical-align:middle;
     padding: 5px;
     text-align: center;
+}
+
+.headDiv {
+    display:inline-block;
+    border:0px solid #CCC;
+    outline:none;
+    border-radius: 50px, 50px, 0px, 0px;
+    box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.2);
+    vertical-align:middle;
+    padding: 5px;
+    text-align: center;
+    width: 100%
 }
 
 .spanDiv {

@@ -196,6 +196,10 @@ export default {
           for (let i = 0; i < buttons.length; i++) {
             buttons[i].disabled = true
           }
+        } else if (state) {
+          for (let i = 0; i < buttons.length; i++) {
+            buttons[i].disabled = true
+          }
         }
       } else {
         // deal with disable answer
@@ -233,6 +237,7 @@ export default {
       console.log(state)
 
       let _rowVariant = 'warn'
+      let score = 0
 
       if (state) {
         _rowVariant = player
@@ -241,7 +246,8 @@ export default {
       let entry = {
         English: english,
         Chinese: chinese,
-        _rowVariant: _rowVariant
+        _rowVariant: _rowVariant,
+        Score: score
       }
 
       this.progressValues[_rowVariant] += 1
@@ -263,7 +269,7 @@ export default {
     },
     checkAnswers: function () {
       this.showAnswers = true
-      // this.$store.dispatch('updateRecord', { mode: 'matchTransEng' })
+      this.$store.dispatch('updateRecord', { mode: 'matchEng', answerData: this.answerData, settingsData: null })
     },
     playAudio: function (arg) {
       document.getElementById('audio').src = arg

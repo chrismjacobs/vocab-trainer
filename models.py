@@ -32,7 +32,8 @@ class Settings(db.Model):
 
 class Connected(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    username =  db.Column(db.String(20), nullable=False) #must be a unique name and cannot be null
+    username =  db.Column(db.String(20), nullable=False)
+    friends =  db.Column(db.String())
     extraStr = db.Column(db.String())
     extraInt = db.Column(db.Integer())
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))

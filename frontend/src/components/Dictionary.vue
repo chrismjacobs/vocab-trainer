@@ -276,6 +276,7 @@ export default {
           _this.$store.dispatch('newWord', {newWord: _this.newWord})
           _this.newWord.word = 'a'
           _this.newWord.text = null
+          localStorage.imageData = null
         })
         .catch(error => {
           alert('New word could not be added')

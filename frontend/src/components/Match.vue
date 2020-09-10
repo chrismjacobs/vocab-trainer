@@ -19,19 +19,17 @@
                 <b-input-group prepend="#" class="mb-2 mr-sm-2 mb-sm-0">
                   <b-input id="inline-form-input-username" placeholder="user ID" v-model="friend.userID"></b-input>
                 </b-input-group>
-                <b-button variant="primary" @click="addFriend()">Add</b-button>
               </b-form>
-
+                <button class="buttonDiv bg-third" @click="addFriend()">Add</button>
             </div>
+
           <div class="mt-2 bg-second p-2">
-            <h3> Friends Online </h3>
+            <h3> Online </h3>
             <b-list-group>
             <div v-for="(user, index) in onlineUsers" :key="index">
-            <b-list-group-item  v-if="!challengeList.includes(user.userID) && user.userID !== userID" class="d-flex align-items-center bg-cream">
-                  <b-avatar :src="s3 + user['userID'].toString() + '/avatar.jpg'"  size="50px" :badge="user.username" badge-offset="-0.5em" badge-variant="safe"></b-avatar>
-
-                  <button class="buttonDiv bg-warn-light mx-3 " @click="challenge(user.userID, 'TransEng')"> TransEng Match </button>
-
+            <b-list-group-item  v-if="!challengeUsers[index]" class="d-flex align-items-center bg-cream">
+                  <b-avatar :src="s3 + index + '/avatar.jpg'"  size="50px" :badge="user" badge-offset="-0.5em" badge-variant="safe"></b-avatar>
+                  <button class="buttonDiv bg-p1 mx-3"  @click="challenge(index, 'TransEng')"> Eng --> Ch </button>
             </b-list-group-item>
             </div>
           </b-list-group>
@@ -41,10 +39,9 @@
             <h3> Challengers </h3>
             <b-list-group>
               <div v-for="(chall, index) in challengeUsers" :key="index" >
-                <b-list-group-item v-if="userList.includes(chall.userID)" class="d-flex align-items-center bg-cream">
-                  <b-avatar :src="s3 + chall['userID'].toString() + '/avatar.jpg'"  size="50px" :badge="chall.sender" badge-offset="-0.5em" badge-variant="p1"></b-avatar>
-
-                  <button class="buttonDiv bg-safe mx-3 " @click="acceptChallenge(chall.userID, chall.sender, chall.mode)"> Accept </button>
+                <b-list-group-item v-if="onlineUsers[index]" class="d-flex align-items-center bg-cream">
+                  <b-avatar :src="s3 + index.toString() + '/avatar.jpg'"  size="50px" :badge="chall.sender" badge-offset="-0.5em" badge-variant="p1"></b-avatar>
+                  <button class="buttonDiv bg-safe mx-3 " @click="acceptChallenge(chall.userID, chall.sender, chall.mode)"> {{chall.mode}} Accept </button>
                   <button class="buttonDiv bg-alert mx-3 " @click="declineChallenge(chall.userID)"> Decline </button>
                 </b-list-group-item>
               </div>
@@ -55,8 +52,8 @@
             <h3> Friends </h3>
             <b-list-group>
             <div v-for="(user, index) in friends" :key="index">
-            <b-list-group-item  v-if="!challengeList.includes(user.userID) && user.userID !== userID" class="d-flex align-items-center bg-cream">
-                  <b-avatar :src="s3 + user['userID'].toString() + '/avatar.jpg'"  size="50px" :badge="user.username" badge-offset="-0.5em" badge-variant="alert"></b-avatar>
+            <b-list-group-item  v-if="!onlineUsers[index]" class="d-flex align-items-center bg-cream">
+                  <b-avatar :src="s3 + index + '/avatar.jpg'"  size="50px" :badge="user" badge-offset="-0.5em" badge-variant="alert"></b-avatar>
             </b-list-group-item>
             </div>
           </b-list-group>
@@ -87,8 +84,7 @@ export default {
   data () {
     return {
       pageHead: 'Match Area',
-      friendss: [{userID: 4, username: 'Bob'}, {userID: 5, username: 'Sally'}],
-      friends: this.$store.state.logsRecord.friends,
+      friends: {},
       friend: {
         username: null,
         userID: null
@@ -116,44 +112,51 @@ export default {
     startRoom: function () {
       this.socket.emit('start_room', {room: this.room, username: this.username, userID: this.userID})
     },
-    sayHi: function (sid) {
-      this.socket.emit('sayHi', {userID: this.userID, username: this.username, target: sid})
+    sayHi: function (targetID) {
+      this.socket.emit('sayHi', {userID: this.userID, username: this.username, targetID: targetID})
     },
-    challenge: function (sid, mode) {
-      this.socket.emit('challenge', {userID: this.userID, username: this.username, target: sid, mode: mode})
+    challenge: function (targetID, mode) {
+      this.socket.emit('challenge', {userID: this.userID, username: this.username, targetID: targetID, mode: mode})
     },
     declineChallenge: function (uid) {
-      console.log('sid', uid, this.challengeUsers)
-      let newUsers = {}
-      for (let c in this.challengeUsers) {
-        console.log(c, uid)
-        if (parseInt(c) !== uid) {
-          newUsers[c] = this.challengeUsers[c]
-        }
-      }
-      this.challengeUsers = newUsers
-      console.log('change', this.challengeUsers)
+      delete this.challengeUsers[uid]
+      this.challengeUsers = JSON.parse(JSON.stringify(this.challengeUsers))
+
+      // console.log('sid', uid, this.challengeUsers)
+      // let newUsers = {}
+      // for (let c in this.challengeUsers) {
+      //   console.log(c, uid)
+      //   if (parseInt(c) !== uid) {
+      //     newUsers[c] = this.challengeUsers[c]
+      //   }
+      // }
+      // this.challengeUsers = newUsers
+      // console.log('change', this.challengeUsers)
     },
     acceptChallenge: function (uid, p1name, mode) {
       this.socket.emit('accept', {p2: this.userID, p2name: this.username, p1: uid, p1name: p1name, mode: mode})
     },
     startSocket: function () {
       this.socket = openSocket()
+      this.socket.emit('checkOnline', { userID: this.userID })
     },
     closeSocket: function () {
-      this.socket.emit('offline', { userProfile: this.$store.state.userProfile })
+      this.socket.emit('offline', { userID: this.userID })
       this.socket.close()
     },
     addFriend: function () {
       let _this = this
-      return checkFriend({username: this.friend.username, userID: this.friend.userID})
+      let friendName = this.friend.username
+      let friendID = this.friend.userID
+      return checkFriend({friendName: friendName, friendID: friendID, userID: _this.userID})
         .then(function (response) {
-          if (response.data.check) {
-            console.log('response', response, response.data)
-            _this.$store.dispatch('addFriend', {friendData: {username: response.data.username, userID: response.data.userID}})
-              .then(() => console.log('friend action'))
+          if (response.data.check && response.data.friendID !== _this.userID) {
+            console.log('response', response.data)
+            _this.friends = JSON.parse(response.data.friends)
+            _this.$store.dispatch('addFriend', {friendData: JSON.parse(response.data.friends)})
+            alert('friend added')
           } else {
-            alert('Friend not found. Please check username and user ID')
+            alert('Cannot add friend. Please check username and user ID')
           }
         })
         .catch(error => {
@@ -162,13 +165,6 @@ export default {
     }
   },
   watch: {
-    onlineUsers: function () {
-      this.userList = []
-      for (let u in this.onlineUsers) {
-        this.userList.push(this.onlineUsers[u].userID)
-      }
-      console.log(this.userList)
-    },
     challengeUsers: function () {
       this.challengeList = []
       for (let u in this.challengeUsers) {
@@ -183,9 +179,6 @@ export default {
       this.$router.push('login')
       return false
     }
-    this.userID = this.$store.state.userProfile.userID
-    this.username = this.$store.state.userProfile.username
-    this.startSocket()
 
     let _this = this
     window.onbeforeunload = function () {
@@ -200,10 +193,21 @@ export default {
     this.closeSocket()
   },
   mounted () {
+    this.userID = this.$store.state.userProfile.userID
+    this.username = this.$store.state.userProfile.username
+    this.friends = this.$store.state.logsRecord.friends
+    this.startSocket()
+
     let _this = this
     _this.socket.on('onlineUsers', function (data) {
       console.log('onlineUsers', data)
-      _this.onlineUsers = JSON.parse(data.userList)
+      _this.onlineUsers[data.userID] = data.username
+      _this.onlineUsers = JSON.parse(JSON.stringify(_this.onlineUsers))
+    })
+    _this.socket.on('offlineUsers', function (data) {
+      console.log('offlineUsers', data)
+      delete _this.onlineUsers[data.userID]
+      _this.onlineUsers = JSON.parse(JSON.stringify(_this.onlineUsers))
     })
     _this.socket.on('sayHi', function (data) {
       console.log(data)

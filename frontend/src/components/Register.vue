@@ -17,7 +17,7 @@
                             placeholder="Enter username">
                 </b-form-input>
                 <b-form-invalid-feedback :state="validName">
-                  Your username must be 3-12 characters long.
+                  Your username must be 3-20 characters long.
                 </b-form-invalid-feedback>
                 <b-form-valid-feedback :state="validName">
                   Looks Good.
@@ -99,7 +99,7 @@ export default {
   },
   computed: {
     validName () {
-      return this.form.username.length > 2 && this.form.username.length < 13
+      return this.form.username.length > 2 && this.form.username.length < 20
     },
     validPass () {
       return this.form.password === this.form.confirm
