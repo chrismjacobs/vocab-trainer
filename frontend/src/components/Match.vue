@@ -41,7 +41,7 @@
               <div v-for="(chall, index) in challengeUsers" :key="index" >
                 <b-list-group-item v-if="onlineUsers[index]" class="d-flex align-items-center bg-cream">
                   <b-avatar :src="s3 + index.toString() + '/avatar.jpg'"  size="50px" :badge="chall.sender" badge-offset="-0.5em" badge-variant="p1"></b-avatar>
-                  <button class="buttonDiv bg-safe mx-3 " @click="acceptChallenge(chall.userID, chall.sender, chall.mode)"> {{chall.mode}} Accept </button>
+                  <button class="buttonDiv bg-p2 mx-3 " @click="acceptChallenge(chall.userID, chall.sender, chall.mode)"> {{chall.mode}} Accept </button>
                   <button class="buttonDiv bg-alert mx-3 " @click="declineChallenge(chall.userID)"> Decline </button>
                 </b-list-group-item>
               </div>
@@ -254,6 +254,9 @@ export default {
       _this.p1name = null
       _this.p2 = null
       _this.p2name = null
+      delete _this.onlineUsers[data.userID]
+      _this.onlineUsers = JSON.parse(JSON.stringify(_this.onlineUsers))
+
     })
   }
 }
