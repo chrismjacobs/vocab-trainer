@@ -10,7 +10,6 @@
 
       <div align="center" class="bg-prime p-2">
         <div v-if="waiting === 0" :class="'buttonDiv bg-' + player" style="width: 60%" @click="playerReady(), emitWaiting(1)">Ready</div>
-        <b-icon-backspace-reverse-fill v-if="waiting === 0" variant="warn" class="mt-1 ml-3" style="float:right" @click="leave()" font-scale="1.5"></b-icon-backspace-reverse-fill>
         <b-icon v-if="waiting === 1" icon="three-dots" animation="cylon" font-scale="4" :variant="player"></b-icon>
         <div v-if="waiting === 2" :class="'my-2 text-center text-'+ player">
           <b-spinner class="align-middle"></b-spinner>

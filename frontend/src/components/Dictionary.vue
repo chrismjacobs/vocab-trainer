@@ -20,8 +20,8 @@
           <b-col cols="3">
             <button class="buttonDiv bg-prime px-3" style="width:60px;float:right" @click="newWord.word = null"> <b-icon-card-list variant="cream" font-scale="1.5"></b-icon-card-list></button>
           </b-col>
-        </b-row></div>
-
+        </b-row>
+      </div>
     </div>
 
       <div class="bg-grey p-2" v-if="!newWord.word">
@@ -160,8 +160,10 @@ export default {
         {key: 'ChineseExt', label: 'Chinese', sortable: true}
       ],
       tableItems: null,
-      selected: ['A', null, null],
-      optionsA: [],
+      selected: [null, null, null],
+      optionsA: [
+        { value: null, text: '---' }
+      ],
       optionsG: [
         { value: null, text: '---' },
         { value: 'v.', text: 'verbs' },

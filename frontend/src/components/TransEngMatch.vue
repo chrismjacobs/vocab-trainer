@@ -1,6 +1,16 @@
 <template>
   <div class="TransEng">
     <audio id="audio" autoplay></audio>
+      <div class="mt-2 bg-second p-2" align="center">
+        <b-row align-h="end">
+          <b-col cols="6">
+            <h2 class="text-cream" > Match </h2>
+          </b-col>
+          <b-col cols="3">
+            <b-icon-backspace-reverse-fill variant="warn" class="mt-1 ml-3" style="float:right" @click="leave()" font-scale="1.5"></b-icon-backspace-reverse-fill>
+          </b-col>
+        </b-row>
+      </div>
 
      <div class="bg-second p-3" v-if="showProgress">
          <div class="mt-2 bg-third p-2" style="height:100px" align="center">

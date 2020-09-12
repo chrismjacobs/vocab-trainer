@@ -34,31 +34,22 @@ const actions = {
     // mutation action to set userData after login
     return authenticate(userData)
       .then(function (response) {
-        context.commit('setJwtToken', { jwt: response.data.token, msg: response.data.msg })
+        context.commit('setJwtToken', { jwt: response.data.token })
         context.commit('setProfile', { userProfile: response.data.userProfile, userRecord: response.data.userRecord, logsRecord: response.data.logsRecord, dictRecord: response.data.dictRecord })
         context.commit('setMaster', { userProfile: response.data.userProfile })
-        alert(response.data.msg)
-        let pushList = {
-          false: '/account',
-          true: '/home'
-        }
-        router.push(pushList[response.data.init])
+        return response.data.msg
       })
       .catch(error => {
-        // log and signal to app
-        alert('An error has occured - please check your email and password', error)
         router.push('/home')
         console.log('Error Authenticating: ', error)
+        return false
       })
   },
   register (context, userData) {
     console.log(context)
     return register(userData)
       .then(function (response) {
-        alert(response.data.msg)
-        if (!response.data.err) {
-          router.push('/login')
-        }
+        return response.data
       })
       .catch(error => {
         console.log('Error Registering: ', error)

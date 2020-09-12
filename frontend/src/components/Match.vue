@@ -49,7 +49,7 @@
           </div>
 
           <div class="mt-2 bg-second p-2">
-            <h3> Friends </h3>
+            <h3> Offline </h3>
             <b-list-group>
             <div v-for="(user, index) in friends" :key="index">
             <b-list-group-item  v-if="!onlineUsers[index]" class="d-flex align-items-center bg-cream">
@@ -95,6 +95,7 @@ export default {
       userList: [],
       challengeUsers: {},
       challengeList: [],
+      challengeMarker: null,
       socket: null,
       testType: null,
       p1: null,
@@ -116,22 +117,13 @@ export default {
       this.socket.emit('sayHi', {userID: this.userID, username: this.username, targetID: targetID})
     },
     challenge: function (targetID, mode) {
+      // marker to stop two people challenging each other at the same time
+      this.challengeMarker = targetID
       this.socket.emit('challenge', {userID: this.userID, username: this.username, targetID: targetID, mode: mode})
     },
     declineChallenge: function (uid) {
       delete this.challengeUsers[uid]
       this.challengeUsers = JSON.parse(JSON.stringify(this.challengeUsers))
-
-      // console.log('sid', uid, this.challengeUsers)
-      // let newUsers = {}
-      // for (let c in this.challengeUsers) {
-      //   console.log(c, uid)
-      //   if (parseInt(c) !== uid) {
-      //     newUsers[c] = this.challengeUsers[c]
-      //   }
-      // }
-      // this.challengeUsers = newUsers
-      // console.log('change', this.challengeUsers)
     },
     acceptChallenge: function (uid, p1name, mode) {
       this.socket.emit('accept', {p2: this.userID, p2name: this.username, p1: uid, p1name: p1name, mode: mode})
@@ -200,9 +192,11 @@ export default {
 
     let _this = this
     _this.socket.on('onlineUsers', function (data) {
-      console.log('onlineUsers', data)
-      _this.onlineUsers[data.userID] = data.username
-      _this.onlineUsers = JSON.parse(JSON.stringify(_this.onlineUsers))
+      if (_this.friends[data.userID]) {
+        console.log('onlineUsers', data)
+        _this.onlineUsers[data.userID] = data.username
+        _this.onlineUsers = JSON.parse(JSON.stringify(_this.onlineUsers))
+      }
     })
     _this.socket.on('offlineUsers', function (data) {
       console.log('offlineUsers', data)
@@ -218,21 +212,28 @@ export default {
     })
     _this.socket.on('challenge', function (data) {
       console.log('challenge', data)
-      let challenge = { sender: data.sender, mode: data.mode, userID: data.userID }
-      for (let c in _this.challengeUsers) {
-        console.log(_this.challengeUsers[c], challenge)
-        if (_this.challengeUsers[c].userID === challenge.userID) {
-          console.log('found')
-          return false
+      if (_this.challengeMarker === data.userID) {
+        _this.challengeMarker = null
+        return false
+      } else {
+        let challenge = { sender: data.sender, mode: data.mode, userID: data.userID }
+        for (let c in _this.challengeUsers) {
+          console.log(_this.challengeUsers[c], challenge)
+          if (_this.challengeUsers[c].userID === challenge.userID) {
+            console.log('found')
+            return false
+          }
         }
+        _this.challengeMarker = null
+        _this.challengeUsers[challenge.userID] = challenge
       }
-      _this.challengeUsers[challenge.userID] = challenge
       // very ugly way of triggering the watcher
       _this.challengeUsers = JSON.parse(JSON.stringify(_this.challengeUsers))
       console.log(_this.challengeUsers, _this.challengeList)
     })
     _this.socket.on('start', function (data) {
       console.log('start', data)
+      _this.challengeMarker = null
       _this.testType = data.mode
       _this.p1 = data.p1
       _this.p1name = data.p1name
@@ -254,9 +255,9 @@ export default {
       _this.p1name = null
       _this.p2 = null
       _this.p2name = null
+      _this.challengeUsers = {}
       delete _this.onlineUsers[data.userID]
       _this.onlineUsers = JSON.parse(JSON.stringify(_this.onlineUsers))
-
     })
   }
 }

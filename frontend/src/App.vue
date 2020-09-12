@@ -46,16 +46,21 @@
       <b-col cols="2" class="d-none d-lg-block">
           <div class="p-2 bg-warn" style="height:100%">
               <div>
-                <b-row no-gutters>
+                <b-row no-gutters v-if="isAuthenticated">
                   <b-col>
-                    <b-avatar class="ml-3" v-if="isAuthenticated" :src="s3 + $store.state.userProfile.userID + '/avatar.jpg'" size="4rem" :text="$store.state.userProfile.username[0]"></b-avatar>
-                    <b-avatar v-else size="4rem" text="VC"></b-avatar>
-                  </b-col>
+                    <b-avatar class="ml-3"  :src="s3 + $store.state.userProfile.userID + '/avatar.jpg'" size="4rem" :text="$store.state.userProfile.username[0]"></b-avatar>
+                </b-col>
                   <b-col class="text-cream">
                     <h4> {{ $store.state.userProfile.username}}</h4>
                     <h4> #{{ $store.state.userProfile.userID}}</h4>
                   </b-col>
                 </b-row>
+                <b-row  v-else>
+                  <b-col>
+                    <b-avatar size="4rem" text="VT" align="center"></b-avatar>
+                  </b-col>
+                </b-row>
+
                     <hr>
                     <div v-if="isAuthenticated" >
                       <h6> This Session:</h6>
@@ -98,11 +103,11 @@
         </b-col>
     </b-row>
     <div v-if="isAuthenticated" class="btnNav d-lg-none" style="z-index: 2">
-        <div :class="navStyle('/Dictionary')" @click="goTo('Dictionary')"><b-icon-card-list></b-icon-card-list>  <span class="d-none d-md-inline" text=""> &nbsp; List </span> </div>
-        <div :class="navStyle('/TransEngTest')" @click="goTo('TransEngTest')"><b-icon-box-arrow-up-right></b-icon-box-arrow-up-right>  <span class="d-none d-md-inline"> &nbsp; Eng-Ch </span> </div>
-        <div :class="navStyle('/TransChTest')" @click="goTo('TransChTest')"><b-icon-box-arrow-up-left></b-icon-box-arrow-up-left>  <span class="d-none d-md-inline"> &nbsp; Ch-Eng </span></div>
-        <div :class="navStyle('/TypeTest')" @click="goTo('TypeTest')"><b-icon icon="grid3x3-gap-fill"></b-icon> <span class="d-none d-md-inline"> &nbsp; Type </span></div>
-        <div :class="navStyle('/Match')" @click="goTo('Match')"><b-icon icon="gem"></b-icon> <span class="d-none d-md-inline"> &nbsp; Match </span></div>
+        <button :class="navStyle('/Dictionary')" @click="goTo('Dictionary')"><b-icon-card-list></b-icon-card-list>  <span class="d-none d-md-inline" text=""> &nbsp; List </span> </button>
+        <button :class="navStyle('/TransEngTest')" @click="goTo('TransEngTest')"><b-icon-box-arrow-up-right></b-icon-box-arrow-up-right>  <span class="d-none d-md-inline"> &nbsp; Eng-Ch </span> </button>
+        <button :class="navStyle('/TransChTest')" @click="goTo('TransChTest')"><b-icon-box-arrow-up-left></b-icon-box-arrow-up-left>  <span class="d-none d-md-inline"> &nbsp; Ch-Eng </span></button>
+        <button :class="navStyle('/TypeTest')" @click="goTo('TypeTest')"><b-icon icon="grid3x3-gap-fill"></b-icon> <span class="d-none d-md-inline"> &nbsp; Type </span></button>
+        <button :class="navStyle('/Match')" @click="goTo('Match')"><b-icon icon="gem"></b-icon> <span class="d-none d-md-inline"> &nbsp; Match </span></button>
     </div>
   </div>
 
@@ -339,6 +344,10 @@ body {
   transition: 0.3s
 }
 
+.tabLink:active {
+  color: theme-color('warn');
+}
+
 .sideNav {
   display: flex;
 }
@@ -369,19 +378,6 @@ body {
     padding: 20px;
 }
 
-.buttonDiv {
-    display:inline-block;
-    color: theme-color('prime');
-    border:0px solid #CCC;
-    outline:none;
-    border-radius: 5px;
-    box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.2);
-    cursor:pointer;
-    vertical-align:middle;
-    padding: 5px;
-    text-align: center;
-}
-
 .headDiv {
     display:inline-block;
     border:0px solid #CCC;
@@ -405,6 +401,19 @@ body {
     box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.2);
     vertical-align:middle;
     padding: 1px;
+    text-align: center;
+}
+
+.buttonDiv {
+    display:inline-block;
+    color: theme-color('prime');
+    border:0px solid #CCC;
+    outline:none;
+    border-radius: 5px;
+    box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.2);
+    cursor:pointer;
+    vertical-align:middle;
+    padding: 5px;
     text-align: center;
 }
 

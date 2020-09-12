@@ -54,6 +54,7 @@
 </template>
 
 <script>
+import router from '../router/index'
 
 export default {
   name: 'app',
@@ -65,7 +66,6 @@ export default {
       },
       show: true,
       waiting: true
-
     }
   },
   methods: {
@@ -85,7 +85,14 @@ export default {
     authenticate () {
       this.waiting = false
       this.$store.dispatch('login', { userData: this.form })
-        .then(() => console.log('login action'))
+        .then(function (response) {
+          if (response) {
+            alert(response)
+            router.push('/home')
+          } else {
+            alert('An error has occured - please check your email and password')
+          }
+        })
     }
   }
 }

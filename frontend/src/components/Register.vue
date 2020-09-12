@@ -36,6 +36,18 @@
                 </b-form-input>
             </b-input-group>
 
+            <b-input-group class="my-4" label="Vocab:" label-for="exampleInput7">
+              <b-input-group-prepend inline is-text>
+                  <b-icon icon="card-list"></b-icon>
+                </b-input-group-prepend>
+                <b-form-select id="vocab"
+                required
+                :options="vocabs"
+                v-model="form.vocab"
+                >
+                </b-form-select>
+            </b-input-group>
+
             <b-input-group id="password" label="Password:" label-for="exampleInput2">
                 <b-input-group-prepend inline is-text>
                   <b-icon icon="lock-fill"></b-icon>
@@ -82,6 +94,7 @@
 </template>
 
 <script>
+import router from '../router/index'
 
 export default {
   name: 'app',
@@ -90,11 +103,16 @@ export default {
       form: {
         username: '',
         email: '',
+        vocab: '',
         password: '',
         confirm: ''
       },
       show: true,
-      waiting: true
+      waiting: true,
+      vocabs: [
+        {text: 'ESP Tourism 1', value: 'tourism'},
+        {text: 'ESP Food (Vietnamese)', value: 'food'}
+      ]
     }
   },
   computed: {
@@ -126,8 +144,18 @@ export default {
       this.$nextTick(() => { this.show = true })
     },
     register () {
+      this.waiting = false
+      let _this = this
       this.$store.dispatch('register', { userData: this.form })
-        .then(() => console.log('registration action'))
+        .then(function (response) {
+          if (response.err) {
+            alert(response.msg)
+            _this.waiting = true
+          } else {
+            alert(response.msg)
+            router.push('/login')
+          }
+        })
     }
   }
 }

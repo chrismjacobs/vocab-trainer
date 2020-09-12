@@ -53,10 +53,11 @@ def online(data):
 
 
     for f in friends:
-        print('online friend emit', int(f))
-        emit('onlineUsers', {'userID': user.id, 'username': user.username}, int(f))
-
-
+        fUser = User.query.get(int(f))
+        cUser = Connected.query.filter_by(connected=fUser).first()
+        if cUser and f in json.loads(cUser.friends):
+            print('online friend emit', int(f))
+            emit('onlineUsers', {'userID': user.id, 'username': user.username}, int(f))
 
 
 @socketio.on('offline')
@@ -174,27 +175,23 @@ def on_disconnect():
     check = Connected.query.filter_by(extraStr=sid).first()
     print('check', check)
 
-    username = None
-    userID = None
-
-    friendList = {}
-
     if check:
         friendList = json.loads(check.friends)
         user = check.connected
         username = user.username
         userID = user.id
+        for r in roomList:
+            leave_room(r)
+            print('LEAVE ROOM', r)
+            emit('leftRoom', {'sender': username, 'userID': userID}, r)
+
+        for f in friendList:
+            print('Offline Signal: ', int(f))
+            emit('offlineUsers', {'userID': userID}, int(f))
+
+
         Connected.query.filter_by(extraStr=sid).delete()
         db.session.commit()
-
-    for r in roomList:
-        leave_room(r)
-        print('LEAVE ROOM', r)
-        emit('leftRoom', {'sender': username, 'userID': userID}, r)
-
-    for f in friendList:
-        print('Offline Signal: ', int(f))
-        emit('offlineUsers', {'userID': userID}, int(f))
 
     print('Client Disconnected')
 

@@ -45,7 +45,7 @@ def register():
 
 
     hashed_password = bcrypt.generate_password_hash(data['password']).decode('utf-8')
-    newUser = User(username=data['username'], email=email, password=hashed_password)
+    newUser = User(username=data['username'], email=email, vocab=data['vocab'], password=hashed_password)
     db.session.add(newUser)
     db.session.commit()
 
@@ -102,17 +102,11 @@ def login():
 
     print(token)
 
-    if user.vocab == 'general':
-        msg = 'Welcome ' + user.username + ', please set up your account.'
-        init = False
-    else:
-        msg = 'Welcome ' + user.username + ', you have been logged in.'
-        init = True
+    msg = 'Welcome ' + user.username + ', you have been logged in.'
 
     return jsonify({
         'token': token.decode('UTF-8'),
         'msg': msg,
-        'init': init,
         'userProfile': userProfile,
         'userRecord': userRecord,
         'logsRecord': logsRecord,
@@ -149,19 +143,11 @@ def update_record():
     userID = payload['userID']
     user = User.query.get(userID)
 
-    '''
-    content = jChecker(user, False, True, False)
-    # {'vocab_content': '{}', 'logs_content': '{"friends": [], "settings": {}, "logs": []}', 'dictionary_content': None}
-    historyLogsRecord = content['logsRecord']
-    print(type(content['logsRecord']), content['logsRecord'])
-    ## update logs
-    historyLogsRecord['settings'] = newLogsRecord['settings']
-    historyLogsRecord['logs'].append(newLogsRecord['logs'])'''
+    print('updateRecord', logsRecord)
 
     #jStorer(user, logsRecord, userRecord, userDictionary)
     jStorer(user, logsRecord, userRecord, dictRecord)
 
-    print('updateRecord', user)
 
     response = {
         'msg' : 'success'
@@ -199,6 +185,7 @@ def checkFriend():
     else:
         check = False
 
+    ## add friend to sql connected and logs json
     if check:
         conUser = Connected.query.filter_by(connected=user).first()
         print(conUser)
@@ -209,6 +196,12 @@ def checkFriend():
         print(conUser.friends, type(conUser.friends))
         friendString = conUser.friends
         db.session.commit()
+
+        logsRecord = jChecker(user, True, False, False)['logsRecord']
+        logsRecord['friends'][friendID] = friendName
+        ## ad friend to logs
+        jStorer(user, logsRecord, None, None)
+
 
     print(friends, type(friends))
     response = {
@@ -305,7 +298,7 @@ def storeB64(fileData, uid, mode):
 
 ''' ############ json handlers ############'''
 
-def jChecker(user, vocab, logs, dictionary):
+def jChecker(user, logs, vocab, dictionary):
     print('##jChecker')
 
     vocab_content = json.dumps({})
@@ -352,18 +345,19 @@ def jChecker(user, vocab, logs, dictionary):
             s3_resource.Bucket(bucket_name).put_object(Key=dictionaryKey, Body=dictionary_content)
             print('except', dictionary_content)
 
-    print(type(json.loads(logs_content)), type(json.loads(dictionary_content)))
+    #print(type(json.loads(logs_content)), type(json.loads(dictionary_content)))
+    print(logs_content)
 
     return {'userRecord': json.loads(vocab_content), 'logsRecord': json.loads(logs_content), 'dictRecord': json.loads(dictionary_content)}
 
 
 def jStorer(user, logsRecord, userRecord, userDictionary):
-    print('jStorer')
+    print('##jStorer')
     vocabKey = "jfolder/" + str(user.id) + '/' + user.vocab + '/records.json'
     dictionaryKey = "jfolder/" + str(user.id) + '/' + user.vocab + '/dictionary.json'
     logsKey = "jfolder/" + str(user.id) + '/logs.json'
 
-    print(vocabKey, dictionaryKey, logsKey)
+    #print(vocabKey, dictionaryKey, logsKey)
 
     if logsRecord:
         print('logs stored')
