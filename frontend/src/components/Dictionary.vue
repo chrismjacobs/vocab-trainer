@@ -1,6 +1,6 @@
 <template>
   <div class="dict">
-    <audio id="audio" autoplay></audio>
+    <audio id="audio"></audio>
     <div class="mt-2 bg-second p-2" align="center">
       <div v-if="!newWord.word" >
         <b-row align-h="end">
@@ -255,6 +255,7 @@ export default {
       let audioLink = s3audio + links[this.vocabList] + folder + arg + '.mp3'
       console.log(audioLink)
       document.getElementById('audio').src = audioLink
+      document.getElementById('audio').play()
     },
     onSubmit: function (evt) {
       evt.preventDefault()

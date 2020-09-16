@@ -249,6 +249,14 @@ export default {
   },
   methods: {
     makeTest: function () {
+      console.log(this.special)
+      if (this.spelling && this.selected === 'abbr.') {
+        alert('Cannot make typos with Abbreviations')
+        return false
+      } else if (this.sound === 'sdTy' && this.selected === 'abbr.') {
+        alert('Cannot make typos with Abbreviations')
+        return false
+      }
       // reset variables
       // console.log('make test', this.sort)
       this.testItemsRoot = []
@@ -318,9 +326,11 @@ export default {
       let i = 0
       while (i < this.words) {
         var randomItem = this.amendedList[Math.floor(Math.random() * this.amendedList.length)]
-        console.log('MAKE CHOICES', this.testItemsRoot, randomItem, this.checkDuplicate(randomItem))
+        // console.log('MAKE CHOICES', this.testItemsRoot, randomItem, this.checkDuplicate(randomItem))
         if (!this.checkDuplicate(randomItem)) {
-          console.log('pass', randomItem)
+          console.log('pass duplicate')
+        } else if (this.sound === 'sdTy' && randomItem.Gr === 'abbr.') {
+          console.log('pass abbr')
         } else {
           let choices = [{
             English: randomItem.English,
@@ -396,11 +406,14 @@ export default {
         var randomItem = this.amendedList[Math.floor(Math.random() * this.amendedList.length)]
         // console.log(this.testItems, randomItem)
         if (!this.checkDuplicate(randomItem)) {
-          console.log('pass', randomItem)
+          console.log('pass Duplicate')
+        } else if (this.spelling && randomItem.Gr === 'abbr.') {
+          console.log('pass abbr')
         } else {
           // CHANGE MADE new code for spelling set up
-          let spell = '              '
+          let spell = '______________'
           if (this.spelling) {
+            console.log('CHECK', randomItem.Gr)
             spell = wordFix(randomItem.English, this.spelling)
           }
 
@@ -439,12 +452,12 @@ export default {
     },
     checkDuplicate: function (rand) {
       for (let testEntry in this.testItemsRoot) {
-        console.log('check duplicate', this.testItemsRoot[testEntry].English, rand.English)
+        // console.log('check duplicate', this.testItemsRoot[testEntry].English, rand.English)
         if (this.testItemsRoot[testEntry].English === rand.English) {
-          console.log('found', rand)
+          // console.log('found', rand)
           return false
         } else {
-          console.log('clear', rand)
+          // console.log('clear', rand)
         }
       }
       return true

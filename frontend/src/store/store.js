@@ -60,7 +60,6 @@ const actions = {
     return updateAccount(userData)
       .then(function (response) {
         alert(response.data.msg)
-        context.commit('setAlert', {msg: response.data.msg})
         context.commit('setAccount', {dataReturn: response.data.dataReturn, newVocab: response.data.newVocab})
         console.log('new', response.data.dataReturn)
         if (response.data.newVocab) {
@@ -155,11 +154,6 @@ const mutations = {
   setMaster (state, payload) {
     console.log('setMaster payload = ', payload.userProfile.vocab)
     state.master = dictionaries[payload.userProfile.vocab]
-  },
-  setAlert (state, payload) {
-    console.log('setAlert payload = ', payload)
-    state.alert = payload.msg
-    // state.alert = null
   },
   setRecords (state, payload) {
     /// set records on page refresh
@@ -294,10 +288,6 @@ const getters = {
   isActive (state) {
     console.log('getterActive', state.testActive)
     return state.testActive
-  },
-  isAlert (state) {
-    console.log('getterAlert', state.testActive)
-    return state.alert
   },
   makeList (state) {
     let tableItems = []

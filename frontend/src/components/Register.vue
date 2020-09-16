@@ -83,11 +83,26 @@
           </b-form>
         </b-card>
         <div v-else align="center">
+            <h4 class="text-prime"> Registering </h4>
             <b-icon icon="three-dots" animation="cylon" variant="prime" font-scale="6"></b-icon>
         </div>
       </b-col>
     </b-row>
   </b-container>
+
+   <b-modal align="center" ref="success" hide-footer title="Registration Complete">
+      <div class="d-block">
+        <h3> {{msg}} </h3>
+      </div>
+      <button class="buttonDiv mt-3 bg-safe text-cream" style="width:60%"  @click="hideModal('success')">Close</button>
+    </b-modal>
+
+   <b-modal align="center" ref="fail" hide-footer title="Problem Found">
+      <div class="d-block">
+        <h3> {{msg}} </h3>
+      </div>
+      <button class="buttonDiv mt-3 bg-alert text-cream" style="width:60%"  @click="hideModal('fails')">Close</button>
+    </b-modal>
 
   </div>
 
@@ -112,7 +127,8 @@ export default {
       vocabs: [
         {text: 'ESP Tourism 1', value: 'tourism'},
         {text: 'ESP Food (Vietnamese)', value: 'food'}
-      ]
+      ],
+      msg: null
     }
   },
   computed: {
@@ -124,6 +140,25 @@ export default {
     }
   },
   methods: {
+    showModal (msg) {
+      this.msg = msg
+      this.$refs['success'].show()
+      // router.push('/login')
+    },
+    showAlert (msg) {
+      this.msg = msg
+      this.$refs['fail'].show()
+    },
+    hideModal (mode) {
+      if (mode === 'success') {
+        this.$refs['success'].hide()
+        router.push('/login')
+      } else {
+        this.$refs['fail'].hide()
+        this.msg = null
+        this.waiting = true
+      }
+    },
     onSubmit (evt) {
       evt.preventDefault()
       if (this.validName && this.validPass) {
@@ -149,11 +184,9 @@ export default {
       this.$store.dispatch('register', { userData: this.form })
         .then(function (response) {
           if (response.err) {
-            alert(response.msg)
-            _this.waiting = true
+            _this.showAlert(response.msg)
           } else {
-            alert(response.msg)
-            router.push('/login')
+            _this.showModal(response.msg)
           }
         })
     }
