@@ -101,7 +101,7 @@
       <div class="d-block">
         <h3> {{msg}} </h3>
       </div>
-      <button class="buttonDiv mt-3 bg-alert text-cream" style="width:60%"  @click="hideModal('fails')">Close</button>
+      <button class="buttonDiv mt-3 bg-alert text-cream" style="width:60%"  @click="hideModal('fail')">Close</button>
     </b-modal>
 
   </div>
@@ -143,7 +143,6 @@ export default {
     showModal (msg) {
       this.msg = msg
       this.$refs['success'].show()
-      // router.push('/login')
     },
     showAlert (msg) {
       this.msg = msg

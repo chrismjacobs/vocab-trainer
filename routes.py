@@ -67,7 +67,7 @@ def login():
 
     if not user:
         print('INVALID')
-        return jsonify({ 'msg': 'Invalid credentials', 'authenticated': False }), 401
+        return jsonify({ 'msg': 'Invalid credentials - please check username and password', 'err': 1 })
 
     content = jChecker(user, True, True, True)
 

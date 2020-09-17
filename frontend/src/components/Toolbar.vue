@@ -30,8 +30,11 @@
                 <div class="headDiv">
                   Words
                 </div>
-                <div class="spinDiv">
+                <div class="spinDiv d-none d-sm-block">
                   <b-form-spinbutton v-model="words" min="6" max="30" step=2 vertical style="height:125px"></b-form-spinbutton>
+                </div>
+                <div class="d-sm-none">
+                  <b-form-spinbutton v-model="words" min="6" max="30" step=2 style="width:120px"></b-form-spinbutton>
                 </div>
               </div>
             </b-col>
@@ -41,15 +44,18 @@
                 <div class="headDiv">
                   Choices
                 </div>
-                <div class="spinDiv">
+                <div class="spinDiv d-none d-sm-block">
                 <b-form-spinbutton v-model="choices" min="2" max="6" vertical style="height:125px"></b-form-spinbutton>
+                </div>
+                <div class="d-sm-none">
+                <b-form-spinbutton v-model="choices" min="2" max="6" style="width:120px"></b-form-spinbutton>
                 </div>
               </div>
           </b-col>
 
           <b-col class="mt-4">
             <div align="center">
-              <div class="headDiv"> Sound </div>
+              <div class="headDiv"> Sound </div><br>
               <b-form-radio-group
                 style="width:120px"
                 v-model="sound"
@@ -63,7 +69,7 @@
 
           <b-col class="mt-4" v-if="testType === 'typeTest'">
             <div align="center">
-              <div class="headDiv"> Display </div>
+              <div class="headDiv"> Display </div><br>
               <b-form-radio-group
               style="width:120px"
               v-model="display"
@@ -77,7 +83,7 @@
 
           <b-col class="mt-4" v-if="testType === 'typeTest'">
              <div align="center">
-              <div class="headDiv"> Feedback </div>
+              <div class="headDiv"> Feedback </div><br>
               <b-form-radio-group
               style="width:120px"
               v-model="feedback"
@@ -91,7 +97,7 @@
 
           <b-col class="mt-4" v-if="testType === 'transEng' || testType === 'transCh'">
             <div align="center">
-              <div class="headDiv"> Grammar </div>
+              <div class="headDiv"> Grammar </div><br>
               <b-form-radio-group
                   style="width:120px"
                   v-model="label"
@@ -105,7 +111,7 @@
 
           <b-col class="mt-4" v-if="testType === 'transEng' || testType === 'transCh'">
             <div align="center">
-                <div class="headDiv"> Sort </div>
+                <div class="headDiv"> Sort </div><br>
               <b-form-radio-group
                 style="width:120px"
                 v-model="sort"

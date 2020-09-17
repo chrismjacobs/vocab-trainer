@@ -72,8 +72,8 @@
         <template v-slot:cell(english)="data">
              <b-icon-card-image :variant="getVariant(data.value)" @click="editWord(data.value)"></b-icon-card-image> &nbsp;
              {{data.value}}  &nbsp;
-             <b-icon-soundwave @click="playAudio(data.value, '_en/')"></b-icon-soundwave> &nbsp;
-             <b-icon-soundwave @click="playAudio(data.value, '_ch/')"></b-icon-soundwave> &nbsp;
+             <b-icon-soundwave class="text-prime" :id="data.value + '_en/'" @click="playAudio(data.value, '_en/')"></b-icon-soundwave> &nbsp;&nbsp;&nbsp;
+             <b-icon-soundwave class="text-prime" :id="data.value + '_ch/'" @click="playAudio(data.value, '_ch/')"></b-icon-soundwave>
          </template>
       </b-table>
       </div>
@@ -247,15 +247,21 @@ export default {
       return v
     },
     playAudio: function (arg, folder) {
+      let icon = document.getElementById(arg + folder)
+      icon.setAttribute('class', 'text-warn')
       let s3audio = 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/'
       let links = {
         tourism: 'audio',
         food: 'foodio'
       }
       let audioLink = s3audio + links[this.vocabList] + folder + arg + '.mp3'
-      console.log(audioLink)
-      document.getElementById('audio').src = audioLink
-      document.getElementById('audio').play()
+      // console.log(audioLink)
+      let player = document.getElementById('audio')
+      player.src = audioLink
+      player.play()
+      player.onended = function () {
+        icon.setAttribute('class', 'text-prime')
+      }
     },
     onSubmit: function (evt) {
       evt.preventDefault()

@@ -146,7 +146,9 @@ export default {
       this.$store.dispatch('updateRecord', { mode: 'transCh', answerData: this.answerData, settingsData: this.settings })
     },
     playAudio: function (arg) {
-      document.getElementById('audio').src = arg
+      let player = document.getElementById('audio')
+      player.src = arg
+      player.play()
     },
     cancel: function () {
       console.log('cancel')

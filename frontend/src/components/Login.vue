@@ -47,9 +47,20 @@
     </b-row>
   </b-container>
 
-  <b-modal id="modal1" title="Logging in...">
-      <p> Please wait a moment while we log you in</p>
-  </b-modal>
+  <b-modal align="center" ref="success" hide-footer title="Logged In">
+      <div class="d-block">
+        <h3> {{msg}} </h3>
+      </div>
+      <button class="buttonDiv mt-3 bg-safe text-cream" style="width:60%"  @click="hideModal('success')">Close</button>
+    </b-modal>
+
+   <b-modal align="center" ref="fail" hide-footer title="Problem Found">
+      <div class="d-block">
+        <h3> {{msg}} </h3>
+      </div>
+      <button class="buttonDiv mt-3 bg-alert text-cream" style="width:60%"  @click="hideModal('fail')">Close</button>
+    </b-modal>
+
   </div>
 
 </template>
@@ -66,10 +77,30 @@ export default {
         password: ''
       },
       show: true,
-      waiting: true
+      waiting: true,
+      msg: null
     }
   },
   methods: {
+    showModal (msg) {
+      this.msg = msg
+      this.$refs['success'].show()
+      // router.push('/login')
+    },
+    showAlert (msg) {
+      this.msg = msg
+      this.$refs['fail'].show()
+    },
+    hideModal (mode) {
+      if (mode === 'success') {
+        this.$refs['success'].hide()
+        router.push('/home')
+      } else {
+        this.$refs['fail'].hide()
+        this.msg = null
+        this.waiting = true
+      }
+    },
     onSubmit (evt) {
       evt.preventDefault()
       this.authenticate()
@@ -85,13 +116,14 @@ export default {
     },
     authenticate () {
       this.waiting = false
+      let _this = this
       this.$store.dispatch('login', { userData: this.form })
         .then(function (response) {
-          if (response) {
-            alert(response)
-            router.push('/home')
+          console.log('RESPONSE', response)
+          if (response.err) {
+            _this.showAlert(response.msg)
           } else {
-            alert('An error has occured - please check your email and password')
+            _this.showModal(response.msg)
           }
         })
     }
