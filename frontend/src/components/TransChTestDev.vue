@@ -2,6 +2,7 @@
   <div class="TransCh">
 
     <audio id="audio"></audio>
+    <audio id="cycle"></audio>
 
     <Toolbar :toolbarShow='showTest' :showAnswers='showAnswers' :testType="testType" :title="title" v-on:newTest="start($event)" v-on:retry="start()"></Toolbar>
       <b-row no-gutters v-if="showTest" >
@@ -137,8 +138,8 @@ export default {
       }
       /// unique to this mode TransCh
       if (this.settings.sound === 'sdEx') {
-        this.buttonRotate = 0
-        this.timerSet()
+        this.playCycle()
+        // this.timerSet()
       }
     },
     checkAnswers: function () {
@@ -146,9 +147,27 @@ export default {
       this.$store.dispatch('updateRecord', { mode: 'transCh', answerData: this.answerData, settingsData: this.settings })
     },
     playAudio: function (arg) {
+      console.log('PLAY', arg)
       let player = document.getElementById('audio')
       player.src = arg
       player.play()
+    },
+    playCycle: function () {
+      let silence = "https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/silence.mp3"
+      let player = document.getElementById('cycle')
+      let count = 0
+      let _this = this
+      let media = this.testItems[this.filter]['Choices'][count]['sdEn']
+
+      console.log('CYCLE', this.testItems[this.filter])
+      player.src = media
+      player.play()
+      player.onended = function () {
+        count += 1
+        media = _this.testItems[_this.filter]['Choices'][count]['sdEn']
+        player.src = media
+        player.play()
+      }
     },
     cancel: function () {
       console.log('cancel')
@@ -180,7 +199,8 @@ export default {
   watch: {
     filter: function () {
       let sound = this.testItems[this.filter]
-      if (sound && this.settings.sound !== 'sdOff' && this.buttonRotate === null) {
+      console.log('FILTER', this.settings.sound)
+      if (sound && this.settings.sound === 'sdTy') {
         this.playAudio(sound.sdEn)
       }
     },
