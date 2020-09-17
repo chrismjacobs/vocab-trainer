@@ -211,3 +211,25 @@ function shuffle (arr) {
   }
   return arr
 }
+
+export function checkDevice () {
+  var report = navigator.userAgent
+  console.log(report)
+  var device = null
+
+  if (report.includes('Windows')) {
+    device = 'Windows'
+  } else if (report.includes('Android')) {
+    device = 'Android'
+  } else if (report.includes('Macintosh')) {
+    device = 'Macintosh'
+  } else if (report.includes('iPad')) {
+    device = 'iPad'
+  } else if (report.includes('iPhone')) {
+    device = 'iPhone'
+  } else {
+    device = report
+  }
+  console.log('DEVICE', device)
+  return device
+}

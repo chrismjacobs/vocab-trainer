@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import router from '../router'
-import { isValidJwt, parseLocal } from '@/utils'
+import { isValidJwt, parseLocal, checkDevice } from '@/utils'
 import { authenticate, register, updateRecAPI, updateAccount, getRecordAPI } from '@/api'
 import tourism from '../assets/json/master.json'
 import food from '../assets/json/food.json'
@@ -24,7 +24,7 @@ const state = {
   jwt: localStorage.token || '',
   master: dictionaries[parseLocal(localStorage.userProfile).vocab],
   testActive: false,
-  alert: 'null',
+  device: localStorage.device || '',
   loginTime: localStorage.loginTime || ''
 }
 
@@ -150,6 +150,12 @@ const mutations = {
     state.loginTime = new Date()
     localStorage.setItem('loginTime', new Date())
     state.logsRecord.logs[state.loginTime] = {}
+
+    var device = checkDevice()
+
+    localStorage.setItem('device', device)
+    state.device = device
+    state.logsRecord.logs['device'] = device
 
     localStorage.setItem('currentRecord', JSON.stringify({}))
     state.currentRecord = {}
