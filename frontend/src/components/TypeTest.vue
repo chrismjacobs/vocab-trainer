@@ -12,7 +12,7 @@
         <b-progress :value="time" style="height:30px" max="60000" animated variant="alert"></b-progress>
       </b-col>
       <b-col cols="1">
-        <button class="buttonDiv bg-alert" style="height:30px;width:100%" @click="cancel()"><b-icon icon="x-circle" variant="cream"></b-icon></button>
+        <button class="buttonDiv bg-alert" style="height:30px;width:100%" @click="cancel()"><b-icon class="pb-1 pr-1" icon="x-circle" variant="cream" font-scale="1.5"></b-icon></button>
       </b-col>
       </b-row>
 
@@ -34,11 +34,11 @@
                       </button>
                     </b-row>
 
-                    <b-row class="px-5 mt-3">
-                      <button class="answerBtn bg-third" @click="hoverCh=true" @mouseover="hoverCh=true" @mouseleave="hoverCh=false" :class="hoverStyleCh" align="center" >
+                    <b-row class="px-5 mt-3" v-if="settings.display !== 'all_Off'">
+                      <button class="answerBtn bg-third" @click="hoverCh=true" align="center" >
                           <h3>
-                            <span v-if="settings.display === 'ch_text_On' || settings.display === 'ch_lb_On'" v-html="item.Chinese" ></span>
-                            <span v-if="settings.display ==='ch_lb_On' || settings.display === 'lb_On'"> &nbsp; ({{item.Gr}}) </span>
+                            <span v-if="settings.display === 'text_On'" v-html="item.Chinese" ></span>
+                            <span v-if="settings.display ==='label_On'"> {{item.Gr}}</span>
                           </h3>
                       </button>
                     </b-row>
@@ -193,8 +193,10 @@ export default {
       this.$store.dispatch('updateRecord', { mode: 'typeTest', answerData: this.answerData, settingsData: this.settings })
     },
     playAudio: function (arg) {
-      // console.log(arg)
-      document.getElementById('audio').src = arg
+      console.log('PLAY', arg)
+      let player = document.getElementById('audio')
+      player.src = arg
+      player.play()
     },
     setCountdown: function () {
       this.time = 60000

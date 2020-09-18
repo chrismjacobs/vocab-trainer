@@ -9,7 +9,7 @@
             <b-progress :value="filter" style="height:30px" :max="testItems.length" variant="warn-light" show-progress animated></b-progress>
       </b-col>
       <b-col cols="1">
-        <button class="buttonDiv bg-warn" style="height:30px;width:100%" @click="cancel()"><b-icon icon="x-circle" variant="cream"></b-icon></button>
+        <button class="buttonDiv bg-warn" style="height:30px;width:100%" @click="cancel()"><b-icon class="pb-1 pr-1" icon="x-circle" variant="cream" font-scale="1.5"></b-icon></button>
       </b-col>
       </b-row>
 
@@ -127,7 +127,10 @@ export default {
       this.checkAnswers()
     },
     playAudio: function (arg) {
-      document.getElementById('audio').src = arg
+      console.log('PLAY', arg)
+      let player = document.getElementById('audio')
+      player.src = arg
+      player.play()
     }
   },
   watch: {
@@ -138,7 +141,7 @@ export default {
       }
     },
     hover: function () {
-      if (this.hover === true) {
+      if (this.hover) {
         console.log('hover_active')
         let sound = this.testItems[this.filter]
         this.playAudio(sound.sdEn)

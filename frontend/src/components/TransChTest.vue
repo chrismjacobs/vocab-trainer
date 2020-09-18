@@ -2,6 +2,7 @@
   <div class="TransCh">
 
     <audio id="audio"></audio>
+    <audio id="cycle"></audio>
 
     <Toolbar :toolbarShow='showTest' :showAnswers='showAnswers' :testType="testType" :title="title" v-on:newTest="start($event)" v-on:retry="start()"></Toolbar>
       <b-row no-gutters v-if="showTest" >
@@ -9,7 +10,7 @@
             <b-progress :value="filter" style="height:30px" :max="testItems.length" variant="warn-light" show-progress animated></b-progress>
       </b-col>
       <b-col cols="1">
-        <button class="buttonDiv bg-warn" style="height:30px;width:100%" @click="cancel()"><b-icon icon="x-circle" variant="cream"></b-icon></button>
+        <button class="buttonDiv bg-warn" style="height:30px;width:100%" @click="cancel()"><b-icon class="pb-1 pr-1" icon="x-circle" variant="cream" font-scale="1.5"></b-icon></button>
       </b-col>
       </b-row>
 
@@ -24,7 +25,7 @@
                 <div class="p-3">
                   <div v-for="(choice, index) in item.Choices" :key="index">
                     <button class="answerBtn" :style="buttonStyle[index]" block @click="recordAnswer(item.English, item.Chinese, choice.English)">
-                      <span v-if="settings.sound === 'sdEx'"> <b-icon-soundwave @mouseover="hoverAns=choice.sdEn" @mouseleave="hoverAns=null" font-scale="1.5"></b-icon-soundwave> </span>
+                      <span v-if="settings.sound === 'sdEx'"> <b-icon-soundwave font-scale="1.5"></b-icon-soundwave> </span>
                       <span v-else-if="settings.label === 'lbAn' || settings.sound !== 'sdEx'"> ({{ choice.Gr }}) &nbsp;  {{ choice.English }} </span>
                       <span v-else>{{ choice.English }}</span>
                      </button>
@@ -34,6 +35,13 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="bg-grey pb-3" v-if="replay">
+        <b-row>
+          <b-col align="center">
+            <button class="buttonDiv bg-alert px-3" style="width:45%; height:50px" @click="playCycle(), replay = false"> <b-icon-arrow-clockwise variant="cream" font-scale="1.5"></b-icon-arrow-clockwise></button>
+          </b-col>
+        </b-row>
     </div>
 
     <div class="bg-smoke"  v-if="showAnswers">
@@ -63,7 +71,6 @@ export default {
       value: 20,
       testType: 'transCh',
       title: 'Chinese --> English',
-      buttonRotate: null,
       hover: false,
       hoverAns: false,
       showAnswers: false,
@@ -72,18 +79,18 @@ export default {
       filter: null,
       testItems: [],
       settings: {},
-      timer: null,
       fields: ['Chinese', 'English', 'Choice'],
-      prime: '#205372',
-      warn: '#E8804C',
+      activeStyle: { background: '#4a758b', color: '#E8804C' },
+      neutralStyle: { background: '#d8ecf1', color: '#205372' },
       buttonStyle: {
-        0: { color: this.prime },
-        1: { color: this.prime },
-        2: { color: this.prime },
-        3: { color: this.prime },
-        4: { color: this.prime },
-        5: { color: this.prime }
-      }
+        0: this.neutralStyle,
+        1: this.neutralStyle,
+        2: this.neutralStyle,
+        3: this.neutralStyle,
+        4: this.neutralStyle,
+        5: this.neutralStyle
+      },
+      replay: false
     }
   },
   methods: {
@@ -112,17 +119,17 @@ export default {
       if (this.filter + 1 < this.testItems.length) {
         console.log('filterCheck', this.filter, this.testItems.length)
         if (this.settings.sound === 'sdEx') {
-          this.buttonStyle[this.buttonRotate - 1] = { color: this.prime }
-          clearInterval(this.timer)
-          this.buttonRotate = 0
-          this.timerSet()
+          this.filter += 1
+          this.replay = false
+          this.playCycle()
+        } else {
+          this.filter += 1
         }
-        this.filter += 1
       } else {
         console.log('filterMax')
-        clearInterval(this.timer)
         this.filter = null
         this.showTest = false
+        this.replay = false
         this.checkAnswers()
       }
     },
@@ -137,8 +144,8 @@ export default {
       }
       /// unique to this mode TransCh
       if (this.settings.sound === 'sdEx') {
-        this.buttonRotate = 0
-        this.timerSet()
+        this.playCycle()
+        // this.timerSet()
       }
     },
     checkAnswers: function () {
@@ -146,53 +153,63 @@ export default {
       this.$store.dispatch('updateRecord', { mode: 'transCh', answerData: this.answerData, settingsData: this.settings })
     },
     playAudio: function (arg) {
+      console.log('PLAY', arg)
       let player = document.getElementById('audio')
       player.src = arg
       player.play()
     },
+    playCycle: function () {
+      // let silence = 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/silence.mp3'
+      for (let index in this.buttonStyle) {
+        this.buttonStyle[index] = this.neutralStyle
+      }
+      let player = document.getElementById('cycle')
+      let index = 0
+      let _this = this
+      let media = this.testItems[this.filter]['Choices'][index]['sdEn']
+
+      console.log('CYCLE', this.testItems[this.filter])
+      player.src = media
+      player.play()
+      this.buttonStyle[index] = this.activeStyle
+      player.onended = function () {
+        _this.buttonStyle[index] = _this.neutralStyle
+        if (index < _this.settings.choices - 1) {
+          index += 1
+          _this.buttonStyle[index] = _this.activeStyle
+          media = _this.testItems[_this.filter]['Choices'][index]['sdEn']
+          player.src = media
+          player.play()
+        } else {
+          _this.replay = true
+        }
+      }
+    },
     cancel: function () {
       console.log('cancel')
-      clearInterval(this.timer)
       this.filter = null
       this.showTest = false
+      this.replay = false
       this.checkAnswers()
-    },
-    timerSet: function () {
-      let _this = this
-      this.timer = setInterval(function () {
-        console.log('buttonRotate', _this.buttonRotate, _this.settings.choices, _this.testItems[_this.filter])
-        _this.buttonStyle[_this.buttonRotate - 1] = { color: _this.prime }
-        _this.buttonStyle[_this.buttonRotate] = { color: _this.warn }
-
-        if (_this.buttonRotate < _this.settings.choices) {
-          let media = _this.testItems[_this.filter]['Choices'][_this.buttonRotate]
-          _this.playAudio(media['sdEn'])
-          _this.buttonRotate += 1
-          console.log('plus1')
-        } else {
-          console.log('clear')
-          _this.buttonRotate = null
-          clearInterval(_this.timer)
-        }
-      }, 1800)
     }
   },
   watch: {
     filter: function () {
       let sound = this.testItems[this.filter]
-      if (sound && this.settings.sound !== 'sdOff' && this.buttonRotate === null) {
+      console.log('FILTER', this.settings.sound)
+      if (sound && this.settings.sound === 'sdTy') {
         this.playAudio(sound.sdEn)
       }
     },
     hover: function () {
-      if (this.hover === true && this.buttonRotate === null) {
+      if (this.hover) {
         console.log('hover_active')
         let sound = this.testItems[this.filter]
         this.playAudio(sound.sdCh)
       }
     },
     hoverAns: function () {
-      if (this.hoverAns !== null && this.buttonRotate === null && this.settings.sound === 'sdEx') {
+      if (this.hoverAns !== null && this.replay && this.settings.sound === 'sdEx') {
         console.log('hoverAns_active')
         let sound = this.hoverAns
         this.playAudio(sound)

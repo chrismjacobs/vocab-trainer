@@ -241,9 +241,9 @@ export default {
       ],
       display: 'ch_text_On',
       displayOptions: [
-        { text: 'Chinese', value: 'ch_text_On' },
-        { text: 'Label', value: 'ch_lb_On' },
-        { text: 'None', value: 'ch_lb_Off' }
+        { text: 'Chinese', value: 'text_On' },
+        { text: 'Label', value: 'label_On' },
+        { text: 'None', value: 'all_Off' }
       ],
       feedback: 'fbConst',
       feedbackOptions: [
