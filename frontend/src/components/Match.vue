@@ -1,68 +1,109 @@
 <template>
   <div>
     <TransEngMatch :testType="testType" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" :socket="socket" :s3="s3" v-if="testType === 'TransEng'"></TransEngMatch>
-
+    <div v-if="waiting">
     <b-container v-if="testType === null">
-            <div class="mt-2 bg-prime p-2">
-            <h2 class="text-third" align="center">
-              Online Area
+            <div class="mt-2 bg-second p-2">
+            <h2 class="text-cream" align="center">
+              Match Zone
             </h2>
             </div>
-            <div class="mt-2 bg-prime p-2">
-              <b-form inline>
-                <b-input
-                  id="inline-form-input-name"
-                  v-model="friend.username"
-                  class="mb-2 mr-sm-2 mb-sm-0"
-                  placeholder="Friend name"
-                ></b-input>
-                <b-input-group prepend="#" class="mb-2 mr-sm-2 mb-sm-0">
-                  <b-input id="inline-form-input-username" placeholder="user ID" v-model="friend.userID"></b-input>
-                </b-input-group>
-              </b-form>
-                <button class="buttonDiv bg-third" @click="addFriend()">Add</button>
-            </div>
 
-          <div class="mt-2 bg-second p-2">
-            <h3> Online </h3>
-            <b-list-group>
+          <div class="mt-2 bg-second text-third p-2">
+            <b-row>
+              <b-col cols="3">
+                <h3> Online </h3>
+              </b-col>
+              <b-col align="right">
+                <b-dropdown :text="gameName" variant="light">
+                  <div>
+                      <b-dropdown-item v-for="(btn, index) in gameTypes" :key="index" @click="gameName=btn.text, gameSelect=btn.value"> {{ btn.text }} </b-dropdown-item>
+                  </div>
+                </b-dropdown>
+              </b-col>
+            </b-row>
+
             <div v-for="(user, index) in onlineUsers" :key="index">
-            <b-list-group-item  v-if="!challengeUsers[index]" class="d-flex align-items-center bg-cream">
+            <div  v-if="!challengeUsers[index]" class="d-flex align-items-center p-3 mt-2">
                   <b-avatar :src="s3 + index + '/avatar.jpg'"  size="50px" :badge="user" badge-offset="-0.5em" badge-variant="safe"></b-avatar>
-                  <button class="buttonDiv bg-p1 mx-3"  @click="challenge(index, 'TransEng')"> Eng --> Ch </button>
-            </b-list-group-item>
+                  <button v-if="gameSelect" class="buttonDiv bg-p1 mx-3" style="width:15%"  @click="challenge(index, gameSelect)"> <b-icon icon="box-arrow-in-right"></b-icon></button>
             </div>
-          </b-list-group>
+            </div>
+
           </div>
 
-          <div class="mt-2 bg-second p-2">
-            <h3> Challengers </h3>
-            <b-list-group>
+          <div class="mt-2 bg-second text-third p-2">
+            <h3 class="ml-2"> Challengers </h3>
               <div v-for="(chall, index) in challengeUsers" :key="index" >
-                <b-list-group-item v-if="onlineUsers[index]" class="d-flex align-items-center bg-cream">
+                <div v-if="onlineUsers[index]" class="d-flex align-items-center mt-2 p-2">
                   <b-avatar :src="s3 + index.toString() + '/avatar.jpg'"  size="50px" :badge="chall.sender" badge-offset="-0.5em" badge-variant="p1"></b-avatar>
-                  <button class="buttonDiv bg-p2 mx-3 " @click="acceptChallenge(chall.userID, chall.sender, chall.mode)"> {{chall.mode}} Accept </button>
-                  <button class="buttonDiv bg-alert mx-3 " @click="declineChallenge(chall.userID)"> Decline </button>
-                </b-list-group-item>
+                  &nbsp;&nbsp;
+                  <button class="buttonDiv bg-smoke mx-1 " disabled> {{gameNames[chall.mode]}}</button>
+                  <button class="buttonDiv bg-p2 mx-2" style="width:15%" @click="acceptChallenge(chall.userID, chall.sender, chall.mode)"> <b-icon icon="caret-right-square-fill"></b-icon> </button>
+                  <button class="buttonDiv bg-alert mx-1" style="width:15%"  @click="declineChallenge(chall.userID)"> <b-icon icon="x-square-fill"></b-icon> </button>
+                </div>
               </div>
-          </b-list-group>
           </div>
 
-          <div class="mt-2 bg-second p-2">
-            <h3> Offline </h3>
-            <b-list-group>
-            <div v-for="(user, index) in friends" :key="index">
-            <b-list-group-item  v-if="!onlineUsers[index]" class="d-flex align-items-center bg-cream">
-                  <b-avatar :src="s3 + index + '/avatar.jpg'"  size="50px" :badge="user" badge-offset="-0.5em" badge-variant="alert"></b-avatar>
-            </b-list-group-item>
+          <div class="bg-second text-third p-2 mt-2">
+            <b-row>
+              <b-col>
+                <h3 class="ml-2"> Friends </h3>
+              </b-col>
+              <b-col align="right">
+                <button class="buttonDiv bg-warn"  @click="friendAdder=!friendAdder">Add</button>
+                <button class="buttonDiv bg-alert"  @click="friendDeleter=!friendDeleter">Delete </button>
+              </b-col>
+            </b-row>
+            <div v-if="friendAdder" class="mt-3 bg-prime p-2">
+              <b-row no gutters>
+                <b-col>
+                  <b-form inline>
+                    <b-input
+                      id="inline-form-input-name"
+                      v-model="friend.username"
+                      class="mb-2 mr-sm-2 mb-sm-0"
+                      placeholder="Friend name"
+                    ></b-input>
+                    <b-input-group prepend="#" class="mb-2 mr-sm-2 mb-sm-0">
+                      <b-input id="inline-form-input-username" placeholder="user ID" v-model="friend.userID"></b-input>
+                    </b-input-group>
+                  </b-form>
+                </b-col>
+                <b-col>
+                  <button class="buttonDiv bg-third" style="width:100px" @click="addFriend()">Add</button>
+                </b-col>
+              </b-row>
             </div>
-          </b-list-group>
+
+            <div v-for="(user, index) in friends" :key="index">
+              <div v-if="!onlineUsers[index]" class="d-flex align-items-center p-3 mt-2">
+                    <b-avatar :src="s3 + index + '/avatar.jpg'"  size="50px" :badge="user" badge-offset="-0.5em" badge-variant="alert"></b-avatar>
+                    <button v-if="friendDeleter" class="buttonDiv bg-alert mx-3" style="width:100px" @click="deleteFriend(index)"> <b-icon icon="x-square-fill"></b-icon></button>
+              </div>
+            </div>
+
           </div>
 
     </b-container>
+    </div>
+    <div v-else align="center">
+        <h4 class="text-prime"> Updating friends.... </h4>
+        <b-icon icon="person" animation="throb" variant="prime" font-scale="6"></b-icon>
+    </div>
 
-    <b-modal ref="my-modal" id="bv-modal-example" title="Logging in...">
-      <p> {{message}} </p>
+    <b-modal align="center" ref="success" hide-footer title="Friend Update">
+      <div class="d-block">
+        <h3> {{msg}} </h3>
+      </div>
+      <button class="buttonDiv mt-3 bg-safe text-cream" style="width:60%"  @click="hideModal('success')">Close</button>
+    </b-modal>
+
+   <b-modal align="center" ref="fail" hide-footer title="Problem Found">
+      <div class="d-block">
+        <h3> {{msg}} </h3>
+      </div>
+      <button class="buttonDiv mt-3 bg-alert text-cream" style="width:60%"  @click="hideModal('fail')">Close</button>
     </b-modal>
 
   </div>
@@ -71,7 +112,7 @@
 <script>
 import TransEngMatch from './TransEngMatch'
 import { openSocket } from '@/sockets'
-import { checkFriend } from '@/api'
+import { checkFriend, deleteFriend } from '@/api'
 
 export default {
   name: 'Match',
@@ -85,6 +126,8 @@ export default {
     return {
       pageHead: 'Match Area',
       friends: {},
+      friendAdder: false,
+      friendDeleter: false,
       friend: {
         username: null,
         userID: null
@@ -103,10 +146,38 @@ export default {
       p1name: null,
       p2name: null,
       player: null,
-      message: null
+      message: null,
+      waiting: true,
+      msg: null,
+      gameName: 'Select Game',
+      gameSelect: null,
+      gameTypes: [
+        { value: null, text: '---' },
+        { value: 'TransEng', text: 'English -> Chinese' }
+      ],
+      gameNames: {
+        null: 'select game type...',
+        TransEng: 'English -> Chinese'
+      }
     }
   },
   methods: {
+    showModal: function () {
+      this.$refs['success'].show()
+    },
+    showAlert: function () {
+      this.$refs['fail'].show()
+    },
+    hideModal: function (mode) {
+      if (mode === 'success') {
+        this.$refs['success'].hide()
+        this.waiting = true
+      } else {
+        this.$refs['fail'].hide()
+        this.msg = null
+        this.waiting = true
+      }
+    },
     joinRoom: function () {
       this.socket.emit('join_room', {room: this.room, username: this.username, userID: this.userID})
     },
@@ -117,9 +188,14 @@ export default {
       this.socket.emit('sayHi', {userID: this.userID, username: this.username, targetID: targetID})
     },
     challenge: function (targetID, mode) {
-      // marker to stop two people challenging each other at the same time
-      this.challengeMarker = targetID
-      this.socket.emit('challenge', {userID: this.userID, username: this.username, targetID: targetID, mode: mode})
+      if (mode === null) {
+        this.msg = 'Please set game type before making a challenge'
+        this.showAlert()
+      } else {
+        // marker to stop two people challenging each other at the same time
+        this.challengeMarker = targetID
+        this.socket.emit('challenge', {userID: this.userID, username: this.username, targetID: targetID, mode: mode})
+      }
     },
     declineChallenge: function (uid) {
       delete this.challengeUsers[uid]
@@ -137,6 +213,7 @@ export default {
       this.socket.close()
     },
     addFriend: function () {
+      this.waiting = false
       let _this = this
       let friendName = this.friend.username
       let friendID = this.friend.userID
@@ -146,9 +223,31 @@ export default {
             console.log('response', response.data)
             _this.friends = JSON.parse(response.data.friends)
             _this.$store.dispatch('addFriend', {friendData: JSON.parse(response.data.friends)})
-            alert('friend added')
+            _this.msg = 'Friend added:' + friendName + ' #' + friendID
+            _this.showModal()
           } else {
-            alert('Cannot add friend. Please check username and user ID')
+            _this.msg = 'Cannot add friend. Please check username and user ID'
+            _this.showAlert()
+          }
+        })
+        .catch(error => {
+          console.log('Error Registering: ', error)
+        })
+    },
+    deleteFriend: function (friendID) {
+      this.waiting = false
+      let _this = this
+      return deleteFriend({friendID: friendID, userID: _this.userID})
+        .then(function (response) {
+          if (response.data.check && response.data.friendID !== _this.userID) {
+            console.log('response', response.data)
+            _this.friends = JSON.parse(response.data.friends)
+            _this.$store.dispatch('addFriend', {friendData: JSON.parse(response.data.friends)})
+            _this.msg = 'Friend Deleted'
+            _this.showModal()
+          } else {
+            _this.msg = 'Cannot delete friend right now'
+            _this.showAlert()
           }
         })
         .catch(error => {
@@ -265,6 +364,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+.userList {
+  padding: 3px;
+  margin-top: 2px
+}
 
 .basic {
   width:300px;

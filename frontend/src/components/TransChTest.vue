@@ -10,7 +10,7 @@
             <b-progress :value="filter" style="height:30px" :max="testItems.length" variant="warn-light" show-progress animated></b-progress>
       </b-col>
       <b-col cols="1">
-        <button class="buttonDiv bg-warn" style="height:30px;width:100%" @click="cancel()"><b-icon class="pb-1 pr-1" icon="x-circle" variant="cream" font-scale="1.5"></b-icon></button>
+        <button class="buttonDiv bg-warn" style="height:30px;width:100%" @click="checkAnswers()"><b-icon class="pb-1 pr-1" icon="x-circle" variant="cream" font-scale="1.5"></b-icon></button>
       </b-col>
       </b-row>
 
@@ -127,9 +127,6 @@ export default {
         }
       } else {
         console.log('filterMax')
-        this.filter = null
-        this.showTest = false
-        this.replay = false
         this.checkAnswers()
       }
     },
@@ -138,6 +135,7 @@ export default {
       this.filter = 0
       this.answerData = []
       this.showTest = true
+      this.$store.dispatch('testActive')
       if (data) {
         this.testItems = data.test
         this.settings = JSON.parse(data.settings)
@@ -149,7 +147,12 @@ export default {
       }
     },
     checkAnswers: function () {
+      console.log('testEnded')
       this.showAnswers = true
+      this.filter = null
+      this.showTest = false
+      this.replay = false
+      this.$store.dispatch('testActive')
       this.$store.dispatch('updateRecord', { mode: 'transCh', answerData: this.answerData, settingsData: this.settings })
     },
     playAudio: function (arg) {
@@ -184,13 +187,6 @@ export default {
           _this.replay = true
         }
       }
-    },
-    cancel: function () {
-      console.log('cancel')
-      this.filter = null
-      this.showTest = false
-      this.replay = false
-      this.checkAnswers()
     }
   },
   watch: {

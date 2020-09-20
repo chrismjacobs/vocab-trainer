@@ -40,6 +40,7 @@
                 </b-form-input>
             </b-input-group>
 
+            <div v-if="join">
             <b-input-group class="my-4" label="Vocab:" label-for="exampleInput7">
               <b-input-group-prepend inline is-text>
                   <b-icon icon="card-list"></b-icon>
@@ -52,7 +53,6 @@
                 </b-form-select>
             </b-input-group>
 
-            <div v-if="join">
             <b-input-group class="my-4" label="Classroom:" label-for="exampleInput3">
               <b-input-group-prepend inline is-text>
                   <b-icon icon="people"></b-icon>

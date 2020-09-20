@@ -36,16 +36,28 @@
                 </b-form-input>
             </b-input-group>
 
-            <b-input-group class="my-4" label="Vocab:" label-for="exampleInput7">
+            <b-input-group class="my-4" label="Class Code:" label-for="exampleInput7">
               <b-input-group-prepend inline is-text>
-                  <b-icon icon="card-list"></b-icon>
+                  <b-icon icon="people"></b-icon>
                 </b-input-group-prepend>
-                <b-form-select id="vocab"
+                <b-form-input id="class"
                 required
-                :options="vocabs"
-                v-model="form.vocab"
+                v-model="form.classroom"
+                placeholder="Class Code"
                 >
-                </b-form-select>
+                </b-form-input>
+            </b-input-group>
+
+            <b-input-group class="my-4" label="Student ID:" label-for="exampleInput7">
+              <b-input-group-prepend inline is-text>
+                  <b-icon icon="person-fill"></b-icon>
+                </b-input-group-prepend>
+                <b-form-input id="studentID"
+                required
+                v-model="form.studentID"
+                placeholder="Student ID"
+                >
+                </b-form-input>
             </b-input-group>
 
             <b-input-group id="password" label="Password:" label-for="exampleInput2">
@@ -55,6 +67,7 @@
                 <b-form-input id="exampleInput2"
                             type="password"
                             v-model="form.password"
+                            placeholder="Password"
                             required>
                 </b-form-input>
             </b-input-group>
@@ -66,6 +79,7 @@
                 <b-form-input id="exampleInput3"
                             type="password"
                             v-model="form.confirm"
+                            placeholder="Password"
                             required>
                 </b-form-input>
                 <b-form-invalid-feedback :state="validPass">
@@ -118,7 +132,8 @@ export default {
       form: {
         username: '',
         email: '',
-        vocab: '',
+        class: '',
+        studentID: '',
         password: '',
         confirm: ''
       },

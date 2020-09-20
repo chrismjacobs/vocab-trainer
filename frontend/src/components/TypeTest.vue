@@ -17,17 +17,15 @@
       </b-row>
 
       <div class="bg-grey" v-if="showTest">
-          <div v-for="(item, key) in testItems" :key="key">
+        <transition-group name="board">
+          <div v-for="(item) in testItems" :key="item">
               <div v-if="testItems.indexOf(item) === filter">
                     <br>
                     <b-row class="px-5">
-                      <button class="questionDiv bg-warn" @click="hover=true" @mouseover="hover=true" @mouseleave="hover=false" :class="hoverStyle" align="center">
+                      <button class="questionDiv bg-warn" @click="hover=true" :class="hoverStyle" align="center">
                           <h3>
-                            <div v-if="!item.Spelling">
-                              <span style="width:100%"> <b-icon-soundwave></b-icon-soundwave> </span>
-                            </div>
-                            <div v-else>
-                              <span v-html="item.Spelling">  </span>
+                            <div >
+                              <span v-html="item.Spelling"> </span>
                             </div>
                             <span v-if="settings.sound == 'sdOnly' || settings.sound == 'sdOn' "> <b-icon-soundwave></b-icon-soundwave></span>
                           </h3>
@@ -71,6 +69,7 @@
 
               </div>
           </div>
+        </transition-group>
       </div>
 
       <div v-if="showAnswers" class="bg-smoke">

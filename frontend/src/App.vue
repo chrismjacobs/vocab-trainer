@@ -39,7 +39,9 @@
 
       <b-col :class="contClass()" style="min-height:100vh">
         <b-container fluid >
+          <transition name="board">
            <router-view :s3="s3"></router-view>
+          </transition>
         </b-container>
       </b-col>
 
@@ -71,13 +73,14 @@
                     <hr>
 
                    <h6> Your Levels:</h6>
+
                   <table class="table table-striped table-hover table-sm table-borderless text-cream">
                   <tbody>
-                    <tr v-for="(item, key) in userRecItems" :key="key">
-                      <td><span :class="getClass(key)">&nbsp;&nbsp;</span></td>
-                      <td>{{key}}</td>
-                      <td><span class="pr-5">{{item}}</span></td>
-                    </tr>
+                      <tr v-for="(item, key) in userRecItems" :key="key">
+                        <td><span :class="getClass(key)">&nbsp;&nbsp;</span></td>
+                        <td>{{key}}</td>
+                        <td><span class="pr-5">{{item}}</span></td>
+                      </tr>
                   </tbody>
                 </table>
 
@@ -102,7 +105,7 @@
           </div>
         </b-col>
     </b-row>
-    <div v-if="isAuthenticated" class="btnNav d-lg-none" style="z-index: 2">
+    <div v-if="isAuthenticated && !isActiveCheck" class="btnNav d-lg-none" style="z-index: 5">
         <button :class="navStyle('/Dictionary')" @click="goTo('Dictionary')"><b-icon-card-list></b-icon-card-list>  <span class="d-none d-md-inline" text=""> &nbsp; List </span> </button>
         <button :class="navStyle('/TransEngTest')" @click="goTo('TransEngTest')"><b-icon-box-arrow-up-right></b-icon-box-arrow-up-right>  <span class="d-none d-md-inline"> &nbsp; Eng-Ch </span> </button>
         <button :class="navStyle('/TransChTest')" @click="goTo('TransChTest')"><b-icon-box-arrow-up-left></b-icon-box-arrow-up-left>  <span class="d-none d-md-inline"> &nbsp; Ch-Eng </span></button>
@@ -298,6 +301,33 @@ export default {
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400&display=swap');
 @import "assets/scss/custom.scss";
+
+.board-enter-active, .board-leave-active  {
+  transition: opacity 0.3s ease-in-out, transform 0.5s ease;
+}
+
+.board-enter-active {
+  transition-delay: 0.5s;
+}
+
+.board-enter {
+  opacity: 0;
+}
+
+.board-enter-to {
+  opacity: 1;
+
+}
+
+.board-leave {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.board-leave-to {
+  opacity: 0;
+  transform: translateY(100px);
+}
 
 body {
   font-family: 'Inconsolata', !important;

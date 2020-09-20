@@ -8,7 +8,7 @@
 
             <b-input-group label="Email:" label-for="exampleInput1">
                 <b-input-group-prepend inline is-text>
-                  <b-icon icon="person-fill"></b-icon>
+                  <b-icon icon="envelope"></b-icon>
                 </b-input-group-prepend>
                 <b-form-input id="exampleInput1"
                             v-model="form.email"

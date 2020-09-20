@@ -24,6 +24,10 @@ export function checkFriend (payload) {
   return axios.post(host + '/api/checkFriend', payload)
 }
 
+export function deleteFriend (payload) {
+  return axios.post(host + '/api/deleteFriend', payload)
+}
+
 export function updateAccount (payload) {
   // update SQL model and save image
   return axios.post(host + '/api/updateAccount', payload)

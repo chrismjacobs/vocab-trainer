@@ -53,9 +53,11 @@ def online(data):
 
 
     for f in friends:
+        ## get friend
         fUser = User.query.get(int(f))
+        ## see if they're connected
         cUser = Connected.query.filter_by(connected=fUser).first()
-        if cUser and f in json.loads(cUser.friends):
+        if cUser and userID in json.loads(cUser.friends):
             print('online friend emit', int(f))
             emit('onlineUsers', {'userID': user.id, 'username': user.username}, int(f))
 
@@ -85,18 +87,6 @@ def on_offline(data):
     emit('disconnect', {'userID': user.id}, user.id)
 
     print(user.username, 'offline')
-
-@socketio.on('sayHi')
-def on_sayHi(data):
-    target = data['target']
-    userID = data['userID']
-    username = data['username']
-
-    #user = User.query.get(userID)
-
-    emit('sayHi', {'sender' : username}, target )
-
-    print('sayHI', 'target:', target, 'sender:', userID)
 
 @socketio.on('challenge')
 def on_challenge(data):

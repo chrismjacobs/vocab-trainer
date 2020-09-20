@@ -9,43 +9,39 @@ class User(db.Model): #import the model
     date_added = db.Column(db.DateTime, nullable=False, default=datetime.now)
     username =  db.Column(db.String(20), unique=True, nullable=False) #must be a unique name and cannot be null
     email = db.Column(db.String(120), unique=True, nullable=False)
-    studentID = db.Column(db.String())
+    studentID = db.Column(db.String(20))
     vocab = db.Column(db.String(), nullable=False, default='general')
-    image_file = db.Column(db.String(), nullable=False, default='public/profiles/default.PNG') #images will be hashed to 20 and images could be the same
     password = db.Column(db.String(60), nullable=False)
-    school = db.Column(db.String(20))
+    school = db.Column(db.String(30))
     classroom = db.Column(db.String(20))
     extraStr = db.Column(db.String())
+    extraInfo = db.Column(db.String())
     extraInt = db.Column(db.Integer())
     connects = db.relationship('Connected', backref='connected')
-    rooms = db.relationship('Room', secondary='ready', backref=db.backref('players', lazy='dynamic'))
+    classes = db.relationship('Classroom', backref='classroom')
 
 
-class Settings(db.Model):
+class Classroom(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     date_added = db.Column(db.DateTime, nullable=False, default=datetime.now)
-    settings =  db.Column(db.String(), unique=True, nullable=False)
-    count = db.Column(db.Integer(), unique=False, nullable=False)
+    instructor = db.Column(db.String(20), nullable=False)
+    code = db.Column(db.String(), nullable=False)
+    vocab = db.Column(db.String())
+    limit = db.Column(db.Integer())
+    ids = db.Column(db.String())
+    expiry = db.Column(db.Integer())
     extraStr = db.Column(db.String())
     extraInt = db.Column(db.Integer())
-
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 class Connected(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username =  db.Column(db.String(20), nullable=False)
     friends =  db.Column(db.String())
+    sid =  db.Column(db.String())
     extraStr = db.Column(db.String())
     extraInt = db.Column(db.Integer())
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-
-class Room(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    room = db.Column(db.String())
-
-association_table = db.Table('ready',
-    db.Column('user_id', db.Integer, db.ForeignKey('user.id')),
-    db.Column('room_id', db.Integer, db.ForeignKey('room.id'))
-)
 
 def authenticate(**kwargs): # cls represents iteself in this case User
     email= kwargs['userData']['email']
@@ -72,9 +68,6 @@ def authenticate(**kwargs): # cls represents iteself in this case User
 
 
 
-
-
-
 class MyModelView(ModelView):
     def is_accessible(self):
         return True
@@ -82,15 +75,11 @@ class MyModelView(ModelView):
     #https://danidee10.github.io/2016/11/14/flask-by-example-7.html
 
 
-
-
-
 admin = Admin(app)
 
 admin.add_view(MyModelView(User, db.session))
-admin.add_view(MyModelView(Settings, db.session))
 admin.add_view(MyModelView(Connected, db.session))
-admin.add_view(MyModelView(Room, db.session))
+admin.add_view(MyModelView(Classroom, db.session))
 
 
 

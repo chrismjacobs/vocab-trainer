@@ -31,21 +31,34 @@ def register():
     data = request.get_json()['userData']
     pprint(data)
 
+    name = data['username'].strip()
     email = (data['email'].lower()).strip()
+    studentID = data['studentID']
+    classroom = data['classroom']
 
     checkName = User.query.filter_by(username=data['username']).first()
     checkEmail = User.query.filter_by(email=email).first()
 
     if checkName:
         print('NAME ERROR')
-        return jsonify({'msg' : 'This name has been used already.', 'err': 1})
+        return jsonify({'msg' : 'This name has already been used.', 'err': 1})
     if checkEmail:
         print('EMAIL ERROR')
         return jsonify({'msg' : 'This email has been used already.', 'err': 1})
 
+    checkClass = Classroom.query.filter_by(code=classroom).first()
+
+    if checkClass:
+        ## deal with checks
+        vocab = checkClass.vocab
+        pass
+    else:
+        print('CLASS ERROR')
+        return jsonify({'msg' : 'Sorry, there is no class with this code.', 'err': 1})
+
 
     hashed_password = bcrypt.generate_password_hash(data['password']).decode('utf-8')
-    newUser = User(username=data['username'], email=email, vocab=data['vocab'], password=hashed_password)
+    newUser = User(username=data['username'], email=email, studentID=studentID, classroom=classroom, vocab=vocab, password=hashed_password)
     db.session.add(newUser)
     db.session.commit()
 
@@ -176,7 +189,7 @@ def checkFriend():
 
     check = True
 
-    if friend:
+    if friend and friend.id != userID:
         checkName1 = (friendName.lower()).strip()
         checkName2 = (friend.username.lower()).strip()
         print(checkName1, checkName2)
@@ -184,6 +197,8 @@ def checkFriend():
             check = False
     else:
         check = False
+        return jsonify({'check': check})
+
 
     ## add friend to sql connected and logs json
     if check:
