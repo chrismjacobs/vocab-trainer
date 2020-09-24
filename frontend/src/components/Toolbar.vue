@@ -174,8 +174,8 @@ export default {
   data () {
     return {
       showToolbar: true,
-      wordsReset: '6',
-      words: 6,
+      wordsReset: '12',
+      words: 12,
       choices: 4,
       retry: false,
       testItemsRoot: [],

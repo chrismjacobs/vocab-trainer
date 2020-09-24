@@ -1,6 +1,6 @@
 <template>
   <div class="TransEng">
-    <audio id="audio" autoplay></audio>
+    <audio id="audio"></audio>
       <div class="mt-2 bg-second p-2" align="center">
         <b-row align-h="end">
           <b-col cols="6">
@@ -17,14 +17,16 @@
            <div style="width:45%;height:70px;display:inline-block;" class="">
              <b-avatar :src="s3 + p1.toString() + '.jpg'"  size="72px" :badge="p1name" badge-offset="-0.5em" badge-variant="p1"></b-avatar>
              <b-avatar v-if="ready.includes('p1')" icon="person-check" variant="safe"></b-avatar>
+             <b-badge class="bg-smoke text-p1 badge-lg">{{p1score}}</b-badge>
            </div>
            <div style="width:45%;height:70px;display:inline-block;" class="">
              <b-avatar :src="s3 + p2.toString() + '.jpg'" size="72px" :badge="p2name" badge-offset="-0.5em" badge-variant="p2"></b-avatar>
              <b-avatar v-if="ready.includes('p2')" icon="person-check" variant="safe"></b-avatar>
+             <b-badge class="bg-smoke text-p2 badge-lg">{{p2score}}</b-badge>
            </div>
          </div>
          <div>
-            <b-progress  style="height:30px" :max="testItems.length"  class="mt-2" show-value>
+            <b-progress  style="height:30px" :max="1"  class="mt-2" show-value>
                 <b-progress-bar :value="progressValues.p1" variant="p1"></b-progress-bar>
                 <b-progress-bar :value="progressValues.warn" variant="warn-light"></b-progress-bar>
                 <b-progress-bar :value="progressValues.p2" variant="p2"></b-progress-bar>
@@ -118,6 +120,8 @@ export default {
         p2: 0,
         warn: 0
       },
+      p1score: 0,
+      p2score: 0,
       btnIDMarker: null
     }
   },
@@ -188,7 +192,7 @@ export default {
       }, 2000)
     },
     disable: function (name, btnID, player, state, chinese) {
-      let btnClass = 'bg-' + player
+      let btnClass = 'bg-' + player + '-light'
       let button = document.getElementById(btnID)
 
       if (button) {
@@ -278,11 +282,19 @@ export default {
       }
     },
     checkAnswers: function () {
+      this.p1score += this.progressValues.p1
+      this.p2score += this.progressValues.p2
+      this.progressValues.p1 = 0
+      this.progressValues.p2 = 0
+      this.progressValues.warn = 0
       this.showAnswers = true
       this.$store.dispatch('updateRecord', { mode: 'matchEng', answerData: this.answerData, settingsData: null })
     },
     playAudio: function (arg) {
-      document.getElementById('audio').src = arg
+      console.log('PLAY', arg)
+      let player = document.getElementById('audio')
+      player.src = arg
+      player.play()
     },
     leave: function () {
       this.$emit('leaveMatch')

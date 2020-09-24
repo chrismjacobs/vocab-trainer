@@ -147,8 +147,8 @@ export default {
         '/Dictionary': 'bg-cream'
       },
       typeHeaders: {
-        'transEng': 'Eng',
-        'transCh': 'Ch',
+        'transEng': 'E/C',
+        'transCh': 'C/E',
         'typeTest': 'Type',
         'matchEng': 'Match'
       }

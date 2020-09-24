@@ -346,12 +346,12 @@ const getters = {
         }
       }
       let spellScore = 0
-      if (!state.userRecord.spell) {
+      if (!state.userRecord.typeTest) {
         // pass
-      } else if (state.userRecord.spell[vocab]) {
+      } else if (state.userRecord.typeTest[vocab]) {
         // note that this word has been tested
         tested = true
-        spellScore = state.userRecord.spell[vocab]
+        spellScore = state.userRecord.typeTest[vocab]
         if (spellScore > 2) {
           spellScore = 2
         } else if (spellScore < -2) {

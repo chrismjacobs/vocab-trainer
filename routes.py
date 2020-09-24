@@ -193,7 +193,7 @@ def update_record():
     userID = payload['userID']
     user = User.query.get(userID)
 
-    print('updateRecord', logsRecord)
+    print('updateRecord', dictRecord)
 
     #jStorer(user, logsRecord, userRecord, userDictionary)
     jStorer(user, logsRecord, userRecord, dictRecord)

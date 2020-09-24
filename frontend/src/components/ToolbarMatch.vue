@@ -119,8 +119,8 @@ export default {
   },
   data () {
     return {
-      wordsReset: '6',
-      words: 6,
+      wordsReset: '12',
+      words: 12,
       choices: 4,
       timeReset: 6,
       retry: false,
