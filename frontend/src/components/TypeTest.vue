@@ -80,6 +80,15 @@
       >
       </b-table>
       </div>
+
+      <b-modal hide-header-close no-close-on-esc no-close-on-backdrop align="center" ref="complete" hide-footer title="Test Complete">
+      <div class="d-block">
+        <h3> {{sCount}}/{{qCount}} </h3>
+        <h3> {{ timeSpan() }}  </h3>
+      </div>
+      <button class="buttonDiv mt-3 bg-prime text-cream" style="width:60%"  @click="hideModal('complete')">Close</button>
+      </b-modal>
+
   </div>
 </template>
 
@@ -94,9 +103,9 @@ export default {
   data () {
     return {
       pageHead: 'Typing Test',
-      toolbarShow: true,
       testType: 'typeTest',
       title: 'Typing Test',
+      toolbarShow: true,
       time: 60000,
       clock: null,
       mistakes: 0,
@@ -111,17 +120,24 @@ export default {
       currentAnswer: null,
       testItems: [],
       settings: {},
-      fields: ['Chinese', 'English', 'Answer', 'Time']
+      fields: ['Chinese', 'English', 'Answer', 'Time'],
+      startTime: null,
+      endTime: null,
+      qCount: 0,
+      sCount: 0
     }
   },
   methods: {
     recordAnswer: function (english, chinese, choice) {
       // score
+      this.qCount += 1
+
       let correct = english
       let score
       let _rowVariant
       if (choice === correct || choice === correct + ' ') {
         score = 1
+        this.sCount += 1
         _rowVariant = 'safe'
       } else {
         score = -1
@@ -163,33 +179,62 @@ export default {
         document.getElementById('type').value = ''
       } else {
         console.log('filterMax')
-        this.filter = null
-        this.mistakes = 0
-        this.showTest = false
-        document.getElementById('type').value = ''
-        this.checkAnswers()
+        this.cancel()
       }
     },
     start: function (data) {
+      this.sCount = 0
+      this.qCount = 0
+      this.startTime = new Date()
       this.showAnswers = false
       this.filter = 0
       this.answerData = []
       this.showTest = true
+      this.$store.dispatch('testActive')
       if (data) {
         this.testItems = data.test
         this.settings = JSON.parse(data.settings)
       }
     },
     cancel: function () {
+      console.log('cancel')
       this.filter = null
       this.mistakes = 0
       this.showTest = false
+      this.endTime = new Date()
+      this.showModal()
       document.getElementById('type').value = ''
       this.checkAnswers()
     },
     checkAnswers: function () {
+      console.log('testEnded')
       this.showAnswers = true
+      this.$store.dispatch('testActive')
       this.$store.dispatch('updateRecord', { mode: 'typeTest', answerData: this.answerData, settingsData: this.settings })
+    },
+    showModal: function () {
+      this.$refs['complete'].show()
+    },
+    hideModal: function (mode) {
+      if (mode === 'complete') {
+        this.$refs['complete'].hide()
+      } else {
+        this.$refs['fail'].hide()
+        this.msg = null
+        this.waiting = true
+      }
+    },
+    timeSpan: function () {
+      let time = (this.endTime - this.startTime) / 1000
+      let minutes = 0
+      let seconds = 0
+      if (time > 59) {
+        minutes = Math.floor(time / 60)
+        seconds = Math.floor(time - (minutes * 60))
+        return minutes.toString() + ' minutes ' + seconds.toString() + ' seconds'
+      } else {
+        return Math.floor(time).toString() + ' seconds'
+      }
     },
     playAudio: function (arg) {
       console.log('PLAY', arg)

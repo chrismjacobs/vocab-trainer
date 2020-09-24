@@ -300,6 +300,9 @@ const getters = {
     console.log('getterActive', state.testActive)
     return state.testActive
   },
+  dictGet (state) {
+    return state.dictRecord
+  },
   makeList (state) {
     let tableItems = []
     let dict = state.master

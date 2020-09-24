@@ -36,7 +36,7 @@
             </div>
           </b-form>
           <template v-slot:footer>
-            <em><a href="#">Forgot Password</a></em>
+            <em><a href="#" @click="$router.push('/Reset')">Forgot Password</a></em>
           </template>
         </b-card>
       <div v-else align="center">
@@ -47,14 +47,14 @@
     </b-row>
   </b-container>
 
-  <b-modal align="center" ref="success" hide-footer title="Logged In">
+  <b-modal hide-header-close no-close-on-esc no-close-on-backdrop align="center" ref="success" hide-footer title="Logged In">
       <div class="d-block">
         <h3> {{msg}} </h3>
       </div>
-      <button class="buttonDiv mt-3 bg-safe text-cream" style="width:60%"  @click="hideModal('success')">Close</button>
+      <button class="buttonDiv mt-3 bg-prime text-cream" style="width:60%"  @click="hideModal('success')">Close</button>
     </b-modal>
 
-   <b-modal align="center" ref="fail" hide-footer title="Problem Found">
+   <b-modal hide-header-close no-close-on-esc no-close-on-backdrop align="center" ref="fail" hide-footer title="Problem Found">
       <div class="d-block">
         <h3> {{msg}} </h3>
       </div>

@@ -7,6 +7,7 @@ const routerOptions = [
   {path: '/about', component: 'About'},
   {path: '/login', component: 'Login'},
   {path: '/register', component: 'Register'},
+  {path: '/reset', component: 'Reset'},
   {path: '/account', component: 'Account'},
   {path: '/dictionary', component: 'Dictionary'},
   {path: '/transeng', component: 'TransEng'},

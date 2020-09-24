@@ -239,7 +239,7 @@ export default {
         { value: 'abbr.', text: 'abbreviations' },
         { value: 'prop.', text: 'proper nouns' }
       ],
-      display: 'ch_text_On',
+      display: 'text_On',
       displayOptions: [
         { text: 'Chinese', value: 'text_On' },
         { text: 'Label', value: 'label_On' },

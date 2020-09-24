@@ -2,6 +2,7 @@ from datetime import datetime, timedelta
 from app import app, db, bcrypt
 from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
+from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 
 
 class User(db.Model): #import the model
@@ -19,6 +20,22 @@ class User(db.Model): #import the model
     extraInt = db.Column(db.Integer())
     connects = db.relationship('Connected', backref='connected')
     classes = db.relationship('Classroom', backref='classroom')
+
+    def get_reset_token(self, expires_sec=1800):
+        expires_sec = 1800
+        s = Serializer(app.config['SECRET_KEY'], expires_sec)
+        return s.dumps({'user_id': self.id}).decode('utf-8')
+
+    @staticmethod #tell python not to expect that self parameter as an argument, just accepting the token
+    def verify_reset_token(token):
+        expires_sec = 1800
+        s = Serializer(app.config['SECRET_KEY'], expires_sec)
+        try:
+            user_id = s.loads(token)['user_id']
+        except:
+            return None
+        return User.query.get(user_id)
+
 
 
 class Classroom(db.Model):

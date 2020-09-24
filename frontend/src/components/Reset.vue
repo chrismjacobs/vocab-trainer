@@ -1,27 +1,20 @@
 <template>
-    <div class="register">
+    <div class="reset">
     <b-container>
     <b-row class="mt-5 mx-auto">
       <b-col>
         <b-card v-if="waiting" header="Register" header-bg-variant="prime" header-text-variant="cream" header-tag="h3">
           <b-form @submit="onSubmit" @reset="onReset" v-if="show">
 
-            <b-input-group class="my-4" label="Username:" label-for="exampleInput1">
-                <b-input-group-prepend inline is-text>
-                  <b-icon icon="person-fill"></b-icon>
+            <b-input-group class="my-4" label="Account Name:" label-for="exampleInput0">
+              <b-input-group-prepend inline is-text>
+                  <b-icon icon="person"></b-icon>
                 </b-input-group-prepend>
                 <b-form-input
-                            id="username"
                             v-model="form.username"
                             required
-                            placeholder="Enter username">
+                            placeholder="Enter email">
                 </b-form-input>
-                <b-form-invalid-feedback :state="validName">
-                  Your username must be 3-20 characters long.
-                </b-form-invalid-feedback>
-                <b-form-valid-feedback :state="validName">
-                  Looks Good.
-                </b-form-valid-feedback>
             </b-input-group>
 
             <b-input-group class="my-4" label="Email address:" label-for="exampleInput4">
@@ -36,31 +29,21 @@
                 </b-form-input>
             </b-input-group>
 
-            <b-input-group class="my-4" label="Class Code:" label-for="exampleInput7">
+            <button v-if="tokenCheck == false" class="buttonDiv bg-second text-cream px-3" style="width:140px" @click="requestToken()"> Request Token </button>
+
+            <template v-else>
+            <b-input-group class="my-4" label="Token:" label-for="exampleInput4">
               <b-input-group-prepend inline is-text>
-                  <b-icon icon="people"></b-icon>
+                  <b-icon icon="caret-right-fill"></b-icon>
                 </b-input-group-prepend>
-                <b-form-input id="class"
-                required
-                v-model="form.classroom"
-                placeholder="Class Code"
-                >
+                <b-form-input
+                            v-model="form.token"
+                            required
+                            placeholder="Check email for token">
                 </b-form-input>
             </b-input-group>
 
-            <b-input-group class="my-4" label="Student ID:" label-for="exampleInput7">
-              <b-input-group-prepend inline is-text>
-                  <b-icon icon="person-fill"></b-icon>
-                </b-input-group-prepend>
-                <b-form-input id="studentID"
-                required
-                v-model="form.studentID"
-                placeholder="Student ID"
-                >
-                </b-form-input>
-            </b-input-group>
-
-            <b-input-group id="password" label="Password:" label-for="exampleInput2">
+            <b-input-group v-if="form.token && form.token.length > 100" id="password" label="Password:" label-for="exampleInput2">
                 <b-input-group-prepend inline is-text>
                   <b-icon icon="lock-fill"></b-icon>
                 </b-input-group-prepend>
@@ -72,7 +55,7 @@
                 </b-form-input>
             </b-input-group>
 
-            <b-input-group class="my-4" id="exampleInputGroup3" label="Confirm Password:" label-for="exampleInput3">
+            <b-input-group v-if="form.token && form.token.length > 100" class="my-4" id="exampleInputGroup3" label="Confirm Password:" label-for="exampleInput3">
                 <b-input-group-prepend inline is-text>
                   <b-icon icon="lock-fill"></b-icon>
                 </b-input-group-prepend>
@@ -94,24 +77,26 @@
                 <button class="buttonDiv bg-alert px-3" style="width:60px" type="reset"> <b-icon-x-circle variant="cream" font-scale="1.5"></b-icon-x-circle></button>
                 </div>
             </div>
+            </template>
           </b-form>
+
         </b-card>
         <div v-else align="center">
-            <h4 class="text-prime"> Registering </h4>
+            <h4 class="text-prime"> Reseting Password </h4>
             <b-icon icon="three-dots" animation="cylon" variant="prime" font-scale="6"></b-icon>
         </div>
       </b-col>
     </b-row>
   </b-container>
 
-   <b-modal align="center" ref="success" hide-footer title="Registration Complete" hide-header-close no-close-on-esc no-close-on-backdrop>
+   <b-modal align="center" ref="success" hide-footer title="Reset Complete">
       <div class="d-block">
         <h3> {{msg}} </h3>
       </div>
-      <button class="buttonDiv mt-3 bg-third text-prime" style="width:60%"  @click="hideModal('success')">Close</button>
+      <button class="buttonDiv mt-3 bg-safe text-cream" style="width:60%"  @click="hideModal('success')">Close</button>
     </b-modal>
 
-   <b-modal align="center" ref="fail" hide-footer title="Problem Found" hide-header-close no-close-on-esc no-close-on-backdrop>
+   <b-modal align="center" ref="fail" hide-footer title="Problem Found">
       <div class="d-block">
         <h3> {{msg}} </h3>
       </div>
@@ -130,28 +115,15 @@ export default {
   data () {
     return {
       form: {
-        username: '',
         email: '',
-        class: '',
-        studentID: '',
+        username: '',
         password: '',
         confirm: ''
       },
       show: true,
       waiting: true,
-      vocabs: [
-        {text: 'ESP Tourism 1', value: 'tourism'},
-        {text: 'ESP Food (Vietnamese)', value: 'food'}
-      ],
-      msg: null
-    }
-  },
-  computed: {
-    validName () {
-      return this.form.username.length > 2 && this.form.username.length < 20
-    },
-    validPass () {
-      return this.form.password === this.form.confirm
+      msg: null,
+      tokenCheck: false
     }
   },
   methods: {
@@ -176,7 +148,7 @@ export default {
     onSubmit (evt) {
       evt.preventDefault()
       if (this.validName && this.validPass) {
-        this.register()
+        this.reset()
         // alert(JSON.stringify(this.form))
       } else {
         alert('form is not complete')
@@ -192,10 +164,24 @@ export default {
       this.show = false
       this.$nextTick(() => { this.show = true })
     },
-    register () {
+    requestToken () {
+      alert('token sent to email')
+      let _this = this
+      this.$store.dispatch('requestToken', { username: this.username, email: this.form.email })
+        .then(function (response) {
+          if (response.err) {
+            _this.showAlert(response.msg)
+            localStorage.setItem('tokenReady', false)
+          } else {
+            localStorage.setItem('tokenReady', true)
+            _this.showModal(response.msg)
+          }
+        })
+    },
+    reset () {
       this.waiting = false
       let _this = this
-      this.$store.dispatch('register', { userData: this.form })
+      this.$store.dispatch('reset', { userData: this.form })
         .then(function (response) {
           if (response.err) {
             _this.showAlert(response.msg)
@@ -204,6 +190,9 @@ export default {
           }
         })
     }
+  },
+  beforeCreated () {
+    localStorage.setItem('tokenReady', false)
   }
 }
 </script>

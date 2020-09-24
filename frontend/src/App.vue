@@ -11,12 +11,24 @@
       <b-collapse id="navbar-toggle-collapse" is-nav>
         <b-navbar-nav class="ml-auto">
            <div v-if="isAuthenticated">
-                <b-nav-item @click="logout(), goTo('Home')"><div class="sideBtn"><b-icon-power></b-icon-power>  <span text=""> &nbsp;Logout </span></div></b-nav-item>
                 <b-nav-item @click="goTo('Account')"><div class="sideBtn"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp;Account #{{$store.state.userProfile.userID}} </span></div></b-nav-item>
-                <br>
+                <b-nav-item @click="alert('help features coming soon')"><div class="sideBtn"><b-icon-question-circle></b-icon-question-circle>  <span> &nbsp;Help </span></div></b-nav-item>
                 <div>
                   <b-table class="text-cream" striped hover small borderless :items="currentRecItems"></b-table>
                 </div>
+                <hr>
+                <table class="table table-striped table-hover table-sm table-borderless text-cream">
+                  <tbody>
+                      <tr v-for="(item, key) in userRecItems" :key="key">
+                        <td><span :class="getClass(key)">&nbsp;&nbsp;</span></td>
+                        <td>{{key}}</td>
+                        <td><span class="pr-5">{{item}}</span></td>
+                      </tr>
+                  </tbody>
+                </table>
+                <hr>
+                <b-nav-item @click="logout(), goTo('Home')"><div class="sideBtn bg-grape"><b-icon-power></b-icon-power>  <span text=""> &nbsp;Logout </span></div></b-nav-item>
+
             </div>
            <div v-else>
                 <b-nav-item @click="goTo('Login')"><div class="sideBtn"><b-icon-power></b-icon-power>  <span> &nbsp;Login </span></div></b-nav-item>
@@ -75,23 +87,22 @@
                    <h6> Your Levels:</h6>
 
                   <table class="table table-striped table-hover table-sm table-borderless text-cream">
-                  <tbody>
-                      <tr v-for="(item, key) in userRecItems" :key="key">
-                        <td><span :class="getClass(key)">&nbsp;&nbsp;</span></td>
-                        <td>{{key}}</td>
-                        <td><span class="pr-5">{{item}}</span></td>
-                      </tr>
-                  </tbody>
-                </table>
+                    <tbody>
+                        <tr v-for="(item, key) in userRecItems" :key="key">
+                          <td><span :class="getClass(key)">&nbsp;&nbsp;</span></td>
+                          <td>{{key}}</td>
+                          <td><span class="pr-5">{{item}}</span></td>
+                        </tr>
+                    </tbody>
+                  </table>
 
                 <hr>
 
                 </div>
                     <div v-if="isAuthenticated">
                       <button class="buttonDiv bg-prime text-cream px-1" style="height:50px; width:100%" @click="goTo('Account')"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp;Account </span> </button>
-                      <br>
-                      <br>
-                      <button class="buttonDiv bg-prime text-cream px-1" style="height:50px; width:100%" @click="logout()"><b-icon-power></b-icon-power>  <span text=""> &nbsp;Logout </span> </button>
+                      <button class="buttonDiv mt-2 bg-third text-prime px-1" style="height:50px; width:100%" @click="alert('help features coming soon')"><b-icon-question-circle></b-icon-question-circle>  <span text=""> &nbsp;Help </span> </button>
+                      <button class="buttonDiv mt-2 bg-grape text-cream px-1" style="height:50px; width:100%" @click="logout()"><b-icon-power></b-icon-power>  <span text=""> &nbsp;Logout </span> </button>
                     </div>
                     <div v-else>
                        <br>

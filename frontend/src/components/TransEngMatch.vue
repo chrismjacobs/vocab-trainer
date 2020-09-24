@@ -7,7 +7,7 @@
             <h2 class="text-cream" > Match </h2>
           </b-col>
           <b-col cols="3">
-            <b-icon-backspace-reverse-fill variant="warn" class="mt-1 ml-3" style="float:right" @click="leave()" font-scale="1.5"></b-icon-backspace-reverse-fill>
+            <button class="buttonDiv bg-warn"> Exit <b-icon-backspace-reverse-fill variant="warn" class="mt-1 ml-3" style="float:right" @click="leave()" font-scale="1.5"></b-icon-backspace-reverse-fill> </button>
           </b-col>
         </b-row>
       </div>
@@ -283,6 +283,9 @@ export default {
     },
     playAudio: function (arg) {
       document.getElementById('audio').src = arg
+    },
+    leave: function () {
+      this.$emit('leaveMatch')
     }
   },
   watch: {
@@ -304,6 +307,9 @@ export default {
     isAuthenticated () {
       return this.$store.getters.isAuthenticated
     }
+  },
+  beforeDestroy () {
+    console.log('beforeDestroyTransMatch')
   },
   mounted () {
     let _this = this

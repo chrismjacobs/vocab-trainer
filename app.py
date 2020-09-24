@@ -3,6 +3,7 @@ from flask_socketio import SocketIO #https://blog.miguelgrinberg.com/post/easy-w
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_cors import CORS
+from flask_mail import Mail
 import os
 import requests
 import boto3
@@ -50,9 +51,22 @@ socketio = SocketIO(app, cors_allowed_origins="*", manage_session=False)
 ## every api call with the prefix /api/ will be accepted cross platfrom
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
+## https://pythonhosted.org/Flask-Mail/
+app.config.update(dict(
+    MAIL_SERVER = 'smtp.gmail.com',
+    MAIL_PORT = 587,
+    MAIL_USE_TLS = True,
+    MAIL_USERNAME = 'chrisflask0212@gmail.com',
+    MAIL_PASSWORD = config.BaseConfig.MAIL_PASSWORD,
+    MAIL_SUPPRESS_SEND = False,
+    MAIL_DEBUG = True,
+    TESTING = False
+))
+
+mail = Mail(app)
+
 
 from routes import *
-from test import *
 from sockets import *
 
 

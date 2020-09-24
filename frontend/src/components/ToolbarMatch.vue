@@ -1,5 +1,5 @@
 <template>
-  <div class="toolbar" v-if="!toolbarShow">
+  <div class="matchBar" v-if="!toolbarShow">
     <div>
 
       <div class="bg-third p-2">

@@ -10,7 +10,7 @@
             <b-progress :value="filter" style="height:30px" :max="testItems.length" variant="warn-light" show-progress animated></b-progress>
       </b-col>
       <b-col cols="1">
-        <button class="buttonDiv bg-warn" style="height:30px;width:100%" @click="checkAnswers()"><b-icon class="pb-1 pr-1" icon="x-circle" variant="cream" font-scale="1.5"></b-icon></button>
+        <button class="buttonDiv bg-warn" style="height:30px;width:100%" @click="cancel()"><b-icon class="pb-1 pr-1" icon="x-circle" variant="cream" font-scale="1.5"></b-icon></button>
       </b-col>
       </b-row>
 
@@ -52,6 +52,15 @@
         >
         </b-table>
     </div>
+
+    <b-modal hide-header-close no-close-on-esc no-close-on-backdrop align="center" ref="complete" hide-footer title="Test Complete">
+      <div class="d-block">
+        <h3> {{sCount}}/{{qCount}} </h3>
+        <h3> {{ timeSpan() }}  </h3>
+      </div>
+      <button class="buttonDiv mt-3 bg-prime text-cream" style="width:60%"  @click="hideModal('complete')">Close</button>
+    </b-modal>
+
   </div>
 </template>
 
@@ -66,11 +75,11 @@ export default {
   data () {
     return {
       pageHead: 'Chinese --> English',
+      testType: 'transCh',
+      title: 'Chinese --> English',
       toolbarShow: true,
       max: 100,
       value: 20,
-      testType: 'transCh',
-      title: 'Chinese --> English',
       hover: false,
       hoverAns: false,
       showAnswers: false,
@@ -90,17 +99,24 @@ export default {
         4: this.neutralStyle,
         5: this.neutralStyle
       },
-      replay: false
+      replay: false,
+      startTime: null,
+      endTime: null,
+      qCount: 0,
+      sCount: 0
     }
   },
   methods: {
     recordAnswer: function (english, chinese, choice) {
-      console.log(english, chinese, choice)
+      // console.log(english, chinese, choice)
+      this.qCount += 1
+
       let correct = english
       let score
       let _rowVariant
       if (choice === correct) {
         score = 1
+        this.sCount += 1
         _rowVariant = 'safe'
       } else {
         score = -1
@@ -117,7 +133,7 @@ export default {
       this.answerData.push(entry)
 
       if (this.filter + 1 < this.testItems.length) {
-        console.log('filterCheck', this.filter, this.testItems.length)
+        // console.log('filterCheck', this.filter, this.testItems.length)
         if (this.settings.sound === 'sdEx') {
           this.filter += 1
           this.replay = false
@@ -127,10 +143,13 @@ export default {
         }
       } else {
         console.log('filterMax')
-        this.checkAnswers()
+        this.cancel()
       }
     },
     start: function (data) {
+      this.sCount = 0
+      this.qCount = 0
+      this.startTime = new Date()
       this.showAnswers = false
       this.filter = 0
       this.answerData = []
@@ -143,17 +162,46 @@ export default {
       /// unique to this mode TransCh
       if (this.settings.sound === 'sdEx') {
         this.playCycle()
-        // this.timerSet()
       }
     },
     checkAnswers: function () {
       console.log('testEnded')
       this.showAnswers = true
-      this.filter = null
-      this.showTest = false
       this.replay = false
       this.$store.dispatch('testActive')
       this.$store.dispatch('updateRecord', { mode: 'transCh', answerData: this.answerData, settingsData: this.settings })
+    },
+    cancel: function () {
+      console.log('cancel')
+      this.filter = null
+      this.showTest = false
+      this.endTime = new Date()
+      this.showModal()
+      this.checkAnswers()
+    },
+    showModal: function () {
+      this.$refs['complete'].show()
+    },
+    hideModal: function (mode) {
+      if (mode === 'complete') {
+        this.$refs['complete'].hide()
+      } else {
+        this.$refs['fail'].hide()
+        this.msg = null
+        this.waiting = true
+      }
+    },
+    timeSpan: function () {
+      let time = (this.endTime - this.startTime) / 1000
+      let minutes = 0
+      let seconds = 0
+      if (time > 59) {
+        minutes = Math.floor(time / 60)
+        seconds = Math.floor(time - (minutes * 60))
+        return minutes.toString() + ' minutes ' + seconds.toString() + ' seconds'
+      } else {
+        return Math.floor(time).toString() + ' seconds'
+      }
     },
     playAudio: function (arg) {
       console.log('PLAY', arg)

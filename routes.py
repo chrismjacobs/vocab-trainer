@@ -9,11 +9,13 @@ import jwt
 from datetime import datetime, timedelta
 from functools import wraps
 from flask import jsonify, render_template, request
-from app import app, db, bcrypt, s3_resource
+from flask_mail import Message
+from app import app, db, bcrypt, s3_resource, mail
 from pprint import pprint
 from models import *
 from PIL import Image
 bucket_name = 'vocab-lms'
+DEBUG = app.config['DEBUG']
 
 
 @app.route('/', defaults={'path': ''})
@@ -126,6 +128,41 @@ def login():
         'dictRecord': dictRecord
         })
 
+
+
+def send_reset_email(user):
+    token = user.get_reset_token()
+    msg = Message('Password Reset Request',
+                sender=('VOCAB TRAINER','chrisflask0212@gmail.com'),
+                recipients=[user.email])
+
+    if DEBUG:
+        link = 'https://vocab-lms.herokuapp.com/reset/' + token
+    else:
+        link = 'https://vocab-lms.herokuapp.com/reset/' + token
+
+    msg.body = 'To reset your password, user the token. If you did not request this email then please ignore'
+    msg.html = '<a href=' + link + '> Reset Link </a>'
+
+    mail.send(msg)
+
+
+@app.route("/api/send_reset", methods=['POST'])
+def send_reset():
+    print('RESET PASSWORD')
+    userEmail = request.get_json()['email']
+    userName = request.get_json()['username']
+    user = User.query.filter_by(email=userEmail).first()
+
+    if user:
+        if user.username.lower().strip() == userName.lower().strip():
+            send_reset_email(user)
+            return jsonify({'msg': 'A reset link has been sent to your email account'})
+        else:
+            {'msg': 'There is no account associated with this username'}
+    else:
+        return jsonify({'msg': 'There is no account associated with this email'})
+
 @app.route("/api/getRecord", methods=['POST'])
 def get_records():
     print('RECORDS')
@@ -184,6 +221,7 @@ def checkFriend():
     friend = User.query.get(friendID)
     user = User.query.get(userID)
     friends = {}
+    friendsString = None
 
     print(friend)
 
@@ -222,6 +260,50 @@ def checkFriend():
     response = {
         'check' : check,
         'friendName' : friend.username,
+        'friendID': friend.id,
+        'friends': friendString
+    }
+    return jsonify(response)
+
+@app.route('/api/deleteFriend', methods=['POST'])
+def deleteFriend():
+    print('DELETE FRIEND')
+    payload = request.get_json()
+    pprint(payload)
+    friendID = payload['friendID']
+    userID = payload['userID']
+
+    print(friendID)
+    print(userID)
+
+    friend = User.query.get(friendID)
+    user = User.query.get(userID)
+    friends = {}
+    friendsString = None
+
+
+    ## remove friend from sql connected and logs json
+    conUser = Connected.query.filter_by(connected=user).first()
+    print(conUser)
+    friends = json.loads(conUser.friends)
+
+    # check frined is in list
+    check = friends.pop(friendID, None)
+    if check:
+        conUser.friends = json.dumps(friends)
+        print(conUser.friends, type(conUser.friends))
+        friendString = conUser.friends
+        db.session.commit()
+
+    logsRecord = jChecker(user, True, False, False)['logsRecord']
+
+    check2 = logsRecord['friends'].pop(friendID, None)
+    if check2:
+        jStorer(user, logsRecord, None, None)
+
+    print(friends, type(friends))
+    response = {
+        'check' : check,
         'friendID': friend.id,
         'friends': friendString
     }

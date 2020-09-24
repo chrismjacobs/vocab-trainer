@@ -1,6 +1,8 @@
 <template>
   <div class="dict">
     <audio id="audio"></audio>
+
+    <!-- headers and toggle buttons -->
     <div class="mt-2 bg-second p-2" align="center">
       <div v-if="!newWord.word" >
         <b-row align-h="end">
@@ -23,6 +25,8 @@
         </b-row>
       </div>
     </div>
+
+    <!-- dictionary list -->
 
       <div class="bg-grey p-2" v-if="!newWord.word">
         <b-row>
@@ -82,59 +86,91 @@
 
       <div class="bg-grey p-2" v-if="newWord.word && newWord.word !== 'a'">
 
-      <b-form @submit="onSubmit">
+          <div v-if="waiting">
 
-          <b-input-group class="my-2 p-6">
-              <b-input-group-prepend inline is-text>
-                <b-icon icon="hash"></b-icon>
-              </b-input-group-prepend>
-              <b-form-input v-model="newWord.word" disabled>
-              </b-form-input>
-          </b-input-group>
+            <b-form @submit="onSubmit">
 
-          <b-form-file accept="image/*" placeholder="Change Image" type="file" id="file" ref="file" v-on:change="handleFileUpload()" ></b-form-file>
+                <b-input-group class="my-2 p-6">
+                    <b-input-group-prepend inline is-text>
+                      <b-icon icon="hash"></b-icon>
+                    </b-input-group-prepend>
+                    <b-form-input v-model="newWord.word" disabled>
+                    </b-form-input>
+                </b-input-group>
 
-          <b-input-group class="my-2 p-6" label="Student ID:" label-for="exampleInput2">
-              <b-input-group-prepend inline is-text>
-                <b-icon icon="filter-left"></b-icon>
-              </b-input-group-prepend>
-              <b-form-textarea
-              v-model="newWord.text"
-              placeholder="Add Sentence"
-              rows="2"
-              >
-              </b-form-textarea>
-          </b-input-group>
+                <b-form-file accept="image/*" placeholder="Change Image" type="file" id="file" ref="file" v-on:change="handleFileUpload()" ></b-form-file>
 
-          <div class="d-flex justify-content-between">
-              <div>
-              <button class="buttonDiv bg-safe px-3" style="width:120px" type="submit"> <b-icon-plus variant="cream" font-scale="1.5"></b-icon-plus></button>
-              </div>
+                <b-input-group class="my-2 p-6" label="Student ID:" label-for="exampleInput2">
+                    <b-input-group-prepend inline is-text>
+                      <b-icon icon="filter-left"></b-icon>
+                    </b-input-group-prepend>
+                    <b-form-textarea
+                    v-model="newWord.text"
+                    placeholder="Add Sentence"
+                    rows="2"
+                    >
+                    </b-form-textarea>
+                </b-input-group>
+
+                <div class="d-flex justify-content-between">
+                    <div>
+                    <button class="buttonDiv bg-safe px-3" style="width:120px" type="submit"> <b-icon-plus variant="cream" font-scale="1.5"></b-icon-plus></button>
+                    </div>
+                </div>
+
+            </b-form>
+
           </div>
+          <div v-else align="center">
+            <h4 class="text-prime"> Adding Picture </h4>
+            <b-icon icon="three-dots" animation="cylon" variant="prime" font-scale="6"></b-icon>
+          </div>
+      </div>
 
-        </b-form>
+      <div class="bg-second p-2" v-if="newWord.word">
+        <b-row align="right">
+          <b-col>
+           <button class="buttonDiv bg-third text-prime" @click="edit=!edit">Edit Words</button>
+           <button class="buttonDiv bg-alert text-cream" @click="del=!del"> Delete Word </button>
+           </b-col>
 
-    </div>
+        </b-row>
+      </div>
+      <!-- list of words and pictures -->
 
-    <div v-if="newWord.word">
-      <table class="table table-striped table-hover table-sm table-borderless">
-        <tbody>
+      <div v-if="newWord.word">
+        <table class="table table-striped table-hover table-sm table-borderless">
+          <tbody>
 
-          <tr v-for="(item, key) in wordList" :key="key">
-            <td style="max-width:300px">
-              <span> <b-img v-bins="mainProps" thumbnail fluid :src="imageLink +  key + '.jpg'" :alt="key"></b-img> </span>
-            </td>
-            <td><h6>{{key}}</h6></td>
-            <td><span class="pr-5">{{item}}</span></td>
-           <td>
-              <button class="buttonDiv" @click="newWord.word = key, newWord.text = $store.state.dictRecord[key]">Edit</button>
-              <button class="buttonDiv" @click="deleteWord(key)"> Delete</button>
-            </td>
-          </tr>
+            <tr v-for="(item, key) in wordList" :key="key">
+              <td style="max-width:300px">
+                <span> <b-img v-bind="mainProps" thumbnail fluid :src="imageLink +  key + '.jpg'" :alt="key"></b-img> </span>
+              </td>
+              <td><h6>{{key}}</h6></td>
+              <td><span class="pr-5">{{item}}</span></td>
+            <td>
+                <button v-if="edit" class="buttonDiv bg-second text-third" @click="newWord.word = key, newWord.text = $store.state.dictRecord[key]">Edit</button>
+                <button v-if="del" class="buttonDiv bg-alert" @click="deleteWord(key)"> Del</button>
+              </td>
+            </tr>
 
-        </tbody>
-      </table>
-    </div>
+          </tbody>
+        </table>
+      </div>
+
+    <b-modal hide-header-close no-close-on-esc no-close-on-backdrop align="center" ref="success" hide-footer title="Picture Added">
+      <div class="d-block">
+        <h3> {{msg}} </h3>
+      </div>
+      <button class="buttonDiv mt-3 bg-warn text-cream" style="width:60%"  @click="hideModal('success')">Close</button>
+    </b-modal>
+
+    <b-modal hide-header-close no-close-on-esc no-close-on-backdrop align="center" ref="fail" hide-footer title="Problem Found">
+      <div class="d-block">
+        <h3> {{msg}} </h3>
+      </div>
+      <button class="buttonDiv mt-3 bg-alert text-cream" style="width:60%"  @click="hideModal('fail')">Close</button>
+    </b-modal>
 
   </div>
 </template>
@@ -200,12 +236,17 @@ export default {
         'max-width': '50px',
         class: 'my-5'
       },
-      vocabList: null
+      vocabList: null,
+      waiting: true,
+      msg: 'Action Complete',
+      edit: false,
+      del: false
     }
   },
   computed: {
     wordList () {
-      return this.$store.state.dictRecord
+      console.log('wordList', this.$store.state.dictRecord)
+      return this.$store.getters.dictGet
     },
     imageLink () {
       let userProfile = this.$store.state.userProfile
@@ -272,6 +313,7 @@ export default {
       imageValidation(document.getElementById('file'))
     },
     saveWord: function () {
+      this.waiting = false
       console.log(localStorage.imageData)
       let _this = this
       return addImage({
@@ -286,14 +328,36 @@ export default {
           _this.newWord.word = 'a'
           _this.newWord.text = null
           localStorage.imageData = null
+          _this.waiting = true
+          _this.msg = 'New word added'
+          _this.showModal()
         })
         .catch(error => {
-          alert('New word could not be added')
+          _this.msg = 'New word could not be added'
+          _this.showAlert()
           console.log('Error Registering: ', error)
         })
     },
+    showModal: function () {
+      this.$refs['success'].show()
+    },
+    showAlert: function () {
+      this.$refs['fail'].show()
+    },
+    hideModal: function (mode) {
+      if (mode === 'success') {
+        this.$refs['success'].hide()
+      } else {
+        this.$refs['fail'].hide()
+        this.msg = null
+        this.waiting = true
+      }
+    },
     deleteWord: function (word) {
       this.$store.dispatch('deleteWord', {word: word})
+      console.log(this.wordList)
+      this.msg = 'Word deleted'
+      this.showModal()
     }
   },
   created () {

@@ -24,16 +24,20 @@ def getUsers ():
 
 @socketio.on('online')
 def online(data):
-    """User joins a room"""
+
+    """User joins personal room"""
     print('user online', data)
     userProfile = data['userProfile']
     friends = data['friends']
     userID = userProfile['userID']
     user = User.query.get(userID)
+
+    """Check user isn't connected on anoter device"""
     check = Connected.query.filter_by(connected=user).first()
     print('checkUser', check, user, friends)
 
     if check:
+        ## replace old sid with new
         if check.extraStr != request.sid:
             check.extraStr = request.sid
             db.session.commit()
@@ -42,13 +46,16 @@ def online(data):
         db.session.add(player)
         db.session.commit()
 
+    ## user is connected
     join_room(user.id)
 
+    """Check if any friends are connected"""
     checkAll = Connected.query.all()
 
     for c in checkAll:
-        print('check1', c.connected.id, friends)
+        print('check1', c.connected.id, c.friends)
         if str(c.connected.id) in friends:
+            ## online data to the user about who is logged in currently
             emit('onlineUsers', {'userID': c.connected.id, 'username': c.connected.username}, user.id)
 
 
@@ -57,7 +64,9 @@ def online(data):
         fUser = User.query.get(int(f))
         ## see if they're connected
         cUser = Connected.query.filter_by(connected=fUser).first()
-        if cUser and userID in json.loads(cUser.friends):
+        ## only send emit if user is one of their friends
+        print('checkCUSER', cUser, userID, json.loads(cUser.friends))
+        if cUser and str(userID) in json.loads(cUser.friends):
             print('online friend emit', int(f))
             emit('onlineUsers', {'userID': user.id, 'username': user.username}, int(f))
 
