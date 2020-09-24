@@ -23,6 +23,7 @@ try:
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     AWS_ACCESS_KEY_ID = config.BaseConfig.AWS_ACCESS_KEY_ID
     AWS_SECRET_ACCESS_KEY = config.BaseConfig.AWS_SECRET_ACCESS_KEY
+    MAIL_PASSWORD = config.BaseConfig.MAIL_PASSWORD,
     print('DEV_MODE')
 except:
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -31,6 +32,7 @@ except:
     app.config['DEBUG'] = False
     AWS_SECRET_ACCESS_KEY =  os.environ.get('AWS_SECRET_ACCESS_KEY')
     AWS_ACCESS_KEY_ID =  os.environ.get('AWS_ACCESS_KEY_ID')
+    MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
 
 
 s3_resource = boto3.resource('s3',
@@ -57,7 +59,7 @@ app.config.update(dict(
     MAIL_PORT = 587,
     MAIL_USE_TLS = True,
     MAIL_USERNAME = 'chrisflask0212@gmail.com',
-    MAIL_PASSWORD = config.BaseConfig.MAIL_PASSWORD,
+    MAIL_PASSWORD = MAIL_PASSWORD,
     MAIL_SUPPRESS_SEND = False,
     MAIL_DEBUG = True,
     TESTING = False
