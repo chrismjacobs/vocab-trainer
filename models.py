@@ -1,5 +1,5 @@
 from datetime import datetime, timedelta
-from app import app, db, bcrypt
+from app import app, db, bcrypt, DEBUG
 from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
@@ -87,7 +87,10 @@ def authenticate(**kwargs): # cls represents iteself in this case User
 
 class MyModelView(ModelView):
     def is_accessible(self):
-        return True
+        if DEBUG == True:
+            return True
+        else:
+            return False
 
     #https://danidee10.github.io/2016/11/14/flask-by-example-7.html
 

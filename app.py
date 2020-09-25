@@ -24,6 +24,7 @@ try:
     AWS_ACCESS_KEY_ID = config.BaseConfig.AWS_ACCESS_KEY_ID
     AWS_SECRET_ACCESS_KEY = config.BaseConfig.AWS_SECRET_ACCESS_KEY
     MAIL_PASSWORD = config.BaseConfig.MAIL_PASSWORD,
+    DEBUG = True
     print('DEV_MODE')
 except:
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -33,6 +34,7 @@ except:
     AWS_SECRET_ACCESS_KEY =  os.environ.get('AWS_SECRET_ACCESS_KEY')
     AWS_ACCESS_KEY_ID =  os.environ.get('AWS_ACCESS_KEY_ID')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
+    DEBUG = False
 
 
 s3_resource = boto3.resource('s3',
