@@ -106,7 +106,8 @@ def login():
         'school' : user.school,
         'email' : user.email,
         'classroom' : user.classroom,
-        'vocab' : user.vocab
+        'vocab' : user.vocab,
+        'instructor': user.extraInt
     }
 
     token = jwt.encode({

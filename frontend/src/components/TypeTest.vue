@@ -45,7 +45,7 @@
                       <b-col cols="10">
                         <b-form-group>
                           <div>
-                            <b-form-input align="center" style="font-size:30px;width:100%;text-align:center" :class="validStyle()" onblur="this.focus()" autofocus autocomplete="off" v-on:keyup.enter="recordAnswer(item.English, item.Chinese, currentAnswer) " id="type"  v-model="currentAnswer"></b-form-input>
+                            <b-form-input align="center" style="font-size:30px;width:100%;text-align:center" :class="validStyle()" onblur="this.focus()" autofocus autocapitalize="none" autocomplete="off" v-on:keyup.native.enter="recordAnswer(item.English, item.Chinese, currentAnswer) " id="type"  v-model="currentAnswer"></b-form-input>
                           </div>
                           <div align="center" v-if="settings.feedback === 'fbConst'">
                             <b-form-invalid-feedback :state="validAnswer">

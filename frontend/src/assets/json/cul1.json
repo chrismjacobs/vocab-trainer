@@ -1,0 +1,6896 @@
+{
+    "1": {
+        "eng": "\u78c5\u7b49\u65bc 16 \u76ce\u53f8\uff0c5 \u76ce\u53f8\u7b49\u65bc 140 \u516c"
+    },
+    "2": {
+        "eng": "abalone",
+        "label": "n.",
+        "ch": "\u9b91\u9b5a",
+        "backref": "Abalone"
+    },
+    "3": {
+        "eng": "advertisement",
+        "label": "n.",
+        "ch": "\u5ee3\u544a",
+        "backref": "Advertising"
+    },
+    "4": {
+        "eng": "advice",
+        "label": "n.",
+        "ch": "\u5fe0\u544a",
+        "backref": "Advice"
+    },
+    "5": {
+        "eng": "after-dinner drink",
+        "label": "n.",
+        "ch": "\u665a\u9910\u5f8c\u7684\u98f2\u54c1\uff08 \u4f8b\u5982\uff1a\u9152\u985e\uff09",
+        "backref": "Drinks after dinner (for example: alcohol)"
+    },
+    "6": {
+        "eng": "al dente",
+        "label": "phr.",
+        "ch": "\u516b\u5206\u719f\uff1b\u5f62\u5bb9\u98df\u7269\u6709\u56bc\u52c1\u8207\u5f48\u6027\u7684",
+        "backref": "80% cooked; describes food that is chewy and elastic"
+    },
+    "7": {
+        "eng": "alcoholic beverage",
+        "label": "n.",
+        "ch": "\u9152\u7cbe\u6027\u98f2\u6599",
+        "backref": "Alcoholic beverages"
+    },
+    "8": {
+        "eng": "all bran",
+        "label": "n.",
+        "ch": "\u7ce0\uff1b\u9ea5\u9ea9\uff1b\u5168\u9ea5\u98df\u54c1\uff1b\u5168\u9ea9\u98df\u54c1",
+        "backref": "Bran; wheat bran; whole wheat food; whole gluten food"
+    },
+    "9": {
+        "eng": "almond",
+        "label": "n.",
+        "ch": "\u674f\u4ec1",
+        "backref": "Apricot kernel"
+    },
+    "10": {
+        "eng": "ambience",
+        "label": "n.",
+        "ch": "\u74b0\u5883\uff1b\u6c23\u6c1b",
+        "backref": "Environment"
+    },
+    "11": {
+        "eng": "anniversary party",
+        "label": "n.",
+        "ch": "\u9031\u5e74\u6176\u805a\u6703",
+        "backref": "Anniversary party"
+    },
+    "12": {
+        "eng": "aperitif",
+        "label": "n.",
+        "ch": "\u958b\u80c3\u9152",
+        "backref": "APERITIF"
+    },
+    "13": {
+        "eng": "apology",
+        "label": "n.",
+        "ch": "\u9053\u6b49",
+        "backref": "Apologia"
+    },
+    "14": {
+        "eng": "apple crumble",
+        "label": "n.",
+        "ch": "\u70e4\u860b\u679c\u5976\u9165",
+        "backref": "Baked Apple Custard"
+    },
+    "15": {
+        "eng": "Arabica",
+        "label": "n.",
+        "ch": "\u963f\u62c9\u6bd4\u5361\u54c1\u7a2e\uff0c\u662f\u76ee\u524d\u4e3b\u8981\u7684\u5496\u5561\u54c1",
+        "backref": "Arabica variety is currently the main coffee product"
+    },
+    "16": {
+        "eng": "aroma",
+        "label": "n.",
+        "ch": "\u9999\u5473",
+        "backref": "Odor"
+    },
+    "17": {
+        "eng": "artificial flavor",
+        "label": "n.",
+        "ch": "\u52a0\u5de5\u88fd\u9020\u7684\u5473\u9053\uff08 \u4eba\u5de5\u9999\u6599\uff09",
+        "backref": "Processed flavor (artificial flavor)"
+    },
+    "18": {
+        "eng": "artificial sweetener",
+        "label": "n.",
+        "ch": "\u4ee3\u7cd6\uff1b\u4eba\u5de5\u7cd6",
+        "backref": "Sugar substitute; artificial sugar"
+    },
+    "19": {
+        "eng": "atmosphere",
+        "label": "n.",
+        "ch": "\u6c23\u6c1b",
+        "backref": "atmosphere"
+    },
+    "20": {
+        "eng": "baby chicken",
+        "label": "n.",
+        "ch": "\u6625\u96de\uff1b\u5e7c\u96de\uff1b\u96c9\u96de",
+        "backref": "Spring chicken; young chicken; pheasant"
+    },
+    "21": {
+        "eng": "baby cucumber",
+        "label": "n.",
+        "ch": "\u5c0f\u9ec3\u74dc",
+        "backref": "Cucumber"
+    },
+    "22": {
+        "eng": "bacon and eggs",
+        "label": "n.",
+        "ch": "\u57f9\u6839\u86cb",
+        "backref": "Bacon Egg"
+    },
+    "23": {
+        "eng": "bacon, lettuce and",
+        "label": "n.",
+        "ch": "\u57f9\u6839\u3001\u8435\u82e3\u3001\u756a\u8304\u4e09\u660e\u6cbb",
+        "backref": "Bacon, Lettuce, Tomato Sandwich"
+    },
+    "24": {
+        "eng": "baked",
+        "label": "adj.",
+        "ch": "\uff08 \u7528\u70e4\u7bb1\uff09 \u70d8\u70e4\u7684",
+        "backref": "(In the oven) baked"
+    },
+    "25": {
+        "eng": "baked lamb",
+        "label": "n.",
+        "ch": "\u70e4\u7f8a\u8089",
+        "backref": "Roast lamb"
+    },
+    "26": {
+        "eng": "baked stuffed",
+        "label": "adj.",
+        "ch": "\u70d8\u70e4\u4e26\u5305\u6eff\u9921\u6599\u7684",
+        "backref": "Baked and stuffed"
+    },
+    "27": {
+        "eng": "baking tray",
+        "label": "n.",
+        "ch": "\u70e4\u76e4",
+        "backref": "Baking tray"
+    },
+    "28": {
+        "eng": "balsamic",
+        "label": "n.",
+        "ch": "\u5df4\u85a9\u7c73\u9ed1\u918b\uff0c\u53ef\u7528\u65bc\u63d0\u5473\u3002",
+        "backref": "Balsamic vinegar can be used to enhance flavor."
+    },
+    "29": {
+        "eng": "bamboo",
+        "label": "n.",
+        "ch": "\u7af9",
+        "backref": "Bamboo"
+    },
+    "30": {
+        "eng": "band",
+        "label": "n.",
+        "ch": "\u6a02\u5718",
+        "backref": "Musical ensemble"
+    },
+    "31": {
+        "eng": "banquet order",
+        "label": "n.",
+        "ch": "\u5bb4\u6703\u8a02\u5e2d\u55ae\uff08 \u4e00\u822c\u6cdb\u6307\u5916\u5834\u4eba\u54e1\u8a18\u8f09\u8a02\u5e2d\u9867\u5ba2",
+        "backref": "Banquet reservation list (generally refers to the out-field staff record the reservation customer"
+    },
+    "32": {
+        "eng": "batter",
+        "label": "n.",
+        "ch": "\uff08 \u7531\u9eb5\u7c89\u3001\u96de\u86cb\u7b49\u8abf\u6210\u7684\uff09 \u9eb5\u7cca",
+        "backref": "(Mixed from flour, eggs, etc.) batter"
+    },
+    "33": {
+        "eng": "be allergic to",
+        "label": "phr.",
+        "ch": "\u5c0d\u2026\u904e\u654f",
+        "backref": "allergic to"
+    },
+    "34": {
+        "eng": "bean curd",
+        "label": "n.",
+        "ch": "\u8c46\u8150",
+        "backref": "Tofu"
+    },
+    "35": {
+        "eng": "beef brisket",
+        "label": "n.",
+        "ch": "\u725b\u8169\uff1b\u725b\u80f8\u8089",
+        "backref": "Beef Brisket; Beef Brisket"
+    },
+    "36": {
+        "eng": "beef carpaccio",
+        "label": "n.",
+        "ch": "\u7fa9\u5f0f\u751f\u725b\u8089",
+        "backref": "Raw beef"
+    },
+    "37": {
+        "eng": "beef goulash",
+        "label": "n.",
+        "ch": "\u71c9\u725b\u8089",
+        "backref": "Stewed beef"
+    },
+    "38": {
+        "eng": "beef gravy",
+        "label": "n.",
+        "ch": "\u725b\u9aa8\u8089\u6c41",
+        "backref": "Beef bone gravy"
+    },
+    "39": {
+        "eng": "beef rump",
+        "label": "n.",
+        "ch": "\u725b\u81c0\u8089",
+        "backref": "Beef rump"
+    },
+    "40": {
+        "eng": "beef stew in red wine",
+        "label": "n.",
+        "ch": "\u7d05\u9152\u71f4\u725b\u8089\u9644\u5976\u6cb9\u96de\u86cb\u9eb5",
+        "backref": "Beef Stew with Creamy Egg Noodles"
+    },
+    "41": {
+        "eng": "beef stock",
+        "label": "n.",
+        "ch": "\u725b\u9aa8\u9ad8\u6e6f",
+        "backref": "Beef Bone Broth"
+    },
+    "42": {
+        "eng": "beef tenderloin",
+        "label": "n.",
+        "ch": "\u83f2\u529b\u725b\u6392",
+        "backref": "Fillet steak"
+    },
+    "43": {
+        "eng": "beet root",
+        "label": "n.",
+        "ch": "\u751c\u83dc\u6839",
+        "backref": "Beetroot"
+    },
+    "44": {
+        "eng": "beverage list",
+        "label": "n.",
+        "ch": "\u98f2\u6599\u55ae",
+        "backref": "Drink list"
+    },
+    "45": {
+        "eng": "beverage store",
+        "label": "n.",
+        "ch": "\u98f2\u6599\u5009\u5eab\u9818\u6599\u55ae\uff08 \u901a\u5e38\u65bc\u5427\u6aaf\u9152\u6c34\u91cf\u4e0d\u8db3\u6642\u586b",
+        "backref": "Beverage warehouse picking list (usually filled in when the bar counter is insufficient"
+    },
+    "46": {
+        "eng": "bill holder",
+        "label": "n.",
+        "ch": "\u5e33\u55ae\u593e",
+        "backref": "Billing folder"
+    },
+    "47": {
+        "eng": "bisque",
+        "label": "n.",
+        "ch": "\u6fc3\u6e6f",
+        "backref": "Stew"
+    },
+    "48": {
+        "eng": "bitters",
+        "label": "n.",
+        "ch": "\u82e6\u7cbe\uff0c\u6216\u7a31\u70ba\u6bd4\u7279\u9152\uff0c\u5473\u9999\u4f46\u53e3\u611f\u82e6\u3002",
+        "backref": "Bitter essence, or bitter wine, has a fragrant taste but bitter taste."
+    },
+    "49": {
+        "eng": "black olive",
+        "label": "n.",
+        "ch": "\u9ed1\u6a44\u6b16",
+        "backref": "Olives, black"
+    },
+    "50": {
+        "eng": "black pepper powder",
+        "label": "n.",
+        "ch": "\u9ed1\u80e1\u6912\u7c89",
+        "backref": "black pepper powder"
+    },
+    "51": {
+        "eng": "black peppercorn",
+        "label": "n.",
+        "ch": "\u9ed1\u80e1\u6912\u7c92",
+        "backref": "Black pepper"
+    },
+    "52": {
+        "eng": "blue cheese dressing",
+        "label": "n.",
+        "ch": "\u85cd\u7d0b\u4e73\u916a\uff08 \u8d77\u53f8\uff09 \u6c99\u62c9\u8abf\u5473\u91ac",
+        "backref": "Blue cheese (cheese) salad dressing"
+    },
+    "53": {
+        "eng": "boiled dumpling",
+        "label": "n.",
+        "ch": "\u6c34\u9903",
+        "backref": "Jiaozi"
+    },
+    "54": {
+        "eng": "bonito fish",
+        "label": "n.",
+        "ch": "\u9c39\u9b5a\uff1b\u67f4\u9b5a",
+        "backref": "Bonito; Bonito"
+    },
+    "55": {
+        "eng": "Boston lettuce",
+        "label": "n.",
+        "ch": "\u6ce2\u58eb\u9813\u8435\u82e3",
+        "backref": "Boston lettuce"
+    },
+    "56": {
+        "eng": "bottled beer",
+        "label": "n.",
+        "ch": "\u74f6\u88dd\u5564\u9152",
+        "backref": "Bottled beer"
+    },
+    "57": {
+        "eng": "bouillabaisse",
+        "label": "n.",
+        "ch": "\u99ac\u8cfd\u9b5a\u6e6f\uff1b\u99ac\u8cfd\u6d77\u9bae\u6e6f",
+        "backref": "Masai fish soup; Masai seafood soup"
+    },
+    "58": {
+        "eng": "bouquet garni",
+        "label": "n.",
+        "ch": "\u8abf\u5473\u7528\u9999\u6599\u675f",
+        "backref": "Spice Bundles for Seasoning"
+    },
+    "59": {
+        "eng": "braising pot",
+        "label": "n.",
+        "ch": "\u71f4\u934b",
+        "backref": "Stew pot"
+    },
+    "60": {
+        "eng": "braising pot with lid",
+        "label": "n.",
+        "ch": "\u71f4\u934b\uff08 \u52a0\u84cb\uff09",
+        "backref": "Braised pot (with lid)"
+    },
+    "61": {
+        "eng": "bread and butter plate",
+        "label": "n.",
+        "ch": "\u5976\u6cb9\u9eb5\u5305\u76e4",
+        "backref": "Butter bread pan"
+    },
+    "62": {
+        "eng": "bread crumb",
+        "label": "n.",
+        "ch": "\u9eb5\u5305\u7c89\uff1b\u9eb5\u5305\u5c51",
+        "backref": "Bread crumbs"
+    },
+    "63": {
+        "eng": "breadcrumb",
+        "label": "n.",
+        "ch": "\u6216 v. \u9eb5\u5305\u5c51\uff1b\u5728\u2026\uff08 \u98df\u7269\u8868\u9762\u6216\u6e6f\u6599\uff09",
+        "backref": "Or v. breadcrumbs; on... (the surface of the food or the soup)"
+    },
+    "64": {
+        "eng": "breaded",
+        "label": "adj.",
+        "ch": "\u88f9\u9eb5\u5305\u7c89\uff08 \u70b8\u98df\u7269\uff09 \u7684",
+        "backref": "Breaded (fried food)"
+    },
+    "65": {
+        "eng": "brown paper bag",
+        "label": "phr.",
+        "ch": "\u81ea\u5099\u5348\u9910",
+        "backref": "Bring your own lunch"
+    },
+    "66": {
+        "eng": "brown stock",
+        "label": "n.",
+        "ch": "\u8910\u9ad8\u6e6f",
+        "backref": "Brown broth"
+    },
+    "67": {
+        "eng": "brusher",
+        "label": "n.",
+        "ch": "\u5237\u5b50\uff1b\u6bdb\u5237",
+        "backref": "Brush"
+    },
+    "68": {
+        "eng": "buffalo wing",
+        "label": "n.",
+        "ch": "\u8fa3\u96de\u7fc5",
+        "backref": "Spicy chicken wings"
+    },
+    "69": {
+        "eng": "buffet",
+        "label": "n.",
+        "ch": "\u81ea\u52a9\u9910",
+        "backref": "Buffet"
+    },
+    "70": {
+        "eng": "butter plate",
+        "label": "n.",
+        "ch": "\u5976\u6cb9\u789f",
+        "backref": "Butter dish"
+    },
+    "71": {
+        "eng": "button mushroom",
+        "label": "n.",
+        "ch": "\u6d0b\u83c7\uff1b\u8611\u83c7\u982d",
+        "backref": "Mushroom; mushroom head"
+    },
+    "72": {
+        "eng": "cafe latte",
+        "label": "n.",
+        "ch": "\u62ff\u9435\u5496\u5561\uff08\u7531\u5496\u5561\u7c89\u3001\u9bae\u5976\u88fd\u6210\u5976\u6ce1",
+        "backref": "Latte (made from coffee powder and fresh milk with milk foam"
+    },
+    "73": {
+        "eng": "cafe royal",
+        "label": "n.",
+        "ch": "\u7687\u5bb6\u5496\u5561\uff08 \u4e0d\u52a0\u4efb\u4f55\u4e73\u54c1\uff0c\u4f7f\u7528\u65b9\u7cd6\uff09",
+        "backref": "Royal coffee (no dairy products, sugar cubes)"
+    },
+    "74": {
+        "eng": "cake server",
+        "label": "n.",
+        "ch": "\u86cb\u7cd5\u93df",
+        "backref": "Cake spatula"
+    },
+    "75": {
+        "eng": "candy sugar",
+        "label": "n.",
+        "ch": "\u51b0\u7cd6",
+        "backref": "Rock candy"
+    },
+    "76": {
+        "eng": "canned tuna fish",
+        "label": "n.",
+        "ch": "\u6cb9\u6f2c\u9baa\u9b5a\u7f50\u982d",
+        "backref": "Canned Tuna"
+    },
+    "77": {
+        "eng": "canned whole tomato",
+        "label": "n.",
+        "ch": "\u7f50\u982d\u756a\u8304\u7c92",
+        "backref": "Canned tomatoes"
+    },
+    "78": {
+        "eng": "Cantonese dim sum",
+        "label": "n.",
+        "ch": "\u5ee3\u5f0f\u9ede\u5fc3",
+        "backref": "Cantonese dim sum"
+    },
+    "79": {
+        "eng": "cappuccino",
+        "label": "n.",
+        "ch": "\u5361\u5e03\u5947\u8afe\u5496\u5561",
+        "backref": "Cappuccino"
+    },
+    "80": {
+        "eng": "captain",
+        "label": "n.",
+        "ch": "\u9818\u73ed",
+        "backref": "Foreman"
+    },
+    "81": {
+        "eng": "Caesar salad",
+        "label": "n.",
+        "ch": "\u51f1\u85a9\u6c99\u62c9\u91ac",
+        "backref": "Caesar Salad Dressing"
+    },
+    "82": {
+        "eng": "celery salt",
+        "label": "n.",
+        "ch": "\u82b9\u83dc\u9e7d",
+        "backref": "Celery salt"
+    },
+    "83": {
+        "eng": "cellar",
+        "label": "n.",
+        "ch": "\u5730\u7a96",
+        "backref": "cellar"
+    },
+    "84": {
+        "eng": "chafing dish",
+        "label": "n.",
+        "ch": "\u4fdd\u6eab\u706b\u934b",
+        "backref": "Insulation hot pot"
+    },
+    "85": {
+        "eng": "champagne flute",
+        "label": "n.",
+        "ch": "\u9999\u6ab3\u9152\u676f",
+        "backref": "Champagne glass"
+    },
+    "86": {
+        "eng": "champagne tulip",
+        "label": "n.",
+        "ch": "\u9999\u6ab3\u676f\uff08 \u9b31\u91d1\u9999\u82b1\u72c0\uff09",
+        "backref": "Champagne glass (tulip flower shape)"
+    },
+    "87": {
+        "eng": "change",
+        "label": "n.",
+        "ch": "\uff08 \u627e\u56de\u7684\uff09 \u96f6\u9322",
+        "backref": "(Recovered) change"
+    },
+    "88": {
+        "eng": "check",
+        "label": "n.",
+        "ch": "\u5e33\u55ae",
+        "backref": "Billing"
+    },
+    "89": {
+        "eng": "cheese plate",
+        "label": "n.",
+        "ch": "\u8d77\u53f8\u62fc\u76e4",
+        "backref": "Cheese platter"
+    },
+    "90": {
+        "eng": "cheesecloth",
+        "label": "n.",
+        "ch": "\u904e\u6ffe\u5e03\uff1b\u5305\u4e7e\u916a\u7684\u7d17\u5e03",
+        "backref": "Filter cloth; cheese cloth"
+    },
+    "91": {
+        "eng": "chervil",
+        "label": "n.",
+        "ch": "\u5c71\u863f\u8514",
+        "backref": "Chervil"
+    },
+    "92": {
+        "eng": "chicken bone",
+        "label": "n.",
+        "ch": "\u96de\u9aa8",
+        "backref": "Chicken bone"
+    },
+    "93": {
+        "eng": "chicken breast",
+        "label": "n.",
+        "ch": "\u96de\u80f8\u8089",
+        "backref": "chicken breast"
+    },
+    "94": {
+        "eng": "chicken consomme",
+        "label": "n.",
+        "ch": "\u96de\u8089\u6e05\u6e6f\uff0c\u7d93\u904e\u7d30\u706b\u6162\u716e\u71ac\u88fd\u800c\u6210\u3002",
+        "backref": "The chicken broth is made by slow cooking."
+    },
+    "95": {
+        "eng": "chicken consomme",
+        "label": "n.",
+        "ch": "\u852c\u83dc\u7d72\u96de\u6e05\u6e6f",
+        "backref": "Vegetable Silk Chicken Soup"
+    },
+    "96": {
+        "eng": "chicken drumstick",
+        "label": "n.",
+        "ch": "\u96de\u817f",
+        "backref": "drumstick"
+    },
+    "97": {
+        "eng": "chicken fricassee",
+        "label": "n.",
+        "ch": "\u767d\u9152\u71f4\u96de\u9644\u9eb5\u7599\u7629",
+        "backref": "Braised Chicken with White Wine and Gnocchi"
+    },
+    "98": {
+        "eng": "chicken gravy",
+        "label": "n.",
+        "ch": "\u96de\u6c41",
+        "backref": "Chicken sauce"
+    },
+    "99": {
+        "eng": "chicken meat",
+        "label": "n.",
+        "ch": "\u96de\u8089",
+        "backref": "Chicken"
+    },
+    "100": {
+        "eng": "chicken salad",
+        "label": "n.",
+        "ch": "\u96de\u8089\u6c99\u62c9",
+        "backref": "Chicken salad"
+    },
+    "101": {
+        "eng": "chicken stock",
+        "label": "n.",
+        "ch": "\u96de\u9ad8\u6e6f",
+        "backref": "Chicken stock"
+    },
+    "102": {
+        "eng": "children's menu",
+        "label": "n.",
+        "ch": "\u5152\u7ae5\u83dc\u55ae",
+        "backref": "Kids menu"
+    },
+    "103": {
+        "eng": "chinaware",
+        "label": "n.",
+        "ch": "\u74f7\u5668",
+        "backref": "Porcelain"
+    },
+    "104": {
+        "eng": "chocolate mousse",
+        "label": "n.",
+        "ch": "\u5de7\u514b\u529b\u6155\u65af",
+        "backref": "Chocolate mousse"
+    },
+    "105": {
+        "eng": "chocolate sundae",
+        "label": "n.",
+        "ch": "\u5de7\u514b\u529b\u8056\u4ee3",
+        "backref": "Chocolate sundae"
+    },
+    "106": {
+        "eng": "chopping",
+        "label": "v.",
+        "ch": "\u5207\u788e",
+        "backref": "shred -dded"
+    },
+    "107": {
+        "eng": "chopstick stand",
+        "label": "n.",
+        "ch": "\u7b77\u67b6",
+        "backref": "Chopstick rest"
+    },
+    "108": {
+        "eng": "Christmas party",
+        "label": "n.",
+        "ch": "\u8056\u8a95\u7bc0\u805a\u6703",
+        "backref": "Christmas party"
+    },
+    "109": {
+        "eng": "clear vegetable soup",
+        "label": "n.",
+        "ch": "\u852c\u83dc\u7d72\u6e05\u6e6f",
+        "backref": "Vegetable soup"
+    },
+    "110": {
+        "eng": "club soda",
+        "label": "n.",
+        "ch": "\u8607\u6253\u6c34\uff08\u662f\u7565\u5e36\u9e7c\u6027\u7121\u5473\u4e0d\u751c\u7684\u78b3\u9178",
+        "backref": "Soda water (is slightly alkaline, tasteless and unsweetened carbonated"
+    },
+    "111": {
+        "eng": "coaster",
+        "label": "n.",
+        "ch": "\u676f\u588a",
+        "backref": "coaster"
+    },
+    "112": {
+        "eng": "cockroach",
+        "label": "n.",
+        "ch": "\u87d1\u8782",
+        "backref": "Cockroach"
+    },
+    "113": {
+        "eng": "cocktail fork",
+        "label": "n.",
+        "ch": "\u96de\u5c3e\u9152\u53c9",
+        "backref": "Cocktail fork"
+    },
+    "114": {
+        "eng": "cocktail glass with",
+        "label": "n.",
+        "ch": "\u96de\u5c3e\u9152\u676f\u9644\u5e95\u76e4",
+        "backref": "Cocktail glass with base"
+    },
+    "115": {
+        "eng": "cocktail lounge",
+        "label": "n.",
+        "ch": "\u96de\u5c3e\u9152\u5427",
+        "backref": "Cocktail bar"
+    },
+    "116": {
+        "eng": "cocktail onions",
+        "label": "n.",
+        "ch": "\u5c0f\u6d0b\u8525",
+        "backref": "Small onions"
+    },
+    "117": {
+        "eng": "cocktail pick",
+        "label": "n.",
+        "ch": "\u96de\u5c3e\u9152\u53c9\uff0c\u4e32\u806f\u98f2\u6599\u88dd\u98fe\u54c1\u6240\u7528\u7684\u5c0f",
+        "backref": "Cocktail fork, small"
+    },
+    "118": {
+        "eng": "cocktail shaker",
+        "label": "n.",
+        "ch": "\u6416\u9152\u5668",
+        "backref": "Shaker"
+    },
+    "119": {
+        "eng": "coconut",
+        "label": "n.",
+        "ch": "\u6930\u5b50",
+        "backref": "Coconut"
+    },
+    "120": {
+        "eng": "cod",
+        "label": "n.",
+        "ch": "\u9c48\u9b5a",
+        "backref": "Pollock"
+    },
+    "121": {
+        "eng": "coffee pot",
+        "label": "n.",
+        "ch": "\u5496\u5561\u58fa",
+        "backref": "coffee pot"
+    },
+    "122": {
+        "eng": "coffee spoon",
+        "label": "n.",
+        "ch": "\u5496\u5561\u5319",
+        "backref": "coffee spoon"
+    },
+    "123": {
+        "eng": "cold cereals",
+        "label": "n.",
+        "ch": "\u52a0\u5165\u51b0\u725b\u5976\u4e00\u540c\u6c96\u6ce1\u98df\u7528\u4e4b\u7a40\u985e\u98df\u54c1",
+        "backref": "Cereals made with ice milk"
+    },
+    "124": {
+        "eng": "combo in coconut",
+        "label": "n.",
+        "ch": "\u6469\u6469\u55b3\u55b3",
+        "backref": "Momo Chacha"
+    },
+    "125": {
+        "eng": "company invoice",
+        "label": "n.",
+        "ch": "\u516c\u53f8\u7684\u767c\u7968\u865f\u78bc\uff1b\u7d71\u4e00\u7de8\u865f",
+        "backref": "Invoice number of the company; uniform number"
+    },
+    "126": {
+        "eng": "complaint",
+        "label": "n.",
+        "ch": "\u62b1\u6028",
+        "backref": "complain"
+    },
+    "127": {
+        "eng": "compliment",
+        "label": "n.",
+        "ch": "\u6216 v. \u606d\u7dad\uff1b\u8b9a\u7f8e",
+        "backref": "Or v. compliment; praise"
+    },
+    "128": {
+        "eng": "complimentary",
+        "label": "adj.",
+        "ch": "\u514d\u8cbb\u8d08\u9001\u7684\uff1b\u8b9a\u8cde\u7684",
+        "backref": "Free of charge; appreciated"
+    },
+    "129": {
+        "eng": "conference",
+        "label": "n.",
+        "ch": "\u6703\u8b70",
+        "backref": "Convention"
+    },
+    "130": {
+        "eng": "\ufa01\u3002"
+    },
+    "131": {
+        "eng": "containing peel jam",
+        "label": "n.",
+        "ch": "\u542b\u679c\u76ae\u679c\u91ac",
+        "backref": "With peel jam"
+    },
+    "132": {
+        "eng": "convection oven",
+        "label": "n.",
+        "ch": "\u8ff4\u98a8\u70e4\u7bb1\uff08 \u900f\u904e\u5c0d\u6d41\u5c0e\u71b1\u6cd5\u70f9\u8abf\u98df\u7269\uff09",
+        "backref": "Return air oven (cooking food through convection heat conduction method)"
+    },
+    "133": {
+        "eng": "corked",
+        "label": "adj.",
+        "ch": "\u5e36\u6728\u585e\u6c23\u5473\u7684\u767c\u9709\u8461\u8404\u9152\u5473",
+        "backref": "Musty wine with cork smell"
+    },
+    "134": {
+        "eng": "corn flakes",
+        "label": "n.",
+        "ch": "\u7389\u7c73\u7247",
+        "backref": "Corn flakes"
+    },
+    "135": {
+        "eng": "corn puree",
+        "label": "n.",
+        "ch": "\u7389\u7c73\u91ac",
+        "backref": "Corn sauce"
+    },
+    "136": {
+        "eng": "corn starch",
+        "label": "n.",
+        "ch": "\u7389\u7c73\u7c89",
+        "backref": "Cornmeal"
+    },
+    "137": {
+        "eng": "cotton string",
+        "label": "n.",
+        "ch": "\u68c9\u7dda",
+        "backref": "Cotton thread"
+    },
+    "138": {
+        "eng": "court bouillon",
+        "label": "n.",
+        "ch": "\u8abf\u5473\u9ad8\u6e6f",
+        "backref": "Seasoning stock"
+    },
+    "139": {
+        "eng": "cover charge",
+        "label": "n.",
+        "ch": "\u670d\u52d9\u8cbb",
+        "backref": "Service charge"
+    },
+    "140": {
+        "eng": "crab cake",
+        "label": "n.",
+        "ch": "\u87f9\u9905",
+        "backref": "Crab cakes"
+    },
+    "141": {
+        "eng": "cracked",
+        "label": "adj.",
+        "ch": "\u6709\u88c2\u75d5\u7684",
+        "backref": "Cracked"
+    },
+    "142": {
+        "eng": "crawfish",
+        "label": "n.",
+        "ch": "\u7d2b\u6591\u9f8d\u8766",
+        "backref": "Purple Spotted Lobster"
+    },
+    "143": {
+        "eng": "cream of corn soup",
+        "label": "n.",
+        "ch": "\u5976\u6cb9\u7389\u7c73\u6fc3\u6e6f",
+        "backref": "Creamy Corn Soup"
+    },
+    "144": {
+        "eng": "cream of mushroom",
+        "label": "n.",
+        "ch": "\u5976\u6cb9\u6d0b\uff08 \u8611\uff09 \u83c7\u6fc3\u6e6f",
+        "backref": "Creamy Western (Mushroom) Mushroom Soup"
+    },
+    "145": {
+        "eng": "cream of wheat",
+        "label": "n.",
+        "ch": "\u5976\u6cb9\u5c0f\u9ea5",
+        "backref": "Butter wheat"
+    },
+    "146": {
+        "eng": "cream U.H.T.",
+        "label": "n.",
+        "ch": "\u9bae\u5976\u6cb9\uff1b\u8d85\u9ad8\u6eab\u6ec5\u83cc\u7a00\u5976\u6cb9",
+        "backref": "Fresh cream; UHT cream"
+    },
+    "147": {
+        "eng": "creamer",
+        "label": "n.",
+        "ch": "\u5976\u76c5\uff1b\u76db\u5976\u7cbe\u5c0f\u58fa",
+        "backref": "Milk cup; small pot of creamer"
+    },
+    "148": {
+        "eng": "crecy",
+        "label": "n.",
+        "ch": "\u80e1\u863f\u8514\u6fc3\u6e6f",
+        "backref": "Carrot soup"
+    },
+    "149": {
+        "eng": "credit card",
+        "label": "n.",
+        "ch": "\u4fe1\u7528\u5361",
+        "backref": "Credit/Debit Card"
+    },
+    "150": {
+        "eng": "crushed ice",
+        "label": "n.",
+        "ch": "\u788e\u51b0\uff08 \u584a\uff09",
+        "backref": "Crushed ice (block)"
+    },
+    "151": {
+        "eng": "crust",
+        "label": "n.",
+        "ch": "\u5916\u76ae\uff08 \u62ab\u85a9\uff09",
+        "backref": "Crust (pizza)"
+    },
+    "152": {
+        "eng": "cubing",
+        "label": "v.",
+        "ch": "\u5207\u6210\u5c0f\u65b9\u584a",
+        "backref": "Cut into small cubes"
+    },
+    "153": {
+        "eng": "custard",
+        "label": "n.",
+        "ch": "\u86cb\u5976\u51cd\u5e03\u4e01",
+        "backref": "Custard Pudding"
+    },
+    "154": {
+        "eng": "custard mold",
+        "label": "n.",
+        "ch": "\u5e03\u4e01\u6a21",
+        "backref": "Pudding Mould"
+    },
+    "155": {
+        "eng": "cutting board",
+        "label": "n.",
+        "ch": "\u7827\u677f\uff0c\u5728\u5427\u6aaf\u7528\u4f86\u5207\u6c34\u679c\u53ca\u88fd\u4f5c\u88dd\u98fe",
+        "backref": "Cutting board, used at the bar to cut fruits and make decorations"
+    },
+    "156": {
+        "eng": "cuttlefish",
+        "label": "n.",
+        "ch": "\u82b1\u679d\uff1b\u58a8\u9b5a\uff1b\u70cf\u8cca",
+        "backref": "Flower branch; cuttlefish; squid"
+    },
+    "157": {
+        "eng": "dairy products",
+        "label": "n.",
+        "ch": "\u4e73\u88fd\u54c1",
+        "backref": "Dairy product"
+    },
+    "158": {
+        "eng": "Danish bread",
+        "label": "n.",
+        "ch": "\u4e39\u9ea5\u9eb5\u5305",
+        "backref": "Danish bread"
+    },
+    "159": {
+        "eng": "Danish pastries",
+        "label": "n.",
+        "ch": "\u4e39\u9ea5\u7cd5\u9ede",
+        "backref": "Danish pastries"
+    },
+    "160": {
+        "eng": "dark chocolate",
+        "label": "n.",
+        "ch": "\u5de7\u514b\u529b\u78da\uff1b\u9ed1\u5de7\u514b\u529b",
+        "backref": "Chocolate Brick; Dark Chocolate"
+    },
+    "161": {
+        "eng": "decaffeinated coffee",
+        "label": "n.",
+        "ch": "\u4f4e\u5496\u5561\u56e0\u98f2\u6599",
+        "backref": "Decaffeinated beverage"
+    },
+    "162": {
+        "eng": "deep fat fry",
+        "label": "v.",
+        "ch": "\u71b1\u6cb9\u70b8",
+        "backref": "Hot fried"
+    },
+    "163": {
+        "eng": "deep fryer-table top",
+        "label": "n.",
+        "ch": "\u6cb9\u70b8\u934b\uff08 \u684c\u4e0a\u578b\uff09",
+        "backref": "Fryer (desktop type)"
+    },
+    "164": {
+        "eng": "deliver",
+        "label": "v.",
+        "ch": "\u905e\u9001\uff1b\u5916\u9001",
+        "backref": "Delivery"
+    },
+    "165": {
+        "eng": "delivery",
+        "label": "n.",
+        "ch": "\u5916\u9001",
+        "backref": "delivery"
+    },
+    "166": {
+        "eng": "dessert plate",
+        "label": "n.",
+        "ch": "\u9ede\u5fc3\u76e4",
+        "backref": "Cake plate"
+    },
+    "167": {
+        "eng": "diabetics",
+        "label": "n.",
+        "ch": "\u7cd6\u5c3f\u75c5\u60a3\u8005",
+        "backref": "Diabetic"
+    },
+    "168": {
+        "eng": "dicing",
+        "label": "v.",
+        "ch": "\u5207\u4e01",
+        "backref": "Diced"
+    },
+    "169": {
+        "eng": "different",
+        "label": "adj.",
+        "ch": "\u4e0d\u540c\u7684",
+        "backref": "different"
+    },
+    "170": {
+        "eng": "dill cucumber salad",
+        "label": "n.",
+        "ch": "\u8494\u863f\u9ec3\u74dc\u6c99\u62c9",
+        "backref": "Dill Cucumber Salad"
+    },
+    "171": {
+        "eng": "dim sum",
+        "label": "n.",
+        "ch": "\u9ede\u5fc3",
+        "backref": "Dim sum"
+    },
+    "172": {
+        "eng": "diner",
+        "label": "n.",
+        "ch": "\u7f8e\u5f0f\u5c0f\u9910\u9928",
+        "backref": "American bistro"
+    },
+    "173": {
+        "eng": "dinner roll",
+        "label": "n.",
+        "ch": "\u9910\u5305",
+        "backref": "Meal package"
+    },
+    "174": {
+        "eng": "directions",
+        "label": "n.",
+        "ch": "\u98df\u54c1\u6750\u6599\u7684\u4f7f\u7528\u65b9\u6cd5",
+        "backref": "How to use food materials"
+    },
+    "175": {
+        "eng": "discount",
+        "label": "n.",
+        "ch": "\u6216 v. \u6298\u6263\uff1b\u6253\u6298",
+        "backref": "Or v. discount; discount"
+    },
+    "176": {
+        "eng": "dish of the day",
+        "label": "n.",
+        "ch": "\u4eca\u65e5\u7279\u9910",
+        "backref": "Today&#39;s Special"
+    },
+    "177": {
+        "eng": "dishwater-like",
+        "label": "adj.",
+        "ch": "\u5473\u9053\u4e0d\u4f73\u7684\u6e6f\uff08 \u98f2\u6599\u7b49\uff09 \uff0c\u559d\u8d77\u4f86\u50cf",
+        "backref": "Poorly tasted soup (drinks, etc.) that tastes like"
+    },
+    "178": {
+        "eng": "doggie bag",
+        "label": "n.",
+        "ch": "\u6253\u5305\u5269\u83dc\u7684\u888b\u5b50",
+        "backref": "Bag for leftovers"
+    },
+    "179": {
+        "eng": "draft beer",
+        "label": "n.",
+        "ch": "\u751f\u5564\u9152",
+        "backref": "Draught beer"
+    },
+    "180": {
+        "eng": "dress code",
+        "label": "n.",
+        "ch": "\u670d\u88dd\u898f\u5b9a",
+        "backref": "Clothing regulations"
+    },
+    "181": {
+        "eng": "dried pork",
+        "label": "n.",
+        "ch": "\u8c6c\u8089\u4e7e",
+        "backref": "Pork jerky"
+    },
+    "182": {
+        "eng": "drink",
+        "label": "n.",
+        "ch": "\u6216 v. \u98f2\u6599\uff1b\u559d",
+        "backref": "Or v. drink; drink"
+    },
+    "183": {
+        "eng": "Earl grey tea",
+        "label": "n.",
+        "ch": "\u4f2f\u7235\u8336",
+        "backref": "Earl Grey"
+    },
+    "184": {
+        "eng": "egg noodle",
+        "label": "n.",
+        "ch": "\u96de\u86cb\u9eb5",
+        "backref": "Egg noodles"
+    },
+    "185": {
+        "eng": "egg roll",
+        "label": "n.",
+        "ch": "\u6625\u6372\uff08 \u7f8e\uff09",
+        "backref": "Spring rolls (beauty)"
+    },
+    "186": {
+        "eng": "egg station",
+        "label": "n.",
+        "ch": "\u86cb\u6599\u7406\u5427\u6aaf",
+        "backref": "Egg cooking counter"
+    },
+    "187": {
+        "eng": "elegant",
+        "label": "adj.",
+        "ch": "\u512a\u96c5\u7684",
+        "backref": "Elegant"
+    },
+    "188": {
+        "eng": "emmental cheese",
+        "label": "n.",
+        "ch": "\u611b\u6469\u5854\u4e73\u916a",
+        "backref": "Emmental cheese"
+    },
+    "189": {
+        "eng": "ethanol with sprayer",
+        "label": "n.",
+        "ch": "\u85e5\u7528\u9152\u7cbe\u9644\u5674\u5668",
+        "backref": "Medicinal alcohol with spray"
+    },
+    "190": {
+        "eng": "European",
+        "label": "adj.",
+        "ch": "\u6b50\u6d32\u7684",
+        "backref": "European"
+    },
+    "191": {
+        "eng": "extra",
+        "label": "n.",
+        "ch": "\u6216 adj. \u984d\u5916\u8cbb\u7528\uff1b\u984d\u5916\u7684",
+        "backref": "Or adj. additional cost; additional"
+    },
+    "192": {
+        "eng": "family gathering",
+        "label": "n.",
+        "ch": "\u5bb6\u5ead\u805a\u6703",
+        "backref": "family gathering"
+    },
+    "193": {
+        "eng": "fillet of sea bass",
+        "label": "n.",
+        "ch": "\u5976\u6cb9\u6d0b\u83c7\u9c78\u9b5a\u6392\u9644\u9999\u82b9\u99ac\u9234\u85af",
+        "backref": "Creamy Mushroom Sea Bass Fillet with Parsley Potato"
+    },
+    "194": {
+        "eng": "fine",
+        "label": "adj.",
+        "ch": "\u4e0a\u7b49\uff1b\u512a\u826f",
+        "backref": "Superior"
+    },
+    "195": {
+        "eng": "finger bowl",
+        "label": "n.",
+        "ch": "\u6d17\u624b\u76c5\uff08\u53c8\u7a31\u6d17\u6307\u7897\uff0c\u662f\u9910\u684c\u4e0a\u6d17\u624b",
+        "backref": "Hand washing cup (also known as finger-washing bowl, is washing hands on the table"
+    },
+    "196": {
+        "eng": "fish fork",
+        "label": "n.",
+        "ch": "\u9b5a\u53c9",
+        "backref": "Harpoon"
+    },
+    "197": {
+        "eng": "fish knife",
+        "label": "n.",
+        "ch": "\u9b5a\u5200",
+        "backref": "Fish knife"
+    },
+    "198": {
+        "eng": "fish stock",
+        "label": "n.",
+        "ch": "\u9b5a\u9ad8\u6e6f",
+        "backref": "Fish stock"
+    },
+    "199": {
+        "eng": "fizz",
+        "label": "n.",
+        "ch": "\u8cbb\u8332\u578b\u96de\u5c3e\u9152\uff0c\u56e0\u542b\u78b3\u9178\u6c23\u9ad4\u5192\u6ce1\u7684",
+        "backref": "Fitz cocktail, bubbling due to carbon dioxide"
+    },
+    "200": {
+        "eng": "flambe cherries with",
+        "label": "n.",
+        "ch": "\u706b\u7130\u6afb\u6843",
+        "backref": "Flame cherry"
+    },
+    "201": {
+        "eng": "flavor",
+        "label": "n.",
+        "ch": "\u6216 v. \u5473\u9053\uff1b\u7d66\u2026\u8abf\u5473\uff08 \u8207 with \u5408\u7528\uff09",
+        "backref": "Or v. taste; to season... (used with with)"
+    },
+    "202": {
+        "eng": "flour sieve",
+        "label": "n.",
+        "ch": "\u9eb5\u7c89\u7be9",
+        "backref": "Flour sieve"
+    },
+    "203": {
+        "eng": "fly",
+        "label": "n.",
+        "ch": "\u84bc\u8805",
+        "backref": "Ichneumon flies"
+    },
+    "204": {
+        "eng": "fondue",
+        "label": "n.",
+        "ch": "\u745e\u58eb\u706b\u934b\uff1b\u878d\u5316\u7684\u4e7e\u916a\uff08 \u6df7\u9152\u548c\u8abf\u6599\uff09\uff1b",
+        "backref": "Swiss fondue; melted cheese (mixed wine and seasoning);"
+    },
+    "205": {
+        "eng": "foreign currency",
+        "label": "n.",
+        "ch": "\u5916\u5e63",
+        "backref": "Foreign Exchange"
+    },
+    "206": {
+        "eng": "Frankfurter",
+        "label": "n.",
+        "ch": "\u6cd5\u862d\u514b\u798f\u9999\u8178",
+        "backref": "Frankfurter"
+    },
+    "207": {
+        "eng": "freeze dried",
+        "label": "n.",
+        "ch": "\u51cd\u7d50\u4e7e\u71e5\u6cd5\uff0c\u4fd7\u7a31\u70ba\u7b2c\u4e09\u4ee3\u5373\u6eb6\u5496\u5561",
+        "backref": "Freeze drying method, commonly known as the third generation instant coffee"
+    },
+    "208": {
+        "eng": "French dressing",
+        "label": "n.",
+        "ch": "\u6cd5\u5f0f\u6c99\u62c9\u8abf\u5473\u91ac",
+        "backref": "French Salad Dressing"
+    },
+    "209": {
+        "eng": "French food",
+        "label": "n.",
+        "ch": "\u6cd5\u570b\u98df\u7269\uff1b\u6cd5\u5f0f\u6599\u7406",
+        "backref": "French food; French cuisine"
+    },
+    "210": {
+        "eng": "French fried toast",
+        "label": "n.",
+        "ch": "\u6cbe\u86cb\u6db2\u6cb9\u70b8\u4e4b\u6cd5\u570b\u9eb5\u5305\u6216\u5410\u53f8",
+        "backref": "French bread or toast deep-fried with egg mixture"
+    },
+    "211": {
+        "eng": "French onion soup",
+        "label": "n.",
+        "ch": "\u6cd5\u5f0f\u6d0b\u8525\u6e6f",
+        "backref": "French Onion Soup"
+    },
+    "212": {
+        "eng": "French onion soup",
+        "label": "n.",
+        "ch": "\u6cd5\u5f0f\u7117\u6d0b\u8525\u6e6f",
+        "backref": "French Baked Onion Soup"
+    },
+    "213": {
+        "eng": "fresh cream",
+        "label": "n.",
+        "ch": "\u9bae\u5976\u6cb9",
+        "backref": "Cream"
+    },
+    "214": {
+        "eng": "fresh grapefruit juice",
+        "label": "n.",
+        "ch": "\u65b0\u9bae\u8461\u8404\u67da\u6c41",
+        "backref": "Fresh grapefruit juice"
+    },
+    "215": {
+        "eng": "freshly squeezed",
+        "label": "n.",
+        "ch": "\u9bae\u69a8\u67f3\u4e01\u6c41",
+        "backref": "Freshly squeezed orange juice"
+    },
+    "216": {
+        "eng": "from the grill",
+        "label": "n.",
+        "ch": "\u71d2\u70e4\u985e",
+        "backref": "BBQ"
+    },
+    "217": {
+        "eng": "front office cashier",
+        "label": "n.",
+        "ch": "\u524d\u5ef3\u6ac3\u6aaf\u51fa\u7d0d",
+        "backref": "Front desk cashier"
+    },
+    "218": {
+        "eng": "front reception",
+        "label": "n.",
+        "ch": "\u524d\u5ef3\u6ac3\u6aaf\u63a5\u5f85",
+        "backref": "Front lobby counter reception"
+    },
+    "219": {
+        "eng": "frozen",
+        "label": "n.",
+        "ch": "\u971c\u51cd\u72c0\u7684",
+        "backref": "Frost-like"
+    },
+    "220": {
+        "eng": "fruit fork",
+        "label": "n.",
+        "ch": "\u6c34\u679c\u53c9",
+        "backref": "Fruit fork"
+    },
+    "221": {
+        "eng": "fruits carving",
+        "label": "n.",
+        "ch": "\u6c34\u679c\u5207\u76e4",
+        "backref": "Fruit cut plate"
+    },
+    "222": {
+        "eng": "full course",
+        "label": "n.",
+        "ch": "\u5957\u9910",
+        "backref": "package on"
+    },
+    "223": {
+        "eng": "fully booked",
+        "label": "adj.",
+        "ch": "\u5ba2\u6eff",
+        "backref": "Sold Out"
+    },
+    "224": {
+        "eng": "G. N. pan",
+        "label": "n.",
+        "ch": "\u5167\u934b",
+        "backref": "Inner pot"
+    },
+    "225": {
+        "eng": "garnish tray",
+        "label": "n.",
+        "ch": "\u88dd\u98fe\u7269\u76e4\uff0c\u4e00\u822c\u5e38\u7528\u4f86\u653e\u7f6e\u8abf\u9152\u7528\u7684",
+        "backref": "Decoration plate, usually used to place bartenders"
+    },
+    "226": {
+        "eng": "gas range with 4",
+        "label": "n.",
+        "ch": "\u74e6\u65af\u7210\uff1b\u897f\u5f0f\u5e73\u53e3\u7210",
+        "backref": "Gas stove; Western-style open-mouth stove"
+    },
+    "227": {
+        "eng": "German food",
+        "label": "n.",
+        "ch": "\u5fb7\u570b\u98df\u7269\uff1b\u5fb7\u5f0f\u6599\u7406",
+        "backref": "German food; German cuisine"
+    },
+    "228": {
+        "eng": "ginkgo",
+        "label": "n.",
+        "ch": "\u767d\u679c\uff1b\u9280\u674f",
+        "backref": "Ginkgo; Ginkgo"
+    },
+    "229": {
+        "eng": "glass rimmer",
+        "label": "n.",
+        "ch": "\u6cbe\u676f\u5668",
+        "backref": "Cup dip device"
+    },
+    "230": {
+        "eng": "globe fish",
+        "label": "n.",
+        "ch": "\u6cb3\u8c5a",
+        "backref": "Pufferfish"
+    },
+    "231": {
+        "eng": "gluten",
+        "label": "n.",
+        "ch": "\u9eb5\u7b4b",
+        "backref": "Gluten"
+    },
+    "232": {
+        "eng": "go box",
+        "label": "n.",
+        "ch": "\u5916\u5e36\u9910\u76d2",
+        "backref": "Take-out lunch box"
+    },
+    "233": {
+        "eng": "goose liver pate",
+        "label": "n.",
+        "ch": "\u9d5d\u809d\u91ac",
+        "backref": "Foie gras"
+    },
+    "234": {
+        "eng": "granary bread",
+        "label": "n.",
+        "ch": "\u96dc\u7ce7\u9eb5\u5305",
+        "backref": "Multigrain bread"
+    },
+    "235": {
+        "eng": "granulated sugar",
+        "label": "n.",
+        "ch": "\u7802\u7cd6",
+        "backref": "Sugar"
+    },
+    "236": {
+        "eng": "grapefruit juice",
+        "label": "n.",
+        "ch": "\u8461\u8404\u67da\u6c41",
+        "backref": "Grapefruit juice"
+    },
+    "237": {
+        "eng": "grating",
+        "label": "v.",
+        "ch": "\u78e8\u788e\u5c51\uff1b\u7c89\u72c0",
+        "backref": "Ground crumbs; powdery"
+    },
+    "238": {
+        "eng": "green bean",
+        "label": "n.",
+        "ch": "\u56db\u5b63\u8c46\uff1b\u7da0\u8c46",
+        "backref": "Green beans"
+    },
+    "239": {
+        "eng": "green pea",
+        "label": "n.",
+        "ch": "\u9752\u8c46\u4ec1",
+        "backref": "Green peas kernels"
+    },
+    "240": {
+        "eng": "green salad served",
+        "label": "n.",
+        "ch": "\u7fe0\u7da0\u6c99\u62c9\u9644\u85cd\u7d0b\u4e73\u916a\u91ac",
+        "backref": "Emerald Salad with Blue Cheese Dressing"
+    },
+    "241": {
+        "eng": "green salad with",
+        "label": "n.",
+        "ch": "\u7fe0\u7da0\u6c99\u62c9\u9644\u6cd5\u5f0f\u6c99\u62c9\u91ac",
+        "backref": "Emerald Salad with French Dressing"
+    },
+    "242": {
+        "eng": "griddled ham and",
+        "label": "n.",
+        "ch": "\u714e\u706b\u817f\u4e73\u916a\u4e09\u660e\u6cbb",
+        "backref": "Fried Ham and Cheese Sandwich"
+    },
+    "243": {
+        "eng": "grilled chicken",
+        "label": "n.",
+        "ch": "\u70e4\u96de",
+        "backref": "roast chicken"
+    },
+    "244": {
+        "eng": "grilled pork chop",
+        "label": "n.",
+        "ch": "\u70e4\u8c6c\u6392",
+        "backref": "Grilled pork chop"
+    },
+    "245": {
+        "eng": "HACCP",
+        "label": "n.",
+        "ch": "\u98df\u54c1\u5b89\u5168\u7ba1\u5236\u7cfb\u7d71\uff0c\u4e3b\u8981\u5f37\u8abf\u88fd\u7a0b\u7ba1",
+        "backref": "Food safety control system mainly emphasizes process management"
+    },
+    "246": {
+        "eng": "ham and cheese",
+        "label": "n.",
+        "ch": "\u706b\u817f\u4e73\u916a\u6069\u5229\u86cb\uff08 \u897f\u5f0f\u86cb\u9905\uff09",
+        "backref": "Ham and Cheese Enli Egg (Western-style omelet)"
+    },
+    "247": {
+        "eng": "ham and eggs",
+        "label": "n.",
+        "ch": "\u706b\u817f\u86cb",
+        "backref": "Ham and Egg"
+    },
+    "248": {
+        "eng": "hand tool",
+        "label": "n.",
+        "ch": "\u8f14\u52a9\u5de5\u5177",
+        "backref": "Auxiliary tools"
+    },
+    "249": {
+        "eng": "hard boiled",
+        "label": "adj.",
+        "ch": "\u716e\u786c\u4e00\u9ede\uff08 \u4f8b\u5982\u6c34\u716e\u86cb\u6642\u7684\u9700\u6c42\uff09",
+        "backref": "Boil a little harder (for example, the demand for boiled eggs)"
+    },
+    "250": {
+        "eng": "hard drinks",
+        "label": "n.",
+        "ch": "\u542b\u9152\u7cbe\u98f2\u6599",
+        "backref": "Alcoholic beverages"
+    },
+    "251": {
+        "eng": "herbal tea",
+        "label": "n.",
+        "ch": "\u82b1\u8336",
+        "backref": "Flowering tea"
+    },
+    "252": {
+        "eng": "herring",
+        "label": "n.",
+        "ch": "\u9be1\u9b5a",
+        "backref": "Herring"
+    },
+    "253": {
+        "eng": "high chair",
+        "label": "n.",
+        "ch": "\u9ad8\u8173\u6905",
+        "backref": "High chair"
+    },
+    "254": {
+        "eng": "horseradish sauce",
+        "label": "n.",
+        "ch": "\u8fa3\u6839\u91ac\uff1b\u82a5\u672b\u91ac",
+        "backref": "Horseradish sauce; mustard sauce"
+    },
+    "255": {
+        "eng": "host",
+        "label": "n.",
+        "ch": "\u4e3b\u4eba\uff1b\u4e3b\u6301\u4eba",
+        "backref": "Host"
+    },
+    "256": {
+        "eng": "hostess",
+        "label": "n.",
+        "ch": "\u5973\u4e3b\u4eba\uff1b\uff08\u9910\u5ef3\u7b49\u7684\uff09 \u5973\u4f8d\uff1b\u5973\u670d\u52d9",
+        "backref": "Hostess; (restaurant, etc.) waitress; female service"
+    },
+    "257": {
+        "eng": "hot cereals",
+        "label": "n.",
+        "ch": "\u9700\u6c96\u6ce1\u71b1\u6c34\u518d\u98df\u7528\u4e4b\u7a40\u985e\u98df\u54c1",
+        "backref": "Cereals that need to be brewed in hot water before eating"
+    },
+    "258": {
+        "eng": "hours",
+        "label": "n.",
+        "ch": "\u71df\u696d\u6642\u9593\uff1b\u5c0f\u6642",
+        "backref": "Business hours"
+    },
+    "259": {
+        "eng": "huevos rancheros",
+        "label": "n.",
+        "ch": "\u58a8\u897f\u54e5\u5f0f\u714e\u86cb",
+        "backref": "Mexican Omelette"
+    },
+    "260": {
+        "eng": "Hungarian goulash",
+        "label": "n.",
+        "ch": "\u5308\u7259\u5229\u725b\u8089\u6e6f\uff0c\u88fd\u4f5c\u6750\u6599\u5305\u62ec\u6d0b\u8525\u3001",
+        "backref": "Hungarian beef soup, the ingredients include onions,"
+    },
+    "261": {
+        "eng": "Hungarian goulash",
+        "label": "n.",
+        "ch": "\u5308\u7259\u5229\u71f4\u725b\u8089\u9644\u5976\u6cb9\u98ef",
+        "backref": "Hungarian goulash with cream rice"
+    },
+    "262": {
+        "eng": "ice bin",
+        "label": "n.",
+        "ch": "\u51b0\u584a\u69fd\uff0c\u5728\u5de5\u4f5c\u6aaf\u908a\u5b58\u653e\u51b0\u584a\u7528\u3002",
+        "backref": "The ice cube tray is used for storing ice cubes on the side of the workbench."
+    },
+    "263": {
+        "eng": "ice cooler",
+        "label": "n.",
+        "ch": "\u51b7\u537b\u5668",
+        "backref": "Cooler"
+    },
+    "264": {
+        "eng": "ice maker",
+        "label": "n.",
+        "ch": "\u88fd\u51b0\u6a5f",
+        "backref": "Ice maker"
+    },
+    "265": {
+        "eng": "ice making machine",
+        "label": "n.",
+        "ch": "\u88fd\u51b0\u6a5f",
+        "backref": "Ice maker"
+    },
+    "266": {
+        "eng": "ice scoop",
+        "label": "n.",
+        "ch": "\u51b0\u93df",
+        "backref": "Ice shovel"
+    },
+    "267": {
+        "eng": "ice tea",
+        "label": "n.",
+        "ch": "\u51b0\u8336",
+        "backref": "Ice Tea"
+    },
+    "268": {
+        "eng": "iceberg",
+        "label": "n.",
+        "ch": "\u5305\u5fc3\u8435\u82e3",
+        "backref": "Lettuce"
+    },
+    "269": {
+        "eng": "iceberg lettuce",
+        "label": "n.",
+        "ch": "\u7d50\u7403\u84bf\u82e3",
+        "backref": "Artemisia sphaerocephala"
+    },
+    "270": {
+        "eng": "immediately",
+        "label": "adv.",
+        "ch": "\u7acb\u5373",
+        "backref": "Immediately"
+    },
+    "271": {
+        "eng": "ingredient",
+        "label": "n.",
+        "ch": "\u6210\u4efd\uff1b\u6750\u6599",
+        "backref": "Ingredients; materials"
+    },
+    "272": {
+        "eng": "ingredients",
+        "label": "n.",
+        "ch": "\u98df\u54c1\u6210\u4efd",
+        "backref": "Food ingredients"
+    },
+    "273": {
+        "eng": "Italian dressing",
+        "label": "n.",
+        "ch": "\u7fa9\u5f0f\u6cb9\u918b\u91ac\uff08\u8abf\u5473\u6c41\uff09 \uff1b\u7fa9\u5f0f\u6c99\u62c9\u8abf",
+        "backref": "Italian vinaigrette (sauce); Italian salad"
+    },
+    "274": {
+        "eng": "Italian food",
+        "label": "n.",
+        "ch": "\u7fa9\u5927\u5229\u98df\u7269\uff1b\u7fa9\u5f0f\u6599\u7406",
+        "backref": "Italian food; Italian cuisine"
+    },
+    "275": {
+        "eng": "Japanese food",
+        "label": "n.",
+        "ch": "\u65e5\u672c\u98df\u7269\uff1b\u65e5\u5f0f\u6599\u7406",
+        "backref": "Japanese food; Japanese cuisine"
+    },
+    "276": {
+        "eng": "jasmine tea",
+        "label": "n.",
+        "ch": "\u8309\u8389\u82b1\u8336",
+        "backref": "Jasmine tea"
+    },
+    "277": {
+        "eng": "Java",
+        "label": "n.",
+        "ch": "\u722a\u54c7\u54c1\u7a2e\uff08 \u5496\u5561\uff09",
+        "backref": "Java variety (coffee)"
+    },
+    "278": {
+        "eng": "jellyfish",
+        "label": "n.",
+        "ch": "\u6d77\u8707\u76ae",
+        "backref": "Jellyfish skin"
+    },
+    "279": {
+        "eng": "Jew",
+        "label": "n.",
+        "ch": "\u7336\u592a\u6559\u5f92",
+        "backref": "Jews"
+    },
+    "280": {
+        "eng": "juice blender",
+        "label": "n.",
+        "ch": "\u679c\u6c41\u6a5f",
+        "backref": "Juicer"
+    },
+    "281": {
+        "eng": "julienne",
+        "label": "n.",
+        "ch": "\u6216 adj. \u83dc\u7d72\u6e05\u6e6f\uff1b\u5207\u7d72\u7684",
+        "backref": "Or adj. Coriander clear soup; shredded"
+    },
+    "282": {
+        "eng": "kidney",
+        "label": "n.",
+        "ch": "\u814e",
+        "backref": "Renal"
+    },
+    "283": {
+        "eng": "kitchen tong",
+        "label": "n.",
+        "ch": "\u593e\u5b50",
+        "backref": "Clip"
+    },
+    "284": {
+        "eng": "kitchen towel",
+        "label": "n.",
+        "ch": "\u767d\u6bdb\u5dfe",
+        "backref": "White towel"
+    },
+    "285": {
+        "eng": "kitchen uniform",
+        "label": "n.",
+        "ch": "\u5eda\u623f\u5236\u670d",
+        "backref": "Kitchen uniform"
+    },
+    "286": {
+        "eng": "knuckle of beef",
+        "label": "n.",
+        "ch": "\u725b\u7684\u5e36\u9aa8\u811b\u817f\u8089",
+        "backref": "Beef shin thigh"
+    },
+    "287": {
+        "eng": "knuckle of mutton",
+        "label": "n.",
+        "ch": "\u7f8a\u7684\u5e36\u9aa8\u811b\u817f\u8089",
+        "backref": "Lamb&#39;s bone shin"
+    },
+    "288": {
+        "eng": "knuckle of pork",
+        "label": "n.",
+        "ch": "\u8c6c\u7684\u5e36\u9aa8\u811b\u817f\u8089",
+        "backref": "Bone-in pork shin"
+    },
+    "289": {
+        "eng": "knuckle of veal",
+        "label": "n.",
+        "ch": "\u5c0f\u725b\u7684\u5e36\u9aa8\u811b\u817f\u8089",
+        "backref": "Calf&#39;s bone shin"
+    },
+    "290": {
+        "eng": "lamb chop",
+        "label": "n.",
+        "ch": "\u7f8a\u6392",
+        "backref": "Lamb chops"
+    },
+    "291": {
+        "eng": "large dice",
+        "label": "n.",
+        "ch": "\u5927\u4e01",
+        "backref": "Dading"
+    },
+    "292": {
+        "eng": "late night dinner",
+        "label": "n.",
+        "ch": "\u5bb5\u591c",
+        "backref": "Siu yeh"
+    },
+    "293": {
+        "eng": "layer",
+        "label": "n.",
+        "ch": "\u5c64",
+        "backref": "Sheaf"
+    },
+    "294": {
+        "eng": "lemon juice",
+        "label": "n.",
+        "ch": "\u6ab8\u6aac\u6c41",
+        "backref": "Lemon"
+    },
+    "295": {
+        "eng": "lemon sole",
+        "label": "n.",
+        "ch": "\u677f\u9b5a",
+        "backref": "Banyu"
+    },
+    "296": {
+        "eng": "lime juice",
+        "label": "n.",
+        "ch": "\u840a\u59c6\u6c41\uff0c\u5e36\u9178\u5473\u7684\u78b3\u9178\u98f2\u6599\u3002",
+        "backref": "Lime juice, a sour carbonated drink."
+    },
+    "297": {
+        "eng": "liver",
+        "label": "n.",
+        "ch": "\u809d",
+        "backref": "Liver"
+    },
+    "298": {
+        "eng": "lobby",
+        "label": "n.",
+        "ch": "\u98ef\u5e97\u5927\u5ef3",
+        "backref": "Hotel lobby"
+    },
+    "299": {
+        "eng": "lobster gratin",
+        "label": "n.",
+        "ch": "\u7117\u70e4\u9f8d\u8766",
+        "backref": "Baked Lobster"
+    },
+    "300": {
+        "eng": "local specialties",
+        "label": "n.",
+        "ch": "\u7576\u5730\u7279\u7522",
+        "backref": "Local specialty"
+    },
+    "301": {
+        "eng": "lousy",
+        "label": "adj.",
+        "ch": "\u7cdf\u7cd5\u7684",
+        "backref": "Terrible"
+    },
+    "302": {
+        "eng": "low fat",
+        "label": "phr.",
+        "ch": "\u4f4e\u8102",
+        "backref": "Low fat"
+    },
+    "303": {
+        "eng": "lukewarm",
+        "label": "adj.",
+        "ch": "\u6eab\u7684",
+        "backref": "Warm"
+    },
+    "304": {
+        "eng": "lunch specials",
+        "label": "n.",
+        "ch": "\u5348\u9910\u7279\u9910",
+        "backref": "Lunch special"
+    },
+    "305": {
+        "eng": "luncheonette",
+        "label": "n.",
+        "ch": "\u4f9b\u61c9\u7c21\u4fbf\u5348\u9910\u7684\u9910\u9928",
+        "backref": "Restaurants serving light lunches"
+    },
+    "306": {
+        "eng": "macaroni and cheese",
+        "label": "n.",
+        "ch": "\u8d77\u53f8\u901a\u5fc3\u9eb5",
+        "backref": "Macaroni and Cheese"
+    },
+    "307": {
+        "eng": "magnum",
+        "label": "n.",
+        "ch": "\u5927\u9152\u74f6\uff0c\u5bb9\u91cf\u55ae\u4f4d\uff0c\u70ba\u666e\u901a\u9152\u74f6\u7684\u5169",
+        "backref": "Magnum, a unit of capacity, two of the ordinary wine bottles"
+    },
+    "308": {
+        "eng": "main course fork",
+        "label": "n.",
+        "ch": "\u4e3b\u83dc\u53c9",
+        "backref": "Main course fork"
+    },
+    "309": {
+        "eng": "Manhattan chowder",
+        "label": "n.",
+        "ch": "\u66fc\u54c8\u9813\u5de7\u9054\u6e6f\uff0c\u662f\u73fe\u4eca\u7f8e\u570b\u7684\u540d\u6e6f\u3002",
+        "backref": "Manhattan Qiaoda Soup is a famous soup in America today."
+    },
+    "310": {
+        "eng": "Manhattan clam",
+        "label": "n.",
+        "ch": "\u66fc\u54c8\u9813\u86e4\u870a\u5de7\u9054\u6e6f",
+        "backref": "Manhattan Clam Soup"
+    },
+    "311": {
+        "eng": "map",
+        "label": "n.",
+        "ch": "\u5730\u5716",
+        "backref": "Map"
+    },
+    "312": {
+        "eng": "marinade",
+        "label": "n.",
+        "ch": "\u897f\u9910\u70f9\u8abf\u6240\u7528\u9183\u6d78\u6db2",
+        "backref": "Pickling liquid used in western cooking"
+    },
+    "313": {
+        "eng": "marjoram",
+        "label": "n.",
+        "ch": "\u99ac\u90c1\u862d\uff0c\u53c8\u7a31\u70ba\u58a8\u89d2\u862d\uff0c\u662f\u4e00\u7a2e\u5507\u5f62",
+        "backref": "Marjoram, also known as marjoram, is a lip shape"
+    },
+    "314": {
+        "eng": "measuring spoon",
+        "label": "n.",
+        "ch": "\u91cf\u5319",
+        "backref": "Measuring spoons"
+    },
+    "315": {
+        "eng": "meat mallet",
+        "label": "n.",
+        "ch": "\u62cd\u8089\u5668",
+        "backref": "Meat beater"
+    },
+    "316": {
+        "eng": "meatballs",
+        "label": "n.",
+        "ch": "\u8089\u4e38\u5b50",
+        "backref": "Meatballs"
+    },
+    "317": {
+        "eng": "medium",
+        "label": "adj.",
+        "ch": "\u4e94\u5206\u719f\uff0c\u662f\u725b\u6392\u70f9\u8abf\u6cd5\u4e4b\u751f\u719f\u5ea6\u7528",
+        "backref": "Half-cooked, it\u2019s the rawness of steak cooking"
+    },
+    "318": {
+        "eng": "medium dice",
+        "label": "n.",
+        "ch": "\u4e2d\u4e01",
+        "backref": "Zhongding"
+    },
+    "319": {
+        "eng": "Mexican food",
+        "label": "n.",
+        "ch": "\u58a8\u897f\u54e5\u98df\u7269\uff1b\u58a8\u897f\u54e5\u6599\u7406",
+        "backref": "Mexican food; Mexican food"
+    },
+    "320": {
+        "eng": "milkfat",
+        "label": "n.",
+        "ch": "\u4e73\u8102\u80aa",
+        "backref": "Milk fat"
+    },
+    "321": {
+        "eng": "minced beef",
+        "label": "n.",
+        "ch": "\u725b\u7d5e\u8089",
+        "backref": "Ground beef"
+    },
+    "322": {
+        "eng": "mincing",
+        "label": "v.",
+        "ch": "\u5207\u7d30\uff1b\u5241\u788e\uff1b\u7d5e\u788e",
+        "backref": "Chop finely; chop; mince"
+    },
+    "323": {
+        "eng": "minute steak",
+        "label": "n.",
+        "ch": "\u8584\u7247\u725b\u6392\u4e09\u660e\u6cbb\u9644\u9ad8\u9e97\u83dc\u6c99\u62c9",
+        "backref": "Thinly sliced steak sandwich with cabbage salad"
+    },
+    "324": {
+        "eng": "miso soup",
+        "label": "n.",
+        "ch": "\u5473\u564c\u6e6f",
+        "backref": "Miso soup"
+    },
+    "325": {
+        "eng": "mixed spices",
+        "label": "n.",
+        "ch": "\u6df7\u5408\u9999\u6599",
+        "backref": "Mixed spices"
+    },
+    "326": {
+        "eng": "mixing glass",
+        "label": "n.",
+        "ch": "\u523b\u5ea6\u8abf\u9152\u676f",
+        "backref": "Scale cocktail glass"
+    },
+    "327": {
+        "eng": "mixture",
+        "label": "n.",
+        "ch": "\u6df7\u5408\uff08 \u6599\uff09 \uff1b\u6df7\u5408\u7269",
+        "backref": "Mix (material); mixture"
+    },
+    "328": {
+        "eng": "moka pot",
+        "label": "n.",
+        "ch": "\u6469\u5361\u58fa",
+        "backref": "Moka pot"
+    },
+    "329": {
+        "eng": "moldy",
+        "label": "adj.",
+        "ch": "\u767c\u9709\u7684",
+        "backref": "moldy"
+    },
+    "330": {
+        "eng": "MSG",
+        "label": "n.",
+        "ch": "\u300c\u5473\u7cbe\u300d \u7684\u7c21\u7a31",
+        "backref": "Short for &quot;MSG&quot;"
+    },
+    "331": {
+        "eng": "Muslim",
+        "label": "n.",
+        "ch": "\u56de\u6559\u5f92\uff08 \u7a46\u65af\u6797\uff09",
+        "backref": "Muslim (Muslim)"
+    },
+    "332": {
+        "eng": "natural ingredients",
+        "label": "n.",
+        "ch": "\u5929\u7136\u7684\u98df\u54c1\u6750\u6599\u6210\u4efd",
+        "backref": "Natural food ingredients"
+    },
+    "333": {
+        "eng": "New Year party",
+        "label": "n.",
+        "ch": "\u65b0\u5e74\u805a\u6703",
+        "backref": "New year party"
+    },
+    "334": {
+        "eng": "New York steak",
+        "label": "n.",
+        "ch": "\u7d10\u7d04\u725b\u6392",
+        "backref": "New York Steak"
+    },
+    "335": {
+        "eng": "Nicoise salad",
+        "label": "n.",
+        "ch": "\u5c3c\u65af\u6c99\u62c9\uff08 Nicoise \u5373 Nice\uff09",
+        "backref": "Nice Salad (Nicoise is Nice)"
+    },
+    "336": {
+        "eng": "non-alcoholic drinks",
+        "label": "n.",
+        "ch": "\u975e\u9152\u7cbe\u6027\u98f2\u6599",
+        "backref": "Non-alcoholic beverages"
+    },
+    "337": {
+        "eng": "non-fat milk",
+        "label": "n.",
+        "ch": "\u96f6\u8102\u725b\u5976",
+        "backref": "Zero fat milk"
+    },
+    "338": {
+        "eng": "non-smoking area",
+        "label": "n.",
+        "ch": "\u975e\u5438\u83f8\u5340",
+        "backref": "Non-smoking area"
+    },
+    "339": {
+        "eng": "noodles",
+        "label": "n.",
+        "ch": "\u9eb5\u689d",
+        "backref": "Noodle"
+    },
+    "340": {
+        "eng": "NT dollar",
+        "label": "n.",
+        "ch": "\u65b0\u53f0\u5e63",
+        "backref": "New Taiwan dollar"
+    },
+    "341": {
+        "eng": "onion brulee",
+        "label": "n.",
+        "ch": "\u6d0b\u8525\u70e4\u5e03\u4e01",
+        "backref": "Baked Onion Pudding"
+    },
+    "342": {
+        "eng": "orange pekoe tea",
+        "label": "n.",
+        "ch": "\u6a58\u8336",
+        "backref": "Orange tea"
+    },
+    "343": {
+        "eng": "orgeat",
+        "label": "n.",
+        "ch": "\u674f\u4ec1\u7cd6\u6f3f",
+        "backref": "Almond syrup"
+    },
+    "344": {
+        "eng": "oversee",
+        "label": "v.",
+        "ch": "\u76e3\u7763",
+        "backref": "supervising"
+    },
+    "345": {
+        "eng": "oz.",
+        "label": "n.",
+        "ch": "\u76ce\u53f8",
+        "backref": "Ounces"
+    },
+    "346": {
+        "eng": "panfry",
+        "label": "v.",
+        "ch": "\u5728\u6dfa\u934b\u4e2d\u70b8",
+        "backref": "Fried in a shallow pan"
+    },
+    "347": {
+        "eng": "pastrami",
+        "label": "n.",
+        "ch": "\u80e1\u6912\u725b\u8089",
+        "backref": "Pepper beef"
+    },
+    "348": {
+        "eng": "patience",
+        "label": "n.",
+        "ch": "\u8010\u5fc3",
+        "backref": "Patience"
+    },
+    "349": {
+        "eng": "peach pie",
+        "label": "n.",
+        "ch": "\u6c34\u871c\u6843\u6d3e",
+        "backref": "Peach Pie"
+    },
+    "350": {
+        "eng": "peanut",
+        "label": "n.",
+        "ch": "\u82b1\u751f",
+        "backref": "Peanut"
+    },
+    "351": {
+        "eng": "pear",
+        "label": "n.",
+        "ch": "\uff08\u897f\u6d0b\uff09 \u68a8",
+        "backref": "(Western) Pear"
+    },
+    "352": {
+        "eng": "pepperoni",
+        "label": "n.",
+        "ch": "\u7fa9\u5927\u5229\u8fa3\u5473\u9999\u8178",
+        "backref": "Pepperoni"
+    },
+    "353": {
+        "eng": "personal check",
+        "label": "n.",
+        "ch": "\u500b\u4eba\u652f\u7968",
+        "backref": "Personal check"
+    },
+    "354": {
+        "eng": "pheasant",
+        "label": "n.",
+        "ch": "\u91ce\u96de\uff1b\u96c9\u96de",
+        "backref": "Pheasant; Pheasant"
+    },
+    "355": {
+        "eng": "phosphate",
+        "label": "n.",
+        "ch": "\u78f7\u9178\u9e7d",
+        "backref": "Phosphoricum acidum"
+    },
+    "356": {
+        "eng": "pickled cucumber",
+        "label": "n.",
+        "ch": "\u9183\u9ec3\u74dc",
+        "backref": "Pickled cucumber"
+    },
+    "357": {
+        "eng": "pig knuckle",
+        "label": "n.",
+        "ch": "\u8c6c\u8173",
+        "backref": "Ham hock"
+    },
+    "358": {
+        "eng": "pistachio",
+        "label": "n.",
+        "ch": "\u958b\u5fc3\u679c",
+        "backref": "Pistachio"
+    },
+    "359": {
+        "eng": "pitcher",
+        "label": "n.",
+        "ch": "\u4e00\u58fa\u7684\u91cf\uff1b\uff08\u6709\u67c4\u7684\uff09 \u5927\u6c34\u58fa",
+        "backref": "The amount of a pot; (with a handle) a large kettle"
+    },
+    "360": {
+        "eng": "plaice",
+        "label": "n.",
+        "ch": "\u6bd4\u76ee\u9b5a\u4e4b\u985e\uff1b\u6b50\u8776\u9b5a",
+        "backref": "Flounder and the like; butterfly fish"
+    },
+    "361": {
+        "eng": "plain omelette",
+        "label": "n.",
+        "ch": "\u714e\u6069\u5229\u86cb",
+        "backref": "Fried Enli Egg"
+    },
+    "362": {
+        "eng": "plain yogurt",
+        "label": "n.",
+        "ch": "\u7d14\u9178\u5976",
+        "backref": "Plain yogurt"
+    },
+    "363": {
+        "eng": "poached egg",
+        "label": "n.",
+        "ch": "\u6c34\u6ce2\u86cb\uff1b\u84b8\u86cb",
+        "backref": "Poached egg"
+    },
+    "364": {
+        "eng": "pork chop in brown",
+        "label": "n.",
+        "ch": "\u6d0b\u83c7\u714e\u8c6c\u6392\u9644\u6a44\u6b16\u5f62\u80e1\u863f\u8514",
+        "backref": "Fried pork chops with mushrooms and olive-shaped carrots"
+    },
+    "365": {
+        "eng": "pork cordon bleu with",
+        "label": "n.",
+        "ch": "\u85cd\u5e36\u8c6c\u6392\u9644\u70b8\u5713\u67f1\u5f62\u99ac\u9234\u85af\u6ce5",
+        "backref": "Cordon Bleu with fried cylindrical mashed potatoes"
+    },
+    "366": {
+        "eng": "pork loin",
+        "label": "n.",
+        "ch": "\u8c6c\u91cc\u810a",
+        "backref": "pork loin"
+    },
+    "367": {
+        "eng": "pork rib",
+        "label": "n.",
+        "ch": "\u8c6c\u808b\u6392\uff08 \u689d\uff09",
+        "backref": "Pork ribs (strips)"
+    },
+    "368": {
+        "eng": "port glass",
+        "label": "n.",
+        "ch": "\u6ce2\u7279\u9152\u676f\uff08 \u53c8\u7a31\u70ba\u6ce2\u723e\u5716\u7d05\u8461\u8404\u9152\u676f\uff09",
+        "backref": "Port wine glass (also known as porto red wine glass)"
+    },
+    "369": {
+        "eng": "porter",
+        "label": "n.",
+        "ch": "\u884c\u674e\u54e1\uff1b\u9580\u623f",
+        "backref": "Bellman"
+    },
+    "370": {
+        "eng": "porterhouse steak",
+        "label": "n.",
+        "ch": "\u4e0a\u7b49\u8170\u8089\u725b\u6392",
+        "backref": "Porterhouse Steak"
+    },
+    "371": {
+        "eng": "portion scale",
+        "label": "n.",
+        "ch": "\u78c5\u79e4",
+        "backref": "scale"
+    },
+    "372": {
+        "eng": "pot",
+        "label": "n.",
+        "ch": "\u6e6f\u934b\uff08 \u58fa\uff1b\u7f50\uff09",
+        "backref": "Soup pot (pot; pot)"
+    },
+    "373": {
+        "eng": "potato au gratin",
+        "label": "n.",
+        "ch": "\u7117\u70e4\u99ac\u9234\u85af",
+        "backref": "Baked Potatoes"
+    },
+    "374": {
+        "eng": "potato cocotte",
+        "label": "n.",
+        "ch": "\u714e\u70e4\u99ac\u9234\u85af",
+        "backref": "Roasted Potatoes"
+    },
+    "375": {
+        "eng": "potion",
+        "label": "adj.",
+        "ch": "\u5291\u91cf\uff1b\u4efd\u91cf",
+        "backref": "Dose"
+    },
+    "376": {
+        "eng": "powdered sugar",
+        "label": "n.",
+        "ch": "\u7cd6\u7c89",
+        "backref": "Powdered sugar"
+    },
+    "377": {
+        "eng": "praise",
+        "label": "n.",
+        "ch": "\u8b9a\u7f8e",
+        "backref": "Praise"
+    },
+    "378": {
+        "eng": "private dish",
+        "label": "n.",
+        "ch": "\u79c1\u623f\u83dc\uff1b\u63a8\u85a6\u83dc",
+        "backref": "Private kitchen; recommended dishes"
+    },
+    "379": {
+        "eng": "protein",
+        "label": "n.",
+        "ch": "\u86cb\u767d\u8cea",
+        "backref": "Protein"
+    },
+    "380": {
+        "eng": "prune",
+        "label": "n.",
+        "ch": "\u6885\u4e7e",
+        "backref": "Prune"
+    },
+    "381": {
+        "eng": "prune juice",
+        "label": "n.",
+        "ch": "\u6885\u6c41",
+        "backref": "Plum juice"
+    },
+    "382": {
+        "eng": "punch bowl",
+        "label": "n.",
+        "ch": "\u6f58\u8da3\u9152\u7897\uff08\u4ee5\u73bb\u7483\u3001\u91d1\u5c6c\u6216\u74f7\u7b49\u6750\u8cea",
+        "backref": "Punch bowl (made of glass, metal or porcelain"
+    },
+    "383": {
+        "eng": "punch party",
+        "label": "n.",
+        "ch": "\u6c34\u679c\u9152\u6703",
+        "backref": "Fruit cocktail"
+    },
+    "384": {
+        "eng": "purchase",
+        "label": "n.",
+        "ch": "\u63a1\u8cfc\u898f\u683c\u8868\uff0c\u5167\u5bb9\u901a\u5e38\u5305\u62ec\u91cd\u91cf\u3001\u5305",
+        "backref": "Procurement specification sheet, the content usually includes weight, package"
+    },
+    "385": {
+        "eng": "puree of green pea",
+        "label": "n.",
+        "ch": "\u9752\u8c46\u4ec1\u6f3f\u6e6f\u9644\u9eb5\u5305\u4e01",
+        "backref": "Green bean milk soup with croutons"
+    },
+    "386": {
+        "eng": "raisin bread",
+        "label": "n.",
+        "ch": "\u8461\u8404\u4e7e\u9eb5\u5305",
+        "backref": "Raisin Bread"
+    },
+    "387": {
+        "eng": "ranch dressing",
+        "label": "n.",
+        "ch": "\u7267\u5712\u6c99\u62c9\u8abf\u5473\u91ac",
+        "backref": "Muyuan Salad Dressing"
+    },
+    "388": {
+        "eng": "rare",
+        "label": "adj.",
+        "ch": "\u4e00\uff5e\u4e09\u5206\u719f\uff0c\u4ecd\u70ba\u751f\u7684\uff0c\u662f\u725b\u6392\u70f9\u8abf",
+        "backref": "One to three minutes cooked, still raw, steak cooking"
+    },
+    "389": {
+        "eng": "ravioli",
+        "label": "n.",
+        "ch": "\u7fa9\u5927\u5229\u4e73\u916a\u9903",
+        "backref": "Cheese dumplings"
+    },
+    "390": {
+        "eng": "red leaf",
+        "label": "n.",
+        "ch": "\u7d05\u8449\u751f\u83dc",
+        "backref": "Red leaf lettuce"
+    },
+    "391": {
+        "eng": "red pepper",
+        "label": "n.",
+        "ch": "\u7d05\u751c\u6912",
+        "backref": "Red bell pepper"
+    },
+    "392": {
+        "eng": "replace",
+        "label": "v.",
+        "ch": "\u66f4\u63db",
+        "backref": "replace"
+    },
+    "393": {
+        "eng": "request",
+        "label": "n.",
+        "ch": "\u6216 v. \u8981\u6c42",
+        "backref": "Or v. request"
+    },
+    "394": {
+        "eng": "reservation chart",
+        "label": "n.",
+        "ch": "\u9810\u5b9a\u5e2d\u6b21\u6216\u623f\u9593\u4e4b\u5716\u8868",
+        "backref": "Chart of reserved seats or rooms"
+    },
+    "395": {
+        "eng": "rib eye steak",
+        "label": "n.",
+        "ch": "\u808b\u773c\u725b\u6392",
+        "backref": "rib eye steak"
+    },
+    "396": {
+        "eng": "ribeye",
+        "label": "n.",
+        "ch": "\u53bb\u9aa8\u542b\u8089\u773c\u808b\u810a\u8089\uff0c\u5373\u808b\u773c\u725b\u6392\u4f7f\u7528",
+        "backref": "Boneless ribs with naked eyes, used for rib-eye steaks"
+    },
+    "397": {
+        "eng": "rice noodles",
+        "label": "n.",
+        "ch": "\u7c73\u7c89\uff1b\u6cb3\u7c89",
+        "backref": "Rice noodles"
+    },
+    "398": {
+        "eng": "rice pudding English",
+        "label": "n.",
+        "ch": "\u82f1\u5f0f\u7c73\u5e03\u4e01\u9644\u9999\u8349\u91ac",
+        "backref": "English rice pudding with vanilla sauce"
+    },
+    "399": {
+        "eng": "right away",
+        "label": "n.",
+        "ch": "\u7acb\u523b",
+        "backref": "right now"
+    },
+    "400": {
+        "eng": "roast turkey",
+        "label": "n.",
+        "ch": "\u70e4\u706b\u96de",
+        "backref": "Roast turkey"
+    },
+    "401": {
+        "eng": "roasted potato",
+        "label": "n.",
+        "ch": "\u70e4\u99ac\u9234\u85af\uff08 \u5207\u584a\uff09",
+        "backref": "Baked potato (cut into pieces)"
+    },
+    "402": {
+        "eng": "roasted prime rib of",
+        "label": "n.",
+        "ch": "\u70e4\u4e0a\u7b49\u808b\u9aa8\u725b\u6392",
+        "backref": "Grilled prime rib steak"
+    },
+    "403": {
+        "eng": "rock cod",
+        "label": "n.",
+        "ch": "\u9c48\u9b5a",
+        "backref": "Pollock"
+    },
+    "404": {
+        "eng": "romaine",
+        "label": "n.",
+        "ch": "\u863f\u7f8e\u751f\u83dc",
+        "backref": "Cos Lettuce"
+    },
+    "405": {
+        "eng": "root beer",
+        "label": "n.",
+        "ch": "\u6c99\u58eb",
+        "backref": "SARS"
+    },
+    "406": {
+        "eng": "round bread",
+        "label": "n.",
+        "ch": "\u5713\u5f62\u8edf\u9eb5\u5305",
+        "backref": "Round soft bread"
+    },
+    "407": {
+        "eng": "rubber spatula",
+        "label": "n.",
+        "ch": "\u6a61\u76ae\u522e\u5200",
+        "backref": "Rubber spatula"
+    },
+    "408": {
+        "eng": "rump",
+        "label": "n.",
+        "ch": "\u81c0\u8089",
+        "backref": "Rump"
+    },
+    "409": {
+        "eng": "Russian borsch",
+        "label": "n.",
+        "ch": "\u7f85\u5b8b\u6e6f\uff0c\u662f\u4fc4\u7f85\u65af\u7684\u540d\u6e6f\u3002",
+        "backref": "Borscht is a famous Russian soup."
+    },
+    "410": {
+        "eng": "sachet",
+        "label": "n.",
+        "ch": "\u9999\u6599\u5305",
+        "backref": "Spice bag"
+    },
+    "411": {
+        "eng": "sake",
+        "label": "n.",
+        "ch": "\u65e5\u672c\u6e05\u9152",
+        "backref": "Sake"
+    },
+    "412": {
+        "eng": "salmon fillet",
+        "label": "n.",
+        "ch": "\u9bad\u9b5a\u6392",
+        "backref": "Salmon steak"
+    },
+    "413": {
+        "eng": "salmon orly with",
+        "label": "n.",
+        "ch": "\u70b8\u9eb5\u7cca\u9bad\u9b5a\u689d\u9644\u5854\u5854\u91ac",
+        "backref": "Deep fried salmon sticks with tartar sauce"
+    },
+    "414": {
+        "eng": "salt shaker",
+        "label": "n.",
+        "ch": "\u9e7d\u74f6\uff08 \u7f8e\u5f0f\uff0c\u74f6\u84cb\u6709\u7d30\u5b54\uff09",
+        "backref": "Salt shaker (American, bottle cap with fine holes)"
+    },
+    "415": {
+        "eng": "salted butter",
+        "label": "n.",
+        "ch": "\u542b\u9e7d\u5976\u6cb9",
+        "backref": "Salted butter"
+    },
+    "416": {
+        "eng": "salted egg",
+        "label": "n.",
+        "ch": "\u9e79\u86cb",
+        "backref": "Salted egg"
+    },
+    "417": {
+        "eng": "salty soy milk",
+        "label": "n.",
+        "ch": "\u9e79\u8c46\u6f3f",
+        "backref": "Salty soy milk"
+    },
+    "418": {
+        "eng": "sanitary",
+        "label": "adj.",
+        "ch": "\u6e05\u6f54\u7684",
+        "backref": "clean"
+    },
+    "419": {
+        "eng": "sauce boat",
+        "label": "n.",
+        "ch": "\u4f50\u6599\u76c5\uff1b\uff08 \u76db\u8abf\u5473\u6599\uff09 \u6cb9\u58fa",
+        "backref": "Condiment cup; (for seasoning) oil pot"
+    },
+    "420": {
+        "eng": "sauce bowl",
+        "label": "n.",
+        "ch": "\u8abf\u5473\u91ac\u76c5",
+        "backref": "Seasoning sauce cup"
+    },
+    "421": {
+        "eng": "sauce pot",
+        "label": "n.",
+        "ch": "\u8abf\u5473\u91ac\u716e\u934b",
+        "backref": "Sauce saucepan"
+    },
+    "422": {
+        "eng": "sauerkraut",
+        "label": "n.",
+        "ch": "\u5fb7\u570b\u9178\u83dc",
+        "backref": "sauerkraut"
+    },
+    "423": {
+        "eng": "sauteed vegetables",
+        "label": "n.",
+        "ch": "\u7092\u9752\u83dc",
+        "backref": "Stir-fried vegetables"
+    },
+    "424": {
+        "eng": "sautee pan",
+        "label": "n.",
+        "ch": "\u5e73\u5e95\u7092\u934b",
+        "backref": "Frying pan"
+    },
+    "425": {
+        "eng": "sauteed beef",
+        "label": "n.",
+        "ch": "\u7f85\u5b8b\u7092\u725b\u8089\u9644\u83e0\u83dc\u9eb5\u7599\u7629",
+        "backref": "Fried borscht beef with spinach gnocchi"
+    },
+    "426": {
+        "eng": "sauteuse",
+        "label": "n.",
+        "ch": "\u714e\u7092\u934b",
+        "backref": "Frying pan"
+    },
+    "427": {
+        "eng": "scallion",
+        "label": "n.",
+        "ch": "\u8766\u5937\u8525\uff1b\u9752\u8525",
+        "backref": "Ezo green onion; green onion"
+    },
+    "428": {
+        "eng": "school reunion",
+        "label": "n.",
+        "ch": "\u540c\u5b78\u6703\uff1b\u6821\u53cb\u806f\u6b61\u6703",
+        "backref": "Fellow Academy; Alumni Party"
+    },
+    "429": {
+        "eng": "scrambled",
+        "label": "adj.",
+        "ch": "\u7092\u7684",
+        "backref": "fried"
+    },
+    "430": {
+        "eng": "sea bass",
+        "label": "n.",
+        "ch": "\u9c78\u9b5a\uff1b\u6d77\u9c78",
+        "backref": "Sea bass"
+    },
+    "431": {
+        "eng": "sea cucumber",
+        "label": "n.",
+        "ch": "\u6d77\u53c3",
+        "backref": "Sea cucumber"
+    },
+    "432": {
+        "eng": "sea bass recipes",
+        "label": "n.",
+        "ch": "\u9c78\u9b5a\u98df\u8b5c",
+        "backref": "Sea bass recipe"
+    },
+    "433": {
+        "eng": "sea bass fillet a la",
+        "label": "n.",
+        "ch": "\u4e73\u916a\u5976\u6cb9\u7117\u9c78\u9b5a\u6392\u9644\u6c34\u716e\u99ac\u9234\u85af",
+        "backref": "Baked sea bass steak with cream cheese and boiled potatoes"
+    },
+    "434": {
+        "eng": "sea bass fillet",
+        "label": "n.",
+        "ch": "\u714e\u9c78\u9b5a\u6392\u9644\u5976\u6cb9\u99ac\u9234\u85af",
+        "backref": "Fried sea bass steak with creamy potatoes"
+    },
+    "435": {
+        "eng": "seafood risotto",
+        "label": "n.",
+        "ch": "\u7fa9\u5f0f\u6d77\u9bae\u98ef",
+        "backref": "Paella"
+    },
+    "436": {
+        "eng": "seafood salad with",
+        "label": "n.",
+        "ch": "\u6d77\u9bae\u6c99\u62c9\u9644\u6cb9\u918b\u6c41",
+        "backref": "Seafood Salad with Vinaigrette"
+    },
+    "437": {
+        "eng": "seafood spaghetti",
+        "label": "n.",
+        "ch": "\u6d77\u9bae\u7fa9\u5927\u5229\u9eb5",
+        "backref": "Seafood Pasta"
+    },
+    "438": {
+        "eng": "seasonal fresh fruit",
+        "label": "n.",
+        "ch": "\u6c99\u5df4\u7fc1\u7117\u6c34\u679c",
+        "backref": "Sabah Wong Baked Fruit"
+    },
+    "439": {
+        "eng": "seasoning bowl",
+        "label": "n.",
+        "ch": "\u8abf\u5473\u6599\u7528\u7f50",
+        "backref": "Seasoning jar"
+    },
+    "440": {
+        "eng": "seating chart",
+        "label": "n.",
+        "ch": "\u5ea7\u4f4d\u8868",
+        "backref": "seats tables"
+    },
+    "441": {
+        "eng": "seaweed",
+        "label": "n.",
+        "ch": "\u6d77\u8349\uff1b\u6d77\u85fb",
+        "backref": "Seaweed"
+    },
+    "442": {
+        "eng": "seltzer water",
+        "label": "n.",
+        "ch": "\u78b3\u9178\u6c34\uff0c\u8abf\u9152\u6642\u7684\u4f5c\u7528\u8207\u8607\u6253\u6c34\u985e\u4f3c\u3002",
+        "backref": "Carbonated water, the effect of bartending is similar to soda water."
+    },
+    "443": {
+        "eng": "senior citizen",
+        "label": "n.",
+        "ch": "\u8001\u5e74\u4eba",
+        "backref": "Old age"
+    },
+    "444": {
+        "eng": "server",
+        "label": "n.",
+        "ch": "\u670d\u52d9\u751f",
+        "backref": "Waiting staff"
+    },
+    "445": {
+        "eng": "service charge",
+        "label": "n.",
+        "ch": "\u670d\u52d9\u8cbb",
+        "backref": "Service charge"
+    },
+    "446": {
+        "eng": "service towel",
+        "label": "n.",
+        "ch": "\u670d\u52d9\u5dfe",
+        "backref": "Service towel"
+    },
+    "447": {
+        "eng": "serving",
+        "label": "n.",
+        "ch": "\uff08 \u98df\u7269\u3001\u98f2\u6599\u7b49\uff09 \u4e00\u4eba\u4efd\u6216\u4e00\u5ba2\uff1b\u62db\u5f85\uff1b",
+        "backref": "(Food, drink, etc.) One person or one guest; entertain;"
+    },
+    "448": {
+        "eng": "set menu",
+        "label": "n.",
+        "ch": "\u5957\u9910\u83dc\u55ae",
+        "backref": "Set menu"
+    },
+    "449": {
+        "eng": "Shaoxing serving",
+        "label": "n.",
+        "ch": "\u7d39\u8208\u516c\u676f",
+        "backref": "Shaoxing Public Cup"
+    },
+    "450": {
+        "eng": "Shaoxing wine",
+        "label": "n.",
+        "ch": "\u7d39\u8208\u9152",
+        "backref": "Shaoxing wine"
+    },
+    "451": {
+        "eng": "share a dish",
+        "label": "phr.",
+        "ch": "\u5206\u4eab\u98df\u7269",
+        "backref": "Share Food"
+    },
+    "452": {
+        "eng": "shark's fin",
+        "label": "n.",
+        "ch": "\u9b5a\u7fc5",
+        "backref": "Shark fin soup"
+    },
+    "453": {
+        "eng": "shaved ice",
+        "label": "n.",
+        "ch": "\u5228\u51b0",
+        "backref": "Baobing"
+    },
+    "454": {
+        "eng": "show plate",
+        "label": "n.",
+        "ch": "\u5c55\u793a\u76e4",
+        "backref": "\u2022 Presentation plate"
+    },
+    "455": {
+        "eng": "shred",
+        "label": "n.",
+        "ch": "\u788e\u5e03\u689d\uff1b\u7d30\u7247\uff1b\u5c11\u91cf",
+        "backref": "Rag strips; shreds; few"
+    },
+    "456": {
+        "eng": "shrimp cocktail with",
+        "label": "n.",
+        "ch": "\u9bae\u8766\u76c5\u9644\u8003\u514b\u91ac",
+        "backref": "Shrimp Cup with Cock Sauce"
+    },
+    "457": {
+        "eng": "sieve",
+        "label": "n.",
+        "ch": "\u5e36\u67c4\u6ffe\u7db2",
+        "backref": "Strainer with handle"
+    },
+    "458": {
+        "eng": "sign",
+        "label": "n.",
+        "ch": "\u62db\u724c",
+        "backref": "Signboard"
+    },
+    "459": {
+        "eng": "silverware",
+        "label": "n.",
+        "ch": "\u9280\u5668\uff1b\u9910\u5177",
+        "backref": "Silverware"
+    },
+    "460": {
+        "eng": "simple syrup",
+        "label": "n.",
+        "ch": "\u7cd6\u6c34\uff0c\u5427\u6aaf\u8abf\u98f2\u5e38\u7528\u3002",
+        "backref": "Sugar water, often used at the bar."
+    },
+    "461": {
+        "eng": "sink",
+        "label": "n.",
+        "ch": "\u51b0\u69fd\uff1b\u6d17\u6ecc\u6c34\u69fd",
+        "backref": "Ice trough; washing trough"
+    },
+    "462": {
+        "eng": "sirloin steak",
+        "label": "n.",
+        "ch": "\u6c99\u6717\u725b\u6392\uff0c\u662f\u725b\u9ad4\u7684\u80cc\u808c\u90e8\u4f4d\uff0c\u8170\u8089",
+        "backref": "Sirloin steak is the back muscle part of the beef body, loin"
+    },
+    "463": {
+        "eng": "sliced bacon",
+        "label": "n.",
+        "ch": "\u57f9\u6839\u7247\uff0c\u662f\u53d6\u8c6c\u7684\u8179\u8089\u90e8\u4f4d\u88fd\u6210\u3002",
+        "backref": "Bacon slices are made from pork belly parts."
+    },
+    "464": {
+        "eng": "sliced cheddar",
+        "label": "n.",
+        "ch": "\u5207\u9054\u4e73\u916a\u7247",
+        "backref": "Cheddar Cheese Slices"
+    },
+    "465": {
+        "eng": "sliced cheese",
+        "label": "n.",
+        "ch": "\u4e73\u916a\u7247",
+        "backref": "Cheese slices"
+    },
+    "466": {
+        "eng": "small dice",
+        "label": "n.",
+        "ch": "\u5c0f\u4e01",
+        "backref": "Xiaoding"
+    },
+    "467": {
+        "eng": "smoke point",
+        "label": "n.",
+        "ch": "\u5192\u7159\u9ede",
+        "backref": "Smoke point"
+    },
+    "468": {
+        "eng": "smoked salmon",
+        "label": "n.",
+        "ch": "\u71fb\u9bad\u9b5a\uff0c\u53ef\u642d\u914d\u6d0b\u8525\u3001\u6ab8\u6aac\u3001\u9178\u8c46\u7b49",
+        "backref": "Smoked salmon, with onion, lemon, capers, etc."
+    },
+    "469": {
+        "eng": "smoking area",
+        "label": "n.",
+        "ch": "\u5438\u83f8\u5340",
+        "backref": "Smoking Area"
+    },
+    "470": {
+        "eng": "smoky",
+        "label": "adj.",
+        "ch": "\u6709\u7159\u5473\u7684",
+        "backref": "Smoky"
+    },
+    "471": {
+        "eng": "soft boiled",
+        "label": "adj.",
+        "ch": "\u716e\u8edf\u4e00\u9ede\uff08 \u4f8b\u5982\u6c34\u716e\u86cb\u6642\u7684\u9700\u6c42\uff09",
+        "backref": "Boil a little bit softer (for example, the demand for boiled eggs)"
+    },
+    "472": {
+        "eng": "sole",
+        "label": "n.",
+        "ch": "\u6bd4\u76ee\u9b5a\uff1b\u9c08\u9b5a\uff0c\u4fd7\u7a31\u300c\u7687\u5e1d\u9b5a\u300d \u3002",
+        "backref": "Flounder; plaice, commonly known as &quot;emperor fish&quot;."
+    },
+    "473": {
+        "eng": "souffle",
+        "label": "n.",
+        "ch": "\u9165\u8299\u91cc\uff1b\u86cb\u5976\u9165",
+        "backref": "Souffl\u00e9"
+    },
+    "474": {
+        "eng": "soup ladle",
+        "label": "n.",
+        "ch": "\u6e6f\u52fa",
+        "backref": "Spoon"
+    },
+    "475": {
+        "eng": "soup of the day",
+        "label": "n.",
+        "ch": "\u4eca\u65e5\u71b1\u6e6f\u63a8\u85a6",
+        "backref": "Today&#39;s hot soup recommendation"
+    },
+    "476": {
+        "eng": "soup tureen",
+        "label": "n.",
+        "ch": "\u6e6f\u84cb\u7897",
+        "backref": "Soup tureen"
+    },
+    "477": {
+        "eng": "sourdough bread",
+        "label": "n.",
+        "ch": "\u9175\u6bcd\u9eb5\u5305",
+        "backref": "Sourdough bread"
+    },
+    "478": {
+        "eng": "soy bean",
+        "label": "n.",
+        "ch": "\u9ec3\u8c46",
+        "backref": "Soybean"
+    },
+    "479": {
+        "eng": "spaetzle strainer",
+        "label": "n.",
+        "ch": "\u9eb5\u7599\u7629\u7db2",
+        "backref": "Gnocchi Net"
+    },
+    "480": {
+        "eng": "spaghetti bolognaise",
+        "label": "n.",
+        "ch": "\u7fa9\u5927\u5229\u8089\u91ac\u9eb5",
+        "backref": "Spaghetti wit Bolognese sauce"
+    },
+    "481": {
+        "eng": "spaghetti with meat",
+        "label": "n.",
+        "ch": "\u7fa9\u5927\u5229\u8089\u91ac\u9eb5",
+        "backref": "Spaghetti wit Bolognese sauce"
+    },
+    "482": {
+        "eng": "Spanish Omelette",
+        "label": "n.",
+        "ch": "\u897f\u73ed\u7259\u6069\u5229\u86cb",
+        "backref": "Spanish Enli Egg"
+    },
+    "483": {
+        "eng": "spatula",
+        "label": "n.",
+        "ch": "\u714e\u93df",
+        "backref": "Frying spatula"
+    },
+    "484": {
+        "eng": "special of the day",
+        "label": "n.",
+        "ch": "\u4eca\u65e5\u7279\u9910",
+        "backref": "Today&#39;s Special"
+    },
+    "485": {
+        "eng": "spring roll",
+        "label": "n.",
+        "ch": "\u6625\u6372\uff08 \u82f1\uff09",
+        "backref": "Spring Roll (English)"
+    },
+    "486": {
+        "eng": "sprinkle",
+        "label": "v.",
+        "ch": "\u6216 n. \u6492",
+        "backref": "Or n."
+    },
+    "487": {
+        "eng": "staple food",
+        "label": "n.",
+        "ch": "\u4e3b\u98df",
+        "backref": "Staple food"
+    },
+    "488": {
+        "eng": "starter",
+        "label": "n.",
+        "ch": "\u958b\u80c3\u83dc",
+        "backref": "Appetiser"
+    },
+    "489": {
+        "eng": "stationery folder",
+        "label": "n.",
+        "ch": "\u6587\u5177\u593e",
+        "backref": "Stationery clip"
+    },
+    "490": {
+        "eng": "steak knife",
+        "label": "n.",
+        "ch": "\u725b\u6392\u5200",
+        "backref": "Steak knife"
+    },
+    "491": {
+        "eng": "steamed egg custard",
+        "label": "n.",
+        "ch": "\u84b8\u86cb",
+        "backref": "Chinese steamed eggs"
+    },
+    "492": {
+        "eng": "steward",
+        "label": "n.",
+        "ch": "\u670d\u52d9\u54e1\uff1b\u7ba1\u5bb6",
+        "backref": "Waiter"
+    },
+    "493": {
+        "eng": "stock",
+        "label": "n.",
+        "ch": "\u9ad8\u6e6f\uff08 \u716e\u8089\u3001\u9aa8\u800c\u6210\uff09",
+        "backref": "Stock (made from boiled meat and bone)"
+    },
+    "494": {
+        "eng": "straw",
+        "label": "n.",
+        "ch": "\u5438\u7ba1",
+        "backref": "Drinking straw"
+    },
+    "495": {
+        "eng": "strawberry mousse",
+        "label": "n.",
+        "ch": "\u8349\u8393\u6155\u65af",
+        "backref": "Strawberry mousse"
+    },
+    "496": {
+        "eng": "strip loin",
+        "label": "n.",
+        "ch": "\u524d\u8170\u810a\u8089",
+        "backref": "Loin"
+    },
+    "497": {
+        "eng": "style pizza",
+        "label": "n.",
+        "ch": "\u914d\u597d\u6599\u7684\u62ab\u85a9",
+        "backref": "Pizza with good ingredients"
+    },
+    "498": {
+        "eng": "submarine",
+        "label": "n.",
+        "ch": "\u6f5b\u8247\u5821",
+        "backref": "Submarine sandwich"
+    },
+    "499": {
+        "eng": "suckling pig",
+        "label": "n.",
+        "ch": "\u4e73\u8c6c",
+        "backref": "Suckling pig"
+    },
+    "500": {
+        "eng": "sugar bowl",
+        "label": "n.",
+        "ch": "\u7cd6\u7f50\u5b50",
+        "backref": "Sugar jar"
+    },
+    "501": {
+        "eng": "sushi",
+        "label": "n.",
+        "ch": "\u58fd\u53f8",
+        "backref": "Sushi"
+    },
+    "502": {
+        "eng": "syphon",
+        "label": "n.",
+        "ch": "\u8679\u5438\u58fa",
+        "backref": "Siphon pot"
+    },
+    "503": {
+        "eng": "syrup container",
+        "label": "n.",
+        "ch": "\u7cd6\u6f3f\u5bb9\u5668",
+        "backref": "Syrup container"
+    },
+    "504": {
+        "eng": "tabasco sauce",
+        "label": "n.",
+        "ch": "\u9178\u8fa3\u6cb9\uff0c\u4e00\u7a2e\u8457\u540d\u7684\u8fa3\u6912\u91ac\u6c41\u8abf\u5473\u54c1\u3002",
+        "backref": "Hot and sour oil, a famous chili sauce condiment."
+    },
+    "505": {
+        "eng": "table chart",
+        "label": "n.",
+        "ch": "\u5ea7\u4f4d\u5716\u8868",
+        "backref": "Seat chart"
+    },
+    "506": {
+        "eng": "table d'hote",
+        "label": "n.",
+        "ch": "\u5b9a\u984d\u5957\u9910\uff1b\u5ba2\u98ef",
+        "backref": "Set meal"
+    },
+    "507": {
+        "eng": "table fork",
+        "label": "n.",
+        "ch": "\u9910\u53c9",
+        "backref": "Fork"
+    },
+    "508": {
+        "eng": "table setting",
+        "label": "n.",
+        "ch": "\u9910\u684c\u64fa\u8a2d",
+        "backref": "Table setting"
+    },
+    "509": {
+        "eng": "tablecloth",
+        "label": "n.",
+        "ch": "\u684c\u5e03",
+        "backref": "Tablecloth"
+    },
+    "510": {
+        "eng": "tableware",
+        "label": "n.",
+        "ch": "\u9910\u5177",
+        "backref": "Tableware"
+    },
+    "511": {
+        "eng": "take out menu",
+        "label": "n.",
+        "ch": "\u5916\u5e36\u9910\u9ede",
+        "backref": "Take-out meals"
+    },
+    "512": {
+        "eng": "tannin",
+        "label": "n.",
+        "ch": "\u55ae\u5be7\u9178\uff1b\u97a3\u9178",
+        "backref": "Tannin; Tannin"
+    },
+    "513": {
+        "eng": "tarragon",
+        "label": "n.",
+        "ch": "\u9f8d\u84bf",
+        "backref": "Tarragon"
+    },
+    "514": {
+        "eng": "tart mold",
+        "label": "n.",
+        "ch": "\u5854\u6a21",
+        "backref": "Tower mold"
+    },
+    "515": {
+        "eng": "tartar sauce",
+        "label": "n.",
+        "ch": "\u5854\u5854\u91ac",
+        "backref": "Tartar sauce"
+    },
+    "516": {
+        "eng": "tea cup",
+        "label": "n.",
+        "ch": "\u8336\u676f",
+        "backref": "Tea cup"
+    },
+    "517": {
+        "eng": "tea pot",
+        "label": "n.",
+        "ch": "\u8336\u58fa",
+        "backref": "Teapot"
+    },
+    "518": {
+        "eng": "tea spoon",
+        "label": "n.",
+        "ch": "\u8336\u5319",
+        "backref": "Teaspoon"
+    },
+    "519": {
+        "eng": "tempura",
+        "label": "n.",
+        "ch": "\u5929\u5a66\u7f85\uff1b\u751c\u4e0d\u8fa3",
+        "backref": "Tempura; sweet or not spicy"
+    },
+    "520": {
+        "eng": "tenderloin",
+        "label": "n.",
+        "ch": "\u83f2\u529b\uff1b\u8170\u5167\u8089\uff1b\u91cc\u810a\u8089",
+        "backref": "Filet; loin meat; tenderloin"
+    },
+    "521": {
+        "eng": "tenderloin steak",
+        "label": "n.",
+        "ch": "\u83f2\u529b\u725b\u6392\uff08 \u8170\u90e8\u91cc\u808c\u5ae9\u8089\u7684\u90e8\u4f4d\uff09",
+        "backref": "Filet Mignon (the tender part of the loin)"
+    },
+    "522": {
+        "eng": "Thai food",
+        "label": "n.",
+        "ch": "\u6cf0\u570b\u98df\u7269",
+        "backref": "Thai food"
+    },
+    "523": {
+        "eng": "thick soup",
+        "label": "n.",
+        "ch": "\u6fc3\u6e6f",
+        "backref": "Stew"
+    },
+    "524": {
+        "eng": "today's special",
+        "label": "n.",
+        "ch": "\u4eca\u65e5\u7279\u9910",
+        "backref": "Today&#39;s Special"
+    },
+    "525": {
+        "eng": "tongue",
+        "label": "n.",
+        "ch": "\u820c\u982d",
+        "backref": "Tongue"
+    },
+    "526": {
+        "eng": "toothpick holder",
+        "label": "n.",
+        "ch": "\u7259\u7c64\u7b52",
+        "backref": "Toothpick Holder"
+    },
+    "527": {
+        "eng": "tortilla",
+        "label": "n.",
+        "ch": "\u58a8\u897f\u54e5\u7389\u7c73\u8584\u9905",
+        "backref": "Mexican Tortillas"
+    },
+    "528": {
+        "eng": "traditional Indian",
+        "label": "n.",
+        "ch": "\u50b3\u7d71\u5370\u5ea6\u5496\u54e9\u9910",
+        "backref": "Traditional Indian Curry Meal"
+    },
+    "529": {
+        "eng": "trolley",
+        "label": "n.",
+        "ch": "\u624b\u63a8\u8eca\uff1b\u9910\u8eca",
+        "backref": "Trolley"
+    },
+    "530": {
+        "eng": "trussing",
+        "label": "n.",
+        "ch": "\u7d81\u7dca\u5b9a\u578b\uff0c\u897f\u9910\u8089\u54c1\u5982\u6b64\u8655\u7406\u901a\u5e38\u662f",
+        "backref": "Tie tightly to shape, western meat products are usually handled like this"
+    },
+    "531": {
+        "eng": "tumbler glass",
+        "label": "n.",
+        "ch": "\u5e73\u5e95\u676f",
+        "backref": "Flat cup"
+    },
+    "532": {
+        "eng": "tuna fish",
+        "label": "n.",
+        "ch": "\u9baa\u9b5a",
+        "backref": "Thunnus"
+    },
+    "533": {
+        "eng": "tuna fish salad",
+        "label": "n.",
+        "ch": "\u9baa\u9b5a\u6c99\u62c9\u4e09\u660e\u6cbb",
+        "backref": "Tuna Salad Sandwich"
+    },
+    "534": {
+        "eng": "tuna sandwiches",
+        "label": "n.",
+        "ch": "\u9baa\u9b5a\u4e09\u660e\u6cbb",
+        "backref": "Tuna Sandwich"
+    },
+    "535": {
+        "eng": "turkey sandwich",
+        "label": "n.",
+        "ch": "\u706b\u96de\u4e09\u660e\u6cbb",
+        "backref": "Turkey Sandwich"
+    },
+    "536": {
+        "eng": "U.S. Choice",
+        "label": "n.",
+        "ch": "\u4ee3\u8868\u7f8e\u570b\u8fb2\u696d\u90e8\u8089\u985e\u53ca\u8089\u88fd\u54c1\u54c1\u8cea\u5206\u985e\u7b49\u7d1a\u4e2d",
+        "backref": "On behalf of the U.S. Department of Agriculture meat and meat product quality classification level"
+    },
+    "537": {
+        "eng": "U.S. Prime",
+        "label": "n.",
+        "ch": "\u4ee3\u8868\u7f8e\u570b\u8fb2\u696d\u90e8\u8089\u985e\u53ca\u8089\u88fd\u54c1\u54c1\u8cea\u5206\u985e\u7b49\u7d1a\u4e2d",
+        "backref": "On behalf of the U.S. Department of Agriculture meat and meat product quality classification level"
+    },
+    "538": {
+        "eng": "udon",
+        "label": "n.",
+        "ch": "\u70cf\u9f8d\u9eb5",
+        "backref": "Udon"
+    },
+    "539": {
+        "eng": "Valentine's Day",
+        "label": "n.",
+        "ch": "\u60c5\u4eba\u7bc0",
+        "backref": "Valentine's Day"
+    },
+    "540": {
+        "eng": "various",
+        "label": "adj.",
+        "ch": "\u5404\u5f0f\u5404\u6a23\u7684",
+        "backref": "all manner of \u2026"
+    },
+    "541": {
+        "eng": "vendor",
+        "label": "n.",
+        "ch": "\u5c0f\u8ca9",
+        "backref": "Hawker"
+    },
+    "542": {
+        "eng": "wagon",
+        "label": "n.",
+        "ch": "\uff08 \u9001\u98df\u54c1\u3001\u98f2\u6599\u7b49\u9910\u9ede\u7684\uff09 \u624b\u63a8\u8eca",
+        "backref": "(Delivering food, beverages and other meals)"
+    },
+    "543": {
+        "eng": "waitress",
+        "label": "n.",
+        "ch": "\u5973\u670d\u52d9\u54e1",
+        "backref": "Waitress"
+    },
+    "544": {
+        "eng": "warmed German",
+        "label": "n.",
+        "ch": "\u5fb7\u5f0f\u71b1\u99ac\u9234\u85af\u6c99\u62c9",
+        "backref": "German hot potato salad"
+    },
+    "545": {
+        "eng": "water jug",
+        "label": "n.",
+        "ch": "\u6c34\u58fa",
+        "backref": "Water Jug"
+    },
+    "546": {
+        "eng": "watery",
+        "label": "adj.",
+        "ch": "\u542b\u6c34\u7684",
+        "backref": "Watery"
+    },
+    "547": {
+        "eng": "wax paper",
+        "label": "n.",
+        "ch": "\u6cb9\u7d19",
+        "backref": "Oil paper"
+    },
+    "548": {
+        "eng": "wedding party",
+        "label": "n.",
+        "ch": "\u559c\u5bb4",
+        "backref": "Wedding banquet"
+    },
+    "549": {
+        "eng": "wedge",
+        "label": "n.",
+        "ch": "\u6ab8\u6aac\u89d2",
+        "backref": "Lemon wedges"
+    },
+    "550": {
+        "eng": "well trained",
+        "label": "adj.",
+        "ch": "\u8a13\u7df4\u6709\u7d20\u7684",
+        "backref": "well trained"
+    },
+    "551": {
+        "eng": "wheat bread",
+        "label": "n.",
+        "ch": "\u5168\u9ea5\u9eb5\u5305",
+        "backref": "Whole meal wheat bread"
+    },
+    "552": {
+        "eng": "whipped cream",
+        "label": "n.",
+        "ch": "\u767c\u6ce1\u9bae\u5976\u6cb9\uff0c\u4e00\u822c\u5e38\u7528\u5427\u6aaf\u767c\u6ce1\u6c2e\u6c23",
+        "backref": "Foaming whipped cream, usually foaming nitrogen at the bar counter"
+    },
+    "553": {
+        "eng": "white bread",
+        "label": "n.",
+        "ch": "\u5410\u53f8\u9eb5\u5305\uff1b\u767d\u9eb5\u5305",
+        "backref": "Toast bread; white bread"
+    },
+    "554": {
+        "eng": "white peppercorn",
+        "label": "n.",
+        "ch": "\u767d\u80e1\u6912\u7c92",
+        "backref": "White peppercorns"
+    },
+    "555": {
+        "eng": "white wine cup",
+        "label": "n.",
+        "ch": "\u767d\u9152\u676f",
+        "backref": "Liquor glass"
+    },
+    "556": {
+        "eng": "white wine vinegar",
+        "label": "n.",
+        "ch": "\u767d\u9152\u918b",
+        "backref": "White wine vinegar"
+    },
+    "557": {
+        "eng": "whole chicken",
+        "label": "n.",
+        "ch": "\u5168\u96de",
+        "backref": "Whole chicken"
+    },
+    "558": {
+        "eng": "wine cooler",
+        "label": "n.",
+        "ch": "\u51b0\u9152\u6876",
+        "backref": "Ice wine barrel"
+    },
+    "559": {
+        "eng": "wine glass",
+        "label": "n.",
+        "ch": "\u9152\u676f",
+        "backref": "wine-glass"
+    },
+    "560": {
+        "eng": "wonton",
+        "label": "n.",
+        "ch": "\u991b\u98e9",
+        "backref": "Wonton"
+    },
+    "561": {
+        "eng": "wooden spatula",
+        "label": "n.",
+        "ch": "\u6728\u52fa",
+        "backref": "Wooden spoon"
+    },
+    "562": {
+        "eng": "worst",
+        "label": "adj.",
+        "ch": "\u6700\u5dee\u7684",
+        "backref": "the worst"
+    },
+    "563": {
+        "eng": "year-end party",
+        "label": "n.",
+        "ch": "\u5c3e\u7259",
+        "backref": "Tail teeth"
+    },
+    "564": {
+        "eng": "a bag of popcorn",
+        "label": "phr.",
+        "ch": "\u4e00\u888b\u7206\u7c73\u82b1",
+        "backref": "A bag of popcorn"
+    },
+    "565": {
+        "eng": "a bar of soap",
+        "label": "phr.",
+        "ch": "\u4e00\u584a\u80a5\u7682",
+        "backref": "A bar of soap"
+    },
+    "566": {
+        "eng": "a bottle of cooking oil",
+        "label": "phr.",
+        "ch": "\u4e00\u74f6\u98df\u7528\u6cb9",
+        "backref": "A bottle of cooking oil"
+    },
+    "567": {
+        "eng": "a bottle of juice",
+        "label": "phr.",
+        "ch": "\u4e00\u74f6\u679c\u6c41",
+        "backref": "A bottle of juice"
+    },
+    "568": {
+        "eng": "a bottomless cup",
+        "label": "n.",
+        "ch": "\u7121\u9650\u7e8c\u676f",
+        "backref": "Unlimited refills"
+    },
+    "569": {
+        "eng": "a bunch of carrots",
+        "label": "phr.",
+        "ch": "\u4e00\u5806\u7d05\u863f\u8514",
+        "backref": "Bunch of carrots"
+    },
+    "570": {
+        "eng": "a bunch of grapes",
+        "label": "phr.",
+        "ch": "\u4e00\u4e32\u8461\u8404",
+        "backref": "a bunch of grapes"
+    },
+    "571": {
+        "eng": "a can of beans",
+        "label": "phr.",
+        "ch": "\u4e00\u7f50\u8c46\u5b50",
+        "backref": "A can of beans"
+    },
+    "572": {
+        "eng": "a can of soda",
+        "label": "phr.",
+        "ch": "\u4e00\u7f50\uff08 \u8607\u6253\uff09 \u6c7d\u6c34",
+        "backref": "A can of (soda) soda"
+    },
+    "573": {
+        "eng": "a carton of milk",
+        "label": "phr.",
+        "ch": "\u4e00\u76d2\uff08 \u7bb1\uff09 \u725b\u5976",
+        "backref": "A box (carton) of milk"
+    },
+    "574": {
+        "eng": "a dozen of eggs",
+        "label": "phr.",
+        "ch": "\u4e00\u6253\u96de\u86cb",
+        "backref": "A dozen eggs"
+    },
+    "575": {
+        "eng": "a good seat",
+        "label": "phr.",
+        "ch": "\u597d\u4f4d\u7f6e",
+        "backref": "Good location"
+    },
+    "576": {
+        "eng": "a loaf of bread",
+        "label": "phr.",
+        "ch": "\u4e00\u689d\u9eb5\u5305",
+        "backref": "a loaf of bread"
+    },
+    "577": {
+        "eng": "a package of cookies",
+        "label": "phr.",
+        "ch": "\u4e00\u5305\u9905\u4e7e",
+        "backref": "A pack of biscuits"
+    },
+    "578": {
+        "eng": "a package of",
+        "label": "phr.",
+        "ch": "\u4e00\u5305\u9905\u4e7e",
+        "backref": "A pack of biscuits"
+    },
+    "579": {
+        "eng": "a private room",
+        "label": "n.",
+        "ch": "\u5305\u5ec2",
+        "backref": "Box"
+    },
+    "580": {
+        "eng": "a rotten spot",
+        "label": "n.",
+        "ch": "\u6c34\u679c\u4e0a\u8150\u58de\u3001\u88ab\u649e\u50b7\u6216\u662f\u6709\u87f2\u86c0\u7684\u90e8",
+        "backref": "Rotten, bruised or insect-eaten parts on the fruit"
+    },
+    "581": {
+        "eng": "a table for three",
+        "label": "n.",
+        "ch": "\u4e09\u4eba\u7528\u9910",
+        "backref": "Three people dining"
+    },
+    "582": {
+        "eng": "a variety of",
+        "label": "phr.",
+        "ch": "\u5404\u5f0f\u5404\u6a23\u7684",
+        "backref": "all manner of \u2026"
+    },
+    "583": {
+        "eng": "a VIP card",
+        "label": "n.",
+        "ch": "\u8cb4\u8cd3\u5361\uff1b\u6703\u54e1\u5361",
+        "backref": "VIP card; membership card"
+    },
+    "584": {
+        "eng": "aisle",
+        "label": "n.",
+        "ch": "\u8d70\u9053",
+        "backref": "Aisle"
+    },
+    "585": {
+        "eng": "aisle seat",
+        "label": "n.",
+        "ch": "\u9760\u8d70\u9053\u7684\u5ea7\u4f4d",
+        "backref": "Aisle seat"
+    },
+    "586": {
+        "eng": "alc by vol",
+        "label": "n.",
+        "ch": "\u9152\u7cbe\u6fc3\u5ea6\uff08 \u9078\u9152\uff09",
+        "backref": "Alcohol (choose wine)"
+    },
+    "587": {
+        "eng": "ale",
+        "label": "n.",
+        "ch": "\u9ea5\u9152",
+        "backref": "Ale"
+    },
+    "588": {
+        "eng": "allergic",
+        "label": "adj.",
+        "ch": "\u904e\u654f",
+        "backref": "Allergy"
+    },
+    "589": {
+        "eng": "alligator",
+        "label": "n.",
+        "ch": "\u9c77\u9b5a",
+        "backref": "Crocodilia"
+    },
+    "590": {
+        "eng": "altogether",
+        "label": "adv.",
+        "ch": "\u7e3d\u5171\uff1b\u5408\u8a08",
+        "backref": "Total"
+    },
+    "591": {
+        "eng": "another minute",
+        "label": "phr.",
+        "ch": "\u518d\u7b49\u4e00\u4e0b",
+        "backref": "Wait a second"
+    },
+    "592": {
+        "eng": "antipasto",
+        "label": "n.",
+        "ch": "\u7fa9\u5f0f\u524d\u83dc\uff08 \u958b\u80c3\u83dc\uff09",
+        "backref": "Italian Appetizers (Appetizers)"
+    },
+    "593": {
+        "eng": "appetite",
+        "label": "n.",
+        "ch": "\u80c3\u53e3\uff1b\u98df\u617e",
+        "backref": "Appetite"
+    },
+    "594": {
+        "eng": "apple pear",
+        "label": "n.",
+        "ch": "\u6c34\u68a8\uff08 \u4e2d\u570b\uff09",
+        "backref": "Water Pear (China)"
+    },
+    "595": {
+        "eng": "apron",
+        "label": "n.",
+        "ch": "\u570d\u88d9",
+        "backref": "Apron"
+    },
+    "596": {
+        "eng": "as usual",
+        "label": "adv.",
+        "ch": "\u4e00\u5982\u5f80\u5e38\uff1b\u901a\u5e38\uff1b\u7167\u4f8b",
+        "backref": "As usual; usually; as usual"
+    },
+    "597": {
+        "eng": "Asahi beer",
+        "label": "n.",
+        "ch": "\u671d\u65e5\u5564\u9152",
+        "backref": "Asahi"
+    },
+    "598": {
+        "eng": "at once",
+        "label": "phr.",
+        "ch": "\u99ac\u4e0a",
+        "backref": "right now"
+    },
+    "599": {
+        "eng": "at the bar",
+        "label": "phr.",
+        "ch": "\u5728\u5427\u6aaf\uff1b\u5728\u9152\u5427",
+        "backref": "At the bar; at the bar"
+    },
+    "600": {
+        "eng": "attendant",
+        "label": "n.",
+        "ch": "\u670d\u52d9\u54e1",
+        "backref": "Waiting staff"
+    },
+    "601": {
+        "eng": "attractive",
+        "label": "adj.",
+        "ch": "\u6709\u5438\u5f15\u529b\u7684",
+        "backref": "Attractive"
+    },
+    "602": {
+        "eng": "average",
+        "label": "adj.",
+        "ch": "\u666e\u901a\u7684\uff1b\u5e73\u5e38\u7684",
+        "backref": "Ordinary"
+    },
+    "603": {
+        "eng": "awfully",
+        "label": "adv.",
+        "ch": "\u8981\u547d\uff1b\u7570\u5e38\uff1b\u6975\u5ea6\u5730",
+        "backref": "Terrible; abnormal; extremely"
+    },
+    "604": {
+        "eng": "backpack",
+        "label": "n.",
+        "ch": "\u80cc\u5305",
+        "backref": "Backpack"
+    },
+    "605": {
+        "eng": "bag",
+        "label": "n.",
+        "ch": "\u888b",
+        "backref": "bag"
+    },
+    "606": {
+        "eng": "baguette",
+        "label": "n.",
+        "ch": "\u6cd5\u570b\u62d0\u6756\u9eb5\u5305",
+        "backref": "French cane bread"
+    },
+    "607": {
+        "eng": "bake",
+        "label": "v.",
+        "ch": "\u5728\u70e4\u7bb1\u4e2d\u70d8\u70e4",
+        "backref": "Baking in the oven"
+    },
+    "608": {
+        "eng": "baked salmon with",
+        "label": "n.",
+        "ch": "\u767d\u9152\u70e4\u9bad\u9b5a",
+        "backref": "White wine grilled salmon"
+    },
+    "609": {
+        "eng": "bakery",
+        "label": "n.",
+        "ch": "\u9eb5\u5305\u5e97",
+        "backref": "Bakery"
+    },
+    "610": {
+        "eng": "baking pan",
+        "label": "n.",
+        "ch": "\u70e4\u76e4",
+        "backref": "Baking tray"
+    },
+    "611": {
+        "eng": "baking powder",
+        "label": "n.",
+        "ch": "\u767c\u7c89",
+        "backref": "Baking powder"
+    },
+    "612": {
+        "eng": "baking soda",
+        "label": "n.",
+        "ch": "\u5c0f\u8607\u6253\u7c89",
+        "backref": "Baking soda"
+    },
+    "613": {
+        "eng": "banana split",
+        "label": "n.",
+        "ch": "\u9999\u8549\u8239",
+        "backref": "Banana split"
+    },
+    "614": {
+        "eng": "bar code",
+        "label": "n.",
+        "ch": "\u689d\u78bc",
+        "backref": "Barcode"
+    },
+    "615": {
+        "eng": "bar manager",
+        "label": "n.",
+        "ch": "\u5427\u6aaf\u7d93\u7406",
+        "backref": "Bar manager"
+    },
+    "616": {
+        "eng": "barista",
+        "label": "n.",
+        "ch": "\u5496\u5561\u5e2b\uff08 \u5085\uff09 \uff1b\u5496\u5561\u5e97\u5e97\u54e1",
+        "backref": "Barista (fu); coffee shop clerk"
+    },
+    "617": {
+        "eng": "barley soup",
+        "label": "n.",
+        "ch": "\u858f\u4ec1\u6e6f\uff1b\u5927\u9ea5\u6e6f",
+        "backref": "Barley soup"
+    },
+    "618": {
+        "eng": "bathroom",
+        "label": "n.",
+        "ch": "\u6d74\u5ba4",
+        "backref": "Bathroom"
+    },
+    "619": {
+        "eng": "battery",
+        "label": "n.",
+        "ch": "\u96fb\u6c60",
+        "backref": "Battery Bank"
+    },
+    "620": {
+        "eng": "be accompanied with",
+        "label": "phr.",
+        "ch": "\u96a8\u9910\u642d\u914d\u6709\u2026\uff1b\u914d\u9910",
+        "backref": "To accompany the meal with...;"
+    },
+    "621": {
+        "eng": "be at someone's",
+        "label": "phr.",
+        "ch": "\u807d\u5225\u4eba\u7684\u6c7a\u5b9a",
+        "backref": "Listen to others&#39; decisions"
+    },
+    "622": {
+        "eng": "be cooked in",
+        "label": "phr.",
+        "ch": "\u4ee5\u2026\uff08 \u65b9\u5f0f\uff09 \u70f9\u716e",
+        "backref": "Cook in (method)"
+    },
+    "623": {
+        "eng": "be flavored with",
+        "label": "phr.",
+        "ch": "\u88ab\u7528\u2026\u8abf\u5473",
+        "backref": "Seasoned with"
+    },
+    "624": {
+        "eng": "be fully booked",
+        "label": "v.",
+        "ch": "\u88ab\u8a02\u6eff\u4e86\uff1b\u5ba2\u6eff",
+        "backref": "Fully booked; full"
+    },
+    "625": {
+        "eng": "be garnished with",
+        "label": "phr.",
+        "ch": "\u96a8\u9910\u9644\u4e0a\u2026\u914d\u83dc",
+        "backref": "With the meal...side dishes"
+    },
+    "626": {
+        "eng": "be in a rush",
+        "label": "phr.",
+        "ch": "\u8d95\u6642\u9593",
+        "backref": "In a hurry"
+    },
+    "627": {
+        "eng": "be in the mood for",
+        "label": "phr.",
+        "ch": "\u6709\u610f\u2026",
+        "backref": "Intentionally..."
+    },
+    "628": {
+        "eng": "be made of",
+        "label": "phr.",
+        "ch": "\u7528\u2026\u88fd\u9020\uff1b\u7531\u2026\u88fd\u6210",
+        "backref": "Made of"
+    },
+    "629": {
+        "eng": "be run out of",
+        "label": "phr.",
+        "ch": "\u7528\u5b8c\u2026",
+        "backref": "run out\u2026"
+    },
+    "630": {
+        "eng": "be served with",
+        "label": "phr.",
+        "ch": "\u96a8\u9910\u642d\u914d\u6709\u2026\uff1b\u914d\u9910",
+        "backref": "To accompany the meal with...;"
+    },
+    "631": {
+        "eng": "be stuffed with",
+        "label": "phr.",
+        "ch": "\u88ab\u586b\u585e\u6eff\u4e86\u2026",
+        "backref": "It&#39;s stuffed..."
+    },
+    "632": {
+        "eng": "be suitable for",
+        "label": "phr.",
+        "ch": "\u9069\u5408",
+        "backref": "Fit"
+    },
+    "633": {
+        "eng": "bean curd sheet",
+        "label": "n.",
+        "ch": "\u767e\u9801\uff1b\u8150\u76ae",
+        "backref": "Hundred pages; rot"
+    },
+    "634": {
+        "eng": "bear fruit",
+        "label": "n.",
+        "ch": "\u7d50\u679c\u5be6\uff1b\u6210\u679c",
+        "backref": "Fruitful"
+    },
+    "635": {
+        "eng": "beat",
+        "label": "v.",
+        "ch": "\u6572\u6253",
+        "backref": "Whack"
+    },
+    "636": {
+        "eng": "beaten egg",
+        "label": "n.",
+        "ch": "\u86cb\u82b1\uff08 \u9084\u672a\u714e\u716e\uff09",
+        "backref": "Egg flower (not cooked yet)"
+    },
+    "637": {
+        "eng": "beef Bourguignon",
+        "label": "n.",
+        "ch": "\u7d05\u9152\u71c9\u725b\u8089",
+        "backref": "Red wine beef stew"
+    },
+    "638": {
+        "eng": "beef patty",
+        "label": "n.",
+        "ch": "\u725b\u8089\u9905",
+        "backref": "beef patty"
+    },
+    "639": {
+        "eng": "bell fruit",
+        "label": "n.",
+        "ch": "\u84ee\u9727",
+        "backref": "Syzygium samarangense"
+    },
+    "640": {
+        "eng": "belonging",
+        "label": "n.",
+        "ch": "\u500b\u4eba\u7269\u54c1\uff1b\u884c\u674e",
+        "backref": "Personal belongings; luggage"
+    },
+    "641": {
+        "eng": "bent",
+        "label": "adj.",
+        "ch": "\u5f4e\u66f2\u7684",
+        "backref": "Curved"
+    },
+    "642": {
+        "eng": "bitter melon",
+        "label": "n.",
+        "ch": "\u82e6\u74dc",
+        "backref": "Momordica charantia"
+    },
+    "643": {
+        "eng": "black forest cake",
+        "label": "n.",
+        "ch": "\u9ed1\u68ee\u6797\u86cb\u7cd5",
+        "backref": "Black forest cake"
+    },
+    "644": {
+        "eng": "black pepper",
+        "label": "n.",
+        "ch": "\u9ed1\u80e1\u6912",
+        "backref": "Peppercorns"
+    },
+    "645": {
+        "eng": "blunt",
+        "label": "adj.",
+        "ch": "\u920d\u7684",
+        "backref": "blunt"
+    },
+    "646": {
+        "eng": "book",
+        "label": "v.",
+        "ch": "\u9810\u8a02",
+        "backref": "Booking"
+    },
+    "647": {
+        "eng": "bottled water",
+        "label": "n.",
+        "ch": "\u74f6\u88dd\u6c34",
+        "backref": "Bottles of Water"
+    },
+    "648": {
+        "eng": "box",
+        "label": "n.",
+        "ch": "\u7bb1\uff1b\u76d2",
+        "backref": "Box"
+    },
+    "649": {
+        "eng": "braised bitter melon",
+        "label": "n.",
+        "ch": "\u91ac\u71dc\u82e6\u74dc",
+        "backref": "Braised Bitter Gourd in Sauce"
+    },
+    "650": {
+        "eng": "break",
+        "label": "v.",
+        "ch": "\u6253\u7834\uff1b\u4e2d\u65b7",
+        "backref": "Break"
+    },
+    "651": {
+        "eng": "brisket",
+        "label": "n.",
+        "ch": "\u80f8\u8089",
+        "backref": "brisket"
+    },
+    "652": {
+        "eng": "broken",
+        "label": "adj.",
+        "ch": "\u7834\u7684",
+        "backref": "broken"
+    },
+    "653": {
+        "eng": "brown sugar",
+        "label": "n.",
+        "ch": "\u7d05\u7cd6",
+        "backref": "brown sugar"
+    },
+    "654": {
+        "eng": "brownie chocolate",
+        "label": "n.",
+        "ch": "\u5e03\u6717\u5c3c\u5de7\u514b\u529b\u9b06\u7cd5",
+        "backref": "Brownie Chocolate Sponge Cake"
+    },
+    "655": {
+        "eng": "bruised",
+        "label": "adj.",
+        "ch": "\u6709\u78b0\u50b7\uff1b\u58d3\u50b7\u7684\uff08 \u6c34\u679c\uff09",
+        "backref": "Bruised; bruised (fruit)"
+    },
+    "656": {
+        "eng": "brunch",
+        "label": "n.",
+        "ch": "\u65e9\u5348\u9910",
+        "backref": "Brunch"
+    },
+    "657": {
+        "eng": "buck",
+        "label": "n.",
+        "ch": "\u4e00\u5143",
+        "backref": "One yuan"
+    },
+    "658": {
+        "eng": "bucket",
+        "label": "n.",
+        "ch": "\u4e00\u6876",
+        "backref": "A bucket"
+    },
+    "659": {
+        "eng": "buffalo hot wings",
+        "label": "n.",
+        "ch": "\u7d10\u7d04\u8fa3\u96de\u7fc5",
+        "backref": "Buffalo hot wings"
+    },
+    "660": {
+        "eng": "bun",
+        "label": "n.",
+        "ch": "\u5c0f\u5713\u9eb5\u5305\uff1b\u5305\u5b50",
+        "backref": "Bun"
+    },
+    "661": {
+        "eng": "bundle",
+        "label": "n.",
+        "ch": "\u675f",
+        "backref": "bundle"
+    },
+    "662": {
+        "eng": "busboy",
+        "label": "n.",
+        "ch": "\u9910\u5ef3\u96dc\u5f79\uff1b\u5916\u5834\u5c0f\u5f1f",
+        "backref": "Restaurant handyman; outfield boy"
+    },
+    "663": {
+        "eng": "business card",
+        "label": "n.",
+        "ch": "\u540d\u7247",
+        "backref": "Visiting card"
+    },
+    "664": {
+        "eng": "by the window",
+        "label": "phr.",
+        "ch": "\u9760\u8fd1\u7a97\u6236",
+        "backref": "Near the window"
+    },
+    "665": {
+        "eng": "caffe macchiato",
+        "label": "n.",
+        "ch": "\u746a\u5947\u6735\u5496\u5561",
+        "backref": "Macchiato coffee"
+    },
+    "666": {
+        "eng": "camel",
+        "label": "n.",
+        "ch": "\u99f1\u99dd",
+        "backref": "Camel"
+    },
+    "667": {
+        "eng": "can",
+        "label": "n.",
+        "ch": "\u7f50",
+        "backref": "Jar"
+    },
+    "668": {
+        "eng": "cancel",
+        "label": "v.",
+        "ch": "\u53d6\u6d88",
+        "backref": "Cancel"
+    },
+    "669": {
+        "eng": "candy",
+        "label": "n.",
+        "ch": "\u7cd6\u679c",
+        "backref": "Candy"
+    },
+    "670": {
+        "eng": "cannelloni",
+        "label": "n.",
+        "ch": "\u7fa9\u5f0f\u96de\u8089\u6372",
+        "backref": "Italian Chicken Roll"
+    },
+    "671": {
+        "eng": "cantaloupe",
+        "label": "n.",
+        "ch": "\u54c8\u5bc6\u74dc",
+        "backref": "Hami melon"
+    },
+    "672": {
+        "eng": "caramel macchiato",
+        "label": "n.",
+        "ch": "\u7126\u7cd6\u746a\u5947\u6735",
+        "backref": "Caramel macchiato"
+    },
+    "673": {
+        "eng": "caramel pudding",
+        "label": "n.",
+        "ch": "\u7126\u7cd6\u5e03\u4e01",
+        "backref": "Caramel pudding"
+    },
+    "674": {
+        "eng": "carton",
+        "label": "n.",
+        "ch": "\u7d19\u76d2\uff1b\u4e00\u76d2",
+        "backref": "Carton; a box"
+    },
+    "675": {
+        "eng": "cash or credit",
+        "label": "phr.",
+        "ch": "\u5237\u5361\u9084\u662f\u4ed8\u73fe",
+        "backref": "Swipe or cash"
+    },
+    "676": {
+        "eng": "cash register",
+        "label": "n.",
+        "ch": "\u6536\u9280\u6a5f",
+        "backref": "Cash register"
+    },
+    "677": {
+        "eng": "chair",
+        "label": "n.",
+        "ch": "\u6905\u5b50",
+        "backref": "Chair"
+    },
+    "678": {
+        "eng": "charge",
+        "label": "v.",
+        "ch": "\u6536\u53d6\u8cbb\u7528",
+        "backref": "Fee"
+    },
+    "679": {
+        "eng": "charming",
+        "label": "adj.",
+        "ch": "\u8ff7\u4eba\u7684",
+        "backref": "appealing"
+    },
+    "680": {
+        "eng": "chaser",
+        "label": "n.",
+        "ch": "\u98f2\u70c8\u9152\u5f8c\uff0c\u9192\u9152\u559d\u7684\u6e05\u6de1\u98f2\u6599\u3002",
+        "backref": "A light drink to sober up after drinking strong alcohol."
+    },
+    "681": {
+        "eng": "chat",
+        "label": "v.",
+        "ch": "\u804a\u5929",
+        "backref": "Chat"
+    },
+    "682": {
+        "eng": "checkout counter",
+        "label": "n.",
+        "ch": "\u6536\u9280\u53f0",
+        "backref": "checkout counter"
+    },
+    "683": {
+        "eng": "Cheerio",
+        "label": "n.",
+        "ch": "\u5168\u6996\u9ea5\u7247\uff08\u4e00\u7a2e\u9ea5\u7247\u54c1\u724c\uff0c\u5947\u529b\u6b50\u9ea5",
+        "backref": "Whole grain cereals (a kind of cereal brand, Kili Omai"
+    },
+    "684": {
+        "eng": "cheese tortellini",
+        "label": "n.",
+        "ch": "\u8d77\u53f8\u9903",
+        "backref": "Cheese dumplings"
+    },
+    "685": {
+        "eng": "chef's",
+        "label": "n.",
+        "ch": "\u4e3b\u5eda\u63a8\u85a6",
+        "backref": "Chef recommended"
+    },
+    "686": {
+        "eng": "chef's salad",
+        "label": "n.",
+        "ch": "\u4e3b\u5eda\uff08\u7279\u88fd\uff09\u6c99\u62c9",
+        "backref": "Chef (special) salad"
+    },
+    "687": {
+        "eng": "chew",
+        "label": "v.",
+        "ch": "\u5480\u56bc",
+        "backref": "masticate"
+    },
+    "688": {
+        "eng": "chicken fingers",
+        "label": "n.",
+        "ch": "\u96de\u67f3\u689d\uff1b\u96de\u722a",
+        "backref": "Chicken strips; chicken feet"
+    },
+    "689": {
+        "eng": "chicken parmesan",
+        "label": "n.",
+        "ch": "\u5e15\u746a\u68ee\u4e7e\u916a\u7117\u70e4\u96de\u8089",
+        "backref": "Baked Chicken with Parmesan Cheese"
+    },
+    "690": {
+        "eng": "chipped",
+        "label": "adj.",
+        "ch": "\u6709\u88c2\u75d5\u7f3a\u53e3\u7684",
+        "backref": "Cracked"
+    },
+    "691": {
+        "eng": "chocolate brownie",
+        "label": "n.",
+        "ch": "\u542b\u51b0\u6dc7\u6dcb\u7684\u5de7\u514b\u529b\u5e03\u6717\u5c3c",
+        "backref": "Chocolate brownie with ice cream"
+    },
+    "692": {
+        "eng": "chubby",
+        "label": "adj.",
+        "ch": "\u8c50\u6eff\u7684",
+        "backref": "chubby"
+    },
+    "693": {
+        "eng": "chuck",
+        "label": "n.",
+        "ch": "\u80a9\u80db\u8089",
+        "backref": "Scapula"
+    },
+    "694": {
+        "eng": "cigarette",
+        "label": "n.",
+        "ch": "\u9999\u83f8",
+        "backref": "cigarette"
+    },
+    "695": {
+        "eng": "cinnamon roll",
+        "label": "n.",
+        "ch": "\u8089\u6842\u6372",
+        "backref": "Cinnamon rolls"
+    },
+    "696": {
+        "eng": "clerk",
+        "label": "n.",
+        "ch": "\u5e97\u54e1\uff1b\u71df\u696d\u54e1",
+        "backref": "Clerk"
+    },
+    "697": {
+        "eng": "client",
+        "label": "n.",
+        "ch": "\u9867\u5ba2",
+        "backref": "Customer"
+    },
+    "698": {
+        "eng": "close to",
+        "label": "phr.",
+        "ch": "\u6216 adv. \u63a5\u8fd1\u65bc\uff1b\u5728\u9644\u8fd1",
+        "backref": "Or adv. close to; nearby"
+    },
+    "699": {
+        "eng": "coconut milk",
+        "label": "n.",
+        "ch": "\u6930\u6f3f\uff08 \u5976\uff09",
+        "backref": "Coconut milk (milk)"
+    },
+    "700": {
+        "eng": "coffee filter",
+        "label": "n.",
+        "ch": "\u5496\u5561\u6ffe\u7d19\uff1b\u5496\u5561\u904e\u6ffe\u5668",
+        "backref": "Coffee filter paper; coffee filter"
+    },
+    "701": {
+        "eng": "coffee grinder",
+        "label": "n.",
+        "ch": "\u5496\u5561\u7814\u78e8\u6a5f",
+        "backref": "Coffee grinder"
+    },
+    "702": {
+        "eng": "coffee grounds",
+        "label": "n.",
+        "ch": "\u5496\u5561\u6e23",
+        "backref": "coffee grounds"
+    },
+    "703": {
+        "eng": "coffee shop",
+        "label": "n.",
+        "ch": "\u5496\u5561\u9928",
+        "backref": "Coffee Shop"
+    },
+    "704": {
+        "eng": "coffeemaker mug",
+        "label": "n.",
+        "ch": "\u5496\u5561\u6a5f\u99ac\u514b\u676f",
+        "backref": "Coffee machine mug"
+    },
+    "705": {
+        "eng": "coffeepot",
+        "label": "n.",
+        "ch": "\u5496\u5561\u58fa",
+        "backref": "coffee pot"
+    },
+    "706": {
+        "eng": "coin",
+        "label": "n.",
+        "ch": "\u786c\u5e63",
+        "backref": "Coin"
+    },
+    "707": {
+        "eng": "cold dressed fungus",
+        "label": "n.",
+        "ch": "\u6dbc\u62cc\u96f2\u8033",
+        "backref": "Cold Cloud Ears"
+    },
+    "708": {
+        "eng": "colleague",
+        "label": "n.",
+        "ch": "\u540c\u50da\uff1b\u540c\u4e8b",
+        "backref": "Colleague"
+    },
+    "709": {
+        "eng": "color",
+        "label": "n.",
+        "ch": "\u8272\u6fa4",
+        "backref": "Color"
+    },
+    "710": {
+        "eng": "combination of",
+        "label": "n.",
+        "ch": "\u96de\u8089\u8207\u725b\u8089\u7d9c\u5408\u5496\u54e9\u9910",
+        "backref": "Chicken and beef curry meal"
+    },
+    "711": {
+        "eng": "come with",
+        "label": "phr.",
+        "ch": "\u9644\u8d08\uff1b\u9644\u52a0",
+        "backref": "Bonus"
+    },
+    "712": {
+        "eng": "command",
+        "label": "v.",
+        "ch": "\u63a8\u85a6\uff1b\u6307\u63ee\uff1b\u547d\u4ee4",
+        "backref": "Recommend; command; order"
+    },
+    "713": {
+        "eng": "common",
+        "label": "adj.",
+        "ch": "\u5e38\u898b\u7684",
+        "backref": "Common"
+    },
+    "714": {
+        "eng": "complain",
+        "label": "v.",
+        "ch": "\u62b1\u6028",
+        "backref": "complain"
+    },
+    "715": {
+        "eng": "complimentary",
+        "label": "n.",
+        "ch": "\u514d\u8cbb\u6b50\u9678\u5f0f\u65e9\u9910\uff08\u901a\u5e38\u4ee5\u9eb5\u5305\u3001\u5496\u5561",
+        "backref": "Free continental breakfast (usually with bread, coffee"
+    },
+    "716": {
+        "eng": "concierge",
+        "label": "n.",
+        "ch": "\u670d\u52d9\u53f0\u4eba\u54e1",
+        "backref": "Help desk staff"
+    },
+    "717": {
+        "eng": "condiment",
+        "label": "n.",
+        "ch": "\u4f50\u6599\uff1b\u8abf\u5473\u6599",
+        "backref": "Seasoning"
+    },
+    "718": {
+        "eng": "cone",
+        "label": "n.",
+        "ch": "\u5713\u9310\u5f62\u86cb\u6372\u7b52",
+        "backref": "Cone cone"
+    },
+    "719": {
+        "eng": "confirm",
+        "label": "v.",
+        "ch": "\u78ba\u8a8d",
+        "backref": "Check this video"
+    },
+    "720": {
+        "eng": "convenience store",
+        "label": "n.",
+        "ch": "\u4fbf\u5229\u5546\u5e97",
+        "backref": "Convenience store"
+    },
+    "721": {
+        "eng": "coq au vin",
+        "label": "n.",
+        "ch": "\u7d05\u9152\u71c9\u96de",
+        "backref": "Red wine stewed chicken"
+    },
+    "722": {
+        "eng": "corn dog",
+        "label": "n.",
+        "ch": "\u70b8\u71b1\u72d7\uff08 \u5916\u9762\u88f9\u7389\u7c73\u7c89\uff09",
+        "backref": "Fried hot dog (coated with corn flour)"
+    },
+    "723": {
+        "eng": "corner",
+        "label": "n.",
+        "ch": "\u8857\u89d2\uff1b\u89d2\u843d",
+        "backref": "Corner"
+    },
+    "724": {
+        "eng": "cornflakes",
+        "label": "n.",
+        "ch": "\u7389\u7c73\u7247\uff08 \u65e9\u9910\u7528\uff09",
+        "backref": "Corn flakes (for breakfast)"
+    },
+    "725": {
+        "eng": "cotton candy",
+        "label": "n.",
+        "ch": "\u68c9\u82b1\u7cd6",
+        "backref": "cotton candy"
+    },
+    "726": {
+        "eng": "counter",
+        "label": "n.",
+        "ch": "\u6ac3\u6aaf",
+        "backref": "at the counter"
+    },
+    "727": {
+        "eng": "country of origin",
+        "label": "n.",
+        "ch": "\u88fd\u9020\u570b\u5bb6\uff1b\u539f\u7522\u5730\uff08 \u9078\u9152\uff09",
+        "backref": "Country of manufacture; place of origin (selected wine)"
+    },
+    "728": {
+        "eng": "coupon",
+        "label": "n.",
+        "ch": "\u512a\u60e0\u5238\uff1b\u6298\u50f9\u5238\uff1b\u9910\u5238",
+        "backref": "Coupons; discount coupons; meal coupons"
+    },
+    "729": {
+        "eng": "crab fried rice",
+        "label": "n.",
+        "ch": "\u87f9\u8089\u7092\u98ef",
+        "backref": "Crab Meat Fried Rice"
+    },
+    "730": {
+        "eng": "crab roe and pork",
+        "label": "n.",
+        "ch": "\u87f9\u7c89\u5c0f\u7c60\u5305",
+        "backref": "Crab Noodle Xiaolongbao"
+    },
+    "731": {
+        "eng": "cream",
+        "label": "n.",
+        "ch": "\u5976\u6cb9",
+        "backref": "Cream"
+    },
+    "732": {
+        "eng": "creamy",
+        "label": "adj.",
+        "ch": "\u4e73\u8102\u72c0\u7684\uff1b\u6ed1\u81a9",
+        "backref": "Creamy; creamy"
+    },
+    "733": {
+        "eng": "creamy corn soup",
+        "label": "n.",
+        "ch": "\u5976\u6cb9\u7389\u7c73\u6fc3\u6e6f",
+        "backref": "Creamy Corn Soup"
+    },
+    "734": {
+        "eng": "creme brulee",
+        "label": "n.",
+        "ch": "\u7126\u7cd6\u5e03\u4e01",
+        "backref": "Caramel pudding"
+    },
+    "735": {
+        "eng": "crispy",
+        "label": "adj.",
+        "ch": "\u9165\u8106\u7684",
+        "backref": "Crispy"
+    },
+    "736": {
+        "eng": "cube",
+        "label": "v.",
+        "ch": "\u6216 n. \u5207\u4e01\uff1b\u65b9\u5f62\u7269\u9ad4",
+        "backref": "Or n. diced; square object"
+    },
+    "737": {
+        "eng": "cup of Java",
+        "label": "phr.",
+        "ch": "\u4e00\u676f\uff08\u722a\u54c7\uff09\u5496\u5561",
+        "backref": "A cup of (Java) coffee"
+    },
+    "738": {
+        "eng": "cup of Joe",
+        "label": "phr.",
+        "ch": "\u4e00\u676f\u5496\u5561",
+        "backref": "a cup of coffee"
+    },
+    "739": {
+        "eng": "cut",
+        "label": "v.",
+        "ch": "\u5207\u5272",
+        "backref": "Cutting"
+    },
+    "740": {
+        "eng": "cute",
+        "label": "adj.",
+        "ch": "\u53ef\u611b\u7684",
+        "backref": "Loveliest"
+    },
+    "741": {
+        "eng": "dark beer",
+        "label": "n.",
+        "ch": "\u9ed1\u5564\u9152",
+        "backref": "dark beer"
+    },
+    "742": {
+        "eng": "date",
+        "label": "n.",
+        "ch": "\u6930\u68d7\uff1b\u65e5\u671f",
+        "backref": "Date palm"
+    },
+    "743": {
+        "eng": "deep-fried onion",
+        "label": "n.",
+        "ch": "\u9165\u70b8\u6d0b\u8525\u5708",
+        "backref": "Fried onion rings"
+    },
+    "744": {
+        "eng": "deer",
+        "label": "n.",
+        "ch": "\u9e7f",
+        "backref": "Cerf"
+    },
+    "745": {
+        "eng": "deposit",
+        "label": "n.",
+        "ch": "\u8a02\u91d1",
+        "backref": "Deposit"
+    },
+    "746": {
+        "eng": "deserve",
+        "label": "v.",
+        "ch": "\u8a72\u5f97\uff1b\u61c9\u53d7",
+        "backref": "Deserve"
+    },
+    "747": {
+        "eng": "dessert display",
+        "label": "n.",
+        "ch": "\u751c\u9ede\u5c55\u793a",
+        "backref": "Dessert display"
+    },
+    "748": {
+        "eng": "dietary",
+        "label": "adj.",
+        "ch": "\u8207\u98f2\u98df\u6709\u95dc\u7684",
+        "backref": "Related to diet"
+    },
+    "749": {
+        "eng": "digest",
+        "label": "v.",
+        "ch": "\u6d88\u5316",
+        "backref": "Digestion"
+    },
+    "750": {
+        "eng": "dime",
+        "label": "n.",
+        "ch": "\u4e00\u89d2\uff1b\u5341\u5206\u786c\u5e63",
+        "backref": "A dime"
+    },
+    "751": {
+        "eng": "dine",
+        "label": "v.",
+        "ch": "\u7528\u9910\uff1b\u9032\u9910",
+        "backref": "Have a meal"
+    },
+    "752": {
+        "eng": "dip",
+        "label": "v.",
+        "ch": "\u6cbe",
+        "backref": "Dip"
+    },
+    "753": {
+        "eng": "dirty",
+        "label": "adj.",
+        "ch": "\u9ad2\u7684",
+        "backref": "Dirty"
+    },
+    "754": {
+        "eng": "disappointing",
+        "label": "adj.",
+        "ch": "\u4ee4\u4eba\u5931\u671b\u7684",
+        "backref": "disappointed"
+    },
+    "755": {
+        "eng": "dollar",
+        "label": "n.",
+        "ch": "\u5143",
+        "backref": "Yuan"
+    },
+    "756": {
+        "eng": "domestic",
+        "label": "adj.",
+        "ch": "\u570b\u5167\u7684",
+        "backref": "domestic"
+    },
+    "757": {
+        "eng": "donkey",
+        "label": "n.",
+        "ch": "\u9a62",
+        "backref": "Donkey"
+    },
+    "758": {
+        "eng": "dough",
+        "label": "n.",
+        "ch": "\u751f\u9eb5\u7cf0\uff1b\u9eb5\u76ae\uff1b\u73fe\u91d1",
+        "backref": "Dough; dough; cash"
+    },
+    "759": {
+        "eng": "downstairs",
+        "label": "n.",
+        "ch": "\u6a13\u4e0b",
+        "backref": "downstairs"
+    },
+    "760": {
+        "eng": "dozen",
+        "label": "n.",
+        "ch": "\u6253",
+        "backref": "Dozen"
+    },
+    "761": {
+        "eng": "drink like a fish",
+        "label": "phr.",
+        "ch": "\u9152\u91cf\u5f88\u597d\uff1b\u72c2\u559d\u6feb\u98f2",
+        "backref": "Alcohol is very good;"
+    },
+    "762": {
+        "eng": "drip coffee",
+        "label": "n.",
+        "ch": "\u6ffe\u6ce1\u5496\u5561",
+        "backref": "Follicular coffee"
+    },
+    "763": {
+        "eng": "drip coffee maker",
+        "label": "n.",
+        "ch": "\u6ef4\u6f0f\u5f0f\u5496\u5561\u6a5f",
+        "backref": "Filter coffee machine"
+    },
+    "764": {
+        "eng": "drumstick",
+        "label": "n.",
+        "ch": "\u96de\u817f",
+        "backref": "drumstick"
+    },
+    "765": {
+        "eng": "drunk",
+        "label": "adj.",
+        "ch": "\u9152\u9189\u7684",
+        "backref": "Drunk"
+    },
+    "766": {
+        "eng": "durian",
+        "label": "n.",
+        "ch": "\u69b4\u69e4",
+        "backref": "Durian"
+    },
+    "767": {
+        "eng": "Earl grey milk tea",
+        "label": "n.",
+        "ch": "\u4f2f\u7235\u5976\u8336",
+        "backref": "Earl Grey Milk Tea"
+    },
+    "768": {
+        "eng": "eat like a bird",
+        "label": "phr.",
+        "ch": "\u98df\u91cf\u5f88\u5c0f\uff1b\u5403\u5f97\u5f88\u5c11",
+        "backref": "Eat very little; eat very little"
+    },
+    "769": {
+        "eng": "eat out",
+        "label": "v.",
+        "ch": "\u5916\u98df",
+        "backref": "take-out"
+    },
+    "770": {
+        "eng": "eclair",
+        "label": "n.",
+        "ch": "\u593e\u5976\u6cb9\u9577\u5f62\u6cd5\u5f0f\u9583\u96fb\u6ce1\u8299",
+        "backref": "Long French Lightning Puffs with Cream"
+    },
+    "771": {
+        "eng": "egg",
+        "label": "n.",
+        "ch": "\u86cb",
+        "backref": "Egg"
+    },
+    "772": {
+        "eng": "egg flower soup",
+        "label": "n.",
+        "ch": "\u86cb\u82b1\u6e6f",
+        "backref": "Egg drop soup"
+    },
+    "773": {
+        "eng": "electric rice cooker",
+        "label": "n.",
+        "ch": "\u96fb\u934b",
+        "backref": "Electric pot"
+    },
+    "774": {
+        "eng": "elevator",
+        "label": "n.",
+        "ch": "\u96fb\u68af",
+        "backref": "ELEVATORS"
+    },
+    "775": {
+        "eng": "enchilada",
+        "label": "n.",
+        "ch": "\u8fa3\u91ac\u58a8\u897f\u54e5\u6372\u9905",
+        "backref": "Hot Sauce Burrito"
+    },
+    "776": {
+        "eng": "endangered",
+        "label": "adj.",
+        "ch": "\u7015\u81e8\u7d55\u7a2e\u7684",
+        "backref": "Endangered"
+    },
+    "777": {
+        "eng": "enjoy",
+        "label": "v.",
+        "ch": "\u4eab\u7528",
+        "backref": "Enjoy"
+    },
+    "778": {
+        "eng": "ethnic food",
+        "label": "adj.",
+        "ch": "\u5404\u6c11\u65cf\u7684\u98df\u7269",
+        "backref": "Food of all ethnic groups"
+    },
+    "779": {
+        "eng": "EUR",
+        "label": "n.",
+        "ch": "\u6b50\u5143\uff08 \u7e2e\u5beb\uff09",
+        "backref": "Euro (abbreviation)"
+    },
+    "780": {
+        "eng": "exchange rate",
+        "label": "n.",
+        "ch": "\u532f\u7387",
+        "backref": "Exchange rate"
+    },
+    "781": {
+        "eng": "exit",
+        "label": "n.",
+        "ch": "\u51fa\u53e3",
+        "backref": "Export"
+    },
+    "782": {
+        "eng": "exotic",
+        "label": "adj.",
+        "ch": "\u7570\u570b\u60c5\u8abf\u7684",
+        "backref": "Exotic"
+    },
+    "783": {
+        "eng": "expiration date",
+        "label": "n.",
+        "ch": "\u6709\u6548\u671f\u9650",
+        "backref": "Valid Until Date"
+    },
+    "784": {
+        "eng": "expired",
+        "label": "adj.",
+        "ch": "\u904e\u671f\u7684",
+        "backref": "Expired"
+    },
+    "785": {
+        "eng": "extensive",
+        "label": "adj.",
+        "ch": "\u5ee3\u6cdb\u7684",
+        "backref": "Extensive"
+    },
+    "786": {
+        "eng": "Fanta orange",
+        "label": "n.",
+        "ch": "\u82ac\u9054\u67f3\u6a59\u6c41",
+        "backref": "Fanta Orange Juice"
+    },
+    "787": {
+        "eng": "fast food restaurant",
+        "label": "n.",
+        "ch": "\u901f\u98df\u5e97\uff1b\u5feb\u9910\u9910\u5ef3",
+        "backref": "Fast food restaurant"
+    },
+    "788": {
+        "eng": "favorite",
+        "label": "n.",
+        "ch": "\u559c\u611b",
+        "backref": "Favorite"
+    },
+    "789": {
+        "eng": "feel like a fish out of",
+        "label": "phr.",
+        "ch": "\u89ba\u5f97\u5f88\u4e0d\u81ea\u5728",
+        "backref": "Feel very uncomfortable"
+    },
+    "790": {
+        "eng": "feel like eating",
+        "label": "phr.",
+        "ch": "\u60f3\u8981\u5403\u6771\u897f",
+        "backref": "Want to eat"
+    },
+    "791": {
+        "eng": "ferment",
+        "label": "v.",
+        "ch": "\u767c\u9175",
+        "backref": "Fermentation"
+    },
+    "792": {
+        "eng": "filet mignon",
+        "label": "n.",
+        "ch": "\u83f2\u529b\u725b\u6392",
+        "backref": "Fillet steak"
+    },
+    "793": {
+        "eng": "fillet",
+        "label": "v.",
+        "ch": "\u6216 n. \u53bb\u9aa8\u5207\u7247\uff08 \u6307\u9b5a\u3001\u8089\uff09 \uff1b\u9b5a\u7247",
+        "backref": "Or n. boneless slices (refers to fish, meat); fish fillets"
+    },
+    "794": {
+        "eng": "fillet of fish",
+        "label": "n.",
+        "ch": "\u7121\u9aa8\u9b5a\u8089\u7247",
+        "backref": "Boneless fish fillet"
+    },
+    "795": {
+        "eng": "fine dining",
+        "label": "n.",
+        "ch": "\u7f8e\u98df",
+        "backref": "Gourmet"
+    },
+    "796": {
+        "eng": "fishy",
+        "label": "adj.",
+        "ch": "\u6709\u9b5a\u8165\u5473\u7684",
+        "backref": "Fishy"
+    },
+    "797": {
+        "eng": "flamingo",
+        "label": "n.",
+        "ch": "\u7d05\u9db4",
+        "backref": "Flamingo"
+    },
+    "798": {
+        "eng": "flank",
+        "label": "n.",
+        "ch": "\u8179\u8089",
+        "backref": "Belly"
+    },
+    "799": {
+        "eng": "flashlight",
+        "label": "n.",
+        "ch": "\u624b\u96fb\u7b52",
+        "backref": "Flashlight"
+    },
+    "800": {
+        "eng": "focaccia",
+        "label": "n.",
+        "ch": "\u7fa9\u5f0f\u9999\u8349\u9eb5\u5305",
+        "backref": "Italian vanilla bread"
+    },
+    "801": {
+        "eng": "food stand",
+        "label": "n.",
+        "ch": "\u5c0f\u5403\u6524",
+        "backref": "Food stalls"
+    },
+    "802": {
+        "eng": "for a change",
+        "label": "phr.",
+        "ch": "\u63db\u53e3\u5473\uff1a\u6539\u8b8a\u53e3\u5473",
+        "backref": "Change taste: change taste"
+    },
+    "803": {
+        "eng": "freezer section",
+        "label": "n.",
+        "ch": "\u51b7\u51cd\u5340\uff1b\u51b7\u85cf\u5340",
+        "backref": "Freezing area"
+    },
+    "804": {
+        "eng": "freezing cold",
+        "label": "adj.",
+        "ch": "\u51b0\u51cd\u7684",
+        "backref": "frozen"
+    },
+    "805": {
+        "eng": "French press",
+        "label": "n.",
+        "ch": "\u6cd5\u5f0f\u6ffe\u58d3\u58fa",
+        "backref": "French press pot"
+    },
+    "806": {
+        "eng": "fresh",
+        "label": "adj.",
+        "ch": "\u65b0\u9bae\u7684",
+        "backref": "Fresh"
+    },
+    "807": {
+        "eng": "fresh-brewed coffee",
+        "label": "n.",
+        "ch": "\u73fe\u716e\u5496\u5561",
+        "backref": "Freshly brewed coffee"
+    },
+    "808": {
+        "eng": "fried beancurd puff",
+        "label": "n.",
+        "ch": "\u6cb9\u8c46\u8150",
+        "backref": "Oily tofu"
+    },
+    "809": {
+        "eng": "fried calamari",
+        "label": "n.",
+        "ch": "\u70b8\u82b1\u679d\u6372",
+        "backref": "Fried Squid Roll"
+    },
+    "810": {
+        "eng": "fried noodles",
+        "label": "n.",
+        "ch": "\u7092\u9eb5",
+        "backref": "Fried noodles"
+    },
+    "811": {
+        "eng": "fried pork chop",
+        "label": "n.",
+        "ch": "\u70b8\u6392\u9aa8",
+        "backref": "Fried pork ribs"
+    },
+    "812": {
+        "eng": "fries",
+        "label": "n.",
+        "ch": "\u85af\u689d",
+        "backref": "French fries"
+    },
+    "813": {
+        "eng": "frog",
+        "label": "n.",
+        "ch": "\u9752\u86d9",
+        "backref": "Frog"
+    },
+    "814": {
+        "eng": "frogs leg",
+        "label": "n.",
+        "ch": "\u7530\u96de\u817f",
+        "backref": "Frog Leg"
+    },
+    "815": {
+        "eng": "frozen food section",
+        "label": "n.",
+        "ch": "\u51b7\u51cd\u98df\u54c1\u5340",
+        "backref": "Frozen food area"
+    },
+    "816": {
+        "eng": "fruit and vegetable",
+        "label": "n.",
+        "ch": "\u852c\u679c\u5340",
+        "backref": "Vegetable and Fruit Zone"
+    },
+    "817": {
+        "eng": "fruit salad",
+        "label": "n.",
+        "ch": "\u6c34\u679c\u6c99\u62c9",
+        "backref": "Fruit cocktail"
+    },
+    "818": {
+        "eng": "further",
+        "label": "adv.",
+        "ch": "\u8f03\u9060\u7684\uff08 \u70ba far \u7684\u6bd4\u8f03\u7d1a\uff09",
+        "backref": "Farther (comparative to far)"
+    },
+    "819": {
+        "eng": "fusion cuisine",
+        "label": "n.",
+        "ch": "\u7570\u570b\u6599\u7406",
+        "backref": "Exotic cuisine"
+    },
+    "820": {
+        "eng": "gelato",
+        "label": "n.",
+        "ch": "\u7fa9\u5f0f\u51b0\u6dc7\u6dcb",
+        "backref": "Italian ice cream"
+    },
+    "821": {
+        "eng": "get out",
+        "label": "v.",
+        "ch": "\u628a\u2026\u53d6\u51fa",
+        "backref": "Take out"
+    },
+    "822": {
+        "eng": "go dutch",
+        "label": "phr.",
+        "ch": "\u5404\u4ed8\u5404\u7684\uff1b\u5e73\u5206\u8cbb\u7528",
+        "backref": "Pay for each; split the cost equally"
+    },
+    "823": {
+        "eng": "go on a diet",
+        "label": "phr.",
+        "ch": "\u6b63\u5728\u7bc0\u98df\u7684",
+        "backref": "On a diet"
+    },
+    "824": {
+        "eng": "go well with",
+        "label": "phr.",
+        "ch": "\u76f8\u914d\uff08 \u7528\u65bc\u5f62\u5bb9\u98f2\u98df\u6216\u670d\u98fe\u7684\u7d44\u5408\u642d",
+        "backref": "Match (used to describe a combination of food or clothing"
+    },
+    "825": {
+        "eng": "go with",
+        "label": "v.",
+        "ch": "\u642d\u914d\u2026",
+        "backref": "With..."
+    },
+    "826": {
+        "eng": "good restaurants",
+        "label": "n.",
+        "ch": "\u4e0d\u932f\u7684\u9910\u5ef3",
+        "backref": "Nice restaurant"
+    },
+    "827": {
+        "eng": "good-looking",
+        "label": "adj.",
+        "ch": "\u597d\u770b\u7684",
+        "backref": "good-looking"
+    },
+    "828": {
+        "eng": "goose",
+        "label": "n.",
+        "ch": "\u9d5d",
+        "backref": "Domestic goose"
+    },
+    "829": {
+        "eng": "gracious",
+        "label": "adj.",
+        "ch": "\u89aa\u5207\u7684",
+        "backref": "Dear"
+    },
+    "830": {
+        "eng": "grand",
+        "label": "n.",
+        "ch": "\u4e00\u5343\u5143\uff08 \u53e3\u8a9e\uff09 \uff1b\u9686\u91cd",
+        "backref": "One thousand yuan (spoken); grand"
+    },
+    "831": {
+        "eng": "granola",
+        "label": "n.",
+        "ch": "\u591a\u7a2e\u6996\u985e\u53ca\u4e7e\u679c\u505a\u7684\u9ea5\u7247",
+        "backref": "A variety of cereals and dried fruits"
+    },
+    "832": {
+        "eng": "greasy",
+        "label": "adj.",
+        "ch": "\u6cb9\u81a9\u7684\uff08 \u6307\u98df\u7269\uff09",
+        "backref": "Greasy (refers to food)"
+    },
+    "833": {
+        "eng": "green bean cake",
+        "label": "n.",
+        "ch": "\u7da0\u8c46\u7cd5",
+        "backref": "green bean cake"
+    },
+    "834": {
+        "eng": "green bean noodle",
+        "label": "n.",
+        "ch": "\u7da0\u8c46\u9eb5\u689d\uff1b\u51ac\u7c89",
+        "backref": "Mung bean noodles; winter noodles"
+    },
+    "835": {
+        "eng": "green bean paste",
+        "label": "n.",
+        "ch": "\u7da0\u8c46\u84c9",
+        "backref": "Mung Bean Paste"
+    },
+    "836": {
+        "eng": "green salad",
+        "label": "n.",
+        "ch": "\u751f\u83dc\u6c99\u62c9",
+        "backref": "Salad greens"
+    },
+    "837": {
+        "eng": "green squash and",
+        "label": "n.",
+        "ch": "\u7d72\u74dc\u8766\u4ec1\u5c0f\u7c60\u5305",
+        "backref": "Loofah and Shrimp Xiaolongbao"
+    },
+    "838": {
+        "eng": "greenback",
+        "label": "n.",
+        "ch": "\u7d19\u9214\uff08 \u7f8e\u91d1\uff09",
+        "backref": "Banknotes (USD)"
+    },
+    "839": {
+        "eng": "greet",
+        "label": "v.",
+        "ch": "\u62db\u547c\uff1b\u8fce\u63a5",
+        "backref": "Greet"
+    },
+    "840": {
+        "eng": "grilled seafood &",
+        "label": "n.",
+        "ch": "\u7117\u70e4\u6d77\u9bae\u83c7\u5496\u54e9\u9910",
+        "backref": "Baked seafood mushroom curry meal"
+    },
+    "841": {
+        "eng": "grind",
+        "label": "v.",
+        "ch": "\u7814\u78e8\uff1b\u78e8\u788e",
+        "backref": "Grinding"
+    },
+    "842": {
+        "eng": "ground coffee",
+        "label": "n.",
+        "ch": "\u7814\u78e8\u5496\u5561",
+        "backref": "Ground"
+    },
+    "843": {
+        "eng": "ground meat",
+        "label": "n.",
+        "ch": "\u7d5e\u8089\uff1b\u8089\u672b\uff1b\u8089\u9921",
+        "backref": "Ground meat; minced meat; minced meat"
+    },
+    "844": {
+        "eng": "ground pork",
+        "label": "n.",
+        "ch": "\u0001\u8c6c\u7d5e\u8089",
+        "backref": "Ground pork"
+    },
+    "845": {
+        "eng": "guest",
+        "label": "n.",
+        "ch": "\u5ba2\u4eba",
+        "backref": "Customer"
+    },
+    "846": {
+        "eng": "guide",
+        "label": "n.",
+        "ch": "\u5c0e\u904a\uff1b\u5c0e\u89bd\u54e1\uff1b\u56ae\u5c0e\uff1b\u6307\u5f15",
+        "backref": "Guide; guide; guide; guide"
+    },
+    "847": {
+        "eng": "gum",
+        "label": "n.",
+        "ch": "\u53e3\u9999\u7cd6",
+        "backref": "Chewing gum"
+    },
+    "848": {
+        "eng": "half-dollar",
+        "label": "n.",
+        "ch": "\u534a\u7f8e\u5143",
+        "backref": "Half dollar"
+    },
+    "849": {
+        "eng": "hall",
+        "label": "n.",
+        "ch": "\u9580\u5ef3\uff1b\u5927\u5ef3",
+        "backref": "Foyer"
+    },
+    "850": {
+        "eng": "handsome",
+        "label": "adj.",
+        "ch": "\u82f1\u4fca\u7684",
+        "backref": "Handsome"
+    },
+    "851": {
+        "eng": "hangover",
+        "label": "n.",
+        "ch": "\u5bbf\u9189",
+        "backref": "The Hangover"
+    },
+    "852": {
+        "eng": "Happy Birthday",
+        "label": "phr.",
+        "ch": "\u751f\u65e5\u5feb\u6a02",
+        "backref": "Happy Birthday"
+    },
+    "853": {
+        "eng": "Happy Easter",
+        "label": "phr.",
+        "ch": "\u5fa9\u6d3b\u7bc0\u5feb\u6a02",
+        "backref": "Happy Easter"
+    },
+    "854": {
+        "eng": "Happy New Year",
+        "label": "phr.",
+        "ch": "\u65b0\u5e74\u5feb\u6a02",
+        "backref": "Happy New Year!"
+    },
+    "855": {
+        "eng": "hard-boiled egg",
+        "label": "n.",
+        "ch": "\u5168\u719f\u6c34\u716e\u86cb",
+        "backref": "Hard boiled eggs"
+    },
+    "856": {
+        "eng": "hardly",
+        "label": "adv.",
+        "ch": "\u7c21\u76f4\u4e0d\uff1b\u5e7e\u4e4e\u4e0d",
+        "backref": "Hardly; hardly"
+    },
+    "857": {
+        "eng": "has been sold out",
+        "label": "phr.",
+        "ch": "\u5df2\u7d93\u8ce3\u5b8c\u4e86",
+        "backref": "Sold out"
+    },
+    "858": {
+        "eng": "hazel milk tea",
+        "label": "n.",
+        "ch": "\u5805\u679c\u5976\u8336",
+        "backref": "Nut Milk Tea"
+    },
+    "859": {
+        "eng": "heavy",
+        "label": "adj.",
+        "ch": "\u91cd\u7684",
+        "backref": "Heavy"
+    },
+    "860": {
+        "eng": "here or to go",
+        "label": "phr.",
+        "ch": "\u5167\u7528\u9084\u662f\u5916\u5e36",
+        "backref": "For internal use or takeout"
+    },
+    "861": {
+        "eng": "hold",
+        "label": "v.",
+        "ch": "\u88dd\uff1b\u638c\u63e1\uff1b\u4fdd\u6301",
+        "backref": "Install"
+    },
+    "862": {
+        "eng": "horrible",
+        "label": "adj.",
+        "ch": "\u53ef\u6015\u7684",
+        "backref": "scary"
+    },
+    "863": {
+        "eng": "hot chocolate",
+        "label": "n.",
+        "ch": "\u71b1\u53ef\u53ef",
+        "backref": "hot coco"
+    },
+    "864": {
+        "eng": "hot dog cart",
+        "label": "n.",
+        "ch": "\u71b1\u72d7\u8eca",
+        "backref": "Hot dog cart"
+    },
+    "865": {
+        "eng": "hot pot",
+        "label": "n.",
+        "ch": "\u706b\u934b",
+        "backref": "Hot pot"
+    },
+    "866": {
+        "eng": "ice cream bar",
+        "label": "n.",
+        "ch": "\u96ea\u7cd5",
+        "backref": "Ice cream"
+    },
+    "867": {
+        "eng": "ice cream sandwich",
+        "label": "n.",
+        "ch": "\u51b0\u6dc7\u6dcb\u4e09\u660e\u6cbb",
+        "backref": "Ice cream sandwich"
+    },
+    "868": {
+        "eng": "iced milk tea",
+        "label": "n.",
+        "ch": "\u51b0\u5976\u8336",
+        "backref": "Ice milk tea"
+    },
+    "869": {
+        "eng": "iced water drip cafe",
+        "label": "n.",
+        "ch": "\u51b0\u6ef4\u5496\u5561",
+        "backref": "Iced coffee"
+    },
+    "870": {
+        "eng": "imitate",
+        "label": "v.",
+        "ch": "\u4eff\u6548",
+        "backref": "Imitate"
+    },
+    "871": {
+        "eng": "imported",
+        "label": "adj.",
+        "ch": "\u9032\u53e3\u7684",
+        "backref": "imported"
+    },
+    "872": {
+        "eng": "improve",
+        "label": "v.",
+        "ch": "\u6539\u5584",
+        "backref": "Improvement"
+    },
+    "873": {
+        "eng": "in a moment",
+        "label": "phr.",
+        "ch": "\u4e00\u6703\u5152\uff1b\u99ac\u4e0a",
+        "backref": "For a while"
+    },
+    "874": {
+        "eng": "in a private room",
+        "label": "phr.",
+        "ch": "\u5728\u79c1\u4eba\u5305\u5ec2",
+        "backref": "In a private box"
+    },
+    "875": {
+        "eng": "in time",
+        "label": "phr.",
+        "ch": "\u53ca\u6642\uff1b\u6e96\u6642",
+        "backref": "On time"
+    },
+    "876": {
+        "eng": "instant noodles",
+        "label": "n.",
+        "ch": "\u6ce1\u9eb5",
+        "backref": "Instant noodles"
+    },
+    "877": {
+        "eng": "Italian restaurant",
+        "label": "n.",
+        "ch": "\u7fa9\u5927\u5229\u9910\u5ef3",
+        "backref": "Italian Restaurant"
+    },
+    "878": {
+        "eng": "jalapeno",
+        "label": "n.",
+        "ch": "\u58a8\u897f\u54e5\u8fa3\u6912",
+        "backref": "Jalape\u00f1o"
+    },
+    "879": {
+        "eng": "Jamaican Blue",
+        "label": "n.",
+        "ch": "\uff08 \u7259\u8cb7\u52a0\uff09 \u85cd\u5c71\u5496\u5561",
+        "backref": "(Jamaica) Blue Mountain Coffee"
+    },
+    "880": {
+        "eng": "jasmine tea",
+        "label": "n.",
+        "ch": "\u8309\u8389\u82b1\u8336",
+        "backref": "Jasmine tea"
+    },
+    "881": {
+        "eng": "juicy",
+        "label": "adj.",
+        "ch": "\u591a\u6c41\u7684",
+        "backref": "juicy"
+    },
+    "882": {
+        "eng": "junk food",
+        "label": "n.",
+        "ch": "\u5783\u573e\u98df\u7269",
+        "backref": "Junk food"
+    },
+    "883": {
+        "eng": "kangaroo",
+        "label": "n.",
+        "ch": "\u888b\u9f20",
+        "backref": "Kangaroo"
+    },
+    "884": {
+        "eng": "keep cool",
+        "label": "adj.",
+        "ch": "\u4fdd\u6301\u2026\u51b0\u6dbc",
+        "backref": "Keep...cold"
+    },
+    "885": {
+        "eng": "ketchup packet",
+        "label": "n.",
+        "ch": "\u756a\u8304\u91ac\u5305",
+        "backref": "Tomato sauce bag"
+    },
+    "886": {
+        "eng": "kids menu",
+        "label": "n.",
+        "ch": "\u5152\u7ae5\u7279\u9910",
+        "backref": "Special meals for children"
+    },
+    "887": {
+        "eng": "lighter",
+        "label": "n.",
+        "ch": "\u6253\u706b\u6a5f",
+        "backref": "Lighter"
+    },
+    "888": {
+        "eng": "lighter taste",
+        "label": "n.",
+        "ch": "\u6e05\u6de1\u53e3\u5473",
+        "backref": "Light taste"
+    },
+    "889": {
+        "eng": "line",
+        "label": "n.",
+        "ch": "\u6392\u968a\u4eba\u6f6e\uff1b\u884c\u5217",
+        "backref": "Line up"
+    },
+    "890": {
+        "eng": "liter",
+        "label": "n.",
+        "ch": "\u516c\u5347",
+        "backref": "Litre"
+    },
+    "891": {
+        "eng": "live performance",
+        "label": "n.",
+        "ch": "\u73fe\u5834\u6f14\u594f",
+        "backref": "Live performance"
+    },
+    "892": {
+        "eng": "loaf",
+        "label": "n.",
+        "ch": "\u689d",
+        "backref": "Bar"
+    },
+    "893": {
+        "eng": "loaf of bread",
+        "label": "phr.",
+        "ch": "\u4e00\u689d\u9eb5\u5305",
+        "backref": "a loaf of bread"
+    },
+    "894": {
+        "eng": "loofah",
+        "label": "n.",
+        "ch": "\u7d72\u74dc",
+        "backref": "Luffa"
+    },
+    "895": {
+        "eng": "look forward to",
+        "label": "v.",
+        "ch": "\u671f\u5f85\u2026",
+        "backref": "To expect"
+    },
+    "896": {
+        "eng": "look over",
+        "label": "phr.",
+        "ch": "\u7ffb\u95b1\uff1b\u700f\u89bd",
+        "backref": "Flip through"
+    },
+    "897": {
+        "eng": "loot",
+        "label": "n.",
+        "ch": "\u9322\uff1b\u503c\u9322\u7269\u54c1\uff1b\u6230\u5229\u54c1",
+        "backref": "Money; valuables; loot"
+    },
+    "898": {
+        "eng": "lottery ticket",
+        "label": "n.",
+        "ch": "\u6a02\u900f\u5f69\u5238",
+        "backref": "Lotto Tickets"
+    },
+    "899": {
+        "eng": "maid",
+        "label": "n.",
+        "ch": "\u5973\u670d\u52d9\u54e1",
+        "backref": "Waitress"
+    },
+    "900": {
+        "eng": "make a reservation",
+        "label": "phr.",
+        "ch": "\u8a02\u4f4d\uff1b\u8a02\u623f",
+        "backref": "Make a reservation"
+    },
+    "901": {
+        "eng": "make up one's mind",
+        "label": "v.",
+        "ch": "\u6c7a\u5b9a\uff1b\u8b93\u2026\u4e0b\u5b9a\u6c7a\u5fc3",
+        "backref": "Make up your mind"
+    },
+    "902": {
+        "eng": "mammal",
+        "label": "n.",
+        "ch": "\u54fa\u4e73\u985e",
+        "backref": "Mammals"
+    },
+    "903": {
+        "eng": "managed",
+        "label": "v.",
+        "ch": "\u8a2d\u6cd5\u505a\u5230",
+        "backref": "Try to do"
+    },
+    "904": {
+        "eng": "mango Calpis",
+        "label": "n.",
+        "ch": "\u8292\u679c\u53ef\u723e\u5fc5\u601d",
+        "backref": "Mango Calpis"
+    },
+    "905": {
+        "eng": "mango lassi",
+        "label": "n.",
+        "ch": "\u512a\u683c\u8292\u679c",
+        "backref": "Yogurt Mango"
+    },
+    "906": {
+        "eng": "manta ray",
+        "label": "n.",
+        "ch": "\u9b5f\u9b5a",
+        "backref": "Whiptail stingray"
+    },
+    "907": {
+        "eng": "margarine",
+        "label": "n.",
+        "ch": "\u4eba\u9020\u5976\u6cb9",
+        "backref": "Margarine"
+    },
+    "908": {
+        "eng": "meat section",
+        "label": "n.",
+        "ch": "\u8089\u985e\u5340",
+        "backref": "Meat section"
+    },
+    "909": {
+        "eng": "membership card",
+        "label": "n.",
+        "ch": "\u6703\u54e1\u5361",
+        "backref": "MemberShip"
+    },
+    "910": {
+        "eng": "menu board",
+        "label": "n.",
+        "ch": "\u50f9\u76ee\u724c\uff1b\u83dc\u55ae\u677f",
+        "backref": "Price tag; menu board"
+    },
+    "911": {
+        "eng": "Merry Christmas",
+        "label": "phr.",
+        "ch": "\u8056\u8a95\u5feb\u6a02",
+        "backref": "Holiday greetings"
+    },
+    "912": {
+        "eng": "minced pork",
+        "label": "n.",
+        "ch": "\u5207\u788e\u8c6c\u8089",
+        "backref": "Chopped pork"
+    },
+    "913": {
+        "eng": "minestrone soup",
+        "label": "n.",
+        "ch": "\u7fa9\u5f0f\u852c\u83dc\u6fc3\u6e6f",
+        "backref": "Italian vegetable soup"
+    },
+    "914": {
+        "eng": "mini red bean bun",
+        "label": "n.",
+        "ch": "\u8ff7\u4f60\u8c46\u6c99\u5305",
+        "backref": "Mini bean paste buns"
+    },
+    "915": {
+        "eng": "minimum charge",
+        "label": "n.",
+        "ch": "\u6700\u4f4e\u6d88\u8cbb",
+        "backref": "Minimum spend"
+    },
+    "916": {
+        "eng": "mini-pork",
+        "label": "n.",
+        "ch": "\u5c0f\u7c60\uff08 \u8c6c\u8089\uff09 \u6e6f\u5305",
+        "backref": "Xiaolong (pork) soup dumplings"
+    },
+    "917": {
+        "eng": "mix",
+        "label": "v.",
+        "ch": "\u6df7\u548c",
+        "backref": "Hybrid"
+    },
+    "918": {
+        "eng": "mix up",
+        "label": "phr.",
+        "ch": "\u6df7\u6dc6",
+        "backref": "CONFOUNDING"
+    },
+    "919": {
+        "eng": "ml",
+        "label": "n.",
+        "ch": "\u5bb9\u91cf\uff08 \u6beb\u5347\uff09",
+        "backref": "Capacity (ml)"
+    },
+    "920": {
+        "eng": "mocha coffee",
+        "label": "n.",
+        "ch": "\u6469\u5361\u5496\u5561",
+        "backref": "\u6469\u5361\u5496\u5561"
+    },
+    "921": {
+        "eng": "multigrain",
+        "label": "v.",
+        "ch": "\u4e94\u7a40\u96dc\u7ce7",
+        "backref": "Grains and cereals"
+    },
+    "922": {
+        "eng": "munchies",
+        "label": "n.",
+        "ch": "\u96f6\u98df",
+        "backref": "Snack food"
+    },
+    "923": {
+        "eng": "mushroom and yam",
+        "label": "n.",
+        "ch": "\u8611\u83c7\u5c71\u85e5\u6fc3\u6e6f",
+        "backref": "Mushroom Yam Soup"
+    },
+    "924": {
+        "eng": "mushroom ravioli",
+        "label": "n.",
+        "ch": "\u8611\u83c7\u7fa9\u5f0f\u65b9\u9903",
+        "backref": "Mushroom Dumplings"
+    },
+    "925": {
+        "eng": "mutton",
+        "label": "n.",
+        "ch": "\u7f8a\u8089",
+        "backref": "Lamb and mutton"
+    },
+    "926": {
+        "eng": "name of producer",
+        "label": "n.",
+        "ch": "\u88fd\u9020\u5546\u540d\u7a31\uff08 \u9078\u9152\uff09",
+        "backref": "Manufacturer&#39;s name (selected wine)"
+    },
+    "927": {
+        "eng": "napkin holder",
+        "label": "n.",
+        "ch": "\u9910\u5dfe\u67b6",
+        "backref": "Napkin holder"
+    },
+    "928": {
+        "eng": "near the corner",
+        "label": "phr.",
+        "ch": "\u9760\u8fd1\u89d2\u843d",
+        "backref": "Near the corner"
+    },
+    "929": {
+        "eng": "nearly",
+        "label": "adv.",
+        "ch": "\u5c07\u8fd1\uff1b\u5e7e\u4e4e",
+        "backref": "Almost"
+    },
+    "930": {
+        "eng": "necessary",
+        "label": "adj.",
+        "ch": "\u5fc5\u9700\u7684\uff1b\u5fc5\u8981\u7684",
+        "backref": "Necessary"
+    },
+    "931": {
+        "eng": "nectarine",
+        "label": "n.",
+        "ch": "\u73ab\u7470\u6843\uff1b\u6cb9\u6843",
+        "backref": "Rose peach; nectarine"
+    },
+    "932": {
+        "eng": "New York strip steak",
+        "label": "n.",
+        "ch": "\u7d10\u7d04\u5ba2\u725b\u6392",
+        "backref": "New Yorker Steak"
+    },
+    "933": {
+        "eng": "nickel",
+        "label": "n.",
+        "ch": "\u4e94\u5206\u786c\u5e63",
+        "backref": "Five cent coin"
+    },
+    "934": {
+        "eng": "nightcap",
+        "label": "n.",
+        "ch": "\u7761\u524d\u9152",
+        "backref": "Wine before bed"
+    },
+    "935": {
+        "eng": "notepad",
+        "label": "n.",
+        "ch": "\u8a18\u4e8b\u672c",
+        "backref": "notepads"
+    },
+    "936": {
+        "eng": "occupy",
+        "label": "adj.",
+        "ch": "\u4f54\u6709",
+        "backref": "Occupation"
+    },
+    "937": {
+        "eng": "octopus",
+        "label": "n.",
+        "ch": "\u7ae0\u9b5a",
+        "backref": "Octopus"
+    },
+    "938": {
+        "eng": "off",
+        "label": "adj.",
+        "ch": "\u6c92\u5473\u9053\u7684\uff08 \u6307\u98df\u7269\uff09",
+        "backref": "Tasteless (refers to food)"
+    },
+    "939": {
+        "eng": "on a diet",
+        "label": "phr.",
+        "ch": "\u7167\u898f\u5b9a\u98f2\u98df\uff1b\u7bc0\u98df",
+        "backref": "Eat as prescribed; go on a diet"
+    },
+    "940": {
+        "eng": "on aisle three",
+        "label": "phr.",
+        "ch": "\u5728\u8d70\u9053\u4e09",
+        "backref": "In aisle three"
+    },
+    "941": {
+        "eng": "on the bottom",
+        "label": "phr.",
+        "ch": "\u5728\u5e95\u90e8",
+        "backref": "In the bottom"
+    },
+    "942": {
+        "eng": "on the house",
+        "label": "phr.",
+        "ch": "\u514d\u8cbb",
+        "backref": "Free"
+    },
+    "943": {
+        "eng": "on the left",
+        "label": "phr.",
+        "ch": "\u5728\u5de6\u908a",
+        "backref": "At the left"
+    },
+    "944": {
+        "eng": "on the right",
+        "label": "phr.",
+        "ch": "\u5728\u53f3\u908a",
+        "backref": "At the right"
+    },
+    "945": {
+        "eng": "on the top",
+        "label": "phr.",
+        "ch": "\u5728\u6700\u4e0a\u65b9",
+        "backref": "At the top"
+    },
+    "946": {
+        "eng": "ordinary",
+        "label": "adj.",
+        "ch": "\u4e00\u822c\u7684\uff1b\u666e\u901a\u7684",
+        "backref": "Ordinary"
+    },
+    "947": {
+        "eng": "organic",
+        "label": "n.",
+        "ch": "\u6709\u6a5f\u7684",
+        "backref": "organic"
+    },
+    "948": {
+        "eng": "organic food",
+        "label": "n.",
+        "ch": "\u6709\u6a5f\u98df\u7269",
+        "backref": "Organic food"
+    },
+    "949": {
+        "eng": "ostrich",
+        "label": "n.",
+        "ch": "\u9d15\u9ce5",
+        "backref": "Ostrich"
+    },
+    "950": {
+        "eng": "ounce",
+        "label": "n.",
+        "ch": "\u76ce\u53f8",
+        "backref": "Ounces"
+    },
+    "951": {
+        "eng": "out of this world",
+        "label": "adj.",
+        "ch": "\u975e\u5e38\u68d2\u7684\uff1b\u8d85\u51e1\u7684",
+        "backref": "Great; extraordinary"
+    },
+    "952": {
+        "eng": "overcooked",
+        "label": "adj.",
+        "ch": "\u716e\u904e\u719f\u7684",
+        "backref": "Cooked"
+    },
+    "953": {
+        "eng": "overweight",
+        "label": "adj.",
+        "ch": "\u8d85\u91cd\u7684",
+        "backref": "Overweight"
+    },
+    "954": {
+        "eng": "pack",
+        "label": "n.",
+        "ch": "\u6253\u5305\uff1b\u6536\u62fe\uff1b\u5305\u88dd",
+        "backref": "Pack; Pack; Pack"
+    },
+    "955": {
+        "eng": "packet of sugar",
+        "label": "n.",
+        "ch": "\u7cd6\u5305",
+        "backref": "sugar bag"
+    },
+    "956": {
+        "eng": "Palm tree",
+        "label": "n.",
+        "ch": "\u68d5\u6ada\u6a39",
+        "backref": "palm"
+    },
+    "957": {
+        "eng": "pamphlet",
+        "label": "n.",
+        "ch": "\u5c0f\u624b\u518a",
+        "backref": "Small manual"
+    },
+    "958": {
+        "eng": "pan fry",
+        "label": "v.",
+        "ch": "\u5e73\u934b\u714e\u70b8\uff1b\u6cb9\u934b\u5167\u7092\u719f",
+        "backref": "Frying in a pan;"
+    },
+    "959": {
+        "eng": "paper cup",
+        "label": "n.",
+        "ch": "\u7d19\u676f",
+        "backref": "Paper cup"
+    },
+    "960": {
+        "eng": "parking ticket",
+        "label": "n.",
+        "ch": "\u505c\u8eca\u5361",
+        "backref": "Parking card"
+    },
+    "961": {
+        "eng": "pea shoot",
+        "label": "n.",
+        "ch": "\u8c46\u82d7",
+        "backref": "Pea shoot"
+    },
+    "962": {
+        "eng": "pearl milk tea",
+        "label": "n.",
+        "ch": "\u73cd\u73e0\u5976\u8336",
+        "backref": "Bubble tea"
+    },
+    "963": {
+        "eng": "penny",
+        "label": "n.",
+        "ch": "\u4e00\u5206\u786c\u5e63",
+        "backref": "One cent coin"
+    },
+    "964": {
+        "eng": "per kilogram",
+        "label": "phr.",
+        "ch": "\u6bcf\u516c\u65a4",
+        "backref": "Per kilogram"
+    },
+    "965": {
+        "eng": "per pound",
+        "label": "phr.",
+        "ch": "\u6bcf\u78c5",
+        "backref": "Per pound"
+    },
+    "966": {
+        "eng": "percolator",
+        "label": "n.",
+        "ch": "\u5496\u5561\u6ef2\u58d3\u58fa",
+        "backref": "Coffee osmotic pot"
+    },
+    "967": {
+        "eng": "perishable goods",
+        "label": "n.",
+        "ch": "\u6613\u8150\u58de\u7684\u5546\u54c1\uff08 \u5982\u751f\u9bae\u98df\u7269\uff09",
+        "backref": "Perishable goods (such as fresh food)"
+    },
+    "968": {
+        "eng": "phone card",
+        "label": "n.",
+        "ch": "\u96fb\u8a71\u5361",
+        "backref": "phone card"
+    },
+    "969": {
+        "eng": "pickle slices",
+        "label": "n.",
+        "ch": "\u7f8e\u5f0f\u9178\u9ec3\u74dc\u7247",
+        "backref": "American pickled cucumber slices"
+    },
+    "970": {
+        "eng": "pickled",
+        "label": "adj.",
+        "ch": "\u7528\u91ac\u6c41\u9183\u88fd\u7684",
+        "backref": "Marinated in sauce"
+    },
+    "971": {
+        "eng": "pickled mustard",
+        "label": "n.",
+        "ch": "\u9178\u83dc",
+        "backref": "Suan cai"
+    },
+    "972": {
+        "eng": "piping hot",
+        "label": "adj.",
+        "ch": "\u6efe\u71d9\u7684\uff1b\u6975\u71d9\u7684",
+        "backref": "Piping hot"
+    },
+    "973": {
+        "eng": "pit",
+        "label": "n.",
+        "ch": "\u679c\u6838",
+        "backref": "Pit"
+    },
+    "974": {
+        "eng": "pita bread",
+        "label": "n.",
+        "ch": "\u76ae\u5854\u9905\uff1b\u53e3\u888b\u9eb5\u5305\uff08\u4e2d\u6771\u3001\u5357\u7f8e\u5730\u5340",
+        "backref": "Pita bread; pocket bread (Middle East, South America)"
+    },
+    "975": {
+        "eng": "pizza margherita",
+        "label": "n.",
+        "ch": "\u746a\u683c\u8389\u7279\u62ab\u85a9",
+        "backref": "Margherita Pizza"
+    },
+    "976": {
+        "eng": "place mat",
+        "label": "n.",
+        "ch": "\u9910\u5177\u588a",
+        "backref": "Placemat"
+    },
+    "977": {
+        "eng": "plain",
+        "label": "adj.",
+        "ch": "\u6e05\u6de1\u7684\uff08 \u6307\u98df\u7269\uff09",
+        "backref": "Bland (refers to food)"
+    },
+    "978": {
+        "eng": "plant",
+        "label": "n.",
+        "ch": "\u690d\u7269",
+        "backref": "Plants"
+    },
+    "979": {
+        "eng": "plastic bag",
+        "label": "n.",
+        "ch": "\u5851\u81a0\u888b",
+        "backref": "Plastic bag"
+    },
+    "980": {
+        "eng": "plastic spoon",
+        "label": "n.",
+        "ch": "\u5851\u81a0\u6e6f\u5319",
+        "backref": "Plastic spoon"
+    },
+    "981": {
+        "eng": "plum with mint tea",
+        "label": "n.",
+        "ch": "\u8584\u8377\u6885\u8336",
+        "backref": "Peppermint Plum Tea"
+    },
+    "982": {
+        "eng": "pomelo",
+        "label": "n.",
+        "ch": "\u67da\u5b50",
+        "backref": "Pomelo"
+    },
+    "983": {
+        "eng": "popsicle",
+        "label": "n.",
+        "ch": "\u51b0\u68d2",
+        "backref": "Ice pop"
+    },
+    "984": {
+        "eng": "pork bun",
+        "label": "n.",
+        "ch": "\u9bae\u8089\u5305",
+        "backref": "Fresh Meat Bun"
+    },
+    "985": {
+        "eng": "pound",
+        "label": "n.",
+        "ch": "\u78c5",
+        "backref": "Pound"
+    },
+    "986": {
+        "eng": "preserve",
+        "label": "v.",
+        "ch": "\u4fdd\u5b58",
+        "backref": "Save"
+    },
+    "987": {
+        "eng": "pretty",
+        "label": "adj.",
+        "ch": "\u6f02\u4eae\u7684",
+        "backref": "beautiful"
+    },
+    "988": {
+        "eng": "primary",
+        "label": "adj.",
+        "ch": "\u4e3b\u8981\u7684",
+        "backref": "HA Primary"
+    },
+    "989": {
+        "eng": "prime rib",
+        "label": "n.",
+        "ch": "\u808b\u6392",
+        "backref": "Ribs"
+    },
+    "990": {
+        "eng": "private",
+        "label": "adj.",
+        "ch": "\u79c1\u4e0b\u7684\uff1b\u79c1\u4eba\u7684",
+        "backref": "Private"
+    },
+    "991": {
+        "eng": "puke",
+        "label": "v.",
+        "ch": "\u5614\u5410",
+        "backref": "Vomiting"
+    },
+    "992": {
+        "eng": "purchase",
+        "label": "n.",
+        "ch": "\u6216 v. \u6240\u8cfc\u4e4b\u7269\uff1b\u63a1\u8cfc",
+        "backref": "Or v. What is purchased; purchase"
+    },
+    "993": {
+        "eng": "purple cabbage",
+        "label": "n.",
+        "ch": "\u7d2b\u5305\u5fc3\u83dc\u6c41",
+        "backref": "Purple Cabbage Juice"
+    },
+    "994": {
+        "eng": "put forward to",
+        "label": "phr.",
+        "ch": "\u628a\u2026\u63a8\u85a6\u7d66\u2026",
+        "backref": "Recommend to..."
+    },
+    "995": {
+        "eng": "put on weight",
+        "label": "phr.",
+        "ch": "\u589e\u91cd",
+        "backref": "Gain"
+    },
+    "996": {
+        "eng": "quart",
+        "label": "n.",
+        "ch": "\u5938\u812b",
+        "backref": "Quart"
+    },
+    "997": {
+        "eng": "quarter",
+        "label": "n.",
+        "ch": "\u4e8c\u5341\u4e94\u5206\u786c\u5e63",
+        "backref": "Twenty-five cent coin"
+    },
+    "998": {
+        "eng": "quesadilla",
+        "label": "n.",
+        "ch": "\u58a8\u897f\u54e5\u8584\u9905",
+        "backref": "Mexican crepes"
+    },
+    "999": {
+        "eng": "raw",
+        "label": "adj.",
+        "ch": "\u751f\u7684\uff1b\u672a\u52a0\u5de5\u7684",
+        "backref": "Raw"
+    },
+    "1000": {
+        "eng": "reasonable",
+        "label": "adj.",
+        "ch": "\u5408\u7406\u7684",
+        "backref": "reasonable"
+    },
+    "1001": {
+        "eng": "reception desk",
+        "label": "n.",
+        "ch": "\u63a5\u5f85\u8655",
+        "backref": "Reception"
+    },
+    "1002": {
+        "eng": "receptionist",
+        "label": "n.",
+        "ch": "\u63a5\u5f85\u54e1",
+        "backref": "Receptionist"
+    },
+    "1003": {
+        "eng": "red bean",
+        "label": "n.",
+        "ch": "\u8c46\u6c99\uff1b\u7d05\u8c46",
+        "backref": "Red bean paste"
+    },
+    "1004": {
+        "eng": "red bean bun",
+        "label": "n.",
+        "ch": "\u8c46\u6c99\u5305",
+        "backref": "Bean Paste"
+    },
+    "1005": {
+        "eng": "refill",
+        "label": "v.",
+        "ch": "\u7e8c\u676f",
+        "backref": "Refill"
+    },
+    "1006": {
+        "eng": "region of origin",
+        "label": "n.",
+        "ch": "\u6536\u6210\u5730\u9ede\uff1b\u539f\u7522\u5730\u5340\uff08 \u9078\u9152\uff09",
+        "backref": "Place of harvest; region of origin (select wine)"
+    },
+    "1007": {
+        "eng": "relish",
+        "label": "n.",
+        "ch": "\uff08 \u6dbc\u62cc\uff09 \u958b\u80c3\u83dc",
+        "backref": "(Cold) appetizer"
+    },
+    "1008": {
+        "eng": "repay",
+        "label": "v.",
+        "ch": "\u56de\u5831\uff1b\u5831\u7b54",
+        "backref": "Return"
+    },
+    "1009": {
+        "eng": "require",
+        "label": "v.",
+        "ch": "\u8981\u6c42",
+        "backref": "Warranty"
+    },
+    "1010": {
+        "eng": "reserve",
+        "label": "v.",
+        "ch": "\u9810\u7d04\uff1b\u4fdd\u7559",
+        "backref": "Make an appointment"
+    },
+    "1011": {
+        "eng": "restrictions",
+        "label": "n.",
+        "ch": "\u9650\u5b9a\uff1b\u9650\u5236\uff1b\u7d04\u675f",
+        "backref": "Limit"
+    },
+    "1012": {
+        "eng": "restroom",
+        "label": "n.",
+        "ch": "\u76e5\u6d17\u5ba4",
+        "backref": "bathroom"
+    },
+    "1013": {
+        "eng": "revolting",
+        "label": "adj.",
+        "ch": "\u4ee4\u4eba\u4f5c\u5614\u7684",
+        "backref": "Disgusting"
+    },
+    "1014": {
+        "eng": "rib",
+        "label": "n.",
+        "ch": "\u808b\u9aa8",
+        "backref": "Rib"
+    },
+    "1015": {
+        "eng": "rich",
+        "label": "adj.",
+        "ch": "\u5f88\u6fc3\u90c1\u7684\uff1b\u8c50\u5bcc",
+        "backref": "Very rich"
+    },
+    "1016": {
+        "eng": "right-hand",
+        "label": "adj.",
+        "ch": "\u53f3\u624b\uff1b\u53f3\u5074\u7684",
+        "backref": "Right hand"
+    },
+    "1017": {
+        "eng": "ring up",
+        "label": "phr.",
+        "ch": "\u7d50\u5e33",
+        "backref": "Checkout Details"
+    },
+    "1018": {
+        "eng": "risotto",
+        "label": "n.",
+        "ch": "\u7fa9\u5f0f\u71c9\u98ef\uff1b\u71f4\u98ef",
+        "backref": "Risotto"
+    },
+    "1019": {
+        "eng": "roasting",
+        "label": "adj.",
+        "ch": "\u7119\u71d2",
+        "backref": "Roasting"
+    },
+    "1020": {
+        "eng": "rose herb tea",
+        "label": "n.",
+        "ch": "\u73ab\u7470\u679c\u9732\u8336",
+        "backref": "Rosehip tea"
+    },
+    "1021": {
+        "eng": "rotten",
+        "label": "n.",
+        "ch": "\u8150\u721b\u7684",
+        "backref": "rotten"
+    },
+    "1022": {
+        "eng": "round",
+        "label": "n.",
+        "ch": "\u6216 adj. \u725b\u817f\u8089\uff1b\u5713\u7684",
+        "backref": "Or adj. beef thigh; round"
+    },
+    "1023": {
+        "eng": "routine",
+        "label": "n.",
+        "ch": "\u65e5\u5e38\u5de5\u4f5c\uff1b\u4f8b\u884c\u516c\u4e8b",
+        "backref": "Daily work"
+    },
+    "1024": {
+        "eng": "salt",
+        "label": "n.",
+        "ch": "\u9e7d",
+        "backref": "Salt"
+    },
+    "1025": {
+        "eng": "saute potato",
+        "label": "n.",
+        "ch": "\u714e\u99ac\u9234\u85af",
+        "backref": "Fried potatoes"
+    },
+    "1026": {
+        "eng": "sauteed string beans",
+        "label": "n.",
+        "ch": "\u4e7e\u7178\u56db\u5b63\u8c46",
+        "backref": "Stir-fried String Beans"
+    },
+    "1027": {
+        "eng": "savor",
+        "label": "v.",
+        "ch": "\u56de\u5473\uff08 \u54c1\u9152\u65b9\u6cd5\uff09",
+        "backref": "Aftertaste (wine tasting method)"
+    },
+    "1028": {
+        "eng": "scone",
+        "label": "n.",
+        "ch": "\u53f8\u5eb7\u9905",
+        "backref": "Scones"
+    },
+    "1029": {
+        "eng": "scoop",
+        "label": "n.",
+        "ch": "\uff08 \u51b0\u6dc7\u6dcb\uff09 \u6316\u52fa",
+        "backref": "(Ice cream) scoop"
+    },
+    "1030": {
+        "eng": "sea horse",
+        "label": "n.",
+        "ch": "\u6d77\u99ac",
+        "backref": "Seahorse"
+    },
+    "1031": {
+        "eng": "sea snake",
+        "label": "n.",
+        "ch": "\u6d77\u86c7",
+        "backref": "sea snake"
+    },
+    "1032": {
+        "eng": "seat",
+        "label": "n.",
+        "ch": "\u5ea7\u4f4d",
+        "backref": "Seat"
+    },
+    "1033": {
+        "eng": "seats at bar",
+        "label": "phr.",
+        "ch": "\u5728\u5427\u6aaf\u7684\u4f4d\u7f6e",
+        "backref": "At the bar"
+    },
+    "1034": {
+        "eng": "seats in a quiet area",
+        "label": "phr.",
+        "ch": "\u5b89\u975c\u9ede\u7684\u4f4d\u7f6e",
+        "backref": "Quieter location"
+    },
+    "1035": {
+        "eng": "seats next to the",
+        "label": "phr.",
+        "ch": "\u9760\u7a97\u7684\u4f4d\u7f6e",
+        "backref": "Window position"
+    },
+    "1036": {
+        "eng": "seats on the terrace",
+        "label": "phr.",
+        "ch": "\u5728\u9732\u81fa\u7684\u4f4d\u7f6e",
+        "backref": "Location on the terrace"
+    },
+    "1037": {
+        "eng": "sent up",
+        "label": "phr.",
+        "ch": "\u9001\u4f86\uff1b\u63d0\u9ad8\uff1b\u767c\u51fa",
+        "backref": "Send"
+    },
+    "1038": {
+        "eng": "service plate",
+        "label": "n.",
+        "ch": "\uff08 \u670d\u52d9\u7528\uff09 \u9910\u76e4",
+        "backref": "(For service)"
+    },
+    "1039": {
+        "eng": "sesame bun",
+        "label": "n.",
+        "ch": "\u829d\u9ebb\u5305",
+        "backref": "Sesame Bun"
+    },
+    "1040": {
+        "eng": "Shanghai style soy",
+        "label": "n.",
+        "ch": "\u5be7\u5f0f\u9ec3\u82bd\u83dc",
+        "backref": "Ning style yellow sprout"
+    },
+    "1041": {
+        "eng": "shank",
+        "label": "n.",
+        "ch": "\u725b\u8171",
+        "backref": "Beef tendon"
+    },
+    "1042": {
+        "eng": "Shaoxing wine",
+        "label": "n.",
+        "ch": "\u7d39\u8208\u9189\u96de",
+        "backref": "Shaoxing Drunken Chicken"
+    },
+    "1043": {
+        "eng": "shark",
+        "label": "n.",
+        "ch": "\u9bca\u9b5a",
+        "backref": "Shark"
+    },
+    "1044": {
+        "eng": "shawl",
+        "label": "n.",
+        "ch": "\uff08\u9577\uff09 \u65b9\u5f62\u62ab\u80a9\uff1b\u570d\u5dfe",
+        "backref": "(Long) square shawl; scarf"
+    },
+    "1045": {
+        "eng": "short loin",
+        "label": "n.",
+        "ch": "\u524d\u8170\u810a",
+        "backref": "Front lumbar spine"
+    },
+    "1046": {
+        "eng": "short",
+        "label": "adj.",
+        "ch": "\u77ee\u7684",
+        "backref": "short"
+    },
+    "1047": {
+        "eng": "shredded pork",
+        "label": "n.",
+        "ch": "\u788e\u8c6c\u8089\u7247\uff1b\u7d5e\u8089",
+        "backref": "Minced pork slices; ground meat"
+    },
+    "1048": {
+        "eng": "shrimp and pork pot",
+        "label": "n.",
+        "ch": "\u8766\u8089\uff08\u542b\u8c6c\u8089\uff09 \u714e\u9903",
+        "backref": "Shrimp (including pork) fried dumplings"
+    },
+    "1049": {
+        "eng": "shrimp cake",
+        "label": "n.",
+        "ch": "\u8766\u9905",
+        "backref": "Prawn cracker"
+    },
+    "1050": {
+        "eng": "signature",
+        "label": "n.",
+        "ch": "\u7c3d\u540d",
+        "backref": "Signature"
+    },
+    "1051": {
+        "eng": "silly",
+        "label": "adj.",
+        "ch": "\u611a\u8822\u7684\uff1b\u7cca\u5857\u7684",
+        "backref": "Stupid"
+    },
+    "1052": {
+        "eng": "siphon coffeemaker",
+        "label": "n.",
+        "ch": "\u7fa9\u5f0f\u6fc3\u7e2e\uff08\u8679\u5438\u5f0f\uff09 \u5496\u5561\u6a5f",
+        "backref": "Italian espresso (siphon) coffee machine"
+    },
+    "1053": {
+        "eng": "skin",
+        "label": "n.",
+        "ch": "\u852c\u83dc\u6216\u6c34\u679c\u7684\u679c\u76ae",
+        "backref": "Vegetable or fruit peel"
+    },
+    "1054": {
+        "eng": "slender slim",
+        "label": "adj.",
+        "ch": "\u4fee\u9577\u82d7\u689d\u7684",
+        "backref": "slender/ slim"
+    },
+    "1055": {
+        "eng": "sliced bread",
+        "label": "n.",
+        "ch": "\u5207\u7247\u9eb5\u5305",
+        "backref": "Sliced bread"
+    },
+    "1056": {
+        "eng": "sliced onion",
+        "label": "n.",
+        "ch": "\u6d0b\u8525\u7247",
+        "backref": "Sliced onion"
+    },
+    "1057": {
+        "eng": "slim",
+        "label": "adj.",
+        "ch": "\u7e96\u7d30\u7684\uff1b\u82d7\u689d\u7684",
+        "backref": "Slender"
+    },
+    "1058": {
+        "eng": "smell",
+        "label": "v.",
+        "ch": "\u805e\u9152\uff08 \u54c1\u9152\u65b9\u6cd5\uff09",
+        "backref": "Smell the wine (method of tasting)"
+    },
+    "1059": {
+        "eng": "smoked cheese",
+        "label": "n.",
+        "ch": "\u7159\u71fb\u8d77\u53f8",
+        "backref": "Smoked cheese"
+    },
+    "1060": {
+        "eng": "snake",
+        "label": "n.",
+        "ch": "\u86c7",
+        "backref": "Snake"
+    },
+    "1061": {
+        "eng": "soft drinks",
+        "label": "n.",
+        "ch": "\u4e0d\u542b\u9152\u7cbe\u7684\u98f2\u6599",
+        "backref": "Non-alcoholic beverages"
+    },
+    "1062": {
+        "eng": "soft-boiled egg",
+        "label": "n.",
+        "ch": "\u534a\u719f\u6c34\u716e\u86cb",
+        "backref": "Soft boiled egg"
+    },
+    "1063": {
+        "eng": "soft-ice",
+        "label": "n.",
+        "ch": "\u971c\u6dc7\u6dcb",
+        "backref": "Ice cream"
+    },
+    "1064": {
+        "eng": "soup bowl",
+        "label": "n.",
+        "ch": "\u6e6f\u7897",
+        "backref": "Bowl"
+    },
+    "1065": {
+        "eng": "souvenir",
+        "label": "n.",
+        "ch": "\u7d00\u5ff5\u54c1",
+        "backref": "Souvenir"
+    },
+    "1066": {
+        "eng": "spaghetti with meat",
+        "label": "n.",
+        "ch": "\u7fa9\u5f0f\u8089\u91ac\u9eb5",
+        "backref": "Bolognese Noodles"
+    },
+    "1067": {
+        "eng": "sparkling",
+        "label": "adj.",
+        "ch": "\u6703\u5192\u6c23\u6ce1\u7684",
+        "backref": "Bubbling"
+    },
+    "1068": {
+        "eng": "specialty",
+        "label": "n.",
+        "ch": "\u7279\u88fd\u54c1\uff1b\u7279\u7522\uff1b\u5c08\u696d",
+        "backref": "Special product; special product; professional"
+    },
+    "1069": {
+        "eng": "spicy and sour fried",
+        "label": "n.",
+        "ch": "\u9178\u8fa3\u7092\u9eb5",
+        "backref": "Hot and Sour Fried Noodles"
+    },
+    "1070": {
+        "eng": "spicy pickled",
+        "label": "n.",
+        "ch": "\u8fa3\u5473\u9ec3\u74dc",
+        "backref": "Spicy cucumber"
+    },
+    "1071": {
+        "eng": "split the bill",
+        "label": "phr.",
+        "ch": "\u5404\u4ed8\u5404\u7684\uff1b\u5e73\u5206\u8cbb\u7528",
+        "backref": "Pay for each; split the cost equally"
+    },
+    "1072": {
+        "eng": "stained",
+        "label": "adj.",
+        "ch": "\u6709\u6c59\u9ede\u7684\uff1b\u67d3\u8272\u7684",
+        "backref": "Stained"
+    },
+    "1073": {
+        "eng": "stand in line",
+        "label": "phr.",
+        "ch": "\u6392\u968a",
+        "backref": "Queue area"
+    },
+    "1074": {
+        "eng": "start off with",
+        "label": "phr.",
+        "ch": "\u5148\u4f86\u9ede",
+        "backref": "Come first"
+    },
+    "1075": {
+        "eng": "steam",
+        "label": "v.",
+        "ch": "\u84b8",
+        "backref": "Steaming"
+    },
+    "1076": {
+        "eng": "steam fountain",
+        "label": "n.",
+        "ch": "\u6c7d\u6c34\u4f9b\u61c9\u6a5f",
+        "backref": "Soda supply machine"
+    },
+    "1077": {
+        "eng": "steam wand",
+        "label": "n.",
+        "ch": "\u84b8\u6c23\u687f\uff08 \u68d2\uff09",
+        "backref": "Steam rod (stick)"
+    },
+    "1078": {
+        "eng": "steamed milk",
+        "label": "n.",
+        "ch": "\u71b1\u725b\u5976",
+        "backref": "Hot milk"
+    },
+    "1079": {
+        "eng": "steaming",
+        "label": "adj.",
+        "ch": "\u71b1\u9a30\u9a30\u7684",
+        "backref": "Hot"
+    },
+    "1080": {
+        "eng": "stewed bean curd",
+        "label": "n.",
+        "ch": "\u70e4\u9ea9",
+        "backref": "Baked cake"
+    },
+    "1081": {
+        "eng": "still",
+        "label": "adj.",
+        "ch": "\u4e0d\u5192\u6c23\u6ce1\u7684",
+        "backref": "Non-bubble"
+    },
+    "1082": {
+        "eng": "straw dispenser",
+        "label": "n.",
+        "ch": "\u5438\u7ba1\u53d6\u51fa\u5668",
+        "backref": "Straw extractor"
+    },
+    "1083": {
+        "eng": "street vendor",
+        "label": "n.",
+        "ch": "\u8857\u982d\u6524\u8ca9",
+        "backref": "Street vendor"
+    },
+    "1084": {
+        "eng": "strong",
+        "label": "adj.",
+        "ch": "\u5f37\u70c8\u7684\uff08 \u9152\uff09",
+        "backref": "Strong (wine)"
+    },
+    "1085": {
+        "eng": "sugar packet",
+        "label": "n.",
+        "ch": "\u7cd6\u5305",
+        "backref": "sugar bag"
+    },
+    "1086": {
+        "eng": "Sumatra Maundering",
+        "label": "n.",
+        "ch": "\uff08 \u8607\u9580\u7b54\u81d8\uff09 \u66fc\u7279\u5be7\u5496\u5561",
+        "backref": "(Sumatra) Mandheling Coffee"
+    },
+    "1087": {
+        "eng": "sundae",
+        "label": "n.",
+        "ch": "\u8056\u4ee3",
+        "backref": "Sundae"
+    },
+    "1088": {
+        "eng": "superb",
+        "label": "adj.",
+        "ch": "\u9ad8\u8d85\u7684\uff1b\u6975\u597d\u7684\uff1b\u4e00\u6d41\u7684",
+        "backref": "Superb; excellent; first-rate"
+    },
+    "1089": {
+        "eng": "supermarket",
+        "label": "n.",
+        "ch": "\u8d85\u7d1a\u5e02\u5834",
+        "backref": "Supermarket"
+    },
+    "1090": {
+        "eng": "swirl",
+        "label": "v.",
+        "ch": "\u6416\u6643\u9152\u676f\uff08 \u54c1\u9152\u65b9\u6cd5\uff09",
+        "backref": "Shake the glass (how to taste)"
+    },
+    "1091": {
+        "eng": "Swiss cheese fondue",
+        "label": "n.",
+        "ch": "\u745e\u58eb\u8d77\u53f8\u6c99\u53f8",
+        "backref": "Swiss Cheese Sauce"
+    },
+    "1092": {
+        "eng": "table",
+        "label": "n.",
+        "ch": "\u9910\u684c",
+        "backref": "Mess Table"
+    },
+    "1093": {
+        "eng": "Taiwanese lettuce",
+        "label": "n.",
+        "ch": "A \u83dc\uff1b\u53f0\u7063\u751f\u83dc\uff08 \u8435\u82e3\uff09",
+        "backref": "A dish; Taiwan lettuce (lettuce)"
+    },
+    "1094": {
+        "eng": "take an order",
+        "label": "phr.",
+        "ch": "\u9ede\u9910",
+        "backref": "place a order at Mcdonald's"
+    },
+    "1095": {
+        "eng": "take away",
+        "label": "phr.",
+        "ch": "\u5916\u5e36\uff1b\u62ff\u8d70",
+        "backref": "Take away"
+    },
+    "1096": {
+        "eng": "tall",
+        "label": "adj.",
+        "ch": "\u9ad8\u7684",
+        "backref": "Tall"
+    },
+    "1097": {
+        "eng": "tangy",
+        "label": "adj.",
+        "ch": "\u5473\u9053\u5f37\u70c8\u7684",
+        "backref": "Strong smell"
+    },
+    "1098": {
+        "eng": "taro bun",
+        "label": "n.",
+        "ch": "\u828b\u6ce5\u5305",
+        "backref": "Taro bag"
+    },
+    "1099": {
+        "eng": "taste",
+        "label": "v.",
+        "ch": "\u54c1\u5690\uff08 \u54c1\u9152\u65b9\u6cd5\uff09",
+        "backref": "Tasting (Wine tasting method)"
+    },
+    "1100": {
+        "eng": "tasteless",
+        "label": "adj.",
+        "ch": "\u6c92\u5473\u9053\u7684\uff08 \u6307\u98df\u7269\uff09",
+        "backref": "Tasteless (refers to food)"
+    },
+    "1101": {
+        "eng": "tasty",
+        "label": "adj.",
+        "ch": "\u7f8e\u5473\u53ef\u53e3\u7684",
+        "backref": "delicious"
+    },
+    "1102": {
+        "eng": "tea egg",
+        "label": "n.",
+        "ch": "\u8336\u8449\u86cb",
+        "backref": "Tea egg"
+    },
+    "1103": {
+        "eng": "teacup ride",
+        "label": "n.",
+        "ch": "\u5496\u5561\u676f\uff08 \u904a\u6a02\u5712\u7684\u4e00\u7a2e\u8a2d\u65bd\uff09",
+        "backref": "Coffee cup (a facility in an amusement park)"
+    },
+    "1104": {
+        "eng": "teller",
+        "label": "n.",
+        "ch": "\u51fa\u7d0d\u54e1",
+        "backref": "teller"
+    },
+    "1105": {
+        "eng": "tender",
+        "label": "adj.",
+        "ch": "\u67d4\u5ae9\u7684",
+        "backref": "Tender"
+    },
+    "1106": {
+        "eng": "terrace",
+        "label": "n.",
+        "ch": "\u5e73\u81fa\u5c4b\u9802\uff1b\u9732\u81fa\uff1b\u5927\u967d\u81fa",
+        "backref": "Terrace roof; terrace; large balcony"
+    },
+    "1107": {
+        "eng": "Thai satay pork",
+        "label": "n.",
+        "ch": "\u6cf0\u5f0f\u6c99\u55f2\u8c6c\u6392",
+        "backref": "Thai Style Pork Satay"
+    },
+    "1108": {
+        "eng": "thick",
+        "label": "adj.",
+        "ch": "\u6fc3\u7684",
+        "backref": "Thick"
+    },
+    "1109": {
+        "eng": "thick crust",
+        "label": "n.",
+        "ch": "\u539a\u76ae",
+        "backref": "Thick skin"
+    },
+    "1110": {
+        "eng": "thin",
+        "label": "adj.",
+        "ch": "\u7626\u7684\uff1b\u7a00\u7684",
+        "backref": "Thin"
+    },
+    "1111": {
+        "eng": "thirsty",
+        "label": "adj.",
+        "ch": "\u6e34\u7684\uff1b\u53e3\u4e7e\u7684",
+        "backref": "Thirsty"
+    },
+    "1112": {
+        "eng": "ticket stub",
+        "label": "n.",
+        "ch": "\u7968\u6839",
+        "backref": "ticket stub"
+    },
+    "1113": {
+        "eng": "tip",
+        "label": "n.",
+        "ch": "\u5c0f\u8cbb",
+        "backref": "Tip"
+    },
+    "1114": {
+        "eng": "tissue",
+        "label": "n.",
+        "ch": "\u9762\u7d19\uff1b\u885b\u751f\u7d19\uff1b\u7d19\u5dfe",
+        "backref": "Facial tissue; toilet paper; tissue"
+    },
+    "1115": {
+        "eng": "today's specialties",
+        "label": "n.",
+        "ch": "\u4eca\u65e5\u7279\u9910\uff1b\u4eca\u65e5\u63a8\u85a6\u7684\u9910\u83dc",
+        "backref": "Today\u2019s special meal; today\u2019s recommended meal"
+    },
+    "1116": {
+        "eng": "toilet paper",
+        "label": "n.",
+        "ch": "\u885b\u751f\u7d19",
+        "backref": "Toilet paper"
+    },
+    "1117": {
+        "eng": "tomato bruschetta",
+        "label": "n.",
+        "ch": "\u7fa9\u5f0f\u756a\u8304\u9999\u849c\u70e4\u9eb5\u5305\u7247",
+        "backref": "Italian tomato pesto toast"
+    },
+    "1118": {
+        "eng": "tomato slice",
+        "label": "n.",
+        "ch": "\u756a\u8304\u7247",
+        "backref": "Tomato slices"
+    },
+    "1119": {
+        "eng": "top",
+        "label": "n.",
+        "ch": "\u7d19\u676f\u7684\u676f\u84cb",
+        "backref": "Lid for paper cup"
+    },
+    "1120": {
+        "eng": "traditional",
+        "label": "adj.",
+        "ch": "\u50b3\u7d71\u7684",
+        "backref": "Traditional"
+    },
+    "1121": {
+        "eng": "traditional tea set",
+        "label": "n.",
+        "ch": "\u50b3\u7d71\u8336\u5177\u7d44",
+        "backref": "Traditional tea set"
+    },
+    "1122": {
+        "eng": "trash can",
+        "label": "n.",
+        "ch": "\u5783\u573e\u6876",
+        "backref": "Waste container"
+    },
+    "1123": {
+        "eng": "treat",
+        "label": "v.",
+        "ch": "\u6b3e\u5f85\uff1b\u8acb\u5ba2",
+        "backref": "Entertain"
+    },
+    "1124": {
+        "eng": "tropical",
+        "label": "adj.",
+        "ch": "\u71b1\u5e36\u7684",
+        "backref": "tropical"
+    },
+    "1125": {
+        "eng": "ugly",
+        "label": "adj.",
+        "ch": "\u919c\u7684",
+        "backref": "ugly"
+    },
+    "1126": {
+        "eng": "umbrella",
+        "label": "n.",
+        "ch": "\u96e8\u5098",
+        "backref": "Umbrella"
+    },
+    "1127": {
+        "eng": "undercooked",
+        "label": "adj.",
+        "ch": "\u6c92\u716e\u719f\u7684",
+        "backref": "Undercooked"
+    },
+    "1128": {
+        "eng": "upstairs",
+        "label": "n.",
+        "ch": "\u6a13\u4e0a",
+        "backref": "upstairs"
+    },
+    "1129": {
+        "eng": "valet",
+        "label": "n.",
+        "ch": "\u6cca\u8eca\u670d\u52d9\u751f",
+        "backref": "Parking attendant"
+    },
+    "1130": {
+        "eng": "vanilla with tomato",
+        "label": "n.",
+        "ch": "\u9999\u8349\u756a\u8304\u934b",
+        "backref": "Herb Tomato Pot"
+    },
+    "1131": {
+        "eng": "varietal",
+        "label": "n.",
+        "ch": "\u8461\u8404\u54c1\u7a2e\uff08 \u9078\u9152\uff09",
+        "backref": "Grape varieties (select wine)"
+    },
+    "1132": {
+        "eng": "veal",
+        "label": "n.",
+        "ch": "\u5c0f\u725b\u8089",
+        "backref": "Veal"
+    },
+    "1133": {
+        "eng": "veal marsala",
+        "label": "n.",
+        "ch": "\u99ac\u6c99\u62c9\u767d\u9152\uff08 \u8461\u8404\u751c\u9152\uff09 \u71c9\u5c0f\u725b\u8089",
+        "backref": "Marsala White Wine (Grape Sweet Wine) Stewed Veal"
+    },
+    "1134": {
+        "eng": "vegetable and barley",
+        "label": "n.",
+        "ch": "\u852c\u83dc\u858f\u4ec1\u6e6f",
+        "backref": "Vegetable barley soup"
+    },
+    "1135": {
+        "eng": "vegetable and",
+        "label": "n.",
+        "ch": "\u83dc\u8089\u5305",
+        "backref": "Cabbage Bun"
+    },
+    "1136": {
+        "eng": "vegetable mixed",
+        "label": "n.",
+        "ch": "\u852c\u679c\u6c41",
+        "backref": "juice"
+    },
+    "1137": {
+        "eng": "vegetarian dish",
+        "label": "n.",
+        "ch": "\u7d20\u98df\u83dc\u991a",
+        "backref": "Vegetarian dishes"
+    },
+    "1138": {
+        "eng": "vegetarian meal",
+        "label": "n.",
+        "ch": "\u7d20\u98df\u9910",
+        "backref": "Vegetarian meals"
+    },
+    "1139": {
+        "eng": "vegetarian",
+        "label": "n.",
+        "ch": "\u9999\u83c7\u7d20\u5305",
+        "backref": "Mushroom Vegetarian Bun"
+    },
+    "1140": {
+        "eng": "verify",
+        "label": "v.",
+        "ch": "\u78ba\u8a8d\uff1b\u9a57\u8b49",
+        "backref": "Confirm"
+    },
+    "1141": {
+        "eng": "vintage of the wine",
+        "label": "n.",
+        "ch": "\u6536\u6210\u5e74\u4efd\uff08 \u9078\u9152\uff09",
+        "backref": "Harvest year (select wine)"
+    },
+    "1142": {
+        "eng": "visitor",
+        "label": "n.",
+        "ch": "\u89c0\u5149\u5ba2\uff1b\u53c3\u89c0\u8005",
+        "backref": "Tourist"
+    },
+    "1143": {
+        "eng": "vomit",
+        "label": "v.",
+        "ch": "\u5614\u5410",
+        "backref": "Vomiting"
+    },
+    "1144": {
+        "eng": "wallet",
+        "label": "n.",
+        "ch": "\u76ae\u593e\uff1b\u9322\u5305",
+        "backref": "Wallet"
+    },
+    "1145": {
+        "eng": "water spinach",
+        "label": "n.",
+        "ch": "\u7a7a\u5fc3\u83dc",
+        "backref": "Ipomoea aquatica"
+    },
+    "1146": {
+        "eng": "weak",
+        "label": "adj.",
+        "ch": "\u7121\u5473\u7684\uff1b\u5f31\u7684",
+        "backref": "Tasteless; weak"
+    },
+    "1147": {
+        "eng": "wet",
+        "label": "adj.",
+        "ch": "\u6fd5\u7684\uff1b\u5f04\u6fd5\uff1b\u6fd5\u6c23",
+        "backref": "Wet"
+    },
+    "1148": {
+        "eng": "white pepper",
+        "label": "n.",
+        "ch": "\u767d\u80e1\u6912",
+        "backref": "30: White pepper."
+    },
+    "1149": {
+        "eng": "whole-grain bread",
+        "label": "n.",
+        "ch": "\u5168\u9ea5\u9eb5\u5305",
+        "backref": "Whole meal wheat bread"
+    },
+    "1150": {
+        "eng": "window seat",
+        "label": "n.",
+        "ch": "\u9760\u7a97\u7684\u4f4d\u7f6e",
+        "backref": "Window position"
+    }
+}

@@ -60,13 +60,13 @@
       <b-col cols="2" class="d-none d-lg-block">
           <div class="p-2 bg-warn" style="height:100%">
               <div>
-                <b-row no-gutters v-if="isAuthenticated">
+                <b-row no-gutters v-if="isAuthenticated" align="center">
                   <b-col>
-                    <b-avatar class="ml-3"  :src="s3 + $store.state.userProfile.userID + '/avatar.jpg'" size="4rem" :text="$store.state.userProfile.username[0]"></b-avatar>
+                    <b-avatar :src="s3 + $store.state.userProfile.userID + '/avatar.jpg'" size="4rem" :text="$store.state.userProfile.username[0]"></b-avatar>
                 </b-col>
                   <b-col class="text-cream">
-                    <h4> {{ $store.state.userProfile.username}}</h4>
-                    <h4> #{{ $store.state.userProfile.userID}}</h4>
+                    <button class="buttonDiv bg-prime text-cream px-1" style="height:70px; width:100%" @click="goTo('Account')"><b-icon-person-fill></b-icon-person-fill>  <span> #{{ $store.state.userProfile.userID}}<br>
+                     {{ $store.state.userProfile.username}}</span> </button>
                   </b-col>
                 </b-row>
                 <b-row  v-else>
@@ -100,7 +100,7 @@
 
                 </div>
                     <div v-if="isAuthenticated">
-                      <button class="buttonDiv bg-prime text-cream px-1" style="height:50px; width:100%" @click="goTo('Account')"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp;Account </span> </button>
+                      <button v-if="$store.state.userProfile.instructor" class="buttonDiv mt-2 bg-warn-light text-prime px-1" style="height:50px; width:100%" @click="goTo('JGrabber')"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp;Instructor </span> </button>
                       <button class="buttonDiv mt-2 bg-third text-prime px-1" style="height:50px; width:100%" @click="alert('help features coming soon')"><b-icon-question-circle></b-icon-question-circle>  <span text=""> &nbsp;Help </span> </button>
                       <button class="buttonDiv mt-2 bg-grape text-cream px-1" style="height:50px; width:100%" @click="logout()"><b-icon-power></b-icon-power>  <span text=""> &nbsp;Logout </span> </button>
                     </div>

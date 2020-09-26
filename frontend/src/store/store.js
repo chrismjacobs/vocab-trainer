@@ -5,6 +5,7 @@ import { isValidJwt, parseLocal, checkDevice } from '@/utils'
 import { authenticate, register, updateRecAPI, updateAccount, getRecordAPI } from '@/api'
 import tourism from '../assets/json/master.json'
 import food from '../assets/json/food.json'
+import cul from '../assets/json/cul.json'
 
 let dictionaries = {
   'tourism': tourism,
@@ -22,6 +23,7 @@ const state = {
   dictRecord: null,
   updateStatus: true,
   jwt: localStorage.token || '',
+  testJ: cul,
   master: dictionaries[parseLocal(localStorage.userProfile).vocab],
   testActive: false,
   device: localStorage.device || '',

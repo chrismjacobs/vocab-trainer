@@ -10,6 +10,8 @@ const routerOptions = [
   {path: '/reset', component: 'Reset'},
   {path: '/account', component: 'Account'},
   {path: '/dictionary', component: 'Dictionary'},
+  {path: '/instructor', component: 'Instructor'},
+  {path: '/jGrabber', component: 'JGrabber'},
   {path: '/transeng', component: 'TransEng'},
   {path: '/transengtest', component: 'TransEngTest'},
   {path: '/transchtest', component: 'TransChTest'},
