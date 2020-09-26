@@ -1,33 +1,33 @@
 
 <template>
   <div id="dash">
-    <h6 class="text-prime"> This Session:</h6>
+    <h6 :class="label()"> This Session:</h6>
       <span v-if="currentRecItems.length === 0" class="text-cream"> No new words </span>
 
       <div v-for="(item, index) in currentRecItems" :key="index">
             <div>
               <b-progress style="height:20px" class="mt-1" max="1" show-value>
               <b-progress-bar :value="(item.plus + item.minus)*0.2" variant="second text-cream"><span> {{item.mode}} </span></b-progress-bar>
-              <b-progress-bar :value="item.plus" variant="prime text-cream"></b-progress-bar>
+              <b-progress-bar :value="item.plus" :variant="bar()"></b-progress-bar>
               <b-progress-bar :value="item.minus" variant="warn-light text-prime"></b-progress-bar>
               </b-progress>
             </div>
       </div>
     <hr>
 
-    <h6 class="text-prime"> Your Levels:</h6>
+    <h6 :class="label()"> Word Levels:</h6>
 
     <div v-for="(item, key) in userRecItems" :key="key">
           <div v-if="key !== 'not tested'">
             <b-progress style="height:20px; background:none" class="mt-1" :max="maxRec * 1.3" show-value>
-              <b-progress-bar :value="maxRec * 0.32" variant="second text-cream"><span> {{key}} </span></b-progress-bar>
+              <b-progress-bar :value="maxRec * 0.33" variant="second text-cream"><span> {{key}} </span></b-progress-bar>
               <b-progress-bar :value="item" :variant="getClass(key)"></b-progress-bar>
             </b-progress>
           </div>
           <div v-else>
-            <b-progress style="height:20px; background:none" class="mt-1" max="1" show-value>
-              <b-progress-bar :value="item * 0.1" variant="second text-cream"><span> --- </span></b-progress-bar>
-              <b-progress-bar :value="item * 0.9" :variant="getClass(key)"><span> {{item}} </span></b-progress-bar>
+            <b-progress style="height:20px; background:none" class="mt-1" max="1000" show-value>
+              <b-progress-bar :value="item * 0.33" variant="second text-cream"><span> --- </span></b-progress-bar>
+              <b-progress-bar :value="item" :variant="getClass(key)"></b-progress-bar>
             </b-progress>
           </div>
     </div>
@@ -39,7 +39,8 @@
 export default {
   name: 'dash',
   props: {
-    tableItems: Array
+    tableItems: Array,
+    type: String
   },
   data () {
     return {
@@ -62,6 +63,20 @@ export default {
         'not tested': 'spanDiv bg-cream text-prime'
       }
       return styles[arg]
+    },
+    label: function () {
+      if (this.type === 'nav') {
+        return 'text-cream'
+      } else {
+        return 'text-prime'
+      }
+    },
+    bar: function () {
+      if (this.type === 'nav') {
+        return 'third text-prime'
+      } else {
+        return 'prime text-cream'
+      }
     }
   },
   computed: {
