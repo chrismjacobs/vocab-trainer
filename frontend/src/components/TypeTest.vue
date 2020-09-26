@@ -176,7 +176,7 @@ export default {
         this.filter += 1
         this.mistakes = 0
         // document.getElementById(toString(this.filter)).focus()
-        document.getElementById('type').value = ''
+        this.currentAnswer = ''
       } else {
         console.log('filterMax')
         this.cancel()
@@ -203,7 +203,7 @@ export default {
       this.showTest = false
       this.endTime = new Date()
       this.showModal()
-      document.getElementById('type').value = ''
+      this.currentAnswer = ''
       this.checkAnswers()
     },
     checkAnswers: function () {
