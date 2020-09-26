@@ -15,7 +15,7 @@
                 <b-nav-item @click="alert('help features coming soon')"><div class="sideBtn"><b-icon-question-circle></b-icon-question-circle>  <span> &nbsp;Help </span></div></b-nav-item>
                 <hr>
 
-                <Dash :tableItems="tableItems"></Dash>
+                <Dash :tableItems="tableItems" type="nav"></Dash>
 
                 <hr>
                 <b-nav-item @click="logout(), goTo('Home')"><div class="sideBtn bg-grape"><b-icon-power></b-icon-power>  <span text=""> &nbsp;Logout </span></div></b-nav-item>
@@ -68,7 +68,7 @@
 
                 <hr>
                     <div v-if="isAuthenticated" >
-                      <Dash :tableItems="tableItems"></Dash>
+                      <Dash :tableItems="tableItems" type="side"></Dash>
                       <hr>
                     </div>
 
@@ -407,6 +407,7 @@ body {
 
 .answerBtn {
     display:inline-block;
+    background: #c2c2c2;
     color: theme-color('prime');
     border:0px solid #CCC;
     border-radius: 5px;
@@ -436,6 +437,11 @@ body {
 .answerBtn:hover {
     color: theme-color('cream');
     background: theme-color('grey');
+}
+.answerBtn:hover:after {
+    color: theme-color('prime');
+    background: theme-color('grey');
+    content:"";
 }
 
 </style>
