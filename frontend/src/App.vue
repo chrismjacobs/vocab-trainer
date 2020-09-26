@@ -13,19 +13,10 @@
            <div v-if="isAuthenticated">
                 <b-nav-item @click="goTo('Account')"><div class="sideBtn"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp;Account #{{$store.state.userProfile.userID}} </span></div></b-nav-item>
                 <b-nav-item @click="alert('help features coming soon')"><div class="sideBtn"><b-icon-question-circle></b-icon-question-circle>  <span> &nbsp;Help </span></div></b-nav-item>
-                <div>
-                  <b-table class="text-cream" striped hover small borderless :items="currentRecItems"></b-table>
-                </div>
                 <hr>
-                <table class="table table-striped table-hover table-sm table-borderless text-cream">
-                  <tbody>
-                      <tr v-for="(item, key) in userRecItems" :key="key">
-                        <td><span :class="getClass(key)">&nbsp;&nbsp;</span></td>
-                        <td>{{key}}</td>
-                        <td><span class="pr-5">{{item}}</span></td>
-                      </tr>
-                  </tbody>
-                </table>
+
+                <Dash :tableItems="tableItems"></Dash>
+
                 <hr>
                 <b-nav-item @click="logout(), goTo('Home')"><div class="sideBtn bg-grape"><b-icon-power></b-icon-power>  <span text=""> &nbsp;Logout </span></div></b-nav-item>
 
@@ -75,37 +66,19 @@
                   </b-col>
                 </b-row>
 
-                    <hr>
-                    <div v-if="isAuthenticated" >
-                      <h6> This Session:</h6>
-                      <span v-if="currentRecItems.length === 0"> No new words </span>
-                      <div>
-                        <b-table class="text-cream" striped hover small borderless :items="currentRecItems"></b-table>
-                      </div>
-                    <hr>
-
-                   <h6> Your Levels:</h6>
-
-                  <table class="table table-striped table-hover table-sm table-borderless text-cream">
-                    <tbody>
-                        <tr v-for="(item, key) in userRecItems" :key="key">
-                          <td><span :class="getClass(key)">&nbsp;&nbsp;</span></td>
-                          <td>{{key}}</td>
-                          <td><span class="pr-5">{{item}}</span></td>
-                        </tr>
-                    </tbody>
-                  </table>
-
                 <hr>
+                    <div v-if="isAuthenticated" >
+                      <Dash :tableItems="tableItems"></Dash>
+                      <hr>
+                    </div>
 
-                </div>
                     <div v-if="isAuthenticated">
                       <button v-if="$store.state.userProfile.instructor" class="buttonDiv mt-2 bg-warn-light text-prime px-1" style="height:50px; width:100%" @click="goTo('JGrabber')"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp;Instructor </span> </button>
                       <button class="buttonDiv mt-2 bg-third text-prime px-1" style="height:50px; width:100%" @click="alert('help features coming soon')"><b-icon-question-circle></b-icon-question-circle>  <span text=""> &nbsp;Help </span> </button>
                       <button class="buttonDiv mt-2 bg-grape text-cream px-1" style="height:50px; width:100%" @click="logout()"><b-icon-power></b-icon-power>  <span text=""> &nbsp;Logout </span> </button>
                     </div>
                     <div v-else>
-                       <br>
+                      <br>
                       <br>
                        <button class="buttonDiv bg-prime text-cream px-2" style="height:50px; width:100%" @click="goTo('Login')"><b-icon-power></b-icon-power>  <span text=""> &nbsp;Login </span> </button>
                       <br>
@@ -129,9 +102,13 @@
 
 <script>
 import router from './router/index'
+import Dash from './components/Dash'
 
 export default {
   name: 'app',
+  components: {
+    Dash
+  },
   data () {
     return {
       path: this.$route.path,
@@ -145,12 +122,6 @@ export default {
         '/TypeTest': 'bg-warn-light',
         '/Match': 'bg-grape-light',
         '/Dictionary': 'bg-cream'
-      },
-      typeHeaders: {
-        'transEng': 'E/C',
-        'transCh': 'C/E',
-        'typeTest': 'Type',
-        'matchEng': 'Match'
       }
     }
   },
@@ -163,64 +134,9 @@ export default {
     },
     isActiveCheck () {
       return this.$store.getters.isActive
-    },
-    currentRecItems () {
-      let currentRecItems = []
-      for (let type in this.$store.state.currentRecord) {
-        let count = 0
-        let score = 0
-        let obj = this.$store.state.currentRecord[type]
-        for (let index in obj) {
-          if (index) {
-            count += 1
-            score += this.$store.state.currentRecord[type][index]
-          }
-        }
-        currentRecItems.push({mode: this.typeHeaders[type], count: count, score: score})
-      }
-      return currentRecItems
-    },
-    userRecItems () {
-      let counter = {
-        strong: 0,
-        good: 0,
-        okay: 0,
-        weak: 0,
-        problem: 0,
-        'not tested': 0
-      }
-
-      for (let item in this.tableItems) {
-        let row = this.tableItems[item]
-        if (row.totalScore >= 2) {
-          counter.strong += 1
-        } else if (row.totalScore === 1) {
-          counter.good += 1
-        } else if (row.totalScore === 0 && row.tested) {
-          counter.okay += 1
-        } else if (row.totalScore === -1) {
-          counter.weak += 1
-        } else if (row.totalScore <= -2) {
-          counter.problem += 1
-        } else {
-          counter['not tested'] += 1
-        }
-      }
-      return counter
     }
   },
   methods: {
-    getClass: function (arg) {
-      let styles = {
-        strong: 'spanDiv bg-safe-light',
-        good: 'spanDiv bg-third',
-        okay: 'spanDiv bg-grey',
-        weak: 'spanDiv bg-warn-light',
-        problem: 'spanDiv bg-alert-light',
-        'not tested': 'spanDiv bg-cream'
-      }
-      return styles[arg]
-    },
     contClass: function () {
       if (this.getPath() in this.btnCodes) {
         return this.btnCodes[this.getPath()]
