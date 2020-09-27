@@ -143,12 +143,12 @@ def on_ready(data):
 def on_answer(data):
     room = data['room']
     name = data['name']
-    chinese = data['chinese']
+    answer = data['answer']
     btnID = data['btnID']
     player = data['player']
     state = data['state']
 
-    emit('answer', {'player': player, 'name': name, 'chinese': chinese, 'btnID': btnID, 'state': state}, room)
+    emit('answer', {'player': player, 'name': name, 'answer': answer, 'btnID': btnID, 'state': state}, room)
 
     print('answer:', 'room', room, 'player', player)
 

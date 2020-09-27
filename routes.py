@@ -252,7 +252,7 @@ def checkFriend():
         db.session.commit()
 
         logsRecord = jChecker(user, True, False, False)['logsRecord']
-        logsRecord['friends'][friendID] = friendName
+        logsRecord['friends'][friendID] = friend.username
         ## ad friend to logs
         jStorer(user, logsRecord, None, None)
 

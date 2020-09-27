@@ -82,9 +82,12 @@ const actions = {
       })
   },
   updateRecord (context, payload) {
-    // this.$store.dispatch('updateRecord', { mode: 'transEng', answerData: this.answerData, settingsData: this.settings })
     console.log('record', payload)
     context.commit('setNewRecord', payload)
+  },
+  updateMatch (context, payload) {
+    console.log('match', payload)
+    context.commit('setNewMatch', payload)
   },
   logout (context) {
     console.log('logout...')
@@ -236,7 +239,7 @@ const mutations = {
       })
   },
   setNewRecord (state, payload) {
-    console.log('setNewEC payload = ', payload)
+    console.log('setNewRecord payload = ', payload)
     let mode = payload.mode
 
     for (let index in payload.answerData) {
@@ -282,6 +285,24 @@ const mutations = {
 
     localStorage.setItem('currentRecord', JSON.stringify(state.currentRecord))
     // data is waiting to be updated
+    state.updateStatus = false
+  },
+  setNewMatch (state, payload) {
+    console.log('setNewMatch payload = ', payload)
+    let mode = payload.mode
+    if (!state.currentRecord[mode]) {
+      Vue.set(state.currentRecord, mode, {})
+    }
+
+    Vue.set(state.currentRecord[mode], new Date(), payload.winnerStatus)
+
+    if (!state.logsRecord.logs[state.loginTime].mode) {
+      Vue.set(state.logsRecord.logs[state.loginTime], mode, {words: 0, tests: 0})
+    }
+
+    state.logsRecord.logs[state.loginTime][mode]['words'] += payload.winnerStatus
+    state.logsRecord.logs[state.loginTime][mode]['tests'] += 1
+
     state.updateStatus = false
   },
   setFriend (state, payload) {
