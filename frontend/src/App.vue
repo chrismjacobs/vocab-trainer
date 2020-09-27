@@ -440,7 +440,12 @@ body {
 }
 .answerBtn:hover:after {
     color: theme-color('prime');
-    background: theme-color('grey');
+    background:  #c2c2c2;
+    content:"";
+}
+.answerBtn:active:after {
+    color: theme-color('prime');
+    background:  #c2c2c2;
     content:"";
 }
 
