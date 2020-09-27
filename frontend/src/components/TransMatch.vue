@@ -1,29 +1,37 @@
 <template>
   <div class="TransEng">
     <audio id="audio"></audio>
-      <div class="mt-2 bg-second p-2" align="center">
+      <div class="mt-2 bg-second p-2">
         <b-row align-h="end">
-          <b-col cols="6">
+          <b-col cols="6" align="center">
             <h2 class="text-cream" > Match </h2>
           </b-col>
-          <b-col cols="3">
-            <button class="buttonDiv bg-warn"> Exit <b-icon-backspace-reverse-fill variant="warn" class="mt-1 ml-3" style="float:right" @click="leave()" font-scale="1.5"></b-icon-backspace-reverse-fill> </button>
+          <b-col cols="3" align="right">
+            <button @click="leave()" class="buttonDiv bg-warn text-cream"> Exit <b-icon-backspace-reverse-fill class="text-cream ml-3" style="float:right"  font-scale="1.5"></b-icon-backspace-reverse-fill> </button>
           </b-col>
         </b-row>
       </div>
 
      <div class="bg-second p-3" v-if="showProgress">
-         <div class="mt-2 bg-third p-2" style="height:100px" align="center">
-           <div style="width:45%;height:70px;display:inline-block;" class="">
-             <b-avatar :src="s3 + p1.toString() + '.jpg'"  size="72px" :badge="p1name" badge-offset="-0.5em" badge-variant="p1"></b-avatar>
-             <b-avatar v-if="ready.includes('p1')" icon="person-check" variant="safe"></b-avatar>
-             <b-badge class="bg-smoke text-p1 badge-lg">{{p1score}}</b-badge>
-           </div>
-           <div style="width:45%;height:70px;display:inline-block;" class="">
-             <b-avatar :src="s3 + p2.toString() + '.jpg'" size="72px" :badge="p2name" badge-offset="-0.5em" badge-variant="p2"></b-avatar>
-             <b-avatar v-if="ready.includes('p2')" icon="person-check" variant="safe"></b-avatar>
-             <b-badge class="bg-smoke text-p2 badge-lg">{{p2score}}</b-badge>
-           </div>
+         <div class="mt-2 bg-third p-2" style="height:100px">
+
+             <b-row no-gutters>
+               <b-col align="right" class="mr-3">
+                 <b-avatar :src="s3 + p1.toString() + '.jpg'"  size="65px" :badge="nameCut(p1name)" badge-offset="-0.6em" badge-variant="p1"></b-avatar>
+               </b-col>
+               <b-col align="left">
+                 <b-badge class="bg-smoke text-prime badge-lg mb-2" style="font-size:20px;width:40px">{{p1score}}</b-badge> <br>
+                 <b-avatar v-if="ready.includes('p1')" icon="person-check" variant="safe"></b-avatar>
+               </b-col>
+               <b-col align="right" class="mr-3">
+                  <b-avatar :src="s3 + p2.toString() + '.jpg'" size="65px" :badge="nameCut(p2name)" badge-offset="-0.6em" badge-variant="p2"></b-avatar>
+               </b-col>
+               <b-col align="left">
+                  <b-badge class="bg-smoke text-p2 badge-lg mb-2" style="font-size:20px;width:40px">{{p2score}}</b-badge> <br>
+                  <b-avatar v-if="ready.includes('p2')" icon="person-check" variant="safe"></b-avatar>
+               </b-col>
+             </b-row>
+
          </div>
          <div>
             <b-progress  style="height:30px" :max="1"  class="mt-2" show-value>
@@ -46,15 +54,15 @@
        <div v-for="(item, key) in testItems" :key="key">
           <div class="bg-third p-3" @mouseover="hover=true" @mouseleave="hover=false" :class="{ active: 'active1' }" v-if="testItems.indexOf(item) === filter" align="center">
               <h3>
-                <span v-if="settings.sound !== 'sdEx' || hover == true"> {{ item.English }} </span>
+                <span v-if="settings.sound !== 'sdEx' || hover == true"> {{ item.Question }} </span>
                 <span v-if="settings.sound == 'sdEx' || settings.sound == 'sdOn'"> <b-icon-soundwave></b-icon-soundwave></span>
               </h3>
           </div>
 
           <div v-if="testItems.indexOf(item) === filter">
             <div v-for="(choice, index) in item.Choices" :key="index">
-              <button class="answerBtn bg-grey" :name="item.English" :id="item.English + choice.Chinese" block @click="recordAnswer(item.English, item.Chinese, choice.Chinese)">
-                {{ choice.Chinese }}
+              <button class="answerBtn bg-grey" :name="item.Question" :id="item.Question + choice.Answer" block @click="recordAnswer(item.Question, item.Answer, choice.Answer)">
+                {{ choice.Answer }}
               </button>
                 <br>
                 <br>
@@ -81,7 +89,7 @@
 import ToolbarMatch from './ToolbarMatch'
 
 export default {
-  name: 'TransEngMatch',
+  name: 'TransMatch',
   components: {
     ToolbarMatch
   },
@@ -98,7 +106,7 @@ export default {
   data () {
     return {
       waiting: 0,
-      pageHead: 'English --> Chinese',
+      pageHead: 'Translation Match',
       toolbarShow: true,
       showToolbar: true,
       showAnswers: false,
@@ -112,7 +120,7 @@ export default {
       filter: null,
       testItems: [],
       settings: {},
-      fields: ['English', 'Chinese'],
+      fields: ['Question', 'Answer'],
       time: null,
       clock: null,
       progressValues: {
@@ -126,6 +134,14 @@ export default {
     }
   },
   methods: {
+    nameCut: function (name) {
+      let cut = name.split(' ')[0]
+      if (cut.length > 7) {
+        return cut[0]
+      } else {
+        return cut
+      }
+    },
     setCountdown: function () {
       this.time = this.timeReset
       let _this = this
@@ -159,27 +175,27 @@ export default {
         }, 3000)
       }
     },
-    recordAnswer: function (english, chinese, choice) {
+    recordAnswer: function (question, answer, choice) {
       // console.log(data)
-      let correct = chinese
+      let correct = answer
       // required for disbaling buttons
-      let btnID = english + choice
+      let btnID = question + choice
       // show if player was correct of not
       let result = (choice === correct)
       console.log('RESULT', result)
 
-      this.socket.emit('answer', {room: this.p1, name: english, chinese: chinese, btnID: btnID, player: this.player, state: result})
+      this.socket.emit('answer', {room: this.p1, name: question, answer: answer, btnID: btnID, player: this.player, state: result})
     },
     recordDisable: function () {
       console.log('DISABLE RESULT')
 
-      this.socket.emit('answer', {room: this.p1, name: null, chinese: null, btnID: null, player: this.player, state: false})
+      this.socket.emit('answer', {room: this.p1, name: null, answer: null, btnID: null, player: this.player, state: false})
     },
     disableAll: function () {
       let _this = this
-      let english = this.testItems[this.filter].English
-      let chinese = this.testItems[this.filter].Chinese
-      let buttons = document.getElementsByName(english)
+      let question = this.testItems[this.filter].Question
+      let answer = this.testItems[this.filter].Answer
+      let buttons = document.getElementsByName(question)
       console.log(buttons)
       for (let i = 0; i < buttons.length; i++) {
         buttons[i].disabled = true
@@ -187,11 +203,11 @@ export default {
       // abstract set timer function to deal with all scenarios
       setTimeout(function () {
         _this.answered = 0
-        _this.enterResult(english, chinese, null, false)
+        _this.enterResult(question, answer, null, false)
         _this.filterToggle()
       }, 2000)
     },
-    disable: function (name, btnID, player, state, chinese) {
+    disable: function (name, btnID, player, state, answer) {
       let btnClass = 'bg-' + player + '-light'
       let button = document.getElementById(btnID)
 
@@ -217,8 +233,8 @@ export default {
         }
       } else {
         // deal with disable answer
-        name = this.testItems[this.filter].English
-        chinese = this.testItems[this.filter].Chinese
+        name = this.testItems[this.filter].Question
+        answer = this.testItems[this.filter].Answer
         let buttons = document.getElementsByName(name)
         for (let i = 0; i < buttons.length; i++) {
           buttons[i].disabled = true
@@ -227,7 +243,7 @@ export default {
       console.log(state, this.answered)
       if (state || this.answered === 1) {
         this.answered = 1
-        this.nextQuestion(name, chinese, player, state)
+        this.nextQuestion(name, answer, player, state)
       } else if (this.answered === 0) {
         // first answer is false so start timer
         this.answered = 1
@@ -236,18 +252,18 @@ export default {
         console.log('LOGIC ERROR')
       }
     },
-    nextQuestion: function (name, chinese, player, state) {
+    nextQuestion: function (name, answer, player, state) {
       clearInterval(this.clock)
       this.answered = 2
       this.time = null
       let _this = this
       setTimeout(function () {
         _this.answered = 0
-        _this.enterResult(name, chinese, player, state)
+        _this.enterResult(name, answer, player, state)
         _this.filterToggle()
       }, 2000)
     },
-    enterResult: function (english, chinese, player, state) {
+    enterResult: function (question, answer, player, state) {
       console.log(state)
 
       let _rowVariant = 'warn'
@@ -258,8 +274,8 @@ export default {
       }
 
       let entry = {
-        English: english,
-        Chinese: chinese,
+        Question: question,
+        Answer: answer,
         _rowVariant: _rowVariant,
         Score: score
       }
@@ -284,11 +300,22 @@ export default {
     checkAnswers: function () {
       this.p1score += this.progressValues.p1
       this.p2score += this.progressValues.p2
+      let winnerStatus
+      if (this.p1score === this.p2score) {
+        winnerStatus = 0
+      } else if (this.p1score >= this.p2score && this.player === 'p1') {
+        winnerStatus = 1
+      } else if (this.p2score >= this.p1score && this.player === 'p2') {
+        winnerStatus = 1
+      } else {
+        winnerStatus = -1
+      }
+
+      this.$store.dispatch('updateMatch', { mode: 'matchTrans', winnerStatus: winnerStatus })
       this.progressValues.p1 = 0
       this.progressValues.p2 = 0
       this.progressValues.warn = 0
       this.showAnswers = true
-      this.$store.dispatch('updateRecord', { mode: 'matchEng', answerData: this.answerData, settingsData: null })
     },
     playAudio: function (arg) {
       console.log('PLAY', arg)
@@ -304,14 +331,14 @@ export default {
     filter: function () {
       let sound = this.testItems[this.filter]
       if (sound && this.sound !== 'sdOff') {
-        this.playAudio(sound.sdEn)
+        this.playAudio(sound.sdQue)
       }
     },
     hover: function () {
       if (this.hover === true) {
         console.log('hover_active')
         let sound = this.testItems[this.filter]
-        this.playAudio(sound.sdEn)
+        this.playAudio(sound.sdQue)
       }
     }
   },
@@ -344,7 +371,7 @@ export default {
         console.log('duplicate answer')
       } else {
         _this.btnIDMarker = data.btnID
-        _this.disable(data.name, data.btnID, data.player, data.state, data.chinese)
+        _this.disable(data.name, data.btnID, data.player, data.state, data.answer)
       }
     })
   }
