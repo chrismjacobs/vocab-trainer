@@ -1,6 +1,6 @@
 <template>
   <div class="matchArea">
-    <TransEngMatch v-on:leaveMatch="leave()" :testType="testType" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" :socket="socket" :s3="s3" v-if="testType === 'TransEng'"></TransEngMatch>
+    <TransMatch v-on:leaveMatch="leave()" :testType="testType" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" :socket="socket" :s3="s3" v-if="testType !== null"></TransMatch>
     <template v-if="waiting">
       <div v-if="testType === null">
           <div class="mt-2 bg-second p-2">
@@ -16,6 +16,18 @@
                   <div>
                       <b-dropdown-item v-for="(btn, index) in gameTypes" :key="index" @click="gameName=btn.text, gameSelect=btn.value"> {{ btn.text }} </b-dropdown-item>
                   </div>
+                  <!-- <div>
+                    <b-form-group>
+                    <b-form-radio-group
+                      id="btn-radios-2"
+                      v-model="gameSelect"
+                      :options="gameTypes"
+                      style="width:100%;color:red"
+                      buttons
+                      name="radio-btn-outline"
+                    ></b-form-radio-group>
+                  </b-form-group>
+                  </div> -->
                 </b-dropdown>
               </b-col>
               <b-col>
@@ -104,7 +116,7 @@
 </template>
 
 <script>
-import TransEngMatch from './TransEngMatch'
+import TransMatch from './TransMatch'
 import { openSocket } from '@/sockets'
 import { checkFriend, deleteFriend } from '@/api'
 
@@ -114,7 +126,7 @@ export default {
     s3: String
   },
   components: {
-    TransEngMatch
+    TransMatch
   },
   data () {
     return {
@@ -147,11 +159,13 @@ export default {
       gameSelect: null,
       gameTypes: [
         { value: null, text: '---' },
-        { value: 'TransEng', text: 'English -> Chinese' }
+        { value: 'TransEng', text: 'English -> Chinese' },
+        { value: 'TransCh', text: 'Chinese -> English' }
       ],
       gameNames: {
         null: 'select game type...',
-        TransEng: 'English -> Chinese'
+        TransEng: 'English -> Chinese',
+        TransCh: 'Chinese -> English'
       }
     }
   },
@@ -181,6 +195,7 @@ export default {
       this.socket.close()
     },
     leave: function () {
+      console.log('leave activated')
       this.testType = null
       // this.closeSocket()
       // this.startSocket()
@@ -315,6 +330,7 @@ export default {
         _this.challengeUsers[challenge.userID] = challenge
       }
       // very ugly way of triggering the watcher
+      // dupicate keys warning '2' meaning anita is observed twice?
       _this.challengeUsers = JSON.parse(JSON.stringify(_this.challengeUsers))
       console.log(_this.challengeUsers, _this.challengeList)
     })
