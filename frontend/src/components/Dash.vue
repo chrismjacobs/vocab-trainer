@@ -9,6 +9,7 @@
               <b-progress style="height:20px" class="mt-1" max="1" show-value>
               <b-progress-bar :value="(item.plus + item.minus)*0.2" variant="second text-cream"><span> {{item.mode}} </span></b-progress-bar>
               <b-progress-bar :value="item.plus" :variant="bar()"></b-progress-bar>
+              <b-progress-bar :value="item.even" variant="smoke text-prime"></b-progress-bar>
               <b-progress-bar :value="item.minus" variant="warn-light text-prime"></b-progress-bar>
               </b-progress>
             </div>
@@ -48,7 +49,7 @@ export default {
         'transEng': 'E/C',
         'transCh': 'C/E',
         'typeTest': 'Type',
-        'matchEng': 'Match'
+        'matchTrans': 'Match'
       }
     }
   },
@@ -85,18 +86,21 @@ export default {
       for (let type in this.$store.state.currentRecord) {
         let plus = 0
         let minus = 0
+        let even = 0
         let obj = this.$store.state.currentRecord[type]
         for (let index in obj) {
           if (index) {
             // count each word and score
-            if (obj[index] <= 0) {
-              plus += 1
-            } else {
+            if (obj[index] < 0) {
               minus += 1
+            } else if (obj[index] === 0) {
+              even += 1
+            } else {
+              plus += 1
             }
           }
         }
-        currentRecItems.push({mode: this.typeHeaders[type], plus: plus, minus: minus})
+        currentRecItems.push({mode: this.typeHeaders[type], plus: plus, minus: minus, even: even})
       }
       return currentRecItems
     },
