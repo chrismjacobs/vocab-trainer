@@ -4,7 +4,7 @@
 
       <div class="bg-third p-2">
             <h2 class="text-sand" align="center">
-              {{ testType }}
+              {{ gameNames[testType] }}
             </h2>
       </div>
 
@@ -151,7 +151,12 @@ export default {
         { text: 'Constant', value: 'fbConst' },
         { text: 'Complete', value: 'fbComp' },
         { text: 'None', value: 'fbNone' }
-      ]
+      ],
+      gameNames: {
+        null: 'No Game Type',
+        TransEng: 'English -> Chinese',
+        TransCh: 'Chinese -> English'
+      }
     }
   },
   methods: {
@@ -171,24 +176,43 @@ export default {
       }
     },
     makeChoices: function () {
+      let question
+      let answer
+      let sdAns
+      let sdQue
+
+      if (this.testType === 'TransEng') {
+        question = 'English'
+        answer = 'Chinese'
+        sdQue = 'mp3en'
+        sdAns = 'mp3ch'
+      } else {
+        question = 'Chinese'
+        answer = 'English'
+        sdQue = 'mp3ch'
+        sdAns = 'mp3en'
+      }
+
       let i = 0
       while (i < this.words) {
         var randomItem = this.amendedList[Math.floor(Math.random() * this.amendedList.length)]
         // console.log(this.testItems, randomItem)
+
         if (!this.checkDuplicate(randomItem)) {
           console.log('pass', randomItem)
         } else {
           let choices = [{
-            English: randomItem.English,
-            Chinese: randomItem.Chinese,
+            Question: randomItem[question],
+            Answer: randomItem[answer],
             Gr: randomItem.Gr,
-            sdEn: randomItem.mp3en,
-            sdCh: randomItem.mp3ch
+            sdQue: randomItem[sdQue],
+            sdAns: randomItem[sdAns]
           }]
           let j = 1
           while (j < this.choices) {
             if (this.sound === 'sdTy') {
               choices.push({
+                // typo mode not used yet but will need editting
                 English: this.typoFix(randomItem.English),
                 Gr: randomItem.Gr,
                 sdEn: randomItem.mp3en,
@@ -201,11 +225,11 @@ export default {
 
               if (!choices.includes(randomChoice)) {
                 choices.push({
-                  English: randomChoice.English,
-                  Chinese: randomChoice.Chinese,
+                  Question: randomChoice[question],
+                  Answer: randomChoice[answer],
                   Gr: randomChoice.Gr,
-                  sdEn: randomChoice.mp3en,
-                  sdCh: randomChoice.mp3ch
+                  sdQue: randomChoice[sdQue],
+                  sdAns: randomChoice[sdAns]
                 })
                 j++
               }
@@ -213,12 +237,12 @@ export default {
           }
           let shuffChoices = this.shuffle(choices)
           this.testItemsRoot.push({
-            English: randomItem.English,
-            Chinese: randomItem.Chinese,
-            Choices: shuffChoices,
+            Question: randomItem[question],
+            Answer: randomItem[answer],
             Gr: randomItem.Gr,
-            sdEn: randomItem.mp3en,
-            sdCh: randomItem.mp3ch
+            sdQue: randomItem[sdQue],
+            sdAns: randomItem[sdAns],
+            Choices: shuffChoices
           })
           i++
         }
@@ -349,24 +373,6 @@ export default {
   created () {
     this.tableItems = this.$store.getters.makeList
     this.stringItems = JSON.stringify(this.tableItems)
-
-    if (this.testType === 'TransCh') {
-      this.sortOptions.pop()
-      this.soundOptions = [
-        { text: 'exam mode', value: 'sdEx' },
-        { text: 'typo check', value: 'sdTy' },
-        { text: 'off', value: 'sdOff' }
-      ]
-    }
-
-    if (this.testType === 'TypeTest') {
-      this.sound = 'sdEn'
-      this.soundOptions = [
-        { text: 'English', value: 'sdEn' },
-        { text: 'Chinese', value: 'sdCh' },
-        { text: 'None', value: 'sdOff' }
-      ]
-    }
   },
   mounted () {
     let _this = this
