@@ -12,7 +12,7 @@
         <b-navbar-nav class="ml-auto">
            <div v-if="isAuthenticated">
                 <b-nav-item @click="goTo('Account')"><div class="sideBtn"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp;Account #{{$store.state.userProfile.userID}} </span></div></b-nav-item>
-                <b-nav-item @click="alert('help features coming soon')"><div class="sideBtn"><b-icon-question-circle></b-icon-question-circle>  <span> &nbsp;Help </span></div></b-nav-item>
+                <b-nav-item @click="goTo('Help')"><div class="sideBtn"><b-icon-question-circle></b-icon-question-circle>  <span> &nbsp;Help </span></div></b-nav-item>
                 <hr>
 
                 <Dash :tableItems="tableItems" type="nav"></Dash>
@@ -196,9 +196,6 @@ export default {
     },
     $route (to, from) {
       console.log('path change')
-      // if (this.isAuthenticated && this.$store.state.updateStatus === false) {
-      //   this.$store.dispatch('saveData')
-      // }
     }
   },
   updated () {
@@ -209,7 +206,7 @@ export default {
   },
   created () {
     if (!this.$store.state.userRecord && this.isAuthenticated) {
-      console.log('created: get api records')
+      // console.log('created: get api records')
       this.$store.dispatch('apiRecords', { userID: this.$store.state.userProfile.userID })
     }
 
