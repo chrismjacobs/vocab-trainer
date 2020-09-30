@@ -24,7 +24,7 @@ export function isValidJwt (jwt) {
 }
 
 export function parseLocal (localObject) {
-  console.log(localObject)
+  // console.log(localObject)
   if (localObject) {
     // console.log('LOCAL OBJECT FOUND')
     return JSON.parse(localObject)
@@ -50,11 +50,11 @@ export function imageValidation (fileInput) {
     fileInput.value = ''
     return false
   } else {
-    console.dir(fileInput.files[0])
+    // console.dir(fileInput.files[0])
     var url = window.URL.createObjectURL(fileInput.files[0])
     fetch(url)
       .then(function (res) {
-        console.log('blob')
+        // console.log('blob')
         return res.blob()
       })
       .then(function (savedBlob) {
@@ -62,7 +62,7 @@ export function imageValidation (fileInput) {
         reader.readAsDataURL(savedBlob)
         reader.onloadend = function () {
           let image64 = reader.result.split(',')[1]
-          console.log('blob2', image64)
+          // console.log('blob2', image64)
           localStorage.setItem('imageData', JSON.stringify({ 'image64': image64, 'fileType': fileType }))
           return { 'image64': image64, 'fileType': fileType }
         }
@@ -74,15 +74,15 @@ export function wordFix (string, cut) {
   // Split string so it's a sequence of characters (ex. "Well hi!" => ["W","e","l","l"," ","h","i","!"])
   let characterArray = string.split('')
 
-  console.log('WordFix', string, cut)
+  // console.log('WordFix', string, cut)
   // let marker = 0
   if (cut === 'showFL') {
     let first = string[0]
     let last = string[string.length - 1]
-    console.log(first, last)
+    // console.log(first, last)
     var newString = ''
     for (let character in characterArray) {
-      console.log(character, characterArray[character])
+      // console.log(character, characterArray[character])
       if (character === 0) {
         newString += first
       } else if (character === string.length - 1) {
@@ -142,7 +142,7 @@ export function getTypos (str) {
     return this.substr(0, index) + char + this.substr(index + char.length)
   }
 
-  console.log(str)
+  // console.log(str)
 
   // define proximity arrays
   var arrayProx = []
@@ -214,7 +214,7 @@ function shuffle (arr) {
 
 export function checkDevice () {
   var report = navigator.userAgent
-  console.log(report)
+  // console.log(report)
   var device = null
 
   if (report.includes('Windows')) {
@@ -230,6 +230,6 @@ export function checkDevice () {
   } else {
     device = report
   }
-  console.log('DEVICE', device)
+  // console.log('DEVICE', device)
   return device
 }

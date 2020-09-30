@@ -9,6 +9,7 @@ const routerOptions = [
   {path: '/register', component: 'Register'},
   {path: '/reset', component: 'Reset'},
   {path: '/account', component: 'Account'},
+  {path: '/help', component: 'Help'},
   {path: '/dictionary', component: 'Dictionary'},
   {path: '/instructor', component: 'Instructor'},
   {path: '/jGrabber', component: 'JGrabber'},

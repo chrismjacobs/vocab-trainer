@@ -36,15 +36,15 @@ const actions = {
     // mutation action to set userData after login
     return authenticate(userData)
       .then(function (response) {
-        console.log(response)
-        console.log(response.data)
+        // console.log(response)
+        // console.log(response.data)
         if (response.data.err) {
           return response.data
         } else {
           context.commit('setJwtToken', { jwt: response.data.token })
           context.commit('setProfile', { userProfile: response.data.userProfile, userRecord: response.data.userRecord, logsRecord: response.data.logsRecord, dictRecord: response.data.dictRecord })
           context.commit('setMaster', { userProfile: response.data.userProfile })
-          console.log(response.data)
+          // console.log(response.data)
           return response.data
         }
       })
@@ -53,7 +53,7 @@ const actions = {
       })
   },
   register (context, userData) {
-    console.log(context)
+    // console.log(context)
     return register(userData)
       .then(function (response) {
         return response.data
@@ -63,12 +63,12 @@ const actions = {
       })
   },
   account (context, userData) {
-    console.log(context, userData)
+    // console.log(context, userData)
     return updateAccount(userData)
       .then(function (response) {
         alert(response.data.msg)
         context.commit('setAccount', {dataReturn: response.data.dataReturn, newVocab: response.data.newVocab})
-        console.log('new', response.data.dataReturn)
+        // console.log('new', response.data.dataReturn)
         if (response.data.newVocab) {
           alert('Your are changing your word list to ' + response.data.dataReturn['vocab'] + '. Please log in again to update')
           context.dispatch('logout')
@@ -82,19 +82,19 @@ const actions = {
       })
   },
   updateRecord (context, payload) {
-    console.log('record', payload)
+    // console.log('record', payload)
     context.commit('setNewRecord', payload)
   },
   updateMatch (context, payload) {
-    console.log('match', payload)
+    // console.log('match', payload)
     context.commit('setNewMatch', payload)
   },
   logout (context) {
-    console.log('logout...')
+    // console.log('logout...')
     context.commit('destroyToken')
   },
   checkLogin () {
-    console.log('check login...')
+    // console.log('check login...')
     return isValidJwt(state.jwt)
   },
   testActive (context) {
@@ -107,26 +107,26 @@ const actions = {
     context.commit('closeSocket')
   },
   saveData (context) {
-    console.log('save data...')
+    // console.log('save data...')
     context.commit('sendRecords')
   },
   addFriend (context, payload) {
-    console.log('friend data...')
+    // console.log('friend data...')
     context.commit('setFriend', payload)
   },
   newWord (context, payload) {
-    console.log('new word data...')
+    // console.log('new word data...')
     context.commit('setNewWord', payload)
   },
   deleteWord (context, payload) {
-    console.log('new word data...')
+    // console.log('new word data...')
     context.commit('setDeleteWord', payload)
   },
   apiRecords (context, payload) {
-    console.log('record request...')
+    // console.log('record request...')
     return getRecordAPI(payload)
       .then(function (response) {
-        console.log(response.data)
+        // console.log(response.data)
         context.commit('setRecords', response.data)
       })
       .catch(error => {
@@ -139,12 +139,12 @@ const mutations = {
   // mutation can change the state variables
   // set token into local storage and store state
   setJwtToken (state, payload) {
-    console.log('setJwtToken payload = ', payload.jwt)
+    // console.log('setJwtToken payload = ', payload.jwt)
     localStorage.token = payload.jwt
     state.jwt = payload.jwt
   },
   setProfile (state, payload) {
-    console.log('setProfile payload = ', payload)
+    // console.log('setProfile payload = ', payload)
 
     localStorage.setItem('userProfile', JSON.stringify(payload.userProfile))
     state.userProfile = payload.userProfile
@@ -168,7 +168,7 @@ const mutations = {
     state.testActive = false
   },
   setMaster (state, payload) {
-    console.log('setMaster payload = ', payload.userProfile.vocab)
+    // console.log('setMaster payload = ', payload.userProfile.vocab)
     state.master = dictionaries[payload.userProfile.vocab]
   },
   setRecords (state, payload) {
@@ -188,7 +188,7 @@ const mutations = {
     }
   },
   setAccount (state, payload) {
-    console.log('setAccount payload = ', payload.dataReturn)
+    // console.log('setAccount payload = ', payload.dataReturn)
     for (let item in payload.dataReturn) {
       if (item !== 'imageData') {
         state[item] = payload.dataReturn[item]
@@ -197,17 +197,17 @@ const mutations = {
     localStorage.setItem('userProfile', JSON.stringify(state.userProfile))
   },
   setNewWord (state, payload) {
-    console.log('setNewWord payload = ', payload)
+    // console.log('setNewWord payload = ', payload)
     state.dictRecord[payload.newWord.word] = payload.newWord.text
     state.updateStatus = false
   },
   setDeleteWord (state, payload) {
-    console.log('setDeleteWord payload = ', payload)
+    // console.log('setDeleteWord payload = ', payload)
     delete state.dictRecord[payload.word]
     state.updateStatus = false
   },
   destroyToken (state) {
-    console.log('destroyToken')
+    // console.log('destroyToken')
     state.userProfile = {}
     state.userRecord = {}
     state.currentRecord = {}
@@ -218,7 +218,7 @@ const mutations = {
   },
   setTestActive (state) {
     state.testActive = !state.testActive
-    console.log('testActive', state.testActive)
+    // console.log('testActive', state.testActive)
   },
   sendRecords (state) {
     let _state = state
@@ -228,18 +228,18 @@ const mutations = {
         // localStorage.settings = JSON.stringify({})
         localStorage.setItem('userProfile', JSON.stringify(state.userProfile))
         localStorage.setItem('currentRecord', JSON.stringify(state.currentRecord))
-        console.log('RECORDS UPDATED', response)
+        // console.log('RECORDS UPDATED', response)
       })
       .catch(error => {
         // log and signal to app
         if (_state.jwt !== '') {
           alert('Sorry, an updating error has occured', error)
         }
-        console.log('Error Authenticating: ', error)
+        // console.log('Error Authenticating: ', error)
       })
   },
   setNewRecord (state, payload) {
-    console.log('setNewRecord payload = ', payload)
+    // console.log('setNewRecord payload = ', payload)
     let mode = payload.mode
 
     for (let index in payload.answerData) {
@@ -267,7 +267,7 @@ const mutations = {
       Vue.set(state.logsRecord.settings, mode)
     }
 
-    console.log('LOGSRECORD', state.logsRecord, state.logsRecord.settings, state.logsRecord.logs)
+    // console.log('LOGSRECORD', state.logsRecord, state.logsRecord.settings, state.logsRecord.logs)
 
     state.logsRecord.settings[mode] = payload.settingsData
 
@@ -278,7 +278,7 @@ const mutations = {
       Vue.set(state.logsRecord.logs[state.loginTime], mode, {words: 0, tests: 0})
     }
 
-    console.log('logs', state.logsRecord.logs[state.loginTime][mode])
+    // console.log('logs', state.logsRecord.logs[state.loginTime][mode])
 
     state.logsRecord.logs[state.loginTime][mode]['words'] += (payload.answerData).length
     state.logsRecord.logs[state.loginTime][mode]['tests'] += 1
@@ -288,7 +288,7 @@ const mutations = {
     state.updateStatus = false
   },
   setNewMatch (state, payload) {
-    console.log('setNewMatch payload = ', payload)
+    // console.log('setNewMatch payload = ', payload)
     let mode = payload.mode
     if (!state.currentRecord[mode]) {
       Vue.set(state.currentRecord, mode, {})
@@ -306,7 +306,7 @@ const mutations = {
     state.updateStatus = false
   },
   setFriend (state, payload) {
-    console.log(payload)
+    // console.log(payload)
     // state.logsRecord.friends = {}
     state.logsRecord.friends = payload.friendData
     state.updateStatus = false
@@ -316,11 +316,11 @@ const mutations = {
 const getters = {
   // reusable data accessors
   isAuthenticated (state) {
-    console.log(state.jwt)
+    // console.log(state.jwt)
     return isValidJwt(state.jwt)
   },
   isActive (state) {
-    console.log('getterActive', state.testActive)
+    // console.log('getterActive', state.testActive)
     return state.testActive
   },
   dictGet (state) {
