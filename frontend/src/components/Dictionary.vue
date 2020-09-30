@@ -32,11 +32,11 @@
         <b-row>
         <b-col>
           Search by Letter:
-          <b-form-select class="bg-warn-light"  v-model="selected[0]" :options="optionsA" :select-size="7"></b-form-select>
+          <b-form-select class="bg-warn-light" @change="selected[2]=null, sMarker=selected[0]" v-model="selected[0]" :options="optionsA" :select-size="7"></b-form-select>
         </b-col>
         <b-col>
           Search by Grammar:
-          <b-form-select class="bg-third" style="overflow-y: hidden" v-model="selected[1]" :options="optionsG" :select-size="7"></b-form-select>
+          <b-form-select class="bg-third" style="overflow-y: hidden" @change="selected[2] = null" v-model="selected[1]" :options="optionsG" :select-size="7"></b-form-select>
         </b-col>
         </b-row>
         <b-row class="mt-3 pb-3" align="center">
@@ -197,6 +197,7 @@ export default {
       ],
       tableItems: null,
       selected: [null, null, null],
+      sMarker: null,
       optionsA: [
         { value: null, text: '---' }
       ],
@@ -210,7 +211,7 @@ export default {
         { value: 'prop.', text: 'proper nouns' }
       ],
       optionsR: [
-        { value: null, text: 'none' },
+        // { value: null, text: 'none' },
         { value: -2, text: '--' },
         { value: -1, text: '-' },
         { value: 0, text: 'o' },
@@ -358,6 +359,14 @@ export default {
       console.log(this.wordList)
       this.msg = 'Word deleted'
       this.showModal()
+    }
+  },
+  watch: {
+    selected: function () {
+      if (this.selected[0] !== this.sMarker) {
+        this.selected[2] = null
+        this.sMarker = this.selected[0]
+      }
     }
   },
   created () {
