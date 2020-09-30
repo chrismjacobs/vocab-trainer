@@ -31,7 +31,7 @@
 
             <div class="d-flex justify-content-between">
                 <div>
-                <button class="buttonDiv bg-safe px-3" style="width:100px" type="submit" v-b-modal.modal1> <b-icon-forward variant="cream" font-scale="1.5"></b-icon-forward></button>
+                <button class="buttonDiv bg-warn px-3" style="width:100px" type="submit" v-b-modal.modal1> <b-icon-forward variant="cream" font-scale="1.5"></b-icon-forward></button>
                 </div>
             </div>
           </b-form>
