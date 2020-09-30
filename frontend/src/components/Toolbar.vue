@@ -255,7 +255,7 @@ export default {
   },
   methods: {
     makeTest: function () {
-      console.log(this.special)
+      // console.log(this.special)
       if (this.spelling && this.selected === 'abbr.') {
         alert('Cannot make typos with Abbreviations')
         return false
@@ -334,9 +334,9 @@ export default {
         var randomItem = this.amendedList[Math.floor(Math.random() * this.amendedList.length)]
         // console.log('MAKE CHOICES', this.testItemsRoot, randomItem, this.checkDuplicate(randomItem))
         if (!this.checkDuplicate(randomItem)) {
-          console.log('pass duplicate')
+          // console.log('pass duplicate')
         } else if (this.sound === 'sdTy' && randomItem.Gr === 'abbr.') {
-          console.log('pass abbr')
+          // console.log('pass abbr')
         } else {
           let choices = [{
             English: randomItem.English,
@@ -358,7 +358,7 @@ export default {
               j++
             } else {
               let randomChoice = this.amendedList[Math.floor(Math.random() * this.amendedList.length)]
-              console.log(randomChoice, choices)
+              // console.log(randomChoice, choices)
 
               if (!choices.includes(randomChoice)) {
                 choices.push({
@@ -412,18 +412,18 @@ export default {
         var randomItem = this.amendedList[Math.floor(Math.random() * this.amendedList.length)]
         // console.log(this.testItems, randomItem)
         if (!this.checkDuplicate(randomItem)) {
-          console.log('pass Duplicate')
+          // console.log('pass Duplicate')
         } else if (this.spelling && randomItem.Gr === 'abbr.') {
-          console.log('pass abbr')
+          // console.log('pass abbr')
         } else {
           // CHANGE MADE new code for spelling set up
           let spell = '______________'
           if (this.spelling) {
-            console.log('CHECK', randomItem.Gr)
+            // console.log('CHECK', randomItem.Gr)
             spell = wordFix(randomItem.English, this.spelling)
           }
 
-          console.log('SPELL', spell)
+          // console.log('SPELL', spell)
           this.testItemsRoot.push({
             English: randomItem.English,
             Chinese: randomItem.Chinese,
@@ -529,8 +529,8 @@ export default {
         { text: 'None', value: 'sdOff' }
       ]
     }
-    console.log(this.testType)
-    console.log(this.$store.state.logsRecord.settings)
+    // console.log(this.testType)
+    // console.log(this.$store.state.logsRecord.settings)
     if (this.$store.state.logsRecord.settings[this.testType]) {
       let settings = this.$store.state.logsRecord.settings[this.testType]
       for (let item in settings) {
