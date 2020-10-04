@@ -148,6 +148,7 @@ def send_reset_email(user):
     mail.send(msg)
 
 
+
 @app.route("/api/send_reset", methods=['POST'])
 def send_reset():
     print('RESET PASSWORD')
@@ -163,6 +164,7 @@ def send_reset():
             {'msg': 'There is no account associated with this username'}
     else:
         return jsonify({'msg': 'There is no account associated with this email'})
+
 
 @app.route("/api/getRecord", methods=['POST'])
 def get_records():
@@ -334,6 +336,36 @@ def updateAccount():
         'msg' : 'Thank you ' + data['username'] + ', your account information has been changed',
         'dataReturn' : data,
         'newVocab' : newVocab
+    }
+    return jsonify(response)
+
+
+@app.route("/api/ticket", methods=['POST'])
+def updateTicket():
+    print('TICKET')
+    data = request.get_json()['userData']
+    pprint(data)
+
+    current_user = User.query.get(data['userID'])
+    print(current_user)
+
+    count = Tickets.query.filter_by(user_id=current_user.id).count()
+    print('TICKET COUNT: ', count)
+
+    if count > 4:
+        response = {
+        'msg' : 'Sorry, you have 5 tickets already, please delete one to add more or wait for response, thank you.',
+        'dataReturn' : data
+        }
+        return jsonify(response)
+
+    newTicket = Tickets(user_id=current_user.id, device=data['device'], category=data['category'], issue=data['issue'])
+    db.session.add(newTicket)
+    db.session.commit()
+
+    response = {
+        'msg' : 'Thank you, your ticket has been recorded',
+        'dataReturn' : data
     }
     return jsonify(response)
 
