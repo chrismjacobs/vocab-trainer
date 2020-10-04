@@ -169,7 +169,6 @@ export default {
         setTimeout(function () {
           _this.start()
           // go to true
-          _this.$store.dispatch('testActive')
           _this.waiting = 0
           _this.ready = []
         }, 3000)
@@ -291,7 +290,6 @@ export default {
       } else {
         console.log('filterMax')
         // go back to false
-        this.$store.dispatch('testActive')
         this.filter = null
         this.showTest = false
         this.checkAnswers()
