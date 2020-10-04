@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import router from '../router'
 import { isValidJwt, parseLocal, checkDevice } from '@/utils'
-import { authenticate, register, updateRecAPI, updateAccount, getRecordAPI } from '@/api'
+import { authenticate, register, updateRecAPI, updateAccount, getRecordAPI, ticket } from '@/api'
 import tourism from '../assets/json/master.json'
 import food from '../assets/json/food.json'
 import cul from '../assets/json/cul.json'
@@ -62,6 +62,17 @@ const actions = {
         console.log('Error Registering: ', error)
       })
   },
+  ticket (context, userData) {
+    // console.log(context)
+    console.log(userData)
+    return ticket(userData)
+      .then(function (response) {
+        return response.data
+      })
+      .catch(error => {
+        console.log('Error Ticketing: ', error)
+      })
+  },
   account (context, userData) {
     // console.log(context, userData)
     return updateAccount(userData)
@@ -78,7 +89,7 @@ const actions = {
       .catch(error => {
         alert('An error has occured - your account has not been updated')
         router.push('/account')
-        console.log('Error Registering: ', error)
+        console.log('Error Updating: ', error)
       })
   },
   updateRecord (context, payload) {
