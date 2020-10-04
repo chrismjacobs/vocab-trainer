@@ -21,13 +21,13 @@
     <div v-for="(item, key) in userRecItems" :key="key">
           <div v-if="key !== 'not tested'">
             <b-progress style="height:20px; background:none" class="mt-1" :max="maxRec * 1.3" show-value>
-              <b-progress-bar :value="maxRec * 0.33" variant="second text-cream"><span> {{key}} </span></b-progress-bar>
+              <b-progress-bar :value="maxRec * 0.30" variant="second text-cream"><span> {{key}} </span></b-progress-bar>
               <b-progress-bar :value="item" :variant="getClass(key)"></b-progress-bar>
             </b-progress>
           </div>
           <div v-else>
             <b-progress style="height:20px; background:none" class="mt-1" max="1000" show-value>
-              <b-progress-bar :value="item * 0.33" variant="second text-cream"><span> --- </span></b-progress-bar>
+              <b-progress-bar :value="maxRec * 0.30" variant="second text-cream"><span> --- </span></b-progress-bar>
               <b-progress-bar :value="item" :variant="getClass(key)"></b-progress-bar>
             </b-progress>
           </div>
