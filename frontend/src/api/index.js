@@ -16,6 +16,9 @@ export function register (userData) {
 export function authenticate (userData) {
   return axios.post(host + '/api/login', userData)
 }
+export function ticket (userData) {
+  return axios.post(host + '/api/ticket', userData)
+}
 
 export function updateRecAPI (payload) {
   return axios.post(host + '/api/updateRecord', payload)
