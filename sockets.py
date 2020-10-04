@@ -10,16 +10,16 @@ from flask_cors import CORS
 print('SOCKETS')
 
 
-def getUsers ():
-    userSearch = Connected.query.all()
-    userDict = {}
+# def getUsers ():
+#     userSearch = Connected.query.all()
+#     userDict = {}
 
-    for user in userSearch:
-        userDict[user.connected.id] = {'username': user.connected.username, 'userID': user.connected.id}
+#     for user in userSearch:
+#         userDict[user.connected.id] = {'username': user.connected.username, 'userID': user.connected.id}
 
 
-    userList = json.dumps(userDict)
-    return userList
+#     userList = json.dumps(userDict)
+#     return userList
 
 
 @socketio.on('online')
@@ -38,11 +38,11 @@ def online(data):
 
     if check:
         ## replace old sid with new
-        if check.extraStr != request.sid:
-            check.extraStr = request.sid
+        if check.sid != request.sid:
+            check.sid = request.sid
             db.session.commit()
     else:
-        player = Connected(username=user.username, friends=json.dumps(friends), connected=user, extraStr=request.sid)
+        player = Connected(username=user.username, friends=json.dumps(friends), connected=user, sid=request.sid)
         db.session.add(player)
         db.session.commit()
 
@@ -65,28 +65,19 @@ def online(data):
         ## see if they're connected
         cUser = Connected.query.filter_by(connected=fUser).first()
         ## only send emit if user is one of their friends
-        print('checkCUSER', cUser, userID, json.loads(cUser.friends))
         if cUser and str(userID) in json.loads(cUser.friends):
-            print('online friend emit', int(f))
+            print('online friend emit', int(f), )
             emit('onlineUsers', {'userID': user.id, 'username': user.username}, int(f))
 
 
-@socketio.on('offline')
-def on_offline(data):
-    print(data)
-    userID = data['userID']
-    user = User.query.get(userID)
 
-    print('user', user)
-    check = Connected.query.filter_by(connected=user).first()
-    print('check', check)
+def on_offline(user, check):
 
     friends = {}
 
-    if check:
-        friends = json.loads(check.friends)
-        Connected.query.filter_by(connected=user).delete()
-        db.session.commit()
+    friends = json.loads(check.friends)
+    Connected.query.filter_by(connected=user).delete()
+    db.session.commit()
 
 
     for f in friends:
@@ -104,6 +95,7 @@ def on_challenge(data):
     username = data['username']
     mode = data['mode']
 
+    # send the challenge to the room of opponent
     emit('challenge', {'sender': username, 'mode': mode, 'userID': userID}, int(targetID))
     print('challenge', 'target:', targetID, 'sender:', userID, 'mode', mode)
 
@@ -163,6 +155,32 @@ def on_settings(data):
     print('newSettings:', 'room', room, 'settings', settingsData)
 
 
+@socketio.on('leftMatch')
+def on_leftMatch(data):
+
+    p2 = data['p2']
+    p1 = data['p1']
+    userID = data['userID']
+
+    p2name = User.query.get(p2).username
+    p1name = User.query.get(p1).username
+
+    p1con = Connected.query.filter_by(user_id=p1).first()
+    p2con = Connected.query.filter_by(user_id=p2).first()
+
+    if p1con:
+        p1sid = p1con.sid
+
+    if p2con:
+        p2sid = p2con.sid
+
+    if userID is not p1:
+        leave_room(p1)
+        join_room(p2)
+
+    emit('kickOff', {'opponent': p1name}, p2sid)
+    emit('kickOff', {'opponent': p2name}, p1sid)
+
 
 @socketio.on('disconnect')
 def on_disconnect():
@@ -171,7 +189,7 @@ def on_disconnect():
     roomList = rooms(sid=sid)
     print(roomList)
 
-    check = Connected.query.filter_by(extraStr=sid).first()
+    check = Connected.query.filter_by(sid=sid).first()
     print('check', check)
 
     if check:
@@ -188,8 +206,9 @@ def on_disconnect():
             print('Offline Signal: ', int(f))
             emit('offlineUsers', {'userID': userID}, int(f))
 
+        ## leave room before reconnecting??
 
-        Connected.query.filter_by(extraStr=sid).delete()
+        Connected.query.filter_by(sid=sid).delete()
         db.session.commit()
 
     print('Client Disconnected')
