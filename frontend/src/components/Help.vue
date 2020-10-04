@@ -3,17 +3,16 @@
     <b-container style="height:100vh">
     <b-row class="mt-5">
       <b-col>
-        <b-card v-if="waiting" header="Question" header-bg-variant="prime" header-text-variant="cream" header-tag="h3">
-          <b-form @submit="onSubmit" @reset="onReset" v-if="show">
+        <b-card v-if="waiting" header="Question/Problem" header-bg-variant="prime" header-text-variant="cream" header-tag="h3">
 
-            <b-input-group class="my-4" label="Topic:" label-for="exampleInput7">
+            <b-input-group class="my-4" label="Category:" label-for="exampleInput7">
               <b-input-group-prepend inline is-text>
                   <b-icon icon="card-list"></b-icon>
                 </b-input-group-prepend>
                 <b-form-select id="topic"
                 required
                 :options="issues"
-                v-model="form.topic"
+                v-model="form.category"
                 >
                 </b-form-select>
             </b-input-group>
@@ -30,7 +29,7 @@
                 </b-form-select>
             </b-input-group>
 
-            <b-input-group label="Email:" label-for="exampleInput1">
+            <b-input-group label="Problem/Question:" label-for="exampleInput1">
                 <b-input-group-prepend inline is-text>
                   <b-icon icon="envelope"></b-icon>
                 </b-input-group-prepend>
@@ -40,12 +39,13 @@
                 </b-form-input>
             </b-input-group>
 
+            <br>
+
             <div class="d-flex justify-content-between">
                 <div>
-                <button class="buttonDiv bg-safe px-3" style="width:100px" type="submit" v-b-modal.modal1> <b-icon-forward variant="cream" font-scale="1.5"></b-icon-forward></button>
+                <button class="buttonDiv bg-warn px-3" style="width:100px" @click="sendTicket()"> <b-icon-forward variant="cream" font-scale="1.5"></b-icon-forward></button>
                 </div>
             </div>
-          </b-form>
         </b-card>
       <div v-else align="center">
         <h4 class="text-warn"> Sending Question </h4>
@@ -81,26 +81,28 @@ export default {
   data () {
     return {
       form: {
+        userID: this.$store.state.userProfile.userID,
         issue: '',
-        topics: '',
+        category: '',
         device: ''
       },
       show: true,
       waiting: true,
       msg: null,
       issues: [
+        {text: 'Suggestion', value: 'suggestion'},
         {text: 'Login', value: 'login'},
         {text: 'Account', value: 'account'},
-        {text: 'Adding Friend', value: 'friend'},
-        {text: 'Playing a Match', value: 'match'},
         {text: 'Dictionary', value: 'dictionary'},
         {text: 'Performance Data', value: 'performance'},
         {text: 'Typing', value: 'typing'},
+        {text: 'Adding Friend', value: 'friend'},
         {text: 'Adding Picture', value: 'picture'},
         {text: 'English -> Chinese', value: 'ec'},
         {text: 'Chinese -> English', value: 'ce'},
+        {text: 'Playing a Match', value: 'match'},
         {text: 'Sound', value: 'sound'},
-        {text: 'Other', value: 'othe '}
+        {text: 'Other', value: 'other'}
       ],
       devices: [
         {text: 'iPhone', value: 'ios'},
@@ -131,7 +133,7 @@ export default {
     },
     onSubmit (evt) {
       evt.preventDefault()
-      this.authenticate()
+      this.sendTicket()
     },
     sendTicket () {
       this.waiting = false
@@ -139,6 +141,7 @@ export default {
       this.$store.dispatch('ticket', { userData: this.form })
         .then(function (response) {
           console.log('RESPONSE', response)
+          _this.waiting = true
           if (response.err) {
             _this.showAlert(response.msg)
           } else {
