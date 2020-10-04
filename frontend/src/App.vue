@@ -41,10 +41,13 @@
       </b-col>
 
       <b-col :class="contClass()" style="min-height:100vh">
-        <b-container fluid >
+        <b-container fluid  v-if="this.$store.state.userRecord || !isAuthenticated">
           <transition name="board">
            <router-view :s3="s3"></router-view>
           </transition>
+        </b-container>
+        <b-container v-else>
+          updating.....
         </b-container>
       </b-col>
 
@@ -202,7 +205,9 @@ export default {
     // check the login status everytime the page is change
     this.$store.dispatch('checkLogin')
     this.userProfile = this.$store.state.userProfile
-    this.tableItems = this.$store.getters.makeList
+    if (this.$store.state.userRecord) {
+      this.tableItems = this.$store.getters.makeList
+    }
   },
   created () {
     if (!this.$store.state.userRecord && this.isAuthenticated) {
@@ -315,6 +320,11 @@ body {
   padding: 30px 5px;
   width:auto;
   transition: 0.3s
+}
+
+.sideLink:hover {
+  color: theme-color('warn') !important;
+  background-color:theme-color('smoke') !important;
 }
 
 .select option {
