@@ -1,6 +1,6 @@
 <template>
   <div class="matchArea">
-    <TransMatch v-on:leaveMatch="leave()" :testType="testType" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" :socket="socket" :s3="s3" v-if="testType !== null"></TransMatch>
+    <TransMatch v-on:leaveMatch="leaveMatch()" :testType="testType" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" :socket="socket" :s3="s3" v-if="testType !== null"></TransMatch>
     <template v-if="waiting">
       <div v-if="testType === null">
           <div class="mt-2 bg-second p-2">
@@ -10,29 +10,23 @@
           </div>
 
           <div class="bg-prime text-third p-2">
-            <b-row align="center">
-              <b-col>
-                <b-dropdown  :text="gameName" variant="light">
-                  <div>
-                      <b-dropdown-item v-for="(btn, index) in gameTypes" :key="index" @click="gameName=btn.text, gameSelect=btn.value"> {{ btn.text }} </b-dropdown-item>
-                  </div>
-                  <!-- <div>
-                    <b-form-group>
+            <b-row align="left">
+              <b-col cols="7">
+                <div>
                     <b-form-radio-group
                       id="btn-radios-2"
                       v-model="gameSelect"
                       :options="gameTypes"
                       style="width:100%;color:red"
                       buttons
+                      button-variant="p1"
                       name="radio-btn-outline"
                     ></b-form-radio-group>
-                  </b-form-group>
-                  </div> -->
-                </b-dropdown>
+                  </div>
               </b-col>
-              <b-col>
-                <button class="buttonDiv bg-warn"  @click="friendAdder=!friendAdder">Add Friend</button>
-                <button class="buttonDiv bg-alert"  @click="friendDeleter=!friendDeleter">Delete </button>
+              <b-col align="right">
+                <button class="buttonDiv bg-warn"  @click="friendAdder=!friendAdder"> Add <b-icon icon="person"></b-icon></button>
+                <button class="buttonDiv bg-alert"  @click="friendDeleter=!friendDeleter"> Del <b-icon icon="x-square-fill"></b-icon> </button>
               </b-col>
             </b-row>
           </div>
@@ -66,7 +60,7 @@
                   &nbsp;&nbsp;
                   <button class="buttonDiv bg-smoke mx-1 " disabled> {{gameNames[chall.mode]}}</button>
                   <button class="buttonDiv bg-p2 mx-2" style="width:15%" @click="acceptChallenge(chall.userID, chall.sender, chall.mode)"> <b-icon icon="caret-right-square-fill"></b-icon> </button>
-                  <button class="buttonDiv bg-alert mx-1" style="width:15%"  @click="declineChallenge(chall.userID)"> <b-icon icon="x-square-fill"></b-icon> </button>
+                  <button class="buttonDiv bg-alert mx-1" style="width:15%"  @click="declineChallenge(chall.userID)"> Del <b-icon icon="x-square-fill"></b-icon> </button>
                 </div>
             </div>
 
@@ -98,7 +92,7 @@
       </div>
     </template>
 
-    <b-modal align="center" ref="success" hide-footer title="Friend Update" hide-header-close no-close-on-esc no-close-on-backdrop>
+    <b-modal align="center" ref="success" hide-footer title="Complete" hide-header-close no-close-on-esc no-close-on-backdrop>
       <div class="d-block">
         <h3> {{msg}} </h3>
       </div>
@@ -158,14 +152,13 @@ export default {
       gameName: 'Select Game',
       gameSelect: null,
       gameTypes: [
-        { value: null, text: '---' },
-        { value: 'TransEng', text: 'English -> Chinese' },
-        { value: 'TransCh', text: 'Chinese -> English' }
+        { value: 'TransEng', text: 'Eng -> Ch' },
+        { value: 'TransCh', text: 'Ch -> Eng' }
       ],
       gameNames: {
         null: 'select game type...',
-        TransEng: 'English -> Chinese',
-        TransCh: 'Chinese -> English'
+        TransEng: 'Eng -> Chinese',
+        TransCh: 'Ch -> English'
       }
     }
   },
@@ -191,14 +184,19 @@ export default {
       this.socket.emit('checkOnline', { userID: this.userID })
     },
     closeSocket: function () {
-      this.socket.emit('offline', { userID: this.userID })
+      // this.socket.emit('offline', { userID: this.userID })
       this.socket.close()
     },
-    leave: function () {
+    leaveMatch: function () {
       console.log('leave activated')
+      this.$store.dispatch('testActive')
+      this.socket.emit('leftMatch', { userID: this.userID, p1: this.p1, p2: this.p2 })
       this.testType = null
-      // this.closeSocket()
-      // this.startSocket()
+      this.challengeUsers = {}
+      this.p1 = null
+      this.p1name = null
+      this.p2 = null
+      this.p2name = null
     },
     challenge: function (targetID, mode) {
       if (mode === null) {
@@ -263,13 +261,13 @@ export default {
     }
   },
   watch: {
-    challengeUsers: function () {
-      this.challengeList = []
-      for (let u in this.challengeUsers) {
-        this.challengeList.push(this.challengeUsers[u].userID)
-      }
-      console.log(this.challengeList)
-    }
+    // challengeUsers: function () {
+    //   this.challengeList = []
+    //   for (let u in this.challengeUsers) {
+    //     this.challengeList.push(this.challengeUsers[u].userID)
+    //   }
+    //   console.log(this.challengeList)
+    // }
   },
   created () {
     console.log(this.s3)
@@ -298,6 +296,7 @@ export default {
 
     let _this = this
     _this.socket.on('onlineUsers', function (data) {
+      console.log('onlineUsers0', _this.onlineUsers)
       if (_this.friends[data.userID]) {
         console.log('onlineUsers', data)
         _this.onlineUsers[data.userID] = data.username
@@ -314,6 +313,7 @@ export default {
     })
     _this.socket.on('challenge', function (data) {
       console.log('challenge', data)
+      // stops two people sending challange at the same time
       if (_this.challengeMarker === data.userID) {
         _this.challengeMarker = null
         return false
@@ -332,10 +332,10 @@ export default {
       // very ugly way of triggering the watcher
       // dupicate keys warning '2' meaning anita is observed twice?
       _this.challengeUsers = JSON.parse(JSON.stringify(_this.challengeUsers))
-      console.log(_this.challengeUsers, _this.challengeList)
     })
     _this.socket.on('start', function (data) {
       console.log('start', data)
+      _this.$store.dispatch('testActive')
       _this.challengeMarker = null
       _this.testType = data.mode
       _this.p1 = data.p1
@@ -351,16 +351,22 @@ export default {
     })
     _this.socket.on('leftRoom', function (data) {
       console.log('left', data)
-      _this.message = 'Sorry, ' + data.sender + ' has left the game'
-      _this.$refs['my-modal'].show()
-      _this.testType = null
-      _this.p1 = null
-      _this.p1name = null
-      _this.p2 = null
-      _this.p2name = null
-      _this.challengeUsers = {}
-      delete _this.onlineUsers[data.userID]
-      _this.onlineUsers = JSON.parse(JSON.stringify(_this.onlineUsers))
+      if (_this.testType) {
+        _this.msg = 'Game Ended, ' + data.sender + ' has left the game'
+        _this.showAlert()
+        _this.leaveMatch() // this will clear the match and send an emit to leave the room if the player is away
+      } else {
+        _this.msg = 'You have left the match'
+        _this.showModal()
+      }
+    })
+    _this.socket.on('kickOff', function (data) {
+      console.log('ko', data)
+      if (_this.testType) {
+        _this.msg = 'Game Ended, ' + data.opponent + ' has left the game'
+        _this.showAlert()
+        _this.leaveMatch()
+      }
     })
   }
 }
