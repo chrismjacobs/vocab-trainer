@@ -3,11 +3,13 @@ import Vuex from 'vuex'
 import router from '../router'
 import { isValidJwt, parseLocal, checkDevice } from '@/utils'
 import { authenticate, register, updateRecAPI, updateAccount, getRecordAPI, ticket } from '@/api'
-import tourism from '../assets/json/master.json'
+import tourism1 from '../assets/json/tourism1.json'
+import tourism from '../assets/json/tourism.json'
 import food from '../assets/json/food.json'
 import cul from '../assets/json/cul.json'
 
 let dictionaries = {
+  'tourism1': tourism1,
   'tourism': tourism,
   'high': null,
   'food': food
@@ -409,7 +411,7 @@ const getters = {
       }
 
       let s3
-      if (state.userProfile.vocab === 'tourism') {
+      if (state.userProfile.vocab[0] === 't') {
         s3 = 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/audio_'
       } else if (state.userProfile.vocab === 'food') {
         s3 = 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/foodio_'
