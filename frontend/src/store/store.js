@@ -5,12 +5,14 @@ import { isValidJwt, parseLocal, checkDevice } from '@/utils'
 import { authenticate, register, updateRecAPI, updateAccount, getRecordAPI, ticket } from '@/api'
 import tourism1 from '../assets/json/tourism1.json'
 import tourism from '../assets/json/tourism.json'
+import digital1 from '../assets/json/digital1.json'
 import food from '../assets/json/food.json'
-import cul from '../assets/json/cul.json'
+// import cul from '../assets/json/cul.json'
 
 let dictionaries = {
   'tourism1': tourism1,
   'tourism': tourism,
+  'digital1': digital1,
   'high': null,
   'food': food
 }
@@ -25,7 +27,7 @@ const state = {
   dictRecord: null,
   updateStatus: true,
   jwt: localStorage.token || '',
-  testJ: cul,
+  testJ: null,
   master: dictionaries[parseLocal(localStorage.userProfile).vocab],
   testActive: false,
   device: localStorage.device || '',
@@ -410,11 +412,17 @@ const getters = {
         variant = 'alert'
       }
 
+      let vc = state.userProfile.vocab[0]
+
       let s3
-      if (state.userProfile.vocab[0] === 't') {
+      if (vc === 't') {
         s3 = 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/audio_'
-      } else if (state.userProfile.vocab === 'food') {
+      } else if (vc === 'f') {
         s3 = 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/foodio_'
+      } else if (vc === 'd') {
+        s3 = 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/digital_'
+      } else if (vc === 'c') {
+        s3 = 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/culinary_'
       }
 
       // state.currentRecord.trans.vocab
