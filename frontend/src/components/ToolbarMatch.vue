@@ -26,7 +26,7 @@
                 </div>
                 <div class="spinDiv">
                   <b-form-spinbutton v-if="player === 'p1'" v-model="words" min="6" max="30" step=2 vertical style="height:125px"></b-form-spinbutton>
-                  <b-form-spinbutton v-else disabled v-model="words" min="6" max="30" step=2 vertical style="height:125px;color:red"></b-form-spinbutton>
+                  <b-form-spinbutton v-else disabled v-model="words" vertical style="height:125px;color:red"></b-form-spinbutton>
                 </div>
               </div>
             </b-col>
@@ -41,13 +41,14 @@
                 </div>
               </div>
           </b-col>
-          <b-col class="mt-3" v-if="testType === 'TransEng' || testType === 'TransCh'">
+          <b-col class="mt-3">
               <div align="center">
                 <div class="headDiv">
                   Timer
                 </div>
                 <div class="spinDiv">
-                <b-form-spinbutton v-if="player === 'p1'" v-model="timeReset" min="4" max="12" step=2 vertical style="height:125px"></b-form-spinbutton>
+                <b-form-spinbutton v-if="player === 'p1' && testType[1] === 'r'" v-model="timeReset" min="4" max="12" step=2 vertical style="height:125px"></b-form-spinbutton>
+                <b-form-spinbutton v-else-if="player === 'p1' && testType[1] === 'y'" v-model="timeReset" min="15" max="60" step=5 vertical style="height:125px"></b-form-spinbutton>
                 <b-form-spinbutton v-else disabled v-model="timeReset" min="4" max="12" vertical step=2 style="height:125px;color:red"></b-form-spinbutton>
                 </div>
               </div>
@@ -68,27 +69,34 @@
           </b-col>
           -->
 
-          <b-col class="mt-3" v-if="testType === 'TypeTest'">
+          <b-col class="mt-3" v-if="testType === 'TypeMatch'">
              <h6 align="center">Feedback</h6>
-             <div align="center">
+             <div align="center" v-if="player === 'p1'">
               <b-form-radio-group
+
               v-model="feedback"
               :options="feedbackOptions"
               buttons
-              button-variant="outline-prime"
+              button-variant="outline-warn-light"
               stacked
             ></b-form-radio-group>
             </div>
+            <div v-else align="center">
+                  <button class="buttonDiv bg-warn-light" disabled> {{feedback}} </button>
+            </div>
           </b-col>
 
-          <b-col class="mt-3" v-if="testType === 'TypeTest'">
+          <b-col class="mt-3" v-if="testType === 'TypeMatch'">
             <h6 align="center"> Spelling </h6>
             <div align="center">
-            <b-dropdown :text="spellingText">
+            <b-dropdown v-if="player === 'p1'" class="bg-third" :text="spellingText">
               <div>
-                  <b-dropdown-item v-for="(btn, index) in optionsO" :key="index" @click="spelling=btn.value; spellingText=btn.text "> {{ btn.text }} </b-dropdown-item>
+                  <b-dropdown-item  v-for="(btn, index) in optionsO" :key="index" @click="spelling=btn.value; spellingText=btn.text "> {{ btn.text }} </b-dropdown-item>
               </div>
             </b-dropdown>
+              <div v-else>
+                  <button class="buttonDiv bg-third" disabled> {{spellingText}} </button>
+              </div>
             </div>
           </b-col>
 
@@ -169,7 +177,7 @@ export default {
       let vocabList = JSON.parse(this.stringItems)
       this.amendedList = vocabList
 
-      if (this.testType === 'TypeTest') {
+      if (this.testType === 'TypeMatch') {
         this.makeSpelling()
       } else {
         this.makeChoices()
@@ -199,7 +207,7 @@ export default {
         // console.log(this.testItems, randomItem)
 
         if (!this.checkDuplicate(randomItem)) {
-          console.log('pass', randomItem)
+          // console.log('pass', randomItem)
         } else {
           let choices = [{
             Question: randomItem[question],
@@ -249,7 +257,7 @@ export default {
       }
 
       this.socket.emit('ready', {room: this.p1, player: this.player, testItems: this.testItemsRoot, timeReset: this.timeReset})
-      console.log(this.testItemsRoot)
+      // console.log(this.testItemsRoot)
     },
     makeSpelling: function () {
       let i = 0
@@ -257,7 +265,7 @@ export default {
         var randomItem = this.amendedList[Math.floor(Math.random() * this.amendedList.length)]
         // console.log(this.testItems, randomItem)
         if (!this.checkDuplicate(randomItem)) {
-          console.log('pass', randomItem)
+          // console.log('pass', randomItem)
         } else {
           // CHANGE MADE new code for spelling set up
           let spell = '              '
@@ -265,21 +273,21 @@ export default {
             spell = wordFix(randomItem.English, this.spelling)
           }
 
-          console.log('SPELL', spell)
+          // console.log('SPELL', spell)
           this.testItemsRoot.push({
             English: randomItem.English,
             Chinese: randomItem.Chinese,
             Spelling: spell,
             Gr: randomItem.Gr,
-            sdEn: randomItem.mp3en,
-            sdCh: randomItem.mp3ch
+            sdQue: randomItem.mp3en,
+            sdAns: randomItem.mp3ch
           })
           i++
         }
       }
 
       this.socket.emit('ready', {room: this.p1, player: this.player, testItems: this.testItemsRoot, timeReset: this.timeReset})
-      console.log(this.testItemsRoot)
+      // console.log(this.testItemsRoot)
 
       if (this.words < 6) {
         this.words = parseInt(this.wordsReset)
@@ -308,7 +316,7 @@ export default {
       for (let testEntry in this.testItems) {
         //  console.log(this.testItems[testEntry].English, rand.English)
         if (this.testItems[testEntry].English === rand.English) {
-          console.log('found', rand)
+          // console.log('found', rand)
           return false
         }
       }
@@ -342,6 +350,7 @@ export default {
         timeReset: this.timeReset,
         choices: this.choices,
         spelling: this.spelling,
+        spellingText: this.spellingText,
         display: this.display,
         feedback: this.feedback
       }
@@ -368,6 +377,16 @@ export default {
       if (this.player === 'p1') {
         this.settingsSend()
       }
+    },
+    feedback: function () {
+      if (this.player === 'p1') {
+        this.settingsSend()
+      }
+    },
+    spelling: function () {
+      if (this.player === 'p1') {
+        this.settingsSend()
+      }
     }
   },
   created () {
@@ -375,9 +394,15 @@ export default {
     this.stringItems = JSON.stringify(this.tableItems)
   },
   mounted () {
+    if (this.testType[1] === 'r') {
+      this.timeReset = 6
+    } else {
+      this.timeReset = 30
+    }
     let _this = this
     _this.socket.on('newSettings', function (data) {
-      console.log('settingsReceived', data)
+      console.log('settingsReceived', data, _this.feedback)
+      _this.$emit('settings', {feedback: _this.feedback, sound: _this.sound})
       if (_this.player === 'p2') {
         for (let set in data.settingsData) {
           _this[set] = data.settingsData[set]

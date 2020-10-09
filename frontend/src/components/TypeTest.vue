@@ -17,7 +17,6 @@
       </b-row>
 
       <div class="bg-grey" v-if="showTest">
-        <transition-group name="board">
           <div v-for="(item) in testItems" :key="item">
               <div v-if="testItems.indexOf(item) === filter">
                     <br>
@@ -69,7 +68,6 @@
 
               </div>
           </div>
-        </transition-group>
       </div>
 
       <div v-if="showAnswers" class="bg-smoke">
@@ -172,13 +170,13 @@ export default {
       this.answerData.push(entry)
 
       if (this.filter + 1 < this.testItems.length) {
-        console.log(this.filter, this.testItems.length)
+        // console.log(this.filter, this.testItems.length)
         this.filter += 1
         this.mistakes = 0
         // document.getElementById(toString(this.filter)).focus()
         this.currentAnswer = ''
       } else {
-        console.log('filterMax')
+        // console.log('filterMax')
         this.cancel()
       }
     },
@@ -197,7 +195,7 @@ export default {
       }
     },
     cancel: function () {
-      console.log('cancel')
+      // console.log('cancel')
       this.filter = null
       this.mistakes = 0
       this.showTest = false
@@ -207,7 +205,7 @@ export default {
       this.checkAnswers()
     },
     checkAnswers: function () {
-      console.log('testEnded')
+      // console.log('testEnded')
       this.showAnswers = true
       this.$store.dispatch('testActive')
       this.$store.dispatch('updateRecord', { mode: 'typeTest', answerData: this.answerData, settingsData: this.settings })
@@ -237,7 +235,7 @@ export default {
       }
     },
     playAudio: function (arg) {
-      console.log('PLAY', arg)
+      // console.log('PLAY', arg)
       let player = document.getElementById('audio')
       player.src = arg
       player.play()

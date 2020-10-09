@@ -142,11 +142,14 @@ export default {
           this.filter += 1
         }
       } else {
-        console.log('filterMax')
+        // console.log('filterMax')
         this.cancel()
       }
     },
     start: function (data) {
+      for (let index in this.buttonStyle) {
+        this.buttonStyle[index] = this.neutralStyle
+      }
       this.sCount = 0
       this.qCount = 0
       this.startTime = new Date()
@@ -165,14 +168,14 @@ export default {
       }
     },
     checkAnswers: function () {
-      console.log('testEnded')
+      // console.log('testEnded')
       this.showAnswers = true
       this.replay = false
       this.$store.dispatch('testActive')
       this.$store.dispatch('updateRecord', { mode: 'transCh', answerData: this.answerData, settingsData: this.settings })
     },
     cancel: function () {
-      console.log('cancel')
+      // console.log('cancel')
       this.filter = null
       this.showTest = false
       this.endTime = new Date()
@@ -204,7 +207,7 @@ export default {
       }
     },
     playAudio: function (arg) {
-      console.log('PLAY', arg)
+      // console.log('PLAY', arg)
       let player = document.getElementById('audio')
       player.src = arg
       player.play()
@@ -219,7 +222,7 @@ export default {
       let _this = this
       let media = this.testItems[this.filter]['Choices'][index]['sdEn']
 
-      console.log('CYCLE', this.testItems[this.filter])
+      // console.log('CYCLE', this.testItems[this.filter])
       player.src = media
       player.play()
       this.buttonStyle[index] = this.activeStyle
@@ -240,21 +243,21 @@ export default {
   watch: {
     filter: function () {
       let sound = this.testItems[this.filter]
-      console.log('FILTER', this.settings.sound)
+      // console.log('FILTER', this.settings.sound)
       if (sound && this.settings.sound === 'sdTy') {
         this.playAudio(sound.sdEn)
       }
     },
     hover: function () {
       if (this.hover) {
-        console.log('hover_active')
+        // console.log('hover_active')
         let sound = this.testItems[this.filter]
         this.playAudio(sound.sdCh)
       }
     },
     hoverAns: function () {
       if (this.hoverAns !== null && this.replay && this.settings.sound === 'sdEx') {
-        console.log('hoverAns_active')
+        // console.log('hoverAns_active')
         let sound = this.hoverAns
         this.playAudio(sound)
       }

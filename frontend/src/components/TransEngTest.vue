@@ -24,7 +24,7 @@
 
                           <div class="p-3">
                               <div v-for="(choice, index) in item.Choices" :key="index">
-                                <button class="answerBtn" @click="recordAnswer(item.English, item.Chinese, choice.Chinese)">
+                                <button class="answerBtn bg-smoke" @click="recordAnswer(item.English, item.Chinese, choice.Chinese)">
                                 <span v-if="settings.label === 'lbAn' || settings.label === 'lbOn'"> ({{ choice.Gr }}) &nbsp; </span>  {{ choice.Chinese }}
                                 </button>
                                   <br>

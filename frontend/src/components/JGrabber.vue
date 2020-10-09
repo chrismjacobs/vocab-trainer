@@ -9,8 +9,10 @@
                           <td>{{key}}</td>
                           <td>{{item.eng}}</td>
                           <td>{{item.label}}</td>
-                          <td>{{item.ch}}</td>
-                          <td>{{item.backref}}</td>
+                          <td>{{item.defch1}}</td>
+                          <td>{{item.defch2}}</td>
+                          <td v-if="item.backref[1] !== 'Y'">{{item.backref}}</td>
+                          <td v-else></td>
                         </tr>
                     </tbody>
                   </table>
