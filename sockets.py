@@ -144,6 +144,19 @@ def on_answer(data):
 
     print('answer:', 'room', room, 'player', player)
 
+@socketio.on('updateType')
+def updateType(data):
+    room = data['room']
+    opponent = data['opponent']
+    current = data['current']
+    player = data['player']
+    state = data['state']
+
+    emit('updateSignal', {'player': player, 'state': state, 'current': current, 'opponent': opponent}, room)
+
+    print('answer:', 'room', room, 'player', player, 'state', state)
+
+
 @socketio.on('settingsData')
 def on_settings(data):
     room = data['room']
@@ -168,18 +181,17 @@ def on_leftMatch(data):
     p1con = Connected.query.filter_by(user_id=p1).first()
     p2con = Connected.query.filter_by(user_id=p2).first()
 
-    if p1con:
-        p1sid = p1con.sid
-
-    if p2con:
-        p2sid = p2con.sid
-
     if userID is not p1:
         leave_room(p1)
         join_room(p2)
 
-    emit('kickOff', {'opponent': p1name}, p2sid)
-    emit('kickOff', {'opponent': p2name}, p1sid)
+    if p1con:
+        p1sid = p1con.sid
+        emit('kickOff', {'opponent': p2name}, p1sid)
+
+    if p2con:
+        p2sid = p2con.sid
+        emit('kickOff', {'opponent': p1name}, p2sid)
 
 
 @socketio.on('disconnect')
@@ -204,7 +216,9 @@ def on_disconnect():
 
         for f in friendList:
             print('Offline Signal: ', int(f))
-            emit('offlineUsers', {'userID': userID}, int(f))
+            fOnline = Connected.query.filter_by(user_id=int(f)).first()
+            if fOnline:
+                emit('offlineUsers', {'userID': userID}, fOnline.sid)
 
         ## leave room before reconnecting??
 
