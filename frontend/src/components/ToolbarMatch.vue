@@ -18,7 +18,7 @@
       </div>
 
       <div class="bg-grey p-2 pb-4" v-if="waiting === 0">
-        <b-row cols="3" >
+        <b-row>
           <b-col class="mt-3">
               <div align="center">
                 <div class="headDiv">
@@ -41,19 +41,7 @@
                 </div>
               </div>
           </b-col>
-          <b-col class="mt-3">
-              <div align="center">
-                <div class="headDiv">
-                  Timer
-                </div>
-                <div class="spinDiv">
-                <b-form-spinbutton v-if="player === 'p1' && testType[1] === 'r'" v-model="timeReset" min="4" max="12" step=2 vertical style="height:125px"></b-form-spinbutton>
-                <b-form-spinbutton v-else-if="player === 'p1' && testType[1] === 'y'" v-model="timeReset" min="15" max="60" step=5 vertical style="height:125px"></b-form-spinbutton>
-                <b-form-spinbutton v-else disabled v-model="timeReset" min="4" max="12" vertical step=2 style="height:125px;color:red"></b-form-spinbutton>
-                </div>
-              </div>
-          </b-col>
-          <!--
+           <!--
           <b-col class="mt-3">
             <h6 align="center">Sound</h6>
             <div align="center">
@@ -68,36 +56,49 @@
             </div>
           </b-col>
           -->
-
           <b-col class="mt-3" v-if="testType === 'TypeMatch'">
-             <h6 align="center">Feedback</h6>
-             <div align="center" v-if="player === 'p1'">
-              <b-form-radio-group
-
-              v-model="feedback"
-              :options="feedbackOptions"
-              buttons
-              button-variant="outline-warn-light"
-              stacked
-            ></b-form-radio-group>
+             <div class="headDiv">
+                  Feedback
             </div>
-            <div v-else align="center">
-                  <button class="buttonDiv bg-warn-light" disabled> {{feedback}} </button>
-            </div>
-          </b-col>
-
-          <b-col class="mt-3" v-if="testType === 'TypeMatch'">
-            <h6 align="center"> Spelling </h6>
             <div align="center">
-            <b-dropdown v-if="player === 'p1'" class="bg-third" :text="spellingText">
+            <b-dropdown style="width:100%" v-if="player === 'p1'" variant="warn-light" :text="feedbackText">
+              <div>
+                  <b-dropdown-item  v-for="(btn, index) in feedbackOptions" :key="index" @click="feedback=btn.value; feedbackText=btn.text "> {{ btn.text }} </b-dropdown-item>
+              </div>
+            </b-dropdown>
+            <div v-else align="center" style="width:100%">
+                  <button class="buttonDiv bg-warn-light text-alert" disabled> {{feedbackText}} </button>
+            </div>
+            </div>
+
+            <br>
+
+            <div class="headDiv">
+                  Assist
+            </div>
+            <div align="center">
+            <b-dropdown style="width:100%;text-overflow:ellipsis" v-if="player === 'p1'" variant="third" :text="spellingText">
               <div>
                   <b-dropdown-item  v-for="(btn, index) in optionsO" :key="index" @click="spelling=btn.value; spellingText=btn.text "> {{ btn.text }} </b-dropdown-item>
               </div>
             </b-dropdown>
-              <div v-else>
-                  <button class="buttonDiv bg-third" disabled> {{spellingText}} </button>
+              <div v-else align="center" style="width:100%">
+                  <button class="buttonDiv bg-third text-alert" disabled> {{spellingText}} </button>
               </div>
             </div>
+          </b-col>
+
+          <b-col class="mt-3">
+              <div align="center">
+                <div class="headDiv">
+                  Timer
+                </div>
+                <div class="spinDiv">
+                <b-form-spinbutton v-if="player === 'p1' && testType[1] === 'r'" v-model="timeReset" min="4" max="12" step=2 vertical style="height:125px"></b-form-spinbutton>
+                <b-form-spinbutton v-else-if="player === 'p1' && testType[1] === 'y'" v-model="timeReset" min="15" max="60" step=5 vertical style="height:125px"></b-form-spinbutton>
+                <b-form-spinbutton v-else disabled v-model="timeReset" min="4" max="12" vertical step=2 style="height:125px;color:red"></b-form-spinbutton>
+                </div>
+              </div>
           </b-col>
 
         </b-row>
@@ -143,18 +144,18 @@ export default {
         { text: 'None', value: 'sdOff' }
       ],
       spelling: null,
-      spellingText: '-----',
+      spellingText: 'None',
       optionsO: [
-        { value: null, text: '---' },
-        { value: 'const', text: 'show vowels' },
-        { value: 'vowels', text: 'show consonants' },
-        { value: 'blanks', text: 'show blanks' },
-        { value: 'all', text: 'show all' },
-        { value: 'showFL', text: 'show words' },
-        { value: 'typos', text: 'typos' },
-        { value: 'scramble', text: 'scramble letter' }
+        { value: null, text: 'None' },
+        { value: 'const', text: 'Vowels' },
+        { value: 'vowels', text: 'Consonants' },
+        { value: 'blanks', text: 'Blanks' },
+        { value: 'all', text: 'Show all' },
+        { value: 'showFL', text: 'Show gaps' },
+        { value: 'scramble', text: 'Scramble' }
       ],
       feedback: 'fbConst',
+      feedbackText: 'Constant',
       feedbackOptions: [
         { text: 'Constant', value: 'fbConst' },
         { text: 'Complete', value: 'fbComp' },
@@ -351,6 +352,7 @@ export default {
         choices: this.choices,
         spelling: this.spelling,
         spellingText: this.spellingText,
+        feedbackText: this.feedbackText,
         display: this.display,
         feedback: this.feedback
       }
