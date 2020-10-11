@@ -14,7 +14,7 @@
 
       <div class="bg-second" v-if="showProgress">
        <div class="bg-third" >
-         <b-progress  style="height:30px" :max="1"  class="" show-value>
+         <b-progress  style="height:20px" :max="1"  class="" show-value>
                 <b-progress-bar :value="progressValues.p1" variant="p1"></b-progress-bar>
                 <b-progress-bar :value="progressValues.warn" variant="warn-light"></b-progress-bar>
                 <b-progress-bar :value="progressValues.p2" variant="p2"></b-progress-bar>
@@ -40,8 +40,8 @@
              </b-row>
          </div>
 
-          <div style="height:30px">
-            <b-progress v-if="time" :value="time" :max="timeReset" animated variant="warn"></b-progress>
+          <div style="height:20px">
+            <b-progress v-if="time" :value="time" :max="timeReset" variant="warn"></b-progress>
           </div>
 
       </div>
@@ -80,27 +80,19 @@
                       </button>
                     </b-row>
 
-                    <b-row align-h="center" class="mt-4">
+                     <b-row align-h="center" class="mt-4">
                       <b-col cols="10">
                         <b-form-group>
                           <div>
-                            <b-form-input align="center" style="font-size:30px;width:100%;text-align:center" :class="validStyle()" onblur="this.focus()" autofocus autocapitalize="none" autocomplete="off" v-on:keyup.native.enter="recordAnswer(item.English, item.Chinese, currentAnswerHome) " id="type"  v-model="currentAnswerHome"></b-form-input>
-                          </div>
-                          <div align="center" v-if="feedback === 'fbConst'">
-                            <b-form-invalid-feedback :state="validAnswer">
-                              checking...
-                            </b-form-invalid-feedback>
-                            <b-form-valid-feedback :state="validAnswer">
-                              Looks Good :)
-                            </b-form-valid-feedback>
-                          </div>
-                          <div align="center" v-if="feedback === 'fbComp'">
-                            <b-form-invalid-feedback :state="validCheck">
-                              checking...
-                            </b-form-invalid-feedback>
-                            <b-form-valid-feedback :state="validCheck">
-                              Looks Good :)
-                            </b-form-valid-feedback>
+                            <b-form-input
+                            align="center"
+                            style="font-size:30px;width:100%;text-align:center"
+                            :class="awayStyle"
+                            type="password"
+                            disabled
+                            id="awayInput"
+                            v-model="currentAnswerAway"
+                            ></b-form-input>
                           </div>
                         </b-form-group>
                       </b-col>
@@ -110,9 +102,29 @@
                       <b-col cols="10">
                         <b-form-group>
                           <div>
-                            <b-form-input align="center" style="font-size:30px;width:100%;text-align:center" :class="awayStyle" type="password" v-model="currentAnswerAway"></b-form-input>
+                            <b-form-input
+                            align="center"
+                            style="font-size:30px;width:100%;text-align:center"
+                            :class="validStyle(feedback)"
+                            onblur="this.focus()"
+                            autofocus
+                            autocapitalize="none"
+                            autocomplete="off"
+                            v-on:keyup.native.enter="submitAnswer()"
+                            id="homeInput"
+                            v-model="currentAnswerHome"
+                            ></b-form-input>
                           </div>
                         </b-form-group>
+                      </b-col>
+                    </b-row>
+
+                    <b-row style="height:800px">
+                      <b-col>
+                        <div v-if="loadNew" :class="'text-center text-primary'">
+                          <b-spinner class="align-middle"></b-spinner>
+                          <strong>Loading...</strong>
+                        </div>
                       </b-col>
                     </b-row>
 
@@ -160,20 +172,21 @@ export default {
       showAnswers: false,
       showTest: false,
       showProgress: true,
-      timeReset: null,
+      timeReset: 30,
       hover: false,
       ready: [],
       answered: 0,
+      blocker: false,
+      loadNew: false,
       answerData: [],
       filter: null,
       testItems: [],
       currentAnswerHome: null,
-      currentAnswerAway: 'balls',
-      awayStyle: 'bg-safe-light',
-      mistakes: 0,
+      currentAnswerAway: null,
+      awayStyle: 'bg-alert-light',
       feedback: null,
       sound: null,
-      fields: ['Question', 'Answer'],
+      fields: ['English', 'Chinese', 'Time'],
       time: null,
       clock: null,
       progressValues: {
@@ -190,6 +203,7 @@ export default {
     updateSettings: function (data) {
       console.log('update active', data)
       this.feedback = data.feedback
+      this.timeReset = data.timeReset
     },
     nameCut: function (name) {
       let cut = name.split(' ')[0]
@@ -205,7 +219,7 @@ export default {
       this.clock = setInterval(function () {
         if (_this.time === 0) {
           clearInterval(_this.clock)
-          _this.recordDisable()
+          _this.recordAnswer(null)
         } else {
           _this.time -= 100
         }
@@ -216,7 +230,7 @@ export default {
       this.filter = 0
       this.answerData = []
       this.showTest = true
-      // this.setCountdown()
+      this.setCountdown()
     },
     readyCheck: function () {
       console.log('length', this.ready, this.ready.length)
@@ -231,55 +245,63 @@ export default {
         }, 3000)
       }
     },
-    recordAnswer: function (question, answer, choice) {
-      // recordAnswer(item.English, item.Chinese, currentAnswerHome)
-      let correct = question
-      // show if player was correct of not
-      let result = (choice === correct)
-      // console.log('RESULT', result)
-
-      this.socket.emit('answerType', {room: this.p1, name: question, answer: answer, player: this.player, state: result})
+    submitAnswer: function () {
+      if (!this.blocker) {
+        console.log('sub action')
+        document.getElementById('homeInput').disabled = true
+        this.socket.emit('answerSend', {room: this.p1, opponent: this.opponent, player: this.player, state: this.validCheck})
+      } else {
+        console.log('too late')
+      }
     },
-    nextQuestion: function (name, answer, player, state) {
-      clearInterval(this.clock)
-      this.answered = 2
-      this.time = null
-      let _this = this
-      setTimeout(function () {
-        _this.answered = 0
-        _this.enterResult(name, answer, player, state)
-        _this.filterToggle()
-      }, 2000)
-    },
-    enterResult: function (question, answer, player, state) {
-      // console.log(state)
-
+    recordAnswer: function (data) {
       let _rowVariant = 'warn'
-      let score = 0
+      clearInterval(this.clock)
 
-      if (state) {
-        _rowVariant = player
+      if (data) {
+        _rowVariant = data.player
       }
 
+      let count = ((this.timeReset - this.time) / 1000)
+      let time = count + 's'
+
       let entry = {
-        Question: question,
-        Answer: answer,
+        English: this.testItems[this.filter].English,
+        Chinese: this.testItems[this.filter].Chinese,
         _rowVariant: _rowVariant,
-        Score: score
+        Time: time
       }
 
       this.progressValues[_rowVariant] += 1
       // console.log(_rowVariant, this.progressValues)
       this.answerData.push(entry)
+
+      console.log('record action')
+      this.loadNew = true
+      document.getElementById('homeInput').disabled = true
+      document.getElementById('awayInput').type = 'text'
+      let _this = this
+      setTimeout(function () {
+        _this.currentAnswerHome = ''
+        _this.currentAnswerAway = ''
+        document.getElementById('homeInput').disabled = false
+        document.getElementById('awayInput').type = 'password'
+        _this.loadNew = false
+        _this.filterToggle()
+      }, 3000)
     },
     filterToggle: function () {
       if (this.filter + 1 < this.testItems.length) {
         // console.log(this.filter, this.testItems.length)
+        this.answered = 0
+        this.blocker = false
         this.filter += 1
+        this.setCountdown()
       } else {
         // console.log('filterMax')
         // go back to false
         this.filter = null
+        this.time = null
         this.showTest = false
         this.checkAnswers()
       }
@@ -298,7 +320,10 @@ export default {
         winnerStatus = -1
       }
 
-      this.$store.dispatch('updateMatch', { mode: 'matchType', winnerStatus: winnerStatus })
+      let matchData = { mode: 'matchType', winnerStatus: winnerStatus }
+      console.log(matchData)
+
+      this.$store.dispatch('updateMatch', matchData)
       this.progressValues.p1 = 0
       this.progressValues.p2 = 0
       this.progressValues.warn = 0
@@ -313,20 +338,20 @@ export default {
     leave: function () {
       this.$emit('leaveMatch')
     },
-    validStyle: function () {
+    validStyle: function (feedback) {
       let vCheck = this.validCheck
       let vAns = this.validAnswer
 
-      console.log('home', vCheck, vAns)
+      // console.log('home', vCheck, vAns)
 
-      if (this.feedback === 'fbComp' && !vCheck) {
+      if (feedback === 'fbComp' && !vCheck) {
         return 'bg-cream'
-      } else if (this.feedback === 'fbComp' && vCheck) {
+      } else if (feedback === 'fbComp' && vCheck) {
         return 'bg-safe-light'
-      } else if (this.feedback === 'fbConst' && !vAns) {
+      } else if (feedback === 'fbConst' && !vAns) {
         return 'bg-alert-light'
-      } else if (this.feedback === 'fbConst' && vAns) {
-        return 'bg-third'
+      } else if (feedback === 'fbConst' && vAns) {
+        return 'bg-safe-light'
       } else {
         return 'bg-cream'
       }
@@ -340,13 +365,7 @@ export default {
       }
     },
     currentAnswerHome: function () {
-      let opponent
-      if (this.player === 'p1') {
-        opponent = 'p2'
-      } else {
-        opponent = 'p1'
-      }
-      this.socket.emit('updateType', {room: this.p1, opponent: opponent, current: this.currentAnswerHome, player: this.player, state: this.validStyle()})
+      this.socket.emit('updateType', {room: this.p1, opponent: this.opponent, current: this.currentAnswerHome, player: this.player, state: this.validStyle('fbConst')})
     }
   },
   computed: {
@@ -369,8 +388,6 @@ export default {
         // console.log('true2')
         return true
       } else if (typed > 0) {
-        let _this = this
-        _this.mistakes += 1
         return false
       }
     },
@@ -380,6 +397,13 @@ export default {
         return true
       } else {
         return false
+      }
+    },
+    opponent () {
+      if (this.player === 'p1') {
+        return 'p2'
+      } else {
+        return 'p1'
       }
     }
   },
@@ -398,14 +422,24 @@ export default {
       }
       _this.readyCheck()
     })
-    _this.socket.on('keyUp', function (data) {
-      // check if same button was pressed by each player --> prevent duplicate answer
-      _this.word = data.word
-    })
     _this.socket.on('updateSignal', function (data) {
       if (_this.player === data.opponent) {
         _this.currentAnswerAway = data.current
         _this.awayStyle = data.state
+      }
+    })
+    _this.socket.on('answerComplete', function (data) {
+      if (data.state) {
+        console.log('action 1')
+        _this.blocker = true
+        _this.recordAnswer(data)
+      } else if (_this.answered === 0) {
+        console.log('action 2')
+        document.getElementById('awayInput').type = 'text'
+        _this.answered += 1
+      } else {
+        console.log('action 3')
+        _this.recordAnswer(null)
       }
     })
   }
