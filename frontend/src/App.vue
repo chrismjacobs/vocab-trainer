@@ -198,7 +198,7 @@ export default {
       }
     },
     $route (to, from) {
-      console.log('path change')
+      // console.log('path change')
     }
   },
   updated () {
