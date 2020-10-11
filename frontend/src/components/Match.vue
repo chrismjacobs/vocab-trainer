@@ -1,6 +1,7 @@
 <template>
   <div class="matchArea">
-    <TransMatch v-on:leaveMatch="leaveMatch()" :testType="testType" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" :socket="socket" :s3="s3" v-if="testType !== null"></TransMatch>
+    <TransMatch v-on:leaveMatch="leaveMatch()" :testType="testType" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" :socket="socket" :s3="s3" v-if="testType && testType[1] === 'r'"></TransMatch>
+    <TypeMatch v-on:leaveMatch="leaveMatch()" :testType="testType" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" :socket="socket" :s3="s3" v-if="testType && testType[1] === 'y'"></TypeMatch>
     <template v-if="waiting">
       <div v-if="testType === null">
           <div class="mt-2 bg-second p-2">
@@ -12,12 +13,11 @@
           <div class="bg-prime text-third p-2">
             <b-row align="left">
               <b-col cols="7">
-                <div>
+                <div style="color:red !important">
                     <b-form-radio-group
                       id="btn-radios-2"
                       v-model="gameSelect"
                       :options="gameTypes"
-                      style="width:100%;color:red"
                       buttons
                       button-variant="p1"
                       name="radio-btn-outline"
@@ -54,9 +54,9 @@
 
           <div class="bg-smoke text-prime p-2">
 
-            <div v-for="(chall, index) in challengeUsers" :key="index" >
-                <div v-if="onlineUsers[index]" class="d-flex align-items-center mt-2 p-2">
-                  <b-avatar :src="s3 + index.toString() + '/avatar.jpg'"  size="50px" :badge="chall.sender" badge-offset="-0.5em" badge-variant="p1"></b-avatar>
+            <div v-for="(chall, indexC) in challengeUsers" :key="indexC" >
+                <div v-if="onlineUsers[indexC]" class="d-flex align-items-center mt-2 p-2">
+                  <b-avatar :src="s3 + indexC.toString() + '/avatar.jpg'"  size="50px" :badge="chall.sender" badge-offset="-0.5em" badge-variant="p1"></b-avatar>
                   &nbsp;&nbsp;
                   <button class="buttonDiv bg-smoke mx-1 " disabled> {{gameNames[chall.mode]}}</button>
                   <button class="buttonDiv bg-p2 mx-2" style="width:15%" @click="acceptChallenge(chall.userID, chall.sender, chall.mode)"> <b-icon icon="caret-right-square-fill"></b-icon> </button>
@@ -64,18 +64,18 @@
                 </div>
             </div>
 
-            <div v-for="(user, index) in onlineUsers" :key="index">
-              <div  v-if="!challengeUsers[index]" class="d-flex align-items-center p-3 mt-2">
-                    <b-avatar :src="s3 + index + '/avatar.jpg'"  size="50px" :badge="user" badge-offset="-0.5em" badge-variant="safe"></b-avatar>
-                    <button v-if="gameSelect" class="buttonDiv bg-prime mx-3" style="width:15%"  @click="challenge(index, gameSelect)"> <b-icon class="text-p1" icon="box-arrow-in-right"></b-icon></button>
-                    <button v-if="friendDeleter" class="buttonDiv bg-alert mx-3" style="width:100px" @click="deleteFriend(index)"> <b-icon icon="x-square-fill"></b-icon></button>
+            <div v-for="(user, indexO) in onlineUsers" :key="indexO">
+              <div  v-if="!challengeUsers[indexO]" class="d-flex align-items-center p-3 mt-2">
+                    <b-avatar :src="s3 + indexO + '/avatar.jpg'"  size="50px" :badge="user" badge-offset="-0.5em" badge-variant="safe"></b-avatar>
+                    <button v-if="gameSelect" class="buttonDiv bg-prime mx-3" style="width:15%"  @click="challenge(indexO, gameSelect)"> <b-icon class="text-p1" icon="box-arrow-in-right"></b-icon></button>
+                    <button v-if="friendDeleter" class="buttonDiv bg-alert mx-3" style="width:100px" @click="deleteFriend(indexO)"> <b-icon icon="x-square-fill"></b-icon></button>
               </div>
             </div>
 
-            <div v-for="(user, index) in friends" :key="index">
-              <div v-if="!onlineUsers[index]" class="d-flex align-items-center p-3 mt-2">
-                    <b-avatar :src="s3 + index + '/avatar.jpg'"  size="50px" :badge="user" badge-offset="-0.5em" badge-variant="alert"></b-avatar>
-                    <button v-if="friendDeleter" class="buttonDiv bg-alert mx-3" style="width:100px" @click="deleteFriend(index)"> <b-icon icon="x-square-fill"></b-icon></button>
+            <div v-for="(user, indexF) in friends" :key="indexF">
+              <div v-if="!onlineUsers[indexF]" class="d-flex align-items-center p-3 mt-2">
+                    <b-avatar :src="s3 + indexF + '/avatar.jpg'"  size="50px" :badge="user" badge-offset="-0.5em" badge-variant="alert"></b-avatar>
+                    <button v-if="friendDeleter" class="buttonDiv bg-alert mx-3" style="width:100px" @click="deleteFriend(indexF)"> <b-icon icon="x-square-fill"></b-icon></button>
               </div>
             </div>
 
@@ -111,6 +111,7 @@
 
 <script>
 import TransMatch from './TransMatch'
+import TypeMatch from './TypeMatch'
 import { openSocket } from '@/sockets'
 import { checkFriend, deleteFriend } from '@/api'
 
@@ -120,7 +121,8 @@ export default {
     s3: String
   },
   components: {
-    TransMatch
+    TransMatch,
+    TypeMatch
   },
   data () {
     return {
@@ -150,15 +152,16 @@ export default {
       waiting: true,
       msg: null,
       gameName: 'Select Game',
-      gameSelect: null,
+      gameSelect: 'TransEng',
       gameTypes: [
-        { value: 'TransEng', text: 'Eng -> Ch' },
-        { value: 'TransCh', text: 'Ch -> Eng' }
+        { value: 'TransEng', text: 'En -> Ch' },
+        { value: 'TransCh', text: 'Ch -> En' },
+        { value: 'TypeMatch', text: 'Type' }
       ],
       gameNames: {
-        null: 'select game type...',
-        TransEng: 'Eng -> Chinese',
-        TransCh: 'Ch -> English'
+        TransEng: 'En -> Ch',
+        TransCh: 'Ch -> En',
+        TypeMatch: 'Type'
       }
     }
   },
