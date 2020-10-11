@@ -146,6 +146,7 @@ def on_answer(data):
 
 @socketio.on('updateType')
 def updateType(data):
+    print(data)
     room = data['room']
     opponent = data['opponent']
     current = data['current']
@@ -154,7 +155,19 @@ def updateType(data):
 
     emit('updateSignal', {'player': player, 'state': state, 'current': current, 'opponent': opponent}, room)
 
-    print('answer:', 'room', room, 'player', player, 'state', state)
+    print('updateSignal:', 'room', room, 'player', player, 'state', state)
+
+@socketio.on('answerSend')
+def answerSend(data):
+    print(data)
+    room = data['room']
+    opponent = data['opponent']
+    player = data['player']
+    state = data['state']
+
+    emit('answerComplete', {'player': player, 'state': state, 'opponent': opponent}, room)
+
+    print('complete:', 'room', room, 'player', player, 'state', state)
 
 
 @socketio.on('settingsData')
