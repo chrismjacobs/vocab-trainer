@@ -7,7 +7,7 @@
       <div v-for="(item, index) in currentRecItems" :key="index">
             <div>
               <b-progress style="height:20px" class="mt-1" max="1" show-value>
-              <b-progress-bar :value="(item.plus + item.minus)*0.2" variant="second text-cream"><span> {{item.mode}} </span></b-progress-bar>
+              <b-progress-bar :value="(item.plus + item.minus + item.even)*0.2" variant="second text-cream"><span> {{item.mode}} </span></b-progress-bar>
               <b-progress-bar :value="item.plus" :variant="bar()"></b-progress-bar>
               <b-progress-bar :value="item.even" variant="smoke text-prime"></b-progress-bar>
               <b-progress-bar :value="item.minus" variant="warn-light text-prime"></b-progress-bar>
@@ -49,7 +49,8 @@ export default {
         'transEng': 'E/C',
         'transCh': 'C/E',
         'typeTest': 'Type',
-        'matchTrans': 'Match'
+        'matchTrans': 'Match',
+        'matchType': 'Match'
       }
     }
   },
