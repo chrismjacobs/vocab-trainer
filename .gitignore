@@ -5,6 +5,7 @@ venv
 audio/
 audio.py
 high.py
+ripper.py
 food.py
 dictionary.py
 reSort.py
