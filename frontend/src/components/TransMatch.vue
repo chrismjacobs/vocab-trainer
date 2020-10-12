@@ -188,23 +188,8 @@ export default {
 
       this.socket.emit('answer', {room: this.p1, name: null, answer: null, btnID: null, player: this.player, state: false})
     },
-    disableAll: function () {
-      let _this = this
-      let question = this.testItems[this.filter].Question
-      let answer = this.testItems[this.filter].Answer
-      let buttons = document.getElementsByName(question)
-      console.log(buttons)
-      for (let i = 0; i < buttons.length; i++) {
-        buttons[i].disabled = true
-      }
-      // abstract set timer function to deal with all scenarios
-      setTimeout(function () {
-        _this.answered = 0
-        _this.enterResult(question, answer, null, false)
-        _this.filterToggle()
-      }, 2000)
-    },
     disable: function (name, btnID, player, state, answer) {
+      console.log('Stage1', name, btnID, player, state, answer)
       let btnClass = 'bg-' + player + '-light'
       let button = document.getElementById(btnID)
 
@@ -218,7 +203,9 @@ export default {
         button.classList.add(btnClass)
         button.disabled = true
         let buttons = document.getElementsByName(name)
-        // console.log(buttons)
+
+        console.log('Stage2', player, this.player, state)
+
         if (player === this.player) {
           for (let i = 0; i < buttons.length; i++) {
             buttons[i].disabled = true
@@ -229,9 +216,9 @@ export default {
           }
         }
       } else {
-        // deal with disable answer
         name = this.testItems[this.filter].Question
         answer = this.testItems[this.filter].Answer
+        console.log('Stage3', name, answer)
         let buttons = document.getElementsByName(name)
         for (let i = 0; i < buttons.length; i++) {
           buttons[i].disabled = true

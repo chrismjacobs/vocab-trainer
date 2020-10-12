@@ -247,13 +247,9 @@ export default {
       }
     },
     submitAnswer: function () {
-      if (!this.blocker) {
-        console.log('sub action')
-        document.getElementById('homeInput').disabled = true
-        this.socket.emit('answerSend', {room: this.p1, opponent: this.opponent, player: this.player, state: this.validCheck})
-      } else {
-        console.log('too late')
-      }
+      console.log('sub action')
+      document.getElementById('homeInput').disabled = true
+      this.socket.emit('answerSend', {room: this.p1, opponent: this.opponent, player: this.player, state: this.validCheck})
     },
     recordAnswer: function (data) {
       console.log('record action')
@@ -305,22 +301,19 @@ export default {
         document.getElementById('homeInput').disabled = false
         document.getElementById('awayInput').type = 'password'
         _this.loadNew = false
+        _this.answered = 0
         _this.filterToggle()
       }, 3000)
     },
     filterToggle: function () {
       if (this.filter + 1 < this.testItems.length) {
         // console.log(this.filter, this.testItems.length)
-        this.answered = 0
-        this.blocker = false
         this.filter += 1
         this.setCountdown()
       } else {
-        this.answered = 0
-        this.blocker = false
-        this.loadNew = false
         this.filter = null
         this.showTest = false
+        this.blocker = null
         this.checkAnswers()
       }
     },
@@ -449,14 +442,14 @@ export default {
       }
     })
     _this.socket.on('answerComplete', function (data) {
-      let check = _this.answerData.filter(function (elem) {
-        if (elem.English === data.English) {
+      if (data.state) {
+        if (_this.blocker === data.English) {
+          console.log('blocked')
           return false
+        } else {
+          _this.blocker = data.English
         }
-      })
-      if (data.state && check) {
         console.log('action 1')
-        _this.blocker = true
         _this.recordAnswer(data)
       } else if (_this.answered === 0) {
         console.log('action 2')

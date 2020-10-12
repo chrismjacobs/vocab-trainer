@@ -2,10 +2,10 @@
   <div class="matchBar" v-if="!toolbarShow">
     <div>
 
-      <div class="bg-third p-2">
-            <h2 class="text-sand" align="center">
+      <div class="bg-third p-3">
+            <h3 align="center">
               {{ gameNames[testType] }}
-            </h2>
+            </h3>
       </div>
 
       <div align="center" class="bg-prime p-2" style="height:60px">
