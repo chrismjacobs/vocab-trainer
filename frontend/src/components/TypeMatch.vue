@@ -1,13 +1,13 @@
 <template>
   <div class="TypeMatch">
     <audio id="audio"></audio>
-      <div class="mt-2 bg-second p-2">
+      <div class="mt-2 bg-grape p-2">
         <b-row align-h="end">
           <b-col cols="6" align="center">
             <h2 class="text-cream" > Match </h2>
           </b-col>
           <b-col cols="3" align="right">
-            <button @click="leave()" class="buttonDiv bg-warn text-cream"> Exit <b-icon-backspace-reverse-fill class="text-cream ml-3" style="float:right"  font-scale="1.5"></b-icon-backspace-reverse-fill> </button>
+            <button @click="leave()" class="buttonDiv bg-warn text-cream"> <span class="d-none d-md-inline">Exit</span><b-icon-backspace-reverse-fill class="text-cream ml-3" style="float:right"  font-scale="1.5"></b-icon-backspace-reverse-fill> </button>
           </b-col>
         </b-row>
       </div>
@@ -40,7 +40,7 @@
              </b-row>
          </div>
 
-          <div style="height:30px">
+          <div style="height:25px">
             <b-progress v-if="time" :value="time" :max="timeReset" variant="warn"></b-progress>
           </div>
 
@@ -318,6 +318,7 @@ export default {
       } else {
         this.answered = 0
         this.blocker = false
+        this.loadNew = false
         this.filter = null
         this.showTest = false
         this.checkAnswers()
@@ -353,9 +354,6 @@ export default {
       player.play()
     },
     leave: function () {
-      this.answered = 0
-      this.filter = null
-      this.showTest = false
       this.$emit('leaveMatch')
     },
     validStyle: function (feedback) {
@@ -451,7 +449,12 @@ export default {
       }
     })
     _this.socket.on('answerComplete', function (data) {
-      if (data.state) {
+      let check = _this.answerData.filter(function (elem) {
+        if (elem.English === data.English) {
+          return false
+        }
+      })
+      if (data.state && check) {
         console.log('action 1')
         _this.blocker = true
         _this.recordAnswer(data)

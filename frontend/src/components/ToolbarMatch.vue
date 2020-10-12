@@ -8,18 +8,17 @@
             </h2>
       </div>
 
-      <div align="center" class="bg-prime p-2" style="height:55px">
+      <div align="center" class="bg-prime p-2" style="height:60px">
         <div v-if="waiting === 0" :class="'mt-1 buttonDiv bg-' + player" style="width: 60%" @click="playerReady(), emitWaiting(1)">
           Ready
         </div>
 
-        <div v-if="waiting === 1" :class="'mb-2 text-center text-'+ player" style="height:55px">
+        <div v-if="waiting === 1" :class="'mb-2 text-center text-'+ player" style="height:60px">
           <b-icon icon="three-dots" animation="cylon" font-scale="3"></b-icon>
         </div>
 
-        <div v-if="waiting === 2" :class="'text-center text-'+ player" style="height:55px">
-          <b-spinner class="align-middle"></b-spinner>
-          <strong>Loading...</strong>
+        <div v-if="waiting === 2" :class="'mt-2 text-center text-'+ player" style="height:60px">
+          <b-spinner class="align-middle"></b-spinner> &nbsp;&nbsp; <strong>Loading...</strong>
         </div>
       </div>
 
@@ -170,7 +169,8 @@ export default {
       gameNames: {
         null: 'No Game Type',
         TransEng: 'English -> Chinese',
-        TransCh: 'Chinese -> English'
+        TransCh: 'Chinese -> English',
+        TypeMatch: 'Typing'
       }
     }
   },

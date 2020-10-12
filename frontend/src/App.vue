@@ -123,7 +123,7 @@ export default {
         '/TransChTest': 'bg-third',
         '/TransEngTest': 'bg-third',
         '/TypeTest': 'bg-warn-light',
-        '/Match': 'bg-grape-light',
+        '/Match': 'bg-cream',
         '/Dictionary': 'bg-cream'
       }
     }

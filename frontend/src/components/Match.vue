@@ -4,13 +4,13 @@
     <TypeMatch v-on:leaveMatch="leaveMatch()" :testType="testType" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" :socket="socket" :s3="s3" v-if="testType && testType[1] === 'y'"></TypeMatch>
     <template v-if="waiting">
       <div v-if="testType === null">
-          <div class="mt-2 bg-second p-2">
+          <div class="mt-2 p-2 bg-grape">
             <h2 class="text-cream" align="center">
               Match Zone
             </h2>
           </div>
 
-          <div class="bg-prime text-third p-2">
+          <div class="bg-third text-third p-2">
             <b-row align="left">
               <b-col cols="7">
                 <div style="color:red !important">
@@ -25,8 +25,8 @@
                   </div>
               </b-col>
               <b-col align="right">
-                <button class="buttonDiv bg-warn"  @click="friendAdder=!friendAdder"> Add <b-icon icon="person"></b-icon></button>
-                <button class="buttonDiv bg-alert"  @click="friendDeleter=!friendDeleter"> Del <b-icon icon="x-square-fill"></b-icon> </button>
+                <button class="buttonDiv bg-warn mt-2"  @click="friendAdder=!friendAdder"> Add <b-icon icon="person"></b-icon></button>
+                <button class="buttonDiv bg-alert mt-2"  @click="friendDeleter=!friendDeleter"> Del <b-icon icon="x-square-fill"></b-icon> </button>
               </b-col>
             </b-row>
           </div>

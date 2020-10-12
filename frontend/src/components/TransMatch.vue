@@ -1,20 +1,20 @@
 <template>
   <div class="TransEng">
     <audio id="audio"></audio>
-      <div class="mt-2 bg-second p-2">
+      <div class="mt-2 bg-grape p-2">
         <b-row align-h="end">
           <b-col cols="6" align="center">
-            <h2 class="text-cream" > Match </h2>
+            <h2 class="text-cream"> Match </h2>
           </b-col>
           <b-col cols="3" align="right">
-            <button @click="leave()" class="buttonDiv bg-warn text-cream">Exit<b-icon-backspace-reverse-fill class="text-cream ml-3" style="float:right"  font-scale="1.5"></b-icon-backspace-reverse-fill> </button>
+            <button @click="leave()" class="buttonDiv bg-warn text-cream mt-2 "><span class="d-none d-md-inline">Exit</span><b-icon-backspace-reverse-fill class="text-cream mx-2" style="float:right"  font-scale="1.5"></b-icon-backspace-reverse-fill> </button>
           </b-col>
         </b-row>
       </div>
 
-     <div class="bg-second" v-if="showProgress">
+     <div class="bg-second"  v-if="showProgress">
        <div class="bg-third" >
-         <b-progress  style="height:20px" :max="1"  class="" show-value>
+         <b-progress  style="height:30px" :max="1"  class="" show-value>
                 <b-progress-bar :value="progressValues.p1" variant="p1"></b-progress-bar>
                 <b-progress-bar :value="progressValues.warn" variant="warn-light"></b-progress-bar>
                 <b-progress-bar :value="progressValues.p2" variant="p2"></b-progress-bar>
@@ -40,8 +40,8 @@
              </b-row>
          </div>
 
-          <div style="height:30px">
-            <b-progress v-if="time" :value="time" :max="timeReset" animated variant="warn"></b-progress>
+          <div style="height:25px">
+            <b-progress v-if="time" :value="time" :max="timeReset" style="height:25px" animated variant="warn"></b-progress>
           </div>
 
       </div>
@@ -59,7 +59,7 @@
 
           <div v-if="testItems.indexOf(item) === filter">
             <div v-for="(choice, index) in item.Choices" :key="index">
-              <button class="answerBtn bg-grey" :name="item.Question" :id="item.Question + choice.Answer" block @click="recordAnswer(item.Question, item.Answer, choice.Answer)">
+              <button class="answerBtn bg-prime text-cream" :name="item.Question" :id="item.Question + choice.Answer" block @click="recordAnswer(item.Question, item.Answer, choice.Answer)">
                 {{ choice.Answer }}
               </button>
                 <br>
@@ -211,9 +211,9 @@ export default {
       if (button) {
         // deal normal answer
         if (state) {
-          button.classList.add('text-safe')
+          button.classList.add('correct')
         } else {
-          button.classList.add('text-alert')
+          button.classList.add('mistake')
         }
         button.classList.add(btnClass)
         button.disabled = true
@@ -346,6 +346,10 @@ export default {
       return this.$store.getters.isAuthenticated
     }
   },
+  beforeDestroy () {
+    clearInterval(this.clock)
+    this.clock = null
+  },
   mounted () {
     let _this = this
     _this.socket.on('go', function (data) {
@@ -376,5 +380,15 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+.mistake {
+  border:4px solid #d35944;
+  color: #205372 !important
+}
+
+.correct {
+  border:4px solid #48c490;
+  color: #205372 !important
+}
 
 </style>
