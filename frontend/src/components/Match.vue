@@ -155,8 +155,7 @@ export default {
       gameSelect: 'TransEng',
       gameTypes: [
         { value: 'TransEng', text: 'En -> Ch' },
-        { value: 'TransCh', text: 'Ch -> En' },
-        { value: 'TypeMatch', text: 'Type' }
+        { value: 'TransCh', text: 'Ch -> En' }
       ],
       gameNames: {
         TransEng: 'En -> Ch',

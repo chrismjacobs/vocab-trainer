@@ -36,7 +36,7 @@
             </div>
           </b-form>
           <template v-slot:footer>
-            <em><a href="#" @click="$router.push('/Reset')">Forgot Password</a></em>
+            <em><a href="#" @click="$router.push('/Home')">Forgot Password</a></em>
           </template>
         </b-card>
       <div v-else align="center">

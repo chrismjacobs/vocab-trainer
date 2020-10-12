@@ -31,7 +31,12 @@ const state = {
   master: dictionaries[parseLocal(localStorage.userProfile).vocab],
   testActive: false,
   device: localStorage.device || '',
-  loginTime: localStorage.loginTime || ''
+  loginTime: localStorage.loginTime || '',
+  audioLinks: {
+    t: 'audio',
+    f: 'foodio',
+    d: 'digital'
+  }
 }
 
 const actions = {
@@ -412,18 +417,11 @@ const getters = {
         variant = 'alert'
       }
 
-      let vc = state.userProfile.vocab[0]
+      console.log('vocab', state.userProfile.vocab)
 
-      let s3
-      if (vc === 't') {
-        s3 = 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/audio_'
-      } else if (vc === 'f') {
-        s3 = 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/foodio_'
-      } else if (vc === 'd') {
-        s3 = 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/digital_'
-      } else if (vc === 'c') {
-        s3 = 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/culinary_'
-      }
+      let vc = state.userProfile.vocab[0]
+      let s3root = 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/'
+      let s3 = s3root + state.audioLinks[vc]
 
       // state.currentRecord.trans.vocab
       tableItems.push({
@@ -432,8 +430,8 @@ const getters = {
         Chinese: chinese,
         ChineseExt: chineseExt,
         Gr: dict[vocab].gl,
-        mp3en: s3 + 'en/' + vocab + '.mp3',
-        mp3ch: s3 + 'ch/' + vocab + '.mp3',
+        mp3en: s3 + '_en/' + vocab + '.mp3',
+        mp3ch: s3 + '_ch/' + vocab + '.mp3',
         transEngScore: transEngScore,
         transChScore: transChScore,
         spellScore: spellScore,

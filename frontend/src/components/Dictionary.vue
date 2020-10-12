@@ -291,12 +291,12 @@ export default {
     playAudio: function (arg, folder) {
       let icon = document.getElementById(arg + folder)
       icon.setAttribute('class', 'text-warn')
-      let s3audio = 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/'
-      let links = {
-        tourism: 'audio',
-        food: 'foodio'
-      }
-      let audioLink = s3audio + links[this.vocabList] + folder + arg + '.mp3'
+
+      let vc = this.$store.state.userProfile.vocab[0]
+      let s3root = 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/'
+      let s3 = s3root + this.$store.state.audioLinks[vc]
+
+      let audioLink = s3 + folder + arg + '.mp3'
       // console.log(audioLink)
       let player = document.getElementById('audio')
       player.src = audioLink
