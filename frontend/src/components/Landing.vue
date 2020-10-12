@@ -10,16 +10,16 @@
     img-height="480"
   >
     <b-carousel-slide
-      caption="First slide"
-      img-src="https://picsum.photos/1024/480/?image=10"
+      caption="Vocab Training"
+      img-src="https://picsum.photos/1024/480"
     ></b-carousel-slide>
     <b-carousel-slide
-      caption="Second Slide"
-      img-src="https://picsum.photos/1024/480/?image=12"
+      caption="Customized Testing"
+      img-src="https://picsum.photos/1020/470"
     ></b-carousel-slide>
     <b-carousel-slide
-      caption="Third Slide"
-      img-src="https://picsum.photos/1024/480/?image=22"
+      caption="Dictionary Logging"
+      img-src="https://picsum.photos/1010/460"
     ></b-carousel-slide>
   </b-carousel>
 </div>
