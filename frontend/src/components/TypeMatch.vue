@@ -249,7 +249,7 @@ export default {
     submitAnswer: function () {
       console.log('sub action')
       document.getElementById('homeInput').disabled = true
-      this.socket.emit('answerSend', {room: this.p1, opponent: this.opponent, player: this.player, state: this.validCheck})
+      this.socket.emit('answerSend', {room: this.p1, answer: this.currentAnswerHome, opponent: this.opponent, player: this.player, state: this.validCheck})
     },
     recordAnswer: function (data) {
       console.log('record action')
@@ -443,11 +443,11 @@ export default {
     })
     _this.socket.on('answerComplete', function (data) {
       if (data.state) {
-        if (_this.blocker === data.English) {
+        if (_this.blocker === data.answer) {
           console.log('blocked')
           return false
         } else {
-          _this.blocker = data.English
+          _this.blocker = data.answer
         }
         console.log('action 1')
         _this.recordAnswer(data)

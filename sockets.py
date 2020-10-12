@@ -145,9 +145,10 @@ def answerSend(data):
     room = data['room']
     opponent = data['opponent']
     player = data['player']
+    answer = data['answer']
     state = data['state']
 
-    emit('answerComplete', {'player': player, 'state': state, 'opponent': opponent}, room)
+    emit('answerComplete', {'player': player, 'state': state, 'answer': answer, 'opponent': opponent}, room)
 
     print('complete:', 'room', room, 'player', player, 'state', state)
 

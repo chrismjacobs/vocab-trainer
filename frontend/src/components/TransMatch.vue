@@ -188,9 +188,8 @@ export default {
 
       this.socket.emit('answer', {room: this.p1, name: null, answer: null, btnID: null, player: this.player, state: false})
     },
-    disable: function (name, btnID, player, state, answer) {
-      console.log('Stage1', name, btnID, player, state, answer)
-      let btnClass = 'bg-' + player + '-light'
+    disable: function (name, btnID, clicker, state, answer) {
+      let btnClass = 'bg-' + clicker + '-light'
       let button = document.getElementById(btnID)
 
       if (button) {
@@ -204,9 +203,9 @@ export default {
         button.disabled = true
         let buttons = document.getElementsByName(name)
 
-        console.log('Stage2', player, this.player, state)
+        console.log('Stage2', clicker, this.player, state)
 
-        if (player === this.player) {
+        if (clicker === this.player) {
           for (let i = 0; i < buttons.length; i++) {
             buttons[i].disabled = true
           }
@@ -227,7 +226,7 @@ export default {
       // console.log(state, this.answered)
       if (state || this.answered === 1) {
         this.answered = 1
-        this.nextQuestion(name, answer, player, state)
+        this.nextQuestion(name, answer, clicker, state)
       } else if (this.answered === 0) {
         // first answer is false so start timer
         this.answered = 1
@@ -236,25 +235,25 @@ export default {
         // console.log('LOGIC ERROR')
       }
     },
-    nextQuestion: function (name, answer, player, state) {
+    nextQuestion: function (name, answer, clicker, state) {
       clearInterval(this.clock)
       this.answered = 2
       this.time = null
       let _this = this
       setTimeout(function () {
         _this.answered = 0
-        _this.enterResult(name, answer, player, state)
+        _this.enterResult(name, answer, clicker, state)
         _this.filterToggle()
       }, 2000)
     },
-    enterResult: function (question, answer, player, state) {
+    enterResult: function (question, answer, clicker, state) {
       // console.log(state)
 
       let _rowVariant = 'warn'
       let score = 0
 
       if (state) {
-        _rowVariant = player
+        _rowVariant = clicker
       }
 
       let entry = {

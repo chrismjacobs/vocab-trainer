@@ -315,9 +315,11 @@ export default {
     })
     _this.socket.on('challenge', function (data) {
       console.log('challenge', data)
+      console.log('challengeMarker', _this.challengeMarker)
       // stops two people sending challange at the same time
       if (_this.challengeMarker === data.userID) {
         _this.challengeMarker = null
+        console.log('challenge blocked')
         return false
       } else {
         let challenge = { sender: data.sender, mode: data.mode, userID: data.userID }
