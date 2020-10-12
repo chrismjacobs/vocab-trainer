@@ -10,18 +10,6 @@ from flask_cors import CORS
 print('SOCKETS')
 
 
-# def getUsers ():
-#     userSearch = Connected.query.all()
-#     userDict = {}
-
-#     for user in userSearch:
-#         userDict[user.connected.id] = {'username': user.connected.username, 'userID': user.connected.id}
-
-
-#     userList = json.dumps(userDict)
-#     return userList
-
-
 @socketio.on('online')
 def online(data):
 
@@ -70,7 +58,6 @@ def online(data):
             emit('onlineUsers', {'userID': user.id, 'username': user.username}, int(f))
 
 
-
 def on_offline(user, check):
 
     friends = {}
@@ -109,12 +96,6 @@ def on_accept(data):
 
     leave_room(p2)
     join_room(p1)
-
-    #newRoom = Room(room=p1)
-    #db.session.add(newRoom)
-    #newRoom.players.append(User.query.get(p2))
-    #db.session.commit()
-    #print(newRoom.players)
 
     emit('start', {'p1': p1, 'p1name': p1name, 'p2': p2, 'p2name': p2name, 'mode': mode}, p1)
 
@@ -156,6 +137,7 @@ def updateType(data):
     emit('updateSignal', {'player': player, 'state': state, 'current': current, 'opponent': opponent}, room)
 
     print('updateSignal:', 'room', room, 'player', player, 'state', state)
+
 
 @socketio.on('answerSend')
 def answerSend(data):
@@ -205,7 +187,6 @@ def on_leftMatch(data):
     if p2con:
         p2sid = p2con.sid
         emit('kickOff', {'opponent': p1name}, p2sid)
-
 
 @socketio.on('disconnect')
 def on_disconnect():
