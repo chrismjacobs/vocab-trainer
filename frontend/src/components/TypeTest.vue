@@ -21,7 +21,7 @@
               <div v-if="testItems.indexOf(item) === filter">
                     <br>
                     <b-row class="px-5">
-                      <button class="questionDiv bg-warn" @click="hover=true" :class="hoverStyle" align="center">
+                      <button class="questionDiv bg-warn" @click="playAudio(item.sdEn)" :class="hoverStyle" align="center">
                           <h3>
                             <div >
                               <span v-html="item.Spelling"> </span>
@@ -32,7 +32,7 @@
                     </b-row>
 
                     <b-row class="px-5 mt-3" v-if="settings.display !== 'all_Off'">
-                      <button class="answerBtn bg-third" @click="hoverCh=true" align="center" >
+                      <button class="answerBtn bg-third" @click="playAudio(item.sdCh)" align="center" >
                           <h3>
                             <span v-if="settings.display === 'text_On'" v-html="item.Chinese" ></span>
                             <span v-if="settings.display ==='label_On'"> {{item.Gr}}</span>
@@ -240,6 +240,12 @@ export default {
       player.src = arg
       player.play()
     },
+    leave: function () {
+      this.answered = 0
+      this.filter = null
+      this.showTest = false
+      this.$emit('leaveMatch')
+    },
     setCountdown: function () {
       this.time = 60000
       let _this = this
@@ -301,30 +307,6 @@ export default {
         this.playAudio(sound.sdEn)
       } else if (sound && this.settings.sound === 'sdCh') {
         this.playAudio(sound.sdCh)
-      }
-    },
-    hover: function () {
-      if (this.hover === true) {
-        this.hoverStyle = 'bg-warn-light'
-        let sound = this.testItems[this.filter]
-        this.playAudio(sound.sdEn)
-        let _this = this
-        setInterval(function () {
-          _this.hover = false
-          _this.hoverStyle = 'bg-info'
-        }, 1800)
-      }
-    },
-    hoverCh: function () {
-      if (this.hoverCh === true) {
-        this.hoverStyleCh = 'bg-prime'
-        let sound = this.testItems[this.filter]
-        this.playAudio(sound.sdCh)
-        let _this = this
-        setInterval(function () {
-          _this.hoverCh = false
-          _this.hoverStyleCh = 'bg-info'
-        }, 1800)
       }
     }
   },

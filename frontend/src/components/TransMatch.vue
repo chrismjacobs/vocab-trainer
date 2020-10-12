@@ -320,6 +320,9 @@ export default {
       player.play()
     },
     leave: function () {
+      this.answered = 0
+      this.filter = null
+      this.showTest = false
       this.$emit('leaveMatch')
     }
   },

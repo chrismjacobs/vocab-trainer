@@ -8,10 +8,16 @@
             </h2>
       </div>
 
-      <div align="center" class="bg-prime p-2">
-        <div v-if="waiting === 0" :class="'buttonDiv bg-' + player" style="width: 60%" @click="playerReady(), emitWaiting(1)">Ready</div>
-        <b-icon v-if="waiting === 1" icon="three-dots" animation="cylon" font-scale="4" :variant="player"></b-icon>
-        <div v-if="waiting === 2" :class="'my-2 text-center text-'+ player">
+      <div align="center" class="bg-prime p-2" style="height:55px">
+        <div v-if="waiting === 0" :class="'mt-1 buttonDiv bg-' + player" style="width: 60%" @click="playerReady(), emitWaiting(1)">
+          Ready
+        </div>
+
+        <div v-if="waiting === 1" :class="'mb-2 text-center text-'+ player" style="height:55px">
+          <b-icon icon="three-dots" animation="cylon" font-scale="3"></b-icon>
+        </div>
+
+        <div v-if="waiting === 2" :class="'text-center text-'+ player" style="height:55px">
           <b-spinner class="align-middle"></b-spinner>
           <strong>Loading...</strong>
         </div>
