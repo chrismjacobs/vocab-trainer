@@ -40,7 +40,7 @@
              </b-row>
          </div>
 
-          <div style="height:20px">
+          <div style="height:30px">
             <b-progress v-if="time" :value="time" :max="timeReset" variant="warn"></b-progress>
           </div>
 
@@ -218,8 +218,9 @@ export default {
       let _this = this
       this.clock = setInterval(function () {
         if (_this.time === 0) {
-          clearInterval(_this.clock)
-          _this.recordAnswer(null)
+          if (_this.clock) {
+            _this.recordDraw()
+          }
         } else {
           _this.time -= 100
         }
@@ -255,29 +256,46 @@ export default {
       }
     },
     recordAnswer: function (data) {
-      let _rowVariant = 'warn'
-      clearInterval(this.clock)
-
-      if (data) {
-        _rowVariant = data.player
-      }
-
+      console.log('record action')
+      this.loadNew = true
       let count = ((this.timeReset - this.time) / 1000)
-      let time = count + 's'
+
+      clearInterval(this.clock)
+      this.clock = null
+      this.time = null
+
+      let _rowVariant = data.player
 
       let entry = {
         English: this.testItems[this.filter].English,
         Chinese: this.testItems[this.filter].Chinese,
         _rowVariant: _rowVariant,
-        Time: time
+        Time: count + 's'
       }
 
       this.progressValues[_rowVariant] += 1
-      // console.log(_rowVariant, this.progressValues)
       this.answerData.push(entry)
-
-      console.log('record action')
+      this.nextQuestion()
+    },
+    recordDraw: function () {
+      console.log('record draw')
       this.loadNew = true
+      clearInterval(this.clock)
+      this.clock = null
+      this.time = null
+
+      let entry = {
+        English: this.testItems[this.filter].English,
+        Chinese: this.testItems[this.filter].Chinese,
+        _rowVariant: 'warn',
+        Time: '---'
+      }
+
+      this.progressValues['warn'] += 1
+      this.answerData.push(entry)
+      this.nextQuestion()
+    },
+    nextQuestion: function () {
       document.getElementById('homeInput').disabled = true
       document.getElementById('awayInput').type = 'text'
       let _this = this
@@ -298,10 +316,9 @@ export default {
         this.filter += 1
         this.setCountdown()
       } else {
-        // console.log('filterMax')
-        // go back to false
+        this.answered = 0
+        this.blocker = false
         this.filter = null
-        this.time = null
         this.showTest = false
         this.checkAnswers()
       }
@@ -336,13 +353,14 @@ export default {
       player.play()
     },
     leave: function () {
+      this.answered = 0
+      this.filter = null
+      this.showTest = false
       this.$emit('leaveMatch')
     },
     validStyle: function (feedback) {
       let vCheck = this.validCheck
       let vAns = this.validAnswer
-
-      // console.log('home', vCheck, vAns)
 
       if (feedback === 'fbComp' && !vCheck) {
         return 'bg-cream'
@@ -407,6 +425,10 @@ export default {
       }
     }
   },
+  beforeDestroy () {
+    clearInterval(this.clock)
+    this.clock = null
+  },
   mounted () {
     let _this = this
     _this.socket.on('go', function (data) {
@@ -439,7 +461,7 @@ export default {
         _this.answered += 1
       } else {
         console.log('action 3')
-        _this.recordAnswer(null)
+        _this.recordDraw()
       }
     })
   }

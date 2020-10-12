@@ -151,16 +151,16 @@ export default {
       message: null,
       waiting: true,
       msg: null,
-      gameName: 'Select Game',
       gameSelect: 'TransEng',
       gameTypes: [
         { value: 'TransEng', text: 'En -> Ch' },
-        { value: 'TransCh', text: 'Ch -> En' }
+        { value: 'TransCh', text: 'Ch -> En' },
+        { value: 'TypeMatch', text: 'Spelling' }
       ],
       gameNames: {
         TransEng: 'En -> Ch',
         TransCh: 'Ch -> En',
-        TypeMatch: 'Type'
+        TypeMatch: 'Spelling'
       }
     }
   },
