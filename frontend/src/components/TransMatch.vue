@@ -121,6 +121,9 @@ export default {
       fields: ['Question', 'Answer'],
       time: null,
       clock: null,
+      clockBlock: false,
+      startTimer: null,
+      countDown: null,
       progressValues: {
         p1: 0,
         p2: 0,
@@ -141,18 +144,21 @@ export default {
       }
     },
     setCountdown: function () {
+      console.log('SET', this.player)
       this.time = this.timeReset
       let _this = this
       this.clock = setInterval(function () {
-        if (_this.time === 0) {
-          clearInterval(_this.clock)
+        if (_this.time === 0 && !_this.clockBlock) {
+          _this.clockBlock = true
           _this.recordDisable()
+          _this.time -= 100
         } else {
           _this.time -= 100
         }
       }, 100)
     },
     start: function () {
+      console.log('START', this.player)
       this.showAnswers = false
       this.filter = 0
       this.answerData = []
@@ -160,20 +166,21 @@ export default {
       // this.setCountdown()
     },
     readyCheck: function () {
-      console.log('length', this.ready, this.ready.length)
+      console.log('length', this.ready, this.ready.length, this.player)
       if (this.ready.length === 2) {
         this.waiting = 2
         let _this = this
-        setTimeout(function () {
+        _this.startTimer = setTimeout(function () {
           _this.start()
           // go to true
           _this.waiting = 0
           _this.ready = []
+          _this.startTimer = null
         }, 3000)
       }
     },
     recordAnswer: function (question, answer, choice) {
-      // console.log(data)
+      console.log('RECORD', this.player)
       let correct = answer
       // required for disbaling buttons
       let btnID = question + choice
@@ -184,11 +191,13 @@ export default {
       this.socket.emit('answer', {room: this.p1, name: question, answer: answer, btnID: btnID, player: this.player, state: result})
     },
     recordDisable: function () {
-      // console.log('DISABLE RESULT')
-
+      console.log('DISABLE RESULT', this.player)
+      clearInterval(this.clock)
+      this.clockBlock = false
       this.socket.emit('answer', {room: this.p1, name: null, answer: null, btnID: null, player: this.player, state: false})
     },
     disable: function (name, btnID, clicker, state, answer) {
+      console.log('DISABLE', this.player)
       let btnClass = 'bg-' + clicker + '-light'
       let button = document.getElementById(btnID)
 
@@ -236,18 +245,20 @@ export default {
       }
     },
     nextQuestion: function (name, answer, clicker, state) {
+      console.log('NEXT', this.player)
       clearInterval(this.clock)
       this.answered = 2
       this.time = null
       let _this = this
-      setTimeout(function () {
+      _this.countdown = setTimeout(function () {
         _this.answered = 0
         _this.enterResult(name, answer, clicker, state)
         _this.filterToggle()
+        _this.countDown = null
       }, 2000)
     },
     enterResult: function (question, answer, clicker, state) {
-      // console.log(state)
+      console.log('ENTER', this.player)
 
       let _rowVariant = 'warn'
       let score = 0
@@ -268,6 +279,7 @@ export default {
       this.answerData.push(entry)
     },
     filterToggle: function () {
+      console.log('FILTER', this.player)
       if (this.filter + 1 < this.testItems.length) {
         // console.log(this.filter, this.testItems.length)
         this.filter += 1
@@ -280,6 +292,7 @@ export default {
       }
     },
     checkAnswers: function () {
+      console.log('CHECK', this.player)
       this.p1score += this.progressValues.p1
       this.p2score += this.progressValues.p2
       let winnerStatus
@@ -300,12 +313,13 @@ export default {
       this.showAnswers = true
     },
     playAudio: function (arg) {
-      // console.log('PLAY', arg)
+      console.log('PLAY', arg, this.player)
       let player = document.getElementById('audio')
       player.src = arg
       player.play()
     },
     leave: function () {
+      console.log('LEAVE')
       this.answered = 0
       this.filter = null
       this.showTest = false
@@ -325,6 +339,9 @@ export default {
         let sound = this.testItems[this.filter]
         this.playAudio(sound.sdQue)
       }
+    },
+    player: function () {
+      console.log('THIS PLAYER', this.player)
     }
   },
   computed: {
@@ -333,8 +350,18 @@ export default {
     }
   },
   beforeDestroy () {
-    clearInterval(this.clock)
-    this.clock = null
+    if (this.clock) {
+      clearInterval(this.clock)
+      this.clock = null
+    }
+    if (this.startTimer) {
+      clearTimeout(this.startTimer)
+      this.startTimer = null
+    }
+    if (this.countDown) {
+      clearTimeout(this.countDown)
+      this.countDown = null
+    }
   },
   mounted () {
     let _this = this
@@ -351,11 +378,12 @@ export default {
       }
       _this.readyCheck()
     })
-    _this.socket.on('answer', function (data) {
+    _this.socket.on('answerMatch', function (data) {
       // check if same button was pressed by each player --> prevent duplicate answer
       if (data.btnID === _this.btnIDMarker) {
         console.log('duplicate answer')
       } else {
+        console.log('no duplicate')
         _this.btnIDMarker = data.btnID
         _this.disable(data.name, data.btnID, data.player, data.state, data.answer)
       }

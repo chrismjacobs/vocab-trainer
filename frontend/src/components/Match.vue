@@ -263,13 +263,9 @@ export default {
     }
   },
   watch: {
-    // challengeUsers: function () {
-    //   this.challengeList = []
-    //   for (let u in this.challengeUsers) {
-    //     this.challengeList.push(this.challengeUsers[u].userID)
-    //   }
-    //   console.log(this.challengeList)
-    // }
+    player: function () {
+      console.log('THIS PLAYER MATCH', this.player)
+    }
   },
   created () {
     console.log(this.s3)

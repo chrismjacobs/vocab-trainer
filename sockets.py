@@ -121,9 +121,9 @@ def on_answer(data):
     player = data['player']
     state = data['state']
 
-    emit('answer', {'player': player, 'name': name, 'answer': answer, 'btnID': btnID, 'state': state}, room)
+    emit('answerMatch', {'player': player, 'name': name, 'answer': answer, 'btnID': btnID, 'state': state}, room)
 
-    print('answer:', 'room', room, 'player', player)
+    print('answerMatch:', 'room', room, 'player', player)
 
 @socketio.on('updateType')
 def updateType(data):

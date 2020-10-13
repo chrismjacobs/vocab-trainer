@@ -41,7 +41,7 @@
          </div>
 
           <div style="height:25px">
-            <b-progress v-if="time" :value="time" :max="timeReset" variant="warn"></b-progress>
+            <b-progress style="height:25px" v-if="time" :value="time" :max="timeReset" variant="warn"></b-progress>
           </div>
 
       </div>
@@ -86,7 +86,7 @@
                           <div>
                             <b-form-input
                             align="center"
-                            style="font-size:30px;width:100%;text-align:center"
+                            :style="inputStyle"
                             :class="awayStyle"
                             type="password"
                             disabled
@@ -104,7 +104,7 @@
                           <div>
                             <b-form-input
                             align="center"
-                            style="font-size:30px;width:100%;text-align:center"
+                            :style="inputStyle"
                             :class="validStyle(feedback)"
                             onblur="this.focus()"
                             autofocus
@@ -183,7 +183,7 @@ export default {
       testItems: [],
       currentAnswerHome: null,
       currentAnswerAway: null,
-      awayStyle: 'bg-alert-light',
+      awayStyle: 'text-alert',
       feedback: null,
       sound: null,
       fields: ['English', 'Chinese', 'Time'],
@@ -220,6 +220,7 @@ export default {
         if (_this.time === 0) {
           if (_this.clock) {
             _this.recordDraw()
+            _this.time -= 100
           }
         } else {
           _this.time -= 100
@@ -374,10 +375,23 @@ export default {
       }
     },
     currentAnswerHome: function () {
-      this.socket.emit('updateType', {room: this.p1, opponent: this.opponent, current: this.currentAnswerHome, player: this.player, state: this.validStyle('fbConst')})
+      this.socket.emit('updateType', {room: this.p1, opponent: this.opponent, current: this.currentAnswerHome, player: this.player, state: this.signalStyle})
     }
   },
   computed: {
+    inputStyle () {
+      let width = '100%'
+      return { 'font-size': '30px', width: width, 'text-align': 'center' }
+    },
+    signalStyle () {
+      if (this.validAnswer && !this.validCheck) {
+        return 'bg-cream text-second'
+      } else if (this.validCheck) {
+        return 'bg-cream text-safe'
+      } else {
+        return 'bg-cream text-alert'
+      }
+    },
     validAnswer () {
       let typed = null
       let currentAnswer = this.currentAnswerHome
