@@ -258,13 +258,8 @@ export default {
           }
         })
         .catch(error => {
-          console.log('Error Registering: ', error)
+          console.log('Error Deleting: ', error)
         })
-    }
-  },
-  watch: {
-    player: function () {
-      console.log('THIS PLAYER MATCH', this.player)
     }
   },
   created () {
@@ -344,8 +339,10 @@ export default {
       _this.p2name = data.p2name
       if (_this.p1 === _this.$store.state.userProfile.userID) {
         _this.player = 'p1'
-      } else {
+      } else if (_this.p2 === _this.$store.state.userProfile.userID) {
         _this.player = 'p2'
+      } else {
+        console.log('PLAYER ERROR')
       }
       console.log('player', _this.player)
     })
@@ -357,7 +354,7 @@ export default {
         _this.leaveMatch() // this will clear the match and send an emit to leave the room if the player is away
       } else {
         _this.msg = 'You have left the match'
-        _this.showModal()
+        _this.showAlert()
       }
     })
     _this.socket.on('kickOff', function (data) {
