@@ -131,7 +131,8 @@ export default {
       },
       p1score: 0,
       p2score: 0,
-      btnIDMarker: null
+      btnIDMarker: null,
+      playerDude: null
     }
   },
   methods: {
@@ -251,6 +252,7 @@ export default {
       this.time = null
       let _this = this
       _this.countdown = setTimeout(function () {
+        console.log('TIMEOUT', _this.playerDude)
         _this.answered = 0
         _this.enterResult(name, answer, clicker, state)
         _this.filterToggle()
@@ -319,10 +321,7 @@ export default {
       player.play()
     },
     leave: function () {
-      console.log('LEAVE')
-      this.answered = 0
-      this.filter = null
-      this.showTest = false
+      this.socket.emit('exitMatch', { player: this.player, p1: this.p1, p2: this.p2 })
       this.$emit('leaveMatch')
     }
   },
@@ -339,9 +338,6 @@ export default {
         let sound = this.testItems[this.filter]
         this.playAudio(sound.sdQue)
       }
-    },
-    player: function () {
-      console.log('THIS PLAYER', this.player)
     }
   },
   computed: {
@@ -349,7 +345,19 @@ export default {
       return this.$store.getters.isAuthenticated
     }
   },
+  created () {
+    let options = {
+      p1: 'p1',
+      p2: 'p2'
+    }
+    this.playerDude = options[this.player]
+  },
   beforeDestroy () {
+    console.log('LEAVE')
+    this.answered = 0
+    this.filter = null
+    this.showTest = false
+
     if (this.clock) {
       clearInterval(this.clock)
       this.clock = null
@@ -374,7 +382,7 @@ export default {
       }
       if (!_this.ready.includes(data.player)) {
         _this.ready.push(data.player)
-        console.log(data.player)
+        console.log(data.player, _this.ready)
       }
       _this.readyCheck()
     })

@@ -20,7 +20,7 @@ const routerOptions = [
   {path: '/transchmatch', component: 'TransChMatch'},
   {path: '/typetest', component: 'TypeTest'},
   {path: '/matchtest', component: 'MatchTest'},
-  {path: '/match', component: 'Match'},
+  {path: '/match', component: 'MatchBase'},
   {path: '*', component: 'NotFound'}
 ]
 

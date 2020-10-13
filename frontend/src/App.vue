@@ -35,7 +35,7 @@
         <div :class="navSide('/TransEngTest')" @click="goTo('TransEngTest')"><b-icon-box-arrow-up-right></b-icon-box-arrow-up-right> <br> <span class="d-none d-xl-inline"> Eng-Ch </span> </div>
         <div :class="navSide('/TransChTest')" @click="goTo('TransChTest')"><b-icon-box-arrow-up-left></b-icon-box-arrow-up-left> <br> <span class="d-none d-xl-inline"> Ch-Eng </span></div>
         <div :class="navSide('/TypeTest')" @click="goTo('TypeTest')"><b-icon icon="grid3x3-gap-fill"></b-icon> <br> <span class="d-none d-xl-inline"> Type </span></div>
-        <div :class="navSide('/Match')" @click="goTo('Match')"><b-icon icon="fullscreen-exit"></b-icon> <br> <span class="d-none d-xl-inline "> Match </span></div>
+        <div :class="navSide('/MatchBase')" @click="goTo('Match')"><b-icon icon="fullscreen-exit"></b-icon> <br> <span class="d-none d-xl-inline "> Match </span></div>
       </b-col>
       <b-col v-else cols="1" class="bg-prime d-none d-lg-block">
       </b-col>
@@ -46,8 +46,11 @@
            <router-view :s3="s3"></router-view>
           </transition>
         </b-container>
-        <b-container v-else>
-          updating.....
+        <b-container v-else align="center">
+          <div class="mt-5">
+              <h4 class="text-prime"> Building Records </h4>
+              <b-icon icon="three-dots" animation="cylon" variant="prime" font-scale="6"></b-icon>
+          </div>
         </b-container>
       </b-col>
 
@@ -97,7 +100,7 @@
         <button :class="navStyle('/TransEngTest')" @click="goTo('TransEngTest')"><b-icon-box-arrow-up-right></b-icon-box-arrow-up-right>  <span class="d-none d-md-inline"> &nbsp; Eng-Ch </span> </button>
         <button :class="navStyle('/TransChTest')" @click="goTo('TransChTest')"><b-icon-box-arrow-up-left></b-icon-box-arrow-up-left>  <span class="d-none d-md-inline"> &nbsp; Ch-Eng </span></button>
         <button :class="navStyle('/TypeTest')" @click="goTo('TypeTest')"><b-icon icon="grid3x3-gap-fill"></b-icon> <span class="d-none d-md-inline"> &nbsp; Type </span></button>
-        <button :class="navStyle('/Match')" @click="goTo('Match')"><b-icon icon="gem"></b-icon> <span class="d-none d-md-inline"> &nbsp; Match </span></button>
+        <button :class="navStyle('/MatchBase')" @click="goTo('Match')"><b-icon icon="gem"></b-icon> <span class="d-none d-md-inline"> &nbsp; Match </span></button>
     </div>
   </div>
 
@@ -171,6 +174,7 @@ export default {
       if (!this.$store.state.testActive) {
         this.$router.push(arg)
       } else {
+        alert('You are in a match, please exit first')
         this.navStyle()
         this.navSide()
       }

@@ -82,8 +82,13 @@ def on_challenge(data):
     username = data['username']
     mode = data['mode']
 
+    sid = request.sid
+    print(sid)
+    roomList = rooms(sid=sid)
+    print(roomList)
+
     # send the challenge to the room of opponent
-    emit('challenge', {'sender': username, 'mode': mode, 'userID': userID}, int(targetID))
+    emit('challengeMatch', {'sender': username, 'mode': mode, 'userID': userID}, int(targetID))
     print('challenge', 'target:', targetID, 'sender:', userID, 'mode', mode)
 
 @socketio.on('accept')
@@ -94,12 +99,15 @@ def on_accept(data):
     p1name = data['p1name']
     mode = data['mode']
 
+    print('p1', p1, type(p1))
+    print('p2', p2, type(p2))
+
     leave_room(p2)
     join_room(p1)
 
     emit('start', {'p1': p1, 'p1name': p1name, 'p2': p2, 'p2name': p2name, 'mode': mode}, p1)
 
-    print('accept', 'p1', p1, 'p2', p2, 'mode', mode)
+    print('start', str({'p1': p1, 'p1name': p1name, 'p2': p2, 'p2name': p2name, 'mode': mode}))
 
 @socketio.on('ready')
 def on_ready(data):
@@ -110,7 +118,7 @@ def on_ready(data):
 
     emit('go', {'player': player, 'testItems': testItems, 'timeReset': timeReset}, room)
 
-    print('ready', 'room', room, 'player', player, 'testItems', testItems )
+    print('go', str({'player': player, 'testItems': testItems, 'timeReset': timeReset}) )
 
 @socketio.on('answer')
 def on_answer(data):
@@ -158,7 +166,6 @@ def on_settings(data):
     room = data['room']
     settingsData =  data['settingsData']
 
-
     emit('newSettings', {'settingsData': settingsData}, room)
 
     print('newSettings:', 'room', room, 'settings', settingsData)
@@ -189,6 +196,45 @@ def on_leftMatch(data):
         p2sid = p2con.sid
         emit('kickOff', {'opponent': p1name}, p2sid)
 
+@socketio.on('exitMatch')
+def on_exitMatch(data):
+
+    p2 = data['p2']
+    p1 = data['p1']
+    player = data['player']
+
+    ## both players are room p1
+    ## send a signal to p2 which makes them leave the room and rejoin
+    p2name = User.query.get(p2).username
+    p1name = User.query.get(p1).username
+
+    p1con = Connected.query.filter_by(user_id=p1).first()
+    p2con = Connected.query.filter_by(user_id=p2).first()
+    p1sid = 0
+    p2sid = 0
+
+    if p1con:
+        p1sid = p1con.sid
+
+    if p2con:
+        p2sid = p2con.sid
+
+    emit('reset', {'p1': p1, 'p2': p2, 'opponent': p2name}, p1sid)
+    emit('reset', {'p1': p1, 'p2': p2, 'opponent': p1name}, p2sid)
+
+@socketio.on('resetRoom')
+def on_resetRoom(data):
+
+    p2 = data['p2']
+    p1 = data['p1']
+
+    leave_room(int(p1))
+    join_room(int(p2))
+
+    print('resetRoom', p1, '--> ', p2)
+
+
+
 @socketio.on('disconnect')
 def on_disconnect():
     sid = request.sid
@@ -207,7 +253,7 @@ def on_disconnect():
         for r in roomList:
             leave_room(r)
             print('LEAVE ROOM', r)
-            emit('leftRoom', {'sender': username, 'userID': userID}, r)
+            emit('reset', {'opponent': 'your opponent'}, r)
 
         for f in friendList:
             print('Offline Signal: ', int(f))

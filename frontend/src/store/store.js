@@ -117,8 +117,8 @@ const actions = {
     // console.log('check login...')
     return isValidJwt(state.jwt)
   },
-  testActive (context) {
-    context.commit('setTestActive')
+  testActive (context, bol) {
+    context.commit('setTestActive', bol)
   },
   openSocket (context) {
     context.commit('setSocket')
@@ -236,8 +236,8 @@ const mutations = {
     state.jwt = ''
     localStorage.clear()
   },
-  setTestActive (state) {
-    state.testActive = !state.testActive
+  setTestActive (state, bol) {
+    state.testActive = bol
     // console.log('testActive', state.testActive)
   },
   sendRecords (state) {

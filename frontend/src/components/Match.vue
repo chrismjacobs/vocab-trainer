@@ -1,7 +1,7 @@
 <template>
   <div class="matchArea">
-    <TransMatch v-on:leaveMatch="leaveMatch()" :testType="testType" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" :socket="socket" :s3="s3" v-if="testType && testType[1] === 'r'"></TransMatch>
-    <TypeMatch v-on:leaveMatch="leaveMatch()" :testType="testType" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" :socket="socket" :s3="s3" v-if="testType && testType[1] === 'y'"></TypeMatch>
+    <TransMatch v-on:leaveMatch="testType = null" :testType="testType" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" :socket="socket" :s3="s3" v-if="testType && testType[1] === 'r'"></TransMatch>
+    <TypeMatch v-on:leaveMatch="testType = null" :testType="testType" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" :socket="socket" :s3="s3" v-if="testType && testType[1] === 'y'"></TypeMatch>
     <template v-if="waiting">
       <div v-if="testType === null">
           <div class="mt-2 p-2 bg-grape">
@@ -106,6 +106,13 @@
       <button class="buttonDiv mt-3 bg-alert text-cream" style="width:60%"  @click="hideModal('fail')">Close</button>
     </b-modal>
 
+   <b-modal align="center" ref="quit" hide-footer title="Game Over" hide-header-close no-close-on-esc no-close-on-backdrop>
+      <div class="d-block">
+        <h3> {{msg}} </h3>
+      </div>
+      <button class="buttonDiv mt-3 bg-third text-prime" style="width:60%"  @click="hideModal('quit')">Close</button>
+    </b-modal>
+
   </div>
 </template>
 
@@ -171,17 +178,23 @@ export default {
     showAlert: function () {
       this.$refs['fail'].show()
     },
+    showQuit: function () {
+      this.$refs['quit'].show()
+    },
     hideModal: function (mode) {
       if (mode === 'success') {
         this.$refs['success'].hide()
         this.waiting = true
-      } else {
+      } else if (mode === 'success') {
         this.$refs['fail'].hide()
-        this.msg = null
         this.waiting = true
+      } else {
+        this.$refs['quit'].hide()
+        this.$emit('resetMatch')
       }
     },
     startSocket: function () {
+      console.log('STARTSOCKET')
       this.socket = openSocket()
       this.socket.emit('checkOnline', { userID: this.userID })
     },
@@ -191,24 +204,13 @@ export default {
     },
     leaveMatch: function () {
       console.log('leave activated')
-      this.$store.dispatch('testActive')
-      this.socket.emit('leftMatch', { userID: this.userID, p1: this.p1, p2: this.p2 })
       this.testType = null
-      this.challengeUsers = {}
-      this.p1 = null
-      this.p1name = null
-      this.p2 = null
-      this.p2name = null
     },
     challenge: function (targetID, mode) {
-      if (mode === null) {
-        this.msg = 'Please set game type before making a challenge'
-        this.showAlert()
-      } else {
-        // marker to stop two people challenging each other at the same time
-        this.challengeMarker = targetID
-        this.socket.emit('challenge', {userID: this.userID, username: this.username, targetID: targetID, mode: mode})
-      }
+      this.challengeMarker = targetID
+      let payload = {userID: this.userID, username: this.username, targetID: targetID, mode: mode}
+      console.log('send challenge', payload)
+      this.socket.emit('challenge', payload)
     },
     declineChallenge: function (uid) {
       delete this.challengeUsers[uid]
@@ -304,8 +306,8 @@ export default {
     _this.socket.on('disconnect', function (data) {
       console.log('disconnect')
     })
-    _this.socket.on('challenge', function (data) {
-      console.log('challenge', data)
+    _this.socket.on('challengeMatch', function (data) {
+      console.log('challengeMatch', data)
       console.log('challengeMarker', _this.challengeMarker)
       // stops two people sending challange at the same time
       if (_this.challengeMarker === data.userID) {
@@ -330,7 +332,7 @@ export default {
     })
     _this.socket.on('start', function (data) {
       console.log('start', data)
-      _this.$store.dispatch('testActive')
+      _this.$store.dispatch('testActive', true)
       _this.challengeMarker = null
       _this.testType = data.mode
       _this.p1 = data.p1
@@ -346,24 +348,11 @@ export default {
       }
       console.log('player', _this.player)
     })
-    _this.socket.on('leftRoom', function (data) {
-      console.log('left', data)
-      if (_this.testType) {
-        _this.msg = 'Game Ended, ' + data.sender + ' has left the game'
-        _this.showAlert()
-        _this.leaveMatch() // this will clear the match and send an emit to leave the room if the player is away
-      } else {
-        _this.msg = 'You have left the match'
-        _this.showAlert()
-      }
-    })
-    _this.socket.on('kickOff', function (data) {
-      console.log('ko', data)
-      if (_this.testType) {
-        _this.msg = 'Game Ended, ' + data.opponent + ' has left the game'
-        _this.showAlert()
-        _this.leaveMatch()
-      }
+    _this.socket.on('reset', function (data) {
+      _this.$store.dispatch('testActive', false)
+      console.log('reset', data)
+      _this.msg = 'Game Ended, ' + data.opponent + ' has left the game'
+      _this.showQuit()
     })
   }
 }
