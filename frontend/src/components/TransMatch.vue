@@ -12,14 +12,7 @@
         </b-row>
       </div>
 
-     <div class="bg-second"  v-if="showProgress">
-       <div class="bg-third" >
-         <b-progress  style="height:30px" :max="1"  class="" show-value>
-                <b-progress-bar :value="progressValues.p1" variant="p1"></b-progress-bar>
-                <b-progress-bar :value="progressValues.warn" variant="warn-light"></b-progress-bar>
-                <b-progress-bar :value="progressValues.p2" variant="p2"></b-progress-bar>
-        </b-progress>
-       </div>
+     <div class="bg-second">
 
         <div class="bg-third p-3 " style="height:100px">
              <b-row no-gutters>
@@ -40,8 +33,16 @@
              </b-row>
          </div>
 
-          <div style="height:25px">
-            <b-progress v-if="time" :value="time" :max="timeReset" style="height:25px" animated variant="warn"></b-progress>
+          <div style="height:20px">
+            <b-progress v-if="showProgress" style="height:20px" :max="1"  class="" show-value>
+                    <b-progress-bar :value="progressValues.p1" variant="p1"></b-progress-bar>
+                    <b-progress-bar :value="progressValues.warn" variant="warn-light"></b-progress-bar>
+                    <b-progress-bar :value="progressValues.p2" variant="p2"></b-progress-bar>
+            </b-progress>
+          </div>
+
+          <div style="height:20px">
+            <b-progress v-if="time" :value="time" :max="timeReset" style="height:20px" variant="grape"></b-progress>
           </div>
 
       </div>
@@ -109,7 +110,7 @@ export default {
       showToolbar: true,
       showAnswers: false,
       showTest: false,
-      showProgress: true,
+      showProgress: false,
       timeReset: null,
       hover: false,
       ready: [],
@@ -161,6 +162,7 @@ export default {
     start: function () {
       console.log('START', this.player)
       this.showAnswers = false
+      this.showProgress = true
       this.filter = 0
       this.answerData = []
       this.showTest = true
@@ -290,6 +292,7 @@ export default {
         // go back to false
         this.filter = null
         this.showTest = false
+        this.showProgress = false
         this.checkAnswers()
       }
     },
@@ -322,7 +325,6 @@ export default {
     },
     leave: function () {
       this.socket.emit('exitMatch', { player: this.player, p1: this.p1, p2: this.p2 })
-      this.$emit('leaveMatch')
     }
   },
   watch: {

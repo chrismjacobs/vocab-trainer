@@ -4,24 +4,16 @@
       <div class="mt-2 bg-grape p-2">
         <b-row align-h="end">
           <b-col cols="6" align="center">
-            <h2 class="text-cream" > Match </h2>
+            <h2> Match </h2>
           </b-col>
           <b-col cols="3" align="right">
-            <button @click="leave()" class="buttonDiv bg-warn text-cream"> <span class="d-none d-md-inline">Exit</span><b-icon-backspace-reverse-fill class="text-cream ml-3" style="float:right"  font-scale="1.5"></b-icon-backspace-reverse-fill> </button>
+            <button @click="leave()" class="buttonDiv bg-warn text-cream mt-2"> <span class="d-none d-md-inline">Exit</span><b-icon-backspace-reverse-fill class="text-cream ml-3" style="float:right"  font-scale="1.5"></b-icon-backspace-reverse-fill> </button>
           </b-col>
         </b-row>
       </div>
 
-      <div class="bg-second" v-if="showProgress">
-       <div class="bg-third" >
-         <b-progress  style="height:20px" :max="1"  class="" show-value>
-                <b-progress-bar :value="progressValues.p1" variant="p1"></b-progress-bar>
-                <b-progress-bar :value="progressValues.warn" variant="warn-light"></b-progress-bar>
-                <b-progress-bar :value="progressValues.p2" variant="p2"></b-progress-bar>
-        </b-progress>
-       </div>
-
-        <div class="bg-third p-3 " style="height:100px">
+      <div class="bg-third">
+        <div class="p-3 " style="height:100px">
              <b-row no-gutters>
                <b-col align="right" class="mr-3">
                  <b-avatar :src="s3 + p1.toString() + '.jpg'"  size="65px" :badge="nameCut(p1name)" badge-offset="-0.6em" badge-variant="p1"></b-avatar>
@@ -38,11 +30,19 @@
                   <b-avatar v-if="ready.includes('p2')" icon="person-check" variant="safe"></b-avatar>
                </b-col>
              </b-row>
-         </div>
-
-          <div style="height:25px">
-            <b-progress style="height:25px" v-if="time" :value="time" :max="timeReset" variant="warn"></b-progress>
           </div>
+
+       <div style="height:20px">
+         <b-progress  v-if="showProgress" style="height:20px" :max="1"  class="" show-value>
+                <b-progress-bar :value="progressValues.p1" variant="p1"></b-progress-bar>
+                <b-progress-bar :value="progressValues.warn" variant="warn-light"></b-progress-bar>
+                <b-progress-bar :value="progressValues.p2" variant="p2"></b-progress-bar>
+        </b-progress>
+       </div>
+
+        <div style="height:20px">
+          <b-progress style="height:20px" v-if="time" :value="time" :max="timeReset" variant="grape"></b-progress>
+        </div>
 
       </div>
 
@@ -62,10 +62,14 @@
               <div v-if="testItems.indexOf(item) === filter">
                     <br>
                     <b-row class="px-5">
-                      <button class="questionDiv bg-warn" @click="playAudio(item.sdQue)">
+                      <button class="questionDiv bg-second" @click="playAudio(item.sdQue)">
                           <h3>
                             <div>
-                              <span v-html="item.Spelling"> </span>
+                              <div v-if="loadNew" :class="'text-center text-cream'">
+                                <b-spinner class="align-middle"></b-spinner>
+                                Loading...
+                              </div>
+                              <span v-else v-html="item.Spelling"> </span>
                             </div>
                             <span v-if="sound == 'sdOnly' || sound == 'sdOn' "> <b-icon-soundwave></b-icon-soundwave></span>
                           </h3>
@@ -80,10 +84,10 @@
                       </button>
                     </b-row>
 
-                     <b-row align-h="center" class="mt-4">
+                     <b-row align-h="center" class="mt-3">
                       <b-col cols="10">
                         <b-form-group>
-                          <div>
+                          <div align="center">
                             <b-form-input
                             align="center"
                             :style="inputStyle"
@@ -98,10 +102,10 @@
                       </b-col>
                     </b-row>
 
-                    <b-row align-h="center" class="mt-4">
+                    <b-row align-h="center" class="mt-3">
                       <b-col cols="10">
                         <b-form-group>
-                          <div>
+                          <div align="center">
                             <b-form-input
                             align="center"
                             :style="inputStyle"
@@ -114,17 +118,12 @@
                             id="homeInput"
                             v-model="currentAnswerHome"
                             ></b-form-input>
+
+                            <h5 class="mt-2">
+                              ({{currentAnswerHome.length}}/{{answerLength}})
+                            </h5>
                           </div>
                         </b-form-group>
-                      </b-col>
-                    </b-row>
-
-                    <b-row style="height:800px">
-                      <b-col>
-                        <div v-if="loadNew" :class="'text-center text-primary'">
-                          <b-spinner class="align-middle"></b-spinner>
-                          <strong>Loading...</strong>
-                        </div>
                       </b-col>
                     </b-row>
 
@@ -171,7 +170,7 @@ export default {
       showToolbar: true,
       showAnswers: false,
       showTest: false,
-      showProgress: true,
+      showProgress: false,
       timeReset: 30,
       hover: false,
       ready: [],
@@ -181,8 +180,8 @@ export default {
       answerData: [],
       filter: null,
       testItems: [],
-      currentAnswerHome: null,
-      currentAnswerAway: null,
+      currentAnswerHome: '',
+      currentAnswerAway: '',
       awayStyle: 'text-alert',
       feedback: null,
       sound: null,
@@ -229,6 +228,7 @@ export default {
     },
     start: function () {
       this.showAnswers = false
+      this.showProgress = true
       this.filter = 0
       this.answerData = []
       this.showTest = true
@@ -314,6 +314,7 @@ export default {
       } else {
         this.filter = null
         this.showTest = false
+        this.showProgress = false
         this.blocker = null
         this.checkAnswers()
       }
@@ -348,7 +349,6 @@ export default {
       player.play()
     },
     leave: function () {
-      this.$emit('leaveMatch')
       this.socket.emit('exitMatch', { player: this.player, p1: this.p1, p2: this.p2 })
     },
     validStyle: function (feedback) {
@@ -381,8 +381,16 @@ export default {
   },
   computed: {
     inputStyle () {
-      let width = '100%'
-      return { 'font-size': '30px', width: width, 'text-align': 'center' }
+      let width = this.answerLength + '0%'
+      return {'font-size': '30px', width: width, 'text-align': 'center', 'max-width': '100%'}
+    },
+    headerClass () {
+      let header = 'mt-2 p-2 text-prime bg-' + this.player
+      return header
+    },
+    answerLength () {
+      let answer = this.testItems[this.filter].English
+      return answer.length
     },
     signalStyle () {
       if (this.validAnswer && !this.validCheck) {
@@ -396,7 +404,7 @@ export default {
     validAnswer () {
       let typed = null
       let currentAnswer = this.currentAnswerHome
-      if (currentAnswer) {
+      if (currentAnswer !== '') {
         typed = currentAnswer.length
       } else {
         return false
@@ -404,8 +412,7 @@ export default {
 
       let answerSub = this.testItems[this.filter].English
 
-      if (currentAnswer === this.testItems[this.filter].English ||
-          currentAnswer === this.testItems[this.filter].English + ' ') {
+      if (currentAnswer === this.testItems[this.filter].English) {
         // console.log('true1')
         return true
       } else if (currentAnswer === answerSub.substr(0, typed)) {
@@ -417,7 +424,7 @@ export default {
     },
     validCheck () {
       let answer = this.testItems[this.filter].English
-      if (this.currentAnswerHome === answer || this.currentAnswerHome === answer + ' ') {
+      if (this.currentAnswerHome === answer) {
         return true
       } else {
         return false

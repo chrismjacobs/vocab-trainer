@@ -17,7 +17,7 @@
       </b-row>
 
       <div class="bg-grey" v-if="showTest">
-          <div v-for="(item) in testItems" :key="item">
+          <div v-for="(item, idx) in testItems" :key="idx">
               <div v-if="testItems.indexOf(item) === filter">
                     <br>
                     <b-row class="px-5">
@@ -43,9 +43,25 @@
                     <b-row align-h="center" class="mt-4">
                       <b-col cols="10">
                         <b-form-group>
-                          <div>
-                            <b-form-input align="center" style="font-size:30px;width:100%;text-align:center" :class="validStyle()" onblur="this.focus()" autofocus autocapitalize="none" autocomplete="off" v-on:keyup.native.enter="recordAnswer(item.English, item.Chinese, currentAnswer) " id="type"  v-model="currentAnswer"></b-form-input>
+                          <div align="center">
+                            <b-form-input
+                            align="center"
+                            :style="inputStyle"
+                            :class="validStyle()"
+                            onblur="this.focus()"
+                            autofocus
+                            autocapitalize="none"
+                            autocomplete="off"
+                            v-on:keyup.native.enter="recordAnswer(item.English, item.Chinese, currentAnswer) "
+                            id="type"
+                            v-model="currentAnswer"
+                            ></b-form-input>
+                            <br>
+                            <h6>
+                              ({{currentAnswer.length}}/{{answerLength}})
+                            </h6>
                           </div>
+
                           <div align="center" v-if="settings.feedback === 'fbConst'">
                             <b-form-invalid-feedback :state="validAnswer">
                               checking...
@@ -115,7 +131,7 @@ export default {
       showTest: false,
       filter: null,
       answerData: [],
-      currentAnswer: null,
+      currentAnswer: '',
       testItems: [],
       settings: {},
       fields: ['Chinese', 'English', 'Answer', 'Time'],
@@ -268,9 +284,17 @@ export default {
     }
   },
   computed: {
+    inputStyle () {
+      let width = this.answerLength + '0%'
+      return {'font-size': '30px', width: width, 'text-align': 'center', 'max-width': '100%'}
+    },
+    answerLength () {
+      let answer = this.testItems[this.filter].English
+      return answer.length
+    },
     validAnswer () {
       let typed = null
-      if (this.currentAnswer) {
+      if (this.currentAnswer !== '') {
         typed = this.currentAnswer.length
       } else {
         return false
@@ -278,8 +302,7 @@ export default {
 
       let answerSub = this.testItems[this.filter].English
 
-      if (this.currentAnswer === this.testItems[this.filter].English ||
-          this.currentAnswer === this.testItems[this.filter].English + ' ') {
+      if (this.currentAnswer === this.testItems[this.filter].English) {
         return true
       } else if (this.currentAnswer === answerSub.substr(0, typed)) {
         return true
@@ -291,7 +314,7 @@ export default {
     },
     validCheck () {
       let answer = this.testItems[this.filter].English
-      if (this.currentAnswer === answer || this.currentAnswer === answer + ' ') {
+      if (this.currentAnswer === answer) {
         return true
       } else {
         return false

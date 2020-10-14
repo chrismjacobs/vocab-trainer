@@ -175,8 +175,8 @@ export default {
         this.$router.push(arg)
       } else {
         alert('You are in a match, please exit first')
-        this.navStyle()
-        this.navSide()
+        // this.navStyle()
+        // this.navSide()
       }
     },
     logout: function (arg) {

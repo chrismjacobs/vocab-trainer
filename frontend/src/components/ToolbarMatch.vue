@@ -2,15 +2,15 @@
   <div class="matchBar" v-if="!toolbarShow">
     <div>
 
-      <div class="bg-third p-3">
+      <div class="bg-third p-3" v-if="testType !== 'TypeMatch'">
             <h3 align="center">
               {{ gameNames[testType] }}
             </h3>
       </div>
 
       <div align="center" class="bg-prime p-2" style="height:60px">
-        <div v-if="waiting === 0" :class="'mt-1 buttonDiv bg-' + player" style="width: 60%" @click="playerReady(), emitWaiting(1)">
-          Ready
+        <div v-if="waiting === 0" :class="'buttonDiv text-prime bg-' + player" style="width: 60%" @click="playerReady(), emitWaiting(1)">
+          <h5 class="mt-1"> Ready </h5>
         </div>
 
         <div v-if="waiting === 1" :class="'mb-2 text-center text-'+ player" style="height:60px">

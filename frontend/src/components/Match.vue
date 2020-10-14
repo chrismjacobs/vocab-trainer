@@ -1,7 +1,7 @@
 <template>
   <div class="matchArea">
-    <TransMatch v-on:leaveMatch="testType = null" :testType="testType" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" :socket="socket" :s3="s3" v-if="testType && testType[1] === 'r'"></TransMatch>
-    <TypeMatch v-on:leaveMatch="testType = null" :testType="testType" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" :socket="socket" :s3="s3" v-if="testType && testType[1] === 'y'"></TypeMatch>
+    <TransMatch  :testType="testType" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" :socket="socket" :s3="s3" v-if="testType && testType[1] === 'r'"></TransMatch>
+    <TypeMatch  :testType="testType" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" :socket="socket" :s3="s3" v-if="testType && testType[1] === 'y'"></TypeMatch>
     <template v-if="waiting">
       <div v-if="testType === null">
           <div class="mt-2 p-2 bg-grape">
@@ -204,7 +204,6 @@ export default {
     },
     leaveMatch: function () {
       console.log('leave activated')
-      this.testType = null
     },
     challenge: function (targetID, mode) {
       this.challengeMarker = targetID
@@ -350,9 +349,11 @@ export default {
     })
     _this.socket.on('reset', function (data) {
       _this.$store.dispatch('testActive', false)
-      console.log('reset', data)
-      _this.msg = 'Game Ended, ' + data.opponent + ' has left the game'
-      _this.showQuit()
+      if (_this.testType) {
+        console.log('reset', data)
+        _this.msg = 'Game Ended, ' + data.opponent + ' has left the game'
+        _this.showQuit()
+      }
     })
   }
 }
