@@ -36,7 +36,7 @@ def register():
     name = data['username'].strip()
     email = (data['email'].lower()).strip()
     studentID = data['studentID']
-    classroom = data['classroom']
+    classroom = (data['classroom'].lower()).strip()
 
     checkName = User.query.filter_by(username=data['username']).first()
     checkEmail = User.query.filter_by(email=email).first()
