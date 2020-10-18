@@ -89,7 +89,6 @@
           <div v-if="waiting">
 
             <b-form @submit="onSubmit">
-
                 <b-input-group class="my-2 p-6">
                     <b-input-group-prepend inline is-text>
                       <b-icon icon="hash"></b-icon>
@@ -98,7 +97,16 @@
                     </b-form-input>
                 </b-input-group>
 
-                <b-form-file accept="image/*" placeholder="Change Image" type="file" id="file" ref="file" v-on:change="handleFileUpload()" ></b-form-file>
+                <b-row>
+                  <b-col cols="4" style="max-width:200px">
+                     <b-img thumbnail fluid :src="imageLink(newWord.word, dictGet[newWord.word])" :alt="newWord.word"></b-img>
+                  </b-col>
+                  <b-col>
+                    <div class="mt-9" align="left">
+                      <b-form-file accept="image/*" placeholder="Change Image" type="file" id="file" ref="file" v-on:change="handleFileUpload()" ></b-form-file>
+                    </div>
+                  </b-col>
+                </b-row>
 
                 <b-input-group class="my-2 p-6" label="Student ID:" label-for="exampleInput2">
                     <b-input-group-prepend inline is-text>
@@ -114,7 +122,7 @@
 
                 <div class="d-flex justify-content-between">
                     <div>
-                    <button class="buttonDiv bg-safe px-3" style="width:120px" type="submit"> <b-icon-plus variant="cream" font-scale="1.5"></b-icon-plus></button>
+                    <button class="buttonDiv bg-warn px-3" style="width:120px" type="submit"> <b-icon-plus variant="cream" font-scale="1.5"></b-icon-plus></button>
                     </div>
                 </div>
 
@@ -130,7 +138,7 @@
       <div class="bg-second p-2" v-if="newWord.word">
         <b-row align="right">
           <b-col>
-           <button class="buttonDiv bg-third text-prime" @click="edit=!edit">Edit Words</button>
+           <button class="buttonDiv bg-third text-prime px-3" @click="edit=!edit">Edit Words</button>
            <button class="buttonDiv bg-alert text-cream" @click="del=!del"> Delete Word </button>
            </b-col>
 
@@ -142,15 +150,16 @@
         <table class="table table-striped table-hover table-sm table-borderless">
           <tbody>
 
-            <tr v-for="(item, key) in wordList" :key="key">
-              <td style="max-width:300px">
-                <span> <b-img v-bind="mainProps" thumbnail fluid :src="imageLink +  key + '.jpg'" :alt="key"></b-img> </span>
+            <tr v-for="(item, key) in dictGet" :key="key">
+              <td style="max-width:200px">
+                <span> <b-img  thumbnail fluid :src="imageLink(key, item)" :alt="key"></b-img> </span>
               </td>
-              <td><h6>{{key}}</h6></td>
-              <td><span class="pr-5">{{item}}</span></td>
+              <td style="max-width:400px">
+                <h5>{{key}}</h5> <span class="pr-5">{{item.text}}</span>
+              </td>
             <td>
-                <button v-if="edit" class="buttonDiv bg-second text-third" @click="newWord.word = key, newWord.text = $store.state.dictRecord[key]">Edit</button>
-                <button v-if="del" class="buttonDiv bg-alert" @click="deleteWord(key)"> Del</button>
+                <button v-if="edit" class="buttonDiv bg-third text-second px-3" @click="editWord(key)"><b-icon icon="pencil"></b-icon></button>
+                <button v-if="del" class="buttonDiv bg-alert text-cream px-3" @click="deleteWord(key)"><b-icon icon="trash-fill"></b-icon></button>
               </td>
             </tr>
 
@@ -229,12 +238,22 @@ export default {
       imageData: null,
       newWord: {
         word: null,
-        text: null
+        text: null,
+        link: null,
+        code: null,
+        vocab: null
       },
       mainProps: {
         center: true,
         fluidGrow: true,
         'max-width': '50px',
+        class: 'my-5'
+      },
+      secondProps: {
+        center: true,
+        fluidGrow: true,
+        width: '30px',
+        height: '30px',
         class: 'my-5'
       },
       vocabList: null,
@@ -245,16 +264,26 @@ export default {
     }
   },
   computed: {
-    wordList () {
-      console.log('wordList', this.$store.state.dictRecord)
+    dictGet () {
+      console.log('dictGet', this.$store.state.dictRecord)
       return this.$store.getters.dictGet
     },
-    imageLink () {
-      let userProfile = this.$store.state.userProfile
-      return this.s3 + userProfile.userID + '/' + userProfile.vocab + '/'
+    codeGen () {
+      let date = new Date()
+      let code = date.getMinutes()
+      return code
     }
   },
   methods: {
+    imageLink: function (key, item) {
+      console.log('IMAGE_LINK', item, this.dictGet[key])
+      let userProfile = this.$store.state.userProfile
+      if (item) {
+        return this.s3 + userProfile.userID + '/' + item['vocab'] + '/' + key + item['link'] + '.jpg'
+      } else {
+        return this.s3 + 'blank.jpg'
+      }
+    },
     filterTable: function (row, filter) {
       if (filter[2] != null) {
         if (row.totalScore === filter[2] && row.tested) {
@@ -276,12 +305,9 @@ export default {
         this.optionsA.push({ value: alphabet[letter], text: alphabet[letter] })
       }
     },
-    editWord: function (arg) {
-      this.newWord.word = arg
-    },
     getVariant: function (arg) {
       let v = 'prime'
-      for (let word in this.$store.state.dictRecord) {
+      for (let word in this.dictGet) {
         if (word === arg) {
           v = 'safe'
         }
@@ -319,15 +345,19 @@ export default {
       let _this = this
       return addImage({
         imageData: localStorage.imageData,
-        word: _this.newWord,
-        vocab: _this.$store.state.userProfile.vocab,
+        wordData: _this.newWord,
         userID: _this.$store.state.userProfile.userID
       })
         .then(function (response) {
           console.log('response', response.data)
-          _this.$store.dispatch('newWord', {newWord: _this.newWord})
+          if (localStorage.imageData) {
+            _this.$store.dispatch('newWord', {newWord: JSON.stringify(_this.newWord)})
+          }
           _this.newWord.word = 'a'
           _this.newWord.text = null
+          _this.newWord.link = null
+          _this.newWord.code = null
+          _this.newWord.vocab = null
           localStorage.imageData = null
           _this.waiting = true
           _this.msg = 'New word added'
@@ -354,10 +384,23 @@ export default {
         this.waiting = true
       }
     },
+    editWord: function (arg) {
+      this.newWord.word = arg
+      console.log(this.codeGen)
+      if (this.dictGet[arg]) {
+        this.newWord.text = this.dictGet[arg]['text']
+        this.newWord.link = this.dictGet[arg]['link']
+        this.newWord.code = this.codeGen
+        this.newWord.vocab = this.dictGet[arg]['vocab']
+      } else {
+        this.newWord.code = this.codeGen
+        this.newWord.vocab = this.$store.state.userProfile.vocab
+      }
+    },
     deleteWord: function (word) {
       this.$store.dispatch('deleteWord', {word: word})
-      console.log(this.wordList)
-      this.msg = 'Word deleted'
+      console.log(this.dictGet)
+      this.msg = word + ' Deleted'
       this.showModal()
     }
   },

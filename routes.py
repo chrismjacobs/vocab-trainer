@@ -373,52 +373,58 @@ def updateTicket():
 def addImage():
     print('IMAGE')
     userID = request.get_json()['userID']
-
-    vocab = request.get_json()['vocab']
-    word = request.get_json()['word']
-    mode = [word['word'], vocab]
-
-    print(vocab, word['word'], mode)
+    wordData = request.get_json()['wordData']
+    mode = [wordData['word'], wordData['link'], wordData['code'], wordData['vocab']]
+    print(mode)
 
     try:
         stringData = request.get_json()['imageData']
         imageData = json.loads(stringData)
         storeB64(imageData, userID, mode)
+        msg = 'Your image has been added'
     except:
-        pass
+        print('STORE FAIL')
+        msg = 'No Image to Upload'
 
     response = {
-        'msg' : 'Your image has been added'
+        'msg' : msg
     }
     return jsonify(response)
 
 def storeB64(fileData, uid, mode):
+    print('STORE_B64', fileData, uid)
     user = User.query.get(uid)
+    print(user)
 
     if fileData['image64'] and mode == 'profile':
+        print('STORE AVATAR', mode)
         link = 'profileLink'
         b64data = fileData['image64']
         fileType = '.jpg'
         location = 'public/profiles/' + str(uid) + '/'
         filename = location + 'avatar' + fileType
     elif fileData['image64']:
-        print(mode)
+        print('STORE DICT', mode)
         word = mode[0]
-        vocab = mode[1]
+        last_link = mode[1]
+        code = mode[2]
+        vocab = mode[3]
         link = 'dictionaryLink'
         b64data = fileData['image64']
         fileType = '.jpg'
         location = 'public/profiles/' + str(uid) + '/' + vocab + '/'
-        filename = location + word + fileType
+        print(location)
+        filename = location + word + str(code) + fileType
+        print(filename)
 
-    ## if want to delete old file
-    '''
-    if filename:
-        print('filename_found ', filename)
-        s3_resource.Object(bucket_name, filename).delete()
-    else:
-        print('no file_key found')
-    '''
+        try:
+            print('try delete')
+            oldname = location + word + str(last_link) + fileType
+            s3_resource.Object(bucket_name, oldname).delete()
+            print('filename_deleted', oldname)
+        except:
+            print('no filename found')
+
 
     print('PROCESSING: ' + link)
     data = base64.b64decode(b64data)
@@ -499,7 +505,7 @@ def jStorer(user, logsRecord, userRecord, userDictionary):
         vocab_content = json.dumps(userRecord)
         s3_resource.Bucket(bucket_name).put_object(Key=vocabKey, Body=str(vocab_content))
 
-    if userDictionary:
+    if userDictionary or userDictionary == {}:
         print('dict stored')
         dictionary_content = json.dumps(userDictionary)
         s3_resource.Bucket(bucket_name).put_object(Key=dictionaryKey, Body=str(dictionary_content))

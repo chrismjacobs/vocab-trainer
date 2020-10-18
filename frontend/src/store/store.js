@@ -135,7 +135,7 @@ const actions = {
     context.commit('setFriend', payload)
   },
   newWord (context, payload) {
-    // console.log('new word data...')
+    console.log('new word data...', payload)
     context.commit('setNewWord', payload)
   },
   deleteWord (context, payload) {
@@ -217,13 +217,20 @@ const mutations = {
     localStorage.setItem('userProfile', JSON.stringify(state.userProfile))
   },
   setNewWord (state, payload) {
-    // console.log('setNewWord payload = ', payload)
-    state.dictRecord[payload.newWord.word] = payload.newWord.text
+    let parseData = JSON.parse(payload['newWord'])
+    console.log('setNewWord payload = ', payload)
+    console.log('setNewWord parse = ', parseData)
+    state.dictRecord[parseData.word] = {
+      'text': parseData.text,
+      'link': parseData.code,
+      'vocab': parseData.vocab
+    }
     state.updateStatus = false
   },
   setDeleteWord (state, payload) {
-    // console.log('setDeleteWord payload = ', payload)
+    console.log('setDeleteWord payload = ', payload)
     delete state.dictRecord[payload.word]
+    console.log(state.dictRecord, state.dictRecord[payload.word])
     state.updateStatus = false
   },
   destroyToken (state) {
