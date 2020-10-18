@@ -3,8 +3,8 @@
     <audio id="audio"></audio>
 
     <!-- headers and toggle buttons -->
-    <div class="mt-2 bg-second p-2" align="center">
-      <div v-if="!newWord.word" >
+    <div class="mt-2 bg-second p-2">
+      <div v-if="!newWord.word" align="center">
         <b-row align-h="end">
           <b-col cols="6">
             <h2 class="text-cream" > Word List </h2>
@@ -15,12 +15,14 @@
         </b-row>
       </div>
       <div v-else>
-        <b-row align-h="end">
-          <b-col cols="6">
-            <h3 class="text-cream" > My Words </h3>
+        <b-row >
+          <b-col cols="3" align="left">
+            <h2 class="text-cream ml-3" > My Words </h2>
           </b-col>
-          <b-col cols="3">
-            <button class="buttonDiv bg-prime px-3" style="width:60px;float:right" @click="newWord.word = null"> <b-icon-card-list variant="cream" font-scale="1.5"></b-icon-card-list></button>
+          <b-col  align="right">
+            <button class="buttonDiv bg-third text-prime  mr-2" style="height:40px;width:70px" @click="edit=!edit">Edit</button>
+            <button class="buttonDiv bg-alert text-cream  mr-2" style="height:40px;width:70px" @click="del=!del">Delete</button>
+            <button class="buttonDiv bg-warn px-3" style="height:40px;width:60px" @click="newWord.word = null"> <b-icon-card-list variant="cream" font-scale="1.5"></b-icon-card-list></button>
           </b-col>
         </b-row>
       </div>
@@ -135,15 +137,6 @@
           </div>
       </div>
 
-      <div class="bg-second p-2" v-if="newWord.word">
-        <b-row align="right">
-          <b-col>
-           <button class="buttonDiv bg-third text-prime px-3" @click="edit=!edit">Edit Words</button>
-           <button class="buttonDiv bg-alert text-cream" @click="del=!del"> Delete Word </button>
-           </b-col>
-
-        </b-row>
-      </div>
       <!-- list of words and pictures -->
 
       <div v-if="newWord.word">
@@ -151,10 +144,10 @@
           <tbody>
 
             <tr v-for="(item, key) in dictGet" :key="key">
-              <td style="max-width:200px">
+              <td style="width:30%">
                 <span> <b-img  thumbnail fluid :src="imageLink(key, item)" :alt="key"></b-img> </span>
               </td>
-              <td style="max-width:400px">
+              <td style="width:70%">
                 <h5>{{key}}</h5> <span class="pr-5">{{item.text}}</span>
               </td>
             <td>
