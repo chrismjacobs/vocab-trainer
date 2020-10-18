@@ -6,6 +6,7 @@ import { authenticate, register, updateRecAPI, updateAccount, getRecordAPI, tick
 import tourism1 from '../assets/json/tourism1.json'
 import tourism from '../assets/json/tourism.json'
 import digital1 from '../assets/json/digital1.json'
+import culinary2 from '../assets/json/culinary2.json'
 import food from '../assets/json/food.json'
 // import cul from '../assets/json/cul.json'
 
@@ -13,6 +14,7 @@ let dictionaries = {
   'tourism1': tourism1,
   'tourism': tourism,
   'digital1': digital1,
+  'culinary2': culinary2,
   'high': null,
   'food': food
 }
@@ -35,7 +37,8 @@ const state = {
   audioLinks: {
     t: 'audio',
     f: 'foodio',
-    d: 'digital'
+    d: 'digital',
+    c: 'culinary'
   }
 }
 
