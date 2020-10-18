@@ -1,7 +1,7 @@
 <template>
   <div class="TypeMatch">
     <audio id="audio"></audio>
-      <div class="mt-2 bg-grape p-2">
+      <div class="mt-2 bg-grape text-cream p-2">
         <b-row align-h="end">
           <b-col cols="6" align="center">
             <h2> Match </h2>
@@ -141,6 +141,23 @@
         </b-table>
       </div>
     </div>
+
+    <b-modal align="center" ref="winner" hide-footer title="Game Over" hide-header-close no-close-on-esc no-close-on-backdrop>
+      <div class="d-block">
+        <h3> And the winner is... </h3>
+        <b-avatar :src="s3 + winner.toString() + '.jpg'"  size="100px" :badge="winName" badge-offset="-0.6em" :badge-variant="winner"></b-avatar>
+      </div>
+      <br>
+      <button :class="'buttonDiv mt-3 text-prime bg-' + player" style="width:60%"  @click="hideModal('winner')">Close</button>
+    </b-modal>
+
+   <b-modal align="center" ref="draw" hide-footer title="Problem Found" hide-header-close no-close-on-esc no-close-on-backdrop>
+      <div class="d-block">
+        <h3> It's a draw! </h3>
+      </div>
+      <button class="buttonDiv mt-3 bg-warn text-cream" style="width:60%"  @click="hideModal('draw')">Close</button>
+    </b-modal>
+
   </div>
 </template>
 
@@ -195,10 +212,29 @@ export default {
       },
       p1score: 0,
       p2score: 0,
-      btnIDMarker: null
+      btnIDMarker: null,
+      winner: '',
+      winName: ''
     }
   },
   methods: {
+    showWinner: function () {
+      this.$refs['winner'].show()
+    },
+    showDraw: function () {
+      this.$refs['draw'].show()
+    },
+    hideModal: function (mode) {
+      if (mode === 'winner') {
+        this.$refs['winner'].hide()
+      } else if (mode === 'draw') {
+        this.$refs['draw'].hide()
+      }
+      this.progressValues.p1 = 0
+      this.progressValues.p2 = 0
+      this.progressValues.warn = 0
+      this.winner = ''
+    },
     updateSettings: function (data) {
       console.log('update active', data)
       this.feedback = data.feedback
@@ -320,26 +356,38 @@ export default {
       }
     },
     checkAnswers: function () {
+      console.log('CHECK', this.player)
+
+      let p1C = this.progressValues.p1
+      let p2C = this.progressValues.p2
+
       this.p1score += this.progressValues.p1
       this.p2score += this.progressValues.p2
+
+      if (p1C > p2C) {
+        this.winner = 'p1'
+        this.winName = this.p1name
+        this.showWinner()
+      } else if (p2C > p1C) {
+        this.winner = 'p2'
+        this.winName = this.p2name
+        this.showWinner()
+      } else {
+        this.showDraw()
+      }
+
       let winnerStatus
-      if (this.p1score === this.p2score) {
+      if (p1C === p2C) {
         winnerStatus = 0
-      } else if (this.p1score >= this.p2score && this.player === 'p1') {
+      } else if (p1C > p2C && this.player === 'p1') {
         winnerStatus = 1
-      } else if (this.p2score >= this.p1score && this.player === 'p2') {
+      } else if (p2C > p1C && this.player === 'p2') {
         winnerStatus = 1
       } else {
         winnerStatus = -1
       }
 
-      let matchData = { mode: 'matchType', winnerStatus: winnerStatus }
-      console.log(matchData)
-
-      this.$store.dispatch('updateMatch', matchData)
-      this.progressValues.p1 = 0
-      this.progressValues.p2 = 0
-      this.progressValues.warn = 0
+      this.$store.dispatch('updateMatch', { mode: 'matchTrans', winnerStatus: winnerStatus })
       this.showAnswers = true
     },
     playAudio: function (arg) {
