@@ -33,20 +33,14 @@
       <div class="bg-grey p-2" v-if="!newWord.word">
         <b-row>
         <b-col>
-          Search by Letter:
-          <b-form-select class="bg-warn-light" @change="selected[2]=null, sMarker=selected[0]" v-model="selected[0]" :options="optionsA" :select-size="7"></b-form-select>
+          <b-form-select class="bg-warn-light" @change="selected[2]=null, sMarker=selected[0]" v-model="selected[0]" :options="optionsA" :select-size="5"></b-form-select>
         </b-col>
         <b-col>
-          Search by Grammar:
-          <b-form-select class="bg-third" style="overflow-y: hidden" @change="selected[2] = null" v-model="selected[1]" :options="optionsG" :select-size="7"></b-form-select>
+          <b-form-select class="bg-third" style="overflow-y: hidden" @change="selected[2] = null" v-model="selected[1]" :options="optionsG" :select-size="5"></b-form-select>
         </b-col>
         </b-row>
         <b-row class="mt-3 pb-3" align="center">
           <b-col>
-            Search by Score:
-            <br>
-            <br>
-
               <b-form-group>
                 <b-form-radio-group
                   id="btn-radios-2"
@@ -59,7 +53,6 @@
                   name="radio-btn-outline"
                 ></b-form-radio-group>
               </b-form-group>
-
           </b-col>
         </b-row>
 
@@ -76,10 +69,10 @@
       sticky-header="400px"
       >
         <template v-slot:cell(english)="data">
+            {{data.value}}
+            <br>
              <b-icon-card-image :variant="getVariant(data.value)" @click="editWord(data.value)"></b-icon-card-image> &nbsp;
-             {{data.value}}  &nbsp;
-             <b-icon-soundwave class="text-prime" :id="data.value + '_en/'" @click="playAudio(data.value, '_en/')"></b-icon-soundwave> &nbsp;&nbsp;&nbsp;
-             <b-icon-soundwave class="text-prime" :id="data.value + '_ch/'" @click="playAudio(data.value, '_ch/')"></b-icon-soundwave>
+             <b-icon-soundwave class="text-prime" :id="data.value + '_en/'" @click="playAudio(data.value, '_en/')"></b-icon-soundwave>
          </template>
       </b-table>
       </div>
