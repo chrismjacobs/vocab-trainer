@@ -125,16 +125,16 @@ export default {
       this.filter = 0
       this.answerData = []
       this.showTest = true
-      this.$store.dispatch('testActive')
       if (data) {
         this.testItems = data.test
         this.settings = JSON.parse(data.settings)
       }
+      this.$store.dispatch('testActive', true)
     },
     checkAnswers: function () {
       console.log('testEnded')
       this.showAnswers = true
-      this.$store.dispatch('testActive')
+      this.$store.dispatch('testActive', false)
       this.$store.dispatch('updateRecord', { mode: 'transEng', answerData: this.answerData, settingsData: this.settings })
     },
     cancel: function () {

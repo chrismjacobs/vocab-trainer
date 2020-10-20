@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <b-navbar toggleable sticky>
+    <b-navbar toggleable>
       <b-navbar-brand @click="goTo('Home')"><span class="text-cream" > VOCAB TRAINER </span> </b-navbar-brand>
 
       <b-navbar-toggle  target="navbar-toggle-collapse" class="d-block d-lg-none">
@@ -418,7 +418,7 @@ body {
 
 .answerBtn {
     display:inline-block;
-    background: #c2c2c2;
+    background: #eeecec;
     color: theme-color('prime');
     border:0px solid #CCC;
     border-radius: 5px;
@@ -429,7 +429,7 @@ body {
     padding: 10px;
     text-align: center;
     width: 100%;
-    min-height: 70px
+    min-height: 60px
 }
 
 .answerBtn:active {

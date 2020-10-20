@@ -157,7 +157,7 @@ export default {
       this.filter = 0
       this.answerData = []
       this.showTest = true
-      this.$store.dispatch('testActive')
+      this.$store.dispatch('testActive', true)
       if (data) {
         this.testItems = data.test
         this.settings = JSON.parse(data.settings)
@@ -171,7 +171,7 @@ export default {
       // console.log('testEnded')
       this.showAnswers = true
       this.replay = false
-      this.$store.dispatch('testActive')
+      this.$store.dispatch('testActive', false)
       this.$store.dispatch('updateRecord', { mode: 'transCh', answerData: this.answerData, settingsData: this.settings })
     },
     cancel: function () {
