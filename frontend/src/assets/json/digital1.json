@@ -16,8 +16,8 @@
     },
     "abstraction": {
         "gl": "n.",
-        "defch1": "\u62bd\u8c61",
-        "defch2": "\u62bd\u8c61\u6982\u5ff5"
+        "defch1": "\u62bd\u8c61;\u62bd\u8c61\u6982\u5ff5",
+        "defch2": ""
     },
     "accept": {
         "gl": "v.",
@@ -36,8 +36,8 @@
     },
     "access point": {
         "gl": "n.",
-        "defch1": "\u5b58\u53d6\u9ede",
-        "defch2": "(\u7121\u7dda) \u7db2\u8def\u5b58\u53d6\u5668;"
+        "defch1": "\u5b58\u53d6\u9ede;(\u7121\u7dda) \u7db2\u8def\u5b58\u53d6\u5668;",
+        "defch2": ""
     },
     "access time": {
         "gl": "n.",
@@ -46,8 +46,8 @@
     },
     "accessory": {
         "gl": "adj.",
-        "defch1": "\u914d\u4ef6",
-        "defch2": "\u9644\u4ef6;\u9644\u5c6c\u7684"
+        "defch1": "\u914d\u4ef6;\u9644\u4ef6;\u9644\u5c6c\u7684",
+        "defch2": ""
     },
     "account director": {
         "gl": "phr.",
@@ -56,18 +56,18 @@
     },
     "account executive": {
         "gl": "phr.",
-        "defch1": "\u9810\u7b97\u57f7\u884c\u8005",
-        "defch2": "\u696d\u52d9\u4f01\u5283;"
+        "defch1": "\u9810\u7b97\u57f7\u884c\u8005;\u696d\u52d9\u4f01\u5283;",
+        "defch2": ""
     },
     "achievement": {
         "gl": "n.",
-        "defch1": "\u6210\u5c31",
-        "defch2": "\u9054\u6210;\u5b8c\u6210"
+        "defch1": "\u6210\u5c31;\u9054\u6210;\u5b8c\u6210",
+        "defch2": ""
     },
     "achromatic": {
         "gl": "adj.",
-        "defch1": "\u7121 (\u5f69) \u8272\u7684",
-        "defch2": "\u4e2d\u6027\u8272\u7684"
+        "defch1": "\u7121 (\u5f69) \u8272\u7684;\u4e2d\u6027\u8272\u7684",
+        "defch2": ""
     },
     "acoustics": {
         "gl": "n.",
@@ -86,13 +86,13 @@
     },
     "active": {
         "gl": "adj.",
-        "defch1": "\u6d3b\u8e8d\u7684",
-        "defch2": "\u8d77\u4f5c\u7528\u7684;\u7a4d\u6975\u7684"
+        "defch1": "\u6d3b\u8e8d\u7684;\u8d77\u4f5c\u7528\u7684;\u7a4d\u6975\u7684",
+        "defch2": ""
     },
     "active pixel": {
         "gl": "phr.",
-        "defch1": "\u6d3b\u52d5\u50cf\u7d20",
-        "defch2": "\u4e3b\u52d5\u50cf\u7d20"
+        "defch1": "\u6d3b\u52d5\u50cf\u7d20;\u4e3b\u52d5\u50cf\u7d20",
+        "defch2": ""
     },
     "actor": {
         "gl": "n.",
@@ -106,8 +106,8 @@
     },
     "adaptive": {
         "gl": "adj.",
-        "defch1": "\u9069\u61c9\u7684",
-        "defch2": "\u9069\u5408\u7684"
+        "defch1": "\u9069\u61c9\u7684;\u9069\u5408\u7684",
+        "defch2": ""
     },
     "address": {
         "gl": "n.",
@@ -136,8 +136,8 @@
     },
     "advance": {
         "gl": "v.",
-        "defch1": "\u9032\u5c55",
-        "defch2": "\u524d\u9032;\u9810\u4ed8"
+        "defch1": "\u9032\u5c55;\u524d\u9032;\u9810\u4ed8",
+        "defch2": ""
     },
     "advance TV": {
         "gl": "n.",
@@ -146,13 +146,13 @@
     },
     "advanced": {
         "gl": "adj.",
-        "defch1": "\u5148\u9032\u7684",
-        "defch2": "\u9ad8\u7d1a\u7684;\u9032\u968e\u7684"
+        "defch1": "\u5148\u9032\u7684;\u9ad8\u7d1a\u7684;\u9032\u968e\u7684",
+        "defch2": ""
     },
     "advertise": {
         "gl": "v.",
-        "defch1": "\u5ba3\u50b3",
-        "defch2": "\u767b\u5ee3\u544a"
+        "defch1": "\u5ba3\u50b3;\u767b\u5ee3\u544a",
+        "defch2": ""
     },
     "advertisement design": {
         "gl": "phr.",
@@ -161,8 +161,8 @@
     },
     "advertising": {
         "gl": "n.",
-        "defch1": "\u5ee3\u544a",
-        "defch2": "\u5ee3\u544a\u696d"
+        "defch1": "\u5ee3\u544a;\u5ee3\u544a\u696d",
+        "defch2": ""
     },
     "aerodynamics": {
         "gl": "n.",
@@ -171,8 +171,8 @@
     },
     "aesthetics": {
         "gl": "n.",
-        "defch1": "\u7f8e\u5b78",
-        "defch2": "\u5be9\u7f8e\u89c0"
+        "defch1": "\u7f8e\u5b78;\u5be9\u7f8e\u89c0",
+        "defch2": ""
     },
     "affordance": {
         "gl": "n.",
@@ -181,28 +181,28 @@
     },
     "afterimage": {
         "gl": "n.",
-        "defch1": "\u8996\u89ba\u6b98\u7559",
-        "defch2": "\u6b98\u50cf"
+        "defch1": "\u8996\u89ba\u6b98\u7559;\u6b98\u50cf",
+        "defch2": ""
     },
     "aftertouch": {
         "gl": "n.",
-        "defch1": "\u9375\u5f8c\u611f\u61c9",
-        "defch2": "\u89f8\u5f8c\u611f\u61c9"
+        "defch1": "\u9375\u5f8c\u611f\u61c9;\u89f8\u5f8c\u611f\u61c9",
+        "defch2": ""
     },
     "alias": {
         "gl": "n.",
-        "defch1": "\u504f\u79fb",
-        "defch2": "\u5225\u540d"
+        "defch1": "\u504f\u79fb;\u5225\u540d",
+        "defch2": ""
     },
     "align": {
         "gl": "v.",
-        "defch1": "\u5c0d\u9f4a",
-        "defch2": "\u4f7f\u7d50\u76df;\u4f7f\u4e00\u81f4;\u4f7f\u6210\u4e00\u884c;"
+        "defch1": "\u5c0d\u9f4a;\u4f7f\u7d50\u76df;\u4f7f\u4e00\u81f4;\u4f7f\u6210\u4e00\u884c;",
+        "defch2": ""
     },
     "alphabet": {
         "gl": "n.",
-        "defch1": "\u5b57\u96c6",
-        "defch2": "\u5b57\u6bcd\u8868"
+        "defch1": "\u5b57\u96c6;\u5b57\u6bcd\u8868",
+        "defch2": ""
     },
     "aluminum": {
         "gl": "n.",
@@ -211,8 +211,8 @@
     },
     "ambiguity": {
         "gl": "n.",
-        "defch1": "\u6df7\u6dc6\u60c5\u6cc1",
-        "defch2": "\u6a21\u7a1c\u5169\u53ef;\u542b\u7cca\u4e0d\u6e05"
+        "defch1": "\u6df7\u6dc6\u60c5\u6cc1;\u6a21\u7a1c\u5169\u53ef;\u542b\u7cca\u4e0d\u6e05",
+        "defch2": ""
     },
     "amplitude": {
         "gl": "n.",
@@ -236,8 +236,8 @@
     },
     "animation": {
         "gl": "n.",
-        "defch1": "\u52d5\u756b (\u7247)",
-        "defch2": "\u52d5\u4f5c\u8a2d\u5b9a;\u52d5\u756b (\u7247) \u88fd\u4f5c"
+        "defch1": "\u52d5\u756b (\u7247);\u52d5\u4f5c\u8a2d\u5b9a;\u52d5\u756b (\u7247) \u88fd\u4f5c",
+        "defch2": ""
     },
     "animator": {
         "gl": "n.",
@@ -246,13 +246,13 @@
     },
     "announce": {
         "gl": "v.",
-        "defch1": "\u5ba3\u5e03",
-        "defch2": "\u767c\u5e03"
+        "defch1": "\u5ba3\u5e03;\u767c\u5e03",
+        "defch2": ""
     },
     "anti-alias": {
         "gl": "n.",
-        "defch1": "\u6d88\u9664\u92f8\u9f52",
-        "defch2": "\u5e73\u6ed1\u5316"
+        "defch1": "\u6d88\u9664\u92f8\u9f52;\u5e73\u6ed1\u5316",
+        "defch2": ""
     },
     "aperture": {
         "gl": "n.",
@@ -276,8 +276,8 @@
     },
     "application": {
         "gl": "n.",
-        "defch1": "\u61c9\u7528",
-        "defch2": "\u61c9\u7528\u7a0b\u5f0f;\u7533\u8acb"
+        "defch1": "\u61c9\u7528;\u61c9\u7528\u7a0b\u5f0f;\u7533\u8acb",
+        "defch2": ""
     },
     "application software": {
         "gl": "phr.",
@@ -286,18 +286,18 @@
     },
     "apply": {
         "gl": "v.",
-        "defch1": "\u5957\u7528",
-        "defch2": "\u7533\u8acb"
+        "defch1": "\u5957\u7528;\u7533\u8acb",
+        "defch2": ""
     },
     "appreciate": {
         "gl": "v.",
-        "defch1": "\u6b23\u8cde",
-        "defch2": "\u8cde\u8b58;\u611f\u8b1d"
+        "defch1": "\u6b23\u8cde;\u8cde\u8b58;\u611f\u8b1d",
+        "defch2": ""
     },
     "architecture": {
         "gl": "n.",
-        "defch1": "\u7d50\u69cb",
-        "defch2": "\u67b6\u69cb;\u5efa\u7bc9\u5b78"
+        "defch1": "\u7d50\u69cb;\u67b6\u69cb;\u5efa\u7bc9\u5b78",
+        "defch2": ""
     },
     "art": {
         "gl": "n.",
@@ -311,18 +311,18 @@
     },
     "art director": {
         "gl": "phr.",
-        "defch1": "\u7f8e\u8853\u6307\u5c0e",
-        "defch2": "\u85dd\u8853\u6307\u5c0e;"
+        "defch1": "\u7f8e\u8853\u6307\u5c0e;\u85dd\u8853\u6307\u5c0e;",
+        "defch2": ""
     },
     "art nouveau": {
         "gl": "phr.",
-        "defch1": "\u65b0\u85dd\u8853\u98a8\u683c",
-        "defch2": "\u5e36\u52d5\u65b0\u85dd\u8853;"
+        "defch1": "\u65b0\u85dd\u8853\u98a8\u683c;\u5e36\u52d5\u65b0\u85dd\u8853;",
+        "defch2": ""
     },
     "artifact": {
         "gl": "n.",
-        "defch1": "\u624b\u5de5\u85dd\u54c1",
-        "defch2": "\u4eba\u5de5\u88fd\u54c1"
+        "defch1": "\u624b\u5de5\u85dd\u54c1;\u4eba\u5de5\u88fd\u54c1",
+        "defch2": ""
     },
     "artist": {
         "gl": "n.",
@@ -346,8 +346,8 @@
     },
     "assignment": {
         "gl": "n.",
-        "defch1": "\u6307\u6d3e",
-        "defch2": "\u4efb\u52d9"
+        "defch1": "\u6307\u6d3e;\u4efb\u52d9",
+        "defch2": ""
     },
     "asymmetry": {
         "gl": "n.",
@@ -356,18 +356,18 @@
     },
     "atmosphere": {
         "gl": "n.",
-        "defch1": "\u6c23\u6c1b",
-        "defch2": "\u5927\u6c23;\u6c23\u58d3"
+        "defch1": "\u6c23\u6c1b;\u5927\u6c23;\u6c23\u58d3",
+        "defch2": ""
     },
     "attach": {
         "gl": "v.",
-        "defch1": "\u9644\u8457",
-        "defch2": "\u9644\u52a0"
+        "defch1": "\u9644\u8457;\u9644\u52a0",
+        "defch2": ""
     },
     "attempt": {
         "gl": "v.",
-        "defch1": "\u8a66\u5716",
-        "defch2": "\u4f01\u5716"
+        "defch1": "\u8a66\u5716;\u4f01\u5716",
+        "defch2": ""
     },
     "attribute": {
         "gl": "n.",
@@ -376,13 +376,13 @@
     },
     "audio": {
         "gl": "adj.",
-        "defch1": "\u97f3\u8a0a",
-        "defch2": "\u97f3\u983b\u4fe1\u865f;\u8072\u97f3\u7684"
+        "defch1": "\u97f3\u8a0a;\u97f3\u983b\u4fe1\u865f;\u8072\u97f3\u7684",
+        "defch2": ""
     },
     "audio frame": {
         "gl": "phr.",
-        "defch1": "\u97f3\u8a0a\u6b04\u6846",
-        "defch2": "\u97f3\u983b\u6846"
+        "defch1": "\u97f3\u8a0a\u6b04\u6846;\u97f3\u983b\u6846",
+        "defch2": ""
     },
     "audio quality": {
         "gl": "phr.",
@@ -391,12 +391,12 @@
     },
     "audiovisual": {
         "gl": "n.",
-        "defch1": "\u8996\u807d\u7684",
-        "defch2": "\u8996\u807d\u6559\u6750"
+        "defch1": "\u8996\u807d\u7684;\u8996\u807d\u6559\u6750",
+        "defch2": ""
     },
     "augmented reality": {
         "gl": "n.",
-        "defch1": "\u64f4\u589e\u5be6\u5883\u7c21\u7a31",
+        "defch1": "\u64f4\u589e\u5be6\u5883",
         "defch2": "AR"
     },
     "autofocus": {
@@ -431,28 +431,28 @@
     },
     "backdrop": {
         "gl": "n.",
-        "defch1": "\u80cc\u666f\u5e55",
-        "defch2": "\u80cc\u666f"
+        "defch1": "\u80cc\u666f\u5e55;\u80cc\u666f",
+        "defch2": ""
     },
     "background": {
         "gl": "n.",
-        "defch1": "\u80cc\u666f",
-        "defch2": "\u7d93\u6b77;\u5e55\u5f8c"
+        "defch1": "\u80cc\u666f;\u7d93\u6b77;\u5e55\u5f8c",
+        "defch2": ""
     },
     "backlight": {
         "gl": "v.",
-        "defch1": "\u9006\u5149",
-        "defch2": "\u80cc\u5149;\u80cc\u5149\u71c8;"
+        "defch1": "\u9006\u5149;\u80cc\u5149;\u80cc\u5149\u71c8;",
+        "defch2": ""
     },
     "backlighting": {
         "gl": "n.",
-        "defch1": "\u9006\u5149",
-        "defch2": "\u80cc\u5f8c\u7167\u660e"
+        "defch1": "\u9006\u5149;\u80cc\u5f8c\u7167\u660e",
+        "defch2": ""
     },
     "bake": {
         "gl": "v.",
-        "defch1": "\u71d2\u88fd",
-        "defch2": "\u70d8\u70e4"
+        "defch1": "\u71d2\u88fd;\u70d8\u70e4",
+        "defch2": ""
     },
     "balance": {
         "gl": "n.",
@@ -471,13 +471,13 @@
     },
     "bank": {
         "gl": "n.",
-        "defch1": "\u5132\u5b58\u6240",
-        "defch2": "\u9280\u884c"
+        "defch1": "\u5132\u5b58\u6240;\u9280\u884c",
+        "defch2": ""
     },
     "Bark": {
         "gl": "prop.",
-        "defch1": "\u5df4\u514b",
-        "defch2": "\u9738\u514b"
+        "defch1": "\u5df4\u514b;\u9738\u514b",
+        "defch2": ""
     },
     "baseband": {
         "gl": "n.",
@@ -496,8 +496,8 @@
     },
     "bath": {
         "gl": "v.",
-        "defch1": "\u6c34\u6d17",
-        "defch2": "\u651d\u5f71\u7528\u8853\u8a9e"
+        "defch1": "\u6c34\u6d17;\u651d\u5f71\u7528\u8853\u8a9e",
+        "defch2": ""
     },
     "Bauhaus": {
         "gl": "prop.",
@@ -506,8 +506,8 @@
     },
     "beat": {
         "gl": "n.",
-        "defch1": "\u62cd\u6253",
-        "defch2": "\u7bc0\u62cd"
+        "defch1": "\u62cd\u6253;\u7bc0\u62cd",
+        "defch2": ""
     },
     "behavior": {
         "gl": "n.",
@@ -516,8 +516,8 @@
     },
     "behavior identity": {
         "gl": "phr.",
-        "defch1": "\u884c\u70ba\u8b58\u5225",
-        "defch2": "\u6d3b\u52d5\u8b58\u5225"
+        "defch1": "\u884c\u70ba\u8b58\u5225;\u6d3b\u52d5\u8b58\u5225",
+        "defch2": ""
     },
     "bel": {
         "gl": "n.",
@@ -526,8 +526,8 @@
     },
     "benchmarking": {
         "gl": "n.",
-        "defch1": "\u6a19\u7aff",
-        "defch2": "\u57fa\u6e96\u8a55\u50f9;\u57fa\u6e96\u6e2c\u8a66"
+        "defch1": "\u6a19\u7aff;\u57fa\u6e96\u8a55\u50f9;\u57fa\u6e96\u6e2c\u8a66",
+        "defch2": ""
     },
     "bend": {
         "gl": "n.",
@@ -536,8 +536,8 @@
     },
     "beta test": {
         "gl": "phr.",
-        "defch1": "\u6e2c\u8a55\u6216\u8a66\u7528",
-        "defch2": "\u7b2c\u4e09\u65b9\u5c0d\u65b0\u7522\u54c1\u4e0a\u5e02\u524d\u7684"
+        "defch1": "\u6e2c\u8a55\u6216\u8a66\u7528;\u7b2c\u4e09\u65b9\u5c0d\u65b0\u7522\u54c1\u4e0a\u5e02\u524d\u7684",
+        "defch2": ""
     },
     "big idea": {
         "gl": "phr.",
@@ -546,13 +546,13 @@
     },
     "bin": {
         "gl": "n.",
-        "defch1": "\u5bb9\u5668",
-        "defch2": "\u7bb1\u6ac3;\u5783\u573e\u7bb1"
+        "defch1": "\u5bb9\u5668;\u7bb1\u6ac3;\u5783\u573e\u7bb1",
+        "defch2": ""
     },
     "binary": {
         "gl": "n.",
-        "defch1": "\u4e8c\u5143",
-        "defch2": "\u4e8c\u9032\u5236"
+        "defch1": "\u4e8c\u5143;\u4e8c\u9032\u5236",
+        "defch2": ""
     },
     "bionics": {
         "gl": "n.",
@@ -611,8 +611,8 @@
     },
     "blank": {
         "gl": "adj.",
-        "defch1": "\u906e\u84cb",
-        "defch2": "\u7a7a\u767d (\u7684)"
+        "defch1": "\u906e\u84cb;\u7a7a\u767d (\u7684)",
+        "defch2": ""
     },
     "blink": {
         "gl": "v.",
@@ -621,8 +621,8 @@
     },
     "block": {
         "gl": "n.",
-        "defch1": "\u5835\u585e",
-        "defch2": "\u963b\u64cb;\u5340\u57df"
+        "defch1": "\u5835\u585e;\u963b\u64cb;\u5340\u57df",
+        "defch2": ""
     },
     "blog": {
         "gl": "n.",
@@ -636,8 +636,8 @@
     },
     "blueprint": {
         "gl": "v.",
-        "defch1": "\u85cd\u5716",
-        "defch2": "\u8a2d\u8a08\u5716;\u88fd\u6210\u85cd\u5716;\u8a08\u756b"
+        "defch1": "\u85cd\u5716;\u8a2d\u8a08\u5716;\u88fd\u6210\u85cd\u5716;\u8a08\u756b",
+        "defch2": ""
     },
     "blue-ray disc": {
         "gl": "n.",
@@ -646,13 +646,13 @@
     },
     "blurred": {
         "gl": "adj.",
-        "defch1": "\u6a21\u7cca\u4e0d\u6e05\u7684",
-        "defch2": "\u96e3\u8fa8\u8b58\u7684"
+        "defch1": "\u6a21\u7cca\u4e0d\u6e05\u7684;\u96e3\u8fa8\u8b58\u7684",
+        "defch2": ""
     },
     "blurred image": {
         "gl": "phr.",
-        "defch1": "\u6a21\u7cca\u7684\u7167\u7247",
-        "defch2": "\u6a21\u7cca\u7684\u5f71\u50cf"
+        "defch1": "\u6a21\u7cca\u7684\u7167\u7247;\u6a21\u7cca\u7684\u5f71\u50cf",
+        "defch2": ""
     },
     "blurring": {
         "gl": "n.",
@@ -681,13 +681,13 @@
     },
     "boom": {
         "gl": "n.",
-        "defch1": "\u540a\u687f",
-        "defch2": "\u7e41\u69ae"
+        "defch1": "\u540a\u687f;\u7e41\u69ae",
+        "defch2": ""
     },
     "box": {
         "gl": "n.",
-        "defch1": "\u7bb1\u5b50",
-        "defch2": "\u76d2"
+        "defch1": "\u7bb1\u5b50;\u76d2",
+        "defch2": ""
     },
     "box camera": {
         "gl": "phr.",
@@ -696,8 +696,8 @@
     },
     "brainstorm": {
         "gl": "n.",
-        "defch1": "\u8166\u529b\u6fc0\u76ea",
-        "defch2": "\u96c6\u601d\u5ee3\u76ca"
+        "defch1": "\u8166\u529b\u6fc0\u76ea;\u96c6\u601d\u5ee3\u76ca",
+        "defch2": ""
     },
     "brand": {
         "gl": "n.",
@@ -716,13 +716,13 @@
     },
     "brick": {
         "gl": "v.",
-        "defch1": "\u78da",
-        "defch2": "\u7528\u78da\u780c"
+        "defch1": "\u78da;\u7528\u78da\u780c",
+        "defch2": ""
     },
     "brief": {
         "gl": "adj.",
-        "defch1": "\u6458\u8981",
-        "defch2": "\u7c21\u7565\u7684"
+        "defch1": "\u6458\u8981;\u7c21\u7565\u7684",
+        "defch2": ""
     },
     "brightness": {
         "gl": "n.",
@@ -746,8 +746,8 @@
     },
     "buffer": {
         "gl": "v.",
-        "defch1": "\u7de9\u885d\u8a18\u61b6\u9ad4",
-        "defch2": "\u7de9\u885d\u5668;\u7de9\u885d\u5340;"
+        "defch1": "\u7de9\u885d\u8a18\u61b6\u9ad4;\u7de9\u885d\u5668;\u7de9\u885d\u5340;",
+        "defch2": ""
     },
     "buffer space": {
         "gl": "phr.",
@@ -766,8 +766,8 @@
     },
     "business": {
         "gl": "n.",
-        "defch1": "\u5546\u5b78",
-        "defch2": "\u751f\u610f;\u4e8b\u52d9"
+        "defch1": "\u5546\u5b78;\u751f\u610f;\u4e8b\u52d9",
+        "defch2": ""
     },
     "byte": {
         "gl": "n.",
@@ -786,13 +786,13 @@
     },
     "cable modem": {
         "gl": "phr.",
-        "defch1": "\u96fb\u7e9c\u6578\u64da\u6a5f",
-        "defch2": "\u6709\u7dda\u96fb\u8996\u6578\u64da\u6a5f"
+        "defch1": "\u96fb\u7e9c\u6578\u64da\u6a5f;\u6709\u7dda\u96fb\u8996\u6578\u64da\u6a5f",
+        "defch2": ""
     },
     "cable network": {
         "gl": "phr.",
-        "defch1": "\u96fb\u7e9c\u7db2\u8def",
-        "defch2": "\u6709\u7dda (\u96fb\u8996) \u7db2\u8def"
+        "defch1": "\u96fb\u7e9c\u7db2\u8def;\u6709\u7dda (\u96fb\u8996) \u7db2\u8def",
+        "defch2": ""
     },
     "cable TV": {
         "gl": "n.",
@@ -801,18 +801,18 @@
     },
     "camera": {
         "gl": "n.",
-        "defch1": "\u651d\u5f71\u6a5f",
-        "defch2": "\u76f8\u6a5f"
+        "defch1": "\u651d\u5f71\u6a5f;\u76f8\u6a5f",
+        "defch2": ""
     },
     "camera motion": {
         "gl": "phr.",
-        "defch1": "\u651d\u5f71\u6a5f\u904b\u52d5",
-        "defch2": "\u93e1\u982d\u79fb\u52d5"
+        "defch1": "\u651d\u5f71\u6a5f\u904b\u52d5;\u93e1\u982d\u79fb\u52d5",
+        "defch2": ""
     },
     "camera setting": {
         "gl": "phr.",
-        "defch1": "\u93e1\u982d\u904b\u4f5c",
-        "defch2": "\u76f8\u6a5f\u8a2d\u7f6e"
+        "defch1": "\u93e1\u982d\u904b\u4f5c;\u76f8\u6a5f\u8a2d\u7f6e",
+        "defch2": ""
     },
     "cameraman": {
         "gl": "n.",
@@ -821,8 +821,8 @@
     },
     "capability": {
         "gl": "n.",
-        "defch1": "\u8655\u7406\u80fd\u529b",
-        "defch2": "\u6027\u80fd"
+        "defch1": "\u8655\u7406\u80fd\u529b;\u6027\u80fd",
+        "defch2": ""
     },
     "capacitance": {
         "gl": "n.",
@@ -831,13 +831,13 @@
     },
     "capital goods": {
         "gl": "phr.",
-        "defch1": "\u8cc7\u672c\u54c1",
-        "defch2": "\u8cc7\u672c\u8ca8\u7269;\u8cc7\u672c\u8ca1\u8ca8"
+        "defch1": "\u8cc7\u672c\u54c1;\u8cc7\u672c\u8ca8\u7269;\u8cc7\u672c\u8ca1\u8ca8",
+        "defch2": ""
     },
     "capture window": {
         "gl": "phr.",
-        "defch1": "\u6355\u6349\u8996\u7a97",
-        "defch2": "\u622a\u53d6\u8996\u7a97"
+        "defch1": "\u6355\u6349\u8996\u7a97;\u622a\u53d6\u8996\u7a97",
+        "defch2": ""
     },
     "car design": {
         "gl": "phr.",
@@ -851,38 +851,38 @@
     },
     "career": {
         "gl": "n.",
-        "defch1": "\u8077\u696d",
-        "defch2": "\u4e8b\u696d;\u751f\u6daf"
+        "defch1": "\u8077\u696d;\u4e8b\u696d;\u751f\u6daf",
+        "defch2": ""
     },
     "cartridge": {
         "gl": "n.",
-        "defch1": "\u81a0\u5377\u76d2",
-        "defch2": "\u5f48\u5323"
+        "defch1": "\u81a0\u5377\u76d2;\u5f48\u5323",
+        "defch2": ""
     },
     "case": {
         "gl": "n.",
-        "defch1": "\u6a5f\u6bbc",
-        "defch2": "\u6848\u4ef6"
+        "defch1": "\u6a5f\u6bbc;\u6848\u4ef6",
+        "defch2": ""
     },
     "catch": {
         "gl": "v.",
-        "defch1": "\u6355\u6349",
-        "defch2": "\u6293\u4f4f;\u8d95\u4e0a"
+        "defch1": "\u6355\u6349;\u6293\u4f4f;\u8d95\u4e0a",
+        "defch2": ""
     },
     "cell": {
         "gl": "n.",
-        "defch1": "\u96fb\u6c60",
-        "defch2": "\u5132\u5b58\u683c"
+        "defch1": "\u96fb\u6c60;\u5132\u5b58\u683c",
+        "defch2": ""
     },
     "cell loss": {
         "gl": "phr.",
-        "defch1": "\u55ae\u5143\u907a\u5931",
-        "defch2": "\u6578\u64da\u4e1f\u5931"
+        "defch1": "\u55ae\u5143\u907a\u5931;\u6578\u64da\u4e1f\u5931",
+        "defch2": ""
     },
     "Celsius": {
         "gl": "prop.",
-        "defch1": "\u651d\u6c0f (\u6eab\u5ea6)",
-        "defch2": "\u651d\u6c0f\u7684"
+        "defch1": "\u651d\u6c0f (\u6eab\u5ea6);\u651d\u6c0f\u7684",
+        "defch2": ""
     },
     "centroid": {
         "gl": "n.",
@@ -891,8 +891,8 @@
     },
     "ceramics": {
         "gl": "n.",
-        "defch1": "\u9676\u74f7\u696d",
-        "defch2": "\u5236\u9676\u8853; (\u4f5c\u8907\u6578) \u9676\u74f7;\u9676\u5668"
+        "defch1": "\u9676\u74f7\u696d;\u5236\u9676\u8853; (\u4f5c\u8907\u6578) \u9676\u74f7;\u9676\u5668",
+        "defch2": ""
     },
     "chain store": {
         "gl": "n.",
@@ -906,13 +906,13 @@
     },
     "channel": {
         "gl": "n.",
-        "defch1": "\u8272\u7248",
-        "defch2": "\u983b\u9053;\u901a\u9053"
+        "defch1": "\u8272\u7248;\u983b\u9053;\u901a\u9053",
+        "defch2": ""
     },
     "character": {
         "gl": "n.",
-        "defch1": "\u5b57\u5143",
-        "defch2": "\u5b57\u7b26; (\u4e8b\u7269\u7684) \u7279\u6027;\u89d2\u8272"
+        "defch1": "\u5b57\u5143;\u5b57\u7b26; (\u4e8b\u7269\u7684) \u7279\u6027;\u89d2\u8272",
+        "defch2": ""
     },
     "character design": {
         "gl": "phr.",
@@ -926,8 +926,8 @@
     },
     "characteristic": {
         "gl": "adj.",
-        "defch1": "\u7279\u9ede",
-        "defch2": "\u7279\u6027;\u7279\u8272;\u7279\u6709\u7684;\u5178\u578b\u7684"
+        "defch1": "\u7279\u9ede;\u7279\u6027;\u7279\u8272;\u7279\u6709\u7684;\u5178\u578b\u7684",
+        "defch2": ""
     },
     "checksum": {
         "gl": "n.",
@@ -936,8 +936,8 @@
     },
     "chip": {
         "gl": "n.",
-        "defch1": "\u5207\u7247",
-        "defch2": "\u6676\u7247"
+        "defch1": "\u5207\u7247;\u6676\u7247",
+        "defch2": ""
     },
     "chip rate": {
         "gl": "n.",
@@ -946,8 +946,8 @@
     },
     "chroma": {
         "gl": "n.",
-        "defch1": "\u5f69\u5ea6",
-        "defch2": "\u6fc3\u5ea6"
+        "defch1": "\u5f69\u5ea6;\u6fc3\u5ea6",
+        "defch2": ""
     },
     "chromatic": {
         "gl": "adj.",
@@ -981,13 +981,13 @@
     },
     "clay": {
         "gl": "n.",
-        "defch1": "\u9ecf\u571f",
-        "defch2": "\u6ce5\u571f"
+        "defch1": "\u9ecf\u571f;\u6ce5\u571f",
+        "defch2": ""
     },
     "clay animation": {
         "gl": "n.",
-        "defch1": "\u9ecf\u571f\u52d5\u756b",
-        "defch2": "\u5076\u52d5\u756b"
+        "defch1": "\u9ecf\u571f\u52d5\u756b;\u5076\u52d5\u756b",
+        "defch2": ""
     },
     "client": {
         "gl": "n.",
@@ -996,8 +996,8 @@
     },
     "clip": {
         "gl": "v.",
-        "defch1": "\u9650\u5e45",
-        "defch2": "\u526a\u8f2f;\u5207\u7247"
+        "defch1": "\u9650\u5e45;\u526a\u8f2f;\u5207\u7247",
+        "defch2": ""
     },
     "coarseness": {
         "gl": "n.",
@@ -1006,8 +1006,8 @@
     },
     "coating": {
         "gl": "n.",
-        "defch1": "\u4e0a\u5149",
-        "defch2": "\u5857\u5c64;\u5857\u88dd\u934d\u819c"
+        "defch1": "\u4e0a\u5149;\u5857\u5c64;\u5857\u88dd\u934d\u819c",
+        "defch2": ""
     },
     "code": {
         "gl": "n.",
@@ -1021,8 +1021,8 @@
     },
     "codec": {
         "gl": "n.",
-        "defch1": "\u7de8\u89e3\u6a21\u7d44",
-        "defch2": "(\u4fe1\u865f\u6578\u64da) \u7de8\u89e3\u78bc\u5668"
+        "defch1": "\u7de8\u89e3\u6a21\u7d44;(\u4fe1\u865f\u6578\u64da) \u7de8\u89e3\u78bc\u5668",
+        "defch2": ""
     },
     "codeword": {
         "gl": "n.",
@@ -1041,8 +1041,8 @@
     },
     "collage": {
         "gl": "n.",
-        "defch1": "(\u7f8e\u8853) \u62fc\u8cbc",
-        "defch2": "\u62fc\u8cbc\u756b;\u5927\u96dc\u71f4"
+        "defch1": "(\u7f8e\u8853) \u62fc\u8cbc;\u62fc\u8cbc\u756b;\u5927\u96dc\u71f4",
+        "defch2": ""
     },
     "collection": {
         "gl": "n.",
@@ -1101,8 +1101,8 @@
     },
     "color mixing": {
         "gl": "phr.",
-        "defch1": "\u8272\u5f69\u7684\u6df7\u5408",
-        "defch2": "\u8abf\u8272;\u6df7\u8272"
+        "defch1": "\u8272\u5f69\u7684\u6df7\u5408;\u8abf\u8272;\u6df7\u8272",
+        "defch2": ""
     },
     "color model": {
         "gl": "phr.",
@@ -1111,13 +1111,13 @@
     },
     "color picker": {
         "gl": "n.",
-        "defch1": "\u6aa2\u8272\u5668",
-        "defch2": "\u8272\u5f69\u6311\u9078\u76e4"
+        "defch1": "\u6aa2\u8272\u5668;\u8272\u5f69\u6311\u9078\u76e4",
+        "defch2": ""
     },
     "color planning": {
         "gl": "phr.",
-        "defch1": "\u8272\u5f69\u8a08\u756b",
-        "defch2": "\u8272\u5f69\u898f\u5283"
+        "defch1": "\u8272\u5f69\u8a08\u756b;\u8272\u5f69\u898f\u5283",
+        "defch2": ""
     },
     "color psychology": {
         "gl": "n.",
@@ -1126,8 +1126,8 @@
     },
     "color reproduction": {
         "gl": "phr.",
-        "defch1": "\u5f69\u8272\u8907\u88fd",
-        "defch2": "\u8272\u5f69\u91cd\u73fe"
+        "defch1": "\u5f69\u8272\u8907\u88fd;\u8272\u5f69\u91cd\u73fe",
+        "defch2": ""
     },
     "color scheme": {
         "gl": "phr.",
@@ -1146,8 +1146,8 @@
     },
     "color system": {
         "gl": "phr.",
-        "defch1": "\u8272\u7cfb",
-        "defch2": "\u8272\u5f69\u7cfb\u7d71;\u984f\u8272\u7cfb\u7d71"
+        "defch1": "\u8272\u7cfb;\u8272\u5f69\u7cfb\u7d71;\u984f\u8272\u7cfb\u7d71",
+        "defch2": ""
     },
     "color theory": {
         "gl": "phr.",
@@ -1156,18 +1156,18 @@
     },
     "colour wheel": {
         "gl": "phr.",
-        "defch1": "\u8272\u74b0",
-        "defch2": "\u8272\u8f2a;\u8272\u76e4"
+        "defch1": "\u8272\u74b0;\u8272\u8f2a;\u8272\u76e4",
+        "defch2": ""
     },
     "column": {
         "gl": "n.",
-        "defch1": "\u6bcf\u884c",
-        "defch2": "\u6b04"
+        "defch1": "\u6bcf\u884c;\u6b04",
+        "defch2": ""
     },
     "COM port": {
         "gl": "abbr.",
-        "defch1": "\u5e8f\u5217\u57e0",
-        "defch2": "\u901a\u8a0a\u57e0"
+        "defch1": "\u5e8f\u5217\u57e0;\u901a\u8a0a\u57e0",
+        "defch2": ""
     },
     "comfortable": {
         "gl": "adj.",
@@ -1176,18 +1176,18 @@
     },
     "commercial": {
         "gl": "adj.",
-        "defch1": "\u5546\u696d\u7684",
-        "defch2": "\u5546\u52d9\u7684"
+        "defch1": "\u5546\u696d\u7684;\u5546\u52d9\u7684",
+        "defch2": ""
     },
     "commercial film": {
         "gl": "phr.",
-        "defch1": "\u5ee3\u544a\u5f71\u7247",
-        "defch2": "\u5546\u696d\u5f71\u7247"
+        "defch1": "\u5ee3\u544a\u5f71\u7247;\u5546\u696d\u5f71\u7247",
+        "defch2": ""
     },
     "communication": {
         "gl": "n.",
-        "defch1": "\u50b3\u9054",
-        "defch2": "\u901a\u8a0a;\u4ea4\u6d41"
+        "defch1": "\u50b3\u9054;\u901a\u8a0a;\u4ea4\u6d41",
+        "defch2": ""
     },
     "companding": {
         "gl": "n.",
@@ -1211,18 +1211,18 @@
     },
     "compliant": {
         "gl": "adj.",
-        "defch1": "\u7b26\u5408\u7684",
-        "defch2": "\u9806\u5f9e\u7684"
+        "defch1": "\u7b26\u5408\u7684;\u9806\u5f9e\u7684",
+        "defch2": ""
     },
     "component": {
         "gl": "adj.",
-        "defch1": "\u97f3\u8a0a\u5143\u4ef6",
-        "defch2": "\u6210\u5206;\u96f6\u7d44\u4ef6;\u7d44\u6210\u7684"
+        "defch1": "\u97f3\u8a0a\u5143\u4ef6;\u6210\u5206;\u96f6\u7d44\u4ef6;\u7d44\u6210\u7684",
+        "defch2": ""
     },
     "composite": {
         "gl": "n.",
-        "defch1": "\u5408\u6210\u7684",
-        "defch2": "\u5408\u6210\u7269"
+        "defch1": "\u5408\u6210\u7684;\u5408\u6210\u7269",
+        "defch2": ""
     },
     "composite video": {
         "gl": "phr.",
@@ -1231,8 +1231,8 @@
     },
     "composition": {
         "gl": "n.",
-        "defch1": "\u69cb\u6210",
-        "defch2": "\u69cb\u5716;\u6210\u5206;\u5275\u4f5c"
+        "defch1": "\u69cb\u6210;\u69cb\u5716;\u6210\u5206;\u5275\u4f5c",
+        "defch2": ""
     },
     "compress": {
         "gl": "v.",
@@ -1246,8 +1246,8 @@
     },
     "computer graphics": {
         "gl": "phr.",
-        "defch1": "\u96fb\u8166\u7e6a\u5716",
-        "defch2": "\u96fb\u8166\u5716\u5b78;"
+        "defch1": "\u96fb\u8166\u7e6a\u5716;\u96fb\u8166\u5716\u5b78;",
+        "defch2": ""
     },
     "computer software": {
         "gl": "phr.",
@@ -1271,23 +1271,23 @@
     },
     "cone": {
         "gl": "n.",
-        "defch1": "\u5713\u9310\u5f62\u7269",
-        "defch2": "\u9310\u72c0\u9ad4"
+        "defch1": "\u5713\u9310\u5f62\u7269;\u9310\u72c0\u9ad4",
+        "defch2": ""
     },
     "configure": {
         "gl": "v.",
-        "defch1": "\u8a2d\u5b9a",
-        "defch2": "\u5b89\u88dd;\u914d\u7f6e"
+        "defch1": "\u8a2d\u5b9a;\u5b89\u88dd;\u914d\u7f6e",
+        "defch2": ""
     },
     "connect": {
         "gl": "v.",
-        "defch1": "\u9023\u63a5",
-        "defch2": "\u806f\u7e6b"
+        "defch1": "\u9023\u63a5;\u806f\u7e6b",
+        "defch2": ""
     },
     "connectionless": {
         "gl": "adj.",
-        "defch1": "\u975e\u9023\u7d50",
-        "defch2": "\u7121\u9023\u63a5\u50b3\u8f38\u6a21\u5f0f"
+        "defch1": "\u975e\u9023\u7d50;\u7121\u9023\u63a5\u50b3\u8f38\u6a21\u5f0f",
+        "defch2": ""
     },
     "connector": {
         "gl": "n.",
@@ -1296,8 +1296,8 @@
     },
     "connoisseur": {
         "gl": "n.",
-        "defch1": "(\u85dd\u8853\u54c1\u7684) \u9451\u8cde\u5bb6",
-        "defch2": "\u884c\u5bb6"
+        "defch1": "(\u85dd\u8853\u54c1\u7684) \u9451\u8cde\u5bb6;\u884c\u5bb6",
+        "defch2": ""
     },
     "consonant": {
         "gl": "n.",
@@ -1311,13 +1311,13 @@
     },
     "constraint": {
         "gl": "n.",
-        "defch1": "\u7d04\u675f",
-        "defch2": "\u9650\u5236"
+        "defch1": "\u7d04\u675f;\u9650\u5236",
+        "defch2": ""
     },
     "constructivism": {
         "gl": "n.",
-        "defch1": "\u5efa\u69cb\u4e3b\u7fa9",
-        "defch2": "\u69cb\u6210\u4e3b\u7fa9;\u7d50\u69cb\u4e3b\u7fa9"
+        "defch1": "\u5efa\u69cb\u4e3b\u7fa9;\u69cb\u6210\u4e3b\u7fa9;\u7d50\u69cb\u4e3b\u7fa9",
+        "defch2": ""
     },
     "consumption": {
         "gl": "n.",
@@ -1326,13 +1326,13 @@
     },
     "contact": {
         "gl": "adj.",
-        "defch1": "\u89f8\u78b0",
-        "defch2": "\u63a5\u9ede;\u63a5\u89f8\u7684"
+        "defch1": "\u89f8\u78b0;\u63a5\u9ede;\u63a5\u89f8\u7684",
+        "defch2": ""
     },
     "contemporary": {
         "gl": "adj.",
-        "defch1": "\u7576\u4ee3\u7684",
-        "defch2": "\u73fe\u4ee3\u7684"
+        "defch1": "\u7576\u4ee3\u7684;\u73fe\u4ee3\u7684",
+        "defch2": ""
     },
     "contemporary art": {
         "gl": "phr.",
@@ -1341,23 +1341,23 @@
     },
     "content": {
         "gl": "n.",
-        "defch1": "\u5167\u5bb9",
-        "defch2": "\u7d20\u6750"
+        "defch1": "\u5167\u5bb9;\u7d20\u6750",
+        "defch2": ""
     },
     "context": {
         "gl": "n.",
-        "defch1": "\u4e0a\u4e0b\u6587",
-        "defch2": "\u4f86\u9f8d\u53bb\u8108;\u60c5\u5883"
+        "defch1": "\u4e0a\u4e0b\u6587;\u4f86\u9f8d\u53bb\u8108;\u60c5\u5883",
+        "defch2": ""
     },
     "context effect": {
         "gl": "phr.",
-        "defch1": "\u8108\u7d61\u6548\u61c9",
-        "defch2": "\u60c5\u5883\u6548\u61c9"
+        "defch1": "\u8108\u7d61\u6548\u61c9;\u60c5\u5883\u6548\u61c9",
+        "defch2": ""
     },
     "continuity": {
         "gl": "n.",
-        "defch1": "\u9023\u7e8c\u6027",
-        "defch2": "\u5ef6\u7e8c\u6027"
+        "defch1": "\u9023\u7e8c\u6027;\u5ef6\u7e8c\u6027",
+        "defch2": ""
     },
     "continuous AF": {
         "gl": "phr.",
@@ -1376,28 +1376,28 @@
     },
     "convenient": {
         "gl": "adj.",
-        "defch1": "\u65b9\u4fbf\u7684",
-        "defch2": "\u4fbf\u5229\u7684"
+        "defch1": "\u65b9\u4fbf\u7684;\u4fbf\u5229\u7684",
+        "defch2": ""
     },
     "convex": {
         "gl": "n.",
-        "defch1": "\u51f8\u9762\u7684",
-        "defch2": "\u51f8\u72c0"
+        "defch1": "\u51f8\u9762\u7684;\u51f8\u72c0",
+        "defch2": ""
     },
     "convolution": {
         "gl": "n.",
-        "defch1": "\u8ff4\u65cb",
-        "defch2": "\u76e4\u65cb;\u758a\u7a4d;\u5377\u65cb"
+        "defch1": "\u8ff4\u65cb;\u76e4\u65cb;\u758a\u7a4d;\u5377\u65cb",
+        "defch2": ""
     },
     "convolve": {
         "gl": "v.",
-        "defch1": "\u6372",
-        "defch2": "\u7e8f;\u65cb\u7e5e"
+        "defch1": "\u6372;\u7e8f;\u65cb\u7e5e",
+        "defch2": ""
     },
     "cool colours": {
         "gl": "n.",
-        "defch1": "\u51b7\u8272\u7cfb",
-        "defch2": "\u51b7\u8272\u8abf"
+        "defch1": "\u51b7\u8272\u7cfb;\u51b7\u8272\u8abf",
+        "defch2": ""
     },
     "cooling": {
         "gl": "n.",
@@ -1406,13 +1406,13 @@
     },
     "coordinate": {
         "gl": "v.",
-        "defch1": "\u5ea7\u6a19",
-        "defch2": "\u5354\u8abf"
+        "defch1": "\u5ea7\u6a19;\u5354\u8abf",
+        "defch2": ""
     },
     "coordination": {
         "gl": "n.",
-        "defch1": "\u5354\u540c",
-        "defch2": "\u5354\u8abf"
+        "defch1": "\u5354\u540c;\u5354\u8abf",
+        "defch2": ""
     },
     "copper": {
         "gl": "n.",
@@ -1421,8 +1421,8 @@
     },
     "copy": {
         "gl": "v.",
-        "defch1": "\u8907\u88fd",
-        "defch2": "\u526f\u672c;\u6284\u5beb;\u6a21\u4eff"
+        "defch1": "\u8907\u88fd;\u526f\u672c;\u6284\u5beb;\u6a21\u4eff",
+        "defch2": ""
     },
     "copyright": {
         "gl": "n.",
@@ -1431,8 +1431,8 @@
     },
     "copywriter": {
         "gl": "n.",
-        "defch1": "\u6587\u6848",
-        "defch2": "\u64b0\u7a3f\u4eba"
+        "defch1": "\u6587\u6848;\u64b0\u7a3f\u4eba",
+        "defch2": ""
     },
     "core": {
         "gl": "n.",
@@ -1466,8 +1466,8 @@
     },
     "craft": {
         "gl": "n.",
-        "defch1": "\u5de5\u85dd",
-        "defch2": "\u624b\u85dd"
+        "defch1": "\u5de5\u85dd;\u624b\u85dd",
+        "defch2": ""
     },
     "creative": {
         "gl": "adj.",
@@ -1476,8 +1476,8 @@
     },
     "creative director": {
         "gl": "n.",
-        "defch1": "\u5275\u4f5c\u7e3d\u76e3",
-        "defch2": "\u5275\u610f\u7e3d\u76e3"
+        "defch1": "\u5275\u4f5c\u7e3d\u76e3;\u5275\u610f\u7e3d\u76e3",
+        "defch2": ""
     },
     "creative group head": {
         "gl": "n.",
@@ -1486,8 +1486,8 @@
     },
     "creative thinking": {
         "gl": "phr.",
-        "defch1": "\u5275\u610f\u601d\u8003",
-        "defch2": "\u5275\u610f\u601d\u7dad"
+        "defch1": "\u5275\u610f\u601d\u8003;\u5275\u610f\u601d\u7dad",
+        "defch2": ""
     },
     "creativity": {
         "gl": "n.",
@@ -1496,23 +1496,23 @@
     },
     "critical": {
         "gl": "adj.",
-        "defch1": "\u6279\u5224\u7684",
-        "defch2": "\u5371\u53ca\u7684;\u611b\u6311\u5254\u7684"
+        "defch1": "\u6279\u5224\u7684;\u5371\u53ca\u7684;\u611b\u6311\u5254\u7684",
+        "defch2": ""
     },
     "crossover": {
         "gl": "n.",
-        "defch1": "\u4ea4\u53c9",
-        "defch2": "\u8de8\u754c"
+        "defch1": "\u4ea4\u53c9;\u8de8\u754c",
+        "defch2": ""
     },
     "cubism": {
         "gl": "n.",
-        "defch1": "\u7acb\u9ad4\u6d3e",
-        "defch2": "\u7acb\u9ad4\u4e3b\u7fa9"
+        "defch1": "\u7acb\u9ad4\u6d3e;\u7acb\u9ad4\u4e3b\u7fa9",
+        "defch2": ""
     },
     "curator": {
         "gl": "n.",
-        "defch1": "\u9928\u9577",
-        "defch2": "\u7ba1\u7406\u54e1"
+        "defch1": "\u9928\u9577;\u7ba1\u7406\u54e1",
+        "defch2": ""
     },
     "curiosity": {
         "gl": "n.",
@@ -1521,8 +1521,8 @@
     },
     "current frame": {
         "gl": "n.",
-        "defch1": "\u76ee\u524d\u756b\u9762",
-        "defch2": "\u76ee\u524d\u5f71\u683c"
+        "defch1": "\u76ee\u524d\u756b\u9762;\u76ee\u524d\u5f71\u683c",
+        "defch2": ""
     },
     "curves": {
         "gl": "n.",
@@ -1531,8 +1531,8 @@
     },
     "custom": {
         "gl": "adj.",
-        "defch1": "\u7fd2\u4fd7",
-        "defch2": "\u8a02\u88fd\u7684"
+        "defch1": "\u7fd2\u4fd7;\u8a02\u88fd\u7684",
+        "defch2": ""
     },
     "customer": {
         "gl": "n.",
@@ -1561,8 +1561,8 @@
     },
     "cyclic": {
         "gl": "adj.",
-        "defch1": "\u5faa\u74b0\u7684",
-        "defch2": "\u5713\u7684"
+        "defch1": "\u5faa\u74b0\u7684;\u5713\u7684",
+        "defch2": ""
     },
     "cylinder": {
         "gl": "n.",
@@ -1576,13 +1576,13 @@
     },
     "Dadaism": {
         "gl": "prop.",
-        "defch1": "\u9054\u9054\u4e3b\u7fa9",
-        "defch2": "\u9054\u9054\u6d3e"
+        "defch1": "\u9054\u9054\u4e3b\u7fa9;\u9054\u9054\u6d3e",
+        "defch2": ""
     },
     "darkness": {
         "gl": "n.",
-        "defch1": "\u6697\u5ea6",
-        "defch2": "\u9ed1\u6697"
+        "defch1": "\u6697\u5ea6;\u9ed1\u6697",
+        "defch2": ""
     },
     "darkroom": {
         "gl": "n.",
@@ -1606,17 +1606,17 @@
     },
     "dead zone": {
         "gl": "phr.",
-        "defch1": "\u96f6\u5340",
-        "defch2": "\u6046\u57df;\u7121\u6548\u5340;\u6b7b\u5340"
+        "defch1": "\u96f6\u5340;\u6046\u57df;\u7121\u6548\u5340;\u6b7b\u5340",
+        "defch2": ""
     },
     "deblocking": {
         "gl": "n.",
-        "defch1": "\u89e3\u9664\u5340\u584a",
-        "defch2": "\u89e3\u9664\u5c01\u9396; (\u7a0b\u5e8f) \u5206\u584a"
+        "defch1": "\u89e3\u9664\u5340\u584a;\u89e3\u9664\u5c01\u9396; (\u7a0b\u5e8f) \u5206\u584a",
+        "defch2": ""
     },
     "decibel": {
         "gl": "n.",
-        "defch1": "\u5206\u8c9d\u7c21\u7a31",
+        "defch1": "\u5206\u8c9d",
         "defch2": "Db"
     },
     "decoder": {
@@ -1656,8 +1656,8 @@
     },
     "demonstrate": {
         "gl": "v.",
-        "defch1": "\u8ad6\u8b49",
-        "defch2": "\u8b49\u660e;\u5c55\u793a"
+        "defch1": "\u8ad6\u8b49;\u8b49\u660e;\u5c55\u793a",
+        "defch2": ""
     },
     "depth of field": {
         "gl": "phr.",
@@ -1666,8 +1666,8 @@
     },
     "depth of focus": {
         "gl": "phr.",
-        "defch1": "\u7126\u6df1",
-        "defch2": "\u7126\u9ede\u6df1\u8b8a"
+        "defch1": "\u7126\u6df1;\u7126\u9ede\u6df1\u8b8a",
+        "defch2": ""
     },
     "desaturate": {
         "gl": "v.",
@@ -1681,8 +1681,8 @@
     },
     "design": {
         "gl": "v.",
-        "defch1": "\u8a2d\u8a08",
-        "defch2": "\u8a08\u756b\u5f62\u72c0"
+        "defch1": "\u8a2d\u8a08;\u8a08\u756b\u5f62\u72c0",
+        "defch2": ""
     },
     "design basic": {
         "gl": "phr.",
@@ -1746,18 +1746,18 @@
     },
     "develop": {
         "gl": "v.",
-        "defch1": "\u986f\u5f71",
-        "defch2": "\u6c96\u6d17 (\u5e95\u7247) ;\u767c\u5c55;\u6210\u9577"
+        "defch1": "\u986f\u5f71;\u6c96\u6d17 (\u5e95\u7247) ;\u767c\u5c55;\u6210\u9577",
+        "defch2": ""
     },
     "developer": {
         "gl": "n.",
-        "defch1": "\u986f\u5f71\u5291",
-        "defch2": "\u958b\u767c\u8005"
+        "defch1": "\u986f\u5f71\u5291;\u958b\u767c\u8005",
+        "defch2": ""
     },
     "diaphragm": {
         "gl": "n.",
-        "defch1": "\u5149\u5708",
-        "defch2": "\u63a7\u5149\u88dd\u7f6e"
+        "defch1": "\u5149\u5708;\u63a7\u5149\u88dd\u7f6e",
+        "defch2": ""
     },
     "difference": {
         "gl": "n.",
@@ -1781,8 +1781,8 @@
     },
     "digital audio tape": {
         "gl": "phr.",
-        "defch1": "\u78c1\u5e36\u5361\u593e",
-        "defch2": "\u6578\u4f4d\u97f3\u8a0a\u78c1\u5e36"
+        "defch1": "\u78c1\u5e36\u5361\u593e;\u6578\u4f4d\u97f3\u8a0a\u78c1\u5e36",
+        "defch2": ""
     },
     "digital camera": {
         "gl": "n.",
@@ -1821,13 +1821,13 @@
     },
     "dimension": {
         "gl": "n.",
-        "defch1": "\u7dad\u5ea6",
-        "defch2": "\u5c3a\u5bf8;\u5bb9\u7a4d;\u7279\u9ede;\u65b9\u9762"
+        "defch1": "\u7dad\u5ea6;\u5c3a\u5bf8;\u5bb9\u7a4d;\u7279\u9ede;\u65b9\u9762",
+        "defch2": ""
     },
     "direct": {
         "gl": "adj.",
-        "defch1": "\u5c0e\u6f14",
-        "defch2": "\u6307\u63ee;\u76f4\u63a5\u7684"
+        "defch1": "\u5c0e\u6f14;\u6307\u63ee;\u76f4\u63a5\u7684",
+        "defch2": ""
     },
     "direct animation": {
         "gl": "n.",
@@ -1841,53 +1841,53 @@
     },
     "direct mail": {
         "gl": "n.",
-        "defch1": "\u5ee3\u544a\u51fd\u4ef6",
-        "defch2": "\u76f4\u63a5\u4fe1\u51fd"
+        "defch1": "\u5ee3\u544a\u51fd\u4ef6;\u76f4\u63a5\u4fe1\u51fd",
+        "defch2": ""
     },
     "directionality": {
         "gl": "n.",
-        "defch1": "\u65b9\u5411\u6027",
-        "defch2": "\u5b9a\u5411\u6027"
+        "defch1": "\u65b9\u5411\u6027;\u5b9a\u5411\u6027",
+        "defch2": ""
     },
     "director": {
         "gl": "n.",
-        "defch1": "\u5c0e\u6f14",
-        "defch2": "\u4e3b\u4efb"
+        "defch1": "\u5c0e\u6f14;\u4e3b\u4efb",
+        "defch2": ""
     },
     "disapprove": {
         "gl": "v.",
-        "defch1": "\u4e0d\u8d0a\u6210",
-        "defch2": "\u4e0d\u540c\u610f"
+        "defch1": "\u4e0d\u8d0a\u6210;\u4e0d\u540c\u610f",
+        "defch2": ""
     },
     "discipline": {
         "gl": "v.",
-        "defch1": "\u7d00\u5f8b",
-        "defch2": "\u5b78\u751f;\u8a13\u7df4;\u61f2\u6212;\u5b78\u79d1"
+        "defch1": "\u7d00\u5f8b;\u5b78\u751f;\u8a13\u7df4;\u61f2\u6212;\u5b78\u79d1",
+        "defch2": ""
     },
     "disjoint": {
         "gl": "v.",
-        "defch1": "(\u4f7f) \u812b\u7bc0",
-        "defch2": "(\u4f7f) \u89e3\u9ad4"
+        "defch1": "(\u4f7f) \u812b\u7bc0;(\u4f7f) \u89e3\u9ad4",
+        "defch2": ""
     },
     "disorder": {
         "gl": "n.",
-        "defch1": "\u4e82\u5ea6",
-        "defch2": "\u6df7\u4e82;\u5931\u8abf"
+        "defch1": "\u4e82\u5ea6;\u6df7\u4e82;\u5931\u8abf",
+        "defch2": ""
     },
     "dispersion": {
         "gl": "n.",
-        "defch1": "\u8272\u6563",
-        "defch2": "\u5206\u6563"
+        "defch1": "\u8272\u6563;\u5206\u6563",
+        "defch2": ""
     },
     "display": {
         "gl": "n.",
-        "defch1": "\u5c55\u793a",
-        "defch2": "\u986f\u793a;\u9673\u5217"
+        "defch1": "\u5c55\u793a;\u986f\u793a;\u9673\u5217",
+        "defch2": ""
     },
     "dispread": {
         "gl": "v.",
-        "defch1": "\u64f4\u5c55",
-        "defch2": "\u64f4\u5f35"
+        "defch1": "\u64f4\u5c55;\u64f4\u5f35",
+        "defch2": ""
     },
     "dissolve": {
         "gl": "v.",
@@ -1906,8 +1906,8 @@
     },
     "dithering": {
         "gl": "n.",
-        "defch1": "\u6df7\u8272",
-        "defch2": "\u8655\u7406"
+        "defch1": "\u6df7\u8272;\u8655\u7406",
+        "defch2": ""
     },
     "DMIF peer": {
         "gl": "abbr.",
@@ -1936,13 +1936,13 @@
     },
     "domain": {
         "gl": "n.",
-        "defch1": "\u9818\u571f",
-        "defch2": "\u9818\u57df;\u7bc4\u570d"
+        "defch1": "\u9818\u571f;\u9818\u57df;\u7bc4\u570d",
+        "defch2": ""
     },
     "domain name": {
         "gl": "n.",
-        "defch1": "\u7db2\u57df\u540d\u7a31",
-        "defch2": "\u57df\u540d"
+        "defch1": "\u7db2\u57df\u540d\u7a31;\u57df\u540d",
+        "defch2": ""
     },
     "dot area": {
         "gl": "n.",
@@ -1956,8 +1956,8 @@
     },
     "down": {
         "gl": "n.",
-        "defch1": "\u5411\u4e0b",
-        "defch2": "\u4e0b\u964d"
+        "defch1": "\u5411\u4e0b;\u4e0b\u964d",
+        "defch2": ""
     },
     "downlink": {
         "gl": "n.",
@@ -1966,13 +1966,13 @@
     },
     "downstream": {
         "gl": "adj.",
-        "defch1": "\u5411\u4e0b\u50b3\u8f38",
-        "defch2": "\u9806\u6d41\u7684;\u4e0b\u50b3\u4e32\u6d41"
+        "defch1": "\u5411\u4e0b\u50b3\u8f38;\u9806\u6d41\u7684;\u4e0b\u50b3\u4e32\u6d41",
+        "defch2": ""
     },
     "doze": {
         "gl": "v.",
-        "defch1": "\u4f11\u7720",
-        "defch2": "\u6253\u778c\u7761"
+        "defch1": "\u4f11\u7720;\u6253\u778c\u7761",
+        "defch2": ""
     },
     "drag": {
         "gl": "v.",
@@ -1981,8 +1981,8 @@
     },
     "drawing": {
         "gl": "n.",
-        "defch1": "\u7e6a\u756b",
-        "defch2": "\u5716\u756b;\u7d20\u63cf\u53e6\u53ef\u4f5c\u300c\u63d0\u6b3e\u300d\u4e4b\u610f"
+        "defch1": "\u7e6a\u756b;\u5716\u756b;\u7d20\u63cf\u53e6\u53ef\u4f5c\u300c\u63d0\u6b3e\u300d\u4e4b\u610f",
+        "defch2": ""
     },
     "DreamWorks": {
         "gl": "prop.",
@@ -1991,13 +1991,13 @@
     },
     "drying": {
         "gl": "n.",
-        "defch1": "\u4f7f\u4e7e\u71e5\u7684",
-        "defch2": "\u70d8\u4e7e"
+        "defch1": "\u4f7f\u4e7e\u71e5\u7684;\u70d8\u4e7e",
+        "defch2": ""
     },
     "duplicate": {
         "gl": "v.",
-        "defch1": "\u8907\u88fd",
-        "defch2": "\u526f\u672c;\u5b8c\u5168\u4e00\u6a23\u7684"
+        "defch1": "\u8907\u88fd;\u526f\u672c;\u5b8c\u5168\u4e00\u6a23\u7684",
+        "defch2": ""
     },
     "dyadic": {
         "gl": "adj.",
@@ -2006,7 +2006,7 @@
     },
     "dynamic RAM": {
         "gl": "n.",
-        "defch1": "\u52d5\u614b\u96a8\u6a5f\u5b58\u53d6\u8a18\u61b6\u9ad4\u7c21\u7a31",
+        "defch1": "\u52d5\u614b\u96a8\u6a5f\u5b58\u53d6\u8a18\u61b6\u9ad4",
         "defch2": "DRAM"
     },
     "ease-in": {
@@ -2041,8 +2041,8 @@
     },
     "edge": {
         "gl": "v.",
-        "defch1": "\u908a\u7de3",
-        "defch2": "\u4f7f\u92d2\u5229;\u5f90\u5f90\u79fb\u52d5"
+        "defch1": "\u908a\u7de3;\u4f7f\u92d2\u5229;\u5f90\u5f90\u79fb\u52d5",
+        "defch2": ""
     },
     "edge map": {
         "gl": "n.",
@@ -2051,8 +2051,8 @@
     },
     "edit": {
         "gl": "v.",
-        "defch1": "\u526a\u8f2f",
-        "defch2": "\u7de8\u8f2f"
+        "defch1": "\u526a\u8f2f;\u7de8\u8f2f",
+        "defch2": ""
     },
     "editor": {
         "gl": "n.",
@@ -2081,8 +2081,8 @@
     },
     "elevation": {
         "gl": "n.",
-        "defch1": "\u7b49\u9ad8\u7dda",
-        "defch2": "\u6d77\u62d4;\u9ad8\u5ea6"
+        "defch1": "\u7b49\u9ad8\u7dda;\u6d77\u62d4;\u9ad8\u5ea6",
+        "defch2": ""
     },
     "e-mail address": {
         "gl": "phr.",
@@ -2096,8 +2096,8 @@
     },
     "emphasis": {
         "gl": "n.",
-        "defch1": "\u5f37\u8abf",
-        "defch2": "\u91cd\u8996;\u91cd\u9ede;\u52a0\u5f37\u8a9e\u6c23"
+        "defch1": "\u5f37\u8abf;\u91cd\u8996;\u91cd\u9ede;\u52a0\u5f37\u8a9e\u6c23",
+        "defch2": ""
     },
     "emulsion": {
         "gl": "n.",
@@ -2131,13 +2131,13 @@
     },
     "enlarge": {
         "gl": "v.",
-        "defch1": "\u653e\u5927",
-        "defch2": "\u64f4\u5c55"
+        "defch1": "\u653e\u5927;\u64f4\u5c55",
+        "defch2": ""
     },
     "enlargement": {
         "gl": "n.",
-        "defch1": "\u653e\u5927",
-        "defch2": "\u64f4\u5c55"
+        "defch1": "\u653e\u5927;\u64f4\u5c55",
+        "defch2": ""
     },
     "enlarger": {
         "gl": "n.",
@@ -2146,23 +2146,23 @@
     },
     "enlighten": {
         "gl": "v.",
-        "defch1": "\u555f\u767c",
-        "defch2": "\u555f\u8fea;\u6559\u5c0e"
+        "defch1": "\u555f\u767c;\u555f\u8fea;\u6559\u5c0e",
+        "defch2": ""
     },
     "entrance": {
         "gl": "n.",
-        "defch1": "\u9580\u53e3",
-        "defch2": "\u5165\u53e3"
+        "defch1": "\u9580\u53e3;\u5165\u53e3",
+        "defch2": ""
     },
     "entranceway": {
         "gl": "n.",
-        "defch1": "\u5165\u53e3\u901a\u9053",
-        "defch2": "\u5165\u53e3;\u5927\u9580"
+        "defch1": "\u5165\u53e3\u901a\u9053;\u5165\u53e3;\u5927\u9580",
+        "defch2": ""
     },
     "entries": {
         "gl": "n.",
-        "defch1": "\u689d\u5217\u6578",
-        "defch2": "\u9805;\u689d\u76ee"
+        "defch1": "\u689d\u5217\u6578;\u9805;\u689d\u76ee",
+        "defch2": ""
     },
     "envelop": {
         "gl": "v.",
@@ -2181,8 +2181,8 @@
     },
     "ergonomics": {
         "gl": "n.",
-        "defch1": "\u4eba\u9ad4\u5de5\u5b78",
-        "defch2": "\u4eba\u985e\u5de5\u7a0b\u5b78"
+        "defch1": "\u4eba\u9ad4\u5de5\u5b78;\u4eba\u985e\u5de5\u7a0b\u5b78",
+        "defch2": ""
     },
     "error-free": {
         "gl": "phr.",
@@ -2196,8 +2196,8 @@
     },
     "ethic": {
         "gl": "n.",
-        "defch1": "\u502b\u7406",
-        "defch2": "\u9053\u5fb7\u898f\u7bc4"
+        "defch1": "\u502b\u7406;\u9053\u5fb7\u898f\u7bc4",
+        "defch2": ""
     },
     "evaluation": {
         "gl": "n.",
@@ -2216,13 +2216,13 @@
     },
     "exhibit": {
         "gl": "v.",
-        "defch1": "\u5c55\u793a",
-        "defch2": "\u9673\u5217\u54c1"
+        "defch1": "\u5c55\u793a;\u9673\u5217\u54c1",
+        "defch2": ""
     },
     "exhibition": {
         "gl": "n.",
-        "defch1": "\u5c55\u89bd",
-        "defch2": "\u5c55\u89bd\u6703;\u5c55\u793a\u6703"
+        "defch1": "\u5c55\u89bd;\u5c55\u89bd\u6703;\u5c55\u793a\u6703",
+        "defch2": ""
     },
     "expander": {
         "gl": "n.",
@@ -2241,8 +2241,8 @@
     },
     "exposure": {
         "gl": "n.",
-        "defch1": "\u66dd\u5149",
-        "defch2": "\u66b4\u9732;\u63ed\u767c"
+        "defch1": "\u66dd\u5149;\u66b4\u9732;\u63ed\u767c",
+        "defch2": ""
     },
     "exposure value": {
         "gl": "phr.",
@@ -2251,18 +2251,18 @@
     },
     "expression": {
         "gl": "n.",
-        "defch1": "\u8868\u60c5",
-        "defch2": "\u8868\u9054"
+        "defch1": "\u8868\u60c5;\u8868\u9054",
+        "defch2": ""
     },
     "extended": {
         "gl": "adj.",
-        "defch1": "\u5ef6\u4f38\u7684",
-        "defch2": "\u9577\u671f\u7684"
+        "defch1": "\u5ef6\u4f38\u7684;\u9577\u671f\u7684",
+        "defch2": ""
     },
     "exterior design": {
         "gl": "phr.",
-        "defch1": "\u5ba4\u5916\u8a2d\u8a08",
-        "defch2": "\u5916\u89c0\u8a2d\u8a08"
+        "defch1": "\u5ba4\u5916\u8a2d\u8a08;\u5916\u89c0\u8a2d\u8a08",
+        "defch2": ""
     },
     "external file": {
         "gl": "phr.",
@@ -2271,8 +2271,8 @@
     },
     "extrusion": {
         "gl": "n.",
-        "defch1": "\u7a81\u51fa (\u7269)",
-        "defch2": "\u64e0\u58d3 (\u6210\u5f62)"
+        "defch1": "\u7a81\u51fa (\u7269);\u64e0\u58d3 (\u6210\u5f62)",
+        "defch2": ""
     },
     "eyepiece": {
         "gl": "n.",
@@ -2281,8 +2281,8 @@
     },
     "fabric": {
         "gl": "n.",
-        "defch1": "\u7e54\u54c1",
-        "defch2": "\u7e54\u7269;\u5e03\u6599;\u7d50\u69cb"
+        "defch1": "\u7e54\u54c1;\u7e54\u7269;\u5e03\u6599;\u7d50\u69cb",
+        "defch2": ""
     },
     "factor of order": {
         "gl": "phr.",
@@ -2291,18 +2291,18 @@
     },
     "fade in": {
         "gl": "phr.",
-        "defch1": "\u6f38\u589e",
-        "defch2": "\u6de1\u5165"
+        "defch1": "\u6f38\u589e;\u6de1\u5165",
+        "defch2": ""
     },
     "fade out": {
         "gl": "phr.",
-        "defch1": "\u6f38\u6d88",
-        "defch2": "\u6de1\u51fa"
+        "defch1": "\u6f38\u6d88;\u6de1\u51fa",
+        "defch2": ""
     },
     "fader": {
         "gl": "n.",
-        "defch1": "\u5316\u97f3\u5668",
-        "defch2": "\u97f3\u91cf\u63a7\u5236\u5668"
+        "defch1": "\u5316\u97f3\u5668;\u97f3\u91cf\u63a7\u5236\u5668",
+        "defch2": ""
     },
     "fading": {
         "gl": "n.",
@@ -2316,8 +2316,8 @@
     },
     "fashion": {
         "gl": "v.",
-        "defch1": "\u6642\u5c1a",
-        "defch2": "\u98a8\u683c;\u65b9\u5f0f"
+        "defch1": "\u6642\u5c1a;\u98a8\u683c;\u65b9\u5f0f",
+        "defch2": ""
     },
     "fashion design": {
         "gl": "phr.",
@@ -2331,23 +2331,23 @@
     },
     "fauvism": {
         "gl": "n.",
-        "defch1": "\u91ce\u7378\u6d3e",
-        "defch2": "\u91ce\u7378\u4e3b\u7fa9"
+        "defch1": "\u91ce\u7378\u6d3e;\u91ce\u7378\u4e3b\u7fa9",
+        "defch2": ""
     },
     "feature": {
         "gl": "v.",
-        "defch1": "\u7279\u5fb5",
-        "defch2": "\u529f\u80fd;\u4ee5\u2026\u70ba\u7279\u8272"
+        "defch1": "\u7279\u5fb5;\u529f\u80fd;\u4ee5\u2026\u70ba\u7279\u8272",
+        "defch2": ""
     },
     "field": {
         "gl": "n.",
-        "defch1": "\u5834",
-        "defch2": "\u57df;\u9818\u57df"
+        "defch1": "\u5834;\u57df;\u9818\u57df",
+        "defch2": ""
     },
     "figure out": {
         "gl": "phr.",
-        "defch1": "\u60f3\u51fa",
-        "defch2": "\u7406\u89e3"
+        "defch1": "\u60f3\u51fa;\u7406\u89e3",
+        "defch2": ""
     },
     "fill transform tool": {
         "gl": "n.",
@@ -2356,23 +2356,23 @@
     },
     "film": {
         "gl": "n.",
-        "defch1": "\u81a0\u7247",
-        "defch2": "\u81a0\u5377"
+        "defch1": "\u81a0\u7247;\u81a0\u5377",
+        "defch2": ""
     },
     "filter": {
         "gl": "v.",
-        "defch1": "\u6ffe\u93e1",
-        "defch2": "\u904e\u6ffe"
+        "defch1": "\u6ffe\u93e1;\u904e\u6ffe",
+        "defch2": ""
     },
     "final cause": {
         "gl": "phr.",
-        "defch1": "\u76ee\u7684\u539f\u56e0",
-        "defch2": "\u7d42\u6975\u539f\u56e0"
+        "defch1": "\u76ee\u7684\u539f\u56e0;\u7d42\u6975\u539f\u56e0",
+        "defch2": ""
     },
     "fine art": {
         "gl": "phr.",
-        "defch1": "(\u7e3d\u7a31) \u7f8e\u8853",
-        "defch2": "\u7f8e\u8853\u4f5c\u54c1;"
+        "defch1": "(\u7e3d\u7a31) \u7f8e\u8853;\u7f8e\u8853\u4f5c\u54c1;",
+        "defch2": ""
     },
     "fisheye lens": {
         "gl": "n.",
@@ -2381,13 +2381,13 @@
     },
     "fix": {
         "gl": "v.",
-        "defch1": "\u56fa\u5b9a",
-        "defch2": "\u4fee\u7406"
+        "defch1": "\u56fa\u5b9a;\u4fee\u7406",
+        "defch2": ""
     },
     "fixing": {
         "gl": "n.",
-        "defch1": "\u5b9a\u5f71",
-        "defch2": "\u56fa\u5b9a"
+        "defch1": "\u5b9a\u5f71;\u56fa\u5b9a",
+        "defch2": ""
     },
     "flag": {
         "gl": "n.",
@@ -2396,8 +2396,8 @@
     },
     "flash": {
         "gl": "n.",
-        "defch1": "\u9583\u5149",
-        "defch2": "\u9583\u720d;\u52d5\u756b\u8edf\u9ad4"
+        "defch1": "\u9583\u5149;\u9583\u720d;\u52d5\u756b\u8edf\u9ad4",
+        "defch2": ""
     },
     "Flash player": {
         "gl": "prop.",
@@ -2406,13 +2406,13 @@
     },
     "flashlight": {
         "gl": "n.",
-        "defch1": "\u9583\u5149\u71c8",
-        "defch2": "\u624b\u96fb\u7b52"
+        "defch1": "\u9583\u5149\u71c8;\u624b\u96fb\u7b52",
+        "defch2": ""
     },
     "flat": {
         "gl": "adj.",
-        "defch1": "\u6241\u5e73\u7684",
-        "defch2": "\u964d (\u534a) \u97f3\u7684;\u55ae\u8abf\u7684"
+        "defch1": "\u6241\u5e73\u7684;\u964d (\u534a) \u97f3\u7684;\u55ae\u8abf\u7684",
+        "defch2": ""
     },
     "flexography": {
         "gl": "n.",
@@ -2431,13 +2431,13 @@
     },
     "float": {
         "gl": "v.",
-        "defch1": "\u6f02\u6d6e",
-        "defch2": "\u6d6e\u52d5"
+        "defch1": "\u6f02\u6d6e;\u6d6e\u52d5",
+        "defch2": ""
     },
     "floodlight": {
         "gl": "v.",
-        "defch1": "\u6cdb\u5149\u71c8",
-        "defch2": "\u7528\u6cdb\u5149\u71c8\u7167\u4eae"
+        "defch1": "\u6cdb\u5149\u71c8;\u7528\u6cdb\u5149\u71c8\u7167\u4eae",
+        "defch2": ""
     },
     "flowchart": {
         "gl": "n.",
@@ -2451,8 +2451,8 @@
     },
     "foam molding": {
         "gl": "phr.",
-        "defch1": "\u767c\u6ce1\u6750\u6599",
-        "defch2": "\u6ce1\u6cab\u5851\u6599\u6210\u578b"
+        "defch1": "\u767c\u6ce1\u6750\u6599;\u6ce1\u6cab\u5851\u6599\u6210\u578b",
+        "defch2": ""
     },
     "foam-core board": {
         "gl": "n.",
@@ -2471,8 +2471,8 @@
     },
     "focus": {
         "gl": "v.",
-        "defch1": "\u7126\u9ede",
-        "defch2": "\u805a\u7126;\u8abf\u7bc0\u7126\u8ddd"
+        "defch1": "\u7126\u9ede;\u805a\u7126;\u8abf\u7bc0\u7126\u8ddd",
+        "defch2": ""
     },
     "fog": {
         "gl": "n.",
@@ -2481,8 +2481,8 @@
     },
     "footprint": {
         "gl": "n.",
-        "defch1": "\u8db3\u8de1",
-        "defch2": "\u8173\u5370;\u4f54\u7528\u9762\u7a4d"
+        "defch1": "\u8db3\u8de1;\u8173\u5370;\u4f54\u7528\u9762\u7a4d",
+        "defch2": ""
     },
     "footroom": {
         "gl": "n.",
@@ -2491,8 +2491,8 @@
     },
     "foreground": {
         "gl": "n.",
-        "defch1": "\u8fd1\u666f",
-        "defch2": "\u524d\u666f"
+        "defch1": "\u8fd1\u666f;\u524d\u666f",
+        "defch2": ""
     },
     "form": {
         "gl": "v.",
@@ -2516,8 +2516,8 @@
     },
     "format": {
         "gl": "n.",
-        "defch1": "\u683c\u5f0f\u5316",
-        "defch2": "\u7248\u5f0f;\u5f62\u5f0f"
+        "defch1": "\u683c\u5f0f\u5316;\u7248\u5f0f;\u5f62\u5f0f",
+        "defch2": ""
     },
     "formative study": {
         "gl": "phr.",
@@ -2526,8 +2526,8 @@
     },
     "frame": {
         "gl": "v.",
-        "defch1": "\u756b\u9762",
-        "defch2": "\u5f71\u683c; (\u6b04) \u6846;\u6846\u67b6;"
+        "defch1": "\u756b\u9762;\u5f71\u683c; (\u6b04) \u6846;\u6846\u67b6;",
+        "defch2": ""
     },
     "frame buffer": {
         "gl": "phr.",
@@ -2541,8 +2541,8 @@
     },
     "framing": {
         "gl": "n.",
-        "defch1": "(\u651d\u5f71) \u53d6\u666f",
-        "defch2": "\u6846\u67b6;\u7de8\u5236"
+        "defch1": "(\u651d\u5f71) \u53d6\u666f;\u6846\u67b6;\u7de8\u5236",
+        "defch2": ""
     },
     "free advertising": {
         "gl": "phr.",
@@ -2576,8 +2576,8 @@
     },
     "full color": {
         "gl": "phr.",
-        "defch1": "\u5168\u8272",
-        "defch2": "\u5168\u5f69"
+        "defch1": "\u5168\u8272;\u5168\u5f69",
+        "defch2": ""
     },
     "full frame": {
         "gl": "phr.",
@@ -2586,13 +2586,13 @@
     },
     "function": {
         "gl": "n.",
-        "defch1": "\u51fd\u6578",
-        "defch2": "\u529f\u80fd"
+        "defch1": "\u51fd\u6578;\u529f\u80fd",
+        "defch2": ""
     },
     "functional": {
         "gl": "adj.",
-        "defch1": "\u6a5f\u80fd\u7684",
-        "defch2": "\u5be6\u7528\u7684;\u529f\u80fd\u4e0a\u7684;\u51fd\u6578\u7684"
+        "defch1": "\u6a5f\u80fd\u7684;\u5be6\u7528\u7684;\u529f\u80fd\u4e0a\u7684;\u51fd\u6578\u7684",
+        "defch2": ""
     },
     "functionalism": {
         "gl": "n.",
@@ -2601,8 +2601,8 @@
     },
     "fundamental": {
         "gl": "n.",
-        "defch1": "\u57fa\u672c\u7684",
-        "defch2": "\u57fa\u790e;\u57fa\u672c\u539f\u7406"
+        "defch1": "\u57fa\u672c\u7684;\u57fa\u790e;\u57fa\u672c\u539f\u7406",
+        "defch2": ""
     },
     "furniture": {
         "gl": "n.",
@@ -2611,18 +2611,18 @@
     },
     "futurism": {
         "gl": "n.",
-        "defch1": "\u672a\u4f86\u6d3e",
-        "defch2": "\u672a\u4f86\u4e3b\u7fa9"
+        "defch1": "\u672a\u4f86\u6d3e;\u672a\u4f86\u4e3b\u7fa9",
+        "defch2": ""
     },
     "gain": {
         "gl": "v.",
-        "defch1": "\u589e\u76ca",
-        "defch2": "\u6536\u76ca"
+        "defch1": "\u589e\u76ca;\u6536\u76ca",
+        "defch2": ""
     },
     "gallery": {
         "gl": "n.",
-        "defch1": "\u756b\u5eca",
-        "defch2": "\u7f8e\u8853\u9928"
+        "defch1": "\u756b\u5eca;\u7f8e\u8853\u9928",
+        "defch2": ""
     },
     "game design": {
         "gl": "phr.",
@@ -2636,8 +2636,8 @@
     },
     "gamut": {
         "gl": "n.",
-        "defch1": "(\u5168) \u97f3\u57df",
-        "defch2": "\u6574\u500b\u7bc4\u570d"
+        "defch1": "(\u5168) \u97f3\u57df;\u6574\u500b\u7bc4\u570d",
+        "defch2": ""
     },
     "garden design": {
         "gl": "phr.",
@@ -2651,8 +2651,8 @@
     },
     "genius": {
         "gl": "n.",
-        "defch1": "\u5929\u624d",
-        "defch2": "\u5929\u8ce6;\u624d\u83ef;\u5275\u9020\u529b"
+        "defch1": "\u5929\u624d;\u5929\u8ce6;\u624d\u83ef;\u5275\u9020\u529b",
+        "defch2": ""
     },
     "geometric shape": {
         "gl": "phr.",
@@ -2676,7 +2676,7 @@
     },
     "gigahertz": {
         "gl": "n.",
-        "defch1": "\u5341\u5104\u8d6b\u8332\u7c21\u7a31",
+        "defch1": "\u5341\u5104\u8d6b\u8332",
         "defch2": "GHz"
     },
     "glass": {
@@ -2686,8 +2686,8 @@
     },
     "global": {
         "gl": "adj.",
-        "defch1": "\u5168\u57df",
-        "defch2": "\u5168\u7403\u7684;\u7e3d\u9ad4\u7684"
+        "defch1": "\u5168\u57df;\u5168\u7403\u7684;\u7e3d\u9ad4\u7684",
+        "defch2": ""
     },
     "global brand": {
         "gl": "phr.",
@@ -2701,8 +2701,8 @@
     },
     "glossy": {
         "gl": "n.",
-        "defch1": "\u5149\u6ed1\u7684",
-        "defch2": "\u4eae\u9762"
+        "defch1": "\u5149\u6ed1\u7684;\u4eae\u9762",
+        "defch2": ""
     },
     "glove": {
         "gl": "n.",
@@ -2741,8 +2741,8 @@
     },
     "goto": {
         "gl": "v.",
-        "defch1": "\u8f49\u5230",
-        "defch2": "\u53bb"
+        "defch1": "\u8f49\u5230;\u53bb",
+        "defch2": ""
     },
     "grain": {
         "gl": "n.",
@@ -2751,13 +2751,13 @@
     },
     "graph": {
         "gl": "n.",
-        "defch1": "\u5716\u8868",
-        "defch2": "\u66f2\u7dda"
+        "defch1": "\u5716\u8868;\u66f2\u7dda",
+        "defch2": ""
     },
     "graphic": {
         "gl": "adj.",
-        "defch1": "\u5716\u5f62\u7684",
-        "defch2": "\u7e6a\u756b\u7684;\u751f\u52d5\u5beb\u5be6\u7684"
+        "defch1": "\u5716\u5f62\u7684;\u7e6a\u756b\u7684;\u751f\u52d5\u5beb\u5be6\u7684",
+        "defch2": ""
     },
     "graphic animation": {
         "gl": "n.",
@@ -2766,8 +2766,8 @@
     },
     "graphic design": {
         "gl": "phr.",
-        "defch1": "\u5716\u5f62\u8a2d\u8a08",
-        "defch2": "\u5e73\u9762\u8a2d\u8a08"
+        "defch1": "\u5716\u5f62\u8a2d\u8a08;\u5e73\u9762\u8a2d\u8a08",
+        "defch2": ""
     },
     "graphic symbol": {
         "gl": "phr.",
@@ -2776,8 +2776,8 @@
     },
     "graphics": {
         "gl": "n.",
-        "defch1": "\u88fd\u5716\u6cd5",
-        "defch2": "\u7e6a\u5716\u5b78;\u5716\u89e3\u8a08\u7b97"
+        "defch1": "\u88fd\u5716\u6cd5;\u7e6a\u5716\u5b78;\u5716\u89e3\u8a08\u7b97",
+        "defch2": ""
     },
     "gravity": {
         "gl": "n.",
@@ -2821,8 +2821,8 @@
     },
     "grid": {
         "gl": "n.",
-        "defch1": "\u683c\u5b50",
-        "defch2": "\u7db2\u683c"
+        "defch1": "\u683c\u5b50;\u7db2\u683c",
+        "defch2": ""
     },
     "grid system": {
         "gl": "phr.",
@@ -2831,8 +2831,8 @@
     },
     "group": {
         "gl": "n.",
-        "defch1": "\u7fa4",
-        "defch2": "\u7d44"
+        "defch1": "\u7fa4;\u7d44",
+        "defch2": ""
     },
     "group of pictures": {
         "gl": "phr.",
@@ -2856,18 +2856,18 @@
     },
     "handoff": {
         "gl": "n.",
-        "defch1": "\u4ea4\u905e",
-        "defch2": "\u7528\u624b\u50b3\u905e"
+        "defch1": "\u4ea4\u905e;\u7528\u624b\u50b3\u905e",
+        "defch2": ""
     },
     "haptics": {
         "gl": "n.",
-        "defch1": "\u89f8\u89ba\u53cd (\u56de) \u994b",
-        "defch2": "\u89f8\u89ba\u8ad6"
+        "defch1": "\u89f8\u89ba\u53cd (\u56de) \u994b;\u89f8\u89ba\u8ad6",
+        "defch2": ""
     },
     "harmony": {
         "gl": "n.",
-        "defch1": "\u8abf\u548c",
-        "defch2": "\u548c\u8ae7"
+        "defch1": "\u8abf\u548c;\u548c\u8ae7",
+        "defch2": ""
     },
     "header": {
         "gl": "n.",
@@ -2881,8 +2881,8 @@
     },
     "headroom": {
         "gl": "n.",
-        "defch1": "\u9802\u90e8\u7a7a\u9593",
-        "defch2": "\u6de8\u7a7a\u9ad8\u5ea6"
+        "defch1": "\u9802\u90e8\u7a7a\u9593;\u6de8\u7a7a\u9ad8\u5ea6",
+        "defch2": ""
     },
     "help": {
         "gl": "v.",
@@ -2896,13 +2896,13 @@
     },
     "heuristics": {
         "gl": "n.",
-        "defch1": "\u555f\u767c\u5f0f\u6559\u5b78\u6cd5",
-        "defch2": "\u555f\u767c\u6cd5"
+        "defch1": "\u555f\u767c\u5f0f\u6559\u5b78\u6cd5;\u555f\u767c\u6cd5",
+        "defch2": ""
     },
     "high level": {
         "gl": "phr.",
-        "defch1": "\u9ad8\u756b\u8cea\u968e\u5c64",
-        "defch2": "\u9ad8\u5c64\u6b21"
+        "defch1": "\u9ad8\u756b\u8cea\u968e\u5c64;\u9ad8\u5c64\u6b21",
+        "defch2": ""
     },
     "high light": {
         "gl": "phr.",
@@ -2916,13 +2916,13 @@
     },
     "high-definition": {
         "gl": "adj.",
-        "defch1": "\u756b\u9762\u975e\u5e38\u9bae\u660e\u7684",
-        "defch2": "\u9ad8\u89e3\u6790\u5ea6\u7684"
+        "defch1": "\u756b\u9762\u975e\u5e38\u9bae\u660e\u7684;\u9ad8\u89e3\u6790\u5ea6\u7684",
+        "defch2": ""
     },
     "histogram": {
         "gl": "n.",
-        "defch1": "\u8272\u968e",
-        "defch2": "\u67f1\u72c0\u5716;\u76f4\u65b9\u5716"
+        "defch1": "\u8272\u968e;\u67f1\u72c0\u5716;\u76f4\u65b9\u5716",
+        "defch2": ""
     },
     "hit": {
         "gl": "v.",
@@ -2936,8 +2936,8 @@
     },
     "hop": {
         "gl": "v.",
-        "defch1": "\u8df3\u8e8d",
-        "defch2": "\u55ae\u8173\u8df3"
+        "defch1": "\u8df3\u8e8d;\u55ae\u8173\u8df3",
+        "defch2": ""
     },
     "horizon line": {
         "gl": "n.",
@@ -2956,8 +2956,8 @@
     },
     "housing": {
         "gl": "n.",
-        "defch1": "\u5916\u6bbc",
-        "defch2": "\u623f\u5c4b;\u4f4f\u5b85;\u906e\u853d\u7269"
+        "defch1": "\u5916\u6bbc;\u623f\u5c4b;\u4f4f\u5b85;\u906e\u853d\u7269",
+        "defch2": ""
     },
     "hub": {
         "gl": "n.",
@@ -2966,8 +2966,8 @@
     },
     "hue": {
         "gl": "n.",
-        "defch1": "\u984f\u8272",
-        "defch2": "\u8272\u5f69;\u8272\u8abf;\u8272\u6fa4;\u8272\u5ea6"
+        "defch1": "\u984f\u8272;\u8272\u5f69;\u8272\u8abf;\u8272\u6fa4;\u8272\u5ea6",
+        "defch2": ""
     },
     "human factor": {
         "gl": "phr.",
@@ -2986,8 +2986,8 @@
     },
     "hypertext": {
         "gl": "n.",
-        "defch1": "\u8d85\u6587\u4ef6",
-        "defch2": "\u8d85\u6587\u5b57"
+        "defch1": "\u8d85\u6587\u4ef6;\u8d85\u6587\u5b57",
+        "defch2": ""
     },
     "IDA": {
         "gl": "abbr.",
@@ -2996,18 +2996,18 @@
     },
     "idea": {
         "gl": "n.",
-        "defch1": "\u69cb\u60f3",
-        "defch2": "\u898b\u89e3;\u4e3b\u610f"
+        "defch1": "\u69cb\u60f3;\u898b\u89e3;\u4e3b\u610f",
+        "defch2": ""
     },
     "identifier": {
         "gl": "n.",
-        "defch1": "\u6a19\u8b58\u7b26\u865f",
-        "defch2": "\u9451\u5b9a\u4eba;\u8b58\u5225\u78bc"
+        "defch1": "\u6a19\u8b58\u7b26\u865f;\u9451\u5b9a\u4eba;\u8b58\u5225\u78bc",
+        "defch2": ""
     },
     "illustration": {
         "gl": "n.",
-        "defch1": "\u63d2\u756b",
-        "defch2": "\u63d2\u5716"
+        "defch1": "\u63d2\u756b;\u63d2\u5716",
+        "defch2": ""
     },
     "illustrator": {
         "gl": "n.",
@@ -3016,8 +3016,8 @@
     },
     "image": {
         "gl": "v.",
-        "defch1": "\u5f71\u50cf",
-        "defch2": "\u5716\u50cf;\u60f3\u50cf;\u53cd\u6620"
+        "defch1": "\u5f71\u50cf;\u5716\u50cf;\u60f3\u50cf;\u53cd\u6620",
+        "defch2": ""
     },
     "imagination": {
         "gl": "n.",
@@ -3026,8 +3026,8 @@
     },
     "index": {
         "gl": "n.",
-        "defch1": "\u7d22\u5f15",
-        "defch2": "\u6307\u793a\u7b26\u865f"
+        "defch1": "\u7d22\u5f15;\u6307\u793a\u7b26\u865f",
+        "defch2": ""
     },
     "indexed color": {
         "gl": "n.",
@@ -3061,8 +3061,8 @@
     },
     "innovation": {
         "gl": "n.",
-        "defch1": "\u9769\u65b0",
-        "defch2": "\u5275\u65b0"
+        "defch1": "\u9769\u65b0;\u5275\u65b0",
+        "defch2": ""
     },
     "inspector": {
         "gl": "n.",
@@ -3101,13 +3101,13 @@
     },
     "intelligibility": {
         "gl": "n.",
-        "defch1": "\u8b58\u5225\u6027",
-        "defch2": "\u53ef\u7406\u89e3\u6027"
+        "defch1": "\u8b58\u5225\u6027;\u53ef\u7406\u89e3\u6027",
+        "defch2": ""
     },
     "intensity": {
         "gl": "n.",
-        "defch1": "\u5f37\u5ea6",
-        "defch2": "\u5f37\u70c8"
+        "defch1": "\u5f37\u5ea6;\u5f37\u70c8",
+        "defch2": ""
     },
     "interior design": {
         "gl": "phr.",
@@ -3126,13 +3126,13 @@
     },
     "Internet": {
         "gl": "prop.",
-        "defch1": "\u7db2\u969b\u7db2\u8def",
-        "defch2": "\u4e92\u806f\u7db2"
+        "defch1": "\u7db2\u969b\u7db2\u8def;\u4e92\u806f\u7db2",
+        "defch2": ""
     },
     "interval": {
         "gl": "n.",
-        "defch1": "\u9593\u9694",
-        "defch2": "\u97f3\u7a0b"
+        "defch1": "\u9593\u9694;\u97f3\u7a0b",
+        "defch2": ""
     },
     "intra": {
         "gl": "n.",
@@ -3171,8 +3171,8 @@
     },
     "inverse": {
         "gl": "n.",
-        "defch1": "\u53cd\u5411\u7684",
-        "defch2": "\u53cd\u9006\u7684;\u5012\u6578"
+        "defch1": "\u53cd\u5411\u7684;\u53cd\u9006\u7684;\u5012\u6578",
+        "defch2": ""
     },
     "invisible": {
         "gl": "adj.",
@@ -3191,18 +3191,18 @@
     },
     "iron": {
         "gl": "adj.",
-        "defch1": "\u9435",
-        "defch2": "\u525b\u5f37\u7684;\u71d9\u5e73"
+        "defch1": "\u9435;\u525b\u5f37\u7684;\u71d9\u5e73",
+        "defch2": ""
     },
     "island": {
         "gl": "n.",
-        "defch1": "\u5cf6\u72c0\u7269",
-        "defch2": "(\u5404\u908a\u7a7a\u9593\u958b\u653e\u7684) \u6ae5\u6ac3\u6aaf\u9762;\u5cf6;\u5cf6\u5dbc"
+        "defch1": "\u5cf6\u72c0\u7269;\u5cf6;\u5cf6\u5dbc",
+        "defch2": "ex (\u5404\u908a\u7a7a\u9593\u958b\u653e\u7684) \u6ae5\u6ac3\u6aaf\u9762"
     },
     "iterative": {
         "gl": "adj.",
-        "defch1": "\u758a\u4ee3\u5f0f\u7684",
-        "defch2": "\u53cd\u8986\u7684;\u91cd\u8907\u7684"
+        "defch1": "\u758a\u4ee3\u5f0f\u7684;\u53cd\u8986\u7684;\u91cd\u8907\u7684",
+        "defch2": ""
     },
     "Java": {
         "gl": "prop.",
@@ -3216,13 +3216,13 @@
     },
     "jitter": {
         "gl": "n.",
-        "defch1": "\u7126\u8e81",
-        "defch2": "\u6296\u52d5"
+        "defch1": "\u7126\u8e81;\u6296\u52d5",
+        "defch2": ""
     },
     "jittery": {
         "gl": "adj.",
-        "defch1": "\u7dca\u5f35\u4e0d\u5b89\u7684",
-        "defch2": "\u986b\u52d5\u7684"
+        "defch1": "\u7dca\u5f35\u4e0d\u5b89\u7684;\u986b\u52d5\u7684",
+        "defch2": ""
     },
     "join": {
         "gl": "v.",
@@ -3241,8 +3241,8 @@
     },
     "justified": {
         "gl": "adj.",
-        "defch1": "\u9f4a\u884c\u5f0f\u7684",
-        "defch2": "\u6709\u6b63\u7576\u7406\u7531\u7684"
+        "defch1": "\u9f4a\u884c\u5f0f\u7684;\u6709\u6b63\u7576\u7406\u7531\u7684",
+        "defch2": ""
     },
     "karaoke": {
         "gl": "n.",
@@ -3251,18 +3251,18 @@
     },
     "Kelvin": {
         "gl": "prop.",
-        "defch1": "\u7d55\u5c0d\u6eab\u5ea6\u7684",
-        "defch2": "\u958b (\u958b\u723e\u6587\u6eab\u6a19"
+        "defch1": "\u7d55\u5c0d\u6eab\u5ea6\u7684;\u958b (\u958b\u723e\u6587\u6eab\u6a19",
+        "defch2": ""
     },
     "key": {
         "gl": "n.",
-        "defch1": "\u8981\u9ede",
-        "defch2": "\u95dc\u9375; (\u97f3) \u8abf"
+        "defch1": "\u8981\u9ede;\u95dc\u9375; (\u97f3) \u8abf",
+        "defch2": ""
     },
     "key frame": {
         "gl": "n.",
-        "defch1": "\u4e3b\u756b\u9762",
-        "defch2": "\u95dc\u9375\u756b\u683c"
+        "defch1": "\u4e3b\u756b\u9762;\u95dc\u9375\u756b\u683c",
+        "defch2": ""
     },
     "key value": {
         "gl": "n.",
@@ -3271,8 +3271,8 @@
     },
     "keyboard": {
         "gl": "n.",
-        "defch1": "\u9375\u76e4",
-        "defch2": "\u9375\u76e4\u6a02\u5668"
+        "defch1": "\u9375\u76e4;\u9375\u76e4\u6a02\u5668",
+        "defch2": ""
     },
     "keyboard key": {
         "gl": "phr.",
@@ -3286,8 +3286,8 @@
     },
     "landscape": {
         "gl": "v.",
-        "defch1": "\u98a8\u666f",
-        "defch2": "\u7f8e\u5316\u666f\u89c0"
+        "defch1": "\u98a8\u666f;\u7f8e\u5316\u666f\u89c0",
+        "defch2": ""
     },
     "laser disk": {
         "gl": "n.",
@@ -3301,18 +3301,18 @@
     },
     "latitude": {
         "gl": "n.",
-        "defch1": "\u66dd\u5149\u5bec\u5bb9\u5ea6",
-        "defch2": "\u7def\u5ea6"
+        "defch1": "\u66dd\u5149\u5bec\u5bb9\u5ea6;\u7def\u5ea6",
+        "defch2": ""
     },
     "layer": {
         "gl": "n.",
-        "defch1": "\u5c64\u6b21",
-        "defch2": "\u5c64\u7d1a;\u5716\u5c64"
+        "defch1": "\u5c64\u6b21;\u5c64\u7d1a;\u5716\u5c64",
+        "defch2": ""
     },
     "layout": {
         "gl": "n.",
-        "defch1": "\u5e03\u5c40",
-        "defch2": "\u7248\u9762\u7de8\u6392"
+        "defch1": "\u5e03\u5c40;\u7248\u9762\u7de8\u6392",
+        "defch2": ""
     },
     "leaf": {
         "gl": "n.",
@@ -3321,8 +3321,8 @@
     },
     "legacy": {
         "gl": "n.",
-        "defch1": "\u907a\u7522",
-        "defch2": "\u907a\u7559"
+        "defch1": "\u907a\u7522;\u907a\u7559",
+        "defch2": ""
     },
     "length": {
         "gl": "n.",
@@ -3331,8 +3331,8 @@
     },
     "lens": {
         "gl": "n.",
-        "defch1": "\u93e1\u982d",
-        "defch2": "\u93e1\u7247;\u6676\u72c0\u9ad4"
+        "defch1": "\u93e1\u982d;\u93e1\u7247;\u6676\u72c0\u9ad4",
+        "defch2": ""
     },
     "lens hood": {
         "gl": "n.",
@@ -3341,8 +3341,8 @@
     },
     "Leonardo da Vinci": {
         "gl": "prop.",
-        "defch1": "\u9054\u6587\u897f",
-        "defch2": "\u674e\u5967\u7d0d\u591a\uff0e\u9054\uff0e\u82ac\u5947"
+        "defch1": "\u9054\u6587\u897f;\u674e\u5967\u7d0d\u591a\uff0e\u9054\uff0e\u82ac\u5947",
+        "defch2": ""
     },
     "less is more": {
         "gl": "phr.",
@@ -3351,18 +3351,18 @@
     },
     "lettering": {
         "gl": "n.",
-        "defch1": "\u523b\u5b57",
-        "defch2": "\u5370\u5b57"
+        "defch1": "\u523b\u5b57;\u5370\u5b57",
+        "defch2": ""
     },
     "level": {
         "gl": "n.",
-        "defch1": "\u7b49\u7d1a",
-        "defch2": "\u5c64\u7d1a"
+        "defch1": "\u7b49\u7d1a;\u5c64\u7d1a",
+        "defch2": ""
     },
     "library": {
         "gl": "n.",
-        "defch1": "\u5eab",
-        "defch2": "\u5716\u66f8\u9928"
+        "defch1": "\u5eab;\u5716\u66f8\u9928",
+        "defch2": ""
     },
     "life cycle": {
         "gl": "phr.",
@@ -3376,17 +3376,17 @@
     },
     "lifestyle": {
         "gl": "n.",
-        "defch1": "\u751f\u6d3b\u578b\u614b",
-        "defch2": "\u751f\u6d3b\u65b9\u5f0f"
+        "defch1": "\u751f\u6d3b\u578b\u614b;\u751f\u6d3b\u65b9\u5f0f",
+        "defch2": ""
     },
     "light": {
         "gl": "adj.",
-        "defch1": "\u5149",
-        "defch2": "\u660e\u4eae\u7684;\u6dfa\u8272\u7684"
+        "defch1": "\u5149;\u660e\u4eae\u7684;\u6dfa\u8272\u7684",
+        "defch2": ""
     },
     "light emitting diode": {
         "gl": "n.",
-        "defch1": "\u767c\u5149\u4e8c\u6975\u9ad4\u7c21\u7a31",
+        "defch1": "\u767c\u5149\u4e8c\u6975\u9ad4",
         "defch2": "LED"
     },
     "light source": {
@@ -3396,8 +3396,8 @@
     },
     "lighting": {
         "gl": "n.",
-        "defch1": "\u7167\u660e\u8a2d\u5099",
-        "defch2": "\u821e\u53f0\u71c8\u5149"
+        "defch1": "\u7167\u660e\u8a2d\u5099;\u821e\u53f0\u71c8\u5149",
+        "defch2": ""
     },
     "lighting design": {
         "gl": "phr.",
@@ -3456,8 +3456,8 @@
     },
     "lithography": {
         "gl": "n.",
-        "defch1": "\u5e73\u7248\u5370\u5237\u8853",
-        "defch2": "\u81a0\u5370;\u5149\u523b"
+        "defch1": "\u5e73\u7248\u5370\u5237\u8853;\u81a0\u5370;\u5149\u523b",
+        "defch2": ""
     },
     "load": {
         "gl": "v.",
@@ -3466,13 +3466,13 @@
     },
     "locale": {
         "gl": "n.",
-        "defch1": "\u5834\u6240",
-        "defch2": "\u73fe\u5834"
+        "defch1": "\u5834\u6240;\u73fe\u5834",
+        "defch2": ""
     },
     "locality": {
         "gl": "n.",
-        "defch1": "\u65b9\u4f4d",
-        "defch2": "\u5730\u5340"
+        "defch1": "\u65b9\u4f4d;\u5730\u5340",
+        "defch2": ""
     },
     "lock": {
         "gl": "v.",
@@ -3481,18 +3481,18 @@
     },
     "logo": {
         "gl": "n.",
-        "defch1": "\u6a19\u8b58",
-        "defch2": "\u5546\u6a19;\u6a19\u7ae0"
+        "defch1": "\u6a19\u8b58;\u5546\u6a19;\u6a19\u7ae0",
+        "defch2": ""
     },
     "logotype": {
         "gl": "n.",
-        "defch1": "\u6a19\u8b58",
-        "defch2": "\u5546\u6a19;\u6a19\u8a8c"
+        "defch1": "\u6a19\u8b58;\u5546\u6a19;\u6a19\u8a8c",
+        "defch2": ""
     },
     "long reach": {
         "gl": "phr.",
-        "defch1": "\u9060\u8ddd",
-        "defch2": "\u9577\u8ddd\u96e2"
+        "defch1": "\u9060\u8ddd;\u9577\u8ddd\u96e2",
+        "defch2": ""
     },
     "look at": {
         "gl": "phr.",
@@ -3501,8 +3501,8 @@
     },
     "loop": {
         "gl": "n.",
-        "defch1": "\u5faa\u74b0",
-        "defch2": "\u8ff4\u5708"
+        "defch1": "\u5faa\u74b0;\u8ff4\u5708",
+        "defch2": ""
     },
     "loss": {
         "gl": "n.",
@@ -3536,8 +3536,8 @@
     },
     "luminance": {
         "gl": "n.",
-        "defch1": "\u4eae\u5ea6",
-        "defch2": "\u767c\u5149 (\u6027)"
+        "defch1": "\u4eae\u5ea6;\u767c\u5149 (\u6027)",
+        "defch2": ""
     },
     "luminosity": {
         "gl": "n.",
@@ -3561,18 +3561,18 @@
     },
     "macroblock": {
         "gl": "n.",
-        "defch1": "\u5de8\u96c6\u5340\u584a",
-        "defch2": "\u96c6\u5408\u5340\u584a"
+        "defch1": "\u5de8\u96c6\u5340\u584a;\u96c6\u5408\u5340\u584a",
+        "defch2": ""
     },
     "magazine": {
         "gl": "n.",
-        "defch1": "\u5e95\u7247\u76d2",
-        "defch2": "\u96dc\u8a8c"
+        "defch1": "\u5e95\u7247\u76d2;\u96dc\u8a8c",
+        "defch2": ""
     },
     "magic wand": {
         "gl": "n.",
-        "defch1": "\u795e\u5947\u9b54\u6756",
-        "defch2": "\u795e\u5947\u9b54\u8853\u68d2"
+        "defch1": "\u795e\u5947\u9b54\u6756;\u795e\u5947\u9b54\u8853\u68d2",
+        "defch2": ""
     },
     "magneto optical": {
         "gl": "phr.",
@@ -3581,8 +3581,8 @@
     },
     "magnitude": {
         "gl": "n.",
-        "defch1": "\u5927\u5c0f",
-        "defch2": "\u5f37\u5ea6"
+        "defch1": "\u5927\u5c0f;\u5f37\u5ea6",
+        "defch2": ""
     },
     "mailing list": {
         "gl": "phr.",
@@ -3606,13 +3606,13 @@
     },
     "make room": {
         "gl": "phr.",
-        "defch1": "\u8b93\u51fa\u4f4d\u7f6e",
-        "defch2": "\u9a30\u51fa\u7a7a\u9593"
+        "defch1": "\u8b93\u51fa\u4f4d\u7f6e;\u9a30\u51fa\u7a7a\u9593",
+        "defch2": ""
     },
     "manager": {
         "gl": "n.",
-        "defch1": "\u7ba1\u7406\u54e1",
-        "defch2": "\u7d93\u7406"
+        "defch1": "\u7ba1\u7406\u54e1;\u7d93\u7406",
+        "defch2": ""
     },
     "manual focus": {
         "gl": "phr.",
@@ -3626,8 +3626,8 @@
     },
     "maple": {
         "gl": "n.",
-        "defch1": "\u6953\u6a39",
-        "defch2": "\u6953\u6728;\u69ed\u6a39\u6728\u6750"
+        "defch1": "\u6953\u6a39;\u6953\u6728;\u69ed\u6a39\u6728\u6750",
+        "defch2": ""
     },
     "marble": {
         "gl": "n.",
@@ -3646,8 +3646,8 @@
     },
     "marketing": {
         "gl": "n.",
-        "defch1": "\u884c\u92b7\u5b78",
-        "defch2": "\u5e02\u5834\u71df\u92b7;\u884c\u92b7"
+        "defch1": "\u884c\u92b7\u5b78;\u5e02\u5834\u71df\u92b7;\u884c\u92b7",
+        "defch2": ""
     },
     "markup language": {
         "gl": "n.",
@@ -3656,8 +3656,8 @@
     },
     "mask": {
         "gl": "n.",
-        "defch1": "\u906e\u7f69",
-        "defch2": "\u906e\u853d;\u63a9\u98fe;\u53e3\u7f69;"
+        "defch1": "\u906e\u7f69;\u906e\u853d;\u63a9\u98fe;\u53e3\u7f69;",
+        "defch2": ""
     },
     "mass": {
         "gl": "n.",
@@ -3666,18 +3666,18 @@
     },
     "mass production": {
         "gl": "phr.",
-        "defch1": "\u91cf\u7522",
-        "defch2": "\u5927\u898f\u6a21\u751f\u7522"
+        "defch1": "\u91cf\u7522;\u5927\u898f\u6a21\u751f\u7522",
+        "defch2": ""
     },
     "matching": {
         "gl": "adj.",
-        "defch1": "\u5339\u914d\u7684",
-        "defch2": "\u76f8\u7a31\u7684"
+        "defch1": "\u5339\u914d\u7684;\u76f8\u7a31\u7684",
+        "defch2": ""
     },
     "material": {
         "gl": "adj.",
-        "defch1": "\u6750\u8cea",
-        "defch2": "\u539f\u6599;\u7269\u8cea\u7684"
+        "defch1": "\u6750\u8cea;\u539f\u6599;\u7269\u8cea\u7684",
+        "defch2": ""
     },
     "material cause": {
         "gl": "phr.",
@@ -3686,13 +3686,13 @@
     },
     "matte": {
         "gl": "n.",
-        "defch1": "\u9727\u9762",
-        "defch2": "\u6d88\u5149;\u8499\u7248\u7279\u6548;\u906e\u666f\u7279\u6548"
+        "defch1": "\u9727\u9762;\u6d88\u5149;\u8499\u7248\u7279\u6548;\u906e\u666f\u7279\u6548",
+        "defch2": ""
     },
     "matte painting": {
         "gl": "phr.",
-        "defch1": "\u80cc\u666f\u88fd\u4f5c",
-        "defch2": "\u906e\u666f\u7e6a\u756b;"
+        "defch1": "\u80cc\u666f\u88fd\u4f5c;\u906e\u666f\u7e6a\u756b",
+        "defch2": ""
     },
     "Mbps": {
         "gl": "prop.",
@@ -3701,8 +3701,8 @@
     },
     "media": {
         "gl": "n.",
-        "defch1": "\u5a92\u4ecb",
-        "defch2": "\u5a92\u9ad4 (\u8907\u6578\u578b)"
+        "defch1": "\u5a92\u4ecb;\u5a92\u9ad4 (\u8907\u6578\u578b)",
+        "defch2": ""
     },
     "media buying": {
         "gl": "phr.",
@@ -3711,8 +3711,8 @@
     },
     "media director": {
         "gl": "n.",
-        "defch1": "\u5a92\u4ecb\u7e3d\u76e3",
-        "defch2": "\u5a92\u9ad4\u7e3d\u76e3"
+        "defch1": "\u5a92\u4ecb\u7e3d\u76e3;\u5a92\u9ad4\u7e3d\u76e3",
+        "defch2": ""
     },
     "media mix": {
         "gl": "phr.",
@@ -3731,8 +3731,8 @@
     },
     "medium": {
         "gl": "adj.",
-        "defch1": "\u5a92\u9ad4",
-        "defch2": "\u5a92\u4ecb;\u4e2d\u9593\u7684; (\u85dd\u8853\u5275"
+        "defch1": "\u5a92\u9ad4;\u5a92\u4ecb;\u4e2d\u9593\u7684",
+        "defch2": ""
     },
     "megabyte": {
         "gl": "n.",
@@ -3756,8 +3756,8 @@
     },
     "memex": {
         "gl": "n.",
-        "defch1": "\u8a18\u61b6\u6a5f",
-        "defch2": "\u9ea5\u514b\u65af\u5132\u5b58\u5668"
+        "defch1": "\u8a18\u61b6\u6a5f;\u9ea5\u514b\u65af\u5132\u5b58\u5668",
+        "defch2": ""
     },
     "memory card": {
         "gl": "n.",
@@ -3786,18 +3786,18 @@
     },
     "metaball": {
         "gl": "n.",
-        "defch1": "\u8b8a\u5f62\u7403",
-        "defch2": "\u5143\u7403"
+        "defch1": "\u8b8a\u5f62\u7403;\u5143\u7403",
+        "defch2": ""
     },
     "metadata": {
         "gl": "n.",
-        "defch1": "\u8a6e\u91cb\u8cc7\u6599",
-        "defch2": "\u5143\u6578\u64da;\u4e2d\u7e7c\u8cc7\u6599"
+        "defch1": "\u8a6e\u91cb\u8cc7\u6599;\u5143\u6578\u64da;\u4e2d\u7e7c\u8cc7\u6599",
+        "defch2": ""
     },
     "metamerism": {
         "gl": "n.",
-        "defch1": "\u689d\u4ef6\u7b49\u8272",
-        "defch2": "\u540c\u8272\u7570\u8b5c\u8272"
+        "defch1": "\u689d\u4ef6\u7b49\u8272;\u540c\u8272\u7570\u8b5c\u8272",
+        "defch2": ""
     },
     "methodology": {
         "gl": "n.",
@@ -3806,8 +3806,8 @@
     },
     "micro": {
         "gl": "adj.",
-        "defch1": "\u5fae\u5c0f\u7684",
-        "defch2": "\u5fae\u7c73\u7684"
+        "defch1": "\u5fae\u5c0f\u7684;\u5fae\u7c73\u7684",
+        "defch2": ""
     },
     "microfilm": {
         "gl": "n.",
@@ -3846,18 +3846,18 @@
     },
     "midrise": {
         "gl": "n.",
-        "defch1": "\u4e2d\u6607\u578b",
-        "defch2": "\u4e2d\u9ede\u4e0a\u5347"
+        "defch1": "\u4e2d\u6607\u578b;\u4e2d\u9ede\u4e0a\u5347",
+        "defch2": ""
     },
     "midtread": {
         "gl": "n.",
-        "defch1": "\u4e2d\u592e\u968e\u5c64",
-        "defch2": "\u4e2d\u9ede\u6c34\u5e73"
+        "defch1": "\u4e2d\u592e\u968e\u5c64;\u4e2d\u9ede\u6c34\u5e73",
+        "defch2": ""
     },
     "millisecond": {
         "gl": "n.",
-        "defch1": "\u5fae\u79d2",
-        "defch2": "\u6beb\u79d2"
+        "defch1": "\u5fae\u79d2;\u6beb\u79d2",
+        "defch2": ""
     },
     "mind identity": {
         "gl": "phr.",
@@ -3866,8 +3866,8 @@
     },
     "mini": {
         "gl": "adj.",
-        "defch1": "\u6beb\u7c73",
-        "defch2": "\u5fae\u5c0f"
+        "defch1": "\u6beb\u7c73;\u5fae\u5c0f",
+        "defch2": ""
     },
     "mixed media": {
         "gl": "phr.",
@@ -3891,8 +3891,8 @@
     },
     "model": {
         "gl": "v.",
-        "defch1": "\u6a21\u578b",
-        "defch2": "\u6a23\u677f;\u6a21\u7279\u5152;\u5851\u9020"
+        "defch1": "\u6a21\u578b;\u6a23\u677f;\u6a21\u7279\u5152;\u5851\u9020",
+        "defch2": ""
     },
     "model animation": {
         "gl": "phr.",
@@ -3906,8 +3906,8 @@
     },
     "modeling": {
         "gl": "adj.",
-        "defch1": "\u5efa\u6a21",
-        "defch2": "\u9020\u578b (\u8853) ;\u7acb\u9ad4\u611f;"
+        "defch1": "\u5efa\u6a21;\u9020\u578b (\u8853) ;\u7acb\u9ad4\u611f",
+        "defch2": ""
     },
     "modem": {
         "gl": "n.",
@@ -3931,18 +3931,18 @@
     },
     "module": {
         "gl": "n.",
-        "defch1": "\u6a21\u7d44",
-        "defch2": "\u6a21\u584a;\u6a21\u6578"
+        "defch1": "\u6a21\u7d44;\u6a21\u584a;\u6a21\u6578",
+        "defch2": ""
     },
     "modulo": {
         "gl": "prep.",
-        "defch1": "\u95dc\u65bc\u6a21\u6578",
-        "defch2": "\u4ee5\u2026\u70ba\u6a21"
+        "defch1": "\u95dc\u65bc\u6a21\u6578;\u4ee5\u2026\u70ba\u6a21",
+        "defch2": ""
     },
     "moment": {
         "gl": "n.",
-        "defch1": "\u7247\u523b",
-        "defch2": "\u77ac\u9593;\u6642\u6a5f"
+        "defch1": "\u7247\u523b;\u77ac\u9593;\u6642\u6a5f",
+        "defch2": ""
     },
     "monitor": {
         "gl": "n.",
@@ -3971,13 +3971,13 @@
     },
     "motif": {
         "gl": "phr.",
-        "defch1": "\u4e3b\u984c",
-        "defch2": "(\u88dd\u98fe) \u5716\u6848"
+        "defch1": "\u4e3b\u984c;(\u88dd\u98fe) \u5716\u6848",
+        "defch2": ""
     },
     "motion": {
         "gl": "n.",
-        "defch1": "\u79fb\u52d5 (\u91cf)",
-        "defch2": "\u52d5\u4f5c"
+        "defch1": "\u79fb\u52d5 (\u91cf);\u52d5\u4f5c",
+        "defch2": ""
     },
     "motion blur": {
         "gl": "n.",
@@ -4011,13 +4011,13 @@
     },
     "movement": {
         "gl": "n.",
-        "defch1": "\u904b\u52d5",
-        "defch2": "\u6d3b\u52d5;\u50be\u5411"
+        "defch1": "\u904b\u52d5;\u6d3b\u52d5;\u50be\u5411",
+        "defch2": ""
     },
     "movie": {
         "gl": "n.",
-        "defch1": "\u5f71\u7247",
-        "defch2": "\u96fb\u5f71"
+        "defch1": "\u5f71\u7247;\u96fb\u5f71",
+        "defch2": ""
     },
     "movie clip symbol": {
         "gl": "phr.",
@@ -4026,13 +4026,13 @@
     },
     "msec.": {
         "gl": "n.",
-        "defch1": "\u6beb\u79d2",
-        "defch2": "\u5343\u5206\u4e4b\u4e00\u79d2"
+        "defch1": "\u6beb\u79d2;\u5343\u5206\u4e4b\u4e00\u79d2",
+        "defch2": ""
     },
     "multicast": {
         "gl": "n.",
-        "defch1": "\u7fa4\u64ad",
-        "defch2": "\u591a\u91cd\u64ad\u9001"
+        "defch1": "\u7fa4\u64ad;\u591a\u91cd\u64ad\u9001",
+        "defch2": ""
     },
     "multimedia": {
         "gl": "n.",
@@ -4051,8 +4051,8 @@
     },
     "multi-voice": {
         "gl": "n.",
-        "defch1": "\u91cd\u8072",
-        "defch2": "\u591a\u8072\u90e8"
+        "defch1": "\u91cd\u8072;\u591a\u8072\u90e8",
+        "defch2": ""
     },
     "Munsell": {
         "gl": "prop.",
@@ -4071,33 +4071,33 @@
     },
     "naivety": {
         "gl": "n.",
-        "defch1": "\u5929\u771f",
-        "defch2": "\u8cea\u6a38"
+        "defch1": "\u5929\u771f;\u8cea\u6a38",
+        "defch2": ""
     },
     "nano": {
         "gl": "n.",
-        "defch1": "\u5948",
-        "defch2": "\u6beb\u5fae;\u5948\u7c73;\u7d0d\u7c73"
+        "defch1": "\u5948;\u6beb\u5fae;\u5948\u7c73;\u7d0d\u7c73",
+        "defch2": ""
     },
     "nanometer": {
         "gl": "n.",
-        "defch1": "\u5948\u7c73",
-        "defch2": "\u7d0d\u7c73"
+        "defch1": "\u5948\u7c73;\u7d0d\u7c73",
+        "defch2": ""
     },
     "narrator": {
         "gl": "n.",
-        "defch1": "\u89e3\u8aaa\u54e1",
-        "defch2": "\u8b1b\u8ff0\u8005"
+        "defch1": "\u89e3\u8aaa\u54e1;\u8b1b\u8ff0\u8005",
+        "defch2": ""
     },
     "navigation": {
         "gl": "n.",
-        "defch1": "\u9818\u822a",
-        "defch2": "\u5c0e\u822a"
+        "defch1": "\u9818\u822a;\u5c0e\u822a",
+        "defch2": ""
     },
     "negative": {
         "gl": "adj.",
-        "defch1": "\u8ca0\u7247",
-        "defch2": "\u5e95\u7247;\u8ca0\u9762\u7684;\u5426\u5b9a\u7684"
+        "defch1": "\u8ca0\u7247;\u5e95\u7247;\u8ca0\u9762\u7684;\u5426\u5b9a\u7684",
+        "defch2": ""
     },
     "negative space": {
         "gl": "n.",
@@ -4126,8 +4126,8 @@
     },
     "neutral": {
         "gl": "adj.",
-        "defch1": "\u4e2d\u7acb\u7684",
-        "defch2": "\u975e\u5f69\u8272\u7684;\u7121\u8272\u5f69"
+        "defch1": "\u4e2d\u7acb\u7684;\u975e\u5f69\u8272\u7684;\u7121\u8272\u5f69",
+        "defch2": ""
     },
     "node": {
         "gl": "n.",
@@ -4141,8 +4141,8 @@
     },
     "normal": {
         "gl": "adj.",
-        "defch1": "\u4e00\u822c",
-        "defch2": "\u6a19\u6e96;\u6b63\u5e38\u7684"
+        "defch1": "\u4e00\u822c;\u6a19\u6e96;\u6b63\u5e38\u7684",
+        "defch2": ""
     },
     "normal lens": {
         "gl": "n.",
@@ -4151,8 +4151,8 @@
     },
     "note": {
         "gl": "v.",
-        "defch1": "\u97f3\u7b26",
-        "defch2": "\u7b46\u8a18;\u6ce8\u610f"
+        "defch1": "\u97f3\u7b26;\u7b46\u8a18;\u6ce8\u610f",
+        "defch2": ""
     },
     "note off": {
         "gl": "phr.",
@@ -4166,8 +4166,8 @@
     },
     "noteworthy": {
         "gl": "adj.",
-        "defch1": "\u986f\u8457\u7684",
-        "defch2": "\u503c\u5f97\u6ce8\u610f\u7684"
+        "defch1": "\u986f\u8457\u7684;\u503c\u5f97\u6ce8\u610f\u7684",
+        "defch2": ""
     },
     "not-for-profit": {
         "gl": "phr.",
@@ -4176,18 +4176,18 @@
     },
     "object": {
         "gl": "n.",
-        "defch1": "\u7269\u9ad4",
-        "defch2": "\u7269\u4ef6;\u4e3b\u9ad4;\u5c0d\u8c61"
+        "defch1": "\u7269\u9ad4;\u7269\u4ef6;\u4e3b\u9ad4;\u5c0d\u8c61",
+        "defch2": ""
     },
     "object animation": {
         "gl": "n.",
-        "defch1": "\u5be6\u9ad4\u52d5\u756b",
-        "defch2": "\u7269\u4ef6\u52d5\u756b"
+        "defch1": "\u5be6\u9ad4\u52d5\u756b;\u7269\u4ef6\u52d5\u756b",
+        "defch2": ""
     },
     "occlusion": {
         "gl": "n.",
-        "defch1": "\u9589\u585e",
-        "defch2": "\u54ac\u5408"
+        "defch1": "\u9589\u585e;\u54ac\u5408",
+        "defch2": ""
     },
     "off": {
         "gl": "n.",
@@ -4196,8 +4196,8 @@
     },
     "offset": {
         "gl": "v.",
-        "defch1": "\u5e73\u7248\u5370\u5237",
-        "defch2": "\u504f\u79fb\u690d"
+        "defch1": "\u5e73\u7248\u5370\u5237;\u504f\u79fb\u690d",
+        "defch2": ""
     },
     "oil painting": {
         "gl": "n.",
@@ -4241,13 +4241,13 @@
     },
     "operator": {
         "gl": "n.",
-        "defch1": "\u64cd\u4f5c\u54e1",
-        "defch2": "\u904b\u7b97\u5143 (\u7b26)"
+        "defch1": "\u64cd\u4f5c\u54e1;\u904b\u7b97\u5143 (\u7b26)",
+        "defch2": ""
     },
     "opposite": {
         "gl": "n.",
-        "defch1": "\u76f8\u5c0d\u7684",
-        "defch2": "\u5c0d\u7acb\u9762"
+        "defch1": "\u76f8\u5c0d\u7684;\u5c0d\u7acb\u9762",
+        "defch2": ""
     },
     "optical zoom": {
         "gl": "phr.",
@@ -4261,13 +4261,13 @@
     },
     "optional": {
         "gl": "adj.",
-        "defch1": "\u96a8\u610f\u7684",
-        "defch2": "\u53ef\u9078\u64c7\u7684"
+        "defch1": "\u96a8\u610f\u7684;\u53ef\u9078\u64c7\u7684",
+        "defch2": ""
     },
     "order": {
         "gl": "n.",
-        "defch1": "\u968e\u7d1a",
-        "defch2": "\u547d\u4ee4;\u6307\u793a"
+        "defch1": "\u968e\u7d1a;\u547d\u4ee4;\u6307\u793a",
+        "defch2": ""
     },
     "organic design": {
         "gl": "phr.",
@@ -4276,8 +4276,8 @@
     },
     "oriented": {
         "gl": "adj.",
-        "defch1": "\u5c0e\u5411\u7684",
-        "defch2": "\u4ee5\u2026\u70ba\u76ee\u7684\u7684"
+        "defch1": "\u5c0e\u5411\u7684;\u4ee5\u2026\u70ba\u76ee\u7684\u7684",
+        "defch2": ""
     },
     "outdoor": {
         "gl": "adj.",
@@ -4286,8 +4286,8 @@
     },
     "outer": {
         "gl": "adj.",
-        "defch1": "\u5916\u90e8\u7684",
-        "defch2": "\u5916\u9762\u7684;\u5916\u8868\u7684"
+        "defch1": "\u5916\u90e8\u7684;\u5916\u9762\u7684;\u5916\u8868\u7684",
+        "defch2": ""
     },
     "outline": {
         "gl": "n.",
@@ -4301,13 +4301,13 @@
     },
     "over": {
         "gl": "prep.",
-        "defch1": "\u904e\u5ea6",
-        "defch2": "\u8d85\u904e;\u5728\u2026\u7684\u4e0a\u65b9"
+        "defch1": "\u904e\u5ea6;\u8d85\u904e;\u5728\u2026\u7684\u4e0a\u65b9",
+        "defch2": ""
     },
     "overflow": {
         "gl": "n.",
-        "defch1": "\u8d85\u8f09",
-        "defch2": "\u6ea2\u51fa;\u6c3e\u6feb"
+        "defch1": "\u8d85\u8f09;\u6ea2\u51fa;\u6c3e\u6feb",
+        "defch2": ""
     },
     "overtone": {
         "gl": "n.",
@@ -4326,8 +4326,8 @@
     },
     "page layout": {
         "gl": "phr.",
-        "defch1": "\u7248\u9762",
-        "defch2": "\u9801\u9762 (\u5e03\u5c40)"
+        "defch1": "\u7248\u9762;\u9801\u9762 (\u5e03\u5c40)",
+        "defch2": ""
     },
     "pages per minute": {
         "gl": "phr.",
@@ -4336,8 +4336,8 @@
     },
     "paint": {
         "gl": "n.",
-        "defch1": "\u6cb9\u6f06",
-        "defch2": "\u7e6a\u756b;\u984f\u6599"
+        "defch1": "\u6cb9\u6f06;\u7e6a\u756b;\u984f\u6599",
+        "defch2": ""
     },
     "paint-on-glass animation": {
         "gl": "phr.",
@@ -4356,13 +4356,13 @@
     },
     "pan": {
         "gl": "v.",
-        "defch1": "\u93e1\u982d\u904b\u52d5\u5e73\u79fb",
-        "defch2": "\u6416 (\u651d\u5f71\u6a5f) \u93e1\u982d"
+        "defch1": "\u93e1\u982d\u904b\u52d5\u5e73\u79fb;\u6416 (\u651d\u5f71\u6a5f) \u93e1\u982d",
+        "defch2": ""
     },
     "Panasonic": {
         "gl": "prop.",
-        "defch1": "\u677e\u4e0b",
-        "defch2": "\u677e\u4e0b\u96fb\u5668"
+        "defch1": "\u677e\u4e0b;\u677e\u4e0b\u96fb\u5668",
+        "defch2": ""
     },
     "Pantone": {
         "gl": "prop.",
@@ -4371,8 +4371,8 @@
     },
     "pantry": {
         "gl": "n.",
-        "defch1": "\u9910\u5177\u5ba4",
-        "defch2": "\u98df\u54c1\u5132\u85cf\u5ba4"
+        "defch1": "\u9910\u5177\u5ba4;\u98df\u54c1\u5132\u85cf\u5ba4",
+        "defch2": ""
     },
     "parallax": {
         "gl": "n.",
@@ -4386,28 +4386,28 @@
     },
     "particle": {
         "gl": "n.",
-        "defch1": "\u7c92\u5b50",
-        "defch2": "\u8cea\u9ede"
+        "defch1": "\u7c92\u5b50;\u8cea\u9ede",
+        "defch2": ""
     },
     "partition": {
         "gl": "v.",
-        "defch1": "(\u5206\u5272\u800c\u6210\u7684) \u90e8\u5206",
-        "defch2": "\u5206\u5272"
+        "defch1": "(\u5206\u5272\u800c\u6210\u7684) \u90e8\u5206;\u5206\u5272",
+        "defch2": ""
     },
     "pass": {
         "gl": "v.",
-        "defch1": "\u901a\u904e",
-        "defch2": "\u50b3\u905e;\u53ca\u683c"
+        "defch1": "\u901a\u904e;\u50b3\u905e;\u53ca\u683c",
+        "defch2": ""
     },
     "patch": {
         "gl": "n.",
-        "defch1": "\u6591\u9ede",
-        "defch2": "\u6591\u99c1;\u88dc\u4e01"
+        "defch1": "\u6591\u9ede;\u6591\u99c1;\u88dc\u4e01",
+        "defch2": ""
     },
     "patent": {
         "gl": "adj.",
-        "defch1": "\u5c08\u5229",
-        "defch2": "\u6709\u5c08\u5229\u6b0a\u7684"
+        "defch1": "\u5c08\u5229;\u6709\u5c08\u5229\u6b0a\u7684",
+        "defch2": ""
     },
     "path": {
         "gl": "n.",
@@ -4421,18 +4421,18 @@
     },
     "pattern": {
         "gl": "v.",
-        "defch1": "\u5716\u6a23",
-        "defch2": "\u6a21\u5f0f;\u6a23\u5f0f;\u5716\u7d0b;"
+        "defch1": "\u5716\u6a23;\u6a21\u5f0f;\u6a23\u5f0f;\u5716\u7d0b;",
+        "defch2": ""
     },
     "payload": {
         "gl": "n.",
-        "defch1": "\u8ca0\u8f09",
-        "defch2": "\u4eba\u4e8b\u8cbb"
+        "defch1": "\u8ca0\u8f09;\u4eba\u4e8b\u8cbb",
+        "defch2": ""
     },
     "peak": {
         "gl": "n.",
-        "defch1": "\u5cf0\u503c",
-        "defch2": "\u5cf0\u9802"
+        "defch1": "\u5cf0\u503c;\u5cf0\u9802",
+        "defch2": ""
     },
     "penetration": {
         "gl": "n.",
@@ -4441,8 +4441,8 @@
     },
     "perform": {
         "gl": "v.",
-        "defch1": "\u8868\u6f14",
-        "defch2": "\u57f7\u884c"
+        "defch1": "\u8868\u6f14;\u57f7\u884c",
+        "defch2": ""
     },
     "performance": {
         "gl": "n.",
@@ -4451,8 +4451,8 @@
     },
     "persona": {
         "gl": "n.",
-        "defch1": "\u4eba\u7269\u8a8c",
-        "defch2": "\u5c0f\u8aaa (\u6216\u6232\u5287) \u4e2d\u7684\u89d2\u8272"
+        "defch1": "\u4eba\u7269\u8a8c;\u5c0f\u8aaa (\u6216\u6232\u5287) \u4e2d\u7684\u89d2\u8272",
+        "defch2": ""
     },
     "personal computer": {
         "gl": "n.",
@@ -4461,13 +4461,13 @@
     },
     "perspective": {
         "gl": "adj.",
-        "defch1": "\u900f\u8996\u5716\u6cd5",
-        "defch2": "\u9060\u8fd1\u756b\u6cd5;\u770b\u6cd5;"
+        "defch1": "\u900f\u8996\u5716\u6cd5;\u9060\u8fd1\u756b\u6cd5;\u770b\u6cd5;",
+        "defch2": ""
     },
     "phase": {
         "gl": "n.",
-        "defch1": "\u76f8\u4f4d",
-        "defch2": "\u968e\u6bb5"
+        "defch1": "\u76f8\u4f4d;\u968e\u6bb5",
+        "defch2": ""
     },
     "Philips": {
         "gl": "prop.",
@@ -4481,18 +4481,18 @@
     },
     "photocopy": {
         "gl": "v.",
-        "defch1": "\u5f71\u5370",
-        "defch2": "\u5f71\u5370\u672c"
+        "defch1": "\u5f71\u5370;\u5f71\u5370\u672c",
+        "defch2": ""
     },
     "photogenic": {
         "gl": "adj.",
-        "defch1": "\u6613\u4e0a\u93e1\u982d\u7684",
-        "defch2": "\u4e0a\u76f8\u7684"
+        "defch1": "\u6613\u4e0a\u93e1\u982d\u7684;\u4e0a\u76f8\u7684",
+        "defch2": ""
     },
     "photograph": {
         "gl": "v.",
-        "defch1": "\u76f8\u7247",
-        "defch2": "\u62cd\u7167"
+        "defch1": "\u76f8\u7247;\u62cd\u7167",
+        "defch2": ""
     },
     "photographer": {
         "gl": "n.",
@@ -4501,18 +4501,18 @@
     },
     "photography": {
         "gl": "n.",
-        "defch1": "\u651d\u5f71",
-        "defch2": "\u7167\u76f8\u8853"
+        "defch1": "\u651d\u5f71;\u7167\u76f8\u8853",
+        "defch2": ""
     },
     "photometer": {
         "gl": "n.",
-        "defch1": "\u5149\u5ea6\u8a08",
-        "defch2": "\u5149\u5ea6\u6e2c\u5b9a\u5668;\u6e2c\u5149\u8868"
+        "defch1": "\u5149\u5ea6\u8a08;\u5149\u5ea6\u6e2c\u5b9a\u5668;\u6e2c\u5149\u8868",
+        "defch2": ""
     },
     "physical": {
         "gl": "n.",
-        "defch1": "\u5be6\u9ad4\u7684",
-        "defch2": "\u7269\u8cea\u7684"
+        "defch1": "\u5be6\u9ad4\u7684;\u7269\u8cea\u7684",
+        "defch2": ""
     },
     "physics": {
         "gl": "n.",
@@ -4521,23 +4521,23 @@
     },
     "physiology": {
         "gl": "n.",
-        "defch1": "\u751f\u614b\u5b78",
-        "defch2": "\u751f\u7406\u5b78;\u751f\u7406\u6a5f\u80fd"
+        "defch1": "\u751f\u614b\u5b78;\u751f\u7406\u5b78;\u751f\u7406\u6a5f\u80fd",
+        "defch2": ""
     },
     "pictogram": {
         "gl": "n.",
-        "defch1": "\u8c61\u5f62\u5716",
-        "defch2": "\u8c61\u5f62\u6587\u5b57;\u5716\u5f62\u7b26\u865f"
+        "defch1": "\u8c61\u5f62\u5716;\u8c61\u5f62\u6587\u5b57;\u5716\u5f62\u7b26\u865f",
+        "defch2": ""
     },
     "picture": {
         "gl": "v.",
-        "defch1": "\u5716\u7247",
-        "defch2": "\u5f71\u50cf;\u7167\u7247;\u5716\u756b;"
+        "defch1": "\u5716\u7247;\u5f71\u50cf;\u7167\u7247;\u5716\u756b;",
+        "defch2": ""
     },
     "picture start code": {
         "gl": "phr.",
-        "defch1": "\u5f71\u50cf\u8d77\u59cb\u78bc",
-        "defch2": "\u5716\u50cf\u8d77\u59cb\u78bc\u7c21\u7a31;PSC"
+        "defch1": "\u5f71\u50cf\u8d77\u59cb\u78bc;\u5716\u50cf\u8d77\u59cb\u78bc",
+        "defch2": "PSC"
     },
     "picture story": {
         "gl": "phr.",
@@ -4551,8 +4551,8 @@
     },
     "pigment": {
         "gl": "v.",
-        "defch1": "\u8272\u7d20",
-        "defch2": "\u984f\u6599;\u84cb\u8272"
+        "defch1": "\u8272\u7d20;\u984f\u6599;\u84cb\u8272",
+        "defch2": ""
     },
     "pinscreen animation": {
         "gl": "phr.",
@@ -4571,8 +4571,8 @@
     },
     "pixel": {
         "gl": "n.",
-        "defch1": "\u50cf\u7d20",
-        "defch2": "\u756b\u7d20;\u5716\u7d20"
+        "defch1": "\u50cf\u7d20;\u756b\u7d20;\u5716\u7d20",
+        "defch2": ""
     },
     "pixel dimension": {
         "gl": "phr.",
@@ -4606,13 +4606,13 @@
     },
     "plastic arts": {
         "gl": "phr.",
-        "defch1": "\u9020\u578b\u85dd\u8853",
-        "defch2": "\u5851\u6599\u85dd\u8853 (\u591a\u7528\u8907\u6578\u5f62)"
+        "defch1": "\u9020\u578b\u85dd\u8853;\u5851\u6599\u85dd\u8853 (\u591a\u7528\u8907\u6578\u5f62)",
+        "defch2": ""
     },
     "plate": {
         "gl": "n.",
-        "defch1": "\u611f\u5149\u7247",
-        "defch2": "\u611f\u5149\u677f"
+        "defch1": "\u611f\u5149\u7247;\u611f\u5149\u677f",
+        "defch2": ""
     },
     "play": {
         "gl": "v.",
@@ -4621,8 +4621,8 @@
     },
     "play sound": {
         "gl": "n.",
-        "defch1": "\u64ad\u8072",
-        "defch2": "\u64ad\u653e\u8072\u97f3"
+        "defch1": "\u64ad\u8072;\u64ad\u653e\u8072\u97f3",
+        "defch2": ""
     },
     "pleasurable": {
         "gl": "adj.",
@@ -4631,13 +4631,13 @@
     },
     "plugin": {
         "gl": "adj.",
-        "defch1": "\u63d2\u4ef6",
-        "defch2": "\u63d2\u5165\u5f0f\u7684"
+        "defch1": "\u63d2\u4ef6;\u63d2\u5165\u5f0f\u7684",
+        "defch2": ""
     },
     "point": {
         "gl": "n.",
-        "defch1": "\u9ede",
-        "defch2": "\u4e00\u7a2e\u5c3a\u5bf8\u55ae\u4f4d\u7c21\u7a31;PT"
+        "defch1": "\u9ede;\u4e00\u7a2e\u5c3a\u5bf8\u55ae\u4f4d",
+        "defch2": "PT"
     },
     "point light": {
         "gl": "n.",
@@ -4646,8 +4646,8 @@
     },
     "pointillism": {
         "gl": "n.",
-        "defch1": "\u9ede\u63cf (\u7e6a) \u6d3e",
-        "defch2": "\u9ede\u756b\u6cd5"
+        "defch1": "\u9ede\u63cf (\u7e6a) \u6d3e;\u9ede\u756b\u6cd5",
+        "defch2": ""
     },
     "point-to-point": {
         "gl": "n.",
@@ -4661,13 +4661,13 @@
     },
     "policy": {
         "gl": "n.",
-        "defch1": "\u7b56\u7565",
-        "defch2": "\u653f\u7b56"
+        "defch1": "\u7b56\u7565;\u653f\u7b56",
+        "defch2": ""
     },
     "polish": {
         "gl": "v.",
-        "defch1": "\u62cb\u5149",
-        "defch2": "\u5149\u6fa4"
+        "defch1": "\u62cb\u5149;\u5149\u6fa4",
+        "defch2": ""
     },
     "poly": {
         "gl": "n.",
@@ -4686,13 +4686,13 @@
     },
     "polyphony": {
         "gl": "n.",
-        "defch1": "\u591a\u8072",
-        "defch2": "\u8907\u97f3;\u8907\u8abf\u97f3\u6a02;\u5c0d\u4f4d\u6cd5"
+        "defch1": "\u591a\u8072;\u8907\u97f3;\u8907\u8abf\u97f3\u6a02;\u5c0d\u4f4d\u6cd5",
+        "defch2": ""
     },
     "pop art": {
         "gl": "phr.",
-        "defch1": "\u666e\u666e\u85dd\u8853",
-        "defch2": "\u6ce2\u666e\u85dd\u8853"
+        "defch1": "\u666e\u666e\u85dd\u8853;\u6ce2\u666e\u85dd\u8853",
+        "defch2": ""
     },
     "port": {
         "gl": "n.",
@@ -4716,13 +4716,13 @@
     },
     "positioning": {
         "gl": "n.",
-        "defch1": "(\u7522\u54c1) \u5b9a\u4f4d",
-        "defch2": "\u914d\u7f6e"
+        "defch1": "(\u7522\u54c1) \u5b9a\u4f4d;\u914d\u7f6e",
+        "defch2": ""
     },
     "positive": {
         "gl": "adj.",
-        "defch1": "\u6b63\u7247",
-        "defch2": "\u7a4d\u6975\u7684;\u6b63\u9762\u7684"
+        "defch1": "\u6b63\u7247;\u7a4d\u6975\u7684;\u6b63\u9762\u7684",
+        "defch2": ""
     },
     "positive space": {
         "gl": "phr.",
@@ -4766,8 +4766,8 @@
     },
     "predictor": {
         "gl": "n.",
-        "defch1": "\u9810\u6e2c\u5668",
-        "defch2": "\u9810\u8a00\u8005"
+        "defch1": "\u9810\u6e2c\u5668;\u9810\u8a00\u8005",
+        "defch2": ""
     },
     "prefetch": {
         "gl": "v.",
@@ -4776,8 +4776,8 @@
     },
     "prepress": {
         "gl": "adj.",
-        "defch1": "\u5370\u5237\u524d\u7684\u5de5\u7a0b",
-        "defch2": "\u524d\u7f6e\u4f5c\u696d"
+        "defch1": "\u5370\u5237\u524d\u7684\u5de5\u7a0b;\u524d\u7f6e\u4f5c\u696d",
+        "defch2": ""
     },
     "pre-production": {
         "gl": "phr.",
@@ -4786,13 +4786,13 @@
     },
     "presentation": {
         "gl": "n.",
-        "defch1": "\u7c21\u5831",
-        "defch2": "\u5831\u544a;\u5448\u73fe"
+        "defch1": "\u7c21\u5831;\u5831\u544a;\u5448\u73fe",
+        "defch2": ""
     },
     "preset": {
         "gl": "v.",
-        "defch1": "\u4e8b\u5148\u8a2d\u5b9a",
-        "defch2": "\u9810\u5148\u8abf\u6574"
+        "defch1": "\u4e8b\u5148\u8a2d\u5b9a;\u9810\u5148\u8abf\u6574",
+        "defch2": ""
     },
     "pressure": {
         "gl": "n.",
@@ -4801,13 +4801,13 @@
     },
     "primary colours": {
         "gl": "phr.",
-        "defch1": "\u539f\u8272",
-        "defch2": "\u57fa\u8272"
+        "defch1": "\u539f\u8272;\u57fa\u8272",
+        "defch2": ""
     },
     "print": {
         "gl": "v.",
-        "defch1": "\u5370\u88fd",
-        "defch2": "\u51fa\u7248;\u6253\u5370"
+        "defch1": "\u5370\u88fd;\u51fa\u7248;\u6253\u5370",
+        "defch2": ""
     },
     "print screen": {
         "gl": "n.",
@@ -4816,8 +4816,8 @@
     },
     "printing": {
         "gl": "n.",
-        "defch1": "\u5370\u5237",
-        "defch2": "\u5370\u5237\u8853"
+        "defch1": "\u5370\u5237;\u5370\u5237\u8853",
+        "defch2": ""
     },
     "printing color": {
         "gl": "phr.",
@@ -4836,8 +4836,8 @@
     },
     "process color": {
         "gl": "phr.",
-        "defch1": "\u4e09\u539f\u8272\u5370\u5237",
-        "defch2": "\u5370\u5237\u8272"
+        "defch1": "\u4e09\u539f\u8272\u5370\u5237;\u5370\u5237\u8272",
+        "defch2": ""
     },
     "produce": {
         "gl": "v.",
@@ -4846,8 +4846,8 @@
     },
     "product": {
         "gl": "n.",
-        "defch1": "\u7522\u54c1",
-        "defch2": "\u6210\u679c"
+        "defch1": "\u7522\u54c1;\u6210\u679c",
+        "defch2": ""
     },
     "product design": {
         "gl": "phr.",
@@ -4866,28 +4866,28 @@
     },
     "production": {
         "gl": "n.",
-        "defch1": "\u751f\u7522",
-        "defch2": "\u88fd\u4f5c;\u7522\u54c1;\u4f5c\u54c1"
+        "defch1": "\u751f\u7522;\u88fd\u4f5c;\u7522\u54c1;\u4f5c\u54c1",
+        "defch2": ""
     },
     "profile": {
         "gl": "v.",
-        "defch1": "\u8f2a\u5ed3",
-        "defch2": "\u7c21\u4ecb;\u63cf\u51fa\u2026\u7684\u8f2a\u5ed3"
+        "defch1": "\u8f2a\u5ed3;\u7c21\u4ecb;\u63cf\u51fa\u2026\u7684\u8f2a\u5ed3",
+        "defch2": ""
     },
     "program": {
         "gl": "n.",
-        "defch1": "\u7a0b\u5f0f",
-        "defch2": "\u8a08\u756b"
+        "defch1": "\u7a0b\u5f0f;\u8a08\u756b",
+        "defch2": ""
     },
     "project": {
         "gl": "v.",
-        "defch1": "\u5c08\u6848",
-        "defch2": "\u8a08\u756b;\u9805\u76ee;\u898f\u5283"
+        "defch1": "\u5c08\u6848;\u8a08\u756b;\u9805\u76ee;\u898f\u5283",
+        "defch2": ""
     },
     "project manager": {
         "gl": "phr.",
-        "defch1": "\u5c08\u6848\u7d93\u7406 (\u4eba)",
-        "defch2": "\u5c08\u6848\u7ba1\u7406\u8005"
+        "defch1": "\u5c08\u6848\u7d93\u7406 (\u4eba);\u5c08\u6848\u7ba1\u7406\u8005",
+        "defch2": ""
     },
     "projector": {
         "gl": "n.",
@@ -4896,18 +4896,18 @@
     },
     "prolific": {
         "gl": "adj.",
-        "defch1": "\u591a\u7522\u7684\uff0c\u591a\u80b2\u7684",
-        "defch2": "\u5bcc\u65bc\u5275\u9020\u529b\u7684"
+        "defch1": "\u591a\u7522\u7684\uff0c\u591a\u80b2\u7684;\u5bcc\u65bc\u5275\u9020\u529b\u7684",
+        "defch2": ""
     },
     "prominent": {
         "gl": "adj.",
-        "defch1": "\u5353\u8d8a\u7684",
-        "defch2": "\u91cd\u8981\u7684;\u8457\u540d\u7684"
+        "defch1": "\u5353\u8d8a\u7684;\u91cd\u8981\u7684;\u8457\u540d\u7684",
+        "defch2": ""
     },
     "prop": {
         "gl": "n.",
-        "defch1": "\u9053\u5177",
-        "defch2": "\u652f\u67f1;\u652f\u6301\u8005"
+        "defch1": "\u9053\u5177;\u652f\u67f1;\u652f\u6301\u8005",
+        "defch2": ""
     },
     "property": {
         "gl": "n.",
@@ -4916,13 +4916,13 @@
     },
     "proportion": {
         "gl": "n.",
-        "defch1": "\u6bd4\u4f8b",
-        "defch2": "\u8abf\u548c;\u5747\u8861"
+        "defch1": "\u6bd4\u4f8b;\u8abf\u548c;\u5747\u8861",
+        "defch2": ""
     },
     "protocol": {
         "gl": "n.",
         "defch1": "\u5354\u8b70",
-        "defch2": "(\u96fb\u8166\u9593\u8cc7\u6599\u50b3\u9001\u6240\u9075\u5b88\u7684) \u5354\u5b9a"
+        "defch2": "ex (\u96fb\u8166\u9593\u8cc7\u6599\u50b3\u9001\u6240\u9075\u5b88\u7684) \u5354\u5b9a"
     },
     "prototype": {
         "gl": "n.",
@@ -4941,8 +4941,8 @@
     },
     "public": {
         "gl": "adj.",
-        "defch1": "\u516c\u773e",
-        "defch2": "\u516c\u5171\u7684"
+        "defch1": "\u516c\u773e;\u516c\u5171\u7684",
+        "defch2": ""
     },
     "public design": {
         "gl": "phr.",
@@ -4966,8 +4966,8 @@
     },
     "publication": {
         "gl": "n.",
-        "defch1": "\u51fa\u7248",
-        "defch2": "\u767c\u5e03;\u767c\u884c"
+        "defch1": "\u51fa\u7248;\u767c\u5e03;\u767c\u884c",
+        "defch2": ""
     },
     "publicity": {
         "gl": "n.",
@@ -4981,18 +4981,18 @@
     },
     "puff": {
         "gl": "n.",
-        "defch1": "\u6c23 (\u5718)",
-        "defch2": "\u4e00\u9663"
+        "defch1": "\u6c23 (\u5718);\u4e00\u9663",
+        "defch2": ""
     },
     "pulse": {
         "gl": "n.",
-        "defch1": "\u8108\u885d (\u6ce2)",
-        "defch2": "\u6709\u7bc0\u594f\u7684\u8df3\u52d5;\u8108\u640f"
+        "defch1": "\u8108\u885d (\u6ce2);\u6709\u7bc0\u594f\u7684\u8df3\u52d5;\u8108\u640f",
+        "defch2": ""
     },
     "punch out": {
         "gl": "phr.",
-        "defch1": "(\u7528\u5de5\u5177) \u6253\u6d1e",
-        "defch2": "\u6253 (\u4e0b\u73ed) \u5361"
+        "defch1": "(\u7528\u5de5\u5177) \u6253\u6d1e;\u6253 (\u4e0b\u73ed) \u5361",
+        "defch2": ""
     },
     "punching": {
         "gl": "n.",
@@ -5006,8 +5006,8 @@
     },
     "puppet": {
         "gl": "n.",
-        "defch1": "\u64cd\u5076",
-        "defch2": "\u6728\u5076;\u5080\u5121"
+        "defch1": "\u64cd\u5076;\u6728\u5076;\u5080\u5121",
+        "defch2": ""
     },
     "puppet animation": {
         "gl": "n.",
@@ -5016,8 +5016,8 @@
     },
     "pure tone": {
         "gl": "n.",
-        "defch1": "\u55ae\u97f3\u8abf",
-        "defch2": "\u7d14\u97f3"
+        "defch1": "\u55ae\u97f3\u8abf;\u7d14\u97f3",
+        "defch2": ""
     },
     "quality": {
         "gl": "n.",
@@ -5041,8 +5041,8 @@
     },
     "radical": {
         "gl": "adj.",
-        "defch1": "\u6975\u7aef\u7684",
-        "defch2": "\u57fa\u672c\u7684"
+        "defch1": "\u6975\u7aef\u7684;\u57fa\u672c\u7684",
+        "defch2": ""
     },
     "radio frequency": {
         "gl": "n.",
@@ -5056,18 +5056,18 @@
     },
     "range": {
         "gl": "n.",
-        "defch1": "\u7bc4\u570d",
-        "defch2": "\u5340\u9593"
+        "defch1": "\u7bc4\u570d;\u5340\u9593",
+        "defch2": ""
     },
     "rate": {
         "gl": "n.",
-        "defch1": "\u7387",
-        "defch2": "\u6bd4\u4f8b"
+        "defch1": "\u7387;\u6bd4\u4f8b",
+        "defch2": ""
     },
     "ratio": {
         "gl": "n.",
-        "defch1": "\u6bd4\u7387",
-        "defch2": "\u6bd4\u4f8b"
+        "defch1": "\u6bd4\u7387;\u6bd4\u4f8b",
+        "defch2": ""
     },
     "ray tracing": {
         "gl": "n.",
@@ -5076,8 +5076,8 @@
     },
     "readability": {
         "gl": "n.",
-        "defch1": "\u53ef\u8b80\u6027",
-        "defch2": "\u53ef\u8b80\u7a0b\u5ea6"
+        "defch1": "\u53ef\u8b80\u6027;\u53ef\u8b80\u7a0b\u5ea6",
+        "defch2": ""
     },
     "read-only memory": {
         "gl": "n.",
@@ -5091,13 +5091,13 @@
     },
     "recall": {
         "gl": "v.",
-        "defch1": "\u56de\u60f3",
-        "defch2": "\u53ec\u56de"
+        "defch1": "\u56de\u60f3;\u53ec\u56de",
+        "defch2": ""
     },
     "recycle": {
         "gl": "v.",
-        "defch1": "\u56de\u6536",
-        "defch2": "\u5faa\u74b0\u4f7f\u7528"
+        "defch1": "\u56de\u6536;\u5faa\u74b0\u4f7f\u7528",
+        "defch2": ""
     },
     "red": {
         "gl": "n.",
@@ -5121,13 +5121,13 @@
     },
     "reduction": {
         "gl": "n.",
-        "defch1": "\u964d\u4f4e",
-        "defch2": "\u6e1b\u5c11"
+        "defch1": "\u964d\u4f4e;\u6e1b\u5c11",
+        "defch2": ""
     },
     "redundant": {
         "gl": "adj.",
-        "defch1": "\u591a\u9918\u904e\u5269\u7684",
-        "defch2": "\u88ab\u89e3\u50f1\u7684"
+        "defch1": "\u591a\u9918\u904e\u5269\u7684;\u88ab\u89e3\u50f1\u7684",
+        "defch2": ""
     },
     "reflection": {
         "gl": "n.",
@@ -5151,8 +5151,8 @@
     },
     "registrar": {
         "gl": "n.",
-        "defch1": "\u8a18\u9304\u8005",
-        "defch2": "\u767b\u9304\u8005"
+        "defch1": "\u8a18\u9304\u8005;\u767b\u9304\u8005",
+        "defch2": ""
     },
     "regularity": {
         "gl": "n.",
@@ -5166,8 +5166,8 @@
     },
     "remodel": {
         "gl": "v.",
-        "defch1": "\u6539\u5efa",
-        "defch2": "\u91cd\u65b0\u5851\u9020"
+        "defch1": "\u6539\u5efa;\u91cd\u65b0\u5851\u9020",
+        "defch2": ""
     },
     "remove": {
         "gl": "v.",
@@ -5176,13 +5176,13 @@
     },
     "render": {
         "gl": "v.",
-        "defch1": "\u63d0\u4f9b",
-        "defch2": "\u6e32\u67d3;\u63cf\u7e6a;\u6253\u5e95"
+        "defch1": "\u63d0\u4f9b;\u6e32\u67d3;\u63cf\u7e6a;\u6253\u5e95",
+        "defch2": ""
     },
     "renderer": {
         "gl": "n.",
-        "defch1": "\u7e6a\u5716\u5668",
-        "defch2": "\u5716\u986f\u793a\u5668"
+        "defch1": "\u7e6a\u5716\u5668;\u5716\u986f\u793a\u5668",
+        "defch2": ""
     },
     "rendering": {
         "gl": "n.",
@@ -5201,8 +5201,8 @@
     },
     "reproduction": {
         "gl": "n.",
-        "defch1": "\u8907\u88fd",
-        "defch2": "\u518d\u751f"
+        "defch1": "\u8907\u88fd;\u518d\u751f",
+        "defch2": ""
     },
     "request": {
         "gl": "v.",
@@ -5216,23 +5216,23 @@
     },
     "reset": {
         "gl": "v.",
-        "defch1": "\u91cd\u8a2d",
-        "defch2": "\u91cd\u6392"
+        "defch1": "\u91cd\u8a2d;\u91cd\u6392",
+        "defch2": ""
     },
     "residual": {
         "gl": "adj.",
-        "defch1": "\u6b98\u5dee",
-        "defch2": "\u9918\u6578;\u6b98\u9918\u7684"
+        "defch1": "\u6b98\u5dee;\u9918\u6578;\u6b98\u9918\u7684",
+        "defch2": ""
     },
     "resolution": {
         "gl": "n.",
-        "defch1": "\u89e3\u6790\u5ea6",
-        "defch2": "\u5206\u8fa8\u7387"
+        "defch1": "\u89e3\u6790\u5ea6;\u5206\u8fa8\u7387",
+        "defch2": ""
     },
     "response": {
         "gl": "n.",
-        "defch1": "\u97ff\u61c9",
-        "defch2": "\u56de\u61c9"
+        "defch1": "\u97ff\u61c9;\u56de\u61c9",
+        "defch2": ""
     },
     "responsibility": {
         "gl": "n.",
@@ -5251,13 +5251,13 @@
     },
     "rhodopsin": {
         "gl": "n.",
-        "defch1": "\u8996\u7d2b\u8cea",
-        "defch2": "\u8996\u7db2\u819c\u7d2b\u8cea (\u8996\u7db2\u819c\u8272\u7d20)"
+        "defch1": "\u8996\u7d2b\u8cea;\u8996\u7db2\u819c\u7d2b\u8cea (\u8996\u7db2\u819c\u8272\u7d20)",
+        "defch2": ""
     },
     "rhythm": {
         "gl": "n.",
-        "defch1": "\u5f8b\u52d5",
-        "defch2": "\u7bc0\u594f;\u97fb\u5f8b"
+        "defch1": "\u5f8b\u52d5;\u7bc0\u594f;\u97fb\u5f8b",
+        "defch2": ""
     },
     "rigid body": {
         "gl": "phr.",
@@ -5266,8 +5266,8 @@
     },
     "rod": {
         "gl": "n.",
-        "defch1": "\u68d2",
-        "defch2": "\u687f"
+        "defch1": "\u68d2;\u687f",
+        "defch2": ""
     },
     "roll": {
         "gl": "v.",
@@ -5296,18 +5296,18 @@
     },
     "rotoscoping": {
         "gl": "n.",
-        "defch1": "\u8f49\u63cf\u6a5f\u6280\u8853",
-        "defch2": "\u7167\u76f8\u51f9\u7248\u6280\u8853;\u8f2a\u8f49\u5f71\u5370\u6280\u8853;\u5f71\u5370\u6280\u8853"
+        "defch1": "\u8f49\u63cf\u6a5f\u6280\u8853;\u7167\u76f8\u51f9\u7248\u6280\u8853",
+        "defch2": "ex \u8f2a\u8f49\u5f71\u5370\u6280\u8853;\u5f71\u5370\u6280\u8853"
     },
     "round": {
         "gl": "adj.",
-        "defch1": "\u5713\u7684",
-        "defch2": "\u5713\u5f62\u7684"
+        "defch1": "\u5713\u7684;\u5713\u5f62\u7684",
+        "defch2": ""
     },
     "route": {
         "gl": "n.",
-        "defch1": "\u8def\u5f91",
-        "defch2": "\u8def\u7531"
+        "defch1": "\u8def\u5f91;\u8def\u7531",
+        "defch2": ""
     },
     "router": {
         "gl": "n.",
@@ -5326,13 +5326,13 @@
     },
     "run": {
         "gl": "v.",
-        "defch1": "\u904b\u884c",
-        "defch2": "\u8dd1;\u8def\u7a0b"
+        "defch1": "\u904b\u884c;\u8dd1;\u8def\u7a0b",
+        "defch2": ""
     },
     "run length": {
         "gl": "phr.",
-        "defch1": "\u57f7\u884c\u9577\u5ea6",
-        "defch2": "\u6383\u63cf\u5bec\u5ea6"
+        "defch1": "\u57f7\u884c\u9577\u5ea6;\u6383\u63cf\u5bec\u5ea6",
+        "defch2": ""
     },
     "safety": {
         "gl": "n.",
@@ -5346,8 +5346,8 @@
     },
     "sample rate": {
         "gl": "n.",
-        "defch1": "\u53d6\u6a23\u983b\u7387",
-        "defch2": "\u6a23\u672c\u983b\u7387"
+        "defch1": "\u53d6\u6a23\u983b\u7387;\u6a23\u672c\u983b\u7387",
+        "defch2": ""
     },
     "sampler": {
         "gl": "n.",
@@ -5361,8 +5361,8 @@
     },
     "sampling": {
         "gl": "n.",
-        "defch1": "\u53d6\u6a23",
-        "defch2": "\u62bd\u6a23"
+        "defch1": "\u53d6\u6a23;\u62bd\u6a23",
+        "defch2": ""
     },
     "sand animation": {
         "gl": "n.",
@@ -5376,28 +5376,28 @@
     },
     "saturation": {
         "gl": "n.",
-        "defch1": "\u5f69\u5ea6",
-        "defch2": "\u98fd\u548c\u5ea6"
+        "defch1": "\u5f69\u5ea6;\u98fd\u548c\u5ea6",
+        "defch2": ""
     },
     "scalability": {
         "gl": "n.",
-        "defch1": "\u53ef\u8abf\u6027",
-        "defch2": "\u53ef\u4f38\u7e2e\u6027"
+        "defch1": "\u53ef\u8abf\u6027;\u53ef\u4f38\u7e2e\u6027",
+        "defch2": ""
     },
     "scalable": {
         "gl": "adj.",
-        "defch1": "\u53ef\u8abf\u6574\u7684",
-        "defch2": "\u53ef\u4f38\u7e2e\u7684"
+        "defch1": "\u53ef\u8abf\u6574\u7684;\u53ef\u4f38\u7e2e\u7684",
+        "defch2": ""
     },
     "scalar": {
         "gl": "adj.",
-        "defch1": "\u6578\u91cf",
-        "defch2": "\u6578\u91cf\u7684"
+        "defch1": "\u6578\u91cf;\u6578\u91cf\u7684",
+        "defch2": ""
     },
     "scale": {
         "gl": "v.",
-        "defch1": "(\u7e2e\u653e) \u6bd4\u4f8b",
-        "defch2": "\u5c3a\u5ea6;\u7528\u7e2e\u5c3a\u7e6a\u88fd\u2026"
+        "defch1": "(\u7e2e\u653e) \u6bd4\u4f8b;\u5c3a\u5ea6;\u7528\u7e2e\u5c3a\u7e6a\u88fd\u2026",
+        "defch2": ""
     },
     "scaling factor": {
         "gl": "n.",
@@ -5416,8 +5416,8 @@
     },
     "scanner": {
         "gl": "n.",
-        "defch1": "\u6383\u63cf\u6a5f",
-        "defch2": "\u6383\u63cf\u5668"
+        "defch1": "\u6383\u63cf\u6a5f;\u6383\u63cf\u5668",
+        "defch2": ""
     },
     "scenario": {
         "gl": "n.",
@@ -5426,8 +5426,8 @@
     },
     "scene": {
         "gl": "n.",
-        "defch1": "\u5834\u666f",
-        "defch2": "\u93e1\u982d"
+        "defch1": "\u5834\u666f;\u93e1\u982d",
+        "defch2": ""
     },
     "scene graph": {
         "gl": "phr.",
@@ -5436,8 +5436,8 @@
     },
     "scheme": {
         "gl": "n.",
-        "defch1": "\u8a08\u756b",
-        "defch2": "\u65b9\u6848;\u7d44\u5408;\u7d50\u69cb"
+        "defch1": "\u8a08\u756b;\u65b9\u6848;\u7d44\u5408;\u7d50\u69cb",
+        "defch2": ""
     },
     "screen": {
         "gl": "n.",
@@ -5456,28 +5456,28 @@
     },
     "script": {
         "gl": "n.",
-        "defch1": "\u8173\u672c",
-        "defch2": "\u5287\u672c"
+        "defch1": "\u8173\u672c;\u5287\u672c",
+        "defch2": ""
     },
     "scrub": {
         "gl": "v.",
-        "defch1": "\u6253\u78e8",
-        "defch2": "\u7528\u529b\u64e6\u6d17"
+        "defch1": "\u6253\u78e8;\u7528\u529b\u64e6\u6d17",
+        "defch2": ""
     },
     "sculpture": {
         "gl": "n.",
-        "defch1": "\u96d5\u523b\u54c1",
-        "defch2": "\u96d5\u5851\u54c1;\u96d5\u50cf"
+        "defch1": "\u96d5\u523b\u54c1;\u96d5\u5851\u54c1;\u96d5\u50cf",
+        "defch2": ""
     },
     "sector": {
         "gl": "n.",
-        "defch1": "\u90e8\u5206",
-        "defch2": "\u90e8\u9580;\u6247\u5f62 (\u5340)"
+        "defch1": "\u90e8\u5206;\u90e8\u9580;\u6247\u5f62 (\u5340)",
+        "defch2": ""
     },
     "segment": {
         "gl": "v.",
-        "defch1": "\u90e8\u5206",
-        "defch2": "\u5340\u6bb5;\u7a0b\u5f0f\u6bb5;\u5206\u5272"
+        "defch1": "\u90e8\u5206;\u5340\u6bb5;\u7a0b\u5f0f\u6bb5;\u5206\u5272",
+        "defch2": ""
     },
     "segment graph": {
         "gl": "phr.",
@@ -5516,23 +5516,23 @@
     },
     "sense": {
         "gl": "v.",
-        "defch1": "\u611f\u89ba",
-        "defch2": "\u5224\u65b7\u3001\u9451\u8cde\u529b;\u610f\u8b58\u5230"
+        "defch1": "\u611f\u89ba;\u5224\u65b7\u3001\u9451\u8cde\u529b;\u610f\u8b58\u5230",
+        "defch2": ""
     },
     "sensitivity": {
         "gl": "n.",
-        "defch1": "\u611f\u5149\u5ea6",
-        "defch2": "\u654f\u611f\u6027"
+        "defch1": "\u611f\u5149\u5ea6;\u654f\u611f\u6027",
+        "defch2": ""
     },
     "sensor": {
         "gl": "n.",
-        "defch1": "\u611f\u61c9\u5668",
-        "defch2": "\u611f\u6e2c\u5668;\u611f\u5149\u5143\u4ef6"
+        "defch1": "\u611f\u61c9\u5668;\u611f\u6e2c\u5668;\u611f\u5149\u5143\u4ef6",
+        "defch2": ""
     },
     "sensor size": {
         "gl": "phr.",
-        "defch1": "\u7247\u5e45",
-        "defch2": "\u611f\u6e2c\u5668\u5c3a\u5bf8"
+        "defch1": "\u7247\u5e45;\u611f\u6e2c\u5668\u5c3a\u5bf8",
+        "defch2": ""
     },
     "separable": {
         "gl": "adj.",
@@ -5541,8 +5541,8 @@
     },
     "sequencer": {
         "gl": "n.",
-        "defch1": "\u5b9a\u5e8f\u5668",
-        "defch2": "\u97f3\u5e8f\u5668"
+        "defch1": "\u5b9a\u5e8f\u5668;\u97f3\u5e8f\u5668",
+        "defch2": ""
     },
     "sequencing": {
         "gl": "n.",
@@ -5561,18 +5561,18 @@
     },
     "setting": {
         "gl": "n.",
-        "defch1": "\u8a2d\u5b9a",
-        "defch2": "\u5b89\u88dd"
+        "defch1": "\u8a2d\u5b9a;\u5b89\u88dd",
+        "defch2": ""
     },
     "shadow": {
         "gl": "n.",
-        "defch1": "\u6697\u90e8",
-        "defch2": "\u5f71\u5b50;\u9670\u5f71"
+        "defch1": "\u6697\u90e8;\u5f71\u5b50;\u9670\u5f71",
+        "defch2": ""
     },
     "shape": {
         "gl": "n.",
-        "defch1": "\u5f62\u72c0",
-        "defch2": "\u5716\u50cf\u7269\u4ef6;\u5851\u9020"
+        "defch1": "\u5f62\u72c0;\u5716\u50cf\u7269\u4ef6;\u5851\u9020",
+        "defch2": ""
     },
     "shape tweening": {
         "gl": "n.",
@@ -5586,43 +5586,43 @@
     },
     "shot": {
         "gl": "n.",
-        "defch1": "\u5206\u93e1",
-        "defch2": "\u62cd\u651d;\u6ce8\u5c04"
+        "defch1": "\u5206\u93e1;\u62cd\u651d;\u6ce8\u5c04",
+        "defch2": ""
     },
     "shutter": {
         "gl": "v.",
-        "defch1": "\u5feb\u9580",
-        "defch2": "\u95dc\u4e0a\u767e\u8449\u7a97 (\u7a97\u677f)"
+        "defch1": "\u5feb\u9580;\u95dc\u4e0a\u767e\u8449\u7a97 (\u7a97\u677f)",
+        "defch2": ""
     },
     "sign": {
         "gl": "v.",
-        "defch1": "\u8a18\u865f",
-        "defch2": "\u5fb5\u5146;\u7c3d (\u540d)"
+        "defch1": "\u8a18\u865f;\u5fb5\u5146;\u7c3d (\u540d)",
+        "defch2": ""
     },
     "signature": {
         "gl": "n.",
-        "defch1": "\u8b58\u5225\u6a19\u8a8c",
-        "defch2": "\u7c3d\u7f72"
+        "defch1": "\u8b58\u5225\u6a19\u8a8c;\u7c3d\u7f72",
+        "defch2": ""
     },
     "significance": {
         "gl": "n.",
-        "defch1": "\u91cd\u8981\u6027",
-        "defch2": "\u610f\u7fa9"
+        "defch1": "\u91cd\u8981\u6027;\u610f\u7fa9",
+        "defch2": ""
     },
     "significant": {
         "gl": "adj.",
-        "defch1": "\u6709\u610f\u7fa9\u7684",
-        "defch2": "\u610f\u7fa9 (\u6216\u610f\u5473) \u6df1\u9577\u7684"
+        "defch1": "\u6709\u610f\u7fa9\u7684;\u610f\u7fa9 (\u6216\u610f\u5473) \u6df1\u9577\u7684",
+        "defch2": ""
     },
     "signifier": {
         "gl": "n.",
-        "defch1": "\u793a\u610f",
-        "defch2": "\u7b26\u865f\u7684\u8868\u5fb5"
+        "defch1": "\u793a\u610f;\u7b26\u865f\u7684\u8868\u5fb5",
+        "defch2": ""
     },
     "signify": {
         "gl": "v.",
-        "defch1": "\u793a\u610f",
-        "defch2": "\u8c61\u5fb5;\u610f\u5473\u8457"
+        "defch1": "\u793a\u610f;\u8c61\u5fb5;\u610f\u5473\u8457",
+        "defch2": ""
     },
     "silicon": {
         "gl": "n.",
@@ -5651,13 +5651,13 @@
     },
     "singular": {
         "gl": "n.",
-        "defch1": "\u5947\u7570\u7684",
-        "defch2": "\u55ae\u6578"
+        "defch1": "\u5947\u7570\u7684;\u55ae\u6578",
+        "defch2": ""
     },
     "sketch": {
         "gl": "v.",
-        "defch1": "\u7d20\u63cf",
-        "defch2": "\u901f\u5beb;\u8349\u5716"
+        "defch1": "\u7d20\u63cf;\u901f\u5beb;\u8349\u5716",
+        "defch2": ""
     },
     "skill": {
         "gl": "n.",
@@ -5666,28 +5666,28 @@
     },
     "skilled": {
         "gl": "adj.",
-        "defch1": "\u719f\u7df4\u7684",
-        "defch2": "\u6709\u6280\u80fd\u7684"
+        "defch1": "\u719f\u7df4\u7684;\u6709\u6280\u80fd\u7684",
+        "defch2": ""
     },
     "skim": {
         "gl": "v.",
-        "defch1": "\u700f\u89bd",
-        "defch2": "\u63a0\u904e;\u7565\u8b80"
+        "defch1": "\u700f\u89bd;\u63a0\u904e;\u7565\u8b80",
+        "defch2": ""
     },
     "slice": {
         "gl": "v.",
-        "defch1": "(\u8584) \u7247",
-        "defch2": "\u5207\u958b"
+        "defch1": "(\u8584) \u7247;\u5207\u958b",
+        "defch2": ""
     },
     "slide": {
         "gl": "v.",
-        "defch1": "\u5e7b\u71c8\u7247",
-        "defch2": "\u900f\u660e\u7247;\u6ed1\u52d5"
+        "defch1": "\u5e7b\u71c8\u7247;\u900f\u660e\u7247;\u6ed1\u52d5",
+        "defch2": ""
     },
     "slider": {
         "gl": "n.",
-        "defch1": "\u6ed1\u52d5\u5668",
-        "defch2": "\u6ed1\u6a19"
+        "defch1": "\u6ed1\u52d5\u5668;\u6ed1\u6a19",
+        "defch2": ""
     },
     "slider bar": {
         "gl": "n.",
@@ -5701,8 +5701,8 @@
     },
     "slot": {
         "gl": "n.",
-        "defch1": "\u6642\u69fd",
-        "defch2": "\u63d2\u69fd"
+        "defch1": "\u6642\u69fd;\u63d2\u69fd",
+        "defch2": ""
     },
     "slow in": {
         "gl": "phr.",
@@ -5751,8 +5751,8 @@
     },
     "SOHO": {
         "gl": "abbr.",
-        "defch1": "\u5728\u5bb6\u4e0a\u73ed\u65cf",
-        "defch2": "\u500b\u4eba\u5bb6\u5ead\u8a2d\u8a08\u5de5\u4f5c\u5ba4"
+        "defch1": "\u5728\u5bb6\u4e0a\u73ed\u65cf;\u500b\u4eba\u5bb6\u5ead\u8a2d\u8a08\u5de5\u4f5c\u5ba4",
+        "defch2": ""
     },
     "solar power": {
         "gl": "n.",
@@ -5766,8 +5766,8 @@
     },
     "sound": {
         "gl": "v.",
-        "defch1": "\u8072\u97f3",
-        "defch2": "\u767c\u8072;\u807d\u8d77\u4f86"
+        "defch1": "\u8072\u97f3;\u767c\u8072;\u807d\u8d77\u4f86",
+        "defch2": ""
     },
     "sound card": {
         "gl": "n.",
@@ -5786,8 +5786,8 @@
     },
     "source": {
         "gl": "n.",
-        "defch1": "\u6839\u6e90",
-        "defch2": "\u4f86\u6e90"
+        "defch1": "\u6839\u6e90;\u4f86\u6e90",
+        "defch2": ""
     },
     "space": {
         "gl": "n.",
@@ -5811,8 +5811,8 @@
     },
     "speaker": {
         "gl": "n.",
-        "defch1": "\u5587\u53ed",
-        "defch2": "\u63da\u8072\u5668"
+        "defch1": "\u5587\u53ed;\u63da\u8072\u5668",
+        "defch2": ""
     },
     "special effect": {
         "gl": "phr.",
@@ -5826,8 +5826,8 @@
     },
     "spectrum": {
         "gl": "n.",
-        "defch1": "\u5149\u8b5c",
-        "defch2": "\u983b\u8b5c"
+        "defch1": "\u5149\u8b5c;\u983b\u8b5c",
+        "defch2": ""
     },
     "sphere": {
         "gl": "n.",
@@ -5836,23 +5836,23 @@
     },
     "splitter": {
         "gl": "n.",
-        "defch1": "\u5206\u7dda\u5668",
-        "defch2": "\u5206\u914d\u5668;\u5206\u983b\u5668"
+        "defch1": "\u5206\u7dda\u5668;\u5206\u914d\u5668;\u5206\u983b\u5668",
+        "defch2": ""
     },
     "spool": {
         "gl": "n.",
-        "defch1": "\u7247\u8ef8",
-        "defch2": "\u6372\u8ef8"
+        "defch1": "\u7247\u8ef8;\u6372\u8ef8",
+        "defch2": ""
     },
     "spot color": {
         "gl": "phr.",
-        "defch1": "\u7279\u5225\u8272",
-        "defch2": "\u5c08\u8272;\u55ae\u8272"
+        "defch1": "\u7279\u5225\u8272;\u5c08\u8272;\u55ae\u8272",
+        "defch2": ""
     },
     "spotlight": {
         "gl": "v.",
-        "defch1": "\u805a\u5149\u71c8",
-        "defch2": "\u8eca\u982d\u71c8;\u805a\u5149\u7167\u660e"
+        "defch1": "\u805a\u5149\u71c8;\u8eca\u982d\u71c8;\u805a\u5149\u7167\u660e",
+        "defch2": ""
     },
     "spray painting": {
         "gl": "phr.",
@@ -5861,13 +5861,13 @@
     },
     "spreader": {
         "gl": "n.",
-        "defch1": "\u5c55\u958b\u5668",
-        "defch2": "\u6563\u5e03\u8005"
+        "defch1": "\u5c55\u958b\u5668;\u6563\u5e03\u8005",
+        "defch2": ""
     },
     "spring": {
         "gl": "n.",
-        "defch1": "\u5f48\u7c27",
-        "defch2": "\u6625\u5929"
+        "defch1": "\u5f48\u7c27;\u6625\u5929",
+        "defch2": ""
     },
     "sprite": {
         "gl": "n.",
@@ -5886,8 +5886,8 @@
     },
     "staircase": {
         "gl": "n.",
-        "defch1": "\u68af\u72c0",
-        "defch2": "\u6a13\u68af"
+        "defch1": "\u68af\u72c0;\u6a13\u68af",
+        "defch2": ""
     },
     "starvation": {
         "gl": "n.",
@@ -5896,13 +5896,13 @@
     },
     "steel": {
         "gl": "adj.",
-        "defch1": "\u92fc",
-        "defch2": "\u92fc\u9435;\u92fc\u9435\u696d\u7684;\u92fc\u5316"
+        "defch1": "\u92fc;\u92fc\u9435;\u92fc\u9435\u696d\u7684;\u92fc\u5316",
+        "defch2": ""
     },
     "step size": {
         "gl": "phr.",
-        "defch1": "\u4f4d\u79fb\u5927\u5c0f",
-        "defch2": "\u6b65\u9032\u5927\u5c0f"
+        "defch1": "\u4f4d\u79fb\u5927\u5c0f;\u6b65\u9032\u5927\u5c0f",
+        "defch2": ""
     },
     "stereo": {
         "gl": "n.",
@@ -5921,12 +5921,12 @@
     },
     "stop motion": {
         "gl": "n.",
-        "defch1": "\u9010\u683c\u52d5\u756b",
-        "defch2": "\u5b9a\u683c\u52d5\u756b"
+        "defch1": "\u9010\u683c\u52d5\u756b;\u5b9a\u683c\u52d5\u756b",
+        "defch2": ""
     },
     "store identity": {
         "gl": "phr.",
-        "defch1": "\u5546\u5e97\u8b58\u5225\u7c21\u7a31",
+        "defch1": "\u5546\u5e97\u8b58\u5225",
         "defch2": "SI"
     },
     "story board": {
@@ -5941,8 +5941,8 @@
     },
     "storyboard": {
         "gl": "n.",
-        "defch1": "\u5206\u93e1",
-        "defch2": "\u6545\u4e8b\u677f"
+        "defch1": "\u5206\u93e1;\u6545\u4e8b\u677f",
+        "defch2": ""
     },
     "streaming media": {
         "gl": "phr.",
@@ -5956,8 +5956,8 @@
     },
     "strength": {
         "gl": "n.",
-        "defch1": "\u5f37\u5ea6",
-        "defch2": "\u529b\u91cf;\u9577\u5ea6"
+        "defch1": "\u5f37\u5ea6;\u529b\u91cf;\u9577\u5ea6",
+        "defch2": ""
     },
     "strip": {
         "gl": "n.",
@@ -5971,13 +5971,13 @@
     },
     "studio": {
         "gl": "n.",
-        "defch1": "\u5de5\u4f5c\u5ba4",
-        "defch2": "\u96d5\u5851\u5ba4;\u9304\u97f3\u5ba4;\u9304\u5f71\u5ba4;\u6f14\u64ad\u5ba4"
+        "defch1": "\u5de5\u4f5c\u5ba4;\u96d5\u5851\u5ba4;\u9304\u97f3\u5ba4;\u9304\u5f71\u5ba4;\u6f14\u64ad\u5ba4",
+        "defch2": ""
     },
     "studio manager": {
         "gl": "n.",
-        "defch1": "\u756b\u5ba4\u7d93\u7406",
-        "defch2": "\u6f14\u64ad\u5ba4\u76e3\u7763"
+        "defch1": "\u756b\u5ba4\u7d93\u7406;\u6f14\u64ad\u5ba4\u76e3\u7763",
+        "defch2": ""
     },
     "study model": {
         "gl": "phr.",
@@ -5986,8 +5986,8 @@
     },
     "style": {
         "gl": "n.",
-        "defch1": "\u98a8\u683c",
-        "defch2": "\u6642\u5c1a;\u505a\u6cd5;\u59ff\u52e2"
+        "defch1": "\u98a8\u683c;\u6642\u5c1a;\u505a\u6cd5;\u59ff\u52e2",
+        "defch2": ""
     },
     "styling": {
         "gl": "n.",
@@ -6006,13 +6006,13 @@
     },
     "subsample": {
         "gl": "v.",
-        "defch1": "\u6b21\u62bd\u6a23",
-        "defch2": "\u5b50\u6a23\u54c1;\u4e8c\u6b21\u62bd\u6a23"
+        "defch1": "\u6b21\u62bd\u6a23;\u5b50\u6a23\u54c1;\u4e8c\u6b21\u62bd\u6a23",
+        "defch2": ""
     },
     "subtitle": {
         "gl": "n.",
-        "defch1": "\u5b57\u5e55",
-        "defch2": "\u5b50\u6a19\u984c;\u526f\u6a19\u984c"
+        "defch1": "\u5b57\u5e55;\u5b50\u6a19\u984c;\u526f\u6a19\u984c",
+        "defch2": ""
     },
     "subtree": {
         "gl": "n.",
@@ -6031,23 +6031,23 @@
     },
     "sunshade": {
         "gl": "n.",
-        "defch1": "\u906e\u5149\u7f69",
-        "defch2": "\u906e\u967d\u5098"
+        "defch1": "\u906e\u5149\u7f69;\u906e\u967d\u5098",
+        "defch2": ""
     },
     "surface": {
         "gl": "n.",
-        "defch1": "\u9762",
-        "defch2": "\u5916\u89c0"
+        "defch1": "\u9762;\u5916\u89c0",
+        "defch2": ""
     },
     "surrounding": {
         "gl": "adj.",
-        "defch1": "\u74b0\u5883",
-        "defch2": "\u5468\u570d\u7684\u4e8b\u7269;\u5468\u570d\u7684"
+        "defch1": "\u74b0\u5883;\u5468\u570d\u7684\u4e8b\u7269;\u5468\u570d\u7684",
+        "defch2": ""
     },
     "survey": {
         "gl": "v.",
-        "defch1": "\u8abf\u67e5",
-        "defch2": "\u6e2c\u91cf;\u7814\u7a76"
+        "defch1": "\u8abf\u67e5;\u6e2c\u91cf;\u7814\u7a76",
+        "defch2": ""
     },
     "sustainability": {
         "gl": "n.",
@@ -6061,13 +6061,13 @@
     },
     "switch": {
         "gl": "v.",
-        "defch1": "\u5207\u63db",
-        "defch2": "\u958b\u95dc;\u4ea4\u63db\u5668"
+        "defch1": "\u5207\u63db;\u958b\u95dc;\u4ea4\u63db\u5668",
+        "defch2": ""
     },
     "symbol": {
         "gl": "v.",
-        "defch1": "\u7b26\u865f",
-        "defch2": "\u8c61\u5fb5"
+        "defch1": "\u7b26\u865f;\u8c61\u5fb5",
+        "defch2": ""
     },
     "symmetry": {
         "gl": "n.",
@@ -6076,13 +6076,13 @@
     },
     "synaesthesia": {
         "gl": "n.",
-        "defch1": "\u5171\u540c\u611f\u89ba",
-        "defch2": "\u9023\u5e36\u611f\u89ba"
+        "defch1": "\u5171\u540c\u611f\u89ba;\u9023\u5e36\u611f\u89ba",
+        "defch2": ""
     },
     "synaesthetic": {
         "gl": "adj.",
-        "defch1": "\u806f\u89ba\u7684",
-        "defch2": "\u727d\u9023\u611f\u89ba\u7684;\u5171\u540c\u611f\u89ba\u7684"
+        "defch1": "\u806f\u89ba\u7684;\u727d\u9023\u611f\u89ba\u7684;\u5171\u540c\u611f\u89ba\u7684",
+        "defch2": ""
     },
     "system": {
         "gl": "n.",
@@ -6121,8 +6121,8 @@
     },
     "taste": {
         "gl": "v.",
-        "defch1": "\u5473\u9053",
-        "defch2": "\u54c1\u5690;\u54c1\u5473"
+        "defch1": "\u5473\u9053;\u54c1\u5690;\u54c1\u5473",
+        "defch2": ""
     },
     "team work": {
         "gl": "phr.",
@@ -6136,18 +6136,18 @@
     },
     "technique": {
         "gl": "n.",
-        "defch1": "\u6280\u6cd5",
-        "defch2": "\u6280\u5de7"
+        "defch1": "\u6280\u6cd5;\u6280\u5de7",
+        "defch2": ""
     },
     "telematics": {
         "gl": "n.",
-        "defch1": "\u9060\u7a0b\u4fe1\u606f\u670d\u52d9",
-        "defch2": "\u9060\u7a0b\u4fe1\u606f\u8655\u7406\u6280\u8853"
+        "defch1": "\u9060\u7a0b\u4fe1\u606f\u670d\u52d9;\u9060\u7a0b\u4fe1\u606f\u8655\u7406\u6280\u8853",
+        "defch2": ""
     },
     "telemeter": {
         "gl": "n.",
-        "defch1": "\u6e2c\u8ddd\u5668",
-        "defch2": "\u6e2c\u8ddd\u5100"
+        "defch1": "\u6e2c\u8ddd\u5668;\u6e2c\u8ddd\u5100",
+        "defch2": ""
     },
     "template": {
         "gl": "n.",
@@ -6206,13 +6206,13 @@
     },
     "text tab": {
         "gl": "phr.",
-        "defch1": "\u6587\u5b57\u4e0b\u62c9\u8868\u55ae",
-        "defch2": "\u6587\u5b57\u6a19\u7c64"
+        "defch1": "\u6587\u5b57\u4e0b\u62c9\u8868\u55ae;\u6587\u5b57\u6a19\u7c64",
+        "defch2": ""
     },
     "texture": {
         "gl": "n.",
-        "defch1": "\u8cea\u5730",
-        "defch2": "\u7d0b\u7406"
+        "defch1": "\u8cea\u5730;\u7d0b\u7406",
+        "defch2": ""
     },
     "texture mapping": {
         "gl": "n.",
@@ -6236,13 +6236,13 @@
     },
     "tiling": {
         "gl": "n.",
-        "defch1": "\u62fc\u63a5",
-        "defch2": "\u84cb\u74e6;\u92ea\u74f7\u78da"
+        "defch1": "\u62fc\u63a5;\u84cb\u74e6;\u92ea\u74f7\u78da",
+        "defch2": ""
     },
     "tilt": {
         "gl": "v.",
-        "defch1": "\u93e1\u982d\u904b\u52d5\u76f4\u6416",
-        "defch2": "\u50be\u659c"
+        "defch1": "\u93e1\u982d\u904b\u52d5\u76f4\u6416;\u50be\u659c",
+        "defch2": ""
     },
     "timbre": {
         "gl": "n.",
@@ -6261,28 +6261,28 @@
     },
     "timeline": {
         "gl": "n.",
-        "defch1": "\u6642\u9593\u8ef8",
-        "defch2": "\u6642\u9593\u7dda"
+        "defch1": "\u6642\u9593\u8ef8;\u6642\u9593\u7dda",
+        "defch2": ""
     },
     "timing": {
         "gl": "n.",
-        "defch1": "\u8a08\u6642",
-        "defch2": "\u6642\u6a5f"
+        "defch1": "\u8a08\u6642;\u6642\u6a5f",
+        "defch2": ""
     },
     "tint": {
         "gl": "n.",
-        "defch1": "\u8272\u8abf",
-        "defch2": "\u6dfa\u8272;\u67d3\u9aee\u5291"
+        "defch1": "\u8272\u8abf;\u6dfa\u8272;\u67d3\u9aee\u5291",
+        "defch2": ""
     },
     "token": {
         "gl": "n.",
-        "defch1": "\u7b26\u8a18",
-        "defch2": "\u8c61\u5fb5;\u6a19\u8a8c;\u6a19\u8a18"
+        "defch1": "\u7b26\u8a18;\u8c61\u5fb5;\u6a19\u8a8c;\u6a19\u8a18",
+        "defch2": ""
     },
     "tone": {
         "gl": "n.",
-        "defch1": "\u97f3\u8abf",
-        "defch2": "\u8272\u8abf"
+        "defch1": "\u97f3\u8abf;\u8272\u8abf",
+        "defch2": ""
     },
     "tool": {
         "gl": "n.",
@@ -6296,8 +6296,8 @@
     },
     "top field": {
         "gl": "phr.",
-        "defch1": "\u4e0a\u5340\u57df",
-        "defch2": "\u9802\u5834"
+        "defch1": "\u4e0a\u5340\u57df;\u9802\u5834",
+        "defch2": ""
     },
     "top-down": {
         "gl": "adj.",
@@ -6321,8 +6321,8 @@
     },
     "trade-off": {
         "gl": "phr.",
-        "defch1": "\u6b0a\u8861",
-        "defch2": "\u4ea4\u63db;\u4ea4\u6613"
+        "defch1": "\u6b0a\u8861;\u4ea4\u63db;\u4ea4\u6613",
+        "defch2": ""
     },
     "traditional animation": {
         "gl": "n.",
@@ -6331,13 +6331,13 @@
     },
     "trajectory": {
         "gl": "n.",
-        "defch1": "\u8ecc\u9053",
-        "defch2": "\u5f48\u9053"
+        "defch1": "\u8ecc\u9053;\u5f48\u9053",
+        "defch2": ""
     },
     "transform": {
         "gl": "v.",
-        "defch1": "\u8f49\u63db",
-        "defch2": "\u6539\u8b8a;\u8b8a\u5f62"
+        "defch1": "\u8f49\u63db;\u6539\u8b8a;\u8b8a\u5f62",
+        "defch2": ""
     },
     "transistor": {
         "gl": "n.",
@@ -6346,8 +6346,8 @@
     },
     "transition": {
         "gl": "n.",
-        "defch1": "\u8f49\u63db",
-        "defch2": "\u8f49\u8b8a"
+        "defch1": "\u8f49\u63db;\u8f49\u8b8a",
+        "defch2": ""
     },
     "translator": {
         "gl": "n.",
@@ -6356,13 +6356,13 @@
     },
     "transparency": {
         "gl": "n.",
-        "defch1": "\u900f\u660e\u5ea6",
-        "defch2": "\u5e7b\u71c8\u7247;\u900f\u660e\u7247"
+        "defch1": "\u900f\u660e\u5ea6;\u5e7b\u71c8\u7247;\u900f\u660e\u7247",
+        "defch2": ""
     },
     "transparent": {
         "gl": "adj.",
-        "defch1": "\u901a\u900f\u7684",
-        "defch2": "\u900f\u660e\u7684"
+        "defch1": "\u901a\u900f\u7684;\u900f\u660e\u7684",
+        "defch2": ""
     },
     "transport": {
         "gl": "n.",
@@ -6371,8 +6371,8 @@
     },
     "transpose": {
         "gl": "v.",
-        "defch1": "\u8f49\u7f6e",
-        "defch2": "\u8abf\u63db;\u79fb\u4f4d;\u8b8a\u8abf"
+        "defch1": "\u8f49\u7f6e;\u8abf\u63db;\u79fb\u4f4d;\u8b8a\u8abf",
+        "defch2": ""
     },
     "tree": {
         "gl": "n.",
@@ -6401,18 +6401,18 @@
     },
     "tripod head": {
         "gl": "n.",
-        "defch1": "\u4e09\u89d2\u67b6\u96f2\u53f0",
-        "defch2": "\u4e09\u89d2\u67b6\u982d;\u4e09\u89d2\u67b6\u9802"
+        "defch1": "\u4e09\u89d2\u67b6\u96f2\u53f0;\u4e09\u89d2\u67b6\u982d;\u4e09\u89d2\u67b6\u9802",
+        "defch2": ""
     },
     "truncating": {
         "gl": "v.",
-        "defch1": "\u53bb\u5c3e\u7684",
-        "defch2": "\u628a\u2026\u622a\u77ed"
+        "defch1": "\u53bb\u5c3e\u7684;\u628a\u2026\u622a\u77ed",
+        "defch2": ""
     },
     "tune": {
         "gl": "v.",
-        "defch1": "\u66f2\u8abf",
-        "defch2": "\u8abf\u97f3"
+        "defch1": "\u66f2\u8abf;\u8abf\u97f3",
+        "defch2": ""
     },
     "tuner": {
         "gl": "n.",
@@ -6421,28 +6421,28 @@
     },
     "tuning": {
         "gl": "n.",
-        "defch1": "\u8d77\u97f3",
-        "defch2": "\u8abf\u97f3;\u5b9a\u97f3"
+        "defch1": "\u8d77\u97f3;\u8abf\u97f3;\u5b9a\u97f3",
+        "defch2": ""
     },
     "tunnel": {
         "gl": "n.",
-        "defch1": "\u7ba1\u9053",
-        "defch2": "\u96a7\u9053"
+        "defch1": "\u7ba1\u9053;\u96a7\u9053",
+        "defch2": ""
     },
     "tweening": {
         "gl": "n.",
-        "defch1": "\u88dc\u9593\u52d5\u756b",
-        "defch2": "\u6f38\u8b8a"
+        "defch1": "\u88dc\u9593\u52d5\u756b;\u6f38\u8b8a",
+        "defch2": ""
     },
     "type": {
         "gl": "n.",
-        "defch1": "\u683c\u5f0f",
-        "defch2": "\u5f62\u5f0f"
+        "defch1": "\u683c\u5f0f;\u5f62\u5f0f",
+        "defch2": ""
     },
     "typography": {
         "gl": "n.",
-        "defch1": "\u5370\u5237\u8853",
-        "defch2": "\u6392\u5370;\u5370\u5237\u6a23\u5f0f;\u7248\u9762\u8a2d\u8a08;\u5b57\u9ad4\u8a2d\u8a08"
+        "defch1": "\u5370\u5237\u8853;\u6392\u5370;\u5370\u5237\u6a23\u5f0f;",
+        "defch2": "ex \u7248\u9762\u8a2d\u8a08;\u5b57\u9ad4\u8a2d\u8a08"
     },
     "ultra-Mobile PC": {
         "gl": "n.",
@@ -6456,8 +6456,8 @@
     },
     "under": {
         "gl": "adj.",
-        "defch1": "\u4e0d\u8db3\u7684",
-        "defch2": "\u4e0b\u9762\u7684"
+        "defch1": "\u4e0d\u8db3\u7684;\u4e0b\u9762\u7684",
+        "defch2": ""
     },
     "underexposure": {
         "gl": "n.",
@@ -6466,23 +6466,23 @@
     },
     "underflow": {
         "gl": "n.",
-        "defch1": "\u7a7a\u8f09",
-        "defch2": "\u4e0b\u6ea2;\u6f5b\u6d41;\u4e0b\u9650\u6ea2\u4f4d"
+        "defch1": "\u7a7a\u8f09;\u4e0b\u6ea2;\u6f5b\u6d41;\u4e0b\u9650\u6ea2\u4f4d",
+        "defch2": ""
     },
     "uniform": {
         "gl": "v.",
-        "defch1": "\u4e00\u81f4\u7684",
-        "defch2": "\u4f7f\u4e00\u5f8b\u5316;\u5236\u670d"
+        "defch1": "\u4e00\u81f4\u7684;\u4f7f\u4e00\u5f8b\u5316;\u5236\u670d",
+        "defch2": ""
     },
     "unity": {
         "gl": "n.",
-        "defch1": "\u4e00\u81f4 (\u6027)",
-        "defch2": "\u7d71\u4e00;\u904a\u6232\u8a2d\u8a08\u5e73\u53f0"
+        "defch1": "\u4e00\u81f4 (\u6027);\u7d71\u4e00;\u904a\u6232\u8a2d\u8a08\u5e73\u53f0",
+        "defch2": ""
     },
     "universal design": {
         "gl": "phr.",
-        "defch1": "\u901a\u7528\u8a2d\u8a08",
-        "defch2": "\u5168\u6c11\u8a2d\u8a08;\u5168\u65b9\u4f4d\u8a2d\u8a08"
+        "defch1": "\u901a\u7528\u8a2d\u8a08;\u5168\u6c11\u8a2d\u8a08;\u5168\u65b9\u4f4d\u8a2d\u8a08",
+        "defch2": ""
     },
     "unlink": {
         "gl": "v.",
@@ -6501,8 +6501,8 @@
     },
     "unvoiced": {
         "gl": "adj.",
-        "defch1": "\u4e0d\u51fa\u8072\u7684",
-        "defch2": "\u7121\u8072\u7684"
+        "defch1": "\u4e0d\u51fa\u8072\u7684;\u7121\u8072\u7684",
+        "defch2": ""
     },
     "up": {
         "gl": "n.",
@@ -6511,8 +6511,8 @@
     },
     "upholstery": {
         "gl": "n.",
-        "defch1": "\u5167\u896f",
-        "defch2": "\u5ba4\u5167\u88dd\u6f62\u54c1 (\u696d)"
+        "defch1": "\u5167\u896f;\u5ba4\u5167\u88dd\u6f62\u54c1 (\u696d)",
+        "defch2": ""
     },
     "uplink": {
         "gl": "n.",
@@ -6526,8 +6526,8 @@
     },
     "upsample": {
         "gl": "n.",
-        "defch1": "\u5347\u53d6\u6a23",
-        "defch2": "\u5411\u4e0a\u53d6\u6a23"
+        "defch1": "\u5347\u53d6\u6a23;\u5411\u4e0a\u53d6\u6a23",
+        "defch2": ""
     },
     "upstream": {
         "gl": "n.",
@@ -6546,8 +6546,8 @@
     },
     "user": {
         "gl": "n.",
-        "defch1": "\u4f7f\u7528\u8005",
-        "defch2": "\u7528\u6236"
+        "defch1": "\u4f7f\u7528\u8005;\u7528\u6236",
+        "defch2": ""
     },
     "user experience": {
         "gl": "phr.",
@@ -6556,18 +6556,18 @@
     },
     "user interface": {
         "gl": "phr.",
-        "defch1": "\u4f7f\u7528\u8005\u4ecb\u9762\u7c21\u7a31",
+        "defch1": "\u4f7f\u7528\u8005\u4ecb\u9762",
         "defch2": "UI"
     },
     "user testing": {
         "gl": "phr.",
-        "defch1": "\u4f7f\u7528\u8005\u6e2c\u8a66",
-        "defch2": "\u7528\u6236\u6e2c\u8a66"
+        "defch1": "\u4f7f\u7528\u8005\u6e2c\u8a66;\u7528\u6236\u6e2c\u8a66",
+        "defch2": ""
     },
     "UV filter": {
         "gl": "abbr.",
-        "defch1": "\u7d2b\u5916\u7dda\u4fdd\u8b77\u93e1",
-        "defch2": "\u7d2b\u5916\u7dda\u6ffe\u93e1"
+        "defch1": "\u7d2b\u5916\u7dda\u4fdd\u8b77\u93e1;\u7d2b\u5916\u7dda\u6ffe\u93e1",
+        "defch2": ""
     },
     "vacuum tube": {
         "gl": "n.",
@@ -6576,8 +6576,8 @@
     },
     "value": {
         "gl": "n.",
-        "defch1": "(\u8272\u5f69\u7684) \u660e\u6697\u5ea6",
-        "defch2": "\u6578\u503c"
+        "defch1": "(\u8272\u5f69\u7684) \u660e\u6697\u5ea6;\u6578\u503c",
+        "defch2": ""
     },
     "vanishing point": {
         "gl": "n.",
@@ -6591,13 +6591,13 @@
     },
     "variation": {
         "gl": "n.",
-        "defch1": "\u7d9c\u89c0\u8b8a\u91cf",
-        "defch2": "\u8b8a\u5316;\u8b8a\u594f\u66f2;\u8b8a\u7a2e;"
+        "defch1": "\u7d9c\u89c0\u8b8a\u91cf;\u8b8a\u5316;\u8b8a\u594f\u66f2;\u8b8a\u7a2e;",
+        "defch2": ""
     },
     "variety": {
         "gl": "n.",
-        "defch1": "\u591a\u6a23\u5316",
-        "defch2": "\u8b8a\u5316;\u7a2e\u985e"
+        "defch1": "\u591a\u6a23\u5316;\u8b8a\u5316;\u7a2e\u985e",
+        "defch2": ""
     },
     "vector": {
         "gl": "n.",
@@ -6611,12 +6611,12 @@
     },
     "vertex": {
         "gl": "n.",
-        "defch1": "\u9802\u55ae",
-        "defch2": "\u6700\u9ad8\u9ede"
+        "defch1": "\u9802\u55ae;\u6700\u9ad8\u9ede",
+        "defch2": ""
     },
     "VHS": {
         "gl": "abbr.",
-        "defch1": "\u5bb6\u5ead\u9304\u5f71\u7cfb\u7d71 (\u82f1\u6587\u7c21\u7a31) \u5168\u6587",
+        "defch1": "\u5bb6\u5ead\u9304\u5f71\u7cfb\u7d71 (\u82f1\u6587) \u5168\u6587",
         "defch2": "video home system"
     },
     "vibrato": {
@@ -6646,18 +6646,18 @@
     },
     "video on demand": {
         "gl": "phr.",
-        "defch1": "\u96a8\u9078\u8996\u8a0a (\u7cfb\u7d71) \u7c21\u7a31",
+        "defch1": "\u96a8\u9078\u8996\u8a0a (\u7cfb\u7d71) ",
         "defch2": "VOD"
     },
     "view": {
         "gl": "v.",
-        "defch1": "\u6aa2\u8996",
-        "defch2": "\u770b"
+        "defch1": "\u6aa2\u8996;\u770b",
+        "defch2": ""
     },
     "viewer": {
         "gl": "n.",
-        "defch1": "\u89c0\u6e2c\u8005",
-        "defch2": "\u89c0\u770b\u8005;\u770b\u7247\u6a5f"
+        "defch1": "\u89c0\u6e2c\u8005;\u89c0\u770b\u8005;\u770b\u7247\u6a5f",
+        "defch2": ""
     },
     "viewfinder": {
         "gl": "n.",
@@ -6671,8 +6671,8 @@
     },
     "viewpoint": {
         "gl": "n.",
-        "defch1": "\u89c0\u9ede",
-        "defch2": "\u898b\u89e3;\u8996\u9ede"
+        "defch1": "\u89c0\u9ede;\u898b\u89e3;\u8996\u9ede",
+        "defch2": ""
     },
     "viewport": {
         "gl": "n.",
@@ -6686,23 +6686,23 @@
     },
     "virtual reality": {
         "gl": "n.",
-        "defch1": "\u865b\u64ec\u5be6\u5883\u7c21\u7a31",
+        "defch1": "\u865b\u64ec\u5be6\u5883",
         "defch2": "VR"
     },
     "virtuality": {
         "gl": "n.",
-        "defch1": "\u865b\u64ec\u6027",
-        "defch2": "\u6f5b\u5728;\u5be6\u8cea"
+        "defch1": "\u865b\u64ec\u6027;\u6f5b\u5728;\u5be6\u8cea",
+        "defch2": ""
     },
     "visibility": {
         "gl": "n.",
-        "defch1": "\u53ef\u8996\u6027",
-        "defch2": "\u80fd\u898b\u5ea6"
+        "defch1": "\u53ef\u8996\u6027;\u80fd\u898b\u5ea6",
+        "defch2": ""
     },
     "visible": {
         "gl": "adj.",
-        "defch1": "\u53ef\u898b\u7684",
-        "defch2": "\u986f\u800c\u6613\u898b\u7684"
+        "defch1": "\u53ef\u898b\u7684;\u986f\u800c\u6613\u898b\u7684",
+        "defch2": ""
     },
     "visible light": {
         "gl": "phr.",
@@ -6736,8 +6736,8 @@
     },
     "voice": {
         "gl": "v.",
-        "defch1": "\u8072\u97f3",
-        "defch2": "\u8868\u9054"
+        "defch1": "\u8072\u97f3;\u8868\u9054",
+        "defch2": ""
     },
     "voice channel": {
         "gl": "phr.",
@@ -6786,8 +6786,8 @@
     },
     "wave table": {
         "gl": "phr.",
-        "defch1": "\u97f3\u8868",
-        "defch2": "\u6ce2\u8868"
+        "defch1": "\u97f3\u8868;\u6ce2\u8868",
+        "defch2": ""
     },
     "wavelength": {
         "gl": "n.",
@@ -6831,8 +6831,8 @@
     },
     "weight": {
         "gl": "v.",
-        "defch1": "\u91cd\u91cf",
-        "defch2": "\u52a0\u91cd\u91cf\u65bc"
+        "defch1": "\u91cd\u91cf;\u52a0\u91cd\u91cf\u65bc",
+        "defch2": ""
     },
     "white balance": {
         "gl": "n.",
@@ -6906,8 +6906,8 @@
     },
     "witness": {
         "gl": "v.",
-        "defch1": "\u76ee\u64ca\u8005",
-        "defch2": "\u898b\u8b49\u4eba;\u8b49\u64da;\u76ee\u64ca"
+        "defch1": "\u76ee\u64ca\u8005;\u898b\u8b49\u4eba;\u8b49\u64da;\u76ee\u64ca",
+        "defch2": ""
     },
     "wood": {
         "gl": "n.",
@@ -6921,13 +6921,13 @@
     },
     "work": {
         "gl": "n.",
-        "defch1": "\u5de5\u4f5c",
-        "defch2": "\u4f5c\u54c1"
+        "defch1": "\u5de5\u4f5c;\u4f5c\u54c1",
+        "defch2": ""
     },
     "working": {
         "gl": "n.",
-        "defch1": "\u5de5\u4f5c\u7684",
-        "defch2": "\u904b\u8f49"
+        "defch1": "\u5de5\u4f5c\u7684;\u904b\u8f49",
+        "defch2": ""
     },
     "workspace": {
         "gl": "n.",
@@ -6946,8 +6946,8 @@
     },
     "wrapping": {
         "gl": "n.",
-        "defch1": "\u5305\u88dd\u7d19",
-        "defch2": "\u5305\u88dd\u6750\u6599wrap \u70ba\u52d5\u8a5e\u300c\u5305;\u88f9\u300d\u4e4b\u610f"
+        "defch1": "\u5305\u88dd\u7d19;\u5305\u88dd\u6750\u6599",
+        "defch2": "wrap \u70ba\u52d5\u8a5e\u300c\u5305;\u88f9\u300d\u4e4b\u610f"
     },
     "yellow": {
         "gl": "n.",
@@ -6961,17 +6961,17 @@
     },
     "zoom in": {
         "gl": "n.",
-        "defch1": "\u93e1\u982d\u62c9\u8fd1 (\u4f38\u51fa)",
-        "defch2": "(\u6307\u7167\u76f8\u6a5f\u7b49) \u7528"
+        "defch1": "\u93e1\u982d\u62c9\u8fd1 (\u4f38\u51fa);(\u6307\u7167\u76f8\u6a5f\u7b49) \u7528",
+        "defch2": ""
     },
     "zoom lens": {
         "gl": "n.",
-        "defch1": "\u8b8a\u7126\u982d",
-        "defch2": "\u53ef\u8b8a\u7126\u8ddd\u7684\u93e1\u982d"
+        "defch1": "\u8b8a\u7126\u982d;\u53ef\u8b8a\u7126\u8ddd\u7684\u93e1\u982d",
+        "defch2": ""
     },
     "zoom out": {
         "gl": "n.",
-        "defch1": "\u93e1\u982d\u62c9\u9060 (\u6536\u7e2e)",
-        "defch2": "(\u6307\u7167\u76f8\u6a5f\u7b49) \u7528"
+        "defch1": "\u93e1\u982d\u62c9\u9060 (\u6536\u7e2e);(\u6307\u7167\u76f8\u6a5f\u7b49) \u7528",
+        "defch2": ""
     }
 }
