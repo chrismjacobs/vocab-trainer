@@ -230,8 +230,7 @@ export default {
             _this.friends = JSON.parse(response.data.friends)
             _this.$store.dispatch('addFriend', {friendData: JSON.parse(response.data.friends)})
             _this.msg = 'Friend added:' + friendName + ' #' + friendID
-            _this.closeSocket()
-            _this.startSocket()
+            _this.$emit('resetMatch')
             _this.showModal()
           } else {
             _this.msg = 'Cannot add friend. Please check username and user ID'
