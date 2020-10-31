@@ -40,8 +40,8 @@
       <b-col v-else cols="1" class="bg-prime d-none d-lg-block">
       </b-col>
 
-      <b-col :class="contClass()" style="min-height:100vh">
-        <b-container fluid  v-if="this.$store.state.userRecord || !isAuthenticated">
+      <b-col :class="contClass()" style="min-height:100vh" >
+        <b-container fluid v-if="this.$store.state.userRecord || !isAuthenticated">
           <transition name="board">
            <router-view :s3="s3"></router-view>
           </transition>
@@ -55,7 +55,7 @@
       </b-col>
 
       <b-col cols="2" class="d-none d-lg-block">
-          <div class="p-2 bg-warn" style="height:100%">
+          <div class="p-4 bg-warn" style="height:100%">
               <div>
                 <b-row no-gutters v-if="isAuthenticated" align="center">
                   <b-col>
@@ -73,13 +73,14 @@
                 </b-row>
 
                 <hr>
-                    <div v-if="isAuthenticated" >
+                    <div v-if="isAuthenticated">
                       <Dash :tableItems="tableItems" type="side"></Dash>
                       <hr>
                     </div>
 
                     <div v-if="isAuthenticated">
-                      <button v-if="$store.state.userProfile.instructor" class="buttonDiv mt-2 bg-warn-light text-prime px-1" style="height:50px; width:100%" @click="goTo('JGrabber')"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp;Instructor </span> </button>
+                      <button v-if="$store.state.userProfile.instructor" class="buttonDiv mt-2 bg-warn-light text-prime px-1" style="height:50px; width:100%" @click="goTo('Instructor')"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp;Instructor </span> </button>
+                      <button v-if="$store.state.userProfile.userID === 1" class="buttonDiv mt-2 bg-info text-prime px-1" style="height:50px; width:100%" @click="goTo('JGrabber')"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp;JGrabber </span> </button>
                       <button class="buttonDiv mt-2 bg-third text-prime px-1" style="height:50px; width:100%" @click="alert('help features coming soon')"><b-icon-question-circle></b-icon-question-circle>  <span text=""> &nbsp;Help </span> </button>
                       <button class="buttonDiv mt-2 bg-grape text-cream px-1" style="height:50px; width:100%" @click="logout()"><b-icon-power></b-icon-power>  <span text=""> &nbsp;Logout </span> </button>
                     </div>
@@ -174,7 +175,7 @@ export default {
       if (!this.$store.state.testActive) {
         this.$router.push(arg)
       } else {
-        alert('You are in a match, please exit first')
+        alert('You are in a test, please finish or exit first')
         // this.navStyle()
         // this.navSide()
       }
@@ -225,6 +226,9 @@ export default {
         _this.$store.dispatch('saveData')
       }
       return undefined
+    }
+    window.onblur = function () {
+      _this.$store.dispatch('saveData')
     }
   }
 
@@ -344,6 +348,11 @@ body {
 
 .container-fluid {
     padding: 20px;
+}
+
+.head {
+  border:0px solid #CCC;
+  border-radius: 10px 10px 0px 0px;
 }
 
 .headDiv {

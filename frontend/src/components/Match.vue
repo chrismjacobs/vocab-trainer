@@ -4,7 +4,7 @@
     <TypeMatch  :testType="testType" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" :socket="socket" :s3="s3" v-if="testType && testType[1] === 'y'"></TypeMatch>
     <template v-if="waiting">
       <div v-if="testType === null">
-          <div class="mt-2 p-2 bg-grape">
+          <div class="mt-2 p-2 bg-grape head">
             <h2 class="text-cream" align="center">
               Match Zone
             </h2>

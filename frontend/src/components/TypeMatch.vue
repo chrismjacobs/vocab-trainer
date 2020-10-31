@@ -1,7 +1,7 @@
 <template>
   <div class="TypeMatch">
     <audio id="audio"></audio>
-      <div class="mt-2 bg-grape text-cream p-2">
+      <div class="mt-2 bg-grape text-cream p-2 head">
         <b-row align-h="end">
           <b-col cols="6" align="center">
             <h2> Match </h2>

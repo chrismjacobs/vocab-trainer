@@ -40,6 +40,10 @@ export function getRecordAPI (payload) {
   return axios.post(host + '/api/getRecord', payload)
 }
 
+export function getClass (payload) {
+  return axios.post(host + '/api/getClass', payload)
+}
+
 export function addImage (payload) {
   return axios.post(host + '/api/addImage', payload)
 }

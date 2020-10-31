@@ -2,7 +2,7 @@
   <div class="toolbar" v-if="!toolbarShow">
     <div>
 
-      <div class="mt-2 bg-second p-2">
+      <div class="mt-2 bg-second p-2 head">
             <h2 class="text-cream" align="center">
               {{ title }}
             </h2>

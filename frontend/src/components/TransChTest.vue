@@ -179,6 +179,7 @@ export default {
       this.filter = null
       this.showTest = false
       this.endTime = new Date()
+      this.replay = false
       this.showModal()
       this.checkAnswers()
     },
