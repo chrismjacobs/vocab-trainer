@@ -77,25 +77,19 @@ export function wordFix (string, cut) {
   // console.log('WordFix', string, cut)
   // let marker = 0
   if (cut === 'showFL') {
-    let first = string[0]
-    let last = string[string.length - 1]
-    // console.log(first, last)
+    console.log('showFL')
+
     var newString = ''
     for (let character in characterArray) {
       // console.log(character, characterArray[character])
-      if (character === 0) {
-        newString += first
-      } else if (character === string.length - 1) {
-        newString += last
-      } else if (characterArray[character] === '_' ||
-                 characterArray[character] === '-' ||
-                 characterArray[character] === "'" ||
-                 characterArray[character] === '.' ||
-                 characterArray[character] === '&') {
+      if (character === '0') {
+        newString += characterArray[character] + '________________'
+      } else if (character === (string.length - 1).toString()) {
         newString += characterArray[character]
-      } else {
-        newString += '_'
       }
+      // else if (characterArray[character] === '_' || characterArray[character] === '-' ||
+      // characterArray[character] === "'" || characterArray[character] === '.' || characterArray[character] === '&') {
+      // newString += characterArray[character]
     }
     return newString
   } else if (cut === 'typos') {
