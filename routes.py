@@ -470,9 +470,10 @@ def storeB64(fileData, uid, mode):
 def jChecker(user, logs, vocab, setD):
     print('##jChecker')
 
-    #vocab_content = json.dumps({})
-    #logs_content = json.dumps({})
-    #set_content = json.dumps({'dictRecord': {}, 'starRecord': {}})
+    ## do not delete these they must referenced at the start
+    vocab_content = json.dumps({})
+    logs_content = json.dumps({})
+    set_content = json.dumps({'dictRecord': {}, 'starRecord': {}})
 
     #print(type(json.loads(logs_content)), type(json.loads(set_content)))
 
@@ -528,6 +529,8 @@ def jStorer(user, logsRecord, userRecord, userSet):
 
     #print(vocabKey, setKey, logsKey)
 
+    print('userSet', userSet)
+
     if logsRecord:
         print('logs stored')
         logs_content = json.dumps(logsRecord)
@@ -538,7 +541,7 @@ def jStorer(user, logsRecord, userRecord, userSet):
         vocab_content = json.dumps(userRecord)
         s3_resource.Bucket(bucket_name).put_object(Key=vocabKey, Body=str(vocab_content))
 
-    if userSet or userSet['dictRecord'] == {}:
+    if userSet:
         print('set stored')
         set_content = json.dumps(userSet)
         s3_resource.Bucket(bucket_name).put_object(Key=setKey, Body=str(set_content))
