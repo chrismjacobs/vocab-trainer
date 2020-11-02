@@ -3,11 +3,11 @@
     <audio id="audio"></audio>
 
     <!-- headers and toggle buttons -->
-    <div class="mt-2 bg-second p-2">
+    <div class="mt-2 bg-second p-2 head">
       <div v-if="!newWord.word" align="center">
         <b-row align-h="end">
           <b-col cols="6">
-            <h2 class="text-cream" > Word List </h2>
+            <h3 class="text-cream" > Word List </h3>
           </b-col>
           <b-col cols="3">
             <button class="buttonDiv bg-warn px-3" style="width:60px;float:right" @click="newWord.word = 'a'"> <b-icon-images variant="cream" font-scale="1.5"></b-icon-images></button>
@@ -30,16 +30,28 @@
 
     <!-- dictionary list -->
 
+
       <div class="bg-grey p-2" v-if="!newWord.word">
-        <b-row>
-        <b-col>
-          <b-form-select class="bg-warn-light" @change="selected[2]=null, sMarker=selected[0]" v-model="selected[0]" :options="optionsA" :select-size="5"></b-form-select>
-        </b-col>
-        <b-col>
-          <b-form-select class="bg-third" style="overflow-y: hidden" @change="selected[2] = null" v-model="selected[1]" :options="optionsG" :select-size="5"></b-form-select>
-        </b-col>
+        <b-row align="center" class='mb-2'>
+          <b-col>
+            <b-form-input
+            align="center"
+            style="font-size:30px;width:70%;text-align:center"
+            autocapitalize="none"
+            autocomplete="off"
+            id="type"
+            @focus="nullClick()"
+            @change="selected[2]=null, sMarker=selected[0]"
+            v-model="selected[0]"
+            ></b-form-input>
+          </b-col>
         </b-row>
-        <b-row class="mt-3 pb-3" align="center">
+        <b-row align="center">
+          <b-col>
+            <b-form-select class="bg-third" style="width:70%;overflow-y: hidden" @change="selected[2] = null" v-model="selected[1]" :options="optionsG" :select-size="1"></b-form-select>
+          </b-col>
+        </b-row>
+        <b-row class="mt-3" align="center">
           <b-col>
               <b-form-group>
                 <b-form-radio-group
@@ -55,7 +67,6 @@
               </b-form-group>
           </b-col>
         </b-row>
-
       </div>
 
       <div v-if="!newWord.word">
@@ -65,14 +76,28 @@
       :fields="fields"
       :filter="selected"
       :filter-function="filterTable"
+      show-empty
       head-variant="dark"
-      sticky-header="400px"
+      sticky-header="600px"
+      v-model="visibleRows"
       >
         <template v-slot:cell(english)="data">
-            {{data.value}}
-            <br>
-             <b-icon-card-image :variant="getVariant(data.value)" @click="editWord(data.value)"></b-icon-card-image> &nbsp;
-             <b-icon-soundwave class="text-prime" :id="data.value + '_en/'" @click="playAudio(data.value, '_en/')"></b-icon-soundwave>
+          <b-row no-gutters>
+            <b-col cols="3">
+             <template v-if="stars.includes(data.value)">
+               <b-icon-star-fill variant="warn" @click="addStar(data.value, 0)"></b-icon-star-fill> &nbsp; <br class="d-lg-none">
+             </template>
+             <template v-else>
+                <b-icon-star @click="addStar(data.value, 1)"></b-icon-star> &nbsp; <br class="d-lg-none">
+             </template>
+             <b-icon-card-image :variant="getVariant(data.value)" @click="editWord(data.value)"></b-icon-card-image>  <br class="d-lg-none">
+
+            </b-col>
+            <b-col>
+              {{data.value}} <br class="d-lg-none">
+               <b-icon-soundwave class="text-prime" :id="data.value + '_en/'" @click="playAudio(data.value, '_en/')"></b-icon-soundwave>
+            </b-col>
+          </b-row>
          </template>
       </b-table>
       </div>
@@ -186,18 +211,17 @@ export default {
         {key: 'Gr', label: 'Gr.', sortable: false},
         {key: 'ChineseExt', label: 'Chinese', sortable: true}
       ],
-      fields2: [
-        {key: 'English', label: 'Vocab', sortable: true},
-        {key: 'ChineseExt', label: 'Chinese', sortable: true}
-      ],
       tableItems: null,
+      visibleRows: [],
       selected: [null, null, null],
       sMarker: null,
       optionsA: [
         { value: null, text: '---' }
       ],
+      gValue: '---',
       optionsG: [
         { value: null, text: '---' },
+        { value: '*', text: 'stars' },
         { value: 'v.', text: 'verbs' },
         { value: 'adj.', text: 'adjectives' },
         { value: 'n.', text: 'nouns' },
@@ -246,13 +270,18 @@ export default {
       waiting: true,
       msg: 'Action Complete',
       edit: false,
-      del: false
+      del: false,
+      stars: []
     }
   },
   computed: {
     dictGet () {
-      console.log('dictGet', this.$store.state.dictRecord)
+      console.log('dictGet', this.$store.state.setRecord.dictRecord)
       return this.$store.getters.dictGet
+    },
+    starGet () {
+      console.log('starGet', this.$store.state.setRecord.starRecord)
+      return this.$store.getters.starGet
     },
     codeGen () {
       let date = new Date()
@@ -270,17 +299,51 @@ export default {
         return this.s3 + 'blank.jpg'
       }
     },
+    nullClick: function (key, item) {
+      console.log('NULL')
+      this.selected = [null, null, null]
+    },
+    randomLet: function () {
+      let alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+      let alArr = alphabet.split('')
+
+      this.shuffle(alArr)
+      console.log(alArr)
+      this.selected = [alArr[0], null, null]
+    },
     filterTable: function (row, filter) {
+      if (filter[1] === '*') {
+        if (row.English in this.starGet) {
+          return true
+        }
+      }
+      if (filter[1] === 'abbr.' || filter[1] === 'prop.') {
+        if (row.Gr === filter[1]) {
+          return true
+        }
+      }
       if (filter[2] != null) {
         if (row.totalScore === filter[2] && row.tested) {
           return true
         }
-      } else if (filter[1] === null) {
-        if (row.Category === filter[0]) {
-          return true
+      } else if (filter[0] === null || filter[0] === '') {
+        return false
+      } else if (filter[0] != null && filter[0].length === 1) {
+        if (row.English[0].toLowerCase() === filter[0].toLowerCase()) {
+          if (filter[1] && row.Gr === filter[1]) {
+            return true
+          } else if (!filter[1]) {
+            return true
+          }
         }
-      } else if (row.Category === filter[0] && row.Gr === filter[1]) {
-        return true
+      } else if (filter[0] != null) {
+        if ((row.English.toLowerCase()).includes(filter[0].toLowerCase())) {
+          if (filter[1] && row.Gr === filter[1]) {
+            return true
+          } else if (!filter[1]) {
+            return true
+          }
+        }
       } else {
         return false
       }
@@ -355,6 +418,22 @@ export default {
           console.log('Error Registering: ', error)
         })
     },
+    addStar: function (word, set) {
+      this.$store.dispatch('newStar', {word: word, set: set})
+      let arr = this.stars
+      if (set === 0) {
+        console.log('delete')
+        for (var i = 0; i < arr.length; i++) {
+          if (arr[i] === word) {
+            arr.splice(i, 1)
+          }
+        }
+      } else {
+        console.log('push')
+        this.stars.push(word)
+      }
+      console.table(this.stars)
+    },
     showModal: function () {
       this.$refs['success'].show()
     },
@@ -388,6 +467,14 @@ export default {
       console.log(this.dictGet)
       this.msg = word + ' Deleted'
       this.showModal()
+    },
+    shuffle: function (array) {
+      // Fisher-Yates shuffle
+      for (let i = array.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1)); // random index from 0 to i
+        [array[i], array[j]] = [array[j], array[i]]
+      }
+      return array
     }
   },
   watch: {
@@ -399,7 +486,12 @@ export default {
     }
   },
   created () {
-    this.alphabet()
+    // this.alphabet()
+    this.randomLet()
+    for (let word in this.$store.getters.starGet) {
+      this.stars.push(word)
+    }
+
     this.vocabList = this.$store.state.userProfile.vocab
     this.tableItems = this.$store.getters.makeList
     // console.log(this.tableItems)

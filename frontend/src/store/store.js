@@ -2,12 +2,16 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import router from '../router'
 import { isValidJwt, parseLocal, checkDevice } from '@/utils'
-import { authenticate, register, updateRecAPI, updateAccount, getRecordAPI, ticket } from '@/api'
+import { authenticate, register, updateRecAPI, updateAccount, getRecordAPI, ticket, getClass } from '@/api'
 import tourism1 from '../assets/json/tourism1.json'
 import tourism from '../assets/json/tourism.json'
 import digital1 from '../assets/json/digital1.json'
 import culinary2 from '../assets/json/culinary2.json'
+import generalY from '../assets/json/generalY.json'
+import generalW from '../assets/json/generalW.json'
 import food from '../assets/json/food.json'
+// import vqc from '../assets/json/vqc2.json'
+import test from '../assets/json/vqc2.json'
 // import cul from '../assets/json/cul.json'
 
 let dictionaries = {
@@ -15,6 +19,8 @@ let dictionaries = {
   'tourism': tourism,
   'digital1': digital1,
   'culinary2': culinary2,
+  'generalY': generalY,
+  'generalW': generalW,
   'high': null,
   'food': food
 }
@@ -26,19 +32,21 @@ const state = {
   userRecord: null,
   currentRecord: parseLocal(localStorage.currentRecord) || {},
   logsRecord: null,
-  dictRecord: null,
+  setRecord: { dictRecord: {}, starRecord: {} },
   updateStatus: true,
   jwt: localStorage.token || '',
-  testJ: null,
+  testJ: test,
   master: dictionaries[parseLocal(localStorage.userProfile).vocab],
   testActive: false,
   device: localStorage.device || '',
   loginTime: localStorage.loginTime || '',
+  classRecords: null,
   audioLinks: {
     t: 'audio',
     f: 'foodio',
     d: 'digital',
-    c: 'culinary'
+    c: 'culinary',
+    g: 'general'
   }
 }
 
@@ -54,7 +62,7 @@ const actions = {
           return response.data
         } else {
           context.commit('setJwtToken', { jwt: response.data.token })
-          context.commit('setProfile', { userProfile: response.data.userProfile, userRecord: response.data.userRecord, logsRecord: response.data.logsRecord, dictRecord: response.data.dictRecord })
+          context.commit('setProfile', { userProfile: response.data.userProfile, userRecord: response.data.userRecord, logsRecord: response.data.logsRecord, setRecord: response.data.setRecord })
           context.commit('setMaster', { userProfile: response.data.userProfile })
           // console.log(response.data)
           return response.data
@@ -141,6 +149,10 @@ const actions = {
     console.log('new word data...', payload)
     context.commit('setNewWord', payload)
   },
+  newStar (context, payload) {
+    console.log('new star data...', payload)
+    context.commit('setNewStar', payload)
+  },
   deleteWord (context, payload) {
     // console.log('new word data...')
     context.commit('setDeleteWord', payload)
@@ -151,6 +163,17 @@ const actions = {
       .then(function (response) {
         // console.log(response.data)
         context.commit('setRecords', response.data)
+      })
+      .catch(error => {
+        console.log('Error Registering: ', error)
+      })
+  },
+  classRecords (context, payload) {
+    // console.log('record request...')
+    return getClass(payload)
+      .then(function (response) {
+        console.log(response.data)
+        context.commit('setClassRecords', response.data.classRecords)
       })
       .catch(error => {
         console.log('Error Registering: ', error)
@@ -167,11 +190,11 @@ const mutations = {
     state.jwt = payload.jwt
   },
   setProfile (state, payload) {
-    // console.log('setProfile payload = ', payload)
+    console.log('setProfile payload = ', payload)
 
     localStorage.setItem('userProfile', JSON.stringify(payload.userProfile))
     state.userProfile = payload.userProfile
-    state.dictRecord = payload.dictRecord
+    state.setRecord = payload.setRecord
     state.userRecord = payload.userRecord
 
     state.logsRecord = payload.logsRecord
@@ -206,9 +229,15 @@ const mutations = {
     if (state.userRecord !== {}) {
       state.userRecord = payload.userRecord
     }
-    if (state.dictRecord !== {}) {
-      state.dictRecord = payload.dictRecord
+    if (state.setRecord.dictRecord !== {}) {
+      state.setRecord.dictRecord = payload.setRecord.dictRecord
     }
+    if (state.setRecord.starRecord !== {}) {
+      state.setRecord.starRecord = payload.setRecord.starRecord
+    }
+  },
+  setClassRecords (state, payload) {
+    state.classRecords = payload
   },
   setAccount (state, payload) {
     // console.log('setAccount payload = ', payload.dataReturn)
@@ -223,17 +252,28 @@ const mutations = {
     let parseData = JSON.parse(payload['newWord'])
     console.log('setNewWord payload = ', payload)
     console.log('setNewWord parse = ', parseData)
-    state.dictRecord[parseData.word] = {
+    state.setRecord.dictRecord[parseData.word] = {
       'text': parseData.text,
       'link': parseData.code,
       'vocab': parseData.vocab
     }
     state.updateStatus = false
   },
+  setNewStar (state, payload) {
+    console.log('setNewStar payload = ', payload)
+    if (payload.set === 0) {
+      console.log('delete')
+      delete state.setRecord.starRecord[payload.word]
+    } else {
+      console.log('set')
+      state.setRecord.starRecord[payload.word] = 1
+    }
+    state.updateStatus = false
+  },
   setDeleteWord (state, payload) {
     console.log('setDeleteWord payload = ', payload)
-    delete state.dictRecord[payload.word]
-    console.log(state.dictRecord, state.dictRecord[payload.word])
+    delete state.setRecord.dictRecord[payload.word]
+    console.log(state.setRecord.dictRecord, state.setRecord.dictRecord[payload.word])
     state.updateStatus = false
   },
   destroyToken (state) {
@@ -242,7 +282,7 @@ const mutations = {
     state.userRecord = {}
     state.currentRecord = {}
     state.logsRecord = {}
-    state.dictRecord = {}
+    state.setRecord = {dictRecord: {}, starRecord: {}}
     state.jwt = ''
     localStorage.clear()
   },
@@ -251,8 +291,11 @@ const mutations = {
     // console.log('testActive', state.testActive)
   },
   sendRecords (state) {
+    if (state.updateStatus) {
+      return false
+    }
     let _state = state
-    updateRecAPI({userRecord: state.userRecord, userID: state.userProfile.userID, logsRecord: state.logsRecord, dictRecord: state.dictRecord})
+    updateRecAPI({userRecord: state.userRecord, userID: state.userProfile.userID, logsRecord: state.logsRecord, setRecord: state.setRecord})
       .then(function (response) {
         _state.updateStatus = true
         // localStorage.settings = JSON.stringify({})
@@ -345,6 +388,10 @@ const mutations = {
 
 const getters = {
   // reusable data accessors
+  classRecords (state) {
+    // console.log(state.jwt)
+    return state.classRecords
+  },
   isAuthenticated (state) {
     // console.log(state.jwt)
     return isValidJwt(state.jwt)
@@ -354,7 +401,10 @@ const getters = {
     return state.testActive
   },
   dictGet (state) {
-    return state.dictRecord
+    return state.setRecord.dictRecord
+  },
+  starGet (state) {
+    return state.setRecord.starRecord
   },
   makeList (state) {
     let tableItems = []

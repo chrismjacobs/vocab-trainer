@@ -88,9 +88,9 @@ def login():
 
     userRecord = content['userRecord']
     logsRecord = content['logsRecord']
-    dictRecord = content['dictRecord']
+    setRecord = content['setRecord']
 
-    print('check', dictRecord, type(dictRecord))
+    print('check', setRecord, type(setRecord))
 
     count = len(logsRecord['logs'])
     print('count', count)
@@ -99,6 +99,13 @@ def login():
     print('login_logs:')
     pprint(logsRecord)
 
+    classmates = {}
+
+    users = User.query.all()
+    for u in users:
+        if u.classroom == user.classroom and u is not user:
+            classmates[u.id] = u.username
+
     userProfile = {
         'username' : user.username,
         'userID' : user.id,
@@ -106,6 +113,7 @@ def login():
         'school' : user.school,
         'email' : user.email,
         'classroom' : user.classroom,
+        'classmates' : classmates,
         'vocab' : user.vocab,
         'instructor': user.extraInt
     }
@@ -126,7 +134,7 @@ def login():
         'userProfile': userProfile,
         'userRecord': userRecord,
         'logsRecord': logsRecord,
-        'dictRecord': dictRecord
+        'setRecord': setRecord
         })
 
 
@@ -174,13 +182,38 @@ def get_records():
 
     content = jChecker(user, True, True, True)
     userRecord = content['userRecord']
-    dictRecord = content['dictRecord']
+    setRecord = content['setRecord']
     logsRecord = content['logsRecord']
 
     return jsonify({
         'userRecord': userRecord,
         'logsRecord': logsRecord,
-        'dictRecord': dictRecord
+        'setRecord': setRecord
+        })
+
+@app.route("/api/getClass", methods=['POST'])
+def get_class():
+    print('GET CLASS')
+
+    userID = request.get_json()['userID']
+    user = User.query.get(userID)
+    room = request.get_json()['userID']
+
+    users = User.query.all()
+
+    classDict = {}
+
+    for user in users:
+        classDict[user.id] = {}
+        classDict[user.id]['user'] = user.username
+
+        content = jChecker(user, True, True, True)
+        classDict[user.id]['userRecord'] = content['userRecord']
+        classDict[user.id]['setRecord'] = content['setRecord']
+        classDict[user.id]['logsRecord'] = content['logsRecord']
+
+    return jsonify({
+        'classRecords': classDict
         })
 
 @app.route('/api/updateRecord', methods=['POST'])
@@ -190,16 +223,16 @@ def update_record():
     pprint(payload)
 
     userRecord = payload['userRecord']
-    dictRecord = payload['dictRecord']
+    setRecord = payload['setRecord']
     logsRecord = payload['logsRecord']
 
     userID = payload['userID']
     user = User.query.get(userID)
 
-    print('updateRecord', dictRecord)
+    print('updateRecord', setRecord)
 
     #jStorer(user, logsRecord, userRecord, userDictionary)
-    jStorer(user, logsRecord, userRecord, dictRecord)
+    jStorer(user, logsRecord, userRecord, setRecord)
 
 
     response = {
@@ -434,14 +467,14 @@ def storeB64(fileData, uid, mode):
 
 ''' ############ json handlers ############'''
 
-def jChecker(user, logs, vocab, dictionary):
+def jChecker(user, logs, vocab, setD):
     print('##jChecker')
 
-    vocab_content = json.dumps({})
-    logs_content = json.dumps({})
-    dictionary_content = json.dumps({})
+    #vocab_content = json.dumps({})
+    #logs_content = json.dumps({})
+    #set_content = json.dumps({'dictRecord': {}, 'starRecord': {}})
 
-    #print(type(json.loads(logs_content)), type(json.loads(dictionary_content)))
+    #print(type(json.loads(logs_content)), type(json.loads(set_content)))
 
     if vocab:
         vocabKey = "jfolder/" + str(user.id) + '/' + user.vocab + '/records.json'
@@ -469,31 +502,31 @@ def jChecker(user, logs, vocab, dictionary):
             s3_resource.Bucket(bucket_name).put_object(Key=logsKey, Body=logs_content)
             print('except', logs_content)
 
-    if dictionary:
-        dictionaryKey = "jfolder/" + str(user.id) + '/' + user.vocab + '/dictionary.json'
-        dictionary = {}
+    if setD:
+        setKey = "jfolder/" + str(user.id) + '/' + user.vocab + '/set.json'
+        setD = {'dictRecord': {}, 'starRecord': {}}
         try:
-            content_object = s3_resource.Object( 'vocab-lms', dictionaryKey )
-            dictionary_content = content_object.get()['Body'].read().decode('utf-8')
-            print('try', dictionary_content)
+            content_object = s3_resource.Object( 'vocab-lms', setKey )
+            set_content = content_object.get()['Body'].read().decode('utf-8')
+            print('try', set_content)
         except:
-            dictionary_content = json.dumps(dictionary)
-            s3_resource.Bucket(bucket_name).put_object(Key=dictionaryKey, Body=dictionary_content)
-            print('except', dictionary_content)
+            set_content = json.dumps(setD)
+            s3_resource.Bucket(bucket_name).put_object(Key=setKey, Body=set_content)
+            print('except', set_content)
 
-    #print(type(json.loads(logs_content)), type(json.loads(dictionary_content)))
+    #print(type(json.loads(logs_content)), type(json.loads(set_content)))
     print(logs_content)
 
-    return {'userRecord': json.loads(vocab_content), 'logsRecord': json.loads(logs_content), 'dictRecord': json.loads(dictionary_content)}
+    return {'userRecord': json.loads(vocab_content), 'logsRecord': json.loads(logs_content), 'setRecord': json.loads(set_content)}
 
 
-def jStorer(user, logsRecord, userRecord, userDictionary):
+def jStorer(user, logsRecord, userRecord, userSet):
     print('##jStorer')
     vocabKey = "jfolder/" + str(user.id) + '/' + user.vocab + '/records.json'
-    dictionaryKey = "jfolder/" + str(user.id) + '/' + user.vocab + '/dictionary.json'
+    setKey = "jfolder/" + str(user.id) + '/' + user.vocab + '/set.json'
     logsKey = "jfolder/" + str(user.id) + '/logs.json'
 
-    #print(vocabKey, dictionaryKey, logsKey)
+    #print(vocabKey, setKey, logsKey)
 
     if logsRecord:
         print('logs stored')
@@ -505,10 +538,10 @@ def jStorer(user, logsRecord, userRecord, userDictionary):
         vocab_content = json.dumps(userRecord)
         s3_resource.Bucket(bucket_name).put_object(Key=vocabKey, Body=str(vocab_content))
 
-    if userDictionary or userDictionary == {}:
-        print('dict stored')
-        dictionary_content = json.dumps(userDictionary)
-        s3_resource.Bucket(bucket_name).put_object(Key=dictionaryKey, Body=str(dictionary_content))
+    if userSet or userSet['dictRecord'] == {}:
+        print('set stored')
+        set_content = json.dumps(userSet)
+        s3_resource.Bucket(bucket_name).put_object(Key=setKey, Body=str(set_content))
 
     return True
 
