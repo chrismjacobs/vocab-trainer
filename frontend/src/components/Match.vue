@@ -1,6 +1,6 @@
 <template>
   <div class="matchArea">
-    <TransMatch  :testType="testType" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" :socket="socket" :s3="s3" v-if="testType && testType[1] === 'r'"></TransMatch>
+    <TransMatch  v-on:leave="leaveMatch()" ref="" :testType="testType" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" :socket="socket" :s3="s3" v-if="testType && testType[1] === 'r'"></TransMatch>
     <TypeMatch  :testType="testType" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" :socket="socket" :s3="s3" v-if="testType && testType[1] === 'y'"></TypeMatch>
     <template v-if="waiting">
       <div v-if="testType === null">
@@ -12,7 +12,7 @@
 
           <div class="bg-third text-third p-2">
             <b-row align="left">
-              <b-col cols="7">
+              <b-col cols="10">
                 <div style="color:red !important">
                     <b-form-radio-group
                       id="btn-radios-2"
@@ -24,7 +24,7 @@
                     ></b-form-radio-group>
                   </div>
               </b-col>
-              <b-col align="right">
+              <b-col align="right" style="display:none">
                 <button class="buttonDiv bg-warn mt-2"  @click="friendAdder=!friendAdder"> Add <b-icon icon="person"></b-icon></button>
                 <button class="buttonDiv bg-alert mt-2"  @click="friendDeleter=!friendDeleter"> Del <b-icon icon="x-square-fill"></b-icon> </button>
               </b-col>
@@ -203,6 +203,7 @@ export default {
       this.socket.close()
     },
     leaveMatch: function () {
+      this.socket.emit('resetEmit')
       console.log('leave activated')
     },
     challenge: function (targetID, mode) {
@@ -276,6 +277,12 @@ export default {
       }
       return undefined
     }
+    window.onblur = function () {
+      if (_this.isAuthenticated && _this.$store.state.updateStatus === false) {
+        _this.closeSocket()
+      }
+      return undefined
+    }
   },
   beforeDestroy () {
     console.log('beforeDestroyMatch')
@@ -284,7 +291,7 @@ export default {
   mounted () {
     this.userID = this.$store.state.userProfile.userID
     this.username = this.$store.state.userProfile.username
-    this.friends = this.$store.state.logsRecord.friends
+    this.friends = this.$store.state.userProfile.classmates
     this.startSocket()
 
     let _this = this

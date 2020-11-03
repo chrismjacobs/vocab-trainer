@@ -92,12 +92,11 @@ def login():
 
     print('check', setRecord, type(setRecord))
 
-    count = len(logsRecord['logs'])
-    print('count', count)
-
     #pprint(userRecord)
     print('login_logs:')
     pprint(logsRecord)
+    count = len(logsRecord['logs'])
+    print('count', count)
 
     classmates = {}
 
@@ -473,7 +472,7 @@ def jChecker(user, logs, vocab, setD):
     ## do not delete these they must referenced at the start
     vocab_content = json.dumps({})
     logs_content = json.dumps({})
-    set_content = json.dumps({'dictRecord': {}, 'starRecord': {}})
+    set_content = json.dumps({'dictRecord': {}, 'starRecord': {}, 'addRecord': {}})
 
     #print(type(json.loads(logs_content)), type(json.loads(set_content)))
 
@@ -505,7 +504,7 @@ def jChecker(user, logs, vocab, setD):
 
     if setD:
         setKey = "jfolder/" + str(user.id) + '/' + user.vocab + '/set.json'
-        setD = {'dictRecord': {}, 'starRecord': {}}
+        setD = {'dictRecord': {}, 'starRecord': {}, 'addRecord': {}}
         try:
             content_object = s3_resource.Object( 'vocab-lms', setKey )
             set_content = content_object.get()['Body'].read().decode('utf-8')

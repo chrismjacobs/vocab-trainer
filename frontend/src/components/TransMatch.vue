@@ -228,13 +228,13 @@ export default {
       let result = (choice === correct)
       // console.log('RESULT', result)
 
-      this.socket.emit('answer', {room: this.p1, name: question, answer: answer, btnID: btnID, player: this.player, state: result})
+      this.socket.emit('answer', {room: (this.p1 + '-' + this.p2).toString(), name: question, answer: answer, btnID: btnID, player: this.player, state: result})
     },
     recordDisable: function () {
       console.log('DISABLE RESULT', this.player)
       clearInterval(this.clock)
       this.clockBlock = false
-      this.socket.emit('answer', {room: this.p1, name: null, answer: null, btnID: null, player: this.player, state: false})
+      this.socket.emit('answer', {room: (this.p1 + '-' + this.p2).toString(), name: null, answer: null, btnID: null, player: this.player, state: false})
     },
     disable: function (name, btnID, clicker, state, answer) {
       console.log('DISABLE', this.player)
@@ -375,7 +375,8 @@ export default {
       player.play()
     },
     leave: function () {
-      this.socket.emit('exitMatch', { player: this.player, p1: this.p1, p2: this.p2 })
+      this.$emit('leave')
+      // this.socket.emit('exitMatch', { player: this.player, p1: this.p1, p2: this.p2 })
     }
   },
   watch: {

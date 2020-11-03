@@ -12,7 +12,8 @@ export function openSocket () {
   }
   const socket = io.connect(host)
   let userProfile = store.state.userProfile
-  let friends = store.state.logsRecord.friends
+  // let friends = store.state.logsRecord.friends
+  let friends = userProfile.classmates
 
   socket.on('connect', function () {
     // sends to app.py as msg which it prints

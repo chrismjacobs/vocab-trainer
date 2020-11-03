@@ -263,7 +263,7 @@ export default {
         }
       }
 
-      this.socket.emit('ready', {room: this.p1, player: this.player, testItems: this.testItemsRoot, timeReset: this.timeReset})
+      this.socket.emit('ready', {room: (this.p1 + '-' + this.p2).toString(), player: this.player, testItems: this.testItemsRoot, timeReset: this.timeReset})
       // console.log(this.testItemsRoot)
     },
     makeSpelling: function () {
@@ -293,7 +293,7 @@ export default {
         }
       }
 
-      this.socket.emit('ready', {room: this.p1, player: this.player, testItems: this.testItemsRoot, timeReset: this.timeReset})
+      this.socket.emit('ready', {room: (this.p1 + '-' + this.p2).toString(), player: this.player, testItems: this.testItemsRoot, timeReset: this.timeReset})
       // console.log(this.testItemsRoot)
 
       if (this.words < 6) {
@@ -344,7 +344,7 @@ export default {
       if (this.player === 'p1') {
         this.makeTest()
       } else {
-        this.socket.emit('ready', {room: this.p1, player: this.player, testItems: this.testItemsRoot, timeReset: null})
+        this.socket.emit('ready', {room: (this.p1 + '-' + this.p2).toString(), player: this.player, testItems: this.testItemsRoot, timeReset: null})
       }
     },
     settingsSend: function (arg) {
@@ -362,7 +362,7 @@ export default {
         display: this.display,
         feedback: this.feedback
       }
-      this.socket.emit('settingsData', {room: this.p1, settingsData: toolbarSettings})
+      this.socket.emit('settingsData', {room: (this.p1 + '-' + this.p2).toString(), settingsData: toolbarSettings})
     },
     emitWaiting: function (arg) {
       this.$emit('waitUpdate', {
