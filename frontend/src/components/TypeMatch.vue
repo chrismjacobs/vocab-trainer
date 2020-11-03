@@ -286,7 +286,7 @@ export default {
     submitAnswer: function () {
       console.log('sub action')
       document.getElementById('homeInput').disabled = true
-      this.socket.emit('answerSend', {room: this.p1, answer: this.currentAnswerHome, opponent: this.opponent, player: this.player, state: this.validCheck})
+      this.socket.emit('answerSend', {room: this.p1 + '-' + this.p2, answer: this.currentAnswerHome, opponent: this.opponent, player: this.player, state: this.validCheck})
     },
     recordAnswer: function (data) {
       console.log('record action')
@@ -397,7 +397,8 @@ export default {
       player.play()
     },
     leave: function () {
-      this.socket.emit('exitMatch', { player: this.player, p1: this.p1, p2: this.p2 })
+      this.$emit('leave')
+      // this.socket.emit('exitMatch', { player: this.player, p1: this.p1, p2: this.p2 })
     },
     validStyle: function (feedback) {
       let vCheck = this.validCheck
@@ -424,7 +425,7 @@ export default {
       }
     },
     currentAnswerHome: function () {
-      this.socket.emit('updateType', {room: this.p1, opponent: this.opponent, current: this.currentAnswerHome, player: this.player, state: this.signalStyle})
+      this.socket.emit('updateType', {room: this.p1 + '-' + this.p2, opponent: this.opponent, current: this.currentAnswerHome, player: this.player, state: this.signalStyle})
     }
   },
   computed: {

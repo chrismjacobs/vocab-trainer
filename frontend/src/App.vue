@@ -174,6 +174,9 @@ export default {
       // router will be disbaled is game is active
       if (!this.$store.state.testActive) {
         this.$router.push(arg)
+        // const userId = '123'
+        // router.push({ name: 'user', params: { userId } }) // -> /user/123
+        // router.push({ path: `/user/${userId}` }) // -> /user/123
       } else {
         alert('You are in a test, please finish or exit first')
         // this.navStyle()
