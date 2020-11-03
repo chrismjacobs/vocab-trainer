@@ -32,7 +32,7 @@ const state = {
   userRecord: null,
   currentRecord: parseLocal(localStorage.currentRecord) || {},
   logsRecord: null,
-  setRecord: { dictRecord: {}, starRecord: {} },
+  setRecord: { dictRecord: {}, starRecord: {}, addRecord: {} },
   updateStatus: true,
   jwt: localStorage.token || '',
   testJ: test,
@@ -153,6 +153,10 @@ const actions = {
     console.log('new star data...', payload)
     context.commit('setNewStar', payload)
   },
+  newAdd (context, payload) {
+    console.log('new add data...', payload)
+    context.commit('setNewAdd', payload)
+  },
   deleteWord (context, payload) {
     // console.log('new word data...')
     context.commit('setDeleteWord', payload)
@@ -267,6 +271,17 @@ const mutations = {
     } else {
       console.log('set')
       state.setRecord.starRecord[payload.word] = 1
+    }
+    state.updateStatus = false
+  },
+  setNewAdd (state, payload) {
+    console.log('setNewStar payload = ', payload)
+    if (payload.set === 0) {
+      console.log('delete')
+      delete state.setRecord.addRecord[payload.word]
+    } else {
+      console.log('set')
+      state.setRecord.addRecord[payload.word] = 1
     }
     state.updateStatus = false
   },
