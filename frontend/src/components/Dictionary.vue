@@ -30,7 +30,6 @@
 
     <!-- dictionary list -->
 
-
       <div class="bg-grey p-2" v-if="!newWord.word">
         <b-row align="center" class='mb-2'>
           <b-col>
@@ -252,19 +251,6 @@ export default {
         link: null,
         code: null,
         vocab: null
-      },
-      mainProps: {
-        center: true,
-        fluidGrow: true,
-        'max-width': '50px',
-        class: 'my-5'
-      },
-      secondProps: {
-        center: true,
-        fluidGrow: true,
-        width: '30px',
-        height: '30px',
-        class: 'my-5'
       },
       vocabList: null,
       waiting: true,
