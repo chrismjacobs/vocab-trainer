@@ -6,6 +6,7 @@ import { authenticate, register, updateRecAPI, updateAccount, getRecordAPI, tick
 import tourism1 from '../assets/json/tourism1.json'
 import tourism from '../assets/json/tourism.json'
 import digital1 from '../assets/json/digital1.json'
+import culinary1 from '../assets/json/culinary1.json'
 import culinary2 from '../assets/json/culinary2.json'
 import generalY from '../assets/json/generalY.json'
 import generalW from '../assets/json/generalW.json'
@@ -19,6 +20,7 @@ let dictionaries = {
   'tourism': tourism,
   'digital1': digital1,
   'culinary2': culinary2,
+  'culinary1': culinary1,
   'generalY': generalY,
   'generalW': generalW,
   'high': null,
