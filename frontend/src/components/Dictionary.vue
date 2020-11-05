@@ -84,7 +84,7 @@
           <b-row no-gutters>
             <b-col cols="3">
              <template v-if="stars.includes(data.value)">
-               <b-icon-star-fill variant="warn" @click="addStar(data.value, 0)"></b-icon-star-fill> &nbsp; <br class="d-lg-none">
+                <b-icon-star-fill variant="warn" @click="addStar(data.value, 0)"></b-icon-star-fill> &nbsp; <br class="d-lg-none">
              </template>
              <template v-else>
                 <b-icon-star @click="addStar(data.value, 1)"></b-icon-star> &nbsp; <br class="d-lg-none">
@@ -93,7 +93,7 @@
 
             </b-col>
             <b-col>
-              {{data.value}} <br class="d-lg-none">
+              {{data.value}} <br> ({{data.item.Gr}})
                <b-icon-soundwave class="text-prime" :id="data.value + '_en/'" @click="playAudio(data.value, '_en/')"></b-icon-soundwave>
             </b-col>
           </b-row>
@@ -207,7 +207,6 @@ export default {
     return {
       fields: [
         {key: 'English', label: 'Vocab', sortable: true},
-        {key: 'Gr', label: 'Gr.', sortable: false},
         {key: 'ChineseExt', label: 'Chinese', sortable: true}
       ],
       tableItems: null,
