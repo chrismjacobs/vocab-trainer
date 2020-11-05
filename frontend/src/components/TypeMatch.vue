@@ -398,7 +398,6 @@ export default {
     },
     leave: function () {
       this.$emit('leave')
-      // this.socket.emit('exitMatch', { player: this.player, p1: this.p1, p2: this.p2 })
     },
     validStyle: function (feedback) {
       let vCheck = this.validCheck
