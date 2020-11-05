@@ -36,7 +36,7 @@
             </div>
         </div>
     </div>
-    <div class="bg-grey pb-3" v-if="replay">
+    <div class="bg-grey pb-3" v-if="replay && showTest">
         <b-row>
           <b-col align="center">
             <button class="buttonDiv bg-alert px-3" style="width:45%; height:50px" @click="playCycle(), replay = false"> <b-icon-arrow-clockwise variant="cream" font-scale="1.5"></b-icon-arrow-clockwise></button>
@@ -50,6 +50,17 @@
         :items="answerData"
         :fields="fields"
         >
+
+        <template v-slot:cell(english)="data">
+          <div v-if="data.item._rowVariant === 'warn'">
+            <b-icon stacked icon="person-x-fill" font-scale="1.5"></b-icon>{{data.item.Choice}}<br>
+            <b-icon stacked icon="check"></b-icon> {{data.item.English}}
+          </div>
+          <div v-else>
+            {{data.item.English}}
+          </div>
+        </template>
+
         </b-table>
     </div>
 
@@ -88,7 +99,7 @@ export default {
       filter: null,
       testItems: [],
       settings: {},
-      fields: ['Chinese', 'English', 'Choice'],
+      fields: ['Chinese', 'English'],
       activeStyle: { background: '#4a758b', color: '#E8804C' },
       neutralStyle: { background: '#d8ecf1', color: '#205372' },
       buttonStyle: {
@@ -236,7 +247,9 @@ export default {
           player.src = media
           player.play()
         } else {
-          _this.replay = true
+          if (_this.showTest) {
+            _this.replay = true
+          }
         }
       }
     }
