@@ -1,93 +1,123 @@
 <template>
   <div class="matchArea">
-    <TransMatch  v-on:leave="leaveMatch()" ref="" :testType="testType" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" :socket="socket" :s3="s3" v-if="testType && testType[1] === 'r'"></TransMatch>
-    <TypeMatch  :testType="testType" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" :socket="socket" :s3="s3" v-if="testType && testType[1] === 'y'"></TypeMatch>
-    <template v-if="waiting">
+    <TransMatch  v-on:leave="leaveMatch()" :testType="testType" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" :socket="socket" :s3="s3" v-if="testType && testType[1] === 'r'"></TransMatch>
+    <TypeMatch   v-on:leave="leaveMatch()" :testType="testType" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" :socket="socket" :s3="s3" v-if="testType && testType[1] === 'y'"></TypeMatch>
+    <template v-if="waiting && friends !== null">
       <div v-if="testType === null">
-          <div class="mt-2 p-2 bg-grape head">
-            <h2 class="text-cream" align="center">
-              Match Zone
-            </h2>
-          </div>
-
-          <div class="bg-third text-third p-2">
-            <b-row align="left">
-              <b-col cols="10">
-                <div style="color:red !important">
-                    <b-form-radio-group
-                      id="btn-radios-2"
-                      v-model="gameSelect"
-                      :options="gameTypes"
-                      buttons
-                      button-variant="p1"
-                      name="radio-btn-outline"
-                    ></b-form-radio-group>
-                  </div>
-              </b-col>
-              <b-col align="right" style="display:none">
-                <button class="buttonDiv bg-warn mt-2"  @click="friendAdder=!friendAdder"> Add <b-icon icon="person"></b-icon></button>
-                <button class="buttonDiv bg-alert mt-2"  @click="friendDeleter=!friendDeleter"> Del <b-icon icon="x-square-fill"></b-icon> </button>
-              </b-col>
-            </b-row>
-          </div>
-
-          <div v-if="friendAdder" class="bg-prime p-2">
-            <b-row no gutters>
-              <b-col>
-                <b-form inline>
-                  <b-input
-                    id="inline-form-input-name"
-                    v-model="friend.username"
-                    class="mb-2 mr-sm-2 mb-sm-0"
-                    placeholder="Friend name"
-                  ></b-input>
-                  <b-input-group prepend="#" class="mb-2 mr-sm-2 mb-sm-0">
-                    <b-input id="inline-form-input-username" placeholder="user ID" v-model="friend.userID"></b-input>
-                  </b-input-group>
-                </b-form>
-              </b-col>
-              <b-col>
-                <button class="buttonDiv bg-third" style="width:100px" @click="addFriend()">Add</button>
-              </b-col>
-            </b-row>
-          </div>
-
-          <div class="bg-smoke text-prime p-2">
-
-            <div v-for="(chall, indexC) in challengeUsers" :key="indexC" >
-                <div v-if="onlineUsers[indexC]" class="d-flex align-items-center mt-2 p-2">
-                  <b-avatar :src="s3 + indexC.toString() + '/avatar.jpg'"  size="50px" :badge="chall.sender" badge-offset="-0.5em" badge-variant="p1"></b-avatar>
-                  &nbsp;&nbsp;
-                  <button class="buttonDiv bg-smoke mx-1 " disabled> {{gameNames[chall.mode]}}</button>
-                  <button class="buttonDiv bg-p2 mx-2" style="width:15%" @click="acceptChallenge(chall.userID, chall.sender, chall.mode)"> <b-icon icon="caret-right-square-fill"></b-icon> </button>
-                  <button class="buttonDiv bg-alert mx-1" style="width:15%"  @click="declineChallenge(chall.userID)"> Del <b-icon icon="x-square-fill"></b-icon> </button>
-                </div>
+            <div class="mt-2 p-2 bg-grape head">
+              <h2 class="text-cream" align="center">
+                Match Zone
+              </h2>
             </div>
 
-            <div v-for="(user, indexO) in onlineUsers" :key="indexO">
-              <div  v-if="!challengeUsers[indexO]" class="d-flex align-items-center p-3 mt-2">
-                    <b-avatar :src="s3 + indexO + '/avatar.jpg'"  size="50px" :badge="user" badge-offset="-0.5em" badge-variant="safe"></b-avatar>
-                    <button v-if="gameSelect" class="buttonDiv bg-prime mx-3" style="width:15%"  @click="challenge(indexO, gameSelect)"> <b-icon class="text-p1" icon="box-arrow-in-right"></b-icon></button>
-                    <button v-if="friendDeleter" class="buttonDiv bg-alert mx-3" style="width:100px" @click="deleteFriend(indexO)"> <b-icon icon="x-square-fill"></b-icon></button>
+            <div class="bg-third text-third p-2">
+              <b-row align="left">
+                <b-col cols="10">
+                  <div style="color:red !important">
+                      <b-form-radio-group
+                        id="btn-radios-2"
+                        v-model="gameSelect"
+                        :options="gameTypes"
+                        buttons
+                        button-variant="p1"
+                        name="radio-btn-outline"
+                      ></b-form-radio-group>
+                    </div>
+                </b-col>
+                <b-col align="right" style="display:none">
+                  <button class="buttonDiv bg-warn mt-2"  @click="friendAdder=!friendAdder"> Add <b-icon icon="person"></b-icon></button>
+                  <button class="buttonDiv bg-alert mt-2"  @click="friendDeleter=!friendDeleter"> Del <b-icon icon="x-square-fill"></b-icon> </button>
+                </b-col>
+              </b-row>
+            </div>
+
+            <div v-if="friendAdder" class="bg-prime p-2">
+              <b-row no gutters>
+                <b-col>
+                  <b-form inline>
+                    <b-input
+                      id="inline-form-input-name"
+                      v-model="friend.username"
+                      class="mb-2 mr-sm-2 mb-sm-0"
+                      placeholder="Friend name"
+                    ></b-input>
+                    <b-input-group prepend="#" class="mb-2 mr-sm-2 mb-sm-0">
+                      <b-input id="inline-form-input-username" placeholder="user ID" v-model="friend.userID"></b-input>
+                    </b-input-group>
+                  </b-form>
+                </b-col>
+                <b-col>
+                  <button class="buttonDiv bg-third" style="width:100px" @click="addFriend()">Add</button>
+                </b-col>
+              </b-row>
+            </div>
+
+            <div class="bg-smoke text-prime p-2">
+
+              <b-table
+                :items="friends"
+                :fields="fields"
+                thead-class="d-none"
+                :filter="selected"
+                :filter-function="filterWaiting"
+                v-model="waiter"
+                >
+                  <template v-slot:cell(id)="data">
+                      <b-avatar :src="s3 + data.value + '/avatar.jpg'" size="2rem"></b-avatar> <span style="color:blue">{{data.item.name}}</span>
+                      <button class="buttonDiv bg-p2 mx-2" style="width:25%" @click="acceptChallenge(data.item.id, data.item.mode)"> {{data.item.mode}} <b-icon icon="caret-right-square-fill"></b-icon> </button>
+                      <button class="buttonDiv bg-alert mx-1" style="width:15%"  @click="challengeRetract(data.item.id)"> <b-icon icon="x-square-fill"></b-icon> </button>
+                  </template>
+              </b-table>
+
+              <b-table
+                :items="friends"
+                :fields="fields"
+                thead-class="d-none"
+                :filter="selected"
+                :filter-function="filterChallenge"
+                v-model="challenger"
+                >
+                  <template v-slot:cell(id)="data">
+                      <b-avatar :src="s3 + data.value + '/avatar.jpg'" size="2rem"></b-avatar> <span style="color:pink">{{data.item.name}}</span>
+                      <button class="buttonDiv bg-p1 mx-2" disabled style="width:15%"> <b-icon icon="circle-fill" animation="throb"></b-icon> </button>
+                      <button class="buttonDiv bg-alert mx-1" style="width:15%"  @click="challengeRetract(data.item.id)"> <b-icon icon="x-square-fill"></b-icon> </button>
+                  </template>
+              </b-table>
+
+              <b-table
+                v-if="waiter.length === 0 && challenger.length === 0"
+                :items="friends"
+                :fields="fields"
+                thead-class="d-none"
+                :filter="selected"
+                :filter-function="filterOnline"
+                >
+                  <template v-slot:cell(id)="data">
+                      <b-avatar :src="s3 + data.value + '/avatar.jpg'" size="2rem"></b-avatar> <span style="color:green">{{data.item.name}}</span> <button v-if="gameSelect" class="buttonDiv bg-prime mx-3" style="width:15%"  @click="challengeSend(data.value, gameSelect)"> <b-icon class="text-p1" icon="box-arrow-in-right"></b-icon></button>
+                      <button v-if="friendDeleter" class="buttonDiv bg-alert mx-3" style="width:100px" @click="deleteFriend(indexO)"> <b-icon icon="x-square-fill"></b-icon></button>
+                  </template>
+              </b-table>
+
+              <b-table
+                v-if="waiter.length === 0 && challenger.length === 0"
+                :items="friends"
+                :fields="fields"
+                thead-class="d-none"
+                :filter="selected"
+                :filter-function="filterOffline"
+                >
+                  <template v-slot:cell(id)="data">
+                      <b-avatar :src="s3 + data.value + '/avatar.jpg'" size="2rem"></b-avatar> <span style="color:red">{{data.item.name}}</span>
+                  </template>
+              </b-table>
+
               </div>
-            </div>
-
-            <div v-for="(user, indexF) in friends" :key="indexF">
-              <div v-if="!onlineUsers[indexF]" class="d-flex align-items-center p-3 mt-2">
-                    <b-avatar :src="s3 + indexF + '/avatar.jpg'"  size="50px" :badge="user" badge-offset="-0.5em" badge-variant="alert"></b-avatar>
-                    <button v-if="friendDeleter" class="buttonDiv bg-alert mx-3" style="width:100px" @click="deleteFriend(indexF)"> <b-icon icon="x-square-fill"></b-icon></button>
-              </div>
-            </div>
-
-          </div>
-
       </div>
-
     </template>
 
     <template v-else >
       <div align="center" class="mt-5">
-        <h4 class="text-prime"> Updating friends.... </h4>
+        <h4 class="text-prime"> Updating.... </h4>
         <b-icon icon="person" animation="throb" variant="prime" font-scale="6"></b-icon>
       </div>
     </template>
@@ -133,8 +163,15 @@ export default {
   },
   data () {
     return {
+      fields: [
+        {key: 'id'},
+        {key: 'status'}
+      ],
+      selected: 'true',
+      waiter: [],
+      challenger: [],
       pageHead: 'Match Area',
-      friends: {},
+      friends: null,
       friendAdder: false,
       friendDeleter: false,
       friend: {
@@ -143,11 +180,6 @@ export default {
       },
       username: null,
       userID: null,
-      onlineUsers: {},
-      userList: [],
-      challengeUsers: {},
-      challengeList: [],
-      challengeMarker: null,
       socket: null,
       testType: null,
       p1: null,
@@ -172,6 +204,26 @@ export default {
     }
   },
   methods: {
+    filterOnline: function (row) {
+      if (row.status === 1) {
+        return true
+      }
+    },
+    filterOffline: function (row) {
+      if (row.status === 0) {
+        return true
+      }
+    },
+    filterChallenge: function (row) {
+      if (row.status === 3) {
+        return true
+      }
+    },
+    filterWaiting: function (row) {
+      if (row.status === 4) {
+        return true
+      }
+    },
     showModal: function () {
       this.$refs['success'].show()
     },
@@ -199,25 +251,40 @@ export default {
       this.socket.emit('checkOnline', { userID: this.userID })
     },
     closeSocket: function () {
-      // this.socket.emit('offline', { userID: this.userID })
       this.socket.close()
     },
     leaveMatch: function () {
       this.socket.emit('resetEmit')
       console.log('leave activated')
     },
-    challenge: function (targetID, mode) {
-      this.challengeMarker = targetID
-      let payload = {userID: this.userID, username: this.username, targetID: targetID, mode: mode}
+    challengeSend: function (targetID, mode) {
+      // this.challengeMarker = targetID
+      let payload = {userID: this.userID, username: this.username, targetID: targetID, mode: mode, action: 'send'}
       console.log('send challenge', payload)
       this.socket.emit('challenge', payload)
+      let found = this.friends.find(element => element.id === targetID)
+      found.status = 3
     },
-    declineChallenge: function (uid) {
-      delete this.challengeUsers[uid]
-      this.challengeUsers = JSON.parse(JSON.stringify(this.challengeUsers))
+    challengeRetract: function (targetID, mode) {
+      // this.challengeMarker = targetID
+      let payload = {userID: this.userID, username: this.username, targetID: targetID, mode: 'mode', action: 'retract'}
+      console.log('retract challenge', payload)
+      this.socket.emit('challenge', payload)
+      let found = this.friends.find(element => element.id === targetID)
+      found.status = 1
     },
-    acceptChallenge: function (uid, p1name, mode) {
-      this.socket.emit('accept', {p2: this.userID, p2name: this.username, p1: uid, p1name: p1name, mode: mode})
+    declineChallenge: function (targetID, mode) {
+      let payload = {userID: this.userID, username: this.username, targetID: targetID, mode: 'mode', action: 'decline'}
+      console.log('decline challenge', payload)
+      this.socket.emit('challenge', payload)
+      let found = this.friends.find(element => element.id === targetID)
+      found.status = 1
+    },
+    acceptChallenge: function (targetID, mode) {
+      let payload = {userID: this.userID, username: this.username, targetID: targetID, mode: mode, action: 'accept'}
+      console.log(' accept challenge', payload)
+      this.socket.emit('challenge', payload)
+      // this.socket.emit('accept', {p2: this.userID, p2name: this.username, p1: uid, p1name: p1name, mode: mode})
     },
     addFriend: function () {
       this.waiting = false
@@ -277,80 +344,87 @@ export default {
       }
       return undefined
     }
-    window.onblur = function () {
-      if (_this.isAuthenticated && _this.$store.state.updateStatus === false) {
-        _this.closeSocket()
-      }
-      return undefined
-    }
+    // window.onblur = function () {
+    //   if (_this.isAuthenticated && _this.$store.state.updateStatus === false) {
+    //     _this.closeSocket()
+    //   }
+    //   return undefined
+    // }
   },
   beforeDestroy () {
     console.log('beforeDestroyMatch')
     this.closeSocket()
   },
   mounted () {
+    // 0 offline
+    // 1 online
+    // 2 busy
+    // 3 challenge sent
+    // 4 challenge waiting
     this.userID = this.$store.state.userProfile.userID
     this.username = this.$store.state.userProfile.username
-    this.friends = this.$store.state.userProfile.classmates
+    // this.friends = this.$store.state.userProfile.classmates
     this.startSocket()
 
     let _this = this
-    _this.socket.on('onlineUsers', function (data) {
-      console.log('onlineUsers0', _this.onlineUsers)
-      if (_this.friends[data.userID]) {
-        console.log('onlineUsers', data)
-        _this.onlineUsers[data.userID] = data.username
-        _this.onlineUsers = JSON.parse(JSON.stringify(_this.onlineUsers))
-      }
-    })
+
     _this.socket.on('offlineUsers', function (data) {
       console.log('offlineUsers', data)
-      delete _this.onlineUsers[data.userID]
-      _this.onlineUsers = JSON.parse(JSON.stringify(_this.onlineUsers))
+      let found = _this.friends.find(element => element.id === data.userID)
+      found.status = 0
     })
-    _this.socket.on('disconnect', function (data) {
-      console.log('disconnect')
+    _this.socket.on('onlineUsers', function (data) {
+      console.log('onlineUsers', data)
+      if (data.friends) {
+        _this.friends = data.friends
+      } else {
+        let found = _this.friends.find(element => element.id === data.userID)
+        found.status = 1
+      }
+    })
+    _this.socket.on('busy', function (data) {
+      console.log('busy', data)
+      let found = _this.friends.find(element => element.id === data.userID)
+      if (data.action === 'send') {
+        found.status = 2
+      } else {
+        found.status = 1
+      }
     })
     _this.socket.on('challengeMatch', function (data) {
       console.log('challengeMatch', data)
-      console.log('challengeMarker', _this.challengeMarker)
-      // stops two people sending challange at the same time
-      if (_this.challengeMarker === data.userID) {
-        _this.challengeMarker = null
-        console.log('challenge blocked')
-        return false
+      let found = _this.friends.find(element => element.id === data.userID)
+      if (data.action === 'decline') {
+        found.status = 1
+      } else if (data.action === 'retract') {
+        found.status = 1
       } else {
-        let challenge = { sender: data.sender, mode: data.mode, userID: data.userID }
-        for (let c in _this.challengeUsers) {
-          console.log(_this.challengeUsers[c], challenge)
-          if (_this.challengeUsers[c].userID === challenge.userID) {
-            console.log('found')
-            return false
-          }
-        }
-        _this.challengeMarker = null
-        _this.challengeUsers[challenge.userID] = challenge
+        found.status = 4
+        found['mode'] = data.mode
       }
-      // very ugly way of triggering the watcher
-      // dupicate keys warning '2' meaning anita is observed twice?
-      _this.challengeUsers = JSON.parse(JSON.stringify(_this.challengeUsers))
     })
     _this.socket.on('start', function (data) {
       console.log('start', data)
       _this.$store.dispatch('testActive', true)
-      _this.challengeMarker = null
       _this.testType = data.mode
-      _this.p1 = data.p1
-      _this.p1name = data.p1name
-      _this.p2 = data.p2
-      _this.p2name = data.p2name
-      if (_this.p1 === _this.$store.state.userProfile.userID) {
-        _this.player = 'p1'
-      } else if (_this.p2 === _this.$store.state.userProfile.userID) {
+
+      let p1 = _this.friends.find(element => element.id === data.p1)
+
+      if (p1) {
         _this.player = 'p2'
+        _this.p1 = data.p1
+        _this.p1name = p1.name
+      } else if (p1 === undefined) {
+        _this.player = 'p1'
+        _this.p1 = data.p1
+        _this.p1name = _this.username
       } else {
         console.log('PLAYER ERROR')
       }
+
+      _this.p2 = data.p2
+      _this.p2name = data.p2name
+
       console.log('player', _this.player)
     })
     _this.socket.on('reset', function (data) {

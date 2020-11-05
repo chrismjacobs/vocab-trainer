@@ -25,40 +25,43 @@ def online(data):
     check = Connected.query.filter_by(connected=user).first()
     print('checkUser', check, user)
 
+    classmates = []
+
+    checkUsers = Connected.query.all()
+    checkClass = []
+    users = User.query.filter_by(classroom=classroom).all()
+    for cu in checkUsers:
+        checkClass.append(cu.connected)
+
+    for u in users:
+        if u is not user:
+            if u in checkClass:
+                status = 1
+            else:
+                status = 0
+            classmates.append({ 'id': u.id, 'name': u.username, 'status': status })
+
     if check:
         ## replace old sid with new
         if check.sid != request.sid:
             check.sid = request.sid
             db.session.commit()
     else:
-        player = Connected(username=user.username, friends=json.dumps(friends), extraStr=classroom, connected=user, sid=request.sid)
+        player = Connected(username=user.username, friends=json.dumps(classmates), extraStr=classroom, connected=user, sid=request.sid)
         db.session.add(player)
         db.session.commit()
 
     ## user is connected
     join_room(user.id)
 
+    emit('onlineUsers', {'friends': classmates}, user.id)
+
     """Check if any friends are connected"""
     checkAll = Connected.query.all()
-
     for c in checkAll:
-        if c.extraStr == classroom:
+        if c.extraStr == classroom and c.connected is not user:
             print('check1', c.connected.id)
-            emit('onlineUsers', {'userID': c.connected.id, 'username': c.connected.username}, user.id)
-            emit('onlineUsers', {'userID': user.id, 'username': user.username}, c.connected.id)
-
-    '''
-    for f in friends:
-        ## get friend
-        fUser = User.query.get(int(f))
-        ## see if they're connected
-        cUser = Connected.query.filter_by(connected=fUser).first()
-        ## only send emit if user is one of their friends
-        if cUser and str(userID) in json.loads(cUser.friends):
-            print('online friend emit', int(f), )
-            emit('onlineUsers', {'userID': user.id, 'username': user.username}, int(f))
-    '''
-
+            emit('onlineUsers', {'userID': user.id}, c.connected.id)
 
 
 
@@ -68,36 +71,48 @@ def on_challenge(data):
     userID = data['userID']
     username = data['username']
     mode = data['mode']
+    action = data['action']
+
+    print('challenge', action)
 
     sid = request.sid
-    print(sid)
     roomList = rooms(sid=sid)
     print(roomList)
 
-    jointroom = str(userID) + '-' + str(targetID)
-    join_room(jointroom)
+    user = User.query.get(userID)
+
+
+    if action == 'send':
+        jointroom = str(userID) + '-' + str(targetID)
+        join_room(jointroom)
+        roomList = rooms(sid=sid)
+        print('send', roomList )
+    elif action == 'retract':
+        jointroom = str(userID) + '-' + str(targetID)
+        roomList = rooms(sid=sid)
+        print('retract', roomList )
+        leave_room(jointroom)
+    elif action == 'accept':
+        jointroom = str(targetID) + '-' + str(userID)
+        join_room(jointroom)
+        emit('start', {'p1': targetID, 'p2': userID, 'p2name': username, 'mode': mode}, jointroom)
+        print('emitstart')
+        return True
+
+    print('continue')
 
     # send the challenge to the room of opponent
-    emit('challengeMatch', {'sender': username, 'mode': mode, 'userID': userID}, int(targetID))
-    print('challenge', jointroom, 'target:', targetID, 'sender:', userID, 'mode', mode)
+    emit('challengeMatch', {'sender': username, 'mode': mode, 'userID': userID, 'action': action}, targetID)
 
-@socketio.on('accept')
-def on_accept(data):
-    p2 = data['p2']
-    p2name = data['p2name']
-    p1 = data['p1']
-    p1name = data['p1name']
-    mode = data['mode']
 
-    print('p1', p1, type(p1))
-    print('p2', p2, type(p2))
+    """Check if any friends are connected"""
+    checkAll = Connected.query.filter_by(extraStr=user.classroom).all()
 
-    jointroom = str(p1) + '-' + str(p2)
-    join_room(jointroom)
+    for c in checkAll:
+        if c.connected.id != targetID and c.connected.id != userID:
+            emit('busy', {'userID': userID, 'action': action}, c.connected.id)
 
-    emit('start', {'p1': p1, 'p1name': p1name, 'p2': p2, 'p2name': p2name, 'mode': mode}, jointroom)
-
-    print('start', jointroom, str({'p1': p1, 'p1name': p1name, 'p2': p2, 'p2name': p2name, 'mode': mode}))
+    print('challenge', jointroom, 'target:', targetID, 'sender:', userID, 'mode', mode, 'action', action)
 
 @socketio.on('ready')
 def on_ready(data):
