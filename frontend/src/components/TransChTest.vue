@@ -51,10 +51,22 @@
         :fields="fields"
         >
 
-        <template v-slot:cell(english)="data">
+        <template #head(chinese)="data">
+          <div align="right">
+            Chinese
+          </div>
+        </template>
+
+        <template v-slot:cell(chinese)="data" >
+          <div align="right">
+            {{ data.value}}
+          </div>
+        </template>
+
+        <template v-slot:cell(english)="data" >
           <div v-if="data.item._rowVariant === 'warn'">
-            <b-icon stacked icon="person-x-fill" font-scale="1.5"></b-icon>{{data.item.Choice}}<br>
-            <b-icon stacked icon="check"></b-icon> {{data.item.English}}
+            <b-icon icon="x" font-scale="1" ></b-icon> {{data.item.Choice}}<br>
+            <b-icon icon="check2" font-scale="1"></b-icon> {{data.item.English}}
           </div>
           <div v-else>
             {{data.item.English}}
