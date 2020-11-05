@@ -41,6 +41,28 @@
         :items="answerData"
         :fields="fields"
         >
+        <template #head(english)="data">
+          <div align="right">
+            English
+          </div>
+        </template>
+
+        <template v-slot:cell(english)="data" >
+          <div align="right">
+            {{data.value}}
+          </div>
+        </template>
+
+        <template v-slot:cell(chinese)="data" style="width:50%" >
+          <div v-if="data.item._rowVariant === 'warn'">
+            <b-icon icon="x" font-scale="1" ></b-icon> {{data.item.Choice}}<br>
+            <b-icon icon="check2" font-scale="1"></b-icon> {{data.item.Chinese}}
+          </div>
+          <div v-else>
+            {{data.item.Chinese}}
+          </div>
+        </template>
+
         </b-table>
       </div>
 
@@ -80,7 +102,7 @@ export default {
       endTime: null,
       qCount: 0,
       sCount: 0,
-      fields: ['English', 'Chinese', 'Choice']
+      fields: ['English', 'Chinese']
     }
   },
   methods: {
