@@ -55,7 +55,7 @@
       </b-col>
 
       <b-col cols="2" class="d-none d-lg-block">
-          <div class="p-4 bg-warn" style="height:100%">
+          <div class="p-3 bg-warn" style="height:100%">
               <div>
                 <b-row no-gutters v-if="isAuthenticated" align="center">
                   <b-col>
