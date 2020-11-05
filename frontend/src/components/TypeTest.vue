@@ -92,6 +92,29 @@
       :items="answerData"
       :fields="fields"
       >
+
+      <template #head(chinese)="data">
+          <div align="right">
+            Chinese
+          </div>
+        </template>
+
+        <template v-slot:cell(chinese)="data" >
+          <div align="right">
+            {{ data.value}}
+          </div>
+        </template>
+
+        <template v-slot:cell(english)="data" >
+          <div v-if="data.item._rowVariant === 'alert'">
+            <b-icon icon="x" font-scale="1" ></b-icon> {{data.item.Answer}}<br>
+            <b-icon icon="check2" font-scale="1"></b-icon> {{data.item.English}}
+          </div>
+          <div v-else>
+            {{data.item.English}}
+          </div>
+        </template>
+
       </b-table>
       </div>
 
@@ -134,7 +157,7 @@ export default {
       currentAnswer: '',
       testItems: [],
       settings: {},
-      fields: ['Chinese', 'English', 'Answer', 'Time'],
+      fields: ['Chinese', 'English', 'Time'],
       startTime: null,
       endTime: null,
       qCount: 0,
