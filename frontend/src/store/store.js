@@ -430,7 +430,11 @@ const getters = {
       let chinese
       let chineseExt
       if (dict[vocab].defch2) {
-        chinese = dict[vocab].defch1
+        if (dict[vocab].defch2[0].match(/[\u3400-\u9FBF]/)) {
+          chinese = dict[vocab].defch1 + ';' + dict[vocab].defch2
+        } else {
+          chinese = dict[vocab].defch1
+        }
         chineseExt = dict[vocab].defch1 + ';' + dict[vocab].defch2
       } else {
         chinese = dict[vocab].defch1
