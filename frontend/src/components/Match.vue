@@ -63,9 +63,8 @@
                 v-model="waiter"
                 >
                   <template v-slot:cell(id)="data">
-                      <b-avatar :src="s3 + data.value + '/avatar.jpg'" size="2rem"></b-avatar> <span style="color:blue">{{data.item.name}}</span>
-                      <button class="buttonDiv bg-p2 mx-2" style="width:25%" @click="acceptChallenge(data.item.id, data.item.mode)"> {{data.item.mode}} <b-icon icon="caret-right-square-fill"></b-icon> </button>
-                      <button class="buttonDiv bg-alert mx-1" style="width:15%"  @click="challengeRetract(data.item.id)"> <b-icon icon="x-square-fill"></b-icon> </button>
+                      <b-avatar :src="s3 + data.value + '/avatar.jpg'" size="2rem"></b-avatar> <div align="center" @click="acceptChallenge(data.item.id, data.item.mode)" class="nameTag bg-p1 text-prime">{{data.item.name}} - {{data.item.mode}} <b-icon icon="circle-fill" animation="throb"></b-icon></div>
+                      <button class="buttonDiv bg-alert mx-1" style="width:15%"  @click="declineChallenge(data.item.id)"> <b-icon icon="x-square-fill"></b-icon> </button>
                   </template>
               </b-table>
 
@@ -78,8 +77,7 @@
                 v-model="challenger"
                 >
                   <template v-slot:cell(id)="data">
-                      <b-avatar :src="s3 + data.value + '/avatar.jpg'" size="2rem"></b-avatar> <span style="color:pink">{{data.item.name}}</span>
-                      <button class="buttonDiv bg-p1 mx-2" disabled style="width:15%"> <b-icon icon="circle-fill" animation="throb"></b-icon> </button>
+                      <b-avatar :src="s3 + data.value + '/avatar.jpg'" size="2rem"></b-avatar> <div align="center" class="nameTag bg-p2 text-cream">{{data.item.name}} <b-icon icon="circle-fill" animation="throb"></b-icon></div>
                       <button class="buttonDiv bg-alert mx-1" style="width:15%"  @click="challengeRetract(data.item.id)"> <b-icon icon="x-square-fill"></b-icon> </button>
                   </template>
               </b-table>
@@ -93,8 +91,13 @@
                 :filter-function="filterOnline"
                 >
                   <template v-slot:cell(id)="data">
-                      <b-avatar :src="s3 + data.value + '/avatar.jpg'" size="2rem"></b-avatar> <span style="color:green">{{data.item.name}}</span> <button v-if="gameSelect" class="buttonDiv bg-prime mx-3" style="width:15%"  @click="challengeSend(data.value, gameSelect)"> <b-icon class="text-p1" icon="box-arrow-in-right"></b-icon></button>
-                      <button v-if="friendDeleter" class="buttonDiv bg-alert mx-3" style="width:100px" @click="deleteFriend(indexO)"> <b-icon icon="x-square-fill"></b-icon></button>
+                    <div v-if="data.item.status === 1">
+                      <b-avatar :src="s3 + data.value + '/avatar.jpg'" size="2rem"></b-avatar> <div align="center" class="nameTag bg-safe text-cream">{{data.item.name}}</div><button v-if="gameSelect" class="buttonDiv bg-prime mx-3" style="width:15%"  @click="challengeSend(data.value, gameSelect)"> <b-icon class="text-p1" icon="box-arrow-in-right"></b-icon></button>
+                      <button v-if="friendDeleter" class="buttonDiv bg-alert mx-3" style="width:100px" @click="deleteFriend()"> <b-icon icon="x-square-fill"></b-icon></button>
+                    </div>
+                    <div v-else>
+                      <b-avatar :src="s3 + data.value + '/avatar.jpg'" size="2rem"></b-avatar> <div align="center" class="nameTag bg-warn text-cream">{{data.item.name}}</div>
+                   </div>
                   </template>
               </b-table>
 
@@ -107,7 +110,7 @@
                 :filter-function="filterOffline"
                 >
                   <template v-slot:cell(id)="data">
-                      <b-avatar :src="s3 + data.value + '/avatar.jpg'" size="2rem"></b-avatar> <span style="color:red">{{data.item.name}}</span>
+                      <b-avatar :src="s3 + data.value + '/avatar.jpg'" size="2rem"></b-avatar> <div align="center" class="nameTag bg-alert text-cream">{{data.item.name}}</div>
                   </template>
               </b-table>
 
@@ -164,8 +167,7 @@ export default {
   data () {
     return {
       fields: [
-        {key: 'id'},
-        {key: 'status'}
+        {key: 'id'}
       ],
       selected: 'true',
       waiter: [],
@@ -205,7 +207,7 @@ export default {
   },
   methods: {
     filterOnline: function (row) {
-      if (row.status === 1) {
+      if (row.status === 1 || row.Status === 2) {
         return true
       }
     },
@@ -276,7 +278,7 @@ export default {
     declineChallenge: function (targetID, mode) {
       let payload = {userID: this.userID, username: this.username, targetID: targetID, mode: 'mode', action: 'decline'}
       console.log('decline challenge', payload)
-      this.socket.emit('challenge', payload)
+      // this.socket.emit('challenge', payload)
       let found = this.friends.find(element => element.id === targetID)
       found.status = 1
     },
@@ -454,6 +456,17 @@ export default {
   display:flex;
   align-items: center;
   justify-content: center;
+}
+
+.nameTag {
+  width: 160px;
+  height: 35px;
+  display: inline-block;
+  margin-left: 2px;
+  padding: 3px;
+  border: 0px solid #CCC;
+  box-shadow: 0 0 5px -1px rgba(0,0,0,0.3);
+  border-radius: 12px;
 }
 
 @media screen and (max-width:650px) {

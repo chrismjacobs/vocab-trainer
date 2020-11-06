@@ -89,9 +89,9 @@ def on_challenge(data):
         print('send', roomList )
     elif action == 'retract':
         jointroom = str(userID) + '-' + str(targetID)
+        leave_room(jointroom)
         roomList = rooms(sid=sid)
         print('retract', roomList )
-        leave_room(jointroom)
     elif action == 'accept':
         jointroom = str(targetID) + '-' + str(userID)
         join_room(jointroom)
