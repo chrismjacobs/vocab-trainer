@@ -81,17 +81,22 @@ def on_challenge(data):
 
     user = User.query.get(userID)
 
+    jointroom = None
 
     if action == 'send':
         jointroom = str(userID) + '-' + str(targetID)
         join_room(jointroom)
         roomList = rooms(sid=sid)
         print('send', roomList )
+        emit('challengeMatch', {'sender': username, 'mode': mode, 'userID': userID, 'action': action}, targetID)
+
     elif action == 'retract':
         jointroom = str(userID) + '-' + str(targetID)
         leave_room(jointroom)
         roomList = rooms(sid=sid)
         print('retract', roomList )
+        emit('challengeMatch', {'sender': username, 'mode': mode, 'userID': userID, 'action': action}, targetID)
+
     elif action == 'accept':
         jointroom = str(targetID) + '-' + str(userID)
         join_room(jointroom)
@@ -102,7 +107,6 @@ def on_challenge(data):
     print('continue')
 
     # send the challenge to the room of opponent
-    emit('challengeMatch', {'sender': username, 'mode': mode, 'userID': userID, 'action': action}, targetID)
 
 
     """Check if any friends are connected"""
@@ -110,7 +114,7 @@ def on_challenge(data):
 
     for c in checkAll:
         if c.connected.id != targetID and c.connected.id != userID:
-            emit('busy', {'userID': userID, 'action': action}, c.connected.id)
+            emit('busy', {'userID': userID, 'targetID': targetID, 'action': action}, c.connected.id)
 
     print('challenge', jointroom, 'target:', targetID, 'sender:', userID, 'mode', mode, 'action', action)
 

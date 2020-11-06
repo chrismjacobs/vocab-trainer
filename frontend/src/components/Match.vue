@@ -207,7 +207,7 @@ export default {
   },
   methods: {
     filterOnline: function (row) {
-      if (row.status === 1 || row.Status === 2) {
+      if (row.status === 1 || row.status === 2) {
         return true
       }
     },
@@ -278,7 +278,7 @@ export default {
     declineChallenge: function (targetID, mode) {
       let payload = {userID: this.userID, username: this.username, targetID: targetID, mode: 'mode', action: 'decline'}
       console.log('decline challenge', payload)
-      // this.socket.emit('challenge', payload)
+      this.socket.emit('challenge', payload)
       let found = this.friends.find(element => element.id === targetID)
       found.status = 1
     },
@@ -386,11 +386,16 @@ export default {
     })
     _this.socket.on('busy', function (data) {
       console.log('busy', data)
-      let found = _this.friends.find(element => element.id === data.userID)
+      let found1 = _this.friends.find(element => element.id === data.userID)
+      let found2 = _this.friends.find(element => element.id === data.targetID)
       if (data.action === 'send') {
-        found.status = 2
+        found1.status = 2
+        found2.status = 2
+      } else if (data.action === 'decline') {
+        found1.status = 1
       } else {
-        found.status = 1
+        found1.status = 1
+        found2.status = 1
       }
     })
     _this.socket.on('challengeMatch', function (data) {
