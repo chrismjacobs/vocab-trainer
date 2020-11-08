@@ -41,7 +41,7 @@ export function imageValidation (fileInput) {
 
   var allowedExtensions = /(\.jpeg|\.png|\.jpg)$/i
 
-  if (fileInput.files[0].size > 4000000) { // 7 mb for video option
+  if (fileInput.files[0].size > 8000000) { // 7 mb for video option
     alert('File is too big!')
     fileInput.value = ''
     return false
