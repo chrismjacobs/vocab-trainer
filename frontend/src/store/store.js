@@ -147,9 +147,9 @@ const actions = {
     // console.log('friend data...')
     context.commit('setFriend', payload)
   },
-  newWord (context, payload) {
-    console.log('new word data...', payload)
-    context.commit('setNewWord', payload)
+  newPicture (context, payload) {
+    console.log('new picture data...', payload)
+    context.commit('setNewPicture', payload)
   },
   newStar (context, payload) {
     console.log('new star data...', payload)
@@ -235,11 +235,8 @@ const mutations = {
     if (state.userRecord !== {}) {
       state.userRecord = payload.userRecord
     }
-    if (state.setRecord.dictRecord !== {}) {
-      state.setRecord.dictRecord = payload.setRecord.dictRecord
-    }
-    if (state.setRecord.starRecord !== {}) {
-      state.setRecord.starRecord = payload.setRecord.starRecord
+    if (state.setRecord !== {}) {
+      state.setRecord = payload.setRecord
     }
   },
   setClassRecords (state, payload) {
@@ -254,7 +251,7 @@ const mutations = {
     }
     localStorage.setItem('userProfile', JSON.stringify(state.userProfile))
   },
-  setNewWord (state, payload) {
+  setNewPicture (state, payload) {
     let parseData = JSON.parse(payload['newWord'])
     console.log('setNewWord payload = ', payload)
     console.log('setNewWord parse = ', parseData)
@@ -263,6 +260,7 @@ const mutations = {
       'link': parseData.code,
       'vocab': parseData.vocab
     }
+    state.setRecord = {...state.setRecord}
     state.updateStatus = false
   },
   setNewStar (state, payload) {
@@ -270,20 +268,25 @@ const mutations = {
     if (payload.set === 0) {
       console.log('delete')
       delete state.setRecord.starRecord[payload.word]
+      state.setRecord = {...state.setRecord}
     } else {
       console.log('set')
       state.setRecord.starRecord[payload.word] = 1
+      state.setRecord = {...state.setRecord}
     }
     state.updateStatus = false
   },
   setNewAdd (state, payload) {
-    console.log('setNewStar payload = ', payload)
+    console.log('setNewAdd payload = ', payload)
     if (payload.set === 0) {
-      console.log('delete')
+      console.log('delete add')
       delete state.setRecord.addRecord[payload.word]
+      console.log(state.setRecord.addRecord)
+      state.setRecord = {...state.setRecord}
     } else {
-      console.log('set')
-      state.setRecord.addRecord[payload.word] = 1
+      console.log('set add')
+      state.setRecord.addRecord[payload.word] = payload.details
+      state.setRecord = {...state.setRecord}
     }
     state.updateStatus = false
   },
@@ -299,7 +302,7 @@ const mutations = {
     state.userRecord = {}
     state.currentRecord = {}
     state.logsRecord = {}
-    state.setRecord = {dictRecord: {}, starRecord: {}}
+    state.setRecord = {dictRecord: {}, starRecord: {}, addRecord: {}}
     state.jwt = ''
     localStorage.clear()
   },
@@ -425,7 +428,15 @@ const getters = {
   },
   makeList (state) {
     let tableItems = []
-    let dict = state.master
+    let dict = {...state.master}
+
+
+    console.log('check add ', state.setRecord.addRecord)
+    for (let v in state.setRecord.addRecord) {
+      console.log(v)
+      dict[v] = state.setRecord.addRecord[v]
+    }
+
     for (let vocab in dict) {
       let chinese
       let chineseExt
@@ -498,21 +509,42 @@ const getters = {
         variant = 'alert'
       }
 
-      console.log('vocab', state.userProfile.vocab)
+      // console.log('vocab', state.userProfile.vocab)
 
       let vc = state.userProfile.vocab[0]
       let s3root = 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/'
       let s3 = s3root + state.audioLinks[vc]
+      let mp3en = s3 + '_en/' + vocab + '.mp3'
+      let mp3ch = s3 + '_ch/' + vocab + '.mp3'
+      let origin = 'master'
 
-      // state.currentRecord.trans.vocab
+      if (vocab in state.setRecord.addRecord) {
+        mp3en = 'find mp3'
+        mp3ch = 'find mp3'
+        origin = 'new'
+      }
+
+      let star = false
+      let picture = false
+
+      if (vocab in state.setRecord.starRecord) {
+        star = true
+      }
+
+      if (vocab in state.setRecord.dictRecord) {
+        picture = true
+      }
+
       tableItems.push({
         English: vocab,
-        Category: vocab[0].toUpperCase(),
         Chinese: chinese,
         ChineseExt: chineseExt,
         Gr: dict[vocab].gl,
-        mp3en: s3 + '_en/' + vocab + '.mp3',
-        mp3ch: s3 + '_ch/' + vocab + '.mp3',
+        mp3en: mp3en,
+        mp3ch: mp3ch,
+        Origin: origin,
+        Star: star,
+        Picture: picture,
         transEngScore: transEngScore,
         transChScore: transChScore,
         spellScore: spellScore,

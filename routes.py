@@ -348,7 +348,7 @@ def deleteFriend():
 def updateAccount():
     print('ACCOUNT')
     data = request.get_json()['userData']
-    pprint(data)
+    #pprint(data)
     if data['imageData']:
         storeB64(data['imageData'], data['userID'], 'profile')
 
@@ -407,7 +407,7 @@ def addImage():
     userID = request.get_json()['userID']
     wordData = request.get_json()['wordData']
     mode = [wordData['word'], wordData['link'], wordData['code'], wordData['vocab']]
-    print(mode)
+    # print(mode)
 
     try:
         stringData = request.get_json()['imageData']
@@ -424,7 +424,7 @@ def addImage():
     return jsonify(response)
 
 def storeB64(fileData, uid, mode):
-    print('STORE_B64', fileData, uid)
+    print('STORE_B64', uid)
     user = User.query.get(uid)
     print(user)
 
@@ -436,7 +436,7 @@ def storeB64(fileData, uid, mode):
         location = 'public/profiles/' + str(uid) + '/'
         filename = location + 'avatar' + fileType
     elif fileData['image64']:
-        print('STORE DICT', mode)
+        print('STORE PICT', mode)
         word = mode[0]
         last_link = mode[1]
         code = mode[2]

@@ -10,7 +10,7 @@
             <h3 class="text-cream" > Word List </h3>
           </b-col>
           <b-col cols="3">
-            <button class="buttonDiv bg-warn px-3" style="width:60px;float:right" @click="newWord.word = 'a'"> <b-icon-images variant="cream" font-scale="1.5"></b-icon-images></button>
+            <button class="buttonDiv bg-warn px-3" style="width:60px;float:right" @click="newWord.word = 'a', selected[0] = ''"> <b-icon-images variant="cream" font-scale="1.5"></b-icon-images></button>
           </b-col>
         </b-row>
       </div>
@@ -59,6 +59,7 @@
                   :options="optionsR"
                   style="width:100%;color:red"
                   buttons
+                  @change="selected[1] = null, selected[0] = ''"
                   :button-variant="color[this.selected[2]]"
                   size="lg"
                   name="radio-btn-outline"
@@ -66,6 +67,43 @@
               </b-form-group>
           </b-col>
         </b-row>
+      </div>
+
+      <div  class="bg-grey p-2" v-if="visibleRows.length === 0 && selected[0] !== null && selected[0].length > 1">
+        <h3> Add to Dictionary </h3>
+       <b-form @submit="onAdd">
+                <b-input-group class="my-2 p-6">
+                    <b-input-group-prepend inline is-text>
+                      <b-icon icon="hash"></b-icon>
+                    </b-input-group-prepend>
+                    <b-form-input v-model="selected[0]" disabled>
+                    </b-form-input>
+                </b-input-group>
+
+                <b-input-group class="my-2 p-6" label="Chinese" label-for="exampleInput2">
+                    <b-input-group-prepend inline is-text>
+                      <b-icon icon="filter-left"></b-icon>
+                    </b-input-group-prepend>
+                    <b-form-textarea
+                    v-model="wordDetails.defch1"
+                    placeholder="Add Chinese"
+                    rows="2"
+                    >
+                    </b-form-textarea>
+                </b-input-group>
+
+                <b-row>
+                  <b-col>
+                    <b-form-select class="bg-third" style="width:100%;overflow-y: hidden" v-model="wordDetails.gl" :options="labels" :select-size="1"></b-form-select>
+                  </b-col>
+                  <b-col>
+                    <button class="buttonDiv bg-warn px-3" style="width:120px" type="submit"> <b-icon-plus variant="cream" font-scale="1.5"></b-icon-plus></button>
+
+                  </b-col>
+                </b-row>
+
+               <br>
+        </b-form>
       </div>
 
       <div v-if="!newWord.word">
@@ -77,20 +115,18 @@
       :filter-function="filterTable"
       show-empty
       head-variant="dark"
-      sticky-header="600px"
       v-model="visibleRows"
       >
         <template v-slot:cell(english)="data">
           <b-row no-gutters>
             <b-col cols="3">
-             <template v-if="stars.includes(data.value)">
+             <template v-if="data.item.Star">
                 <b-icon-star-fill variant="warn" @click="addStar(data.value, 0)"></b-icon-star-fill> &nbsp; <br class="d-lg-none">
              </template>
              <template v-else>
                 <b-icon-star @click="addStar(data.value, 1)"></b-icon-star> &nbsp; <br class="d-lg-none">
              </template>
-             <b-icon-card-image :variant="getVariant(data.value)" @click="editWord(data.value)"></b-icon-card-image>  <br class="d-lg-none">
-
+             <b-icon-card-image :variant="getVariant(data.item.Picture)" @click="editWord(data.value, data.item.ChineseExt)"></b-icon-card-image>  &nbsp; <br class="d-lg-none">
             </b-col>
             <b-col>
               {{data.value}} <br> ({{data.item.Gr}})
@@ -98,7 +134,18 @@
             </b-col>
           </b-row>
          </template>
+        <template v-slot:cell(chineseext)="data">
+          <b-row>
+            <b-col>
+              {{data.value}}
+            </b-col>
+            <b-col align="right">
+             <b-icon-trash-fill v-if="data.item.Origin === 'new'" variant="alert" @click="addWord(data.item.English, 0)"></b-icon-trash-fill> <br class="d-lg-none">
+            </b-col>
+          </b-row>
+         </template>
       </b-table>
+
       </div>
 
     <!-- word list edits -->
@@ -161,7 +208,7 @@
           <tbody>
 
             <tr v-for="(item, key) in dictGet" :key="key">
-              <td style="width:30%">
+              <td style="width:200px">
                 <span> <b-img  thumbnail fluid :src="imageLink(key, item)" :alt="key"></b-img> </span>
               </td>
               <td style="width:70%">
@@ -184,11 +231,11 @@
       <button class="buttonDiv mt-3 bg-warn text-cream" style="width:60%"  @click="hideModal('success')">Close</button>
     </b-modal>
 
-    <b-modal hide-header-close no-close-on-esc no-close-on-backdrop align="center" ref="fail" hide-footer title="Problem Found">
+    <b-modal hide-header-close no-close-on-esc no-close-on-backdrop align="center" ref="alert" hide-footer title="Alert">
       <div class="d-block">
         <h3> {{msg}} </h3>
       </div>
-      <button class="buttonDiv mt-3 bg-alert text-cream" style="width:60%"  @click="hideModal('fail')">Close</button>
+      <button class="buttonDiv mt-3 bg-alert text-cream" style="width:60%"  @click="hideModal('alert')">Close</button>
     </b-modal>
 
   </div>
@@ -209,7 +256,7 @@ export default {
         {key: 'English', label: 'Vocab', sortable: true},
         {key: 'ChineseExt', label: 'Chinese', sortable: true}
       ],
-      tableItems: null,
+      // tableItems: null,
       visibleRows: [],
       selected: [null, null, null],
       sMarker: null,
@@ -220,12 +267,21 @@ export default {
       optionsG: [
         { value: null, text: '---' },
         { value: '*', text: 'stars' },
+        { value: '+', text: 'added' },
         { value: 'v.', text: 'verbs' },
         { value: 'adj.', text: 'adjectives' },
         { value: 'n.', text: 'nouns' },
         { value: 'phr.', text: 'phrases' },
         { value: 'abbr.', text: 'abbreviations' },
         { value: 'prop.', text: 'proper nouns' }
+      ],
+      labels: [
+        { value: 'v.', text: 'verb' },
+        { value: 'adj.', text: 'adjective' },
+        { value: 'n.', text: 'noun' },
+        { value: 'phr.', text: 'phrase' },
+        { value: 'abbr.', text: 'abbreviation' },
+        { value: 'prop.', text: 'proper noun' }
       ],
       optionsR: [
         // { value: null, text: 'none' },
@@ -247,9 +303,15 @@ export default {
       newWord: {
         word: null,
         text: null,
+        chinese: null,
         link: null,
         code: null,
         vocab: null
+      },
+      wordDetails: {
+        gl: null,
+        defch1: null,
+        defch2: ''
       },
       vocabList: null,
       waiting: true,
@@ -272,10 +334,17 @@ export default {
       let date = new Date()
       let code = date.getMinutes()
       return code
+    },
+    tableItems () {
+      console.log('tableGet', this.$store.getters.makeList)
+      return this.$store.getters.makeList
     }
   },
   methods: {
     imageLink: function (key, item) {
+      if (item === undefined) {
+        return 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/standin.png'
+      }
       console.log('IMAGE_LINK', item, this.dictGet[key])
       let userProfile = this.$store.state.userProfile
       if (item) {
@@ -301,13 +370,15 @@ export default {
         if (row.English in this.starGet) {
           return true
         }
-      }
-      if (filter[1] === 'abbr.' || filter[1] === 'prop.') {
+      } else if (filter[1] === '+') {
+        if (row.Origin === 'new') {
+          return true
+        }
+      } else if (filter[1] === 'abbr.' || filter[1] === 'prop.') {
         if (row.Gr === filter[1]) {
           return true
         }
-      }
-      if (filter[2] != null) {
+      } else if (filter[2] != null) {
         if (row.totalScore === filter[2] && row.tested) {
           return true
         }
@@ -341,10 +412,8 @@ export default {
     },
     getVariant: function (arg) {
       let v = 'prime'
-      for (let word in this.dictGet) {
-        if (word === arg) {
-          v = 'safe'
-        }
+      if (arg) {
+        v = 'safe'
       }
       return v
     },
@@ -370,13 +439,22 @@ export default {
       // check all is okay
       this.saveWord()
     },
+    onAdd: function (evt) {
+      evt.preventDefault()
+      // check all is okay
+      this.addWord()
+    },
     handleFileUpload: function () {
       imageValidation(document.getElementById('file'))
     },
     saveWord: function () {
-      this.waiting = false
-      console.log(localStorage.imageData)
       let _this = this
+      // why doesn't this work?
+      if (localStorage.imageData.length < 10) {
+        alert('no image added')
+        return false
+      }
+      this.waiting = false
       return addImage({
         imageData: localStorage.imageData,
         wordData: _this.newWord,
@@ -385,65 +463,66 @@ export default {
         .then(function (response) {
           console.log('response', response.data)
           if (localStorage.imageData) {
-            _this.$store.dispatch('newWord', {newWord: JSON.stringify(_this.newWord)})
+            _this.$store.dispatch('newPicture', {newWord: JSON.stringify(_this.newWord)})
           }
           _this.newWord.word = 'a'
           _this.newWord.text = null
           _this.newWord.link = null
+          _this.newWord.chinese = null
           _this.newWord.code = null
           _this.newWord.vocab = null
           localStorage.imageData = null
           _this.waiting = true
-          _this.msg = 'New word added'
+          _this.msg = 'New picture/sentence added'
           _this.showModal()
         })
         .catch(error => {
-          _this.msg = 'New word could not be added'
+          _this.msg = 'New picture/sentence could not be added'
           _this.showAlert()
           console.log('Error Registering: ', error)
         })
     },
     addStar: function (word, set) {
       this.$store.dispatch('newStar', {word: word, set: set})
-      let arr = this.stars
+    },
+    addWord: function (English, set) {
       if (set === 0) {
-        console.log('delete')
-        for (var i = 0; i < arr.length; i++) {
-          if (arr[i] === word) {
-            arr.splice(i, 1)
-          }
-        }
+        this.msg = 'Your entry -' + English + '- has been removed from the dictionary'
+        this.showAlert()
+        this.$store.dispatch('newAdd', {word: English, details: this.wordDetails, set: set})
       } else {
-        console.log('push')
-        this.stars.push(word)
+        this.$store.dispatch('newAdd', {word: this.selected[0], details: {...this.wordDetails}, set: set})
+        this.wordDetails.gl = null
+        this.wordDetails.defch1 = null
       }
-      console.table(this.stars)
     },
     showModal: function () {
       this.$refs['success'].show()
     },
     showAlert: function () {
-      this.$refs['fail'].show()
+      this.$refs['alert'].show()
     },
     hideModal: function (mode) {
       if (mode === 'success') {
         this.$refs['success'].hide()
       } else {
-        this.$refs['fail'].hide()
+        this.$refs['alert'].hide()
         this.msg = null
         this.waiting = true
       }
     },
-    editWord: function (arg) {
+    editWord: function (arg, chi) {
       this.newWord.word = arg
       console.log(this.codeGen)
       if (this.dictGet[arg]) {
         this.newWord.text = this.dictGet[arg]['text']
         this.newWord.link = this.dictGet[arg]['link']
+        this.newWord.chinese = this.dictGet[arg]['chinese']
         this.newWord.code = this.codeGen
         this.newWord.vocab = this.dictGet[arg]['vocab']
       } else {
         this.newWord.code = this.codeGen
+        this.newWord.chinese = chi
         this.newWord.vocab = this.$store.state.userProfile.vocab
       }
     },
@@ -468,17 +547,17 @@ export default {
         this.selected[2] = null
         this.sMarker = this.selected[0]
       }
+      if (this.selected[1] !== null) {
+        this.selected[2] = null
+      }
     }
   },
   created () {
     // this.alphabet()
     this.randomLet()
-    for (let word in this.$store.getters.starGet) {
-      this.stars.push(word)
-    }
 
     this.vocabList = this.$store.state.userProfile.vocab
-    this.tableItems = this.$store.getters.makeList
+    // this.tableItems = this.$store.getters.makeList
     // console.log(this.tableItems)
     if (!this.$store.getters.isAuthenticated) {
       this.$router.push('login')
