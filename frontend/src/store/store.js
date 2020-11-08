@@ -430,7 +430,6 @@ const getters = {
     let tableItems = []
     let dict = {...state.master}
 
-
     console.log('check add ', state.setRecord.addRecord)
     for (let v in state.setRecord.addRecord) {
       console.log(v)
