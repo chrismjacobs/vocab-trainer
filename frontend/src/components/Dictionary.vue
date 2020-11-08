@@ -59,7 +59,7 @@
                   :options="optionsR"
                   style="width:100%;color:red"
                   buttons
-                  @change="selected[1] = null, selected[0] = ''"
+                  @change="selected[1] = null, selected[0] = null"
                   :button-variant="color[this.selected[2]]"
                   size="lg"
                   name="radio-btn-outline"
@@ -305,7 +305,7 @@ export default {
         text: null,
         chinese: null,
         link: null,
-        code: null,
+        code: this.codeGen(),
         vocab: null
       },
       wordDetails: {
@@ -318,7 +318,7 @@ export default {
       msg: 'Action Complete',
       edit: false,
       del: false,
-      stars: []
+      audioMarker: [null, null]
     }
   },
   computed: {
@@ -330,17 +330,18 @@ export default {
       console.log('starGet', this.$store.state.setRecord.starRecord)
       return this.$store.getters.starGet
     },
-    codeGen () {
-      let date = new Date()
-      let code = date.getMinutes()
-      return code
-    },
     tableItems () {
-      console.log('tableGet', this.$store.getters.makeList)
+      // console.log('tableGet', this.$store.getters.makeList)
       return this.$store.getters.makeList
     }
   },
   methods: {
+    codeGen: function () {
+      let date = new Date()
+      let code = date.getMinutes().toString() + date.getSeconds().toString()
+      console.log(code)
+      return code
+    },
     imageLink: function (key, item) {
       if (item === undefined) {
         return 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/standin.png'
@@ -418,6 +419,13 @@ export default {
       return v
     },
     playAudio: function (arg, folder) {
+      let markerIcon = document.getElementById(this.audioMarker[0] + this.audioMarker[1])
+      console.log(markerIcon)
+      if (markerIcon) {
+        markerIcon.setAttribute('class', 'text-prime')
+      }
+
+      this.audioMarker = [arg, folder]
       let icon = document.getElementById(arg + folder)
       icon.setAttribute('class', 'text-warn')
 
@@ -469,7 +477,6 @@ export default {
           _this.newWord.text = null
           _this.newWord.link = null
           _this.newWord.chinese = null
-          _this.newWord.code = null
           _this.newWord.vocab = null
           localStorage.imageData = null
           _this.waiting = true
@@ -513,15 +520,15 @@ export default {
     },
     editWord: function (arg, chi) {
       this.newWord.word = arg
-      console.log(this.codeGen)
+      console.log(this.codeGen())
       if (this.dictGet[arg]) {
         this.newWord.text = this.dictGet[arg]['text']
         this.newWord.link = this.dictGet[arg]['link']
         this.newWord.chinese = this.dictGet[arg]['chinese']
-        this.newWord.code = this.codeGen
+        this.newWord.code = this.codeGen()
         this.newWord.vocab = this.dictGet[arg]['vocab']
       } else {
-        this.newWord.code = this.codeGen
+        this.newWord.code = this.codeGen()
         this.newWord.chinese = chi
         this.newWord.vocab = this.$store.state.userProfile.vocab
       }
