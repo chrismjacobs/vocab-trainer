@@ -10,6 +10,7 @@ import culinary1 from '../assets/json/culinary1.json'
 import culinary2 from '../assets/json/culinary2.json'
 import generalY from '../assets/json/generalY.json'
 import generalW from '../assets/json/generalW.json'
+import generalD from '../assets/json/generalD.json'
 import food from '../assets/json/food.json'
 // import vqc from '../assets/json/vqc2.json'
 import test from '../assets/json/vqc2.json'
@@ -23,6 +24,7 @@ let dictionaries = {
   'culinary1': culinary1,
   'generalY': generalY,
   'generalW': generalW,
+  'generalD': generalD,
   'high': null,
   'food': food
 }
