@@ -20,7 +20,7 @@
             <h2 class="text-cream ml-3" > My Words </h2>
           </b-col>
           <b-col  align="right">
-            <button class="buttonDiv bg-third text-prime  mr-2" style="height:40px;width:70px" @click="edit=!edit">Edit</button>
+            <button class="buttonDiv bg-third text-prime  mr-2" style="height:40px;width:70px" @click="edit=!edit, scroll(0,0)">Edit</button>
             <button class="buttonDiv bg-alert text-cream  mr-2" style="height:40px;width:70px" @click="del=!del">Delete</button>
             <button class="buttonDiv bg-warn px-3" style="height:40px;width:60px" @click="newWord.word = null"> <b-icon-card-list variant="cream" font-scale="1.5"></b-icon-card-list></button>
           </b-col>
@@ -98,7 +98,6 @@
                   </b-col>
                   <b-col>
                     <button class="buttonDiv bg-warn px-3" style="width:120px" type="submit"> <b-icon-plus variant="cream" font-scale="1.5"></b-icon-plus></button>
-
                   </b-col>
                 </b-row>
 
@@ -458,36 +457,43 @@ export default {
     saveWord: function () {
       let _this = this
       // why doesn't this work?
-      if (localStorage.imageData.length < 10) {
-        alert('no image added')
+      if (localStorage.imageData.length < 1 && this.newWord.link === null) {
+        alert('please add image')
         return false
+      } else if (this.newWord.text === null) {
+        alert('please add sentence')
+        return false
+      } else if (localStorage.imageData.length < 1) {
+        _this.$store.dispatch('newPicture', {newWord: JSON.stringify(_this.newWord)})
+      } else {
+        this.waiting = false
+        return addImage({
+          imageData: localStorage.imageData,
+          wordData: _this.newWord,
+          userID: _this.$store.state.userProfile.userID
+        })
+          .then(function (response) {
+            console.log('response', response.data)
+            console.table(_this.newWord)
+            if (localStorage.imageData) {
+              _this.$store.dispatch('newPicture', {newWord: JSON.stringify(_this.newWord)})
+            }
+            _this.newWord.word = 'a'
+            _this.newWord.text = null
+            _this.newWord.link = null
+            _this.newWord.chinese = null
+            _this.newWord.vocab = null
+            localStorage.imageData = {}
+            _this.waiting = true
+            _this.msg = 'New picture/sentence added'
+            _this.showModal()
+          })
+          .catch(error => {
+            _this.msg = 'New picture/sentence could not be added'
+            _this.showAlert()
+            console.log('Error Registering: ', error)
+          })
       }
-      this.waiting = false
-      return addImage({
-        imageData: localStorage.imageData,
-        wordData: _this.newWord,
-        userID: _this.$store.state.userProfile.userID
-      })
-        .then(function (response) {
-          console.log('response', response.data)
-          if (localStorage.imageData) {
-            _this.$store.dispatch('newPicture', {newWord: JSON.stringify(_this.newWord)})
-          }
-          _this.newWord.word = 'a'
-          _this.newWord.text = null
-          _this.newWord.link = null
-          _this.newWord.chinese = null
-          _this.newWord.vocab = null
-          localStorage.imageData = null
-          _this.waiting = true
-          _this.msg = 'New picture/sentence added'
-          _this.showModal()
-        })
-        .catch(error => {
-          _this.msg = 'New picture/sentence could not be added'
-          _this.showAlert()
-          console.log('Error Registering: ', error)
-        })
     },
     addStar: function (word, set) {
       this.$store.dispatch('newStar', {word: word, set: set})
@@ -520,6 +526,8 @@ export default {
     },
     editWord: function (arg, chi) {
       this.newWord.word = arg
+      this.newWord.chinese = null
+      localStorage.setItem('imageData', JSON.stringify({}))
       console.log(this.codeGen())
       if (this.dictGet[arg]) {
         this.newWord.text = this.dictGet[arg]['text']
