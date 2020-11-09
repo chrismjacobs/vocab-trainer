@@ -63,8 +63,15 @@
                 v-model="waiter"
                 >
                   <template v-slot:cell(id)="data">
-                      <b-avatar :src="s3 + data.value + '/avatar.jpg'" size="2rem"></b-avatar> <div align="center" @click="acceptChallenge(data.item.id, data.item.mode)" class="nameTag bg-p1 text-prime">{{data.item.name}} - {{data.item.mode}} <b-icon icon="circle-fill" animation="throb"></b-icon></div>
-                      <button class="buttonDiv bg-alert mx-1" style="width:15%"  @click="declineChallenge(data.item.id)"> <b-icon icon="x-square-fill"></b-icon> </button>
+                    <b-row>
+                      <b-col>
+                       <b-avatar :src="s3 + data.value + '/avatar.jpg'" size="2rem"></b-avatar> <div align="center" @click="acceptChallenge(data.item.id, data.item.mode)" class="nameTag bg-p1 text-prime">{{data.item.name}} <b-icon icon="circle-fill" animation="throb"></b-icon></div>
+                      </b-col>
+                      <b-col cols="3" align="right" class="pr-3">
+                        <button class="buttonDiv bg-alert mx-1" style="width:40px"  @click="declineChallenge(data.item.id)"> <b-icon icon="x-square-fill"></b-icon> </button>
+                      </b-col>
+                    </b-row>
+
                   </template>
               </b-table>
 
@@ -77,8 +84,14 @@
                 v-model="challenger"
                 >
                   <template v-slot:cell(id)="data">
-                      <b-avatar :src="s3 + data.value + '/avatar.jpg'" size="2rem"></b-avatar> <div align="center" class="nameTag bg-p2 text-cream">{{data.item.name}} <b-icon icon="circle-fill" animation="throb"></b-icon></div>
-                      <button class="buttonDiv bg-alert mx-1" style="width:15%"  @click="challengeRetract(data.item.id)"> <b-icon icon="x-square-fill"></b-icon> </button>
+                    <b-row>
+                      <b-col>
+                        <b-avatar :src="s3 + data.value + '/avatar.jpg'" size="2rem"></b-avatar> <div align="center" class="nameTag bg-p2 text-cream">{{data.item.name}} <b-icon icon="circle-fill" animation="throb"></b-icon></div>
+                      </b-col>
+                      <b-col cols="3" align="right" class="pr-3">
+                        <button  class="buttonDiv bg-alert mx-1" style="width:40px"  @click="challengeRetract(data.item.id)"> <b-icon icon="x-square-fill"></b-icon> </button>
+                      </b-col>
+                    </b-row>
                   </template>
               </b-table>
 
