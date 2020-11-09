@@ -219,7 +219,7 @@ def get_class():
 def update_record():
     print('UPDATE')
     payload = request.get_json()
-    pprint(payload)
+    # pprint(payload)
 
     userRecord = payload['userRecord']
     setRecord = payload['setRecord']
@@ -407,13 +407,16 @@ def addImage():
     userID = request.get_json()['userID']
     wordData = request.get_json()['wordData']
     mode = [wordData['word'], wordData['link'], wordData['code'], wordData['vocab']]
-    # print(mode)
+    print(mode)
 
     try:
         stringData = request.get_json()['imageData']
         imageData = json.loads(stringData)
-        storeB64(imageData, userID, mode)
-        msg = 'Your image has been added'
+        print(len(imageData))
+        if len(imageData) > 0:
+            storeB64(imageData, userID, mode)
+            msg = 'Your entry has been added'
+        msg = None
     except:
         print('STORE FAIL')
         msg = 'No Image to Upload'
@@ -528,7 +531,7 @@ def jStorer(user, logsRecord, userRecord, userSet):
 
     #print(vocabKey, setKey, logsKey)
 
-    print('userSet', userSet)
+    #print('userSet', userSet)
 
     if logsRecord:
         print('logs stored')
