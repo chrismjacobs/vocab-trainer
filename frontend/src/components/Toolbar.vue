@@ -270,10 +270,14 @@ export default {
               vocabList[item].English.includes("'") ||
               vocabList[item].English.includes('&') ||
               vocabList[item].English.includes('.') ||
-              vocabList[item].Gr === 'abbr.' ||
-              vocabList[item].Gr === 'prop.'
+              vocabList[item].Gr === 'prop.' ||
+              vocabList[item].Gr === 'abbr.'
           ) {
-            this.amendedList.push(vocabList[item])
+            if (this.sound === 'sdTy' && vocabList[item].Gr === 'abbr.') {
+              console.log('pass abbr.')
+            } else {
+              this.amendedList.push(vocabList[item])
+            }
           }
         }
       } else if (this.sort === 'phr.') {
