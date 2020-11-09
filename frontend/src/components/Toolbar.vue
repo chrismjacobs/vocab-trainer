@@ -24,7 +24,7 @@
       </div>
 
       <div class="bg-fourth p-2 pb-4 mb-5" v-if="showToolbar">
-        <b-row cols="2" cols-lg="4" cols-xl="6" >
+        <b-row cols="2" :cols-xl="colGet" >
           <b-col class="mt-4">
               <div align="center">
                 <div class="headDiv">
@@ -68,6 +68,18 @@
                 stacked
               ></b-form-radio-group>
             </div>
+            <br>
+            <div align="center"  v-if="testType === 'transEng' || testType === 'transCh'">
+              <div class="headDiv"> Labels </div><br>
+              <b-form-radio-group
+                  style="width:120px"
+                  v-model="label"
+                  :options="labelOptions"
+                  buttons
+                  button-variant="outline-safe"
+                  stacked
+                ></b-form-radio-group>
+            </div>
           </b-col>
 
           <b-col class="mt-4" v-if="testType === 'typeTest'">
@@ -98,23 +110,23 @@
             </div>
           </b-col>
 
-          <b-col class="mt-4" v-if="testType === 'transEng' || testType === 'transCh'">
+          <b-col class="mt-4" v-if="testType === 'typeTest'">
             <div align="center">
-              <div class="headDiv"> Labels </div><br>
+                <div class="headDiv"> Spelling </div><br>
               <b-form-radio-group
-                  style="width:120px"
-                  v-model="label"
-                  :options="labelOptions"
-                  buttons
-                  button-variant="outline-safe"
-                  stacked
-                ></b-form-radio-group>
+                style="width:120px"
+                v-model="spelling"
+                :options="spellingOptions"
+                buttons
+                button-variant="outline-safe"
+                stacked
+              ></b-form-radio-group>
             </div>
           </b-col>
 
-          <b-col class="mt-4" v-if="testType === 'transEng' || testType === 'transCh'">
+          <b-col class="mt-4">
             <div align="center">
-                <div class="headDiv"> Sort Words </div><br>
+                <div class="headDiv"> Sort </div><br>
               <b-form-radio-group
                 style="width:120px"
                 v-model="sort"
@@ -126,27 +138,6 @@
             </div>
           </b-col>
 
-          <b-col class="mt-4" v-if="testType === 'typeTest'">
-            <div align="center">
-            <div class="headDiv"> Spelling </div>
-            <b-dropdown style="width:120px" :text="spelling" variant="outline-dark">
-              <div>
-                  <b-dropdown-item v-for="(btn, index) in optionsO" :key="index" @click="spelling=btn.value; spellingText=btn.text " > {{ btn.text }} </b-dropdown-item>
-              </div>
-            </b-dropdown>
-            </div>
-          </b-col>
-
-          <b-col class="mt-4" v-if="testType === 'typeTest'">
-            <div align="center">
-              <div class="headDiv"> Sort </div>
-            <b-dropdown style="width:120px" :text="special" variant="outline-info">
-              <div>
-                  <b-dropdown-item  v-for="(btn, index) in optionsS" :key="index" @click="special=btn.value; specialText=btn.text"> {{ btn.text }} </b-dropdown-item>
-              </div>
-            </b-dropdown>
-            </div>
-          </b-col>
         </b-row>
       </div>
 
@@ -180,15 +171,6 @@ export default {
       selected: null,
       toolbarSettings: {},
       optionsA: [{ value: null, text: '---' }],
-      optionsG: [
-        { value: null, text: '---' },
-        { value: 'v.', text: 'verbs' },
-        { value: 'adj.', text: 'adjectives' },
-        { value: 'n.', text: 'nouns' },
-        { value: 'phr.', text: 'phrases' },
-        { value: 'abbr.', text: 'abbreviations' },
-        { value: 'prop.', text: 'proper nouns' }
-      ],
       label: 'lbAn',
       labelOptions: [
         { text: 'Off', value: 'lbOff' },
@@ -200,36 +182,27 @@ export default {
         { text: 'Auto', value: 'sdOn' },
         { text: 'None', value: 'sdOff' }
       ],
-      spelling: null,
-      spellingText: '-------------',
-      optionsO: [
+      spelling: '---',
+      spellingOptions: [
         { value: '---', text: '---' },
         { value: 'showFL', text: 'first/last' },
-        { value: 'const', text: 'no consonants' },
-        { value: 'vowels', text: 'no vowels' },
+        { value: 'const', text: 'x consonants' },
+        { value: 'vowels', text: 'x vowels' },
         { value: 'blanks', text: ' all blanks' },
         { value: 'all', text: 'show all' },
         { value: 'typos', text: 'typos' },
         { value: 'scramble', text: 'scramble' }
         // { value: 'showFL', text: 'words' }
       ],
-      sort: 'srtNone',
+      sort: '---',
       sortOptions: [
-        { text: 'none', value: 'srtNone' },
-        { value: '*', text: 'star' },
+        { value: '---', text: '---' },
+        { value: '*', text: 'star vocab' },
+        { value: 'phr.', text: 'phrases' },
         { value: 0, text: 'neutral' },
         { value: 1, text: 'easier' },
-        { value: -1, text: 'harder' }
-      ],
-      specialText: '-------------',
-      special: null,
-      optionsS: [
-        { value: '---', text: '---' },
-        { value: '***', text: 'star vocab' },
-        { value: 'punc.', text: 'punctuation' },
-        { value: 'phr.', text: 'phrases' },
-        { value: 'abbr.', text: 'abbreviations' },
-        { value: 'prop.', text: 'proper nouns' }
+        { value: -1, text: 'harder' },
+        { value: 'misc.', text: 'misc' }
       ],
       display: 'text_On',
       displayOptions: [
@@ -250,9 +223,11 @@ export default {
       // console.log(this.special)
       if (this.spelling && this.selected === 'abbr.') {
         alert('Cannot make typos with Abbreviations')
+        this.showToolbar = true
         return false
       } else if (this.sound === 'sdTy' && this.selected === 'abbr.') {
         alert('Cannot make typos with Abbreviations')
+        this.showToolbar = true
         return false
       }
       // reset variables
@@ -263,7 +238,7 @@ export default {
       let vocabList = JSON.parse(this.stringItems)
       this.amendedList = []
 
-      if (this.sort === 'srtNone' && this.special === null) {
+      if (this.sort === '---') {
         this.amendedList = vocabList
       } else if (this.sort === 0) {
         for (let item in vocabList) {
@@ -289,31 +264,33 @@ export default {
             this.amendedList.push(vocabList[item])
           }
         }
-      } else if (this.special[0] === '*') {
-        for (let item in vocabList) {
-          if (this.starGet[vocabList[item].English]) {
-            this.amendedList.push(vocabList[item])
-          }
-        }
-      } else if (this.special === 'phr.' || this.special === 'abbr.' || this.special === 'prop.') {
-        for (let item in vocabList) {
-          if (vocabList[item].Gr === this.special) {
-            this.amendedList.push(vocabList[item])
-          }
-        }
-      } else if (this.special === 'punc.') {
+      } else if (this.sort === 'misc.') {
         for (let item in vocabList) {
           if (vocabList[item].English.includes('-') ||
               vocabList[item].English.includes("'") ||
               vocabList[item].English.includes('&') ||
-              vocabList[item].English.includes('.')) {
+              vocabList[item].English.includes('.') ||
+              vocabList[item].Gr === 'abbr.' ||
+              vocabList[item].Gr === 'prop.'
+          ) {
+            this.amendedList.push(vocabList[item])
+          }
+        }
+      } else if (this.sort === 'phr.') {
+        for (let item in vocabList) {
+          if (vocabList[item].Gr === 'phr.') {
             this.amendedList.push(vocabList[item])
           }
         }
       }
-
+      console.log(this.amendedList.length < 6, this.sort, this.special)
       // check there are enought words available
-      if (this.amendedList.length < this.words) {
+      if (this.amendedList.length < 6) {
+        alert('Not enough words found to test this category')
+        this.sort = '---'
+        this.makeTest()
+        // console.log('few words', this.amendedList)
+      } else if (this.amendedList.length < this.words) {
         this.words = this.amendedList.length
         // console.log('few words', this.amendedList)
       }
@@ -384,9 +361,9 @@ export default {
         type: this.testType,
         sound: this.sound,
         label: this.label,
-        sort: this.sort,
         words: this.words,
-        choices: this.choices
+        choices: this.choices,
+        sort: this.sort
       }
 
       // console.log(this.testItemsRoot)
@@ -433,13 +410,12 @@ export default {
       this.toolbarSettings = {
         type: this.testType,
         sound: this.sound,
-        label: this.label,
         words: this.words,
         choices: this.choices,
+        sort: this.sort,
         spelling: this.spelling,
         display: this.display,
-        feedback: this.feedback,
-        special: this.special
+        feedback: this.feedback
       }
 
       this.$emit('newTest', {
@@ -506,6 +482,13 @@ export default {
     starGet () {
       console.log('starGet', this.$store.state.setRecord.starRecord)
       return this.$store.getters.starGet
+    },
+    colGet () {
+      if (this.testType === 'typeTest') {
+        return 6
+      } else {
+        return 4
+      }
     }
   },
   created () {
