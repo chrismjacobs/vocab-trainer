@@ -112,7 +112,7 @@
 
           <b-col class="mt-4" v-if="testType === 'typeTest'">
             <div align="center">
-                <div class="headDiv"> Spelling </div><br>
+                <div class="headDiv"> Assist </div><br>
               <b-form-radio-group
                 style="width:120px"
                 v-model="spelling"
@@ -186,13 +186,12 @@ export default {
       spellingOptions: [
         { value: '---', text: '---' },
         { value: 'showFL', text: 'first/last' },
-        { value: 'const', text: 'x consonants' },
-        { value: 'vowels', text: 'x vowels' },
+        { value: 'const', text: '+ vowels' },
+        { value: 'vowels', text: '- vowels' },
         { value: 'blanks', text: ' all blanks' },
         { value: 'all', text: 'show all' },
         { value: 'typos', text: 'typos' },
         { value: 'scramble', text: 'scramble' }
-        // { value: 'showFL', text: 'words' }
       ],
       sort: '---',
       sortOptions: [
