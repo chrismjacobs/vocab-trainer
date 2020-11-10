@@ -139,7 +139,7 @@ export default {
           max = this.userRecItems[rec]
         }
       }
-      return max
+      return max + 1
     }
   },
   created () {
