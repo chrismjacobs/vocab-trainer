@@ -38,6 +38,7 @@
       <div class="bg-smoke" v-if="showAnswers">
         <b-table
         striped hover
+        fixed
         :items="answerData"
         :fields="fields"
         >
@@ -55,8 +56,8 @@
 
         <template v-slot:cell(chinese)="data" style="width:50%" >
           <div v-if="data.item._rowVariant === 'warn'">
-            <b-icon icon="x" font-scale="1" ></b-icon> {{data.item.Choice}}<br>
-            <b-icon icon="check2" font-scale="1"></b-icon> {{data.item.Chinese}}
+            <b-icon icon="x" variant="alert" font-scale="1" ></b-icon> {{data.item.Choice}}<br>
+            <b-icon icon="check2" variant="safe" font-scale="1"></b-icon> {{data.item.Chinese}}
           </div>
           <div v-else>
             {{data.item.Chinese}}
