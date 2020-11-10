@@ -165,9 +165,9 @@ export default {
     navSide: function (arg) {
       let path = this.getPath()
       if (path in this.btnCodes && path === arg) {
-        return 'sideLink h4 text-prime ' + this.btnCodes[path]
+        return 'sideLink m-0 h4 text-prime ' + this.btnCodes[path]
       } else {
-        return 'sideLink h5 bg-prime text-cream'
+        return 'sideLink m-0 h5 bg-prime text-cream'
       }
     },
     goTo: function (arg) {
