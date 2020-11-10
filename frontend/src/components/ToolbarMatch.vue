@@ -22,89 +22,110 @@
         </div>
       </div>
 
-      <div class="bg-grey p-2 pb-4" v-if="waiting === 0">
-        <b-row>
+      <div class="bg-fourth p-2 pb-4" v-if="waiting === 0">
+        <b-row cols="2" :cols-xl="colGet">
           <b-col class="mt-3">
               <div align="center">
-                <div class="headDiv">
+                <div class="headDiv" style="width:120px">
                   Words
                 </div>
                 <div class="spinDiv">
-                  <b-form-spinbutton v-if="player === 'p1'" v-model="words" min="6" max="30" step=2 vertical style="height:125px"></b-form-spinbutton>
-                  <b-form-spinbutton v-else disabled v-model="words" vertical style="height:125px;color:red"></b-form-spinbutton>
+                  <b-form-spinbutton v-if="player === 'p1'" v-model="words" min="6" max="30" step=2 style="width:120px"></b-form-spinbutton>
+                  <div v-else class="redDiv">
+                    <h5>{{words}}</h5>
+                  </div>
                 </div>
+                <br>
               </div>
-            </b-col>
-          <b-col class="mt-3" v-if="testType === 'TransEng' || testType === 'TransCh'">
-              <div align="center">
-                <div class="headDiv">
+
+              <div align="center" v-if="testType[1] != 'y'">
+                <div class="headDiv" style="width:120px">
                   Choices
                 </div>
                 <div class="spinDiv">
-                <b-form-spinbutton v-if="player === 'p1'" v-model="choices" min="2" max="6" vertical style="height:125px"></b-form-spinbutton>
-                <b-form-spinbutton v-else disabled v-model="choices" min="2" max="6" vertical style="height:125px;color:red"></b-form-spinbutton>
+                <b-form-spinbutton v-if="player === 'p1'" v-model="choices" min="2" max="6" style="width:120px"></b-form-spinbutton>
+                <div v-else class="redDiv">
+                    <h5>{{choices}}</h5>
                 </div>
+                </div>
+                <br>
               </div>
-          </b-col>
-           <!--
-          <b-col class="mt-3">
-            <h6 align="center">Sound</h6>
-            <div align="center">
-              <b-form-radio-group
-                v-model="sound"
-                :options="soundOptions"
-                button-variant="outline-danger"
-                buttons
-                class="radioBTN"
-                stacked
-              ></b-form-radio-group>
-            </div>
-          </b-col>
-          -->
-          <b-col class="mt-3" v-if="testType === 'TypeMatch'">
-             <div class="headDiv">
-                  Feedback
-            </div>
-            <div align="center">
-            <b-dropdown style="width:100%" v-if="player === 'p1'" variant="warn-light" :text="feedbackText">
-              <div>
-                  <b-dropdown-item  v-for="(btn, index) in feedbackOptions" :key="index" @click="feedback=btn.value; feedbackText=btn.text "> {{ btn.text }} </b-dropdown-item>
-              </div>
-            </b-dropdown>
-            <div v-else align="center" style="width:100%">
-                  <button class="buttonDiv bg-warn-light text-alert" disabled> {{feedbackText}} </button>
-            </div>
-            </div>
 
-            <br>
-
-            <div class="headDiv">
-                  Assist
-            </div>
-            <div align="center">
-            <b-dropdown style="width:100%;text-overflow:ellipsis" v-if="player === 'p1'" variant="third" :text="spellingText">
-              <div>
-                  <b-dropdown-item  v-for="(btn, index) in optionsO" :key="index" @click="spelling=btn.value; spellingText=btn.text "> {{ btn.text }} </b-dropdown-item>
-              </div>
-            </b-dropdown>
-              <div v-else align="center" style="width:100%">
-                  <button class="buttonDiv bg-third text-alert" disabled> {{spellingText}} </button>
-              </div>
-            </div>
-          </b-col>
-
-          <b-col class="mt-3">
               <div align="center">
-                <div class="headDiv">
+
+                <div class="headDiv" style="width:120px">
                   Timer
                 </div>
                 <div class="spinDiv">
-                <b-form-spinbutton v-if="player === 'p1' && testType[1] === 'r'" v-model="timeReset" min="4" max="12" step=2 vertical style="height:125px"></b-form-spinbutton>
-                <b-form-spinbutton v-else-if="player === 'p1' && testType[1] === 'y'" v-model="timeReset" min="15" max="60" step=5 vertical style="height:125px"></b-form-spinbutton>
-                <b-form-spinbutton v-else disabled v-model="timeReset" min="4" max="12" vertical step=2 style="height:125px;color:red"></b-form-spinbutton>
+                <b-form-spinbutton v-if="player === 'p1' && testType[1] === 'r'" v-model="timeReset" min="4" max="12" step=2  style="width:120px"></b-form-spinbutton>
+                <b-form-spinbutton v-else-if="player === 'p1' && testType[1] === 'y'" v-model="timeReset" min="15" max="60" step=5 style="width:120px"></b-form-spinbutton>
+                <div v-else class="redDiv">
+                    <h5>{{timeReset}}</h5>
                 </div>
               </div>
-          </b-col>
+              <br>
+              </div>
+            </b-col>
+
+            <b-col class="mt-3" align="center" v-if="player === 'p2'">
+              <div class="headDiv"> Sort </div><br>
+              <button class="buttonDiv bg-warn-light text-alert" style="width:120px" disabled> {{sortText}} </button>
+              <br>
+              <br>
+              <div v-if="testType[1] === 'y'">
+                <div class="headDiv" style="width:120px"> Assist </div><br>
+                <button class="buttonDiv bg-safe text-alert" style="width:120px" disabled> {{spellingText}} </button>
+                <br>
+                <br>
+                <div class="headDiv" style="width:120px"> Feedback </div><br>
+                <button class="buttonDiv bg-grape-light text-alert" style="width:120px" disabled> {{feedbackText}} </button>
+                <br>
+                <br>
+              </div>
+
+            </b-col>
+
+            <b-col class="mt-3" align="center" v-if="player === 'p1'">
+              <div class="headDiv" style="width:120px"> Sort </div><br>
+              <div>
+                <b-form-radio-group
+                  style="width:120px"
+                  v-model="sort"
+                  :options="sortOptions"
+                  buttons
+                  button-variant="outline-warn"
+                  stacked
+                ></b-form-radio-group>
+              </div>
+            </b-col>
+
+            <b-col class="mt-3" align="center" v-if="player === 'p1' && testType[1] === 'y'">
+              <div class="headDiv" style="width:120px"> Feedback </div><br>
+              <div>
+                <b-form-radio-group
+                  style="width:120px"
+                  v-model="feedback"
+                  :options="feedbackOptions"
+                  buttons
+                  button-variant="outline-grape-light"
+                  stacked
+                ></b-form-radio-group>
+              </div>
+            </b-col>
+
+            <b-col class="mt-3" align="center" v-if="player === 'p1' && testType[1] === 'y'">
+              <div class="headDiv" style="width:120px"> Assist </div><br>
+              <div>
+                <b-form-radio-group
+                  style="width:120px"
+                  v-model="spelling"
+                  :options="spellingOptions"
+                  buttons
+                  button-variant="outline-safe"
+                  stacked
+                ></b-form-radio-group>
+              </div>
+            </b-col>
 
         </b-row>
       </div>
@@ -148,16 +169,22 @@ export default {
         { text: 'auto play', value: 'sdOn' },
         { text: 'None', value: 'sdOff' }
       ],
-      spelling: null,
+      spelling: '---',
       spellingText: 'None',
-      optionsO: [
-        { value: null, text: 'None' },
-        { value: 'const', text: 'Vowels' },
-        { value: 'vowels', text: 'Consonants' },
-        { value: 'blanks', text: 'Blanks' },
-        { value: 'all', text: 'Show all' },
-        { value: 'showFL', text: 'Show gaps' },
-        { value: 'scramble', text: 'Scramble' }
+      spellingOptions: [
+        { value: '---', text: '---' },
+        { value: 'showFL', text: 'first/last' },
+        { value: 'const', text: '+ vowels' },
+        { value: 'vowels', text: '- vowels' },
+        { value: 'all', text: 'show all' },
+        { value: 'scramble', text: 'scramble' }
+      ],
+      sort: '---',
+      sortText: '---',
+      sortOptions: [
+        { value: '---', text: '---' },
+        { value: '*', text: 'star vocab' },
+        { value: -1, text: 'harder' }
       ],
       feedback: 'fbConst',
       feedbackText: 'Constant',
@@ -182,7 +209,31 @@ export default {
 
       // prepare amended list
       let vocabList = JSON.parse(this.stringItems)
-      this.amendedList = vocabList
+
+      if (this.sort === '---') {
+        this.amendedList = vocabList
+      } else if (this.sort === -1) {
+        for (let item in vocabList) {
+          if (vocabList[item].totalScore <= -1) {
+            this.amendedList.push(vocabList[item])
+          }
+        }
+      } else if (this.sort === '*') {
+        for (let item in vocabList) {
+          if (this.starGet[vocabList[item].English]) {
+            this.amendedList.push(vocabList[item])
+          }
+        }
+      }
+      if (this.amendedList.length < 6) {
+        alert('Not enough words found to test this category')
+        this.sort = '---'
+        this.makeTest()
+        // console.log('few words', this.amendedList)
+      } else if (this.amendedList.length < this.words) {
+        this.words = this.amendedList.length
+        // console.log('few words', this.amendedList)
+      }
 
       if (this.testType === 'TypeMatch') {
         this.makeSpelling()
@@ -313,12 +364,6 @@ export default {
     retryTest: function () {
       this.$emit('retry', null)
     },
-    alphabet: function () {
-      let alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-      for (let letter in alphabet) {
-        this.optionsA.push({ value: alphabet[letter], text: alphabet[letter] })
-      }
-    },
     checkDuplicate: function (rand) {
       for (let testEntry in this.testItems) {
         //  console.log(this.testItems[testEntry].English, rand.English)
@@ -358,10 +403,12 @@ export default {
         choices: this.choices,
         spelling: this.spelling,
         spellingText: this.spellingText,
+        sortText: this.sortText,
         feedbackText: this.feedbackText,
         display: this.display,
         feedback: this.feedback
       }
+      console.table(toolbarSettings)
       this.socket.emit('settingsData', {room: (this.p1 + '-' + this.p2).toString(), settingsData: toolbarSettings})
     },
     emitWaiting: function (arg) {
@@ -387,13 +434,40 @@ export default {
       }
     },
     feedback: function () {
+      let object = this.feedbackOptions.filter(element => element.value === this.feedback)
+      console.log(object)
+      this.feedbackText = object[0].text
       if (this.player === 'p1') {
         this.settingsSend()
       }
     },
     spelling: function () {
+      let object = this.spellingOptions.filter(element => element.value === this.spelling)
+      console.log(object)
+      this.spellingText = object[0].text
       if (this.player === 'p1') {
         this.settingsSend()
+      }
+    },
+    sort: function () {
+      let object = this.sortOptions.filter(element => element.value === this.sort)
+      console.log(object)
+      this.sortText = object[0].text
+      if (this.player === 'p1') {
+        this.settingsSend()
+      }
+    }
+  },
+  computed: {
+    starGet () {
+      console.log('starGet', this.$store.state.setRecord.starRecord)
+      return this.$store.getters.starGet
+    },
+    colGet () {
+      if (this.player === 'p2') {
+        return 2
+      } else {
+        return 4
       }
     }
   },
@@ -409,13 +483,14 @@ export default {
     }
     let _this = this
     _this.socket.on('newSettings', function (data) {
-      console.log('settingsReceived', data, _this.feedback)
-      _this.$emit('settings', {feedback: _this.feedback, sound: _this.sound})
+      console.log('settingsReceived')
+      console.table(data)
       if (_this.player === 'p2') {
         for (let set in data.settingsData) {
           _this[set] = data.settingsData[set]
         }
       }
+      _this.$emit('settings', {feedback: _this.feedback, sound: _this.sound})
     })
   }
 }
@@ -425,6 +500,27 @@ export default {
 <style scoped>
 
 .form-control {
-  background-color:lightgrey;
+  background-color:#bbe0eb;
 }
+
+.headDiv {
+  background-color:lightgrey;
+  width:120px;
+  font-weight:500;
+  border-radius: 5px;
+  border: 0px solid #73AD21;
+}
+
+.redDiv {
+    display:inline-block;
+    border:0px solid #CCC;
+    outline:none;
+    color: red;
+    border-radius: 50px, 50px, 0px, 0px;
+    vertical-align:middle;
+    padding: 5px;
+    text-align: center;
+    width: 100%
+}
+
 </style>
