@@ -40,7 +40,7 @@
             autocomplete="off"
             id="type"
             @focus="nullClick()"
-            @change="selected[2]=null, sMarker=selected[0]"
+            @change="selected[2]=null"
             v-model="selected[0]"
             ></b-form-input>
           </b-col>
@@ -60,7 +60,7 @@
                   style="width:100%;color:red"
                   buttons
                   @change="selected[1] = null, selected[0] = null"
-                  :button-variant="color[this.selected[2]]"
+                  :button-variant="color[selected[2]]"
                   size="lg"
                   name="radio-btn-outline"
                 ></b-form-radio-group>
@@ -113,6 +113,7 @@
       :filter="selected"
       :filter-function="filterTable"
       show-empty
+      fixed
       head-variant="dark"
       v-model="visibleRows"
       >
@@ -120,7 +121,7 @@
           <b-row no-gutters>
             <b-col cols="3">
              <template v-if="data.item.Star">
-                <b-icon-star-fill variant="warn" @click="addStar(data.value, 0)"></b-icon-star-fill> &nbsp; <br class="d-lg-none">
+                <b-icon-star-fill variant="warn" @click="addStar(data.value, 0)"></b-icon-star-fill> <span class="d-lg-none"> &nbsp; <br> </span>
              </template>
              <template v-else>
                 <b-icon-star @click="addStar(data.value, 1)"></b-icon-star> &nbsp; <br class="d-lg-none">
@@ -258,7 +259,6 @@ export default {
       // tableItems: null,
       visibleRows: [],
       selected: [null, null, null],
-      sMarker: null,
       optionsA: [
         { value: null, text: '---' }
       ],
@@ -557,15 +557,6 @@ export default {
     }
   },
   watch: {
-    selected: function () {
-      if (this.selected[0] !== this.sMarker) {
-        this.selected[2] = null
-        this.sMarker = this.selected[0]
-      }
-      if (this.selected[1] !== null) {
-        this.selected[2] = null
-      }
-    }
   },
   created () {
     // this.alphabet()
