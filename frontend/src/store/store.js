@@ -525,7 +525,9 @@ const getters = {
       let mp3ch = s3 + '_ch/' + vocab + '.mp3'
       let origin = 'master'
 
-      if (vocab in state.setRecord.addRecord) {
+      if (!state.setRecord.addRecord) {
+        state.setRecord['addRecord'] = {}
+      } else if (vocab in state.setRecord.addRecord) {
         mp3en = 'find mp3'
         mp3ch = 'find mp3'
         origin = 'new'

@@ -420,6 +420,8 @@ export default {
     playAudio: function (arg, folder) {
       let markerIcon = document.getElementById(this.audioMarker[0] + this.audioMarker[1])
       console.log(markerIcon)
+
+      // sets unreset icon back
       if (markerIcon) {
         markerIcon.setAttribute('class', 'text-prime')
       }
