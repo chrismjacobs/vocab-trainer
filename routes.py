@@ -6,15 +6,17 @@ import ast
 import json
 import requests
 import jwt
+import pyttsx3
 from datetime import datetime, timedelta
 from functools import wraps
 from flask import jsonify, render_template, request
 from flask_mail import Message
-from app import app, db, bcrypt, s3_resource, mail
+from app import app, db, bcrypt, s3_resource, s3_client, mail
 from pprint import pprint
 from models import *
 from PIL import Image
 bucket_name = 'vocab-lms'
+bucket = s3_resource.Bucket(bucket_name)
 DEBUG = app.config['DEBUG']
 
 
@@ -190,15 +192,68 @@ def get_records():
         'setRecord': setRecord
         })
 
+
+
+
+
+def createAudio(word):
+
+    try:
+        engine = pyttsx3.init()
+
+        voices = engine.getProperty('voices')
+        engine.setProperty('voice', voices[1].id)
+        rate = engine.getProperty('rate')
+        engine.setProperty('rate', rate-70)
+
+        string = word + '.mp3'
+
+        save = string
+        engine.save_to_file(word, save)
+        engine.runAndWait()
+
+        data = open(string, 'rb')
+        aws_filename = 'public/added_en/' + string
+
+        s3_resource.Bucket(bucket_name).put_object(Key=aws_filename, Body=data)
+        return True
+    except:
+        return False
+
+
+
+@app.route("/api/addAudio", methods=['POST'])
+def add_audio():
+    print(request.get_json())
+
+    word = request.get_json()['word']
+    action = request.get_json()['set']
+    ### no action for delete yet
+    result = 'NONE'
+
+    generalList = []
+
+    for obj in bucket.objects.filter(Prefix='public/added_en/'):
+        checkWord = obj.key.split('en/')[1].split('.mp3')[0]
+        print(checkWord)
+        generalList.append(checkWord)
+
+    if word not in generalList:
+        result = createAudio(word)
+    else:
+        result = 'FOUND'
+
+    return jsonify({'result': result})
+
 @app.route("/api/getClass", methods=['POST'])
 def get_class():
     print('GET CLASS')
 
     userID = request.get_json()['userID']
     user = User.query.get(userID)
-    room = request.get_json()['userID']
+    classroom = request.get_json()['classroom']
 
-    users = User.query.all()
+    users = User.query.filter_by(classroom=classroom).all()
 
     classDict = {}
 
@@ -408,21 +463,28 @@ def addImage():
     wordData = request.get_json()['wordData']
     mode = [wordData['word'], wordData['link'], wordData['code'], wordData['vocab']]
     print(mode)
-
+    msg = None
     try:
         stringData = request.get_json()['imageData']
         imageData = json.loads(stringData)
         print(len(imageData))
         if len(imageData) > 0:
             storeB64(imageData, userID, mode)
+            status = 1
             msg = 'Your entry has been added'
-        msg = None
     except:
         print('STORE FAIL')
         msg = 'No Image to Upload'
+        status = 0
+
+    ## switch up link codes
+    wordData['link'] = str(int(wordData['code']))
+    wordData['code'] = str(int(wordData['link']))
 
     response = {
-        'msg' : msg
+        'msg' : msg,
+        'status' : status,
+        'obj' : wordData
     }
     return jsonify(response)
 

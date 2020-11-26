@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import router from '../router'
 import { isValidJwt, parseLocal, checkDevice } from '@/utils'
-import { authenticate, register, updateRecAPI, updateAccount, getRecordAPI, ticket, getClass } from '@/api'
+import { authenticate, register, updateRecAPI, updateAccount, getRecordAPI, ticket, getClass, addAudio } from '@/api'
 import tourism1 from '../assets/json/tourism1.json'
 import tourism from '../assets/json/tourism.json'
 import digital1 from '../assets/json/digital1.json'
@@ -11,6 +11,7 @@ import culinary2 from '../assets/json/culinary2.json'
 import generalY from '../assets/json/generalY.json'
 import generalW from '../assets/json/generalW.json'
 import generalD from '../assets/json/generalD.json'
+import generalV from '../assets/json/generalV.json'
 import food from '../assets/json/food.json'
 // import vqc from '../assets/json/vqc2.json'
 import test from '../assets/json/vqc2.json'
@@ -25,6 +26,7 @@ let dictionaries = {
   'generalY': generalY,
   'generalW': generalW,
   'generalD': generalD,
+  'generalV': generalV,
   'high': null,
   'food': food
 }
@@ -161,9 +163,18 @@ const actions = {
     console.log('new add data...', payload)
     context.commit('setNewAdd', payload)
   },
-  deleteWord (context, payload) {
-    // console.log('new word data...')
-    context.commit('setDeleteWord', payload)
+  newAudio (context, payload) {
+    console.log('new audio data...', payload)
+    return addAudio(payload)
+      .then(function (response) {
+        console.log(response.data)
+      })
+      .catch(error => {
+        console.log('Error Audio: ', error)
+      })
+  },
+  deletePict (context, payload) {
+    context.commit('setDeletePict', payload)
   },
   apiRecords (context, payload) {
     // console.log('record request...')
@@ -264,8 +275,11 @@ const mutations = {
       newLink = parseData.link
     }
     state.setRecord.dictRecord[parseData.word] = {
+      'word': parseData.word,
       'text': parseData.text,
       'link': newLink,
+      'def': parseData.def,
+      'chinese': parseData.chinese,
       'vocab': parseData.vocab
     }
     state.setRecord = {...state.setRecord}
@@ -298,9 +312,10 @@ const mutations = {
     }
     state.updateStatus = false
   },
-  setDeleteWord (state, payload) {
-    console.log('setDeleteWord payload = ', payload)
+  setDeletePict (state, payload) {
+    console.log('setDeletePict payload = ', payload)
     delete state.setRecord.dictRecord[payload.word]
+    state.setRecord = {...state.setRecord}
     console.log(state.setRecord.dictRecord, state.setRecord.dictRecord[payload.word])
     state.updateStatus = false
   },
@@ -428,11 +443,22 @@ const getters = {
     // console.log('getterActive', state.testActive)
     return state.testActive
   },
-  dictGet (state) {
+  pictGet (state) {
     return state.setRecord.dictRecord
   },
   starGet (state) {
     return state.setRecord.starRecord
+  },
+  generalGet () {
+    let totalDict = {}
+    for (let d in dictionaries) {
+      if (d[0] === 'g') {
+        for (let v in dictionaries[d]) {
+          totalDict[v] = 1
+        }
+      }
+    }
+    return totalDict
   },
   makeList (state) {
     let tableItems = []
@@ -526,15 +552,19 @@ const getters = {
       let origin = 'master'
 
       if (!state.setRecord.addRecord) {
+        // make sure there is addRecord
         state.setRecord['addRecord'] = {}
       } else if (vocab in state.setRecord.addRecord) {
-        mp3en = 'find mp3'
-        mp3ch = 'find mp3'
         origin = 'new'
+        if (state.setRecord.addRecord[vocab].added === true) {
+          mp3en = 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/added_en/' + vocab + '.mp3'
+          mp3ch = 'find mp3'
+        }
       }
 
       let star = false
       let picture = false
+      let added = false
 
       if (vocab in state.setRecord.starRecord) {
         star = true
@@ -542,6 +572,10 @@ const getters = {
 
       if (vocab in state.setRecord.dictRecord) {
         picture = true
+      }
+
+      if (vocab in state.setRecord.dictRecord) {
+        added = true
       }
 
       tableItems.push({
@@ -554,6 +588,7 @@ const getters = {
         Origin: origin,
         Star: star,
         Picture: picture,
+        Added: added,
         transEngScore: transEngScore,
         transChScore: transChScore,
         spellScore: spellScore,

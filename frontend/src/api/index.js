@@ -23,6 +23,10 @@ export function ticket (userData) {
 export function updateRecAPI (payload) {
   return axios.post(host + '/api/updateRecord', payload)
 }
+
+export function addAudio (payload) {
+  return axios.post(host + '/api/addAudio', payload)
+}
 export function checkFriend (payload) {
   return axios.post(host + '/api/checkFriend', payload)
 }
