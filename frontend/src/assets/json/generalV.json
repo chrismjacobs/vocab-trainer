@@ -1,0 +1,8497 @@
+{
+    "ability": {
+        "gl": "n.",
+        "defch1": "\u80fd\u529b",
+        "defch2": ""
+    },
+    "able": {
+        "gl": "adj.",
+        "defch1": "\u80fd\u5920",
+        "defch2": ""
+    },
+    "aborigine": {
+        "gl": "n.",
+        "defch1": "\u539f\u4f4f\u6c11",
+        "defch2": ""
+    },
+    "abroad": {
+        "gl": "adj.",
+        "defch1": "\u5728\u570b\u5916",
+        "defch2": "\u570b\u5916"
+    },
+    "absent": {
+        "gl": "v.",
+        "defch1": "\u7f3a\u8003",
+        "defch2": ""
+    },
+    "absolute": {
+        "gl": "n.",
+        "defch1": "\u7d55\u5c0d",
+        "defch2": ""
+    },
+    "absolutely": {
+        "gl": "adv.",
+        "defch1": "\u7d55\u5c0d\u5730",
+        "defch2": "\u7d55\u5c0d"
+    },
+    "absorb": {
+        "gl": "v.",
+        "defch1": "\u5438\u6536",
+        "defch2": ""
+    },
+    "abstract": {
+        "gl": "n.",
+        "defch1": "\u6458\u8981",
+        "defch2": "\u62bd\u8c61"
+    },
+    "abundance": {
+        "gl": "n.",
+        "defch1": "\u8c50\u5bcc",
+        "defch2": ""
+    },
+    "abundant": {
+        "gl": "adj.",
+        "defch1": "\u8c50\u5bcc\u7684",
+        "defch2": "\u8c50\u5bcc"
+    },
+    "abuse": {
+        "gl": "n.",
+        "defch1": "\u6feb\u7528",
+        "defch2": ""
+    },
+    "accept": {
+        "gl": "v.",
+        "defch1": "\u63a5\u53d7",
+        "defch2": ""
+    },
+    "acceptable": {
+        "gl": "adj.",
+        "defch1": "\u53ef\u4ee5\u63a5\u53d7",
+        "defch2": "\u53ef\u4ee5\u63a5\u53d7\u7684"
+    },
+    "acceptance": {
+        "gl": "n.",
+        "defch1": "\u540c\u610f\u65b9\u5f0f",
+        "defch2": ""
+    },
+    "access": {
+        "gl": "n.",
+        "defch1": "\u9032\u5165",
+        "defch2": ""
+    },
+    "accessory": {
+        "gl": "n.",
+        "defch1": "\u5468\u908a",
+        "defch2": ""
+    },
+    "accident": {
+        "gl": "n.",
+        "defch1": "\u610f\u5916",
+        "defch2": ""
+    },
+    "accidental": {
+        "gl": "n.",
+        "defch1": "\u5076\u7136",
+        "defch2": ""
+    },
+    "accompany": {
+        "gl": "v.",
+        "defch1": "\u966a\u540c",
+        "defch2": "\u966a"
+    },
+    "accomplish": {
+        "gl": "v.",
+        "defch1": "\u5b8c\u6210",
+        "defch2": ""
+    },
+    "accomplishment": {
+        "gl": "n.",
+        "defch1": "\u6210\u5c31",
+        "defch2": ""
+    },
+    "account": {
+        "gl": "n.",
+        "defch1": "\u8cec\u6236",
+        "defch2": "\u5e33\u6236"
+    },
+    "accuracy": {
+        "gl": "n.",
+        "defch1": "\u7cbe\u5ea6",
+        "defch2": "\u6e96\u78ba\u6027"
+    },
+    "accurate": {
+        "gl": "adj.",
+        "defch1": "\u7cbe\u5ea6",
+        "defch2": "\u6e96\u78ba"
+    },
+    "accuse": {
+        "gl": "v.",
+        "defch1": "\u544a",
+        "defch2": ""
+    },
+    "achieve": {
+        "gl": "v.",
+        "defch1": "\u9054\u6210",
+        "defch2": "\u5be6\u73fe"
+    },
+    "achievement": {
+        "gl": "n.",
+        "defch1": "\u6210\u5c31",
+        "defch2": ""
+    },
+    "acid": {
+        "gl": "n.",
+        "defch1": "\u9178",
+        "defch2": ""
+    },
+    "acquire": {
+        "gl": "v.",
+        "defch1": "\u7372\u5f97",
+        "defch2": ""
+    },
+    "acquisition": {
+        "gl": "n.",
+        "defch1": "\u76ee\u6a19\u7372\u5f97",
+        "defch2": ""
+    },
+    "action": {
+        "gl": "n.",
+        "defch1": "\u64cd\u4f5c",
+        "defch2": ""
+    },
+    "active": {
+        "gl": "n.",
+        "defch1": "\u6709\u6548",
+        "defch2": "\u6d3b\u6027"
+    },
+    "activity": {
+        "gl": "n.",
+        "defch1": "\u6211\u7684\u6d3b\u52d5",
+        "defch2": "\u6d3b\u52d5"
+    },
+    "actress": {
+        "gl": "n.",
+        "defch1": "\u6f14\u54e1",
+        "defch2": ""
+    },
+    "actually": {
+        "gl": "adv.",
+        "defch1": "\u5176\u5be6...",
+        "defch2": ""
+    },
+    "addict": {
+        "gl": "n.",
+        "defch1": "\u6210\u763e",
+        "defch2": ""
+    },
+    "addicted": {
+        "gl": "v.",
+        "defch1": "\u6c89\u8ff7",
+        "defch2": "\u4e0a\u766e"
+    },
+    "addiction": {
+        "gl": "n.",
+        "defch1": "\u766e",
+        "defch2": ""
+    },
+    "addition": {
+        "gl": "n.",
+        "defch1": "\u52a0\u6cd5",
+        "defch2": "\u52a0\u6210"
+    },
+    "additional": {
+        "gl": "adj.",
+        "defch1": "\u984d\u5916",
+        "defch2": ""
+    },
+    "address": {
+        "gl": "n.",
+        "defch1": "\u5730\u5740",
+        "defch2": ""
+    },
+    "adequate": {
+        "gl": "adj.",
+        "defch1": "\u8db3\u5920\u7684",
+        "defch2": ""
+    },
+    "adequately": {
+        "gl": "adv.",
+        "defch1": "\u5145\u5206\u5730",
+        "defch2": ""
+    },
+    "admire": {
+        "gl": "v.",
+        "defch1": "\u6b23\u8cde",
+        "defch2": ""
+    },
+    "admission": {
+        "gl": "n.",
+        "defch1": "\u51c6\u8a31\u9032\u5165",
+        "defch2": "\u5165\u5834"
+    },
+    "admit": {
+        "gl": "v.",
+        "defch1": "\u627f\u8a8d",
+        "defch2": ""
+    },
+    "adolescent": {
+        "gl": "n.",
+        "defch1": "\u9752\u5c11\u5e74",
+        "defch2": ""
+    },
+    "advance": {
+        "gl": "n.",
+        "defch1": "\u52a0\u6df1/\u589e\u52a0",
+        "defch2": "\u63d0\u524d"
+    },
+    "advantage": {
+        "gl": "n.",
+        "defch1": "\u512a\u52e2",
+        "defch2": "\u512a\u9ede"
+    },
+    "adventure": {
+        "gl": "n.",
+        "defch1": "\u6b77\u96aa",
+        "defch2": "\u5192\u96aa"
+    },
+    "adventurous": {
+        "gl": "adj.",
+        "defch1": "\u5192\u96aa\u7684",
+        "defch2": ""
+    },
+    "advertise": {
+        "gl": "v.",
+        "defch1": "\u5f35\u63da;\u7528\u5ee3\u544a\u5ba3\u50b3",
+        "defch2": ""
+    },
+    "advertisement": {
+        "gl": "n.",
+        "defch1": "\u901a\u544a, \u516c\u544a",
+        "defch2": "\u5ee3\u544a"
+    },
+    "advice": {
+        "gl": "n.",
+        "defch1": "\u5efa\u8b70",
+        "defch2": "\u5fe0\u544a"
+    },
+    "advise": {
+        "gl": "v.",
+        "defch1": "\u52f8\u544a",
+        "defch2": ""
+    },
+    "affect": {
+        "gl": "n.",
+        "defch1": "\u5f71\u97ff",
+        "defch2": ""
+    },
+    "afford": {
+        "gl": "v.",
+        "defch1": "\u8cb7\u5f97\u8d77",
+        "defch2": ""
+    },
+    "agency": {
+        "gl": "n.",
+        "defch1": "\u5730\u7522\u4ee3\u7406\u516c\u53f8",
+        "defch2": "\u6a5f\u69cb"
+    },
+    "agent": {
+        "gl": "n.",
+        "defch1": "\u4f5c\u7528\u5291",
+        "defch2": "\u4ee3\u7406\u4eba"
+    },
+    "agree": {
+        "gl": "v.",
+        "defch1": "\u7684",
+        "defch2": "\u540c\u610f"
+    },
+    "agreement": {
+        "gl": "n.",
+        "defch1": "\u5354\u8b70",
+        "defch2": ""
+    },
+    "aid": {
+        "gl": "n.",
+        "defch1": "\u5916\u63f4",
+        "defch2": "\u63f4\u52a9"
+    },
+    "aim": {
+        "gl": "n.",
+        "defch1": "\u76ee\u6a19",
+        "defch2": ""
+    },
+    "alert": {
+        "gl": "v.",
+        "defch1": "\u8b66\u793a\u7684",
+        "defch2": "\u8b66\u5831"
+    },
+    "alive": {
+        "gl": "adj.",
+        "defch1": "\u6d3b\u7684",
+        "defch2": "\u6d3b"
+    },
+    "allergic": {
+        "gl": "adj.",
+        "defch1": "\u904e\u654f\u7684",
+        "defch2": ""
+    },
+    "allergy": {
+        "gl": "n.",
+        "defch1": "\u904e\u654f",
+        "defch2": ""
+    },
+    "allied": {
+        "gl": "v.",
+        "defch1": "\u76df\u53cb",
+        "defch2": ""
+    },
+    "allow": {
+        "gl": "v.",
+        "defch1": "\u5bb9\u8a31",
+        "defch2": ""
+    },
+    "alternative": {
+        "gl": "n.",
+        "defch1": "\u66ff\u4ee3\u7684",
+        "defch2": ""
+    },
+    "amazing": {
+        "gl": "v.",
+        "defch1": "\u9a5a\u4eba",
+        "defch2": ""
+    },
+    "ambition": {
+        "gl": "n.",
+        "defch1": "\u91ce\u5fc3",
+        "defch2": "\u5fd7\u5411"
+    },
+    "ambitious": {
+        "gl": "adj.",
+        "defch1": "\u6709\u4f01\u5716\u5fc3\u7684",
+        "defch2": "\u96c4\u5fc3\u52c3\u52c3\u7684"
+    },
+    "ambulance": {
+        "gl": "n.",
+        "defch1": "\u6551\u8b77\u8eca",
+        "defch2": ""
+    },
+    "amount": {
+        "gl": "n.",
+        "defch1": "\u6578\u91cf",
+        "defch2": "\u91cf"
+    },
+    "analyze": {
+        "gl": "v.",
+        "defch1": "\u5206\u6790",
+        "defch2": ""
+    },
+    "ancestor": {
+        "gl": "n.",
+        "defch1": "\u4e0a\u968e",
+        "defch2": ""
+    },
+    "ann.ce": {
+        "gl": "v.",
+        "defch1": "\u5ba3\u5e03",
+        "defch2": ""
+    },
+    "ann.cement": {
+        "gl": "n.",
+        "defch1": "\u516c\u4f48\u6b04",
+        "defch2": "\u516c\u544a"
+    },
+    "anniversary": {
+        "gl": "n.",
+        "defch1": "\u5468\u5e74\u7d00\u5ff5\u65e5",
+        "defch2": "\u9031\u5e74"
+    },
+    "annoy": {
+        "gl": "v.",
+        "defch1": "\u7169\u60f1",
+        "defch2": ""
+    },
+    "annual": {
+        "gl": "n.",
+        "defch1": "\u5e74\u5ea6",
+        "defch2": ""
+    },
+    "anxiety": {
+        "gl": "n.",
+        "defch1": "\u7126\u616e\u4e0d\u5b89",
+        "defch2": "\u7126\u616e"
+    },
+    "anxious": {
+        "gl": "adj.",
+        "defch1": "\u7126\u616e",
+        "defch2": "\u6025"
+    },
+    "apologize": {
+        "gl": "v.",
+        "defch1": "\u9053\u6b49",
+        "defch2": ""
+    },
+    "apology": {
+        "gl": "n.",
+        "defch1": "\u9053\u6b49",
+        "defch2": ""
+    },
+    "apparently": {
+        "gl": "adv.",
+        "defch1": "\u986f\u7136",
+        "defch2": "\u986f\u7136\u5730"
+    },
+    "appeal": {
+        "gl": "n.",
+        "defch1": "\u4e0a\u8a34",
+        "defch2": ""
+    },
+    "appealing": {
+        "gl": "v.",
+        "defch1": "\u8ff7\u4eba\u7684",
+        "defch2": "\u5438\u5f15\u4eba\u7684"
+    },
+    "appear": {
+        "gl": "v.",
+        "defch1": "\u51fa\u73fe",
+        "defch2": ""
+    },
+    "appearance": {
+        "gl": "n.",
+        "defch1": "\u5916\u89c0",
+        "defch2": "\u51fa\u73fe"
+    },
+    "appetite": {
+        "gl": "n.",
+        "defch1": "\u98df\u617e",
+        "defch2": ""
+    },
+    "appliance": {
+        "gl": "n.",
+        "defch1": "\u5668\u5177",
+        "defch2": ""
+    },
+    "applicant": {
+        "gl": "n.",
+        "defch1": "\u7533\u8acb\u4eba",
+        "defch2": ""
+    },
+    "application": {
+        "gl": "n.",
+        "defch1": "\u7533\u8acb",
+        "defch2": "\u61c9\u7528"
+    },
+    "apply": {
+        "gl": "v.",
+        "defch1": "\u61c9\u7528",
+        "defch2": ""
+    },
+    "appoint": {
+        "gl": "v.",
+        "defch1": "\u59d4",
+        "defch2": ""
+    },
+    "appointment": {
+        "gl": "n.",
+        "defch1": "\u59d4\u4efb",
+        "defch2": "\u7d04\u5b9a"
+    },
+    "appreciate": {
+        "gl": "v.",
+        "defch1": "\u6f32\u50f9",
+        "defch2": "\u6b23\u8cde"
+    },
+    "appreciation": {
+        "gl": "n.",
+        "defch1": "\u91cd\u8996",
+        "defch2": ""
+    },
+    "approach": {
+        "gl": "n.",
+        "defch1": "\u65b9\u6cd5",
+        "defch2": ""
+    },
+    "appropriate": {
+        "gl": "v.",
+        "defch1": "\u9053\u5fb7",
+        "defch2": ""
+    },
+    "appropriately": {
+        "gl": "adv.",
+        "defch1": "\u9069\u7576\u5730",
+        "defch2": ""
+    },
+    "approval": {
+        "gl": "n.",
+        "defch1": "\u6838\u51c6",
+        "defch2": "\u8a8d\u53ef"
+    },
+    "area": {
+        "gl": "n.",
+        "defch1": "\u5340\u57df",
+        "defch2": ""
+    },
+    "argue": {
+        "gl": "v.",
+        "defch1": "\u722d\u8ad6",
+        "defch2": ""
+    },
+    "argument": {
+        "gl": "n.",
+        "defch1": "\u5f15\u6578",
+        "defch2": "\u8ad6\u64da"
+    },
+    "arise": {
+        "gl": "v.",
+        "defch1": "\u51fa\u73fe",
+        "defch2": ""
+    },
+    "arouse": {
+        "gl": "v.",
+        "defch1": "\u53eb\u9192",
+        "defch2": "\u5f15\u8d77"
+    },
+    "arrest": {
+        "gl": "n.",
+        "defch1": "\u902e\u6355",
+        "defch2": ""
+    },
+    "article": {
+        "gl": "n.",
+        "defch1": "\u88fd\u54c1",
+        "defch2": "\u6587\u7ae0"
+    },
+    "artificial": {
+        "gl": "adj.",
+        "defch1": "\u4eba\u5de5\u7684",
+        "defch2": ""
+    },
+    "assemble": {
+        "gl": "v.",
+        "defch1": "\u7d44\u5408",
+        "defch2": ""
+    },
+    "assembly": {
+        "gl": "n.",
+        "defch1": "\u7d44\u4ef6",
+        "defch2": ""
+    },
+    "assign": {
+        "gl": "v.",
+        "defch1": "\u6307\u5b9a",
+        "defch2": ""
+    },
+    "assignment": {
+        "gl": "n.",
+        "defch1": "\u8a2d\u5b9a, \u6307\u6d3e",
+        "defch2": ""
+    },
+    "assist": {
+        "gl": "n.",
+        "defch1": "\u52a9\u653b",
+        "defch2": ""
+    },
+    "assistance": {
+        "gl": "n.",
+        "defch1": "\u884c\u653f\u7ba1\u7406\u8ab2\u7a0b",
+        "defch2": ""
+    },
+    "assistant": {
+        "gl": "n.",
+        "defch1": "\u52a9\u7406",
+        "defch2": ""
+    },
+    "associate": {
+        "gl": "n.",
+        "defch1": "\u806f\u7e6b\u4eba",
+        "defch2": ""
+    },
+    "assume": {
+        "gl": "v.",
+        "defch1": "\u5047\u8a2d",
+        "defch2": "\u627f\u64d4"
+    },
+    "athlete": {
+        "gl": "n.",
+        "defch1": "\u904b\u52d5\u54e1",
+        "defch2": ""
+    },
+    "atmosphere": {
+        "gl": "n.",
+        "defch1": "\u6c1b\u570d",
+        "defch2": "\u5927\u6c23\u5c64"
+    },
+    "attack": {
+        "gl": "n.",
+        "defch1": "\u653b\u64ca",
+        "defch2": ""
+    },
+    "attempt": {
+        "gl": "n.",
+        "defch1": "\u672a\u9042\u72af",
+        "defch2": ""
+    },
+    "attend": {
+        "gl": "v.",
+        "defch1": "\u52a0\u5165",
+        "defch2": "\u51fa\u5e2d"
+    },
+    "attention": {
+        "gl": "n.",
+        "defch1": "\u6ce8\u610f",
+        "defch2": ""
+    },
+    "attitude": {
+        "gl": "n.",
+        "defch1": "\u6001\u5ea6",
+        "defch2": "\u614b\u5ea6"
+    },
+    "attract": {
+        "gl": "v.",
+        "defch1": "\u5438\u5f15",
+        "defch2": ""
+    },
+    "attraction": {
+        "gl": "n.",
+        "defch1": "\u5438\u5f15\u4eba\u7684\u4e8b\u6216\u7269",
+        "defch2": "\u5438\u5f15\u529b"
+    },
+    "attractive": {
+        "gl": "adj.",
+        "defch1": "\u6709\u5438\u5f15\u529b",
+        "defch2": "\u8a98\u4eba\u7684"
+    },
+    "audience": {
+        "gl": "n.",
+        "defch1": "\u5c0d\u8c61",
+        "defch2": "\u807d\u773e"
+    },
+    "author": {
+        "gl": "n.",
+        "defch1": "\u4f5c\u8005",
+        "defch2": ""
+    },
+    "autobiography": {
+        "gl": "n.",
+        "defch1": "\u81ea\u50b3",
+        "defch2": ""
+    },
+    "available": {
+        "gl": "adj.",
+        "defch1": "\u53ef\u7528",
+        "defch2": "\u6709\u7a7a"
+    },
+    "average": {
+        "gl": "n.",
+        "defch1": "\u5e73\u5747",
+        "defch2": ""
+    },
+    "awareness": {
+        "gl": "n.",
+        "defch1": "\u610f\u8b58",
+        "defch2": ""
+    },
+    "awesome": {
+        "gl": "adj.",
+        "defch1": "\u5f88\u68d2",
+        "defch2": ""
+    },
+    "awful": {
+        "gl": "adj.",
+        "defch1": "\u53ef\u6015",
+        "defch2": ""
+    },
+    "bacteria": {
+        "gl": "n.",
+        "defch1": "\u963f\u5947\u9709\u7d20",
+        "defch2": "\u83cc"
+    },
+    "balance": {
+        "gl": "n.",
+        "defch1": "\u5e73\u8861",
+        "defch2": ""
+    },
+    "balanced": {
+        "gl": "v.",
+        "defch1": "\u5e73\u8861",
+        "defch2": "\u5747\u8861"
+    },
+    "banquet": {
+        "gl": "n.",
+        "defch1": "\u5bb4\u6703",
+        "defch2": ""
+    },
+    "bargain": {
+        "gl": "n.",
+        "defch1": "\u4ea4\u6613",
+        "defch2": "\u8a0e\u50f9\u9084\u50f9"
+    },
+    "battery": {
+        "gl": "n.",
+        "defch1": "\u96fb\u6c60",
+        "defch2": ""
+    },
+    "bear": {
+        "gl": "n.",
+        "defch1": "\u718a",
+        "defch2": ""
+    },
+    "behave": {
+        "gl": "v.",
+        "defch1": "\u8868\u73fe",
+        "defch2": ""
+    },
+    "behavior": {
+        "gl": "n.",
+        "defch1": "\u884c\u70ba",
+        "defch2": ""
+    },
+    "belief": {
+        "gl": "n.",
+        "defch1": "\u4fe1\u5ff5",
+        "defch2": "\u4fe1\u4ef0"
+    },
+    "believe": {
+        "gl": "v.",
+        "defch1": "\u76f8\u4fe1",
+        "defch2": ""
+    },
+    "belong": {
+        "gl": "v.",
+        "defch1": "\u5c6c\u65bc",
+        "defch2": ""
+    },
+    "belongings": {
+        "gl": "n.",
+        "defch1": "\u96a8\u8eab\u8ca1\u7269",
+        "defch2": "\u8ca1\u7269"
+    },
+    "bend": {
+        "gl": "n.",
+        "defch1": "\u62d7",
+        "defch2": "\u5f4e\u66f2"
+    },
+    "beneficial": {
+        "gl": "adj.",
+        "defch1": "\u6709\u5229\u7684",
+        "defch2": "\u6709\u5229"
+    },
+    "benefit": {
+        "gl": "n.",
+        "defch1": "\u6548\u76ca",
+        "defch2": ""
+    },
+    "bet": {
+        "gl": "n.",
+        "defch1": "\u6295\u6ce8",
+        "defch2": "\u8ced\u6ce8"
+    },
+    "bias": {
+        "gl": "n.",
+        "defch1": "\u504f\u58d3",
+        "defch2": ""
+    },
+    "biological": {
+        "gl": "adj.",
+        "defch1": "\u751f\u7269",
+        "defch2": ""
+    },
+    "biology": {
+        "gl": "n.",
+        "defch1": "\u751f\u7269\u5b78",
+        "defch2": ""
+    },
+    "blame": {
+        "gl": "n.",
+        "defch1": "\u602a",
+        "defch2": ""
+    },
+    "blanket": {
+        "gl": "n.",
+        "defch1": "\u5168\u9762;\u5b8c\u5168\u7684",
+        "defch2": "\u6bef"
+    },
+    "bleed": {
+        "gl": "v.",
+        "defch1": "\u51fa\u8840",
+        "defch2": "\u6d41\u8840"
+    },
+    "block": {
+        "gl": "n.",
+        "defch1": "\u584a",
+        "defch2": ""
+    },
+    "blood": {
+        "gl": "n.",
+        "defch1": "\u8840",
+        "defch2": ""
+    },
+    "blossom": {
+        "gl": "n.",
+        "defch1": "(\u679c\u6a39\u7684)\u82b1",
+        "defch2": "\u958b\u82b1"
+    },
+    "boast": {
+        "gl": "n.",
+        "defch1": "\u5439",
+        "defch2": "\u8a87"
+    },
+    "boil": {
+        "gl": "n.",
+        "defch1": "\u81bf\u7621",
+        "defch2": "\u71ac"
+    },
+    "border": {
+        "gl": "n.",
+        "defch1": "\u82b1\u58c7",
+        "defch2": "\u908a\u754c"
+    },
+    "bother": {
+        "gl": "n.",
+        "defch1": "\u7169",
+        "defch2": ""
+    },
+    "bottom": {
+        "gl": "n.",
+        "defch1": "\u9760\u4e0b\u5c0d\u9f4a",
+        "defch2": ""
+    },
+    "break": {
+        "gl": "n.",
+        "defch1": "\u4f11\u606f",
+        "defch2": ""
+    },
+    "breast": {
+        "gl": "n.",
+        "defch1": "\u4e73\u623f",
+        "defch2": ""
+    },
+    "breath": {
+        "gl": "n.",
+        "defch1": "\u547c\u5438",
+        "defch2": ""
+    },
+    "breathe": {
+        "gl": "v.",
+        "defch1": "\u6df1\u547c\u5438",
+        "defch2": "\u547c\u5438"
+    },
+    "broad": {
+        "gl": "n.",
+        "defch1": "\u5ee3\u95ca",
+        "defch2": ""
+    },
+    "broke": {
+        "gl": "v.",
+        "defch1": "\u58de\u4e86",
+        "defch2": ""
+    },
+    "budget": {
+        "gl": "n.",
+        "defch1": "\u50f9\u683c\u4f4e\u5ec9\u7684;\u82b1\u9322\u5c11\u7684; \u4fbf\u5b9c",
+        "defch2": "\u9810\u7b97"
+    },
+    "burden": {
+        "gl": "n.",
+        "defch1": "\u8ca0\u64d4",
+        "defch2": ""
+    },
+    "cabinet": {
+        "gl": "n.",
+        "defch1": "\u5167\u95a3;\u5167\u95a3",
+        "defch2": ""
+    },
+    "calculate": {
+        "gl": "v.",
+        "defch1": "\u8a08\u7b97",
+        "defch2": ""
+    },
+    "calculation": {
+        "gl": "n.",
+        "defch1": "\u8a08\u7b97",
+        "defch2": ""
+    },
+    "calorie": {
+        "gl": "n.",
+        "defch1": "\u5361\u8def\u91cc",
+        "defch2": ""
+    },
+    "campaign": {
+        "gl": "n.",
+        "defch1": "\u5f9e\u4e8b",
+        "defch2": "\u904b\u52d5"
+    },
+    "cancel": {
+        "gl": "n.",
+        "defch1": "\u53d6\u6d88",
+        "defch2": ""
+    },
+    "cancellation": {
+        "gl": "n.",
+        "defch1": "\u53d6\u6d88\u653f\u7b56",
+        "defch2": "\u6d88\u9664"
+    },
+    "cancer": {
+        "gl": "n.",
+        "defch1": "\u5de8\u87f9\u5ea7",
+        "defch2": "\u764c\u75c7"
+    },
+    "capable": {
+        "gl": "adj.",
+        "defch1": "\u80fd",
+        "defch2": ""
+    },
+    "capacity": {
+        "gl": "n.",
+        "defch1": "\u7522\u80fd",
+        "defch2": ""
+    },
+    "capture": {
+        "gl": "n.",
+        "defch1": "\u64f7\u53d6",
+        "defch2": "\u6355\u7372"
+    },
+    "carbon": {
+        "gl": "n.",
+        "defch1": "\u78b3",
+        "defch2": ""
+    },
+    "care": {
+        "gl": "n.",
+        "defch1": "\u4fdd\u990a",
+        "defch2": ""
+    },
+    "career": {
+        "gl": "n.",
+        "defch1": "\u751f\u6daf",
+        "defch2": ""
+    },
+    "careful": {
+        "gl": "adj.",
+        "defch1": "\u8a8d\u771f",
+        "defch2": "\u5c0f\u5fc3"
+    },
+    "carefully": {
+        "gl": "adv.",
+        "defch1": "\u5c0f\u5fc3",
+        "defch2": ""
+    },
+    "carve": {
+        "gl": "v.",
+        "defch1": "\u628a\uff08\u719f\u8089\uff09\u5207\u6210\u584a;\u628a\u8089\u5207\u584a",
+        "defch2": "\u96d5\u523b"
+    },
+    "casual": {
+        "gl": "adj.",
+        "defch1": "\u96a8\u4fbf\u7684",
+        "defch2": ""
+    },
+    "casualty": {
+        "gl": "n.",
+        "defch1": "\u50b7\u4ea1",
+        "defch2": ""
+    },
+    "cattle": {
+        "gl": "n.",
+        "defch1": "\u5bb6\u725b",
+        "defch2": "\u725b"
+    },
+    "cause": {
+        "gl": "n.",
+        "defch1": "\u7406\u7531",
+        "defch2": "\u539f\u56e0"
+    },
+    "caution": {
+        "gl": "n.",
+        "defch1": "\u8b66\u8aa1",
+        "defch2": "\u8b66\u544a"
+    },
+    "cautious": {
+        "gl": "n.",
+        "defch1": "\u5c0f\u5fc3\u7684",
+        "defch2": "\u8b39\u614e"
+    },
+    "cautiously": {
+        "gl": "adv.",
+        "defch1": "\u8b39\u614e\u5730",
+        "defch2": ""
+    },
+    "celebrate": {
+        "gl": "v.",
+        "defch1": "\u980c\u63da",
+        "defch2": "\u6176\u795d"
+    },
+    "central": {
+        "gl": "n.",
+        "defch1": "\u4e2d\u592e\u4e4b\u5730",
+        "defch2": "\u4e2d\u592e"
+    },
+    "century": {
+        "gl": "n.",
+        "defch1": "\u4e16\u7eaa",
+        "defch2": "\u4e16\u7d00"
+    },
+    "ceremony": {
+        "gl": "n.",
+        "defch1": "\u5178\u79ae",
+        "defch2": "\u5100\u5f0f"
+    },
+    "certain": {
+        "gl": "adj.",
+        "defch1": "\u78ba\u5b9a\u6027",
+        "defch2": "\u67d0\u4e9b"
+    },
+    "certainly": {
+        "gl": "adv.",
+        "defch1": "\u78ba\u5b9a\u6027",
+        "defch2": "\u7576\u7136"
+    },
+    "certificate": {
+        "gl": "n.",
+        "defch1": "\u8b49\u66f8",
+        "defch2": ""
+    },
+    "chain": {
+        "gl": "n.",
+        "defch1": "\u93c8\u7d50",
+        "defch2": "\u93c8"
+    },
+    "challenge": {
+        "gl": "n.",
+        "defch1": "\u67e5\u554f",
+        "defch2": "\u6311\u6230"
+    },
+    "champion": {
+        "gl": "n.",
+        "defch1": "\u652f\u6301\uff0c\u8072\u63f4\uff0c\u634d\u885b\uff08\u4eba\u3001\u4fe1\u4ef0\u3001\u6b0a\u5229\u6216\u539f\u5247\uff09",
+        "defch2": "\u51a0\u8ecd"
+    },
+    "championship1": {
+        "gl": "n.",
+        "defch1": "\u51a0\u8ecd",
+        "defch2": ""
+    },
+    "chance": {
+        "gl": "n.",
+        "defch1": "\u6a5f\u7387",
+        "defch2": "\u6a5f\u6703"
+    },
+    "character": {
+        "gl": "n.",
+        "defch1": "\u5b57\u5143",
+        "defch2": "\u5b57\u7b26"
+    },
+    "charge": {
+        "gl": "n.",
+        "defch1": "\u8981\u6c42\u652f\u4ed8",
+        "defch2": ""
+    },
+    "charity": {
+        "gl": "n.",
+        "defch1": "\u6148\u5584",
+        "defch2": "\u6148\u5584\u6a5f\u69cb"
+    },
+    "charming": {
+        "gl": "v.",
+        "defch1": "\u8ff7\u4eba",
+        "defch2": ""
+    },
+    "chase": {
+        "gl": "n.",
+        "defch1": "\u8ffd\u9010",
+        "defch2": "\u8ffd"
+    },
+    "check": {
+        "gl": "n.",
+        "defch1": "\u6aa2\u67e5",
+        "defch2": ""
+    },
+    "cheer": {
+        "gl": "n.",
+        "defch1": "\u8fbe\u5c55",
+        "defch2": "\u6b61\u547c"
+    },
+    "cheerful": {
+        "gl": "adj.",
+        "defch1": "\u6109\u5feb",
+        "defch2": ""
+    },
+    "cheerfully": {
+        "gl": "adv.",
+        "defch1": "\u8208\u9ad8\u91c7\u70c8",
+        "defch2": ""
+    },
+    "chemical": {
+        "gl": "n.",
+        "defch1": "\u5316\u5b66\u7269\u8d28",
+        "defch2": "\u5316\u5b78\u7684"
+    },
+    "chemistry": {
+        "gl": "n.",
+        "defch1": "\u5316\u5b78",
+        "defch2": ""
+    },
+    "cherish": {
+        "gl": "v.",
+        "defch1": "\u73cd\u60dc",
+        "defch2": ""
+    },
+    "chew": {
+        "gl": "n.",
+        "defch1": "\u56bc",
+        "defch2": ""
+    },
+    "choice": {
+        "gl": "n.",
+        "defch1": "\u9078\u9805",
+        "defch2": "\u9078\u64c7"
+    },
+    "choose": {
+        "gl": "v.",
+        "defch1": "\u9078\u64c7",
+        "defch2": ""
+    },
+    "chronic": {
+        "gl": "adj.",
+        "defch1": "\u6162\u6027\u75c5",
+        "defch2": ""
+    },
+    "circular": {
+        "gl": "n.",
+        "defch1": "\u74b0\u5f62",
+        "defch2": ""
+    },
+    "circumstance": {
+        "gl": "n.",
+        "defch1": "\u60c5\u5f62",
+        "defch2": "\u74b0\u5883"
+    },
+    "citizen": {
+        "gl": "n.",
+        "defch1": "\u516c\u6c11",
+        "defch2": ""
+    },
+    "civil": {
+        "gl": "adj.",
+        "defch1": "\u6c11\u4e8b\u7684",
+        "defch2": ""
+    },
+    "claim": {
+        "gl": "n.",
+        "defch1": "\u5ba3\u544a",
+        "defch2": "\u8981\u6c42"
+    },
+    "classical": {
+        "gl": "n.",
+        "defch1": "\u53e4\u5178",
+        "defch2": ""
+    },
+    "classification": {
+        "gl": "n.",
+        "defch1": "\u8fa8\u5225\u5206\u985e",
+        "defch2": "\u5206\u985e"
+    },
+    "client": {
+        "gl": "n.",
+        "defch1": "\u5ba2\u6237",
+        "defch2": "\u5ba2\u6236"
+    },
+    "climate": {
+        "gl": "n.",
+        "defch1": "\u6c14\u5019",
+        "defch2": "\u6c23\u5019"
+    },
+    "clip": {
+        "gl": "n.",
+        "defch1": "\u526a\u8f2f",
+        "defch2": "\u593e"
+    },
+    "clue": {
+        "gl": "n.",
+        "defch1": "\u7dda\u7d22",
+        "defch2": ""
+    },
+    "coach": {
+        "gl": "n.",
+        "defch1": "\u8f14\u5c0e",
+        "defch2": "\u6559\u7df4"
+    },
+    "coastline": {
+        "gl": "n.",
+        "defch1": "\u6d77\u5cb8\u7dda",
+        "defch2": ""
+    },
+    "collapse": {
+        "gl": "n.",
+        "defch1": "\u5d29\u6f70",
+        "defch2": "\u574d\u65b9"
+    },
+    "collect": {
+        "gl": "n.",
+        "defch1": "\u6536\u96c6",
+        "defch2": "\u6536\u85cf"
+    },
+    "collection": {
+        "gl": "n.",
+        "defch1": "\u96c6\u5408",
+        "defch2": ""
+    },
+    "colonist": {
+        "gl": "n.",
+        "defch1": "\u6b96\u6c11\u8005",
+        "defch2": ""
+    },
+    "combine": {
+        "gl": "n.",
+        "defch1": "\u5408\u4f75",
+        "defch2": "\u7d50\u5408"
+    },
+    "comedy": {
+        "gl": "n.",
+        "defch1": "\u559c\u5287",
+        "defch2": ""
+    },
+    "comfortable": {
+        "gl": "adj.",
+        "defch1": "\u81ea\u5728",
+        "defch2": ""
+    },
+    "comic": {
+        "gl": "n.",
+        "defch1": "\u6f2b\u753b",
+        "defch2": ""
+    },
+    "command": {
+        "gl": "n.",
+        "defch1": "\u547d\u4ee4",
+        "defch2": ""
+    },
+    "comment": {
+        "gl": "n.",
+        "defch1": "\u8a55\u8ad6",
+        "defch2": ""
+    },
+    "commerce": {
+        "gl": "n.",
+        "defch1": "\u5546\u4e1a",
+        "defch2": ""
+    },
+    "commercial": {
+        "gl": "n.",
+        "defch1": "\u5546\u696d",
+        "defch2": "\u5546\u696d\u7684"
+    },
+    "commit": {
+        "gl": "v.",
+        "defch1": "\u4f7f\u627f\u64d4\u7fa9\u52d9",
+        "defch2": "\u627f\u8afe"
+    },
+    "committee": {
+        "gl": "n.",
+        "defch1": "\u57f7\u884c\u59d4\u54e1\u6703",
+        "defch2": "\u59d4\u54e1\u6703"
+    },
+    "common": {
+        "gl": "n.",
+        "defch1": "\u5171\u540c",
+        "defch2": ""
+    },
+    "commonly": {
+        "gl": "adv.",
+        "defch1": "\u901a\u5e38",
+        "defch2": ""
+    },
+    "communicate": {
+        "gl": "v.",
+        "defch1": "\u901a\u4fe1",
+        "defch2": ""
+    },
+    "communication": {
+        "gl": "n.",
+        "defch1": "\u901a\u8a0a",
+        "defch2": ""
+    },
+    "community": {
+        "gl": "n.",
+        "defch1": "\u793e\u7fa4",
+        "defch2": "\u793e\u5340"
+    },
+    "commute": {
+        "gl": "n.",
+        "defch1": "\u901a\u52e4",
+        "defch2": ""
+    },
+    "company": {
+        "gl": "n.",
+        "defch1": "\u516c\u53f8",
+        "defch2": ""
+    },
+    "compare": {
+        "gl": "n.",
+        "defch1": "\u6bd4\u8f03",
+        "defch2": "\u76f8\u6bd4"
+    },
+    "comparison": {
+        "gl": "n.",
+        "defch1": "\u6bd4\u8f03",
+        "defch2": ""
+    },
+    "compatible": {
+        "gl": "adj.",
+        "defch1": "\u76f8\u5bb9",
+        "defch2": "\u517c\u5bb9"
+    },
+    "compensation": {
+        "gl": "n.",
+        "defch1": "\u88dc\u511f",
+        "defch2": ""
+    },
+    "compete": {
+        "gl": "v.",
+        "defch1": "\u7af6\u722d",
+        "defch2": ""
+    },
+    "competent": {
+        "gl": "adj.",
+        "defch1": "\u52dd\u4efb",
+        "defch2": "\u52dd\u4efb\u7684"
+    },
+    "competitive": {
+        "gl": "adj.",
+        "defch1": "\u7ade\u4e89\u529b",
+        "defch2": ""
+    },
+    "competitor": {
+        "gl": "n.",
+        "defch1": "\u7af6\u722d\u8005",
+        "defch2": ""
+    },
+    "complain": {
+        "gl": "v.",
+        "defch1": "\u6295\u8a34",
+        "defch2": "\u62b1\u6028"
+    },
+    "complaint": {
+        "gl": "n.",
+        "defch1": "\u6295\u8bc9",
+        "defch2": "\u62b1\u6028"
+    },
+    "complete": {
+        "gl": "v.",
+        "defch1": "\u5b8c\u6210",
+        "defch2": ""
+    },
+    "completely": {
+        "gl": "adv.",
+        "defch1": "\u5b8c\u5168\u5730",
+        "defch2": ""
+    },
+    "complex": {
+        "gl": "n.",
+        "defch1": "\u8907\u96dc",
+        "defch2": ""
+    },
+    "complicate": {
+        "gl": "v.",
+        "defch1": "\u8907\u96dc\u5316",
+        "defch2": ""
+    },
+    "complicated": {
+        "gl": "v.",
+        "defch1": "\u8907\u96dc",
+        "defch2": ""
+    },
+    "component": {
+        "gl": "n.",
+        "defch1": "\u5143\u4ef6",
+        "defch2": ""
+    },
+    "compose": {
+        "gl": "v.",
+        "defch1": "\u7d44\u6210",
+        "defch2": "\u64b0\u5beb"
+    },
+    "compromise": {
+        "gl": "n.",
+        "defch1": "\u640d\u5bb3",
+        "defch2": "\u59a5\u5354"
+    },
+    "compulsory": {
+        "gl": "adj.",
+        "defch1": "\u5fc5\u4fee",
+        "defch2": ""
+    },
+    "conceal": {
+        "gl": "v.",
+        "defch1": "\u96b1\u85cf",
+        "defch2": ""
+    },
+    "concentrate": {
+        "gl": "n.",
+        "defch1": "\u96c6\u4e2d",
+        "defch2": ""
+    },
+    "concept": {
+        "gl": "n.",
+        "defch1": "\u6982\u5ff5",
+        "defch2": ""
+    },
+    "concern": {
+        "gl": "n.",
+        "defch1": "\u91cd\u8981\u4e8b\u60c5; \u516c\u53f8",
+        "defch2": "\u95dc\u5fc3"
+    },
+    "concert": {
+        "gl": "n.",
+        "defch1": "\u97f3\u6a02\u6703",
+        "defch2": ""
+    },
+    "conclude": {
+        "gl": "v.",
+        "defch1": "\u5f97\u51fa\u7d50\u8ad6",
+        "defch2": ""
+    },
+    "conclusion": {
+        "gl": "n.",
+        "defch1": "\u7d50\u8ad6",
+        "defch2": ""
+    },
+    "condition": {
+        "gl": "n.",
+        "defch1": "\u689d\u4ef6",
+        "defch2": "\u5065\u5eb7\uff09\u72c0\u6cc1"
+    },
+    "conduct": {
+        "gl": "n.",
+        "defch1": "\u5982\u5e38",
+        "defch2": "\u9032\u884c"
+    },
+    "confidence": {
+        "gl": "n.",
+        "defch1": "\u7f6e\u4fe1\u5ea6",
+        "defch2": ""
+    },
+    "confident": {
+        "gl": "adj.",
+        "defch1": "\u4fe1\u5fc3",
+        "defch2": ""
+    },
+    "confine": {
+        "gl": "v.",
+        "defch1": "\u5c40\u9650",
+        "defch2": ""
+    },
+    "confirm": {
+        "gl": "v.",
+        "defch1": "\u78ba\u8a8d",
+        "defch2": ""
+    },
+    "conflict": {
+        "gl": "n.",
+        "defch1": "\u885d\u7a81",
+        "defch2": ""
+    },
+    "confuse": {
+        "gl": "v.",
+        "defch1": "\u8ff7\u60d1",
+        "defch2": ""
+    },
+    "confusing": {
+        "gl": "v.",
+        "defch1": "\u4ee4\u4eba\u56f0\u60d1",
+        "defch2": ""
+    },
+    "congratulation": {
+        "gl": "n.",
+        "defch1": "\u606d\u559c",
+        "defch2": ""
+    },
+    "connect": {
+        "gl": "v.",
+        "defch1": "\u9023",
+        "defch2": "\u9023\u63a5"
+    },
+    "connection": {
+        "gl": "n.",
+        "defch1": "\u9023\u7dda",
+        "defch2": "\u9023\u63a5"
+    },
+    "conscious": {
+        "gl": "adj.",
+        "defch1": "\u610f\u8b58",
+        "defch2": ""
+    },
+    "consciously": {
+        "gl": "adv.",
+        "defch1": "\u610f\u8bc6",
+        "defch2": "\u81ea\u89ba\u5730"
+    },
+    "consequence": {
+        "gl": "n.",
+        "defch1": "\u7d50\u679c",
+        "defch2": ""
+    },
+    "consequently": {
+        "gl": "adv.",
+        "defch1": "\u7d50\u679c",
+        "defch2": ""
+    },
+    "conservative": {
+        "gl": "n.",
+        "defch1": "\u4fdd\u5b88\u7684",
+        "defch2": "\u4fdd\u5b88"
+    },
+    "conserve": {
+        "gl": "n.",
+        "defch1": "\u7bc0\u7701",
+        "defch2": "\u990a\u8b77"
+    },
+    "consider": {
+        "gl": "v.",
+        "defch1": "\u770b\u5f85;\u628a\u2026\u770b\u6210/\u8996\u70ba\u2026",
+        "defch2": "\u8003\u616e"
+    },
+    "considerable": {
+        "gl": "adj.",
+        "defch1": "\u5927\u91cf",
+        "defch2": ""
+    },
+    "considerate": {
+        "gl": "adj.",
+        "defch1": "\u5468\u5230",
+        "defch2": ""
+    },
+    "consideration": {
+        "gl": "n.",
+        "defch1": "\u8003\u616e",
+        "defch2": ""
+    },
+    "consist": {
+        "gl": "v.",
+        "defch1": "\u7d44\u6210",
+        "defch2": ""
+    },
+    "constant": {
+        "gl": "n.",
+        "defch1": "\u6301\u7e8c\u7684",
+        "defch2": "\u4e0d\u8b8a"
+    },
+    "constantly": {
+        "gl": "adv.",
+        "defch1": "\u4e0d\u65b7\u5730",
+        "defch2": ""
+    },
+    "construct": {
+        "gl": "n.",
+        "defch1": "\u5efa\u69cb",
+        "defch2": ""
+    },
+    "construction": {
+        "gl": "n.",
+        "defch1": "\u5efa\u9020",
+        "defch2": ""
+    },
+    "consume": {
+        "gl": "v.",
+        "defch1": "\u53d6\u7528",
+        "defch2": "\u6d88\u8017"
+    },
+    "consumer": {
+        "gl": "n.",
+        "defch1": "\u6d88\u8cbb\u8005",
+        "defch2": ""
+    },
+    "contact": {
+        "gl": "n.",
+        "defch1": "\u806f\u7d61",
+        "defch2": "\u806f\u7e6b"
+    },
+    "contain": {
+        "gl": "v.",
+        "defch1": "\u542b\u6709",
+        "defch2": "\u5305\u542b"
+    },
+    "container": {
+        "gl": "n.",
+        "defch1": "\u653e\u98df\u7269\u7684\u76d2",
+        "defch2": "\u5bb9\u5668"
+    },
+    "contemporary": {
+        "gl": "n.",
+        "defch1": "\u7576\u4ee3\u7684",
+        "defch2": ""
+    },
+    "content": {
+        "gl": "n.",
+        "defch1": "\u5167\u5bb9",
+        "defch2": ""
+    },
+    "contest": {
+        "gl": "n.",
+        "defch1": "\u7af6\u722d",
+        "defch2": ""
+    },
+    "context": {
+        "gl": "n.",
+        "defch1": "\u524d\u5f8c\u6587",
+        "defch2": "\u8a9e\u5883"
+    },
+    "contract": {
+        "gl": "n.",
+        "defch1": "\u5408\u7d04",
+        "defch2": "\u5408\u540c"
+    },
+    "contrast": {
+        "gl": "n.",
+        "defch1": "\u5c0d\u6bd4",
+        "defch2": ""
+    },
+    "contribute": {
+        "gl": "v.",
+        "defch1": "\u505a\u51fa\u8ca2\u737b",
+        "defch2": ""
+    },
+    "contributor": {
+        "gl": "n.",
+        "defch1": "\u53c3\u8207\u8005",
+        "defch2": ""
+    },
+    "convention": {
+        "gl": "n.",
+        "defch1": "\u67d0\u4e00\u7d44\u7e54\u3001\u653f\u6cbb",
+        "defch2": "\u6163\u4f8b"
+    },
+    "conventional": {
+        "gl": "adj.",
+        "defch1": "\u5e38\u898f",
+        "defch2": ""
+    },
+    "conversation": {
+        "gl": "n.",
+        "defch1": "\u4ea4\u8ac7, \u6e9d\u901a\u6a21\u5f0f",
+        "defch2": "\u6703\u8a71"
+    },
+    "converse": {
+        "gl": "n.",
+        "defch1": "\u4ea4\u8ac7",
+        "defch2": ""
+    },
+    "conversion": {
+        "gl": "n.",
+        "defch1": "\u8f49\u63db\u6578",
+        "defch2": "\u8f49\u63db"
+    },
+    "convert": {
+        "gl": "n.",
+        "defch1": "\u8f49\u63db",
+        "defch2": ""
+    },
+    "convey": {
+        "gl": "v.",
+        "defch1": "\u50b3\u9054",
+        "defch2": ""
+    },
+    "convict": {
+        "gl": "n.",
+        "defch1": "\u5b9a\u7f6a",
+        "defch2": ""
+    },
+    "conviction": {
+        "gl": "n.",
+        "defch1": "\u5b9a\u7f6a",
+        "defch2": ""
+    },
+    "convince": {
+        "gl": "v.",
+        "defch1": "\u8bf4\u670d",
+        "defch2": "\u8aaa\u670d"
+    },
+    "convinced": {
+        "gl": "v.",
+        "defch1": "\u78ba\u4fe1",
+        "defch2": "\u8aaa\u670d\u4e86"
+    },
+    "convincing": {
+        "gl": "v.",
+        "defch1": "\u4ee4\u4eba\u4fe1\u670d",
+        "defch2": ""
+    },
+    "coral": {
+        "gl": "n.",
+        "defch1": "\u73ca\u745a",
+        "defch2": ""
+    },
+    "corporation": {
+        "gl": "n.",
+        "defch1": "\u80a1\u4efd(\u6709\u9650)\u516c\u53f8",
+        "defch2": "\u516c\u53f8"
+    },
+    "costume": {
+        "gl": "n.",
+        "defch1": "\u88dd\u626e\u6210",
+        "defch2": "\u670d\u88dd"
+    },
+    "count": {
+        "gl": "n.",
+        "defch1": "\u6578\u91cf",
+        "defch2": ""
+    },
+    "counter": {
+        "gl": "n.",
+        "defch1": "\u8a08\u6578\u5668",
+        "defch2": ""
+    },
+    "countless": {
+        "gl": "adj.",
+        "defch1": "\u5c0d\uff0c\u5176\u5be6\u6709\u597d\u5e7e\u7a2e\u90e8\u9580",
+        "defch2": "\u7121\u6578"
+    },
+    "country": {
+        "gl": "n.",
+        "defch1": "\u570b\u5bb6",
+        "defch2": ""
+    },
+    "county": {
+        "gl": "n.",
+        "defch1": "\u7e23\u5340",
+        "defch2": "\u7e23"
+    },
+    "couple": {
+        "gl": "n.",
+        "defch1": "\u592b\u5a66",
+        "defch2": "\u4e00\u5c0d"
+    },
+    "coupon": {
+        "gl": "n.",
+        "defch1": "\u512a\u60e0\u5238",
+        "defch2": ""
+    },
+    "course": {
+        "gl": "n.",
+        "defch1": "\u8ab2\u7a0b",
+        "defch2": ""
+    },
+    "court": {
+        "gl": "n.",
+        "defch1": "\u62db\u60f9(\u9ebb\u7169)",
+        "defch2": "\u6cd5\u5ead"
+    },
+    "courtesy": {
+        "gl": "n.",
+        "defch1": "\u79ae\u8c8c",
+        "defch2": ""
+    },
+    "coward": {
+        "gl": "n.",
+        "defch1": "\u61e6\u592b",
+        "defch2": ""
+    },
+    "crash": {
+        "gl": "n.",
+        "defch1": "\u649e\u8eca",
+        "defch2": "\u5d29\u6f70"
+    },
+    "create": {
+        "gl": "v.",
+        "defch1": "\u65b0\u589e",
+        "defch2": "\u5275\u9020"
+    },
+    "creation": {
+        "gl": "n.",
+        "defch1": "\u5275\u9020",
+        "defch2": "\u5275\u5efa"
+    },
+    "creative": {
+        "gl": "adj.",
+        "defch1": "\u63a8\u5ee3\u8a0a\u606f",
+        "defch2": "\u5275\u610f\u7684"
+    },
+    "creativity": {
+        "gl": "n.",
+        "defch1": "\u5275\u9020\u529b",
+        "defch2": ""
+    },
+    "creature": {
+        "gl": "n.",
+        "defch1": "\u751f\u7269",
+        "defch2": ""
+    },
+    "credit": {
+        "gl": "n.",
+        "defch1": "\u6b78\u529f\u65bc",
+        "defch2": "\u4fe1\u7528"
+    },
+    "crew": {
+        "gl": "n.",
+        "defch1": "\u8239\u54e1",
+        "defch2": ""
+    },
+    "crime": {
+        "gl": "n.",
+        "defch1": "\u72af\u7f6a",
+        "defch2": ""
+    },
+    "criminal": {
+        "gl": "n.",
+        "defch1": "\u5211\u4e8b",
+        "defch2": ""
+    },
+    "crisis": {
+        "gl": "n.",
+        "defch1": "\u5371\u6a5f",
+        "defch2": ""
+    },
+    "criticism": {
+        "gl": "n.",
+        "defch1": "\u6279\u8a55",
+        "defch2": ""
+    },
+    "crop": {
+        "gl": "n.",
+        "defch1": "\u88c1\u526a\u7fa4\u7d44\u982d\u50cf",
+        "defch2": "\u4f5c\u7269"
+    },
+    "crowd": {
+        "gl": "n.",
+        "defch1": "\u4eba\u7fa4",
+        "defch2": ""
+    },
+    "cultural": {
+        "gl": "adj.",
+        "defch1": "\u6587\u5316",
+        "defch2": ""
+    },
+    "culture": {
+        "gl": "n.",
+        "defch1": "\u6587\u5316\u7279\u6027",
+        "defch2": "\u6587\u5316"
+    },
+    "curable": {
+        "gl": "adj.",
+        "defch1": "\u53ef\u6cbb\u7652\u7684",
+        "defch2": ""
+    },
+    "cure": {
+        "gl": "n.",
+        "defch1": "\u89e3\u85e5",
+        "defch2": ""
+    },
+    "curious": {
+        "gl": "adj.",
+        "defch1": "\u5947\u602a",
+        "defch2": "\u597d\u5947"
+    },
+    "current": {
+        "gl": "n.",
+        "defch1": "\u76ee\u524d\u7684",
+        "defch2": "\u7576\u524d"
+    },
+    "currently": {
+        "gl": "adv.",
+        "defch1": "\u76ee\u524d\u4e26\u6c92\u6709\u4f7f\u7528\u8005\u5728\u7dda\u4e0a",
+        "defch2": "\u76ee\u524d"
+    },
+    "custom": {
+        "gl": "n.",
+        "defch1": "\u81ea\u8a02",
+        "defch2": ""
+    },
+    "customer": {
+        "gl": "n.",
+        "defch1": "\u7ba1\u7406\u54e1",
+        "defch2": "\u9867\u5ba2"
+    },
+    "cycle": {
+        "gl": "n.",
+        "defch1": "\u5faa\u74b0",
+        "defch2": "\u9031\u671f"
+    },
+    "dairy": {
+        "gl": "n.",
+        "defch1": "\u4e73\u54c1\u516c\u53f8",
+        "defch2": "\u4e73\u696d"
+    },
+    "dam": {
+        "gl": "n.",
+        "defch1": "\u6c34\u58e9",
+        "defch2": "\u58e9"
+    },
+    "damage": {
+        "gl": "n.",
+        "defch1": "\u50b7\u5bb3",
+        "defch2": "\u640d\u50b7"
+    },
+    "danger": {
+        "gl": "n.",
+        "defch1": "\u5371\u96aa",
+        "defch2": ""
+    },
+    "dangerous": {
+        "gl": "adj.",
+        "defch1": "\u5371\u96aa\u7684",
+        "defch2": ""
+    },
+    "dead": {
+        "gl": "n.",
+        "defch1": "\u6b7b\u4ea1",
+        "defch2": ""
+    },
+    "deadline": {
+        "gl": "n.",
+        "defch1": "\u671f\u9650",
+        "defch2": "\u6700\u5f8c\u671f\u9650"
+    },
+    "deadly": {
+        "gl": "adj.",
+        "defch1": "\u81f4\u547d\u7684",
+        "defch2": "\u81f4\u547d"
+    },
+    "deal": {
+        "gl": "n.",
+        "defch1": "\u8d85\u503c\u512a\u60e0",
+        "defch2": ""
+    },
+    "death": {
+        "gl": "n.",
+        "defch1": "\u6b7b\u4ea1\u7684",
+        "defch2": "\u6b7b\u4ea1"
+    },
+    "debate": {
+        "gl": "n.",
+        "defch1": "\u8faf\u8ad6",
+        "defch2": ""
+    },
+    "decent": {
+        "gl": "adj.",
+        "defch1": "\u9ad4\u9762\u7684",
+        "defch2": ""
+    },
+    "decide": {
+        "gl": "v.",
+        "defch1": "\u6c7a\u5b9a",
+        "defch2": ""
+    },
+    "decision": {
+        "gl": "n.",
+        "defch1": "\u6c7a\u7b56",
+        "defch2": "\u6c7a\u5b9a"
+    },
+    "decline": {
+        "gl": "n.",
+        "defch1": "\u672a\u901a\u904e",
+        "defch2": ""
+    },
+    "decorate": {
+        "gl": "v.",
+        "defch1": "\u88dd\u98fe",
+        "defch2": ""
+    },
+    "decoration": {
+        "gl": "n.",
+        "defch1": "\u88dd\u98fe",
+        "defch2": ""
+    },
+    "decrease": {
+        "gl": "n.",
+        "defch1": "\u6e1b\u5c11",
+        "defch2": ""
+    },
+    "dedicate": {
+        "gl": "v.",
+        "defch1": "\u5949\u737b",
+        "defch2": ""
+    },
+    "dedication": {
+        "gl": "n.",
+        "defch1": "\u81f3",
+        "defch2": ""
+    },
+    "defeat": {
+        "gl": "n.",
+        "defch1": "\u5931\u6557",
+        "defch2": "\u6253\u6557"
+    },
+    "defend": {
+        "gl": "v.",
+        "defch1": "\u9632\u79a6",
+        "defch2": ""
+    },
+    "defender": {
+        "gl": "n.",
+        "defch1": "\u9632\u79a6\u65b9",
+        "defch2": "\u5f8c\u885b"
+    },
+    "definitely": {
+        "gl": "adv.",
+        "defch1": "\u7576\u7136",
+        "defch2": "\u80af\u5b9a\u7684"
+    },
+    "definition": {
+        "gl": "n.",
+        "defch1": "\u5b9a\u7fa9",
+        "defch2": ""
+    },
+    "degree": {
+        "gl": "n.",
+        "defch1": "\u5ea6",
+        "defch2": ""
+    },
+    "delay": {
+        "gl": "n.",
+        "defch1": "\u5ef6\u9072",
+        "defch2": ""
+    },
+    "delete": {
+        "gl": "v.",
+        "defch1": "\u9664",
+        "defch2": "\u522a\u9664"
+    },
+    "deletion": {
+        "gl": "n.",
+        "defch1": "\u522a\u9664",
+        "defch2": ""
+    },
+    "delicate": {
+        "gl": "adj.",
+        "defch1": "\u6613\u788e\u7684",
+        "defch2": "\u7d30\u81a9\u7684"
+    },
+    "delight": {
+        "gl": "n.",
+        "defch1": "\u559c",
+        "defch2": ""
+    },
+    "deliver": {
+        "gl": "v.",
+        "defch1": "\u5c65\u884c;\u514c\u73fe;\u5be6\u73fe",
+        "defch2": "\u4ea4\u4ed8"
+    },
+    "demand": {
+        "gl": "v.",
+        "defch1": "\u9700\u6c42",
+        "defch2": ""
+    },
+    "democracy": {
+        "gl": "n.",
+        "defch1": "\u6c11\u4e3b",
+        "defch2": ""
+    },
+    "demonstrate": {
+        "gl": "v.",
+        "defch1": "\u6f14\u793a",
+        "defch2": ""
+    },
+    "demonstration": {
+        "gl": "n.",
+        "defch1": "\u5c55\u793a\u7248\u672c",
+        "defch2": "\u793a\u7bc4"
+    },
+    "dental": {
+        "gl": "n.",
+        "defch1": "\u7259\u79d1\u7684",
+        "defch2": ""
+    },
+    "deny": {
+        "gl": "v.",
+        "defch1": "\u62d2\u7d76",
+        "defch2": "\u62d2\u7d55"
+    },
+    "department": {
+        "gl": "n.",
+        "defch1": "\u90e8\u9580",
+        "defch2": ""
+    },
+    "depend": {
+        "gl": "v.",
+        "defch1": "\u4f9d\u9760",
+        "defch2": ""
+    },
+    "dependence": {
+        "gl": "n.",
+        "defch1": "\u4f9d\u8cf4",
+        "defch2": ""
+    },
+    "dependent": {
+        "gl": "n.",
+        "defch1": "\u5f9e\u5c6c\u53c3\u7167",
+        "defch2": "\u4f9d\u8cf4\u7684"
+    },
+    "deposit": {
+        "gl": "n.",
+        "defch1": "\u5132\u653e",
+        "defch2": ""
+    },
+    "deprive": {
+        "gl": "v.",
+        "defch1": "\u525d\u596a",
+        "defch2": ""
+    },
+    "deprived": {
+        "gl": "v.",
+        "defch1": "\u88ab\u525d\u596a",
+        "defch2": ""
+    },
+    "describe": {
+        "gl": "v.",
+        "defch1": "\u63cf\u8ff0",
+        "defch2": ""
+    },
+    "description": {
+        "gl": "n.",
+        "defch1": "\u63cf\u8ff0",
+        "defch2": ""
+    },
+    "deserve": {
+        "gl": "v.",
+        "defch1": "\u61c9\u53d7",
+        "defch2": "\u503c\u5f97"
+    },
+    "deserving": {
+        "gl": "v.",
+        "defch1": "\u61c9\u5f97\u7684",
+        "defch2": ""
+    },
+    "design": {
+        "gl": "n.",
+        "defch1": "\u8a2d\u8a08",
+        "defch2": ""
+    },
+    "designate": {
+        "gl": "v.",
+        "defch1": "\u6307\u5b9a",
+        "defch2": ""
+    },
+    "desire": {
+        "gl": "n.",
+        "defch1": "\u617e\u671b",
+        "defch2": ""
+    },
+    "despite": {
+        "gl": "n.",
+        "defch1": "\u5118\u7ba1",
+        "defch2": ""
+    },
+    "dessert": {
+        "gl": "n.",
+        "defch1": "\u751c\u9ede",
+        "defch2": ""
+    },
+    "destroy": {
+        "gl": "v.",
+        "defch1": "\u6467\u6bc0",
+        "defch2": "\u7834\u58de"
+    },
+    "destructive": {
+        "gl": "adj.",
+        "defch1": "\u7834\u58de\u6027\u7684",
+        "defch2": ""
+    },
+    "detail": {
+        "gl": "n.",
+        "defch1": "\u5546\u54c1\u8aaa\u660e",
+        "defch2": "\u8a73\u60c5"
+    },
+    "detect": {
+        "gl": "v.",
+        "defch1": "\u767c\u73fe",
+        "defch2": "\u6aa2\u6e2c"
+    },
+    "determination": {
+        "gl": "n.",
+        "defch1": "\u6c7a\u5b9a",
+        "defch2": "\u6c7a\u5fc3"
+    },
+    "determine": {
+        "gl": "v.",
+        "defch1": "\u67e5\u660e",
+        "defch2": "\u78ba\u5b9a"
+    },
+    "determined": {
+        "gl": "v.",
+        "defch1": "\u6c7a\u5fc3",
+        "defch2": ""
+    },
+    "develop": {
+        "gl": "v.",
+        "defch1": "\u958b\u767c",
+        "defch2": ""
+    },
+    "development": {
+        "gl": "n.",
+        "defch1": "\u986f\u5f71",
+        "defch2": "\u767c\u5c55"
+    },
+    "device": {
+        "gl": "n.",
+        "defch1": "\u8a2d\u5099",
+        "defch2": ""
+    },
+    "diagnose": {
+        "gl": "v.",
+        "defch1": "\u8a3a\u65b7",
+        "defch2": ""
+    },
+    "diagnosis": {
+        "gl": "n.",
+        "defch1": "\u8a3a\u65b7",
+        "defch2": ""
+    },
+    "dialect": {
+        "gl": "n.",
+        "defch1": "\u65b9\u8a00",
+        "defch2": ""
+    },
+    "dialogue": {
+        "gl": "n.",
+        "defch1": "\u6b77\u53f2",
+        "defch2": "\u5c0d\u8a71"
+    },
+    "diary": {
+        "gl": "n.",
+        "defch1": "\u65e5\u8a8c",
+        "defch2": "\u65e5\u8a18"
+    },
+    "diet": {
+        "gl": "n.",
+        "defch1": "\u98f2\u98df",
+        "defch2": ""
+    },
+    "differ": {
+        "gl": "v.",
+        "defch1": "\u4e0d\u540c",
+        "defch2": ""
+    },
+    "difference": {
+        "gl": "n.",
+        "defch1": "\u5dee\u7570",
+        "defch2": "\u5340\u5225"
+    },
+    "difficult": {
+        "gl": "adj.",
+        "defch1": "\u56f0\u96be",
+        "defch2": ""
+    },
+    "difficulty": {
+        "gl": "n.",
+        "defch1": "\u89e3\u6c7a\u56f0\u96e3",
+        "defch2": "\u56f0\u96e3"
+    },
+    "digest": {
+        "gl": "n.",
+        "defch1": "\u6458\u8981",
+        "defch2": ""
+    },
+    "digestion": {
+        "gl": "n.",
+        "defch1": "\u6d88\u5316\u4f5c\u7528",
+        "defch2": ""
+    },
+    "digital": {
+        "gl": "adj.",
+        "defch1": "\u6578\u4f4d\u7684",
+        "defch2": "\u6578\u5b57"
+    },
+    "dignity": {
+        "gl": "n.",
+        "defch1": "\u5c0a\u56b4",
+        "defch2": ""
+    },
+    "diligent": {
+        "gl": "adj.",
+        "defch1": "\u52e4\u596e",
+        "defch2": ""
+    },
+    "direct": {
+        "gl": "v.",
+        "defch1": "\u76f4\u63a5",
+        "defch2": ""
+    },
+    "direction": {
+        "gl": "n.",
+        "defch1": "\u65b9\u5411",
+        "defch2": ""
+    },
+    "directly": {
+        "gl": "adv.",
+        "defch1": "\u76f4",
+        "defch2": ""
+    },
+    "disable": {
+        "gl": "v.",
+        "defch1": "\u7981\u7528",
+        "defch2": ""
+    },
+    "disagree": {
+        "gl": "v.",
+        "defch1": "\u4e0d\u540c\u610f",
+        "defch2": ""
+    },
+    "disappear": {
+        "gl": "v.",
+        "defch1": "\u6d88\u5931",
+        "defch2": ""
+    },
+    "disappointed": {
+        "gl": "v.",
+        "defch1": "\u5931\u671b\u7684",
+        "defch2": ""
+    },
+    "disapprove": {
+        "gl": "v.",
+        "defch1": "\u4e0d\u8d0a\u6210",
+        "defch2": ""
+    },
+    "disaster": {
+        "gl": "n.",
+        "defch1": "\u707e\u5bb3",
+        "defch2": "\u707d\u5bb3"
+    },
+    "discipline": {
+        "gl": "n.",
+        "defch1": "\u5c08\u696d\u9818\u57df",
+        "defch2": "\u5b78\u79d1"
+    },
+    "discount": {
+        "gl": "n.",
+        "defch1": "\u6298\u6263",
+        "defch2": ""
+    },
+    "discourage": {
+        "gl": "v.",
+        "defch1": "\u4e0d\u9f13\u52f5",
+        "defch2": ""
+    },
+    "discouraging": {
+        "gl": "v.",
+        "defch1": "\u5f88\u4ee4\u4eba\u6cae\u55aa\u5427",
+        "defch2": ""
+    },
+    "discover": {
+        "gl": "v.",
+        "defch1": "\u63a2\u5c0b",
+        "defch2": ""
+    },
+    "discuss": {
+        "gl": "v.",
+        "defch1": "\u8a0e\u8ad6",
+        "defch2": ""
+    },
+    "discussion": {
+        "gl": "n.",
+        "defch1": "\u7684\u983b\u9053",
+        "defch2": "\u8a0e\u8ad6\u5340"
+    },
+    "disease": {
+        "gl": "n.",
+        "defch1": "\u75be\u75c5",
+        "defch2": ""
+    },
+    "disguise": {
+        "gl": "n.",
+        "defch1": "\u507d\u88dd",
+        "defch2": ""
+    },
+    "disgusted": {
+        "gl": "v.",
+        "defch1": "\u6c23\u61a4",
+        "defch2": ""
+    },
+    "disgusting": {
+        "gl": "v.",
+        "defch1": "\u5641\u5fc3\u7684",
+        "defch2": ""
+    },
+    "disorder": {
+        "gl": "n.",
+        "defch1": "\u75be\u75c5",
+        "defch2": "\u7d0a\u4e82"
+    },
+    "display": {
+        "gl": "n.",
+        "defch1": "\u986f\u793a",
+        "defch2": ""
+    },
+    "disregard": {
+        "gl": "n.",
+        "defch1": "\u4e0d\u7406\u6703;\u4e0d\u9867;\u6f20\u8996; \u5ffd\u8996",
+        "defch2": "\u6f20\u8996"
+    },
+    "disrupt": {
+        "gl": "v.",
+        "defch1": "\u6253\u4e82",
+        "defch2": ""
+    },
+    "distance": {
+        "gl": "n.",
+        "defch1": "\u5340\u57df\u63a5\u9001",
+        "defch2": "\u8ddd\u96e2"
+    },
+    "distant": {
+        "gl": "adj.",
+        "defch1": "\u9059\u9060",
+        "defch2": ""
+    },
+    "distinct": {
+        "gl": "adj.",
+        "defch1": "\u622a\u7136\u4e0d\u540c\u7684",
+        "defch2": "\u4e0d\u540c"
+    },
+    "distinction": {
+        "gl": "n.",
+        "defch1": "\u5340\u5225",
+        "defch2": ""
+    },
+    "distinctive": {
+        "gl": "adj.",
+        "defch1": "\u6709\u7279\u8272\u7684",
+        "defch2": "\u7368\u7279\u7684"
+    },
+    "distinguish": {
+        "gl": "v.",
+        "defch1": "\u5340\u5206",
+        "defch2": ""
+    },
+    "distinguished": {
+        "gl": "v.",
+        "defch1": "\u5091\u51fa\u7684",
+        "defch2": ""
+    },
+    "distract": {
+        "gl": "v.",
+        "defch1": "\u8f49\u79fb",
+        "defch2": ""
+    },
+    "distracted": {
+        "gl": "v.",
+        "defch1": "\u5206\u5fc3",
+        "defch2": ""
+    },
+    "distress": {
+        "gl": "n.",
+        "defch1": "\u82e6\u60f1",
+        "defch2": ""
+    },
+    "distribute": {
+        "gl": "v.",
+        "defch1": "\u5206\u92b7",
+        "defch2": ""
+    },
+    "distribution": {
+        "gl": "n.",
+        "defch1": "\u5206\u92b7",
+        "defch2": ""
+    },
+    "disturb": {
+        "gl": "v.",
+        "defch1": "\u6253\u64fe",
+        "defch2": ""
+    },
+    "diversified": {
+        "gl": "v.",
+        "defch1": "\u591a\u5143\u5316\u7684",
+        "defch2": ""
+    },
+    "diversity": {
+        "gl": "n.",
+        "defch1": "\u591a\u59ff\u591a\u91c7",
+        "defch2": "\u591a\u6a23\u6027"
+    },
+    "divide": {
+        "gl": "n.",
+        "defch1": "\u5206\u5272",
+        "defch2": "\u5283\u5206"
+    },
+    "diving": {
+        "gl": "n.",
+        "defch1": "\u6f5b\u6c34",
+        "defch2": ""
+    },
+    "divorce": {
+        "gl": "n.",
+        "defch1": "\u79bb\u5a5a",
+        "defch2": "\u96e2\u5a5a"
+    },
+    "dizzy": {
+        "gl": "v.",
+        "defch1": "\u6655",
+        "defch2": ""
+    },
+    "document": {
+        "gl": "n.",
+        "defch1": "\u8a18\u8f09",
+        "defch2": ""
+    },
+    "domestic": {
+        "gl": "n.",
+        "defch1": "\u570b\u5167",
+        "defch2": ""
+    },
+    "dominant": {
+        "gl": "n.",
+        "defch1": "\u512a\u52e2",
+        "defch2": ""
+    },
+    "dominate": {
+        "gl": "v.",
+        "defch1": "\u652f\u914d",
+        "defch2": ""
+    },
+    "donate": {
+        "gl": "v.",
+        "defch1": "\u6350\u8d08",
+        "defch2": ""
+    },
+    "donation": {
+        "gl": "n.",
+        "defch1": "\u8d0a\u52a9",
+        "defch2": ""
+    },
+    "dosage": {
+        "gl": "n.",
+        "defch1": "\u5291\u91cf",
+        "defch2": ""
+    },
+    "doubt": {
+        "gl": "n.",
+        "defch1": "\u61f7\u7591",
+        "defch2": ""
+    },
+    "doubtful": {
+        "gl": "adj.",
+        "defch1": "\u62ff\u4e0d\u5b9a\u4e3b\u610f",
+        "defch2": "\u7591"
+    },
+    "doubtless": {
+        "gl": "adv.",
+        "defch1": "\u6beb\u7121\u7591\u554f",
+        "defch2": ""
+    },
+    "downtown": {
+        "gl": "n.",
+        "defch1": "\u5e02\u5340",
+        "defch2": ""
+    },
+    "drag": {
+        "gl": "n.",
+        "defch1": "\u79fb\u52d5",
+        "defch2": "\u62d6\u52d5"
+    },
+    "dress": {
+        "gl": "n.",
+        "defch1": "\u6d0b\u88dd",
+        "defch2": "\u9023\u8863\u88d9"
+    },
+    "dressing": {
+        "gl": "n.",
+        "defch1": "\uff08\u62cc\u88fd\u6c99\u62c9\u7528\u7684\uff09\u8abf\u6599",
+        "defch2": "\u6577\u6599"
+    },
+    "drown": {
+        "gl": "v.",
+        "defch1": "\u9047\u6eba",
+        "defch2": "\u6df9"
+    },
+    "due": {
+        "gl": "n.",
+        "defch1": "\u5230\u671f",
+        "defch2": ""
+    },
+    "dull": {
+        "gl": "v.",
+        "defch1": "\u5446\u677f\u7684",
+        "defch2": ""
+    },
+    "dust": {
+        "gl": "n.",
+        "defch1": "\u7070\u5875",
+        "defch2": ""
+    },
+    "dusty": {
+        "gl": "adj.",
+        "defch1": "\u5875\u571f\u98db\u63da\u7684",
+        "defch2": ""
+    },
+    "duty": {
+        "gl": "n.",
+        "defch1": "\u7fa9\u52d9",
+        "defch2": ""
+    },
+    "eager": {
+        "gl": "n.",
+        "defch1": "\u6025\u65bc",
+        "defch2": ""
+    },
+    "eagerly": {
+        "gl": "adv.",
+        "defch1": "\u6025\u5207\u5730",
+        "defch2": ""
+    },
+    "easygoing": {
+        "gl": "adj.",
+        "defch1": "\u96a8\u548c",
+        "defch2": ""
+    },
+    "economic": {
+        "gl": "adj.",
+        "defch1": "\u7d93\u6fdf\u7684",
+        "defch2": "\u7d93\u6fdf"
+    },
+    "economy": {
+        "gl": "n.",
+        "defch1": "\u7d93\u6fdf\u50f9\u683c\u9818\u57df\u4e0d\u662f\u6578\u5b57",
+        "defch2": "\u7d93\u6fdf"
+    },
+    "edit": {
+        "gl": "v.",
+        "defch1": "\u7de8\u8f2f",
+        "defch2": ""
+    },
+    "editor": {
+        "gl": "n.",
+        "defch1": "\u7de8\u8f2f\u5668",
+        "defch2": "\u7de8\u8f2f"
+    },
+    "education": {
+        "gl": "n.",
+        "defch1": "\u6559\u80b2\u9818\u57df",
+        "defch2": "\u6559\u80b2"
+    },
+    "effect": {
+        "gl": "n.",
+        "defch1": "\u6548\u679c",
+        "defch2": ""
+    },
+    "effective": {
+        "gl": "adj.",
+        "defch1": "\u6709\u6548",
+        "defch2": ""
+    },
+    "effort": {
+        "gl": "n.",
+        "defch1": "\u529f\u592b",
+        "defch2": "\u52aa\u529b"
+    },
+    "election": {
+        "gl": "n.",
+        "defch1": "\u9078\u64c7",
+        "defch2": "\u9078\u8209"
+    },
+    "electrical": {
+        "gl": "adj.",
+        "defch1": "\u96fb\u7684",
+        "defch2": ""
+    },
+    "electricity": {
+        "gl": "n.",
+        "defch1": "\u7535\u6c14",
+        "defch2": "\u96fb\u529b"
+    },
+    "electronic": {
+        "gl": "adj.",
+        "defch1": "\u96fb\u5b50",
+        "defch2": ""
+    },
+    "element": {
+        "gl": "n.",
+        "defch1": "\u5143\u7d20",
+        "defch2": "\u5143\u4ef6"
+    },
+    "elementary": {
+        "gl": "adj.",
+        "defch1": "\u521d\u7d1a",
+        "defch2": ""
+    },
+    "elevator": {
+        "gl": "n.",
+        "defch1": "\u5347\u964d\u673a",
+        "defch2": "\u96fb\u68af"
+    },
+    "embarrassed": {
+        "gl": "v.",
+        "defch1": "\u5c37\u5c2c",
+        "defch2": ""
+    },
+    "embarrassing": {
+        "gl": "v.",
+        "defch1": "\u5c37\u5c2c\u7684",
+        "defch2": ""
+    },
+    "embrace": {
+        "gl": "n.",
+        "defch1": "\u6b23\u7136\u63a5\u53d7",
+        "defch2": "\u64c1\u62b1"
+    },
+    "emerge": {
+        "gl": "v.",
+        "defch1": "\u51fa\u73fe",
+        "defch2": ""
+    },
+    "emergence": {
+        "gl": "n.",
+        "defch1": "\u7dca\u6025\u72c0\u6cc1",
+        "defch2": ""
+    },
+    "emergency": {
+        "gl": "n.",
+        "defch1": "\u7dca\u6025",
+        "defch2": "\u7dca\u6025\u60c5\u6cc1"
+    },
+    "emotion": {
+        "gl": "n.",
+        "defch1": "\u60c5\u7eea",
+        "defch2": "\u611f\u60c5"
+    },
+    "emotional": {
+        "gl": "adj.",
+        "defch1": "\u60c5\u611f\u7684",
+        "defch2": ""
+    },
+    "emperor": {
+        "gl": "n.",
+        "defch1": "\u7687\u5e1d",
+        "defch2": ""
+    },
+    "emphasis": {
+        "gl": "n.",
+        "defch1": "\u8457\u91cd",
+        "defch2": "\u91cd\u9ede"
+    },
+    "emphasize": {
+        "gl": "v.",
+        "defch1": "\u5f37\u8abf",
+        "defch2": "\u6ce8\u91cd"
+    },
+    "employer": {
+        "gl": "n.",
+        "defch1": "\u96c7\u4e3b",
+        "defch2": ""
+    },
+    "employment": {
+        "gl": "n.",
+        "defch1": "\u8077\u54e1",
+        "defch2": "\u5c31\u696d"
+    },
+    "enable": {
+        "gl": "v.",
+        "defch1": "\u4f7f\u80fd",
+        "defch2": ""
+    },
+    "encounter": {
+        "gl": "n.",
+        "defch1": "\u770b\u8a3a",
+        "defch2": ""
+    },
+    "encourage": {
+        "gl": "v.",
+        "defch1": "\u63a8\u52d5; \u9f13\u52f5",
+        "defch2": "\u9f13\u52f5"
+    },
+    "encouraging": {
+        "gl": "v.",
+        "defch1": "\u9f13\u821e\u4eba\u5fc3\u7684",
+        "defch2": ""
+    },
+    "endanger": {
+        "gl": "v.",
+        "defch1": "\u5371\u5bb3",
+        "defch2": ""
+    },
+    "enemy": {
+        "gl": "n.",
+        "defch1": "\u6575\u4eba",
+        "defch2": ""
+    },
+    "energy": {
+        "gl": "n.",
+        "defch1": "\u80fd\u6e90",
+        "defch2": ""
+    },
+    "engage": {
+        "gl": "v.",
+        "defch1": "\u5f9e\u4e8b",
+        "defch2": ""
+    },
+    "engineer": {
+        "gl": "n.",
+        "defch1": "\u5de5\u7a0b\u5e2b",
+        "defch2": ""
+    },
+    "enjoyable": {
+        "gl": "adj.",
+        "defch1": "\u6109\u5feb\u7684",
+        "defch2": ""
+    },
+    "enlarge": {
+        "gl": "v.",
+        "defch1": "\u653e\u5927",
+        "defch2": ""
+    },
+    "enormous": {
+        "gl": "adj.",
+        "defch1": "\u5de8\u5927\u7684",
+        "defch2": "\u5de8\u5927"
+    },
+    "enterprise": {
+        "gl": "n.",
+        "defch1": "\u4f01\u696d",
+        "defch2": ""
+    },
+    "entertainment": {
+        "gl": "n.",
+        "defch1": "\u5a1b\u6a02",
+        "defch2": ""
+    },
+    "enthusiasm": {
+        "gl": "n.",
+        "defch1": "\u71b1\u5fc3",
+        "defch2": "\u71b1\u60c5"
+    },
+    "entirely": {
+        "gl": "adv.",
+        "defch1": "\u5b8c\u5168",
+        "defch2": ""
+    },
+    "envious": {
+        "gl": "adj.",
+        "defch1": "\u7fa8\u6155",
+        "defch2": ""
+    },
+    "environment": {
+        "gl": "n.",
+        "defch1": "\u74b0\u5883",
+        "defch2": ""
+    },
+    "environmental": {
+        "gl": "adj.",
+        "defch1": "\u74b0\u5883",
+        "defch2": "\u74b0\u5883\u7684"
+    },
+    "environmentalist": {
+        "gl": "n.",
+        "defch1": "\u74b0\u4fdd\u4e3b\u7fa9\u8005",
+        "defch2": ""
+    },
+    "environmentally": {
+        "gl": "adv.",
+        "defch1": "\u74b0\u4fdd\u5730",
+        "defch2": ""
+    },
+    "envy": {
+        "gl": "n.",
+        "defch1": "\u7fa8\u6155",
+        "defch2": ""
+    },
+    "equator": {
+        "gl": "n.",
+        "defch1": "\u8d64\u9053",
+        "defch2": ""
+    },
+    "equipment": {
+        "gl": "n.",
+        "defch1": "\u5668\u6750",
+        "defch2": "\u8a2d\u5099"
+    },
+    "errand": {
+        "gl": "n.",
+        "defch1": "\u4f7f\u547d",
+        "defch2": ""
+    },
+    "error": {
+        "gl": "n.",
+        "defch1": "\u932f\u8aa4",
+        "defch2": ""
+    },
+    "escape": {
+        "gl": "n.",
+        "defch1": "\u9003\u9038",
+        "defch2": ""
+    },
+    "especially": {
+        "gl": "adv.",
+        "defch1": "\u5c24\u5176",
+        "defch2": "\u7279\u5225"
+    },
+    "essential": {
+        "gl": "adj.",
+        "defch1": "\u5fc5\u8981",
+        "defch2": ""
+    },
+    "essum": {
+        "gl": "",
+        "defch1": "\u8ca0\u6578",
+        "defch2": ""
+    },
+    "establish": {
+        "gl": "v.",
+        "defch1": "\u5efa\u7acb",
+        "defch2": ""
+    },
+    "esteem": {
+        "gl": "n.",
+        "defch1": "\u8996\u70ba",
+        "defch2": "\u5c0a\u91cd"
+    },
+    "estimate": {
+        "gl": "n.",
+        "defch1": "\u4f30\u8a08",
+        "defch2": ""
+    },
+    "eternity": {
+        "gl": "n.",
+        "defch1": "\u6c38\u6046",
+        "defch2": ""
+    },
+    "ethnic": {
+        "gl": "n.",
+        "defch1": "\u7a2e\u65cf",
+        "defch2": "\u6c11\u65cf"
+    },
+    "event": {
+        "gl": "n.",
+        "defch1": "\u4e8b\u4ef6",
+        "defch2": ""
+    },
+    "eventually": {
+        "gl": "adv.",
+        "defch1": "\u6700\u7d42",
+        "defch2": ""
+    },
+    "evidence": {
+        "gl": "n.",
+        "defch1": "\u8fa8\u8b58\u9805",
+        "defch2": "\u8b49\u64da"
+    },
+    "evolution": {
+        "gl": "n.",
+        "defch1": "\u8fdb\u5316",
+        "defch2": ""
+    },
+    "evolve": {
+        "gl": "v.",
+        "defch1": "\u767c\u5c55",
+        "defch2": ""
+    },
+    "exact": {
+        "gl": "v.",
+        "defch1": "\u6700\u5c0f\u884c\u9ad8",
+        "defch2": "\u7cbe\u78ba"
+    },
+    "exactly": {
+        "gl": "adv.",
+        "defch1": "\u6b63\u597d",
+        "defch2": "\u7a76\u7adf"
+    },
+    "exaggerate": {
+        "gl": "v.",
+        "defch1": "\u8a87\u5927",
+        "defch2": ""
+    },
+    "examine": {
+        "gl": "v.",
+        "defch1": "\u6aa2\u8996",
+        "defch2": "\u6aa2\u67e5"
+    },
+    "excellent": {
+        "gl": "adj.",
+        "defch1": "\u512a\u7570",
+        "defch2": "\u512a\u79c0\u7684"
+    },
+    "except": {
+        "gl": "v.",
+        "defch1": "\u9664\u4e86",
+        "defch2": ""
+    },
+    "exception": {
+        "gl": "n.",
+        "defch1": "\u4f8b\u5916\u72c0\u6cc1",
+        "defch2": "\u4f8b\u5916"
+    },
+    "exchange": {
+        "gl": "n.",
+        "defch1": "\u6c47\u7387",
+        "defch2": "\u4ea4\u63db"
+    },
+    "exclude": {
+        "gl": "v.",
+        "defch1": "\u6392\u9664",
+        "defch2": ""
+    },
+    "excuse": {
+        "gl": "n.",
+        "defch1": "\u539f\u8ad2",
+        "defch2": "\u85c9\u53e3"
+    },
+    "exhaust": {
+        "gl": "n.",
+        "defch1": "\u6392\u6c23\u7ba1",
+        "defch2": ""
+    },
+    "exhausted": {
+        "gl": "v.",
+        "defch1": "\u75b2\u5026",
+        "defch2": "\u7d2f"
+    },
+    "exhibit": {
+        "gl": "n.",
+        "defch1": "\u5c55\u793a",
+        "defch2": ""
+    },
+    "exhibition": {
+        "gl": "n.",
+        "defch1": "\u5c55\u89bd\u6703",
+        "defch2": "\u5c55\u89bd"
+    },
+    "exinguisher": {
+        "gl": "",
+        "defch1": "\u6ec5\u706b\u5668",
+        "defch2": ""
+    },
+    "exist": {
+        "gl": "v.",
+        "defch1": "\u5b58\u5728",
+        "defch2": ""
+    },
+    "expand": {
+        "gl": "v.",
+        "defch1": "\u5c55\u958b",
+        "defch2": "\u64f4\u5927"
+    },
+    "expansion": {
+        "gl": "n.",
+        "defch1": "\u64f4\u5c55",
+        "defch2": ""
+    },
+    "expect": {
+        "gl": "v.",
+        "defch1": "\u671f\u671b",
+        "defch2": ""
+    },
+    "expel": {
+        "gl": "v.",
+        "defch1": "\u9a45\u9010",
+        "defch2": ""
+    },
+    "expend": {
+        "gl": "v.",
+        "defch1": "\u82b1\u8cbb",
+        "defch2": ""
+    },
+    "expense": {
+        "gl": "n.",
+        "defch1": "\u8cbb\u7528",
+        "defch2": ""
+    },
+    "experience": {
+        "gl": "n.",
+        "defch1": "\u7d93\u9a57",
+        "defch2": ""
+    },
+    "experiment": {
+        "gl": "n.",
+        "defch1": "\u5617\u8a66",
+        "defch2": "\u5be6\u9a57"
+    },
+    "expert": {
+        "gl": "n.",
+        "defch1": "\u5c08\u5bb6",
+        "defch2": ""
+    },
+    "expertise": {
+        "gl": "n.",
+        "defch1": "\u4e13\u957f",
+        "defch2": "\u5c08\u9577"
+    },
+    "explain": {
+        "gl": "v.",
+        "defch1": "\u8aaa\u660e",
+        "defch2": ""
+    },
+    "explanation": {
+        "gl": "n.",
+        "defch1": "\u89e3\u91cb",
+        "defch2": "\u8aaa\u660e"
+    },
+    "explode": {
+        "gl": "v.",
+        "defch1": "\u7206\u70b8",
+        "defch2": ""
+    },
+    "exploration": {
+        "gl": "n.",
+        "defch1": "\u63a2\u7d22",
+        "defch2": ""
+    },
+    "explore": {
+        "gl": "v.",
+        "defch1": "\u63a2\u7d22",
+        "defch2": ""
+    },
+    "explosion": {
+        "gl": "n.",
+        "defch1": "\u7206\u70b8\u5f62",
+        "defch2": ""
+    },
+    "export": {
+        "gl": "n.",
+        "defch1": "\u532f\u51fa",
+        "defch2": "\u51fa\u53e3"
+    },
+    "expose": {
+        "gl": "n.",
+        "defch1": "\u516c\u958b",
+        "defch2": ""
+    },
+    "express": {
+        "gl": "n.",
+        "defch1": "\u8868\u73fe",
+        "defch2": ""
+    },
+    "extensive": {
+        "gl": "adj.",
+        "defch1": "\u5bec\u655e\u7684",
+        "defch2": "\u5ee3\u6cdb"
+    },
+    "extinct": {
+        "gl": "adj.",
+        "defch1": "\u6ec5\u7d55\u7684",
+        "defch2": ""
+    },
+    "extinction": {
+        "gl": "n.",
+        "defch1": "\u6ec5\u7d55",
+        "defch2": ""
+    },
+    "extinguish": {
+        "gl": "v.",
+        "defch1": "\u6ec5\u706b",
+        "defch2": "\u64b2\u6ec5"
+    },
+    "extreme": {
+        "gl": "n.",
+        "defch1": "\u6975\u7aef",
+        "defch2": ""
+    },
+    "extremely": {
+        "gl": "adv.",
+        "defch1": "\u7d55\u4e86",
+        "defch2": "\u975e\u5e38"
+    },
+    "facility": {
+        "gl": "n.",
+        "defch1": "\u5177\u7279\u5b9a\u529f\u80fd\u7684\u5834\u6240\u6216\u8a2d\u5099",
+        "defch2": "\u8a2d\u65bd"
+    },
+    "factor": {
+        "gl": "n.",
+        "defch1": "\u56e0\u5b50",
+        "defch2": ""
+    },
+    "fail": {
+        "gl": "v.",
+        "defch1": "\u5931\u6557",
+        "defch2": ""
+    },
+    "failure": {
+        "gl": "n.",
+        "defch1": "\u5931\u6557",
+        "defch2": ""
+    },
+    "fair": {
+        "gl": "n.",
+        "defch1": "\u516c\u5e73",
+        "defch2": ""
+    },
+    "faith": {
+        "gl": "n.",
+        "defch1": "\u4fe1\u4ef0",
+        "defch2": ""
+    },
+    "faithful": {
+        "gl": "n.",
+        "defch1": "\u5fe0\u5be6\u3002",
+        "defch2": "\u53ef\u4fe1"
+    },
+    "fame": {
+        "gl": "n.",
+        "defch1": "\u540d\u671b",
+        "defch2": ""
+    },
+    "famine": {
+        "gl": "n.",
+        "defch1": "\u9951\u8352",
+        "defch2": "\u98e2\u8352"
+    },
+    "fantastic": {
+        "gl": "adj.",
+        "defch1": "\u592a\u68d2\u4e86",
+        "defch2": ""
+    },
+    "fascinate": {
+        "gl": "v.",
+        "defch1": "\u4f7f\u8457\u8ff7",
+        "defch2": "\u5438\u5f15"
+    },
+    "fascinated": {
+        "gl": "v.",
+        "defch1": "\u8457\u8ff7",
+        "defch2": ""
+    },
+    "fashion": {
+        "gl": "n.",
+        "defch1": "\u6642\u5c1a",
+        "defch2": ""
+    },
+    "fault": {
+        "gl": "n.",
+        "defch1": "\u932f\u8aa4",
+        "defch2": "\u6545\u969c"
+    },
+    "favor": {
+        "gl": "n.",
+        "defch1": "\u9752\u775e",
+        "defch2": "\u5bf5\u611b"
+    },
+    "feature": {
+        "gl": "n.",
+        "defch1": "\u7279\u8272",
+        "defch2": "\u7279\u5fb5"
+    },
+    "feed": {
+        "gl": "n.",
+        "defch1": "\u754c\u63a5\u8cc7\u6599",
+        "defch2": ""
+    },
+    "fertilizer": {
+        "gl": "n.",
+        "defch1": "\u80a5\u6599",
+        "defch2": ""
+    },
+    "fever": {
+        "gl": "n.",
+        "defch1": "\u72c2\u71b1",
+        "defch2": "\u767c\u71b1"
+    },
+    "field": {
+        "gl": "n.",
+        "defch1": "\u6b04\u4f4d",
+        "defch2": "\u9818\u57df"
+    },
+    "fight": {
+        "gl": "n.",
+        "defch1": "\u5c0d\u6230",
+        "defch2": ""
+    },
+    "figure": {
+        "gl": "n.",
+        "defch1": "\u5716\u7247",
+        "defch2": "\u6578\u5b57"
+    },
+    "fill": {
+        "gl": "n.",
+        "defch1": "\u586b\u6eff",
+        "defch2": "\u586b"
+    },
+    "film": {
+        "gl": "n.",
+        "defch1": "\u96fb\u5f71",
+        "defch2": ""
+    },
+    "final": {
+        "gl": "n.",
+        "defch1": "\u6700\u5f8c",
+        "defch2": ""
+    },
+    "finally": {
+        "gl": "adv.",
+        "defch1": "\u6700\u5f8c",
+        "defch2": ""
+    },
+    "financial": {
+        "gl": "adj.",
+        "defch1": "\u91d1\u878d\u5b66",
+        "defch2": ""
+    },
+    "fingerprint": {
+        "gl": "n.",
+        "defch1": "\u6307\u7d0b",
+        "defch2": ""
+    },
+    "firm": {
+        "gl": "n.",
+        "defch1": "\u4e8b\u52a1\u6240",
+        "defch2": "\u516c\u53f8"
+    },
+    "flame": {
+        "gl": "n.",
+        "defch1": "\u8fb1\u7f75",
+        "defch2": "\u706b\u7130"
+    },
+    "flash": {
+        "gl": "n.",
+        "defch1": "\u9583",
+        "defch2": ""
+    },
+    "flat": {
+        "gl": "n.",
+        "defch1": "\u5e73\u9762",
+        "defch2": ""
+    },
+    "flaw": {
+        "gl": "n.",
+        "defch1": "\u7f3a\u9677",
+        "defch2": ""
+    },
+    "flawless": {
+        "gl": "adj.",
+        "defch1": "\u5b8c\u7f8e\u7121\u7455",
+        "defch2": ""
+    },
+    "flight": {
+        "gl": "n.",
+        "defch1": "\u8239\u73ed",
+        "defch2": "\u98db\u884c"
+    },
+    "float": {
+        "gl": "n.",
+        "defch1": "\u6d6e\u52d5",
+        "defch2": ""
+    },
+    "fluency": {
+        "gl": "n.",
+        "defch1": "\u6d41\u5229\u5ea6",
+        "defch2": ""
+    },
+    "fluent": {
+        "gl": "adj.",
+        "defch1": "\u6d41\u5229\u7684",
+        "defch2": "\u6d41\u5229"
+    },
+    "folk": {
+        "gl": "n.",
+        "defch1": "\u6c11\u8b20",
+        "defch2": "\u6c11\u9593"
+    },
+    "forbid": {
+        "gl": "v.",
+        "defch1": "\u7981\u6b62",
+        "defch2": ""
+    },
+    "force": {
+        "gl": "n.",
+        "defch1": "\u529b\u91cf",
+        "defch2": "\u529b"
+    },
+    "forecast": {
+        "gl": "n.",
+        "defch1": "\u9810\u6e2c",
+        "defch2": ""
+    },
+    "foreign": {
+        "gl": "adj.",
+        "defch1": "\u570b\u5916",
+        "defch2": ""
+    },
+    "foreigner": {
+        "gl": "n.",
+        "defch1": "\u5916\u570b\u4eba",
+        "defch2": ""
+    },
+    "form": {
+        "gl": "n.",
+        "defch1": "\u8868\u55ae",
+        "defch2": "\u5f62\u6210"
+    },
+    "formal": {
+        "gl": "n.",
+        "defch1": "\u6b63\u5f0f",
+        "defch2": ""
+    },
+    "former": {
+        "gl": "n.",
+        "defch1": "\u524d\u4efb\u7684",
+        "defch2": ""
+    },
+    "fortunate": {
+        "gl": "adj.",
+        "defch1": "\u5e78\u904b",
+        "defch2": ""
+    },
+    "fortune": {
+        "gl": "n.",
+        "defch1": "\u8ca1\u5bcc",
+        "defch2": ""
+    },
+    "forward": {
+        "gl": "adv.",
+        "defch1": "\u524d\u92d2",
+        "defch2": ""
+    },
+    "found": {
+        "gl": "n.",
+        "defch1": "\u672a\u627e\u5230",
+        "defch2": ""
+    },
+    "foundation": {
+        "gl": "n.",
+        "defch1": "\u57fa\u790e",
+        "defch2": ""
+    },
+    "frequently": {
+        "gl": "adv.",
+        "defch1": "\u983b\u7e41...",
+        "defch2": ""
+    },
+    "frighten": {
+        "gl": "v.",
+        "defch1": "\u53d7\u9a5a\u6050\u7684",
+        "defch2": "\u5687\u552c"
+    },
+    "frustrate": {
+        "gl": "v.",
+        "defch1": "\u963b\u6493",
+        "defch2": ""
+    },
+    "frustrated": {
+        "gl": "v.",
+        "defch1": "\u5931\u610f",
+        "defch2": "\u6cae\u55aa\u7684"
+    },
+    "frustration": {
+        "gl": "n.",
+        "defch1": "\u632b\u6557\u611f\u3002",
+        "defch2": "\u632b\u6298"
+    },
+    "fuel": {
+        "gl": "n.",
+        "defch1": "\u63d0\u4f9b\u71c3\u6599",
+        "defch2": "\u6c7d\u6cb9"
+    },
+    "fulfill": {
+        "gl": "v.",
+        "defch1": "\u5c65\u884c",
+        "defch2": ""
+    },
+    "fulfilled": {
+        "gl": "v.",
+        "defch1": "\u5df2\u5c65\u884c",
+        "defch2": ""
+    },
+    "fulfilling": {
+        "gl": "v.",
+        "defch1": "\u5c65\u884c",
+        "defch2": ""
+    },
+    "fulfillment": {
+        "gl": "n.",
+        "defch1": "\u5c65\u884c",
+        "defch2": ""
+    },
+    "function": {
+        "gl": "n.",
+        "defch1": "\u51fd\u6578, \u51fd\u5f0f",
+        "defch2": "\u529f\u80fd"
+    },
+    "furniture": {
+        "gl": "n.",
+        "defch1": "\u5bb6\u5177\u985e",
+        "defch2": ""
+    },
+    "gain": {
+        "gl": "n.",
+        "defch1": "\u589e\u76ca",
+        "defch2": "\u7372\u5f97"
+    },
+    "gamble": {
+        "gl": "n.",
+        "defch1": "\u5192\u96aa/\u78b0\u904b\u6c23",
+        "defch2": "\u8ced"
+    },
+    "gather": {
+        "gl": "n.",
+        "defch1": "\u6536\u96c6",
+        "defch2": ""
+    },
+    "gender": {
+        "gl": "n.",
+        "defch1": "\u6027\u5225",
+        "defch2": ""
+    },
+    "gene": {
+        "gl": "n.",
+        "defch1": "\u57fa\u56e0",
+        "defch2": ""
+    },
+    "general": {
+        "gl": "n.",
+        "defch1": "\u4e00\u822c",
+        "defch2": ""
+    },
+    "generalize": {
+        "gl": "v.",
+        "defch1": "\u5e7f\u4e49\u5316",
+        "defch2": ""
+    },
+    "generally": {
+        "gl": "adv.",
+        "defch1": "\u901a\u5e38",
+        "defch2": ""
+    },
+    "generate": {
+        "gl": "v.",
+        "defch1": "\u7acb\u5373\u5275\u5efa",
+        "defch2": ""
+    },
+    "generation": {
+        "gl": "n.",
+        "defch1": "\u4ee3",
+        "defch2": ""
+    },
+    "generator": {
+        "gl": "n.",
+        "defch1": "\u767c\u96fb\u6a5f",
+        "defch2": ""
+    },
+    "generosity": {
+        "gl": "n.",
+        "defch1": "\u6177\u6168",
+        "defch2": "\u6177\u6168\u5927\u65b9"
+    },
+    "generous": {
+        "gl": "adj.",
+        "defch1": "\u6177\u6168",
+        "defch2": ""
+    },
+    "genetic": {
+        "gl": "adj.",
+        "defch1": "\u907a\u50b3\u7684",
+        "defch2": ""
+    },
+    "genuine": {
+        "gl": "adj.",
+        "defch1": "\u6b63\u7248",
+        "defch2": "\u771f\u6b63"
+    },
+    "genuinely": {
+        "gl": "adv.",
+        "defch1": "\u771f\u6b63\u5730",
+        "defch2": ""
+    },
+    "glance": {
+        "gl": "n.",
+        "defch1": "\u6383\u8996",
+        "defch2": ""
+    },
+    "global": {
+        "gl": "adj.",
+        "defch1": "\u5168\u57df",
+        "defch2": "\u5168\u7403"
+    },
+    "globe": {
+        "gl": "n.",
+        "defch1": "\u5168\u7403",
+        "defch2": ""
+    },
+    "goal": {
+        "gl": "n.",
+        "defch1": "\u76ee\u6a19",
+        "defch2": ""
+    },
+    "gold": {
+        "gl": "n.",
+        "defch1": "\u91d1\u8272",
+        "defch2": "\u91d1"
+    },
+    "golden": {
+        "gl": "adj.",
+        "defch1": "\u91d1\u7684",
+        "defch2": "\u91d1\u8272\u7684"
+    },
+    "goldsmith": {
+        "gl": "n.",
+        "defch1": "\u91d1\u5320",
+        "defch2": ""
+    },
+    "gorgeous": {
+        "gl": "adj.",
+        "defch1": "\u5f15\u4eba\u5165\u52dd\u7684",
+        "defch2": "\u83ef\u9e97"
+    },
+    "gossip": {
+        "gl": "n.",
+        "defch1": "\u516b\u5366\u65b0\u95fb",
+        "defch2": "\u9592\u8a71"
+    },
+    "government": {
+        "gl": "n.",
+        "defch1": "\u653f\u5e9c",
+        "defch2": ""
+    },
+    "gradually": {
+        "gl": "adv.",
+        "defch1": "\u9010\u6f38\u5730",
+        "defch2": "\u9010\u6f38"
+    },
+    "graduate": {
+        "gl": "n.",
+        "defch1": "\u7814\u7a76\u751f",
+        "defch2": ""
+    },
+    "grain": {
+        "gl": "n.",
+        "defch1": "\u7ec6\u7c92",
+        "defch2": "\u7ce7\u98df"
+    },
+    "gram": {
+        "gl": "n.",
+        "defch1": "\u516c\u514b",
+        "defch2": ""
+    },
+    "grant": {
+        "gl": "n.",
+        "defch1": "\u7d66\u4e88",
+        "defch2": "\u6388\u4e88"
+    },
+    "grateful": {
+        "gl": "adj.",
+        "defch1": "\u611f\u6fc0\u7684",
+        "defch2": "\u611f\u6fc0"
+    },
+    "gratitude": {
+        "gl": "n.",
+        "defch1": "\u611f\u8b1d",
+        "defch2": ""
+    },
+    "greed": {
+        "gl": "n.",
+        "defch1": "\u8caa\u5fc3",
+        "defch2": "\u8caa\u5a6a"
+    },
+    "greedy": {
+        "gl": "adj.",
+        "defch1": "\u8caa\u5a6a",
+        "defch2": ""
+    },
+    "greet": {
+        "gl": "v.",
+        "defch1": "\u8fce\u63a5",
+        "defch2": ""
+    },
+    "greeting": {
+        "gl": "n.",
+        "defch1": "\u71b1\u70c8\u6b61\u8fce",
+        "defch2": "\u554f\u5019"
+    },
+    "grocery": {
+        "gl": "n.",
+        "defch1": "\u96dc\u8ca8\u5e97",
+        "defch2": ""
+    },
+    "guide": {
+        "gl": "n.",
+        "defch1": "\u8f14\u52a9\u7dda",
+        "defch2": "\u6307\u5357"
+    },
+    "gym": {
+        "gl": "n.",
+        "defch1": "\u5065\u8eab\u623f",
+        "defch2": ""
+    },
+    "habitat": {
+        "gl": "n.",
+        "defch1": "\u52d5\u7269\u68f2\u5730",
+        "defch2": "\u68f2\u606f\u5730"
+    },
+    "hall": {
+        "gl": "n.",
+        "defch1": "\u5927\u5385",
+        "defch2": "\u5927\u5ef3"
+    },
+    "handicapped": {
+        "gl": "n.",
+        "defch1": "\u6b98\u969c\u7684",
+        "defch2": "\u6b98\u969c\u4eba\u58eb"
+    },
+    "handle": {
+        "gl": "n.",
+        "defch1": "\u63a7\u5236\u4ee3\u78bc",
+        "defch2": "\u8655\u7406"
+    },
+    "happen": {
+        "gl": "v.",
+        "defch1": "\u767c\u751f",
+        "defch2": ""
+    },
+    "harbor": {
+        "gl": "n.",
+        "defch1": "\u73cd\u73e0\u6e2f",
+        "defch2": "\u6e2f\u53e3"
+    },
+    "hardware": {
+        "gl": "n.",
+        "defch1": "\u786c\u9ad4",
+        "defch2": "\u786c\u4ef6"
+    },
+    "harm": {
+        "gl": "n.",
+        "defch1": "\u5371\u5bb3",
+        "defch2": ""
+    },
+    "harmful": {
+        "gl": "adj.",
+        "defch1": "\u5371\u5bb3\u6253\u64ca",
+        "defch2": "\u6709\u5bb3"
+    },
+    "headache": {
+        "gl": "n.",
+        "defch1": "\u982d\u75db",
+        "defch2": ""
+    },
+    "headline": {
+        "gl": "n.",
+        "defch1": "\u6a19\u984c",
+        "defch2": ""
+    },
+    "heal": {
+        "gl": "v.",
+        "defch1": "\u6cbb\u7642",
+        "defch2": ""
+    },
+    "health": {
+        "gl": "n.",
+        "defch1": "\u5065\u5eb7\u60c5\u6cc1",
+        "defch2": ""
+    },
+    "healthy": {
+        "gl": "adj.",
+        "defch1": "\u5065\u5eb7",
+        "defch2": ""
+    },
+    "heat": {
+        "gl": "n.",
+        "defch1": "\u6696\u6c23",
+        "defch2": ""
+    },
+    "heater": {
+        "gl": "n.",
+        "defch1": "\u4e09\u7126",
+        "defch2": "\u52a0\u71b1\u5668"
+    },
+    "hereditary": {
+        "gl": "adj.",
+        "defch1": "\u907a\u50b3",
+        "defch2": ""
+    },
+    "hesitate": {
+        "gl": "v.",
+        "defch1": "\u9072\u7591",
+        "defch2": "\u7336\u8c6b"
+    },
+    "hesitation": {
+        "gl": "n.",
+        "defch1": "\u7336\u8c6b",
+        "defch2": ""
+    },
+    "hide": {
+        "gl": "n.",
+        "defch1": "\u96b1\u85cf",
+        "defch2": ""
+    },
+    "highlight": {
+        "gl": "n.",
+        "defch1": "\u7a81\u986f",
+        "defch2": "\u7a81\u51fa"
+    },
+    "hint": {
+        "gl": "n.",
+        "defch1": "\u63d0\u793a",
+        "defch2": "\u6697\u793a"
+    },
+    "hire": {
+        "gl": "n.",
+        "defch1": "\u8058\u8acb",
+        "defch2": ""
+    },
+    "hit": {
+        "gl": "n.",
+        "defch1": "\u53eb\u7528",
+        "defch2": ""
+    },
+    "hollow": {
+        "gl": "n.",
+        "defch1": "\u93e4\u7a7a",
+        "defch2": "\u7a7a\u5fc3\u7684"
+    },
+    "homemade": {
+        "gl": "adj.",
+        "defch1": "\u81ea\u88fd\u7684",
+        "defch2": ""
+    },
+    "honesty": {
+        "gl": "n.",
+        "defch1": "\u8aa0\u5be6",
+        "defch2": ""
+    },
+    "honor": {
+        "gl": "n.",
+        "defch1": "\u69ae\u8b7d",
+        "defch2": ""
+    },
+    "horn": {
+        "gl": "n.",
+        "defch1": "\u5587\u53ed",
+        "defch2": ""
+    },
+    "horrible": {
+        "gl": "adj.",
+        "defch1": "\u53ef\u6015",
+        "defch2": ""
+    },
+    "hospitality": {
+        "gl": "n.",
+        "defch1": "\u9152\u5e97\u696d",
+        "defch2": "\u6b3e\u5f85"
+    },
+    "host": {
+        "gl": "n.",
+        "defch1": "\u7684\u5bb6\u9109/\u539f\u5c45\u5730",
+        "defch2": "\u4e3b\u8fa6"
+    },
+    "hostile": {
+        "gl": "n.",
+        "defch1": "\u6575\u5c0d\u7684",
+        "defch2": ""
+    },
+    "household": {
+        "gl": "n.",
+        "defch1": "\u5bb6\u7528\u7684",
+        "defch2": "\u5bb6\u5ead"
+    },
+    "human": {
+        "gl": "n.",
+        "defch1": "\u4eba\u985e",
+        "defch2": "\u4eba\u7684"
+    },
+    "humankind": {
+        "gl": "n.",
+        "defch1": "\u4eba\u985e",
+        "defch2": ""
+    },
+    "humble": {
+        "gl": "v.",
+        "defch1": "\u666e\u901a\u7684\uff0c\u4e0d\u8d77\u773c\u7684",
+        "defch2": "\u8b19\u5351"
+    },
+    "humid": {
+        "gl": "adj.",
+        "defch1": "\u6f6e\u6fd5",
+        "defch2": "\u6fd5"
+    },
+    "humor": {
+        "gl": "n.",
+        "defch1": "\u5e7d\u9ed8",
+        "defch2": ""
+    },
+    "humorous": {
+        "gl": "adj.",
+        "defch1": "\u5e7d\u9ed8",
+        "defch2": ""
+    },
+    "hurry": {
+        "gl": "n.",
+        "defch1": "\u8d95\u7dca\u7684",
+        "defch2": "\u5306\u5fd9"
+    },
+    "hurt": {
+        "gl": "n.",
+        "defch1": "\u50b7",
+        "defch2": "\u50b7\u5bb3"
+    },
+    "ideal": {
+        "gl": "n.",
+        "defch1": "\u7406\u60f3",
+        "defch2": ""
+    },
+    "identical": {
+        "gl": "adj.",
+        "defch1": "\u76f8\u540c",
+        "defch2": ""
+    },
+    "identification": {
+        "gl": "n.",
+        "defch1": "\u9451\u5b9a",
+        "defch2": ""
+    },
+    "identify": {
+        "gl": "v.",
+        "defch1": "\u8b58\u5225\u78bc",
+        "defch2": ""
+    },
+    "identity": {
+        "gl": "n.",
+        "defch1": "\u7db2\u7ad9\u8eab\u5206\u8b58\u5225",
+        "defch2": "\u8eab\u4efd"
+    },
+    "ignore": {
+        "gl": "v.",
+        "defch1": "\u5ffd\u8996",
+        "defch2": ""
+    },
+    "illegal": {
+        "gl": "adj.",
+        "defch1": "\u4e0d\u5408\u6cd5",
+        "defch2": "\u975e\u6cd5"
+    },
+    "illness": {
+        "gl": "n.",
+        "defch1": "\u75be\u75c5",
+        "defch2": ""
+    },
+    "illustrate": {
+        "gl": "v.",
+        "defch1": "(\u66ff\u66f8)\u52a0\u63d2\u5716",
+        "defch2": "\u8aaa\u660e"
+    },
+    "illustration": {
+        "gl": "n.",
+        "defch1": "\u63d2\u5716\u7e6a\u88fd",
+        "defch2": ""
+    },
+    "image": {
+        "gl": "n.",
+        "defch1": "\u5716\u7247",
+        "defch2": ""
+    },
+    "imaginary": {
+        "gl": "n.",
+        "defch1": "\u5047\u60f3",
+        "defch2": ""
+    },
+    "imagination": {
+        "gl": "n.",
+        "defch1": "\u60f3\u50cf\u529b",
+        "defch2": ""
+    },
+    "imagine": {
+        "gl": "v.",
+        "defch1": "\u60f3\u50cf",
+        "defch2": ""
+    },
+    "imitate": {
+        "gl": "v.",
+        "defch1": "\u6a21\u64ec",
+        "defch2": ""
+    },
+    "imitation": {
+        "gl": "n.",
+        "defch1": "\u6a21\u4eff",
+        "defch2": "\u4eff\u88fd"
+    },
+    "imitative": {
+        "gl": "adj.",
+        "defch1": "\u6a21\u4eff\u7684",
+        "defch2": ""
+    },
+    "immediate": {
+        "gl": "adj.",
+        "defch1": "\u7acb\u5373\u7684",
+        "defch2": "\u5373\u6642"
+    },
+    "immediately": {
+        "gl": "adv.",
+        "defch1": "\u7acb\u5373\u57f7\u884c",
+        "defch2": "\u7acb\u5373"
+    },
+    "immigrant": {
+        "gl": "n.",
+        "defch1": "\u79fb\u6c11",
+        "defch2": ""
+    },
+    "immigrate": {
+        "gl": "v.",
+        "defch1": "\u79fb\u6c11",
+        "defch2": ""
+    },
+    "immoral": {
+        "gl": "adj.",
+        "defch1": "\u4e0d\u9053\u5fb7",
+        "defch2": ""
+    },
+    "immune": {
+        "gl": "n.",
+        "defch1": "\u514d\u75ab\u7684",
+        "defch2": ""
+    },
+    "impact": {
+        "gl": "n.",
+        "defch1": "\uff08\u5c0d\u67d0\u4e8b\u7269\uff09\u6709\u5f71\u97ff\uff0c\u6709\u4f5c\u7528",
+        "defch2": ""
+    },
+    "impatient": {
+        "gl": "adj.",
+        "defch1": "\u4e0d\u8010\u70e6",
+        "defch2": "\u4e0d\u8010\u7169"
+    },
+    "imply": {
+        "gl": "v.",
+        "defch1": "\u610f\u5473\u8457",
+        "defch2": ""
+    },
+    "import": {
+        "gl": "n.",
+        "defch1": "\u532f\u5165",
+        "defch2": "\u9032\u53e3"
+    },
+    "impossibility": {
+        "gl": "n.",
+        "defch1": "\u4e0d\u53ef\u80fd\u6027",
+        "defch2": "\u4e0d\u53ef\u80fd"
+    },
+    "impress": {
+        "gl": "n.",
+        "defch1": "\u5370",
+        "defch2": "\u6253\u52d5"
+    },
+    "impression": {
+        "gl": "n.",
+        "defch1": "\u5ee3\u544a\u66dd\u5149",
+        "defch2": "\u5370\u8c61"
+    },
+    "impressive": {
+        "gl": "adj.",
+        "defch1": "\u4ee4\u4eba\u5370\u8c61\u6df1\u523b",
+        "defch2": "\u4ee4\u4eba\u5370\u8c61\u6df1\u523b"
+    },
+    "improve": {
+        "gl": "v.",
+        "defch1": "\u6539\u9032",
+        "defch2": "\u63d0\u9ad8"
+    },
+    "improvement": {
+        "gl": "n.",
+        "defch1": "\u6539\u5584",
+        "defch2": ""
+    },
+    "incapable": {
+        "gl": "adj.",
+        "defch1": "\u7121\u6cd5",
+        "defch2": ""
+    },
+    "include": {
+        "gl": "v.",
+        "defch1": "\u5305\u542b",
+        "defch2": "\u5305\u62ec"
+    },
+    "including": {
+        "gl": "v.",
+        "defch1": "\u5305\u62ec",
+        "defch2": ""
+    },
+    "income": {
+        "gl": "n.",
+        "defch1": "\u6536\u5165",
+        "defch2": ""
+    },
+    "incomplete": {
+        "gl": "adj.",
+        "defch1": "\u4e0d\u5b8c\u5168",
+        "defch2": "\u4e0d\u5b8c\u6574"
+    },
+    "increase": {
+        "gl": "n.",
+        "defch1": "\u589e\u52a0",
+        "defch2": ""
+    },
+    "increasingly": {
+        "gl": "adv.",
+        "defch1": "\u65e5\u76ca",
+        "defch2": ""
+    },
+    "incredible": {
+        "gl": "adj.",
+        "defch1": "\u4e0d\u53ef\u601d\u8b70\u7684",
+        "defch2": "\u96e3\u4ee5\u7f6e\u4fe1"
+    },
+    "incredibly": {
+        "gl": "adv.",
+        "defch1": "\u4ee4\u4eba\u96e3\u4ee5\u7f6e\u4fe1\u7684",
+        "defch2": ""
+    },
+    "incurable": {
+        "gl": "n.",
+        "defch1": "\u4e0d\u6cbb\u4e4b\u75c7",
+        "defch2": ""
+    },
+    "indeed": {
+        "gl": "adv.",
+        "defch1": "\u78ba\u5be6",
+        "defch2": ""
+    },
+    "indicate": {
+        "gl": "v.",
+        "defch1": "\u8868\u660e",
+        "defch2": ""
+    },
+    "individual": {
+        "gl": "n.",
+        "defch1": "\u9650\u55ae\u7368\u4f7f\u7528",
+        "defch2": "\u500b\u4eba"
+    },
+    "industrial": {
+        "gl": "adj.",
+        "defch1": "\u5de5\u696d",
+        "defch2": "\u7522\u696d"
+    },
+    "industry": {
+        "gl": "n.",
+        "defch1": "\u884c\u696d",
+        "defch2": ""
+    },
+    "ineffective": {
+        "gl": "adj.",
+        "defch1": "\u7121\u6548",
+        "defch2": "\u7121\u6548\u7684"
+    },
+    "infect": {
+        "gl": "v.",
+        "defch1": "\u611f\u67d3",
+        "defch2": ""
+    },
+    "infection": {
+        "gl": "n.",
+        "defch1": "\u611f\u67d3",
+        "defch2": ""
+    },
+    "infer": {
+        "gl": "v.",
+        "defch1": "\u63a8\u65b7",
+        "defch2": ""
+    },
+    "inferior": {
+        "gl": "n.",
+        "defch1": "\u4e0b\u4f4d",
+        "defch2": "\u4e0b"
+    },
+    "inflate": {
+        "gl": "v.",
+        "defch1": "\u5439\u8139",
+        "defch2": "\u81a8\u8139"
+    },
+    "inflation": {
+        "gl": "n.",
+        "defch1": "\u901a\u8d27\u81a8\u80c0",
+        "defch2": "\u901a\u8ca8\u81a8\u8139"
+    },
+    "influence": {
+        "gl": "n.",
+        "defch1": "\u53ef\u5f71\u97ff",
+        "defch2": "\u5f71\u97ff"
+    },
+    "inform": {
+        "gl": "v.",
+        "defch1": "\u901a\u77e5",
+        "defch2": ""
+    },
+    "informal": {
+        "gl": "adj.",
+        "defch1": "\u975e\u6b63\u5f0f\u7684",
+        "defch2": ""
+    },
+    "information": {
+        "gl": "n.",
+        "defch1": "\u8cc7\u8a0a",
+        "defch2": ""
+    },
+    "ingredient": {
+        "gl": "n.",
+        "defch1": "\u6210\u5206",
+        "defch2": ""
+    },
+    "inhabit": {
+        "gl": "v.",
+        "defch1": "\u5c45\u4f4f\u65bc",
+        "defch2": ""
+    },
+    "inhabitant": {
+        "gl": "n.",
+        "defch1": "\u5c45\u6c11",
+        "defch2": ""
+    },
+    "inherit": {
+        "gl": "v.",
+        "defch1": "\u7e7c\u627f",
+        "defch2": ""
+    },
+    "inheritance": {
+        "gl": "n.",
+        "defch1": "\u7e7c\u627f",
+        "defch2": "\u907a\u7522"
+    },
+    "injure": {
+        "gl": "v.",
+        "defch1": "\u50b7\u5bb3",
+        "defch2": "\u640d\u50b7"
+    },
+    "injury": {
+        "gl": "n.",
+        "defch1": "\u640d\u5bb3",
+        "defch2": ""
+    },
+    "innocent": {
+        "gl": "n.",
+        "defch1": "\u7121\u8f9c",
+        "defch2": ""
+    },
+    "insect": {
+        "gl": "n.",
+        "defch1": "\u6606\u87f2",
+        "defch2": ""
+    },
+    "insist": {
+        "gl": "v.",
+        "defch1": "\u5805\u6301",
+        "defch2": ""
+    },
+    "insistence": {
+        "gl": "n.",
+        "defch1": "\u5805\u6301",
+        "defch2": ""
+    },
+    "inspiration": {
+        "gl": "n.",
+        "defch1": "\u9748\u611f",
+        "defch2": ""
+    },
+    "inspire": {
+        "gl": "v.",
+        "defch1": "\u555f\u767c",
+        "defch2": ""
+    },
+    "inspiring": {
+        "gl": "v.",
+        "defch1": "\u9f13\u821e\u4eba\u5fc3\u7684\uff1b\u6fc0\u52f5\u7684\uff1b\u555f\u767c\u9748\u611f\u7684",
+        "defch2": "\u9f13\u821e\u4eba\u5fc3\u7684"
+    },
+    "instant": {
+        "gl": "n.",
+        "defch1": "\u7acb\u5373!",
+        "defch2": "\u77ac\u9593"
+    },
+    "instantly": {
+        "gl": "adv.",
+        "defch1": "\u5373\u523b",
+        "defch2": ""
+    },
+    "instead": {
+        "gl": "adv.",
+        "defch1": "\u4ee3\u66ff",
+        "defch2": ""
+    },
+    "institute": {
+        "gl": "n.",
+        "defch1": "\u5efa\u7acb",
+        "defch2": "\u7814\u7a76\u6240"
+    },
+    "institution": {
+        "gl": "n.",
+        "defch1": "\u6a5f\u95dc\u586b\u5beb",
+        "defch2": ""
+    },
+    "instrument": {
+        "gl": "n.",
+        "defch1": "\u6aa2\u6e2c",
+        "defch2": "\u5100\u5668"
+    },
+    "insult": {
+        "gl": "n.",
+        "defch1": "\u4fae\u8fb1",
+        "defch2": ""
+    },
+    "insurance": {
+        "gl": "n.",
+        "defch1": "\u4fdd\u96aa",
+        "defch2": ""
+    },
+    "intelligent": {
+        "gl": "adj.",
+        "defch1": "\u667a\u80fd",
+        "defch2": ""
+    },
+    "intend": {
+        "gl": "v.",
+        "defch1": "\u610f\u5716",
+        "defch2": "\u6253\u7b97"
+    },
+    "interaction": {
+        "gl": "n.",
+        "defch1": "\u4e92\u52d5",
+        "defch2": "\u76f8\u4e92\u4f5c\u7528"
+    },
+    "interest": {
+        "gl": "n.",
+        "defch1": "\u81ea\u5b9a\u7fa9\u5229\u7387",
+        "defch2": ""
+    },
+    "interested": {
+        "gl": "v.",
+        "defch1": "\u6709\u5174\u8da3",
+        "defch2": "\u6709\u8208\u8da3"
+    },
+    "interesting": {
+        "gl": "v.",
+        "defch1": "\u8010\u4eba\u5c0b\u5473",
+        "defch2": ""
+    },
+    "interfere": {
+        "gl": "v.",
+        "defch1": "\u5e72\u6d89",
+        "defch2": "\u5e72\u64fe"
+    },
+    "interior": {
+        "gl": "n.",
+        "defch1": "\u5167\u90e8",
+        "defch2": "\u5ba4\u5167"
+    },
+    "internal": {
+        "gl": "adj.",
+        "defch1": "\u5167\u5c64",
+        "defch2": "\u5167\u90e8"
+    },
+    "international": {
+        "gl": "n.",
+        "defch1": "\u570b\u969b\u7684",
+        "defch2": ""
+    },
+    "interrupt": {
+        "gl": "n.",
+        "defch1": "\u63d2\u65b7",
+        "defch2": "\u6253\u65b7"
+    },
+    "interruption": {
+        "gl": "n.",
+        "defch1": "\u6253\u65b7",
+        "defch2": ""
+    },
+    "interview": {
+        "gl": "n.",
+        "defch1": "\u9762\u8ac7",
+        "defch2": "\u9762\u8a66"
+    },
+    "interviewer": {
+        "gl": "n.",
+        "defch1": "\u8a2a\u554f\u8005",
+        "defch2": ""
+    },
+    "intimate": {
+        "gl": "n.",
+        "defch1": "\u89aa\u5bc6\u7684",
+        "defch2": "\u89aa\u5bc6"
+    },
+    "intimately": {
+        "gl": "adv.",
+        "defch1": "\u89aa\u5bc6\u5730",
+        "defch2": ""
+    },
+    "introduce": {
+        "gl": "v.",
+        "defch1": "\u4ecb\u7d39",
+        "defch2": ""
+    },
+    "introduction": {
+        "gl": "n.",
+        "defch1": "\u7b80\u4ecb",
+        "defch2": "\u4ecb\u7d39"
+    },
+    "invaluable": {
+        "gl": "adj.",
+        "defch1": "\u7121\u50f9",
+        "defch2": ""
+    },
+    "invasion": {
+        "gl": "n.",
+        "defch1": "\u5165\u4fb5",
+        "defch2": ""
+    },
+    "invent": {
+        "gl": "v.",
+        "defch1": "\u767c\u660e",
+        "defch2": ""
+    },
+    "invention": {
+        "gl": "n.",
+        "defch1": "\u53d1\u660e",
+        "defch2": "\u767c\u660e"
+    },
+    "inventor": {
+        "gl": "n.",
+        "defch1": "\u5546\u5bb6\u7cfb\u7d71",
+        "defch2": "\u767c\u660e\u8005"
+    },
+    "invest": {
+        "gl": "v.",
+        "defch1": "\u6295\u8d44",
+        "defch2": "\u6295\u8cc7"
+    },
+    "investigate": {
+        "gl": "v.",
+        "defch1": "\u8abf\u67e5",
+        "defch2": ""
+    },
+    "investigation": {
+        "gl": "n.",
+        "defch1": "\u8abf\u67e5",
+        "defch2": ""
+    },
+    "investment": {
+        "gl": "n.",
+        "defch1": "\u6709\u7528\u7684\u6295\u8cc7\u7269",
+        "defch2": ""
+    },
+    "involve": {
+        "gl": "v.",
+        "defch1": "\u6d89\u53ca",
+        "defch2": ""
+    },
+    "irritate": {
+        "gl": "v.",
+        "defch1": "\u523a\u6fc0",
+        "defch2": ""
+    },
+    "irritation": {
+        "gl": "n.",
+        "defch1": "(\u904e\u654f)\u523a\u6fc0",
+        "defch2": ""
+    },
+    "isolate": {
+        "gl": "v.",
+        "defch1": "\u7368\u7acb",
+        "defch2": ""
+    },
+    "isolation": {
+        "gl": "n.",
+        "defch1": "\u9694\u96e2",
+        "defch2": ""
+    },
+    "issue": {
+        "gl": "n.",
+        "defch1": "\u8b70\u984c",
+        "defch2": "\u554f\u984c"
+    },
+    "item": {
+        "gl": "n.",
+        "defch1": "\u9805\u76ee",
+        "defch2": ""
+    },
+    "jam": {
+        "gl": "n.",
+        "defch1": "\u679c\u91ac",
+        "defch2": ""
+    },
+    "jealous": {
+        "gl": "adj.",
+        "defch1": "\u5992\u5fcc",
+        "defch2": ""
+    },
+    "jealousy": {
+        "gl": "n.",
+        "defch1": "\u5992\u5fcc",
+        "defch2": ""
+    },
+    "join": {
+        "gl": "n.",
+        "defch1": "\u52a0\u5165",
+        "defch2": ""
+    },
+    "journal": {
+        "gl": "n.",
+        "defch1": "\u5e33\u76ee\u65e5\u8a8c",
+        "defch2": "\u65e5\u8a8c"
+    },
+    "journey": {
+        "gl": "n.",
+        "defch1": "\u65c5\u7a0b",
+        "defch2": ""
+    },
+    "judge": {
+        "gl": "n.",
+        "defch1": "\u6cd5\u5b98",
+        "defch2": ""
+    },
+    "judgment": {
+        "gl": "n.",
+        "defch1": "\u5224\u65b7",
+        "defch2": ""
+    },
+    "justice": {
+        "gl": "n.",
+        "defch1": "\u516c\u5e73\u6b63\u7fa9",
+        "defch2": "\u6b63\u7fa9"
+    },
+    "kidnap": {
+        "gl": "v.",
+        "defch1": "\u52ab\u6301",
+        "defch2": "\u7d81\u67b6"
+    },
+    "kidney": {
+        "gl": "n.",
+        "defch1": "\u814e\u81df",
+        "defch2": "\u814e"
+    },
+    "kilogram": {
+        "gl": "n.",
+        "defch1": "\u5343\u514b",
+        "defch2": "\u516c\u65a4"
+    },
+    "kilometer": {
+        "gl": "n.",
+        "defch1": "\u516c\u91cc",
+        "defch2": ""
+    },
+    "knowledge": {
+        "gl": "n.",
+        "defch1": "\u77e5\u8b58",
+        "defch2": ""
+    },
+    "label": {
+        "gl": "n.",
+        "defch1": "\u6a19\u8a18",
+        "defch2": "\u6a19\u7c64"
+    },
+    "labor": {
+        "gl": "n.",
+        "defch1": "\u52de\u52d5",
+        "defch2": ""
+    },
+    "lack": {
+        "gl": "n.",
+        "defch1": "\u7f3a\u4e4f",
+        "defch2": ""
+    },
+    "landscape": {
+        "gl": "n.",
+        "defch1": "\u6c34\u5e73",
+        "defch2": "\u666f\u89c0"
+    },
+    "language": {
+        "gl": "n.",
+        "defch1": "\u8a9e\u8a00",
+        "defch2": ""
+    },
+    "lantern": {
+        "gl": "n.",
+        "defch1": "\u71c8\u7c60",
+        "defch2": ""
+    },
+    "last": {
+        "gl": "n.",
+        "defch1": "\u6301\u7e8c",
+        "defch2": ""
+    },
+    "latest": {
+        "gl": "n.",
+        "defch1": "\u6700\u65b0\u7684",
+        "defch2": ""
+    },
+    "latter": {
+        "gl": "n.",
+        "defch1": "\u5f8c\u8005",
+        "defch2": ""
+    },
+    "launch": {
+        "gl": "n.",
+        "defch1": "\u555f\u52d5",
+        "defch2": ""
+    },
+    "laundry": {
+        "gl": "n.",
+        "defch1": "\u6d17\u8863\u5e97",
+        "defch2": "\u6d17\u8863\u623f"
+    },
+    "layer": {
+        "gl": "n.",
+        "defch1": "\u5716\u5c64",
+        "defch2": "\u5c64"
+    },
+    "legal": {
+        "gl": "adj.",
+        "defch1": "\u6cd5\u5f8b",
+        "defch2": ""
+    },
+    "legend": {
+        "gl": "n.",
+        "defch1": "\u5716\u4f8b",
+        "defch2": "\u50b3\u8aaa"
+    },
+    "liberal": {
+        "gl": "n.",
+        "defch1": "\u81ea\u7531\u6d3e",
+        "defch2": ""
+    },
+    "likewise": {
+        "gl": "adv.",
+        "defch1": "\u540c\u6a23",
+        "defch2": ""
+    },
+    "limit": {
+        "gl": "n.",
+        "defch1": "\u9650\u984d",
+        "defch2": "\u9650\u5236"
+    },
+    "limitation": {
+        "gl": "n.",
+        "defch1": "(\u80fd\u529b)\u4fb7\u9650",
+        "defch2": "\u5c40\u9650\u6027"
+    },
+    "limited": {
+        "gl": "n.",
+        "defch1": "\u9650\u5236",
+        "defch2": ""
+    },
+    "link": {
+        "gl": "n.",
+        "defch1": "\u9023\u7d50",
+        "defch2": ""
+    },
+    "liquid": {
+        "gl": "n.",
+        "defch1": "\u6db2\u9ad4",
+        "defch2": ""
+    },
+    "literature": {
+        "gl": "n.",
+        "defch1": "\u6587\u5b78\u4f5c\u54c1",
+        "defch2": "\u6587\u5b78"
+    },
+    "lobby": {
+        "gl": "n.",
+        "defch1": "\u5927\u5ef3",
+        "defch2": "\u5927\u5802"
+    },
+    "local": {
+        "gl": "n.",
+        "defch1": "\u672c\u5730\u7aef",
+        "defch2": "\u672c\u5730"
+    },
+    "locate": {
+        "gl": "v.",
+        "defch1": "\u5c0b\u627e",
+        "defch2": "\u5b9a\u4f4d"
+    },
+    "location": {
+        "gl": "n.",
+        "defch1": "\u5730\u9ede",
+        "defch2": "\u4f4d\u7f6e"
+    },
+    "loneliness": {
+        "gl": "n.",
+        "defch1": "\u5b64\u7368\u611f",
+        "defch2": ""
+    },
+    "lonely": {
+        "gl": "adj.",
+        "defch1": "\u5b64\u7368",
+        "defch2": ""
+    },
+    "loss": {
+        "gl": "n.",
+        "defch1": "\u5931\u5229",
+        "defch2": ""
+    },
+    "lotion": {
+        "gl": "n.",
+        "defch1": "\u9732",
+        "defch2": "\u6d17\u5291"
+    },
+    "lottery": {
+        "gl": "n.",
+        "defch1": "\u62bd\u734e",
+        "defch2": ""
+    },
+    "lower": {
+        "gl": "n.",
+        "defch1": "\u8f03\u4f4e",
+        "defch2": "\u964d\u4f4e"
+    },
+    "loyal": {
+        "gl": "adj.",
+        "defch1": "\u5fe0\u8aa0",
+        "defch2": ""
+    },
+    "loyalty": {
+        "gl": "n.",
+        "defch1": "\u6703\u54e1\u7a4d\u9ede",
+        "defch2": ""
+    },
+    "lung": {
+        "gl": "n.",
+        "defch1": "\u80ba",
+        "defch2": ""
+    },
+    "luxurious": {
+        "gl": "adj.",
+        "defch1": "\u8c6a\u83ef",
+        "defch2": ""
+    },
+    "luxury": {
+        "gl": "n.",
+        "defch1": "\u5962\u83ef\u7684",
+        "defch2": ""
+    },
+    "magic": {
+        "gl": "n.",
+        "defch1": "\u9b54\u8853",
+        "defch2": "\u9b54\u6cd5"
+    },
+    "magnificent": {
+        "gl": "adj.",
+        "defch1": "\u83ef\u9e97\u7684",
+        "defch2": ""
+    },
+    "main": {
+        "gl": "n.",
+        "defch1": "\u4e3b\u8981\u5167\u5bb9\u5340",
+        "defch2": "\u4e3b\u8981"
+    },
+    "mainland": {
+        "gl": "n.",
+        "defch1": "\u5927\u9678",
+        "defch2": ""
+    },
+    "mainly": {
+        "gl": "adv.",
+        "defch1": "\u4e3b\u8981\u662f",
+        "defch2": ""
+    },
+    "maintain": {
+        "gl": "v.",
+        "defch1": "\u4f9b\u990a;\u64ab\u990a;\u8d0d\u990a",
+        "defch2": "\u4fdd\u6301"
+    },
+    "maintenance": {
+        "gl": "n.",
+        "defch1": "\u7dad\u4fee",
+        "defch2": ""
+    },
+    "major": {
+        "gl": "n.",
+        "defch1": "\u4e3b\u8981",
+        "defch2": ""
+    },
+    "makeup": {
+        "gl": "n.",
+        "defch1": "\u5316\u599d\u54c1",
+        "defch2": "\u5316\u599d"
+    },
+    "manage": {
+        "gl": "v.",
+        "defch1": "\u7ba1\u7406",
+        "defch2": ""
+    },
+    "manager": {
+        "gl": "n.",
+        "defch1": "\u7d93\u7406",
+        "defch2": ""
+    },
+    "manner": {
+        "gl": "n.",
+        "defch1": "\u65b9\u5f0f",
+        "defch2": ""
+    },
+    "manpower": {
+        "gl": "n.",
+        "defch1": "\u4eba\u529b",
+        "defch2": ""
+    },
+    "manufacture": {
+        "gl": "n.",
+        "defch1": "\u88fd\u9020",
+        "defch2": ""
+    },
+    "marathon": {
+        "gl": "n.",
+        "defch1": "\u9a6c\u62c9\u677e",
+        "defch2": ""
+    },
+    "margin": {
+        "gl": "n.",
+        "defch1": "\u5229\u6f64",
+        "defch2": "\u4fdd\u8b49\u91d1"
+    },
+    "marriage": {
+        "gl": "n.",
+        "defch1": "\u5a5a\u59fb",
+        "defch2": ""
+    },
+    "mask": {
+        "gl": "n.",
+        "defch1": "\u906e\u7f69",
+        "defch2": "\u9762\u5177"
+    },
+    "massage": {
+        "gl": "n.",
+        "defch1": "\u6309\u6469",
+        "defch2": ""
+    },
+    "massive": {
+        "gl": "adj.",
+        "defch1": "\u6975\u5927\u7684",
+        "defch2": "\u9f90\u5927\u7684"
+    },
+    "master": {
+        "gl": "n.",
+        "defch1": "\u4e3b\u8981",
+        "defch2": "\u4e3b"
+    },
+    "match": {
+        "gl": "n.",
+        "defch1": "\u7b26\u5408\u4e0b\u5217",
+        "defch2": ""
+    },
+    "material": {
+        "gl": "n.",
+        "defch1": "\u6750\u8cea",
+        "defch2": "\u6750\u6599"
+    },
+    "matter": {
+        "gl": "n.",
+        "defch1": "\u7269\u8cea",
+        "defch2": "\u7269"
+    },
+    "maximum": {
+        "gl": "n.",
+        "defch1": "\u6700\u5927\u503c",
+        "defch2": ""
+    },
+    "meal": {
+        "gl": "n.",
+        "defch1": "\u9910",
+        "defch2": "\u81b3\u98df"
+    },
+    "mean": {
+        "gl": "n.",
+        "defch1": "\u8a0e\u53ad",
+        "defch2": "\u610f\u601d"
+    },
+    "meaningless": {
+        "gl": "adj.",
+        "defch1": "\u7121\u610f\u7fa9\u7684",
+        "defch2": ""
+    },
+    "means": {
+        "gl": "n.",
+        "defch1": "\u624b\u6bb5",
+        "defch2": ""
+    },
+    "measure": {
+        "gl": "n.",
+        "defch1": "\u6e2c\u91cf",
+        "defch2": ""
+    },
+    "medal": {
+        "gl": "n.",
+        "defch1": "\u734e\u7ae0",
+        "defch2": "\u52f3\u7ae0"
+    },
+    "medical": {
+        "gl": "n.",
+        "defch1": "\u91ab\u7642",
+        "defch2": ""
+    },
+    "medicine": {
+        "gl": "n.",
+        "defch1": "\u85e5\u7269",
+        "defch2": ""
+    },
+    "medium": {
+        "gl": "n.",
+        "defch1": "\u4e2d",
+        "defch2": ""
+    },
+    "melt": {
+        "gl": "n.",
+        "defch1": "\u7194\u5316",
+        "defch2": ""
+    },
+    "memorize": {
+        "gl": "v.",
+        "defch1": "\u8a18\u4f4f",
+        "defch2": ""
+    },
+    "memory": {
+        "gl": "n.",
+        "defch1": "\u8a18\u61b6\u529b",
+        "defch2": "\u8a18\u61b6"
+    },
+    "mental": {
+        "gl": "adj.",
+        "defch1": "\u5fc3\u7406",
+        "defch2": ""
+    },
+    "mention": {
+        "gl": "n.",
+        "defch1": "\u76f8\u95dc\u8a18\u9304",
+        "defch2": "\u63d0\u5230"
+    },
+    "merchandise": {
+        "gl": "n.",
+        "defch1": "\u5546\u54c1",
+        "defch2": ""
+    },
+    "merchant": {
+        "gl": "n.",
+        "defch1": "\u5546\u5bb6",
+        "defch2": "\u5546\u4eba"
+    },
+    "mercy": {
+        "gl": "n.",
+        "defch1": "\u6190\u61ab",
+        "defch2": ""
+    },
+    "mess": {
+        "gl": "n.",
+        "defch1": "\u721b\u6524\u5b50",
+        "defch2": ""
+    },
+    "message": {
+        "gl": "n.",
+        "defch1": "\u8a0a\u606f",
+        "defch2": "\u4fe1\u606f"
+    },
+    "metal": {
+        "gl": "n.",
+        "defch1": "\u91d1\u5c5e\u6750\u6599",
+        "defch2": "\u91d1\u5c6c"
+    },
+    "meter": {
+        "gl": "n.",
+        "defch1": "\u516c\u5c3a",
+        "defch2": ""
+    },
+    "method": {
+        "gl": "n.",
+        "defch1": "\u65b9\u6cd5",
+        "defch2": ""
+    },
+    "microwave": {
+        "gl": "n.",
+        "defch1": "\u5fae\u6ce2\u7210",
+        "defch2": "\u5fae\u6ce2"
+    },
+    "mild": {
+        "gl": "adj.",
+        "defch1": "\u8f15\u5ea6",
+        "defch2": ""
+    },
+    "mildly": {
+        "gl": "adv.",
+        "defch1": "\u6eab\u548c\u5730",
+        "defch2": ""
+    },
+    "million": {
+        "gl": "n.",
+        "defch1": "\u767e\u842c",
+        "defch2": ""
+    },
+    "millionaire": {
+        "gl": "n.",
+        "defch1": "\u767e\u842c\u5bcc\u7fc1",
+        "defch2": ""
+    },
+    "mineral": {
+        "gl": "n.",
+        "defch1": "\u7926\u7269\u8cea",
+        "defch2": "\u7926\u7269"
+    },
+    "minor": {
+        "gl": "n.",
+        "defch1": "\u6b21\u8981",
+        "defch2": ""
+    },
+    "miserable": {
+        "gl": "adj.",
+        "defch1": "\u60b2\u6158",
+        "defch2": ""
+    },
+    "misery": {
+        "gl": "n.",
+        "defch1": "\u82e6\u96e3",
+        "defch2": ""
+    },
+    "mission": {
+        "gl": "n.",
+        "defch1": "\u4efb\u52d9",
+        "defch2": ""
+    },
+    "mistreat": {
+        "gl": "v.",
+        "defch1": "\u8650\u5f85",
+        "defch2": ""
+    },
+    "moderate": {
+        "gl": "n.",
+        "defch1": "\u9069\u5ea6\u7684",
+        "defch2": "\u4e2d\u7b49"
+    },
+    "modest": {
+        "gl": "adj.",
+        "defch1": "\u8b19\u865b",
+        "defch2": ""
+    },
+    "modesty": {
+        "gl": "n.",
+        "defch1": "\u8b19\u865b",
+        "defch2": ""
+    },
+    "moisture": {
+        "gl": "n.",
+        "defch1": "\u6fd5\u6c23",
+        "defch2": ""
+    },
+    "moral": {
+        "gl": "n.",
+        "defch1": "\u9053\u5fb7",
+        "defch2": ""
+    },
+    "murder": {
+        "gl": "n.",
+        "defch1": "\u8b00\u6bba",
+        "defch2": ""
+    },
+    "murderer": {
+        "gl": "n.",
+        "defch1": "\u5147\u624b",
+        "defch2": ""
+    },
+    "muscle": {
+        "gl": "n.",
+        "defch1": "\u746a\u7d22",
+        "defch2": "\u808c\u8089"
+    },
+    "mystery": {
+        "gl": "n.",
+        "defch1": "\u8c1c\u56e2",
+        "defch2": "\u795e\u79d8"
+    },
+    "naked": {
+        "gl": "adj.",
+        "defch1": "\u88f8",
+        "defch2": ""
+    },
+    "nation": {
+        "gl": "n.",
+        "defch1": "\u6c11\u65cf",
+        "defch2": "\u570b\u5bb6"
+    },
+    "national": {
+        "gl": "n.",
+        "defch1": "\u570b\u6c11",
+        "defch2": ""
+    },
+    "native": {
+        "gl": "n.",
+        "defch1": "\u539f\u751f",
+        "defch2": "\u672c\u6a5f"
+    },
+    "natural": {
+        "gl": "n.",
+        "defch1": "\u81ea\u7136",
+        "defch2": ""
+    },
+    "naturally": {
+        "gl": "adv.",
+        "defch1": "\u81ea\u7136",
+        "defch2": ""
+    },
+    "nature": {
+        "gl": "n.",
+        "defch1": "\u81ea\u7136",
+        "defch2": "\u6027\u8cea"
+    },
+    "necessary": {
+        "gl": "n.",
+        "defch1": "\u5fc5\u8981",
+        "defch2": ""
+    },
+    "necessity": {
+        "gl": "n.",
+        "defch1": "\u7dca\u6025\u60c5\u6cc1",
+        "defch2": ""
+    },
+    "negative": {
+        "gl": "n.",
+        "defch1": "\u6d88\u6975\u7684;\u8ca0\u9762\u7684",
+        "defch2": "\u8ca0"
+    },
+    "neglect": {
+        "gl": "n.",
+        "defch1": "\u5ffd\u7565",
+        "defch2": ""
+    },
+    "neglectful": {
+        "gl": "adj.",
+        "defch1": "\u758f\u5ffd\u7684",
+        "defch2": ""
+    },
+    "negotiate": {
+        "gl": "v.",
+        "defch1": "\u5354\u5546",
+        "defch2": "\u8ac7\u5224"
+    },
+    "negotiation": {
+        "gl": "n.",
+        "defch1": "\u8ac7\u5224",
+        "defch2": ""
+    },
+    "neighbor": {
+        "gl": "n.",
+        "defch1": "\u9130\u5c45",
+        "defch2": ""
+    },
+    "neighborhood": {
+        "gl": "n.",
+        "defch1": "\u793e\u5340",
+        "defch2": "\u9130\u91cc"
+    },
+    "network": {
+        "gl": "n.",
+        "defch1": "\u7db2\u8def",
+        "defch2": "\u7db2\u7d61"
+    },
+    "networking": {
+        "gl": "v.",
+        "defch1": "\u7db2\u7d61\u6d3b\u52d5",
+        "defch2": ""
+    },
+    "nightmare": {
+        "gl": "n.",
+        "defch1": "\u5922\u9b58",
+        "defch2": ""
+    },
+    "nonetheless": {
+        "gl": "adv.",
+        "defch1": "\u7136\u800c",
+        "defch2": "\u5118\u7ba1\u5982\u6b64"
+    },
+    "normal": {
+        "gl": "n.",
+        "defch1": "\u4e00\u822c",
+        "defch2": "\u6b63\u5e38"
+    },
+    "notable": {
+        "gl": "n.",
+        "defch1": "\u77e5\u540d",
+        "defch2": "\u503c\u5f97\u6ce8\u610f\u7684"
+    },
+    "note": {
+        "gl": "n.",
+        "defch1": "\u6ce8\u610f",
+        "defch2": ""
+    },
+    "notice": {
+        "gl": "n.",
+        "defch1": "\u901a\u77e5",
+        "defch2": "\u6ce8\u610f"
+    },
+    "notion": {
+        "gl": "n.",
+        "defch1": "\u6982\u5ff5",
+        "defch2": ""
+    },
+    "novel": {
+        "gl": "n.",
+        "defch1": "\u5275\u65b0",
+        "defch2": "\u5c0f\u8aaa"
+    },
+    "novelty": {
+        "gl": "n.",
+        "defch1": "\u65b0\u7a4e\u6027",
+        "defch2": ""
+    },
+    "nuclear": {
+        "gl": "adj.",
+        "defch1": "\u6838",
+        "defch2": ""
+    },
+    "numerous": {
+        "gl": "adj.",
+        "defch1": "\u4e0d\u4e00\u800c\u8db3",
+        "defch2": ""
+    },
+    "nutrient": {
+        "gl": "n.",
+        "defch1": "\u71df\u990a\u7d20",
+        "defch2": "\u990a\u5206"
+    },
+    "nutrition": {
+        "gl": "n.",
+        "defch1": "\u71df\u990a",
+        "defch2": ""
+    },
+    "nutritious": {
+        "gl": "adj.",
+        "defch1": "\u8425\u517b\u5b66",
+        "defch2": "\u6709\u71df\u990a\u7684"
+    },
+    "obedient": {
+        "gl": "adj.",
+        "defch1": "\u807d\u8a71",
+        "defch2": ""
+    },
+    "obey": {
+        "gl": "v.",
+        "defch1": "\u9806\u5f9e",
+        "defch2": ""
+    },
+    "object": {
+        "gl": "n.",
+        "defch1": "\u7269\u4ef6",
+        "defch2": "\u76ee\u7684"
+    },
+    "observation": {
+        "gl": "n.",
+        "defch1": "\u89c0\u5bdf",
+        "defch2": ""
+    },
+    "observe": {
+        "gl": "v.",
+        "defch1": "\u89c0\u5bdf",
+        "defch2": ""
+    },
+    "obstacle": {
+        "gl": "n.",
+        "defch1": "\u969c\u7919",
+        "defch2": ""
+    },
+    "obtain": {
+        "gl": "v.",
+        "defch1": "\u7372\u5f97",
+        "defch2": ""
+    },
+    "obvious": {
+        "gl": "adj.",
+        "defch1": "\u660e\u986f",
+        "defch2": ""
+    },
+    "obviously": {
+        "gl": "adv.",
+        "defch1": "\u660e\u986f",
+        "defch2": ""
+    },
+    "occasion": {
+        "gl": "n.",
+        "defch1": "\u5834\u5408",
+        "defch2": ""
+    },
+    "occasional": {
+        "gl": "adj.",
+        "defch1": "\u5076\u7136",
+        "defch2": ""
+    },
+    "occupy": {
+        "gl": "v.",
+        "defch1": "\u5360\u9818",
+        "defch2": "\u4f54\u64da"
+    },
+    "occur": {
+        "gl": "v.",
+        "defch1": "\u767c\u751f",
+        "defch2": ""
+    },
+    "offend": {
+        "gl": "v.",
+        "defch1": "\u5f97\u7f6a",
+        "defch2": ""
+    },
+    "offensive": {
+        "gl": "n.",
+        "defch1": "\u5192\u72af",
+        "defch2": ""
+    },
+    "offer": {
+        "gl": "n.",
+        "defch1": "\u7de0\u9020",
+        "defch2": "\u63d0\u4f9b"
+    },
+    "old-fashioned": {
+        "gl": "adj.",
+        "defch1": "\u9673\u8150\u3001\u5b88\u820a\u7684",
+        "defch2": "\u8001\u5f0f\u7684"
+    },
+    "Olympic": {
+        "gl": "adj.",
+        "defch1": "\u5967\u6797\u5339\u514b",
+        "defch2": ""
+    },
+    "omit": {
+        "gl": "v.",
+        "defch1": "\u5ffd\u7565",
+        "defch2": ""
+    },
+    "operate": {
+        "gl": "v.",
+        "defch1": "\u64cd\u4f5c",
+        "defch2": ""
+    },
+    "operation": {
+        "gl": "n.",
+        "defch1": "\u904b\u4f5c",
+        "defch2": "\u64cd\u4f5c"
+    },
+    "opinion": {
+        "gl": "n.",
+        "defch1": "\u610f\u898b",
+        "defch2": ""
+    },
+    "opponent": {
+        "gl": "n.",
+        "defch1": "\u5c0d\u624b",
+        "defch2": ""
+    },
+    "opportunity": {
+        "gl": "n.",
+        "defch1": "\u5546\u6a5f",
+        "defch2": "\u6a5f\u6703"
+    },
+    "oppose": {
+        "gl": "v.",
+        "defch1": "\u5c0d\u6297",
+        "defch2": "\u53cd\u5c0d"
+    },
+    "opposite": {
+        "gl": "n.",
+        "defch1": "\u76f8\u53cd",
+        "defch2": "\u5c0d\u9762"
+    },
+    "option": {
+        "gl": "n.",
+        "defch1": "\u4e0b\u62c9\u9078\u55ae\u9805\u76ee",
+        "defch2": "\u9078\u9805"
+    },
+    "optional": {
+        "gl": "adj.",
+        "defch1": "\u53ef\u9078",
+        "defch2": ""
+    },
+    "order": {
+        "gl": "n.",
+        "defch1": "\u8a02\u8cfc",
+        "defch2": ""
+    },
+    "ordinary": {
+        "gl": "n.",
+        "defch1": "\u666e\u901a",
+        "defch2": ""
+    },
+    "organization": {
+        "gl": "n.",
+        "defch1": "\u7d44\u7e54",
+        "defch2": ""
+    },
+    "organize": {
+        "gl": "v.",
+        "defch1": "\u7d44\u7e54",
+        "defch2": ""
+    },
+    "origin": {
+        "gl": "n.",
+        "defch1": "\u539f\u9ede",
+        "defch2": "\u8d77\u6e90"
+    },
+    "original": {
+        "gl": "n.",
+        "defch1": "\u539f\u59cb",
+        "defch2": "\u539f\u7248\u7684"
+    },
+    "originally": {
+        "gl": "adv.",
+        "defch1": "\u539f\u672c\u5730",
+        "defch2": "\u672c\u4f86"
+    },
+    "otherwise": {
+        "gl": "adj.",
+        "defch1": "\u5728\u5176\u4ed6\u65b9\u9762",
+        "defch2": "\u9664\u6b64\u4ee5\u5916"
+    },
+    "outstanding": {
+        "gl": "adj.",
+        "defch1": "\u5f85\u8655\u7406",
+        "defch2": "\u512a\u79c0"
+    },
+    "overcome": {
+        "gl": "v.",
+        "defch1": "\u514b\u670d",
+        "defch2": ""
+    },
+    "overdose": {
+        "gl": "v.",
+        "defch1": "\u904e\u91cf",
+        "defch2": ""
+    },
+    "oxygen": {
+        "gl": "n.",
+        "defch1": "\u6c27",
+        "defch2": ""
+    },
+    "package": {
+        "gl": "n.",
+        "defch1": "\u653f\u7b56\u5957\u4ef6",
+        "defch2": "\u5305"
+    },
+    "pain": {
+        "gl": "n.",
+        "defch1": "\u75bc\u75db",
+        "defch2": "\u75db"
+    },
+    "painkiller": {
+        "gl": "n.",
+        "defch1": "\u6b62\u75db\u85e5",
+        "defch2": ""
+    },
+    "paint": {
+        "gl": "n.",
+        "defch1": "\u7e6a\u756b",
+        "defch2": ""
+    },
+    "painting": {
+        "gl": "n.",
+        "defch1": "\u7e6a\u5716",
+        "defch2": ""
+    },
+    "pale": {
+        "gl": "n.",
+        "defch1": "\u84bc\u767d",
+        "defch2": ""
+    },
+    "partial": {
+        "gl": "n.",
+        "defch1": "\u90e8\u4efd",
+        "defch2": "\u90e8\u5206\u7684"
+    },
+    "partially": {
+        "gl": "adv.",
+        "defch1": "\u90e8\u5206\u5730",
+        "defch2": ""
+    },
+    "participate": {
+        "gl": "v.",
+        "defch1": "\u53c3\u8207\u6703\u8b70",
+        "defch2": "\u53c3\u52a0"
+    },
+    "particular": {
+        "gl": "n.",
+        "defch1": "\u7279\u5b9a",
+        "defch2": ""
+    },
+    "partner": {
+        "gl": "n.",
+        "defch1": "\u5925\u4f34",
+        "defch2": ""
+    },
+    "partnership": {
+        "gl": "n.",
+        "defch1": "\u5408\u4f5c\u95dc\u4fc2",
+        "defch2": "\u5408\u5925"
+    },
+    "passage": {
+        "gl": "n.",
+        "defch1": "\u901a\u9053",
+        "defch2": ""
+    },
+    "passenger": {
+        "gl": "n.",
+        "defch1": "\u4e58\u5ba2",
+        "defch2": ""
+    },
+    "passerby": {
+        "gl": "n.",
+        "defch1": "\u904e\u8def\u4eba",
+        "defch2": ""
+    },
+    "passport": {
+        "gl": "n.",
+        "defch1": "\u8b77\u7167",
+        "defch2": ""
+    },
+    "patient": {
+        "gl": "n.",
+        "defch1": "\u75c5\u4eba",
+        "defch2": "\u60a3\u8005"
+    },
+    "patiently": {
+        "gl": "adv.",
+        "defch1": "\u8010\u5fc3",
+        "defch2": "\u8010\u5fc3\u5730"
+    },
+    "pattern": {
+        "gl": "n.",
+        "defch1": "\u6a21\u5f0f",
+        "defch2": ""
+    },
+    "pause": {
+        "gl": "n.",
+        "defch1": "\u66ab\u505c",
+        "defch2": ""
+    },
+    "peace": {
+        "gl": "n.",
+        "defch1": "\u5e73\u548c",
+        "defch2": "\u548c\u5e73"
+    },
+    "peaceful": {
+        "gl": "adj.",
+        "defch1": "\u5be7\u975c",
+        "defch2": "\u5e73\u975c\u7684"
+    },
+    "pedestrian": {
+        "gl": "n.",
+        "defch1": "\u884c\u4eba",
+        "defch2": ""
+    },
+    "percent": {
+        "gl": "n.",
+        "defch1": "\u767e\u5206",
+        "defch2": ""
+    },
+    "percentage": {
+        "gl": "n.",
+        "defch1": "\u767e\u5206\u6bd4",
+        "defch2": ""
+    },
+    "perfect": {
+        "gl": "n.",
+        "defch1": "\u5b8c\u7f8e",
+        "defch2": "\u5b8c\u5584"
+    },
+    "perform": {
+        "gl": "v.",
+        "defch1": "\u57f7\u884c",
+        "defch2": ""
+    },
+    "perhaps": {
+        "gl": "adv.",
+        "defch1": "\u6216\u8a31\u22ef",
+        "defch2": "\u4e5f\u8a31"
+    },
+    "period": {
+        "gl": "n.",
+        "defch1": "\u6703\u589e\u52a0",
+        "defch2": "\u671f"
+    },
+    "permission": {
+        "gl": "n.",
+        "defch1": "\u4f7f\u7528\u6b0a\u9650, \u6b0a\u9650",
+        "defch2": "\u5141\u8a31"
+    },
+    "permit": {
+        "gl": "n.",
+        "defch1": "\u8a31\u53ef\u8b49",
+        "defch2": ""
+    },
+    "persist": {
+        "gl": "v.",
+        "defch1": "\u6301\u7e8c",
+        "defch2": ""
+    },
+    "persistence": {
+        "gl": "n.",
+        "defch1": "\u5805\u6301",
+        "defch2": ""
+    },
+    "personal": {
+        "gl": "n.",
+        "defch1": "\u500b\u4eba",
+        "defch2": ""
+    },
+    "personality": {
+        "gl": "n.",
+        "defch1": "\u500b\u6027",
+        "defch2": ""
+    },
+    "personally": {
+        "gl": "adv.",
+        "defch1": "\u89aa\u8eab",
+        "defch2": ""
+    },
+    "perspective": {
+        "gl": "n.",
+        "defch1": "\u6aa2\u8996\u65b9\u584a",
+        "defch2": ""
+    },
+    "persuade": {
+        "gl": "v.",
+        "defch1": "\u8aaa\u670d",
+        "defch2": ""
+    },
+    "pessimism": {
+        "gl": "n.",
+        "defch1": "\u60b2\u89c0\u4e3b\u7fa9",
+        "defch2": ""
+    },
+    "pessimistic": {
+        "gl": "adj.",
+        "defch1": "\u60b2\u89c0",
+        "defch2": ""
+    },
+    "philosophical": {
+        "gl": "adj.",
+        "defch1": "\u54f2\u5b78\u7684",
+        "defch2": ""
+    },
+    "philosophy": {
+        "gl": "n.",
+        "defch1": "\u54f2\u5b78",
+        "defch2": ""
+    },
+    "phrase": {
+        "gl": "n.",
+        "defch1": "\u7247\u8a9e",
+        "defch2": "\u77ed\u8a9e"
+    },
+    "physical": {
+        "gl": "adj.",
+        "defch1": "\u73fe\u5be6\u95dc\u4fc2",
+        "defch2": "\u7269\u7406"
+    },
+    "physics": {
+        "gl": "n.",
+        "defch1": "\u7269\u7406",
+        "defch2": ""
+    },
+    "pick": {
+        "gl": "n.",
+        "defch1": "\u9078\u64c7",
+        "defch2": "\u6311"
+    },
+    "picky": {
+        "gl": "adj.",
+        "defch1": "\u5439\u6bdb\u6c42\u75b5\u7684",
+        "defch2": ""
+    },
+    "pill": {
+        "gl": "n.",
+        "defch1": "\u692d\u5713",
+        "defch2": "\u4e38"
+    },
+    "pilot": {
+        "gl": "n.",
+        "defch1": "\u98db\u6a5f\u5e2b \u666e \u98db\u884c\u54e1",
+        "defch2": "\u98db\u884c\u54e1"
+    },
+    "pity": {
+        "gl": "n.",
+        "defch1": "\u53ef\u6190",
+        "defch2": ""
+    },
+    "plain": {
+        "gl": "n.",
+        "defch1": "\u5e73\u539f",
+        "defch2": "\u5e73\u6de1"
+    },
+    "plan": {
+        "gl": "n.",
+        "defch1": "\u8a08\u5283",
+        "defch2": ""
+    },
+    "planet": {
+        "gl": "n.",
+        "defch1": "\u884c\u661f",
+        "defch2": ""
+    },
+    "plant": {
+        "gl": "n.",
+        "defch1": "\u690d\u7269",
+        "defch2": "\u5ee0"
+    },
+    "plastic": {
+        "gl": "n.",
+        "defch1": "\u5851\u81a0",
+        "defch2": "\u5851\u6599"
+    },
+    "platform": {
+        "gl": "n.",
+        "defch1": "\u8b1b\u53f0",
+        "defch2": "\u5e73\u53f0"
+    },
+    "pleasant": {
+        "gl": "adj.",
+        "defch1": "\u5f6c\u5f6c\u6709\u79ae; \u548c\u85f9\u53ef\u89aa\u7684; \u5ba2\u6c23; \u89aa\u5207",
+        "defch2": "\u6109\u5feb"
+    },
+    "pleased": {
+        "gl": "v.",
+        "defch1": "\u9ad8\u8208",
+        "defch2": ""
+    },
+    "pleasure": {
+        "gl": "n.",
+        "defch1": "\u6a02\u8da3",
+        "defch2": ""
+    },
+    "poison": {
+        "gl": "n.",
+        "defch1": "\u6bd2",
+        "defch2": ""
+    },
+    "poisonous": {
+        "gl": "adj.",
+        "defch1": "\u6709\u6bd2",
+        "defch2": ""
+    },
+    "polar": {
+        "gl": "adj.",
+        "defch1": "\u6975\u6027",
+        "defch2": ""
+    },
+    "pole": {
+        "gl": "n.",
+        "defch1": "\u6975",
+        "defch2": ""
+    },
+    "political": {
+        "gl": "adj.",
+        "defch1": "\u653f\u6cbb",
+        "defch2": ""
+    },
+    "politician": {
+        "gl": "n.",
+        "defch1": "\u653f\u6cbb\u5bb6; \u653f\u5ba2",
+        "defch2": "\u653f\u6cbb\u5bb6"
+    },
+    "pollute": {
+        "gl": "v.",
+        "defch1": "\u6c61\u67d3",
+        "defch2": ""
+    },
+    "pollution": {
+        "gl": "n.",
+        "defch1": "\u6c61\u67d3",
+        "defch2": ""
+    },
+    "popular": {
+        "gl": "adj.",
+        "defch1": "\u53d7\u6b61\u8fce\u7684",
+        "defch2": "\u6d41\u884c"
+    },
+    "popularity": {
+        "gl": "n.",
+        "defch1": "\u71b1\u9580\u5546\u54c1",
+        "defch2": ""
+    },
+    "population": {
+        "gl": "n.",
+        "defch1": "\u6bcd\u9ad4\u64f4\u5c55",
+        "defch2": "\u4eba\u53e3"
+    },
+    "portion": {
+        "gl": "n.",
+        "defch1": "\u4e00\u90e8\u5206",
+        "defch2": ""
+    },
+    "portrait": {
+        "gl": "n.",
+        "defch1": "\u5782\u76f4",
+        "defch2": "\u8096\u50cf"
+    },
+    "portray": {
+        "gl": "v.",
+        "defch1": "\u5beb\u771f",
+        "defch2": ""
+    },
+    "position": {
+        "gl": "n.",
+        "defch1": "\u4f4d\u7f6e",
+        "defch2": ""
+    },
+    "positive": {
+        "gl": "n.",
+        "defch1": "\u6b63\u9762\u7684",
+        "defch2": "\u6b63"
+    },
+    "possess": {
+        "gl": "v.",
+        "defch1": "\u64c1\u6709",
+        "defch2": ""
+    },
+    "possession": {
+        "gl": "n.",
+        "defch1": "\u6240\u6709\u7269",
+        "defch2": "\u64c1\u6709"
+    },
+    "possibility": {
+        "gl": "n.",
+        "defch1": "\u53ef\u80fd\u6027",
+        "defch2": ""
+    },
+    "possible": {
+        "gl": "n.",
+        "defch1": "\u53ef\u80fd",
+        "defch2": ""
+    },
+    "possibly": {
+        "gl": "adv.",
+        "defch1": "\u6709\u53ef\u80fd",
+        "defch2": "\u53ef\u80fd"
+    },
+    "postpone": {
+        "gl": "v.",
+        "defch1": "\u63a8\u9072",
+        "defch2": ""
+    },
+    "potential": {
+        "gl": "n.",
+        "defch1": "\u6f5b\u529b",
+        "defch2": "\u6f5b\u5728"
+    },
+    "potentially": {
+        "gl": "adv.",
+        "defch1": "\u53ef\u80fd\u5730",
+        "defch2": "\u6f5b\u5728\u5730"
+    },
+    "pour": {
+        "gl": "v.",
+        "defch1": "\u5012",
+        "defch2": ""
+    },
+    "poverty": {
+        "gl": "n.",
+        "defch1": "\u8ca7\u7aae",
+        "defch2": ""
+    },
+    "power": {
+        "gl": "n.",
+        "defch1": "\u529f\u7387;\u52d5\u529b;\u6b0a\u529b",
+        "defch2": ""
+    },
+    "powerful": {
+        "gl": "adj.",
+        "defch1": "\u5f37\u5927\u7684",
+        "defch2": "\u5f37\u5927"
+    },
+    "practical": {
+        "gl": "adj.",
+        "defch1": "\u5be6\u969b\u7684...",
+        "defch2": "\u5be6\u969b\u7684"
+    },
+    "practically": {
+        "gl": "adv.",
+        "defch1": "\u4e8b\u5be6\u4e0a",
+        "defch2": "\u5e7e\u4e4e"
+    },
+    "practice": {
+        "gl": "n.",
+        "defch1": "\u64cd\u7df4",
+        "defch2": "\u5be6\u8e10"
+    },
+    "praise": {
+        "gl": "n.",
+        "defch1": "\u8b9a\u7f8e\uff0c\u7a31\u8b9a",
+        "defch2": "\u8b9a\u7f8e"
+    },
+    "precious": {
+        "gl": "adj.",
+        "defch1": "\u73cd\u8cb4",
+        "defch2": ""
+    },
+    "predict": {
+        "gl": "v.",
+        "defch1": "\u9810\u6e2c",
+        "defch2": ""
+    },
+    "predictable": {
+        "gl": "adj.",
+        "defch1": "\u53ef\u9810\u6e2c",
+        "defch2": ""
+    },
+    "prediction": {
+        "gl": "n.",
+        "defch1": "\u9810\u6e2c",
+        "defch2": ""
+    },
+    "prefer": {
+        "gl": "v.",
+        "defch1": "\u504f\u597d",
+        "defch2": "\u504f\u611b"
+    },
+    "preference": {
+        "gl": "n.",
+        "defch1": "\u504f\u597d",
+        "defch2": ""
+    },
+    "pregnancy": {
+        "gl": "n.",
+        "defch1": "\u61f7\u5b55",
+        "defch2": ""
+    },
+    "pregnant": {
+        "gl": "adj.",
+        "defch1": "\u61f7\u5b55",
+        "defch2": "\u5b55"
+    },
+    "prescribe": {
+        "gl": "v.",
+        "defch1": "\u898f\u5b9a",
+        "defch2": ""
+    },
+    "present": {
+        "gl": "n.",
+        "defch1": "\u7576\u4e0b",
+        "defch2": ""
+    },
+    "presentation": {
+        "gl": "n.",
+        "defch1": "\u7c21\u5831",
+        "defch2": ""
+    },
+    "preserve": {
+        "gl": "n.",
+        "defch1": "\u4fdd\u6301",
+        "defch2": "\u4fdd\u7559"
+    },
+    "president": {
+        "gl": "n.",
+        "defch1": "\u7e3d\u7d71",
+        "defch2": ""
+    },
+    "presidential": {
+        "gl": "adj.",
+        "defch1": "\u7e3d\u7d71",
+        "defch2": ""
+    },
+    "press": {
+        "gl": "n.",
+        "defch1": "\u6309",
+        "defch2": ""
+    },
+    "pressure": {
+        "gl": "n.",
+        "defch1": "\u58d3\u529b",
+        "defch2": ""
+    },
+    "prevent": {
+        "gl": "v.",
+        "defch1": "\u9632\u6b62",
+        "defch2": ""
+    },
+    "prevention": {
+        "gl": "n.",
+        "defch1": "\u9810\u9632",
+        "defch2": ""
+    },
+    "preventive": {
+        "gl": "n.",
+        "defch1": "\u9810\u9632\u6027\u7684",
+        "defch2": ""
+    },
+    "previous": {
+        "gl": "adj.",
+        "defch1": "\u4ee5\u524d",
+        "defch2": ""
+    },
+    "primarily": {
+        "gl": "adv.",
+        "defch1": "\u4e3b\u8981",
+        "defch2": ""
+    },
+    "primary": {
+        "gl": "n.",
+        "defch1": "\u9996\u9078",
+        "defch2": "\u4e3b"
+    },
+    "principal": {
+        "gl": "n.",
+        "defch1": "\u4e3b\u9ad4",
+        "defch2": "\u4e3b\u8981"
+    },
+    "principle": {
+        "gl": "n.",
+        "defch1": "\u539f\u5247",
+        "defch2": "\u539f\u7406"
+    },
+    "priority": {
+        "gl": "n.",
+        "defch1": "\u512a\u5148\u5e8f",
+        "defch2": ""
+    },
+    "privacy": {
+        "gl": "n.",
+        "defch1": "\u96b1\u79c1",
+        "defch2": ""
+    },
+    "process": {
+        "gl": "n.",
+        "defch1": "\u904e\u7a0b",
+        "defch2": "\u8655\u7406"
+    },
+    "producer": {
+        "gl": "n.",
+        "defch1": "\u88fd\u7247\u4eba",
+        "defch2": "\u751f\u7522\u8005"
+    },
+    "product": {
+        "gl": "n.",
+        "defch1": "\u7522\u54c1",
+        "defch2": ""
+    },
+    "professional": {
+        "gl": "n.",
+        "defch1": "\u8077\u696d",
+        "defch2": "\u5c08\u696d\u7684"
+    },
+    "profit": {
+        "gl": "n.",
+        "defch1": "\u5229\u6f64",
+        "defch2": ""
+    },
+    "profitable": {
+        "gl": "adj.",
+        "defch1": "\u8cfa\u9322\u7684",
+        "defch2": "\u6709\u5229\u53ef\u5716"
+    },
+    "program": {
+        "gl": "n.",
+        "defch1": "\u8a08\u5283",
+        "defch2": "\u7a0b\u5e8f"
+    },
+    "progress": {
+        "gl": "n.",
+        "defch1": "\u9032\u5ea6",
+        "defch2": "\u9032\u5c55"
+    },
+    "prohibit": {
+        "gl": "v.",
+        "defch1": "\u7981\u6b62",
+        "defch2": ""
+    },
+    "prohibition": {
+        "gl": "n.",
+        "defch1": "\u7981\u4ee4",
+        "defch2": ""
+    },
+    "project": {
+        "gl": "n.",
+        "defch1": "\u5c08\u6848",
+        "defch2": "\u9805\u76ee"
+    },
+    "promise": {
+        "gl": "n.",
+        "defch1": "\u627f\u8afe",
+        "defch2": "\u8afe\u8a00"
+    },
+    "promising": {
+        "gl": "v.",
+        "defch1": "\u6709\u524d\u9014\u7684",
+        "defch2": "\u6709\u5e0c\u671b"
+    },
+    "promote": {
+        "gl": "v.",
+        "defch1": "\u5347\u968e",
+        "defch2": "\u4fc3\u9032"
+    },
+    "pron.ce": {
+        "gl": "v.",
+        "defch1": "\u8b80\u97f3",
+        "defch2": "\u767c\u97f3"
+    },
+    "pronunciation": {
+        "gl": "n.",
+        "defch1": "\u8b80\u97f3",
+        "defch2": ""
+    },
+    "proof": {
+        "gl": "n.",
+        "defch1": "\u6a19\u6e96\u9152\u7cbe\u5ea6;\u9152\u985e\u5ea6\u6578",
+        "defch2": "\u8b49\u660e"
+    },
+    "proper": {
+        "gl": "adj.",
+        "defch1": "\u6b63\u78ba",
+        "defch2": ""
+    },
+    "properly": {
+        "gl": "adv.",
+        "defch1": "\u6b63\u78ba",
+        "defch2": "\u9069\u7576\u5730"
+    },
+    "property": {
+        "gl": "n.",
+        "defch1": "\u6a13\u76e4",
+        "defch2": "\u5c6c\u6027"
+    },
+    "prospect": {
+        "gl": "n.",
+        "defch1": "\u524d\u666f",
+        "defch2": ""
+    },
+    "prospective": {
+        "gl": "adj.",
+        "defch1": "\u9810\u671f",
+        "defch2": ""
+    },
+    "prosperous": {
+        "gl": "adj.",
+        "defch1": "\u7e41\u69ae\u7684",
+        "defch2": ""
+    },
+    "protect": {
+        "gl": "v.",
+        "defch1": "\u4fdd\u8b77",
+        "defch2": ""
+    },
+    "protection": {
+        "gl": "n.",
+        "defch1": "\u4fdd\u8b77",
+        "defch2": ""
+    },
+    "protein": {
+        "gl": "n.",
+        "defch1": "\u86cb\u767d\u8cea",
+        "defch2": "\u86cb\u767d"
+    },
+    "protest": {
+        "gl": "n.",
+        "defch1": "\u63d0\u51fa\u7570\u8b70",
+        "defch2": "\u6297\u8b70"
+    },
+    "proud": {
+        "gl": "adj.",
+        "defch1": "\u6709\u81ea\u5c0a\u5fc3\u7684",
+        "defch2": "\u9a55\u50b2"
+    },
+    "prove": {
+        "gl": "v.",
+        "defch1": "\u8b49\u660e",
+        "defch2": ""
+    },
+    "provide": {
+        "gl": "v.",
+        "defch1": "\u63d0\u4f9b",
+        "defch2": ""
+    },
+    "provoke": {
+        "gl": "v.",
+        "defch1": "\u5f15\u767c",
+        "defch2": "\u60f9"
+    },
+    "psychological": {
+        "gl": "adj.",
+        "defch1": "\u5fc3\u7406(\u5b78)\u7684",
+        "defch2": "\u5fc3\u7406"
+    },
+    "psychology": {
+        "gl": "n.",
+        "defch1": "\u5fc3\u7406\u5b78",
+        "defch2": ""
+    },
+    "public": {
+        "gl": "n.",
+        "defch1": "\u672a\u767c\u73fe\u516c\u958b\u8a55\u8ad6\uff01",
+        "defch2": ""
+    },
+    "publish": {
+        "gl": "v.",
+        "defch1": "\u767c\u5e03",
+        "defch2": ""
+    },
+    "punish": {
+        "gl": "v.",
+        "defch1": "\u60e9\u7f5a",
+        "defch2": "\u61f2\u6cbb"
+    },
+    "purchase": {
+        "gl": "n.",
+        "defch1": "\u8cfc\u8cb7\u7684\u6771\u897f",
+        "defch2": ""
+    },
+    "purpose": {
+        "gl": "n.",
+        "defch1": "\u76ee\u7684",
+        "defch2": ""
+    },
+    "pursue": {
+        "gl": "v.",
+        "defch1": "\u8ffd\u6c42",
+        "defch2": ""
+    },
+    "pursuit": {
+        "gl": "n.",
+        "defch1": "\u8ffd\u6c42",
+        "defch2": ""
+    },
+    "qualification": {
+        "gl": "n.",
+        "defch1": "\u8cc7\u683c",
+        "defch2": ""
+    },
+    "qualified": {
+        "gl": "v.",
+        "defch1": "\u5408\u683c",
+        "defch2": ""
+    },
+    "qualify": {
+        "gl": "v.",
+        "defch1": "\u6388\u8207\u8cc7\u683c",
+        "defch2": ""
+    },
+    "quality": {
+        "gl": "n.",
+        "defch1": "\u54c1\u8cea\u81f3\u4e0a",
+        "defch2": "\u8cea\u91cf"
+    },
+    "quantity": {
+        "gl": "n.",
+        "defch1": "\u6578\u91cf",
+        "defch2": ""
+    },
+    "quarter": {
+        "gl": "n.",
+        "defch1": "\u5b63",
+        "defch2": "25\u7f8e\u5206\u786c\u5e63"
+    },
+    "quotation": {
+        "gl": "n.",
+        "defch1": "\u5831\u50f9",
+        "defch2": "\u5831\u50f9\u55ae"
+    },
+    "quote": {
+        "gl": "n.",
+        "defch1": "\u5831\u50f9",
+        "defch2": "\u5f15\u7528"
+    },
+    "race": {
+        "gl": "n.",
+        "defch1": "\u6bd4\u8cfd",
+        "defch2": ""
+    },
+    "raise": {
+        "gl": "n.",
+        "defch1": "\u63d0\u9ad8",
+        "defch2": ""
+    },
+    "rank": {
+        "gl": "n.",
+        "defch1": "\u7b49\u7d1a",
+        "defch2": "\u79e9"
+    },
+    "rapid": {
+        "gl": "n.",
+        "defch1": "\u5feb\u901f",
+        "defch2": ""
+    },
+    "rapidly": {
+        "gl": "adv.",
+        "defch1": "\u8fc5\u901f\u5730",
+        "defch2": ""
+    },
+    "rate": {
+        "gl": "n.",
+        "defch1": "\u8a55\u5206",
+        "defch2": "\u7387"
+    },
+    "rational": {
+        "gl": "n.",
+        "defch1": "\u7406\u6027",
+        "defch2": "\u5408\u7406\u7684"
+    },
+    "rationally": {
+        "gl": "adv.",
+        "defch1": "\u7406\u6027\u5730",
+        "defch2": ""
+    },
+    "react": {
+        "gl": "v.",
+        "defch1": "\u53cd\u61c9",
+        "defch2": ""
+    },
+    "realize": {
+        "gl": "v.",
+        "defch1": "\u5be6\u73fe",
+        "defch2": ""
+    },
+    "reason": {
+        "gl": "n.",
+        "defch1": "\u539f\u56e0/\u5099\u8a3b",
+        "defch2": ""
+    },
+    "reasonable": {
+        "gl": "adj.",
+        "defch1": "\u5408\u7406\u7684",
+        "defch2": "\u5408\u7406"
+    },
+    "reasonably": {
+        "gl": "adv.",
+        "defch1": "\u5408\u7406\u5730",
+        "defch2": ""
+    },
+    "rebel": {
+        "gl": "n.",
+        "defch1": "\u53db\u8ecd",
+        "defch2": ""
+    },
+    "rebellion": {
+        "gl": "n.",
+        "defch1": "\u66b4\u52d5",
+        "defch2": ""
+    },
+    "rebellious": {
+        "gl": "adj.",
+        "defch1": "\u53db\u9006\u7684",
+        "defch2": ""
+    },
+    "receipt": {
+        "gl": "n.",
+        "defch1": "\u6536\u64da",
+        "defch2": ""
+    },
+    "receive": {
+        "gl": "v.",
+        "defch1": "\u7372\u5f97",
+        "defch2": ""
+    },
+    "recent": {
+        "gl": "n.",
+        "defch1": "\u6700\u65b0\u52d5\u5411",
+        "defch2": "\u6700\u8fd1"
+    },
+    "recently": {
+        "gl": "adv.",
+        "defch1": "\u6700\u8fd1",
+        "defch2": ""
+    },
+    "reception": {
+        "gl": "n.",
+        "defch1": "\u63a5\u5f85",
+        "defch2": "\u63a5\u5f85\u8655"
+    },
+    "receptionist": {
+        "gl": "n.",
+        "defch1": "\u63a5\u5f85\u54e1",
+        "defch2": ""
+    },
+    "recession": {
+        "gl": "n.",
+        "defch1": "\u7ecf\u6d4e\u8427\u6761",
+        "defch2": ""
+    },
+    "recharge": {
+        "gl": "v.",
+        "defch1": "\u5145\u503c",
+        "defch2": ""
+    },
+    "reckless": {
+        "gl": "adj.",
+        "defch1": "\u8f15\u7387\u7684",
+        "defch2": "\u9b6f\u83bd"
+    },
+    "recognize": {
+        "gl": "v.",
+        "defch1": "\u8a8d\u8b58",
+        "defch2": ""
+    },
+    "recommend": {
+        "gl": "v.",
+        "defch1": "\u63a8\u85a6",
+        "defch2": ""
+    },
+    "recommendatior": {
+        "gl": "",
+        "defch1": "\u63a8\u85a6\u4eba",
+        "defch2": ""
+    },
+    "recover": {
+        "gl": "v.",
+        "defch1": "\u5fa9\u539f",
+        "defch2": "\u6062\u5fa9"
+    },
+    "recovery": {
+        "gl": "n.",
+        "defch1": "\u5fa9\u539f",
+        "defch2": ""
+    },
+    "recruit": {
+        "gl": "n.",
+        "defch1": "\u62db",
+        "defch2": ""
+    },
+    "recycle": {
+        "gl": "v.",
+        "defch1": "\u56de\u6536",
+        "defch2": ""
+    },
+    "reduce": {
+        "gl": "v.",
+        "defch1": "\u6e1b\u5c11",
+        "defch2": ""
+    },
+    "refer": {
+        "gl": "v.",
+        "defch1": "\u53c3\u8003",
+        "defch2": ""
+    },
+    "reference": {
+        "gl": "n.",
+        "defch1": "\u53c3\u8003",
+        "defch2": ""
+    },
+    "reflect": {
+        "gl": "v.",
+        "defch1": "\u53cd\u6620",
+        "defch2": ""
+    },
+    "reflection": {
+        "gl": "n.",
+        "defch1": "\u53cd\u6620",
+        "defch2": "\u53cd\u5c04"
+    },
+    "refresh": {
+        "gl": "v.",
+        "defch1": "\u91cd\u6574",
+        "defch2": ""
+    },
+    "refuge": {
+        "gl": "n.",
+        "defch1": "\u907f\u96e3\u6240",
+        "defch2": ""
+    },
+    "refugee": {
+        "gl": "n.",
+        "defch1": "\u96be\u6c11",
+        "defch2": "\u96e3\u6c11"
+    },
+    "refund": {
+        "gl": "n.",
+        "defch1": "\u9000\u6b3e",
+        "defch2": ""
+    },
+    "refuse": {
+        "gl": "n.",
+        "defch1": "\u62d2\u7d55",
+        "defch2": "\u5783\u573e"
+    },
+    "regard": {
+        "gl": "n.",
+        "defch1": "\u770b\u5f85",
+        "defch2": ""
+    },
+    "regards": {
+        "gl": "n.",
+        "defch1": "\u656c\u4e0a",
+        "defch2": ""
+    },
+    "region": {
+        "gl": "n.",
+        "defch1": "\u5340\u57df",
+        "defch2": "\u5730\u5340"
+    },
+    "register": {
+        "gl": "n.",
+        "defch1": "\u8a3b\u518a",
+        "defch2": ""
+    },
+    "registration": {
+        "gl": "n.",
+        "defch1": "\u8a3b\u518a\u8868\u55ae",
+        "defch2": ""
+    },
+    "regret": {
+        "gl": "n.",
+        "defch1": "\u5f8c\u6094",
+        "defch2": ""
+    },
+    "regretfully": {
+        "gl": "adv.",
+        "defch1": "\u907a\u61be\u5730",
+        "defch2": ""
+    },
+    "regular": {
+        "gl": "n.",
+        "defch1": "\u4e00\u822c",
+        "defch2": ""
+    },
+    "regulation": {
+        "gl": "n.",
+        "defch1": "\u898f\u7ae0",
+        "defch2": "\u898f"
+    },
+    "reject": {
+        "gl": "n.",
+        "defch1": "\u62d2\u7d55",
+        "defch2": ""
+    },
+    "rejection": {
+        "gl": "n.",
+        "defch1": "\u62d2\u7d55",
+        "defch2": ""
+    },
+    "relate": {
+        "gl": "v.",
+        "defch1": "\u6d89\u53ca",
+        "defch2": ""
+    },
+    "relation": {
+        "gl": "n.",
+        "defch1": "\u76f8\u95dc\u806f",
+        "defch2": "\u95dc\u4fc2"
+    },
+    "relationship": {
+        "gl": "n.",
+        "defch1": "\u95dc\u4fc2",
+        "defch2": ""
+    },
+    "relative": {
+        "gl": "n.",
+        "defch1": "\u89aa\u621a",
+        "defch2": "\u76f8\u5c0d\u7684"
+    },
+    "relax": {
+        "gl": "v.",
+        "defch1": "\u653e\u9b06",
+        "defch2": ""
+    },
+    "release": {
+        "gl": "n.",
+        "defch1": "\u7248\u672c",
+        "defch2": "\u767c\u5e03"
+    },
+    "relief": {
+        "gl": "n.",
+        "defch1": "\u6551\u6fdf\u91d1",
+        "defch2": "\u6551\u6fdf"
+    },
+    "relieve": {
+        "gl": "v.",
+        "defch1": "\u6e1b\u8f15",
+        "defch2": "\u7de9\u89e3"
+    },
+    "religion": {
+        "gl": "n.",
+        "defch1": "\u5b97\u6559",
+        "defch2": ""
+    },
+    "religious": {
+        "gl": "n.",
+        "defch1": "\u5b97\u6559\u7684",
+        "defch2": ""
+    },
+    "reluctant": {
+        "gl": "adj.",
+        "defch1": "\u4e0d\u9858",
+        "defch2": ""
+    },
+    "reluctantly": {
+        "gl": "adv.",
+        "defch1": "\u52c9\u5f37",
+        "defch2": ""
+    },
+    "rely": {
+        "gl": "v.",
+        "defch1": "\u4f9d\u9760",
+        "defch2": ""
+    },
+    "remain": {
+        "gl": "v.",
+        "defch1": "\u5269\u9918",
+        "defch2": "\u4fdd\u6301"
+    },
+    "remind": {
+        "gl": "v.",
+        "defch1": "\u63d0\u9192",
+        "defch2": ""
+    },
+    "remote": {
+        "gl": "n.",
+        "defch1": "\u9060\u7aef",
+        "defch2": "\u9060\u7a0b"
+    },
+    "remove": {
+        "gl": "n.",
+        "defch1": "\u79fb\u9664",
+        "defch2": "\u53bb\u6389"
+    },
+    "rent": {
+        "gl": "n.",
+        "defch1": "\u79df\u91d1",
+        "defch2": "\u51fa\u79df"
+    },
+    "repair": {
+        "gl": "n.",
+        "defch1": "\u7dad\u4fee",
+        "defch2": "\u4fee\u7406"
+    },
+    "repeat": {
+        "gl": "n.",
+        "defch1": "\u91cd\u8907\u64ad\u653e",
+        "defch2": "\u91cd\u8907"
+    },
+    "repeatedly": {
+        "gl": "adv.",
+        "defch1": "\u53cd\u590d",
+        "defch2": ""
+    },
+    "replace": {
+        "gl": "v.",
+        "defch1": "\u66f4\u63db",
+        "defch2": ""
+    },
+    "reply": {
+        "gl": "n.",
+        "defch1": "\u56de\u8986",
+        "defch2": "\u56de\u590d"
+    },
+    "represent": {
+        "gl": "v.",
+        "defch1": "\u4ee3\u8868",
+        "defch2": ""
+    },
+    "representative": {
+        "gl": "n.",
+        "defch1": "\u4ee3\u8868",
+        "defch2": ""
+    },
+    "reputation": {
+        "gl": "n.",
+        "defch1": "\u540d\u8072",
+        "defch2": ""
+    },
+    "request": {
+        "gl": "n.",
+        "defch1": "\u8981\u6c42",
+        "defch2": "\u8acb\u6c42"
+    },
+    "require": {
+        "gl": "v.",
+        "defch1": "\u8981\u6c42",
+        "defch2": ""
+    },
+    "requirement": {
+        "gl": "n.",
+        "defch1": "\u9700\u6c42",
+        "defch2": ""
+    },
+    "rescue": {
+        "gl": "n.",
+        "defch1": "\u63f4\u6551",
+        "defch2": "\u62ef\u6551"
+    },
+    "research": {
+        "gl": "n.",
+        "defch1": "\u7814\u7a76",
+        "defch2": ""
+    },
+    "researcher": {
+        "gl": "n.",
+        "defch1": "\u7814\u7a76\u54e1",
+        "defch2": ""
+    },
+    "resemblance": {
+        "gl": "n.",
+        "defch1": "\u76f8\u4f3c",
+        "defch2": ""
+    },
+    "resemble": {
+        "gl": "v.",
+        "defch1": "\u8207......\u50cf",
+        "defch2": ""
+    },
+    "reservation": {
+        "gl": "n.",
+        "defch1": "\u9810\u7d04",
+        "defch2": "\u4fdd\u7559"
+    },
+    "reserve": {
+        "gl": "n.",
+        "defch1": "\u9810\u8a02",
+        "defch2": "\u4fdd\u7559"
+    },
+    "resident": {
+        "gl": "n.",
+        "defch1": "\u5c45\u6c11",
+        "defch2": ""
+    },
+    "resign": {
+        "gl": "v.",
+        "defch1": "\u9806\u5f9e",
+        "defch2": ""
+    },
+    "resignation": {
+        "gl": "n.",
+        "defch1": "\u5c48\u5f9e",
+        "defch2": ""
+    },
+    "resist": {
+        "gl": "v.",
+        "defch1": "\u6297",
+        "defch2": ""
+    },
+    "resolution": {
+        "gl": "n.",
+        "defch1": "\u6c7a\u8b70",
+        "defch2": ""
+    },
+    "resolve": {
+        "gl": "n.",
+        "defch1": "\u4e0b\u5b9a\u6c7a\u5fc3",
+        "defch2": "\u89e3\u6c7a"
+    },
+    "resort": {
+        "gl": "n.",
+        "defch1": "\u5ea6\u5047\u6751",
+        "defch2": "\u63a1\u53d6"
+    },
+    "resource": {
+        "gl": "n.",
+        "defch1": "\u8cc7\u6e90",
+        "defch2": ""
+    },
+    "respect": {
+        "gl": "n.",
+        "defch1": "\u65b9\u9762",
+        "defch2": "\u5c0a\u91cd"
+    },
+    "respond": {
+        "gl": "v.",
+        "defch1": "\u56de\u8986",
+        "defch2": "\u97ff\u61c9"
+    },
+    "response": {
+        "gl": "n.",
+        "defch1": "\u56de\u61c9",
+        "defch2": "\u97ff\u61c9"
+    },
+    "responsibility": {
+        "gl": "n.",
+        "defch1": "\u8077\u8cac",
+        "defch2": "\u8cac\u4efb"
+    },
+    "restrict": {
+        "gl": "v.",
+        "defch1": "\u9650\u5236",
+        "defch2": ""
+    },
+    "restriction": {
+        "gl": "n.",
+        "defch1": "\u9650\u5236(\u898f\u5b9a\u3001\u6cd5\u898f)",
+        "defch2": "\u9650\u5236"
+    },
+    "result": {
+        "gl": "n.",
+        "defch1": "\u7d50\u679c",
+        "defch2": ""
+    },
+    "resume": {
+        "gl": "n.",
+        "defch1": "\u7e7c\u7e8c",
+        "defch2": "\u6062\u5fa9"
+    },
+    "retire": {
+        "gl": "v.",
+        "defch1": "\u6dd8\u6c70",
+        "defch2": ""
+    },
+    "retired": {
+        "gl": "v.",
+        "defch1": "\u9000\u4f11\u4eba\u54e1",
+        "defch2": "\u9000\u4f11\u7684"
+    },
+    "retirement": {
+        "gl": "n.",
+        "defch1": "\u9000\u4f11",
+        "defch2": ""
+    },
+    "reunion": {
+        "gl": "n.",
+        "defch1": "\u7559\u5c3c\u65fa\u5cf6",
+        "defch2": ""
+    },
+    "reveal": {
+        "gl": "v.",
+        "defch1": "\u986f\u793a",
+        "defch2": "\u63ed\u793a"
+    },
+    "revealing": {
+        "gl": "n.",
+        "defch1": "\u63ed\u793a",
+        "defch2": ""
+    },
+    "review": {
+        "gl": "n.",
+        "defch1": "\u5be9\u95b1/\u5099\u8a3b/\u61c9\u7b54\u8a08\u6578",
+        "defch2": "\u8a55\u8ad6"
+    },
+    "revise": {
+        "gl": "n.",
+        "defch1": "\u4fee\u6539",
+        "defch2": ""
+    },
+    "revision": {
+        "gl": "n.",
+        "defch1": "\u5167\u5bb9\u4fee\u8a02",
+        "defch2": "\u4fee\u8a02\u7248"
+    },
+    "reward": {
+        "gl": "n.",
+        "defch1": "\u734e\u8cde",
+        "defch2": "\u734e\u52f5"
+    },
+    "rewarded": {
+        "gl": "v.",
+        "defch1": "\u734e\u52f5\u7684",
+        "defch2": ""
+    },
+    "ridicule": {
+        "gl": "n.",
+        "defch1": "\u5632\u7b11",
+        "defch2": ""
+    },
+    "ripe": {
+        "gl": "adj.",
+        "defch1": "\u6210\u719f",
+        "defch2": ""
+    },
+    "risk": {
+        "gl": "n.",
+        "defch1": "\u98a8\u96aa",
+        "defch2": ""
+    },
+    "rob": {
+        "gl": "v.",
+        "defch1": "\u7f85\u52c3",
+        "defch2": "\u6436"
+    },
+    "robber": {
+        "gl": "n.",
+        "defch1": "\u62a2\u52ab",
+        "defch2": "\u5f37\u76dc"
+    },
+    "robbery": {
+        "gl": "n.",
+        "defch1": "\u6436\u52ab",
+        "defch2": ""
+    },
+    "robot": {
+        "gl": "n.",
+        "defch1": "\u6a5f\u5668\u4eba",
+        "defch2": ""
+    },
+    "rocket": {
+        "gl": "n.",
+        "defch1": "\u706b\u7bad",
+        "defch2": ""
+    },
+    "roof": {
+        "gl": "n.",
+        "defch1": "\u8eca\u9802",
+        "defch2": ""
+    },
+    "rough": {
+        "gl": "n.",
+        "defch1": "\u7c97\u7cd9",
+        "defch2": "\u7c97"
+    },
+    "route": {
+        "gl": "n.",
+        "defch1": "\u8def\u7dda",
+        "defch2": ""
+    },
+    "rubber": {
+        "gl": "n.",
+        "defch1": "\u6a61\u81a0",
+        "defch2": ""
+    },
+    "ruin": {
+        "gl": "n.",
+        "defch1": "\u6bc0\u6ec5",
+        "defch2": "\u5ee2\u589f"
+    },
+    "rural": {
+        "gl": "adj.",
+        "defch1": "\u9109\u6751\u7684",
+        "defch2": "\u9109\u6751"
+    },
+    "sacrifice": {
+        "gl": "n.",
+        "defch1": "\u72a7\u7272",
+        "defch2": ""
+    },
+    "safe": {
+        "gl": "n.",
+        "defch1": "\u4fdd\u96aa\u7bb1",
+        "defch2": "\u5b89\u5168"
+    },
+    "safety": {
+        "gl": "n.",
+        "defch1": "\u5b89\u5168",
+        "defch2": ""
+    },
+    "sail": {
+        "gl": "n.",
+        "defch1": "\u5e06",
+        "defch2": ""
+    },
+    "salary": {
+        "gl": "n.",
+        "defch1": "\u85aa\u8cc7",
+        "defch2": ""
+    },
+    "sample": {
+        "gl": "n.",
+        "defch1": "\u8a66\u6a23",
+        "defch2": "\u6a23\u54c1"
+    },
+    "satellite": {
+        "gl": "n.",
+        "defch1": "\u9644\u5c6c\u7684",
+        "defch2": "\u885b\u661f"
+    },
+    "satisfaction": {
+        "gl": "n.",
+        "defch1": "\u6eff\u8db3",
+        "defch2": "\u6eff\u610f"
+    },
+    "satisfactory": {
+        "gl": "adj.",
+        "defch1": "\u6eff\u610f\u7684",
+        "defch2": ""
+    },
+    "satisfy": {
+        "gl": "v.",
+        "defch1": "\u6eff\u8db3",
+        "defch2": ""
+    },
+    "scan": {
+        "gl": "n.",
+        "defch1": "\u7d30\u770b",
+        "defch2": "\u6383\u63cf"
+    },
+    "scanner": {
+        "gl": "n.",
+        "defch1": "\u6383\u63cf\u5668",
+        "defch2": ""
+    },
+    "scare": {
+        "gl": "n.",
+        "defch1": "\u6050\u60e7",
+        "defch2": "\u5687"
+    },
+    "scatter": {
+        "gl": "n.",
+        "defch1": "\u6563\u5c04",
+        "defch2": "\u5206\u6563"
+    },
+    "scene": {
+        "gl": "n.",
+        "defch1": "\u5834\u666f",
+        "defch2": ""
+    },
+    "scenery": {
+        "gl": "n.",
+        "defch1": "\u666f\u8272",
+        "defch2": "\u98a8\u666f"
+    },
+    "schedule": {
+        "gl": "n.",
+        "defch1": "\u9810\u7d04\u767c\u8868",
+        "defch2": "\u6642\u9593\u8868"
+    },
+    "scholar": {
+        "gl": "n.",
+        "defch1": "\u5b78\u8005",
+        "defch2": ""
+    },
+    "scholarship": {
+        "gl": "n.",
+        "defch1": "\u734e\u5b78\u91d1",
+        "defch2": ""
+    },
+    "scientist": {
+        "gl": "n.",
+        "defch1": "\u79d1\u5b78\u5bb6",
+        "defch2": ""
+    },
+    "score": {
+        "gl": "n.",
+        "defch1": "\u5206\u6578",
+        "defch2": ""
+    },
+    "scratch": {
+        "gl": "n.",
+        "defch1": "\u522e",
+        "defch2": ""
+    },
+    "scream": {
+        "gl": "n.",
+        "defch1": "\u5c16\u53eb",
+        "defch2": ""
+    },
+    "seek": {
+        "gl": "n.",
+        "defch1": "\u641c\u5c0b",
+        "defch2": "\u5c0b\u6c42"
+    },
+    "sense": {
+        "gl": "n.",
+        "defch1": "\u611f\u5b98",
+        "defch2": ""
+    },
+    "senseless": {
+        "gl": "adj.",
+        "defch1": "\u7121\u610f\u7fa9",
+        "defch2": ""
+    },
+    "sensible": {
+        "gl": "adj.",
+        "defch1": "\u7406\u89e3",
+        "defch2": "\u660e\u667a\u7684"
+    },
+    "sensitive": {
+        "gl": "n.",
+        "defch1": "\u654f\u611f",
+        "defch2": ""
+    },
+    "sequence": {
+        "gl": "n.",
+        "defch1": "\u5e8f\u5217",
+        "defch2": "\u9806\u5e8f"
+    },
+    "series": {
+        "gl": "n.",
+        "defch1": "\u7cfb\u5217",
+        "defch2": ""
+    },
+    "serious": {
+        "gl": "adj.",
+        "defch1": "\u56b4\u91cd",
+        "defch2": ""
+    },
+    "serve": {
+        "gl": "n.",
+        "defch1": "\u670d\u52d9",
+        "defch2": ""
+    },
+    "service": {
+        "gl": "n.",
+        "defch1": "\u670d\u52d9",
+        "defch2": ""
+    },
+    "settle": {
+        "gl": "n.",
+        "defch1": "\u7d50\u7b97",
+        "defch2": "\u89e3\u6c7a"
+    },
+    "settler": {
+        "gl": "n.",
+        "defch1": "\u5b9a\u5c45\u8005",
+        "defch2": ""
+    },
+    "shame": {
+        "gl": "n.",
+        "defch1": "\u8499\u7f9e",
+        "defch2": "\u6065\u8fb1"
+    },
+    "shape": {
+        "gl": "n.",
+        "defch1": "\u5716\u5f62",
+        "defch2": "\u5f62\u72c0"
+    },
+    "share": {
+        "gl": "n.",
+        "defch1": "\u5206\u4eab",
+        "defch2": ""
+    },
+    "sharp": {
+        "gl": "n.",
+        "defch1": "\u5c16\u9510",
+        "defch2": ""
+    },
+    "shelter": {
+        "gl": "n.",
+        "defch1": "\u5e87\u62a4\u6240",
+        "defch2": "\u5e87\u8b77"
+    },
+    "shift": {
+        "gl": "n.",
+        "defch1": "\u79fb\u4f4d",
+        "defch2": ""
+    },
+    "shine": {
+        "gl": "n.",
+        "defch1": "\u9583\u8000",
+        "defch2": ""
+    },
+    "shiver": {
+        "gl": "n.",
+        "defch1": "\u986b\u6296",
+        "defch2": "\u767c\u6296"
+    },
+    "shock": {
+        "gl": "n.",
+        "defch1": "\u4f11\u514b",
+        "defch2": ""
+    },
+    "shocked": {
+        "gl": "v.",
+        "defch1": "\u5403\u9a5a",
+        "defch2": ""
+    },
+    "shocking": {
+        "gl": "v.",
+        "defch1": "\u4ee4\u4eba\u9707\u9a5a\u7684",
+        "defch2": ""
+    },
+    "shoot": {
+        "gl": "n.",
+        "defch1": "\u62cd\u651d",
+        "defch2": "\u5c04\u64ca"
+    },
+    "shortage": {
+        "gl": "n.",
+        "defch1": "\u7f3a\u5c11",
+        "defch2": "\u77ed\u7f3a"
+    },
+    "shot": {
+        "gl": "n.",
+        "defch1": "\u5c04\u64ca",
+        "defch2": ""
+    },
+    "shrink": {
+        "gl": "n.",
+        "defch1": "\u9000\u7e2e;\u754f\u7e2e",
+        "defch2": "\u6536\u7e2e"
+    },
+    "shuttle": {
+        "gl": "n.",
+        "defch1": "\u5f80\u8fd4\u904b\u9001(\u4eba\u3001\u8ca8\u7269)",
+        "defch2": "\u7a7f\u68ad"
+    },
+    "sick": {
+        "gl": "n.",
+        "defch1": "\u751f\u75c5",
+        "defch2": ""
+    },
+    "sickness": {
+        "gl": "n.",
+        "defch1": "\u75be\u75c5",
+        "defch2": ""
+    },
+    "sign": {
+        "gl": "n.",
+        "defch1": "\u6a19\u8a8c",
+        "defch2": ""
+    },
+    "signal": {
+        "gl": "n.",
+        "defch1": "\u83b7\u53d6\u4fe1\u53f7\u540e\u91cd\u65b0\u542f\u52a8",
+        "defch2": "\u4fe1\u865f"
+    },
+    "signature": {
+        "gl": "n.",
+        "defch1": "\u7c3d\u540d",
+        "defch2": ""
+    },
+    "significant": {
+        "gl": "adj.",
+        "defch1": "\u91cd\u8981",
+        "defch2": "\u91cd\u5927"
+    },
+    "similar": {
+        "gl": "adj.",
+        "defch1": "\u985e\u4f3c",
+        "defch2": ""
+    },
+    "similarity": {
+        "gl": "n.",
+        "defch1": "\u76f8\u4f3c",
+        "defch2": ""
+    },
+    "similarly": {
+        "gl": "adv.",
+        "defch1": "\u985e\u4f3c\u5730",
+        "defch2": ""
+    },
+    "simply": {
+        "gl": "adv.",
+        "defch1": "\u53ea\u662f",
+        "defch2": ""
+    },
+    "sincere": {
+        "gl": "adj.",
+        "defch1": "\u771f\u8aa0",
+        "defch2": ""
+    },
+    "sincerely": {
+        "gl": "adv.",
+        "defch1": "\u656c\u795d\u5b89\u5eb7",
+        "defch2": "\u771f\u8aa0\u5730"
+    },
+    "site": {
+        "gl": "n.",
+        "defch1": "\u7db2\u7ad9",
+        "defch2": "\u73fe\u5834"
+    },
+    "situation": {
+        "gl": "n.",
+        "defch1": "\u72c0\u614b",
+        "defch2": ""
+    },
+    "skeptical": {
+        "gl": "adj.",
+        "defch1": "\u61f7\u7591\u7684",
+        "defch2": ""
+    },
+    "skeptically": {
+        "gl": "adv.",
+        "defch1": "\u61f7\u7591\u5730",
+        "defch2": ""
+    },
+    "skill": {
+        "gl": "n.",
+        "defch1": "\u6280\u80fd",
+        "defch2": ""
+    },
+    "skillfully": {
+        "gl": "adv.",
+        "defch1": "\u719f\u7df4\u5730",
+        "defch2": ""
+    },
+    "skip": {
+        "gl": "n.",
+        "defch1": "\u8df3\u904e",
+        "defch2": "\u8df3\u8e8d"
+    },
+    "slave": {
+        "gl": "n.",
+        "defch1": "\u5974\u96b8",
+        "defch2": ""
+    },
+    "slender": {
+        "gl": "adj.",
+        "defch1": "\u82d7\u689d",
+        "defch2": "\u82d7\u689d\u7684"
+    },
+    "slide": {
+        "gl": "n.",
+        "defch1": "\u5e7b\u71c8\u7247",
+        "defch2": "\u6ed1\u52d5"
+    },
+    "slim": {
+        "gl": "v.",
+        "defch1": "\u7d30\u9577",
+        "defch2": "\u7626"
+    },
+    "slip": {
+        "gl": "n.",
+        "defch1": "\u6ed1",
+        "defch2": ""
+    },
+    "smooth": {
+        "gl": "n.",
+        "defch1": "\u5149\u6ed1",
+        "defch2": ""
+    },
+    "soak": {
+        "gl": "n.",
+        "defch1": "\u6d78\u6ce1",
+        "defch2": ""
+    },
+    "social": {
+        "gl": "n.",
+        "defch1": "\u793e\u4ea4\u7684",
+        "defch2": "\u793e\u6703\u7684"
+    },
+    "society": {
+        "gl": "n.",
+        "defch1": "\u5c0d\u793e\u6703\u7684\u8cac\u4efb",
+        "defch2": "\u793e\u6703"
+    },
+    "soft": {
+        "gl": "adj.",
+        "defch1": "\u8edf",
+        "defch2": "\u67d4\u8edf\u7684"
+    },
+    "soften": {
+        "gl": "v.",
+        "defch1": "\u8edf\u5316",
+        "defch2": ""
+    },
+    "software": {
+        "gl": "n.",
+        "defch1": "\u8edf\u9ad4",
+        "defch2": "\u8edf\u4ef6"
+    },
+    "solar": {
+        "gl": "adj.",
+        "defch1": "\u592a\u967d\u80fd\u7684",
+        "defch2": ""
+    },
+    "solve": {
+        "gl": "v.",
+        "defch1": "\u89e3\u6c7a",
+        "defch2": ""
+    },
+    "sophisticated": {
+        "gl": "v.",
+        "defch1": "\u8907\u96dc\u7684",
+        "defch2": ""
+    },
+    "sore": {
+        "gl": "n.",
+        "defch1": "\u7621",
+        "defch2": ""
+    },
+    "sort": {
+        "gl": "n.",
+        "defch1": "\u6392\u5e8f",
+        "defch2": "\u5206\u985e"
+    },
+    "source": {
+        "gl": "n.",
+        "defch1": "\u4f86\u6e90",
+        "defch2": "\u8cc7\u6e90"
+    },
+    "souvenir": {
+        "gl": "n.",
+        "defch1": "\u7d00\u5ff5\u54c1",
+        "defch2": ""
+    },
+    "spare": {
+        "gl": "n.",
+        "defch1": "\u5907\u7528",
+        "defch2": "\u5099\u7528"
+    },
+    "special": {
+        "gl": "n.",
+        "defch1": "\u7279\u5225",
+        "defch2": ""
+    },
+    "specialize": {
+        "gl": "v.",
+        "defch1": "\u5c08\u653b",
+        "defch2": ""
+    },
+    "species": {
+        "gl": "n.",
+        "defch1": "\u7269\u7a2e",
+        "defch2": ""
+    },
+    "specific": {
+        "gl": "n.",
+        "defch1": "\u6307\u5b9a\u65e5\u671f\u7bc4\u570d",
+        "defch2": "\u5177\u9ad4"
+    },
+    "speed": {
+        "gl": "n.",
+        "defch1": "\u901f\u5ea6",
+        "defch2": ""
+    },
+    "spill": {
+        "gl": "n.",
+        "defch1": "\u4f7f\u6454\u4e0b,\u4f7f\u8dcc\u4e0b",
+        "defch2": "\u7051"
+    },
+    "spirit": {
+        "gl": "n.",
+        "defch1": "\u671d\u6c23",
+        "defch2": "\u7cbe\u795e"
+    },
+    "spite": {
+        "gl": "n.",
+        "defch1": "\u60e1\u610f",
+        "defch2": "\u5118\u7ba1"
+    },
+    "splendid": {
+        "gl": "adj.",
+        "defch1": "\u71e6\u721b",
+        "defch2": ""
+    },
+    "split": {
+        "gl": "n.",
+        "defch1": "\u5206\u88c2\u7684",
+        "defch2": "\u5206\u88c2"
+    },
+    "spoil": {
+        "gl": "n.",
+        "defch1": "\u6eba\u611b",
+        "defch2": "\u7834\u58de"
+    },
+    "spot": {
+        "gl": "n.",
+        "defch1": "\u805a\u5149\u9ede",
+        "defch2": "\u9ede"
+    },
+    "spread": {
+        "gl": "n.",
+        "defch1": "\u64f4\u5f35",
+        "defch2": "\u50b3\u64ad"
+    },
+    "square": {
+        "gl": "n.",
+        "defch1": "\u77e9\u5f62",
+        "defch2": "\u5ee3\u5834"
+    },
+    "squeeze": {
+        "gl": "n.",
+        "defch1": "\u64e0",
+        "defch2": ""
+    },
+    "stable": {
+        "gl": "n.",
+        "defch1": "\u7a69\u5b9a",
+        "defch2": ""
+    },
+    "staff": {
+        "gl": "n.",
+        "defch1": "\u89aa\u611b\u7684\u5927\u5bb6",
+        "defch2": "\u54e1\u5de5"
+    },
+    "stage": {
+        "gl": "n.",
+        "defch1": "\u4e0a\u6f14;\u8209\u8fa6;\u8209\u884c",
+        "defch2": "\u968e\u6bb5"
+    },
+    "stamina": {
+        "gl": "n.",
+        "defch1": "\u8010\u529b",
+        "defch2": ""
+    },
+    "standard": {
+        "gl": "n.",
+        "defch1": "\u6a19\u6e96",
+        "defch2": ""
+    },
+    "standardize": {
+        "gl": "v.",
+        "defch1": "\u6a19\u6e96\u5316",
+        "defch2": ""
+    },
+    "starvation": {
+        "gl": "n.",
+        "defch1": "\u9951\u9913",
+        "defch2": "\u98e2\u9913"
+    },
+    "starve": {
+        "gl": "v.",
+        "defch1": "\u6328\u9913",
+        "defch2": "\u9913\u6b7b"
+    },
+    "statement": {
+        "gl": "n.",
+        "defch1": "\u9673\u8ff0\u5f0f",
+        "defch2": "\u8072\u660e"
+    },
+    "statesman": {
+        "gl": "n.",
+        "defch1": "\u653f\u6cbb\u5bb6",
+        "defch2": ""
+    },
+    "stationary": {
+        "gl": "adj.",
+        "defch1": "\u56fa\u5b9a\u5f0f",
+        "defch2": "\u5e73\u7a69\u7684"
+    },
+    "stationery": {
+        "gl": "n.",
+        "defch1": "\u6587\u5177\u7522\u54c1",
+        "defch2": ""
+    },
+    "statistic": {
+        "gl": "n.",
+        "defch1": "\u7d71\u8a08",
+        "defch2": ""
+    },
+    "statue": {
+        "gl": "n.",
+        "defch1": "\u5851\u50cf",
+        "defch2": "\u96d5\u50cf"
+    },
+    "status": {
+        "gl": "n.",
+        "defch1": "\u60c5\u51b5",
+        "defch2": "\u72c0\u614b"
+    },
+    "stimulate": {
+        "gl": "v.",
+        "defch1": "\u523a\u6fc0",
+        "defch2": ""
+    },
+    "stimulus": {
+        "gl": "n.",
+        "defch1": "\u523a\u6fc0",
+        "defch2": ""
+    },
+    "stock": {
+        "gl": "n.",
+        "defch1": "\u5b58\u8ca8",
+        "defch2": "\u80a1\u7968"
+    },
+    "stomach": {
+        "gl": "n.",
+        "defch1": "\u80c3",
+        "defch2": ""
+    },
+    "stomachache": {
+        "gl": "n.",
+        "defch1": "\u8179\u75db",
+        "defch2": ""
+    },
+    "straight": {
+        "gl": "n.",
+        "defch1": "\u76f4\u7dda",
+        "defch2": "\u76f4\u884c"
+    },
+    "strain": {
+        "gl": "n.",
+        "defch1": "\u58d3\u529b",
+        "defch2": ""
+    },
+    "strategy": {
+        "gl": "n.",
+        "defch1": "\u7b56\u7565",
+        "defch2": "\u6230\u7565"
+    },
+    "stream": {
+        "gl": "n.",
+        "defch1": "\u535a\u5ba2\u6d41",
+        "defch2": ""
+    },
+    "strength": {
+        "gl": "n.",
+        "defch1": "\u529b\u91cf",
+        "defch2": "\u5f37\u5ea6"
+    },
+    "strengthen": {
+        "gl": "v.",
+        "defch1": "\u52a0\u5f37",
+        "defch2": ""
+    },
+    "stress": {
+        "gl": "n.",
+        "defch1": "\u58d3\u529b",
+        "defch2": ""
+    },
+    "stressful": {
+        "gl": "adj.",
+        "defch1": "\u58d3\u529b",
+        "defch2": "\u58d3\u529b\u5927\u7684"
+    },
+    "stretch": {
+        "gl": "n.",
+        "defch1": "\u4f38\u5c55",
+        "defch2": ""
+    },
+    "strict": {
+        "gl": "adj.",
+        "defch1": "\u56b4\u683c",
+        "defch2": ""
+    },
+    "strictly": {
+        "gl": "adv.",
+        "defch1": "\u56b4\u683c",
+        "defch2": "\u56b4\u683c\u5730"
+    },
+    "strike": {
+        "gl": "n.",
+        "defch1": "\u7f77\u5de5",
+        "defch2": ""
+    },
+    "structure": {
+        "gl": "n.",
+        "defch1": "\u7d50\u69cb",
+        "defch2": "\u7d50\u69cb\u9ad4"
+    },
+    "subject": {
+        "gl": "n.",
+        "defch1": "\u4e3b\u8a5e",
+        "defch2": "\u5b78\u79d1"
+    },
+    "submit": {
+        "gl": "v.",
+        "defch1": "\u9806\u5f9e",
+        "defch2": "\u63d0\u4ea4"
+    },
+    "succeed": {
+        "gl": "v.",
+        "defch1": "\u6210\u529f",
+        "defch2": ""
+    },
+    "success": {
+        "gl": "n.",
+        "defch1": "\u6210\u529f",
+        "defch2": ""
+    },
+    "successful": {
+        "gl": "adj.",
+        "defch1": "\u6210\u529f",
+        "defch2": "\u6210\u529f\u7684"
+    },
+    "Successfully": {
+        "gl": "adv.",
+        "defch1": "\u6210\u529f",
+        "defch2": ""
+    },
+    "suffer": {
+        "gl": "v.",
+        "defch1": "\u906d\u53d7",
+        "defch2": ""
+    },
+    "suggest": {
+        "gl": "v.",
+        "defch1": "\u5efa\u8b70",
+        "defch2": ""
+    },
+    "suggestion": {
+        "gl": "n.",
+        "defch1": "\u5efa\u8b70",
+        "defch2": ""
+    },
+    "suicide": {
+        "gl": "n.",
+        "defch1": "\u81ea\u6bba",
+        "defch2": ""
+    },
+    "suitable": {
+        "gl": "adj.",
+        "defch1": "\u9069\u5408",
+        "defch2": "\u9069\u7576"
+    },
+    "supervise": {
+        "gl": "v.",
+        "defch1": "\u76e3\u7763",
+        "defch2": ""
+    },
+    "supervisor": {
+        "gl": "n.",
+        "defch1": "\u4e3b\u7ba1",
+        "defch2": ""
+    },
+    "supply": {
+        "gl": "n.",
+        "defch1": "\u4f9b\u61c9",
+        "defch2": ""
+    },
+    "support": {
+        "gl": "n.",
+        "defch1": "\u652f\u6301",
+        "defch2": ""
+    },
+    "suppose": {
+        "gl": "v.",
+        "defch1": "\u5047\u8a2d",
+        "defch2": ""
+    },
+    "surf": {
+        "gl": "n.",
+        "defch1": "\u4e0a\u7db2\u700f\u89bd",
+        "defch2": "\u885d\u6d6a"
+    },
+    "surface": {
+        "gl": "n.",
+        "defch1": "\u8868\u9762",
+        "defch2": ""
+    },
+    "surgery": {
+        "gl": "n.",
+        "defch1": "\u5916\u79d1\u624b\u8853",
+        "defch2": "\u624b\u8853"
+    },
+    "surprise": {
+        "gl": "n.",
+        "defch1": "\u9a5a\u559c",
+        "defch2": "\u5403\u9a5a"
+    },
+    "surprising": {
+        "gl": "v.",
+        "defch1": "\u5947\u602a",
+        "defch2": ""
+    },
+    "surprisingly": {
+        "gl": "adv.",
+        "defch1": "\u51fa\u5947",
+        "defch2": ""
+    },
+    "surrender": {
+        "gl": "n.",
+        "defch1": "\u6295\u964d",
+        "defch2": ""
+    },
+    "surround": {
+        "gl": "n.",
+        "defch1": "\u74b0\u7e5e",
+        "defch2": ""
+    },
+    "surroundings": {
+        "gl": "n.",
+        "defch1": "\u74b0\u5883",
+        "defch2": "\u5468\u570d\u74b0\u5883"
+    },
+    "survey": {
+        "gl": "n.",
+        "defch1": "\u586b\u5beb\u554f\u5377",
+        "defch2": "\u8abf\u67e5"
+    },
+    "survival": {
+        "gl": "n.",
+        "defch1": "\u751f\u5b58",
+        "defch2": ""
+    },
+    "survive": {
+        "gl": "v.",
+        "defch1": "\u71ac\u904e",
+        "defch2": "\u751f\u5b58"
+    },
+    "survivor": {
+        "gl": "n.",
+        "defch1": "\u5016\u5b58\u8005",
+        "defch2": ""
+    },
+    "suspect": {
+        "gl": "n.",
+        "defch1": "\u53ef\u7591",
+        "defch2": ""
+    },
+    "suspicious": {
+        "gl": "adj.",
+        "defch1": "\u53ef\u7591\u7684",
+        "defch2": "\u53ef\u7591"
+    },
+    "swallow": {
+        "gl": "n.",
+        "defch1": "\u71d5\u5b50",
+        "defch2": ""
+    },
+    "swiftly": {
+        "gl": "adv.",
+        "defch1": "\u8fc5\u901f\u5730",
+        "defch2": ""
+    },
+    "switch": {
+        "gl": "n.",
+        "defch1": "\u5207\u63db",
+        "defch2": "\u958b\u95dc"
+    },
+    "symbol": {
+        "gl": "n.",
+        "defch1": "\u7b26\u865f",
+        "defch2": ""
+    },
+    "symptom": {
+        "gl": "n.",
+        "defch1": "\u75c7\u72c0",
+        "defch2": ""
+    },
+    "talent": {
+        "gl": "n.",
+        "defch1": "\u771f\u662f\u5929\u624d",
+        "defch2": "\u5929\u8ce6"
+    },
+    "target": {
+        "gl": "n.",
+        "defch1": "\u5718\u8cfc\u76ee\u6a19",
+        "defch2": ""
+    },
+    "task": {
+        "gl": "n.",
+        "defch1": "\u4efb\u52d9",
+        "defch2": ""
+    },
+    "taste": {
+        "gl": "n.",
+        "defch1": "\u53e3\u611f",
+        "defch2": "\u5473\u9053"
+    },
+    "tax": {
+        "gl": "n.",
+        "defch1": "\u7a05\u91d1",
+        "defch2": "\u7a05"
+    },
+    "technique": {
+        "gl": "n.",
+        "defch1": "\u6280\u8853",
+        "defch2": "\u6280\u8853"
+    },
+    "technology": {
+        "gl": "n.",
+        "defch1": "\u6280\u8853",
+        "defch2": ""
+    },
+    "temperature": {
+        "gl": "n.",
+        "defch1": "\u6eab\u5ea6",
+        "defch2": ""
+    },
+    "tempt": {
+        "gl": "v.",
+        "defch1": "\u5f15\u8a98",
+        "defch2": "\u8a98\u60d1"
+    },
+    "temptation": {
+        "gl": "n.",
+        "defch1": "\u8a66\u63a2",
+        "defch2": ""
+    },
+    "tend": {
+        "gl": "v.",
+        "defch1": "\u5f80\u5f80",
+        "defch2": "\u8da8\u5411"
+    },
+    "tension": {
+        "gl": "n.",
+        "defch1": "\u5f35\u529b",
+        "defch2": ""
+    },
+    "term": {
+        "gl": "n.",
+        "defch1": "\u8a5e\u5f59",
+        "defch2": "\u8853\u8a9e"
+    },
+    "terminal": {
+        "gl": "n.",
+        "defch1": "\u7d42\u7aef\u6a5f",
+        "defch2": ""
+    },
+    "terrible": {
+        "gl": "adj.",
+        "defch1": "\u53ef\u6015",
+        "defch2": ""
+    },
+    "terribly": {
+        "gl": "adv.",
+        "defch1": "\u53ef\u6015",
+        "defch2": ""
+    },
+    "terrific": {
+        "gl": "adj.",
+        "defch1": "\u592a\u9177\u4e86",
+        "defch2": "\u4e86\u4e0d\u8d77"
+    },
+    "text": {
+        "gl": "n.",
+        "defch1": "\u6587\u672c",
+        "defch2": ""
+    },
+    "therefore": {
+        "gl": "adv.",
+        "defch1": "\u5b9e\u8d28\u6761\u4ef6",
+        "defch2": "\u56e0\u6b64"
+    },
+    "threat": {
+        "gl": "n.",
+        "defch1": "\u5687\u552c",
+        "defch2": "\u5a01\u8105"
+    },
+    "through": {
+        "gl": "adj.",
+        "defch1": "\u901a\u904e",
+        "defch2": ""
+    },
+    "throughout": {
+        "gl": "adv.",
+        "defch1": "\u59cb\u7d42",
+        "defch2": ""
+    },
+    "throw": {
+        "gl": "n.",
+        "defch1": "\u6254",
+        "defch2": ""
+    },
+    "tidy": {
+        "gl": "n.",
+        "defch1": "\u6574\u6f54",
+        "defch2": ""
+    },
+    "tie": {
+        "gl": "n.",
+        "defch1": "\u9818\u5e36",
+        "defch2": ""
+    },
+    "tight": {
+        "gl": "adj.",
+        "defch1": "\u7dca\u7684",
+        "defch2": "\u7dca"
+    },
+    "tiny": {
+        "gl": "adj.",
+        "defch1": "\u6975\u5c0f",
+        "defch2": "\u5c0f"
+    },
+    "toast": {
+        "gl": "n.",
+        "defch1": "\u70e4\u9eb5\u5305\u7247",
+        "defch2": "\u5410\u53f8"
+    },
+    "topic": {
+        "gl": "n.",
+        "defch1": "\u4e3b\u984c",
+        "defch2": "\u8a71\u984c"
+    },
+    "total": {
+        "gl": "n.",
+        "defch1": "\u7e3d",
+        "defch2": ""
+    },
+    "tough": {
+        "gl": "n.",
+        "defch1": "\u8f9b\u82e6",
+        "defch2": ""
+    },
+    "tour": {
+        "gl": "n.",
+        "defch1": "\u65c5\u904a",
+        "defch2": "\u904a\u89bd"
+    },
+    "tourist": {
+        "gl": "n.",
+        "defch1": "\u65c5\u6e38",
+        "defch2": "\u904a\u5ba2"
+    },
+    "track": {
+        "gl": "n.",
+        "defch1": "\u8f68\u8ff9",
+        "defch2": "\u8ddf\u8e2a"
+    },
+    "trade": {
+        "gl": "n.",
+        "defch1": "\u4ea4\u6613",
+        "defch2": "\u8cbf\u6613"
+    },
+    "traditional": {
+        "gl": "adj.",
+        "defch1": "\u50b3\u7d71\u7684",
+        "defch2": ""
+    },
+    "traffic": {
+        "gl": "n.",
+        "defch1": "\u4ea4\u901a\u91cf",
+        "defch2": "\u4ea4\u901a"
+    },
+    "tragedy": {
+        "gl": "n.",
+        "defch1": "\u4e0d\u5e78",
+        "defch2": "\u8863\u886b"
+    },
+    "tragic": {
+        "gl": "adj.",
+        "defch1": "\u60b2\u6158\u3001\u4e0d\u5e78\u7684",
+        "defch2": "\u60b2\u6158"
+    },
+    "transcribe": {
+        "gl": "v.",
+        "defch1": "\u9304\u88fd",
+        "defch2": ""
+    },
+    "transcript": {
+        "gl": "n.",
+        "defch1": "\u6587\u5b57\u8a18\u9304",
+        "defch2": "\u6210\u7e3e\u55ae"
+    },
+    "transfer": {
+        "gl": "n.",
+        "defch1": "\u9077\u79fb",
+        "defch2": "\u8f49\u8b93"
+    },
+    "transform": {
+        "gl": "v.",
+        "defch1": "\u4f7f\u6539\u8b8a",
+        "defch2": "\u8f49\u8b8a"
+    },
+    "transformation": {
+        "gl": "n.",
+        "defch1": "\u8f49\u63db",
+        "defch2": ""
+    },
+    "translate": {
+        "gl": "v.",
+        "defch1": "\u7ffb\u8b6f",
+        "defch2": ""
+    },
+    "translation": {
+        "gl": "n.",
+        "defch1": "\u5e73\u79fb",
+        "defch2": ""
+    },
+    "transport": {
+        "gl": "n.",
+        "defch1": "\u904b\u8f38",
+        "defch2": ""
+    },
+    "transportation": {
+        "gl": "n.",
+        "defch1": "\u4ea4\u901a\u5de5\u5177",
+        "defch2": "\u904b\u8f38"
+    },
+    "travel": {
+        "gl": "n.",
+        "defch1": "\u65c5\u884c",
+        "defch2": ""
+    },
+    "traveler": {
+        "gl": "n.",
+        "defch1": "\u65c5\u884c\u8005",
+        "defch2": "\u904a\u5ba2"
+    },
+    "treasure": {
+        "gl": "n.",
+        "defch1": "\u5bf6",
+        "defch2": "\u5bf6\u85cf"
+    },
+    "treat": {
+        "gl": "n.",
+        "defch1": "\u5c0d\u5f85",
+        "defch2": ""
+    },
+    "treatment": {
+        "gl": "n.",
+        "defch1": "\u65bd\u5de5\u65b9\u5f0f",
+        "defch2": "\u6cbb\u7642"
+    },
+    "tremble": {
+        "gl": "n.",
+        "defch1": "\u986b\u6296",
+        "defch2": ""
+    },
+    "tremendous": {
+        "gl": "adj.",
+        "defch1": "\u5de8\u5927",
+        "defch2": ""
+    },
+    "trend": {
+        "gl": "n.",
+        "defch1": "\u8da8\u52e2\u7684\u5f71\u97ff",
+        "defch2": ""
+    },
+    "trendy": {
+        "gl": "adj.",
+        "defch1": "\u65b0\u6f6e",
+        "defch2": "\u6642\u9ae6\u7684"
+    },
+    "trick": {
+        "gl": "n.",
+        "defch1": "\u624b\u6bb5/\u8a6d\u8a08/\u624b\u6cd5/\u4f0e\u5006",
+        "defch2": "\u62db"
+    },
+    "trip": {
+        "gl": "n.",
+        "defch1": "\u65c5\u884c",
+        "defch2": ""
+    },
+    "tropical": {
+        "gl": "adj.",
+        "defch1": "\u71b1\u5e36",
+        "defch2": ""
+    },
+    "truth": {
+        "gl": "n.",
+        "defch1": "\u771f\u7406",
+        "defch2": ""
+    },
+    "twist": {
+        "gl": "n.",
+        "defch1": "\u637b",
+        "defch2": ""
+    },
+    "ultimately": {
+        "gl": "adv.",
+        "defch1": "\u6700\u7d42",
+        "defch2": ""
+    },
+    "unconscious": {
+        "gl": "n.",
+        "defch1": "\u7121\u610f\u8b58",
+        "defch2": ""
+    },
+    "unexpectedly": {
+        "gl": "adv.",
+        "defch1": "\u7adf\u7136",
+        "defch2": "\u4e0d\u6599"
+    },
+    "unfairly": {
+        "gl": "adv.",
+        "defch1": "\u4e0d\u516c\u5e73\u5730",
+        "defch2": ""
+    },
+    "unforgettable": {
+        "gl": "adj.",
+        "defch1": "\u96e3\u5fd8",
+        "defch2": ""
+    },
+    "unfortunate": {
+        "gl": "n.",
+        "defch1": "\u4e0d\u5e78\u7684",
+        "defch2": ""
+    },
+    "unfortunately": {
+        "gl": "adv.",
+        "defch1": "\u4e0d\u5e78\u5730",
+        "defch2": ""
+    },
+    "unique": {
+        "gl": "adj.",
+        "defch1": "\u552f\u4e00\u7684",
+        "defch2": ""
+    },
+    "unite": {
+        "gl": "v.",
+        "defch1": "\u806f\u96c6",
+        "defch2": "\u5718\u7d50"
+    },
+    "united": {
+        "gl": "v.",
+        "defch1": "\u82f1",
+        "defch2": ""
+    },
+    "university": {
+        "gl": "n.",
+        "defch1": "\u5927\u5b78",
+        "defch2": ""
+    },
+    "unnecessary": {
+        "gl": "adj.",
+        "defch1": "\u4e0d\u5fc5\u8981",
+        "defch2": ""
+    },
+    "upgrade": {
+        "gl": "n.",
+        "defch1": "\u5347\u7d1a",
+        "defch2": ""
+    },
+    "upset": {
+        "gl": "n.",
+        "defch1": "\u6253\u7ffb;\u78b0\u5012;\u4f7f\u50be\u8986",
+        "defch2": "\u7169\u60f1"
+    },
+    "urban": {
+        "gl": "adj.",
+        "defch1": "\u57ce\u5e02",
+        "defch2": ""
+    },
+    "urge": {
+        "gl": "n.",
+        "defch1": "\u6975\u529b\u4e3b\u5f35",
+        "defch2": "\u6566\u4fc3"
+    },
+    "urgent": {
+        "gl": "adj.",
+        "defch1": "\u7dca\u6025",
+        "defch2": ""
+    },
+    "vacancy": {
+        "gl": "n.",
+        "defch1": "\u7a7a\u7f3a",
+        "defch2": ""
+    },
+    "vacant": {
+        "gl": "adj.",
+        "defch1": "\u7a7a\u7684",
+        "defch2": ""
+    },
+    "vague": {
+        "gl": "adj.",
+        "defch1": "\u542b\u7cca\u7684",
+        "defch2": "\u6a21\u7cca"
+    },
+    "valid": {
+        "gl": "adj.",
+        "defch1": "\u6709\u6548",
+        "defch2": ""
+    },
+    "valuable": {
+        "gl": "n.",
+        "defch1": "\u6709\u50f9\u503c\u7684",
+        "defch2": "\u6709\u50f9\u503c"
+    },
+    "value": {
+        "gl": "n.",
+        "defch1": "\u503c",
+        "defch2": ""
+    },
+    "vanish": {
+        "gl": "v.",
+        "defch1": "\u7a81\u7136\u6d88\u5931/\u7d55\u8de1",
+        "defch2": "\u6d88\u5931"
+    },
+    "variety": {
+        "gl": "n.",
+        "defch1": "\u54c1\u7a2e",
+        "defch2": ""
+    },
+    "various": {
+        "gl": "adj.",
+        "defch1": "\u5404\u7a2e",
+        "defch2": ""
+    },
+    "vegetarian": {
+        "gl": "n.",
+        "defch1": "\u8339\u7d20\u8005",
+        "defch2": "\u7d20\u98df\u4e3b\u7fa9\u8005"
+    },
+    "vehicle": {
+        "gl": "n.",
+        "defch1": "\u8eca\u8f1b",
+        "defch2": ""
+    },
+    "vendor": {
+        "gl": "n.",
+        "defch1": "\u4f9b\u61c9\u5546",
+        "defch2": ""
+    },
+    "version": {
+        "gl": "n.",
+        "defch1": "\u7248\u672c",
+        "defch2": ""
+    },
+    "vertical": {
+        "gl": "n.",
+        "defch1": "\u5782\u76f4",
+        "defch2": ""
+    },
+    "vessel": {
+        "gl": "n.",
+        "defch1": "\u5bb9\u5668/\u8239\u96bb",
+        "defch2": ""
+    },
+    "vibrate": {
+        "gl": "v.",
+        "defch1": "\u632f\u52d5",
+        "defch2": ""
+    },
+    "vibration": {
+        "gl": "n.",
+        "defch1": "\u632f\u52d5",
+        "defch2": ""
+    },
+    "victim": {
+        "gl": "n.",
+        "defch1": "\u53d7\u5bb3\u8005",
+        "defch2": ""
+    },
+    "victimize": {
+        "gl": "v.",
+        "defch1": "\u53d7\u5bb3",
+        "defch2": ""
+    },
+    "victory": {
+        "gl": "n.",
+        "defch1": "\u52dd\u5229",
+        "defch2": ""
+    },
+    "view": {
+        "gl": "n.",
+        "defch1": "\u67e5\u770b",
+        "defch2": "\u8996\u5716"
+    },
+    "violence": {
+        "gl": "n.",
+        "defch1": "\u66b4\u529b",
+        "defch2": ""
+    },
+    "violent": {
+        "gl": "adj.",
+        "defch1": "\u66b4\u529b\u7684",
+        "defch2": "\u66b4\u529b"
+    },
+    "virtue": {
+        "gl": "n.",
+        "defch1": "\u7f8e\u5fb7",
+        "defch2": ""
+    },
+    "virus": {
+        "gl": "n.",
+        "defch1": "\u75c5\u6bd2",
+        "defch2": ""
+    },
+    "vision": {
+        "gl": "n.",
+        "defch1": "\u8996\u529b/\u9858\u666f",
+        "defch2": "\u8996\u529b"
+    },
+    "visualize": {
+        "gl": "v.",
+        "defch1": "\u53ef\u8996\u5316",
+        "defch2": ""
+    },
+    "vitamin": {
+        "gl": "n.",
+        "defch1": "\u7dad\u4ed6\u547d",
+        "defch2": ""
+    },
+    "vocation": {
+        "gl": "n.",
+        "defch1": "\u8077\u696d",
+        "defch2": ""
+    },
+    "vocational": {
+        "gl": "adj.",
+        "defch1": "\u8077\u696d\u7684",
+        "defch2": ""
+    },
+    "volcanic": {
+        "gl": "adj.",
+        "defch1": "\u706b\u5c71",
+        "defch2": ""
+    },
+    "volcano": {
+        "gl": "n.",
+        "defch1": "\u706b\u5c71",
+        "defch2": ""
+    },
+    "voluntary": {
+        "gl": "n.",
+        "defch1": "\u7fa9\u52d9\u6027\u7684",
+        "defch2": "\u81ea\u4e3b\u6027"
+    },
+    "volunteer": {
+        "gl": "n.",
+        "defch1": "\u5fd7\u5de5",
+        "defch2": ""
+    },
+    "vomit": {
+        "gl": "n.",
+        "defch1": "\u5614\u5410",
+        "defch2": ""
+    },
+    "vote": {
+        "gl": "n.",
+        "defch1": "\u6295\u7968",
+        "defch2": ""
+    },
+    "voter": {
+        "gl": "n.",
+        "defch1": "\u6295\u7968\u8005",
+        "defch2": "\u9078\u6c11"
+    },
+    "warn": {
+        "gl": "v.",
+        "defch1": "\u8b66\u544a",
+        "defch2": ""
+    },
+    "warning": {
+        "gl": "n.",
+        "defch1": "\u8b66\u544a",
+        "defch2": ""
+    },
+    "waste": {
+        "gl": "n.",
+        "defch1": "\u6d6a\u8cbb,\u5ee2\u7269,\u5ee2\u6599",
+        "defch2": "\u6d6a\u8cbb"
+    },
+    "wasteful": {
+        "gl": "adj.",
+        "defch1": "\u6d6a\u8cbb\u7684",
+        "defch2": ""
+    },
+    "wealth": {
+        "gl": "n.",
+        "defch1": "\u8ca1\u5bcc, \u8c50\u5bcc",
+        "defch2": "\u8ca1\u5bcc"
+    },
+    "website": {
+        "gl": "n.",
+        "defch1": "\u7db2\u7ad9",
+        "defch2": ""
+    },
+    "wedding": {
+        "gl": "n.",
+        "defch1": "\u5a5a\u79ae",
+        "defch2": ""
+    },
+    "weigh": {
+        "gl": "v.",
+        "defch1": "\u7a31\u91cd",
+        "defch2": ""
+    },
+    "weight": {
+        "gl": "n.",
+        "defch1": "\u91cd\u91cf",
+        "defch2": ""
+    },
+    "weird": {
+        "gl": "n.",
+        "defch1": "\u771f\u602a",
+        "defch2": ""
+    },
+    "welfare": {
+        "gl": "n.",
+        "defch1": "\u798f\u5229",
+        "defch2": ""
+    },
+    "whatever": {
+        "gl": "adj.",
+        "defch1": "\u96a8\u4f60/\u7121\u8ad6\u4f55\u4e8b",
+        "defch2": ""
+    },
+    "whistle": {
+        "gl": "n.",
+        "defch1": "\u53e3\u54e8",
+        "defch2": "\u54e8"
+    },
+    "widow": {
+        "gl": "n.",
+        "defch1": "\u907a\u7559\u5b57\u4e32",
+        "defch2": "\u5be1\u5a66"
+    },
+    "wisdom": {
+        "gl": "n.",
+        "defch1": "\u667a\u6167",
+        "defch2": ""
+    },
+    "witch": {
+        "gl": "n.",
+        "defch1": "\u5deb\u8853",
+        "defch2": ""
+    },
+    "withdraw": {
+        "gl": "v.",
+        "defch1": "\u64a4\u56de",
+        "defch2": "\u6536\u56de"
+    },
+    "withstand": {
+        "gl": "v.",
+        "defch1": "\u7d93\u53d7",
+        "defch2": ""
+    },
+    "wonder": {
+        "gl": "n.",
+        "defch1": "\u5947\u8e5f",
+        "defch2": ""
+    },
+    "wonderful": {
+        "gl": "adj.",
+        "defch1": "\u8d85\u68d2\u7684",
+        "defch2": "\u7cbe\u5f69"
+    },
+    "worldwide": {
+        "gl": "adj.",
+        "defch1": "\u4e16\u754c",
+        "defch2": "\u5168\u4e16\u754c"
+    },
+    "worried": {
+        "gl": "v.",
+        "defch1": "\u653e\u5fc3\u4e0d\u4e0b",
+        "defch2": ""
+    },
+    "worry": {
+        "gl": "n.",
+        "defch1": "\u64d4\u5fc3",
+        "defch2": ""
+    },
+    "worse": {
+        "gl": "n.",
+        "defch1": "\u66f4\u5dee",
+        "defch2": ""
+    },
+    "worsen": {
+        "gl": "v.",
+        "defch1": "\u60e1\u5316",
+        "defch2": ""
+    },
+    "worship": {
+        "gl": "n.",
+        "defch1": "\u5d07\u62dc/\u656c\u62dc",
+        "defch2": ""
+    },
+    "worth": {
+        "gl": "n.",
+        "defch1": "\u50f9\u503c;\u610f\u7fa9;\u4f5c\u7528",
+        "defch2": "\u50f9\u503c"
+    },
+    "yell": {
+        "gl": "n.",
+        "defch1": "\u5927\u53eb",
+        "defch2": "\u53eb\u558a"
+    }
+}
