@@ -199,35 +199,35 @@ def get_records():
 def createAudio(word):
     print('creating audio')
 
-    try:
-        print(1)
-        engine = pyttsx3.init()
 
-        voices = engine.getProperty('voices')
-        engine.setProperty('voice', voices[1].id)
-        rate = engine.getProperty('rate')
-        engine.setProperty('rate', rate-70)
+    print(1)
+    engine = pyttsx3.init()
 
-        print(2)
+    voices = engine.getProperty('voices')
+    engine.setProperty('voice', voices[1].id)
+    rate = engine.getProperty('rate')
+    engine.setProperty('rate', rate-70)
 
-        string = word + '.mp3'
+    print(2)
 
-        save = string
-        engine.save_to_file(word, save)
-        engine.runAndWait()
+    string = word + '.mp3'
 
-        print(3)
+    save = string
+    engine.save_to_file(word, save)
+    engine.runAndWait()
 
-        data = open(string, 'rb')
-        aws_filename = 'public/added_en/' + string
-        print(4)
+    print(3)
 
-        s3_resource.Bucket(bucket_name).put_object(Key=aws_filename, Body=data)
-        print(5)
-        return True
-    except:
-        print('create fail')
-        return False
+    data = open(string, 'rb')
+    aws_filename = 'public/added_en/' + string
+    print(4)
+
+    s3_resource.Bucket(bucket_name).put_object(Key=aws_filename, Body=data)
+    print(5)
+    return True
+    # except:
+    #     print('create fail')
+    #     return False
 
 
 
