@@ -8,7 +8,9 @@
             <b-form @submit="onSubmit">
                 <b-row>
                   <b-col align="center">
+                    <div v-if="newWord.link">
                      <b-img style="max-height:200px" thumbnail fluid :src="getPict" :alt="pictWord"></b-img>
+                    </div>
                     <div style="max-width:250px" align="left">
                       <b-form-file accept="image/*" placeholder="" type="file" id="file" ref="file" v-on:change="handleFileUpload()" ></b-form-file>
                     </div>
