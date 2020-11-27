@@ -62,6 +62,41 @@
         <button class="buttonDiv bg-success px-3" style="width:100%"><b-icon-images variant="cream" font-scale="1.5"></b-icon-images> <span class="text-cream">See all Images</span> </button>
       </div>
 
+
+      <DictPict v-on:pictureFalse="picture = false" v-if="picture" :s3="s3" :vocabList="vocabList" :pictWord="pictWord" :pictCh="pictCh"></DictPict>
+
+
+      <div class="bg-alert-light p-2" v-if="visibleRows.length === 0 && selected[0] !== null && selected[0].length > 1 && selected[1] === null && vocabList[0] === 'g'">
+       <b-form @submit="onAdd">
+                <b-input-group class="my-2 p-6">
+                    <b-input-group-prepend inline is-text>
+                      <b-icon icon="hash"></b-icon>
+                    </b-input-group-prepend>
+                    <b-form-input v-model="selected[0]" disabled>
+                    </b-form-input>
+                </b-input-group>
+
+                <b-input-group class="my-2 p-6" label="Chinese" label-for="exampleInput2">
+                    <b-input-group-prepend inline is-text>
+                      <b-icon icon="filter-left"></b-icon>
+                    </b-input-group-prepend>
+                    <b-form-textarea
+                    v-model="wordDetails.defch1"
+                    placeholder="Add Chinese"
+                    rows="2"
+                    >
+                    </b-form-textarea>
+                </b-input-group>
+
+                <b-row>
+                  <b-col>
+                    <b-form-select class="bg-grey" style="width:100%;overflow-y: hidden" v-model="wordDetails.gl" :options="optionsG" :select-size="1"></b-form-select>
+                    <button class="buttonDiv bg-alert px-3 mt-2" type="submit"> <b-icon-arrow-up-circle-fill variant="cream" font-scale="1.5"></b-icon-arrow-up-circle-fill> <span class="text-cream" style="font-weight:bold">Add to Dictionary </span> </button>
+                  </b-col>
+                </b-row>
+       </b-form>
+      </div>
+
       <div class="mb-0">
       <b-table
       striped hover
@@ -103,39 +138,6 @@
          </template>
       </b-table>
       </div>
-
-      <div class="bg-alert-light p-2" v-if="visibleRows.length === 0 && selected[0] !== null && selected[0].length > 1 && selected[1] === null && vocabList[0] === 'g'">
-       <b-form @submit="onAdd">
-                <b-input-group class="my-2 p-6">
-                    <b-input-group-prepend inline is-text>
-                      <b-icon icon="hash"></b-icon>
-                    </b-input-group-prepend>
-                    <b-form-input v-model="selected[0]" disabled>
-                    </b-form-input>
-                </b-input-group>
-
-                <b-input-group class="my-2 p-6" label="Chinese" label-for="exampleInput2">
-                    <b-input-group-prepend inline is-text>
-                      <b-icon icon="filter-left"></b-icon>
-                    </b-input-group-prepend>
-                    <b-form-textarea
-                    v-model="wordDetails.defch1"
-                    placeholder="Add Chinese"
-                    rows="2"
-                    >
-                    </b-form-textarea>
-                </b-input-group>
-
-                <b-row>
-                  <b-col>
-                    <b-form-select class="bg-grey" style="width:100%;overflow-y: hidden" v-model="wordDetails.gl" :options="optionsG" :select-size="1"></b-form-select>
-                    <button class="buttonDiv bg-alert px-3 mt-2" type="submit"> <b-icon-arrow-up-circle-fill variant="cream" font-scale="1.5"></b-icon-arrow-up-circle-fill> <span class="text-cream" style="font-weight:bold">Add to Dictionary </span> </button>
-                  </b-col>
-                </b-row>
-       </b-form>
-      </div>
-
-      <DictPict v-on:pictureFalse="picture = false" v-if="picture" :s3="s3" :vocabList="vocabList" :pictWord="pictWord" :pictCh="pictCh"></DictPict>
 
       <b-modal hide-header-close no-close-on-esc no-close-on-backdrop align="center" ref="alert" hide-footer title="Alert">
         <div class="d-block">
@@ -262,15 +264,16 @@ export default {
       this.selected = [...this.selected]
     },
     changeSelected: function (arg) {
+      this.selected[0] = ''
       this.picture = false
+
       if (arg === 'grade') {
-        this.selected[0] = ''
         this.selected[1] = null
-        this.selected = [...this.selected]
       } else {
         this.selected[1] = arg
-        this.selected = [...this.selected]
       }
+
+      this.selected = [...this.selected]
       console.log(this.selected)
     },
     nullClick: function (key, item) {
