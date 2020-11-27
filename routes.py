@@ -1,12 +1,12 @@
 import boto3
 import random
 import base64
+from gtts import gTTS
 from random import randint
 import ast
 import json
 import requests
 import jwt
-import pyttsx3
 from datetime import datetime, timedelta
 from functools import wraps
 from flask import jsonify, render_template, request
@@ -193,28 +193,23 @@ def get_records():
         })
 
 
-
-
-
 def createAudio(word):
     print('creating audio')
 
-
-    print(1)
-    engine = pyttsx3.init()
-
-    voices = engine.getProperty('voices')
-    engine.setProperty('voice', voices[1].id)
-    rate = engine.getProperty('rate')
-    engine.setProperty('rate', rate-70)
-
-    print(2)
-
     string = word + '.mp3'
 
-    save = string
-    engine.save_to_file(word, save)
-    engine.runAndWait()
+    print(1)
+    # engine = pyttsx3.init()
+
+    # voices = engine.getProperty('voices')
+    # engine.setProperty('voice', voices[1].id)
+    # rate = engine.getProperty('rate')
+    # engine.setProperty('rate', rate-70)
+    # engine.save_to_file(word, string)
+    # engine.runAndWait()
+
+    tts = gTTS(word)
+    tts.save(string)
 
     print(3)
 
