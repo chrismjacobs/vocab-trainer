@@ -48,9 +48,17 @@
           </div>
         </template>
 
-        <template v-slot:cell(english)="data" >
+        <template v-slot:cell(english)="data">
+          <div style="float:left">
+           <template v-if="data.item.English in starGet">
+              <b-icon-star-fill variant="warn" @click="addStar(data.item.English, 0)"></b-icon-star-fill>
+            </template>
+            <template v-else>
+              <b-icon-star variant="grey" @click="addStar(data.item.English, 1)"></b-icon-star>
+            </template>
+          </div>
           <div align="right">
-            {{data.value}}
+            <span :id="data.item.English" @click="playAnswer(data.item.English)"> {{data.item.English}}</span>
           </div>
         </template>
 
@@ -104,6 +112,14 @@ export default {
       qCount: 0,
       sCount: 0,
       fields: ['English', 'Chinese']
+    }
+  },
+  computed: {
+    starGet () {
+      return this.$store.getters.starGet
+    },
+    dictGet () {
+      return this.$store.getters.makeList
     }
   },
   methods: {
@@ -168,6 +184,9 @@ export default {
       this.showModal()
       this.checkAnswers()
     },
+    addStar: function (word, set) {
+      this.$store.dispatch('newStar', {word: word, set: set})
+    },
     showModal: function () {
       this.$refs['complete'].show()
     },
@@ -197,6 +216,30 @@ export default {
       let player = document.getElementById('audio')
       player.src = arg
       player.play()
+    },
+    playAnswer: function (arg) {
+      var result = this.dictGet.filter(obj => {
+        return obj.English === arg
+      })
+      console.log('PLAY', result)
+
+      if (this.audioMarker) {
+        let icon = document.getElementById(this.audioMarker)
+        icon.setAttribute('class', '')
+      }
+
+      this.audioMarker = arg
+      let icon = document.getElementById(arg)
+
+      icon.setAttribute('class', 'text-warn')
+
+      let audioLink = result[0].mp3en
+      let player = document.getElementById('audio')
+      player.src = audioLink
+      player.play()
+      player.onended = function () {
+        icon.setAttribute('class', '')
+      }
     }
   },
   watch: {

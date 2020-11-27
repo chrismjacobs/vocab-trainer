@@ -58,7 +58,16 @@
           </div>
         </template>
 
-        <template v-slot:cell(chinese)="data" >
+        <template v-slot:cell(chinese)="data">
+          <div style="float:left">
+           <template v-if="data.item.English in starGet">
+              <b-icon-star-fill variant="warn" @click="addStar(data.item.English, 0)"></b-icon-star-fill>
+            </template>
+            <template v-else>
+              <b-icon-star variant="grey" @click="addStar(data.item.English, 1)"></b-icon-star>
+            </template>
+          </div>
+
           <div align="right">
             {{ data.value}}
           </div>
@@ -66,11 +75,11 @@
 
         <template v-slot:cell(english)="data" >
           <div v-if="data.item._rowVariant === 'warn'">
-            <b-icon icon="x" variant="alert" font-scale="1" ></b-icon> {{data.item.Choice}}<br>
-            <b-icon icon="check2" variant="safe" font-scale="1"></b-icon> {{data.item.English}}
+            <b-icon icon="x" variant="alert" font-scale="1" ></b-icon> <span :id="data.item.Choice" @click="playAnswer(data.item.Choice)"> {{data.item.Choice}}</span> <br>
+            <b-icon icon="check2" variant="safe" font-scale="1"></b-icon> <span :id="data.item.English" @click="playAnswer(data.item.English)"> {{data.item.English}}</span>
           </div>
           <div v-else>
-            {{data.item.English}}
+            <span :id="data.item.English" @click="playAnswer(data.item.English)"> {{data.item.English}}</span>
           </div>
         </template>
 
@@ -127,7 +136,16 @@ export default {
       startTime: null,
       endTime: null,
       qCount: 0,
-      sCount: 0
+      sCount: 0,
+      markerIcon: null
+    }
+  },
+  computed: {
+    starGet () {
+      return this.$store.getters.starGet
+    },
+    dictGet () {
+      return this.$store.getters.makeList
     }
   },
   methods: {
@@ -207,6 +225,9 @@ export default {
       this.showModal()
       this.checkAnswers()
     },
+    addStar: function (word, set) {
+      this.$store.dispatch('newStar', {word: word, set: set})
+    },
     showModal: function () {
       this.$refs['complete'].show()
     },
@@ -232,10 +253,33 @@ export default {
       }
     },
     playAudio: function (arg) {
-      // console.log('PLAY', arg)
       let player = document.getElementById('audio')
       player.src = arg
       player.play()
+    },
+    playAnswer: function (arg) {
+      var result = this.dictGet.filter(obj => {
+        return obj.English === arg
+      })
+      console.log('PLAY', result)
+
+      if (this.audioMarker) {
+        let icon = document.getElementById(this.audioMarker)
+        icon.setAttribute('class', '')
+      }
+
+      this.audioMarker = arg
+      let icon = document.getElementById(arg)
+
+      icon.setAttribute('class', 'text-warn')
+
+      let audioLink = result[0].mp3en
+      let player = document.getElementById('audio')
+      player.src = audioLink
+      player.play()
+      player.onended = function () {
+        icon.setAttribute('class', '')
+      }
     },
     playCycle: function () {
       // let silence = 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/silence.mp3'
