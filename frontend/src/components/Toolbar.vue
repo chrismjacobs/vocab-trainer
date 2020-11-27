@@ -507,6 +507,10 @@ export default {
       ]
     }
 
+    if (this.$store.state.userProfile.vocab[0] === 'g') {
+      this.sortOptions.pop()
+    }
+
     if (this.testType === 'typeTest') {
       this.sound = 'sdEn'
       this.soundOptions = [
