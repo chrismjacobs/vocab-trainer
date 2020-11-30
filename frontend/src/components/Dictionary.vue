@@ -32,10 +32,11 @@
         </b-row>
         <b-row >
           <b-col align="center">
-            <button class="buttonDiv bg-second px-3" style="width:60px;" @click="changeSelected('p')"> <b-icon-images :variant="getIcon('p')" font-scale="1.5"></b-icon-images></button>
-            <button class="buttonDiv bg-second px-3" style="width:60px;" @click="changeSelected('*')"> <b-icon-star-fill :variant="getIcon('*')" font-scale="1.5"></b-icon-star-fill></button>
+            <button class="buttonDiv bg-second px-3" style="width:60px" @click="changeSelected('p')"> <b-icon-images :variant="getIcon('p')" font-scale="1.5"></b-icon-images></button>
+            <button class="buttonDiv bg-second px-3" style="width:60px" @click="changeSelected('*')"> <b-icon-star-fill :variant="getIcon('*')" font-scale="1.5"></b-icon-star-fill></button>
             <button v-if="vocabList[0] === 'g'" class="buttonDiv bg-second px-3" style="width:60px;t" @click="changeSelected('+')"> <b-icon-arrow-up-circle-fill :variant="getIcon('+')" font-scale="1.5"></b-icon-arrow-up-circle-fill></button>
-            <b-form-select class="bg-second text-cream" style="width:30%;overflow-y: hidden" @change="selected[2] = null" v-model="selected[1]" :options="optionsCheck" :select-size="1"></b-form-select>
+            <button  :class="getSoundButton()" style="width:60px;t" @click="tapSound()"> <b-icon-soundwave :variant="getSoundwave()" font-scale="1.5"></b-icon-soundwave></button>
+            <b-form-select class="bg-second text-cream" style="width:10%;overflow-y: hidden" @change="selected[2] = null" v-model="selected[1]" :options="optionsCheck" :select-size="1"></b-form-select>
           </b-col>
 
         </b-row>
@@ -62,40 +63,42 @@
         <button class="buttonDiv bg-success px-3" style="width:100%"><b-icon-images variant="cream" font-scale="1.5"></b-icon-images> <span class="text-cream">See all Images</span> </button>
       </div>
 
-
+      <transition name="board">
       <DictPict v-on:pictureFalse="picture = false" v-if="picture" :s3="s3" :vocabList="vocabList" :pictWord="pictWord" :pictCh="pictCh"></DictPict>
+      </transition>
 
+      <transition name="board">
+        <div class="bg-alert-light p-2" v-if="visibleRows.length === 0 && selected[0] !== null && selected[0].length > 1 && selected[1] === null && vocabList[0] === 'g'">
+        <b-form @submit="onAdd">
+                  <b-input-group class="my-2 p-6">
+                      <b-input-group-prepend inline is-text>
+                        <b-icon icon="hash"></b-icon>
+                      </b-input-group-prepend>
+                      <b-form-input v-model="selected[0]" disabled>
+                      </b-form-input>
+                  </b-input-group>
 
-      <div class="bg-alert-light p-2" v-if="visibleRows.length === 0 && selected[0] !== null && selected[0].length > 1 && selected[1] === null && vocabList[0] === 'g'">
-       <b-form @submit="onAdd">
-                <b-input-group class="my-2 p-6">
-                    <b-input-group-prepend inline is-text>
-                      <b-icon icon="hash"></b-icon>
-                    </b-input-group-prepend>
-                    <b-form-input v-model="selected[0]" disabled>
-                    </b-form-input>
-                </b-input-group>
+                  <b-input-group class="my-2 p-6" label="Chinese" label-for="exampleInput2">
+                      <b-input-group-prepend inline is-text>
+                        <b-icon icon="filter-left"></b-icon>
+                      </b-input-group-prepend>
+                      <b-form-textarea
+                      v-model="wordDetails.defch1"
+                      placeholder="Add Chinese"
+                      rows="2"
+                      >
+                      </b-form-textarea>
+                  </b-input-group>
 
-                <b-input-group class="my-2 p-6" label="Chinese" label-for="exampleInput2">
-                    <b-input-group-prepend inline is-text>
-                      <b-icon icon="filter-left"></b-icon>
-                    </b-input-group-prepend>
-                    <b-form-textarea
-                    v-model="wordDetails.defch1"
-                    placeholder="Add Chinese"
-                    rows="2"
-                    >
-                    </b-form-textarea>
-                </b-input-group>
-
-                <b-row>
-                  <b-col>
-                    <b-form-select class="bg-grey" style="width:100%;overflow-y: hidden" v-model="wordDetails.gl" :options="optionsG" :select-size="1"></b-form-select>
-                    <button class="buttonDiv bg-alert px-3 mt-2" type="submit"> <b-icon-arrow-up-circle-fill variant="cream" font-scale="1.5"></b-icon-arrow-up-circle-fill> <span class="text-cream" style="font-weight:bold">Add to Dictionary </span> </button>
-                  </b-col>
-                </b-row>
-       </b-form>
-      </div>
+                  <b-row>
+                    <b-col>
+                      <b-form-select class="bg-grey" style="width:100%;overflow-y: hidden" v-model="wordDetails.gl" :options="optionsG" :select-size="1"></b-form-select>
+                      <button class="buttonDiv bg-alert px-3 mt-2" type="submit"> <b-icon-arrow-up-circle-fill variant="cream" font-scale="1.5"></b-icon-arrow-up-circle-fill> <span class="text-cream" style="font-weight:bold">Add to Dictionary </span> </button>
+                    </b-col>
+                  </b-row>
+        </b-form>
+        </div>
+      </transition>
 
       <div class="mb-0">
       <b-table
@@ -121,18 +124,17 @@
              <b-icon-card-image :variant="getVariant(data.item.Picture)" @click="picture = !picture, filterPicture(data.value, data.item.Chinese)"></b-icon-card-image>  &nbsp; <br class="d-lg-none">
             </b-col>
             <b-col>
-              {{data.value}} <br> ({{data.item.Gr}})
-               <b-icon-soundwave class="text-prime" :id="data.value + '_en/'" @click="playAudio(data.value, '_en/', data.item.mp3en)"></b-icon-soundwave>
+              <span v-if="soundCount !== 1" :id="data.value + '_en/'" @click="playAudio(data.value, '_en/', data.item.mp3en)"> {{data.value}} <br> ({{data.item.Gr}}) </span>
+              <span v-else align="center"> <b-icon-soundwave  font-scale="1.5" class="text-prime" :id="data.value + '_en/'" @click="playAudio(data.value, '_en/', data.item.mp3en)"></b-icon-soundwave> </span>
             </b-col>
           </b-row>
          </template>
         <template v-slot:cell(chineseext)="data">
           <b-row>
             <b-col>
-              {{data.value}}
-            </b-col>
-            <b-col align="right">
-             <b-icon-trash-fill v-if="data.item.Origin === 'new'" variant="alert" @click="addWord(data.item.English, 0)"></b-icon-trash-fill> <br class="d-lg-none">
+              <span v-if="soundCount !== 2" :id="data.item.English + '_ch/'" @click="playAudio(data.item.English, '_ch/', data.item.mp3ch)"> {{data.value}} </span>
+              <span v-else align="center"> <b-icon-soundwave  font-scale="1.5" class="text-prime" :id="data.item.English + '_ch/'" @click="playAudio(data.item.English, '_ch/', data.item.mp3ch)"></b-icon-soundwave> </span>
+              <b-icon-trash-fill v-if="data.item.Origin === 'new'" style="float:right" variant="alert" @click="addWord(data.item.English, 0)"></b-icon-trash-fill> <br class="d-lg-none">
             </b-col>
           </b-row>
          </template>
@@ -215,7 +217,8 @@ export default {
       pictWord: null,
       pictCh: null,
       note: null,
-      audioMarker: [null, null]
+      audioMarker: [null, null],
+      soundCount: 0
     }
   },
   computed: {
@@ -252,6 +255,29 @@ export default {
         return colors[icon]
       } else {
         return 'cream'
+      }
+    },
+    getSoundwave: function () {
+      if (this.soundCount === 0) {
+        return 'cream'
+      } else if (this.soundCount === 1) {
+        return 'warn'
+      } else {
+        return 'safe'
+      }
+    },
+    getSoundButton: function () {
+      if (this.soundCount === 0) {
+        return 'buttonDiv bg-second px-3'
+      } else {
+        return 'buttonDiv bg-cream px-3'
+      }
+    },
+    tapSound: function () {
+      if (this.soundCount === 2) {
+        this.soundCount = 0
+      } else {
+        this.soundCount += 1
       }
     },
     filterPicture: function (word, chinese) {
@@ -351,23 +377,34 @@ export default {
       }
       return v
     },
-    playAudio: function (arg, folder, mp3en) {
+    playAudio: function (arg, folder, link) {
       // folder === '_en'
       let markerIcon = document.getElementById(this.audioMarker[0] + this.audioMarker[1])
-      console.log(markerIcon)
+      console.log(markerIcon, link)
 
       // sets unreset icon back
       if (markerIcon) {
         markerIcon.setAttribute('class', 'text-prime')
       }
 
+      let text = 'text-' + this.getSoundwave()
+
       this.audioMarker = [arg, folder]
       let icon = document.getElementById(arg + folder)
-      icon.setAttribute('class', 'text-warn')
+      icon.setAttribute('class', text)
 
-      let audioLink = mp3en
       let player = document.getElementById('audio')
-      player.src = audioLink
+      player.src = link
+
+      let _this = this
+
+      player.addEventListener('error', function (e) {
+        console.log('Logging playback error: ' + e)
+        icon.setAttribute('class', 'text-prime')
+        _this.note = 'Sorry, no audio available'
+        _this.showAlert()
+      })
+
       player.play()
       player.onended = function () {
         icon.setAttribute('class', 'text-prime')
@@ -395,7 +432,7 @@ export default {
         // set added status and call api for audio
         if (!this.generalGet[newWord]) {
           this.wordDetails.added = true
-          this.$store.dispatch('newAudio', {word: newWord, set: set})
+          this.$store.dispatch('newAudio', {word: newWord, chinese: this.wordDetails.defch1, set: set})
         } else {
           this.wordDetails.added = false
         }

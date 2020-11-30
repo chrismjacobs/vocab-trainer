@@ -558,7 +558,7 @@ const getters = {
         origin = 'new'
         if (state.setRecord.addRecord[vocab].added === true) {
           mp3en = 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/added_en/' + vocab + '.mp3'
-          mp3ch = 'find mp3'
+          mp3ch = 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/added_ch/' + vocab + '.mp3'
         }
       }
 

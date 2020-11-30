@@ -193,36 +193,30 @@ def get_records():
         })
 
 
-def createAudio(word):
+def createAudio(word, chinese):
     print('creating audio')
 
     string = word + '.mp3'
 
-    print(1)
-    # engine = pyttsx3.init()
-
-    # voices = engine.getProperty('voices')
-    # engine.setProperty('voice', voices[1].id)
-    # rate = engine.getProperty('rate')
-    # engine.setProperty('rate', rate-70)
-    # engine.save_to_file(word, string)
-    # engine.runAndWait()
-
     tts = gTTS(word)
-    tts.save(string)
+    tts.save('en' + string)
 
-    print(3)
+    en_data = open('en' + string, 'rb')
+    en_filename = 'public/added_en/' + string
 
-    data = open(string, 'rb')
-    aws_filename = 'public/added_en/' + string
-    print(4)
+    s3_resource.Bucket(bucket_name).put_object(Key=en_filename, Body=en_data)
 
-    s3_resource.Bucket(bucket_name).put_object(Key=aws_filename, Body=data)
-    print(5)
+
+    vocab_audiofile = gTTS(text=chinese, lang='zh-tw', slow=False)
+    vocab_audiofile.save('ch' + string)
+
+    ch_data = open('ch' + string, 'rb')
+    en_filename = 'public/added_ch/' + string
+
+    s3_resource.Bucket(bucket_name).put_object(Key=en_filename, Body=ch_data)
+
+
     return True
-    # except:
-    #     print('create fail')
-    #     return False
 
 
 
@@ -231,6 +225,7 @@ def add_audio():
     print(request.get_json())
 
     word = request.get_json()['word']
+    chinese = request.get_json()['chinese']
     action = request.get_json()['set']
     ### no action for delete yet
     result = 'NONE'
@@ -243,7 +238,7 @@ def add_audio():
         generalList.append(checkWord)
 
     if word not in generalList:
-        result = createAudio(word)
+        result = createAudio(word, chinese)
     else:
         result = 'FOUND'
 
