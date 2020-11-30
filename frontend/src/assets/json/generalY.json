@@ -379,12 +379,12 @@
         "defch1": "\u8173\u8e1d",
         "defch2": "\u8e1d"
     },
-    "ann.ce": {
+    "announce": {
         "gl": "v.",
         "defch1": "\u5ba3\u5e03",
         "defch2": "\u5e74\u5ea6"
     },
-    "ann.cement": {
+    "announcement": {
         "gl": "n.",
         "defch1": "\u516c\u4f48\u6b04",
         "defch2": "\u6279\u8a3b"
