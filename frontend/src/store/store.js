@@ -12,6 +12,7 @@ import generalY from '../assets/json/generalY.json'
 import generalW from '../assets/json/generalW.json'
 import generalD from '../assets/json/generalD.json'
 import generalV from '../assets/json/generalV.json'
+import generalT from '../assets/json/generalT.json'
 import food from '../assets/json/food.json'
 // import vqc from '../assets/json/vqc2.json'
 import test from '../assets/json/vqc2.json'
@@ -27,6 +28,7 @@ let dictionaries = {
   'generalW': generalW,
   'generalD': generalD,
   'generalV': generalV,
+  'generalT': generalT,
   'high': null,
   'food': food
 }
@@ -103,13 +105,12 @@ const actions = {
     // console.log(context, userData)
     return updateAccount(userData)
       .then(function (response) {
-        alert(response.data.msg)
-        context.commit('setAccount', {dataReturn: response.data.dataReturn, newVocab: response.data.newVocab})
-        // console.log('new', response.data.dataReturn)
-        if (response.data.newVocab) {
-          alert('Your are changing your word list to ' + response.data.dataReturn['vocab'] + '. Please log in again to update')
-          context.dispatch('logout')
-          router.push('/login')
+        console.log('account', response)
+        if (response.data.err) {
+          return response.data
+        } else {
+          context.commit('setAccount', {dataReturn: response.data.dataReturn, newVocab: response.data.newVocab})
+          return response.data
         }
       })
       .catch(error => {
@@ -256,12 +257,13 @@ const mutations = {
     state.classRecords = payload
   },
   setAccount (state, payload) {
-    // console.log('setAccount payload = ', payload.dataReturn)
+    console.log('setAccount payload = ', payload.dataReturn)
     for (let item in payload.dataReturn) {
       if (item !== 'imageData') {
         state[item] = payload.dataReturn[item]
       }
     }
+    state.userProfile = {...state.userProfile}
     localStorage.setItem('userProfile', JSON.stringify(state.userProfile))
   },
   setNewPicture (state, payload) {
@@ -328,6 +330,7 @@ const mutations = {
     state.setRecord = {dictRecord: {}, starRecord: {}, addRecord: {}}
     state.jwt = ''
     localStorage.clear()
+    router.push('login')
   },
   setTestActive (state, bol) {
     state.testActive = bol
@@ -464,9 +467,9 @@ const getters = {
     let tableItems = []
     let dict = {...state.master}
 
-    console.log('check add ', state.setRecord.addRecord)
+    // console.log('check add ', state.setRecord.addRecord)
     for (let v in state.setRecord.addRecord) {
-      console.log(v)
+      // console.log(v)
       dict[v] = state.setRecord.addRecord[v]
     }
 

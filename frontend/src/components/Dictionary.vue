@@ -68,7 +68,7 @@
       </transition>
 
       <transition name="board">
-        <div class="bg-alert-light p-2" v-if="visibleRows.length === 0 && selected[0] !== null && selected[0].length > 1 && selected[1] === null && vocabList[0] === 'g'">
+        <div class="bg-third p-2" v-if="visibleRows.length === 0 && selected[0] !== null && selected[0].length > 1 && selected[1] === null && vocabList[0] === 'g'">
         <b-form @submit="onAdd">
                   <b-input-group class="my-2 p-6">
                       <b-input-group-prepend inline is-text>
@@ -91,13 +91,17 @@
                   </b-input-group>
 
                   <b-row>
-                    <b-col>
+                    <b-col align="center">
                       <b-form-select class="bg-grey" style="width:100%;overflow-y: hidden" v-model="wordDetails.gl" :options="optionsG" :select-size="1"></b-form-select>
-                      <button class="buttonDiv bg-alert px-3 mt-2" type="submit"> <b-icon-arrow-up-circle-fill variant="cream" font-scale="1.5"></b-icon-arrow-up-circle-fill> <span class="text-cream" style="font-weight:bold">Add to Dictionary </span> </button>
+                      <button class="buttonDiv bg-info px-3 mt-2" type="submit"> <b-icon-arrow-up-circle-fill variant="cream" font-scale="1.5"></b-icon-arrow-up-circle-fill> <span class="text-cream" style="font-weight:bold">Add to Dictionary </span> </button>
                     </b-col>
                   </b-row>
         </b-form>
         </div>
+          <div v-else-if="addWait" align="center" class="p-3 bg-third">
+            <h4 class="text-prime"> Adding New Word </h4>
+            <b-icon icon="three-dots" animation="cylon" variant="prime" font-scale="6"></b-icon>
+          </div>
       </transition>
 
       <div class="mb-0">
@@ -124,17 +128,17 @@
              <b-icon-card-image :variant="getVariant(data.item.Picture)" @click="picture = !picture, filterPicture(data.value, data.item.Chinese)"></b-icon-card-image>  &nbsp; <br class="d-lg-none">
             </b-col>
             <b-col>
-              <span v-if="soundCount !== 1" :id="data.value + '_en/'" @click="playAudio(data.value, '_en/', data.item.mp3en)"> {{data.value}} <br> ({{data.item.Gr}}) </span>
-              <span v-else align="center"> <b-icon-soundwave  font-scale="1.5" class="text-prime" :id="data.value + '_en/'" @click="playAudio(data.value, '_en/', data.item.mp3en)"></b-icon-soundwave> </span>
+              <span v-if="soundCount !== 1" :id="data.value + '_en/'" @click="playAudio(data.value, '_en/', data.item.mp3en, true)"> {{data.value}} <br> ({{data.item.Gr}}) </span>
+              <span v-else align="center"> <b-icon-soundwave  font-scale="1.5" class="text-prime" :id="data.value + '_en/'" @click="playAudio(data.value, '_en/', data.item.mp3en, false)"></b-icon-soundwave> </span>
             </b-col>
           </b-row>
          </template>
         <template v-slot:cell(chineseext)="data">
           <b-row>
             <b-col>
-              <span v-if="soundCount !== 2" :id="data.item.English + '_ch/'" @click="playAudio(data.item.English, '_ch/', data.item.mp3ch)"> {{data.value}} </span>
-              <span v-else align="center"> <b-icon-soundwave  font-scale="1.5" class="text-prime" :id="data.item.English + '_ch/'" @click="playAudio(data.item.English, '_ch/', data.item.mp3ch)"></b-icon-soundwave> </span>
-              <b-icon-trash-fill v-if="data.item.Origin === 'new'" style="float:right" variant="alert" @click="addWord(data.item.English, 0)"></b-icon-trash-fill> <br class="d-lg-none">
+              <span v-if="soundCount !== 2" :id="data.item.English + '_ch/'" @click="playAudio(data.item.English, '_ch/', data.item.mp3ch, true)"> {{data.value}} </span>
+              <span v-else align="center"> <b-icon-soundwave  font-scale="1.5" class="text-prime" :id="data.item.English + '_ch/'" @click="playAudio(data.item.English, '_ch/', data.item.mp3ch, false)"></b-icon-soundwave> </span>
+              <b-icon-trash-fill v-if="data.item.Origin === 'new'" style="float:right" variant="info" @click="addWord(data.item.English, 0)"></b-icon-trash-fill> <br class="d-lg-none">
             </b-col>
           </b-row>
          </template>
@@ -218,7 +222,8 @@ export default {
       pictCh: null,
       note: null,
       audioMarker: [null, null],
-      soundCount: 0
+      soundCount: 0,
+      addWait: false
     }
   },
   computed: {
@@ -248,7 +253,7 @@ export default {
     getIcon: function (icon) {
       let colors = {
         '*': 'warn',
-        '+': 'alert',
+        '+': 'info',
         'p': 'safe'
       }
       if (this.selected[1] === icon) {
@@ -261,9 +266,9 @@ export default {
       if (this.soundCount === 0) {
         return 'cream'
       } else if (this.soundCount === 1) {
-        return 'warn'
+        return 'info'
       } else {
-        return 'safe'
+        return 'grape'
       }
     },
     getSoundButton: function () {
@@ -377,7 +382,7 @@ export default {
       }
       return v
     },
-    playAudio: function (arg, folder, link) {
+    playAudio: function (arg, folder, link, normal) {
       // folder === '_en'
       let markerIcon = document.getElementById(this.audioMarker[0] + this.audioMarker[1])
       console.log(markerIcon, link)
@@ -387,11 +392,17 @@ export default {
         markerIcon.setAttribute('class', 'text-prime')
       }
 
-      let text = 'text-' + this.getSoundwave()
+      let textColor
+
+      if (normal) {
+        textColor = 'text-warn'
+      } else {
+        textColor = 'text-' + this.getSoundwave()
+      }
 
       this.audioMarker = [arg, folder]
       let icon = document.getElementById(arg + folder)
-      icon.setAttribute('class', text)
+      icon.setAttribute('class', textColor)
 
       let player = document.getElementById('audio')
       player.src = link
@@ -432,14 +443,31 @@ export default {
         // set added status and call api for audio
         if (!this.generalGet[newWord]) {
           this.wordDetails.added = true
+          this.addWait = true
+          let _this = this
           this.$store.dispatch('newAudio', {word: newWord, chinese: this.wordDetails.defch1, set: set})
+            .then(function (response) {
+              console.log('AUDIO RESPONSE', response)
+              if (response.defch2) {
+                if (response.defch2 !== _this.wordDetails.defch1) {
+                  _this.wordDetails.defch2 = response.defch2
+                }
+              } else {
+                console.log('No chinese audio added')
+              }
+              this.sendAdd(set, newWord)
+              this.addWait = false
+            })
         } else {
           this.wordDetails.added = false
+          this.sendAdd(set, newWord)
         }
-        this.$store.dispatch('newAdd', {word: newWord, details: {...this.wordDetails}, set: set})
-        this.wordDetails.gl = null
-        this.wordDetails.defch1 = null
       }
+    },
+    sendAdd: function (set, newWord) {
+      this.$store.dispatch('newAdd', {word: newWord, details: {...this.wordDetails}, set: set})
+      this.wordDetails.gl = null
+      this.wordDetails.defch1 = null
     },
     shuffle: function (array) {
       // Fisher-Yates shuffle

@@ -35,34 +35,19 @@ def register():
     data = request.get_json()['userData']
     pprint(data)
 
-    name = data['username'].strip()
+    # name = data['username'].strip()
+
+    # studentID = data['studentID']
+    # classroom = (data['classroom'].lower()).strip()
+
     email = (data['email'].lower()).strip()
-    studentID = data['studentID']
-    classroom = (data['classroom'].lower()).strip()
-
-    checkName = User.query.filter_by(username=data['username']).first()
     checkEmail = User.query.filter_by(email=email).first()
-
-    if checkName:
-        print('NAME ERROR')
-        return jsonify({'msg' : 'This name has already been used.', 'err': 1})
     if checkEmail:
         print('EMAIL ERROR')
         return jsonify({'msg' : 'This email has been used already.', 'err': 1})
 
-    checkClass = Classroom.query.filter_by(code=classroom).first()
-
-    if checkClass:
-        ## deal with checks
-        vocab = checkClass.vocab
-        pass
-    else:
-        print('CLASS ERROR')
-        return jsonify({'msg' : 'Sorry, there is no class with this code.', 'err': 1})
-
-
     hashed_password = bcrypt.generate_password_hash(data['password']).decode('utf-8')
-    newUser = User(username=data['username'], email=email, studentID=studentID, classroom=classroom, vocab=vocab, password=hashed_password)
+    newUser = User(username=data['username'], email=email, password=hashed_password)
     db.session.add(newUser)
     db.session.commit()
 
@@ -193,10 +178,13 @@ def get_records():
         })
 
 
-def createAudio(word, chinese):
+def createAudio(word, defch2):
     print('creating audio')
 
     string = word + '.mp3'
+
+    result = True
+
 
     tts = gTTS(word)
     tts.save('en' + string)
@@ -205,18 +193,24 @@ def createAudio(word, chinese):
     en_filename = 'public/added_en/' + string
 
     s3_resource.Bucket(bucket_name).put_object(Key=en_filename, Body=en_data)
+    # except:
+    #     result = 'English Audio Fail'
+    #     print('English Audio Fail:', word)
 
 
-    vocab_audiofile = gTTS(text=chinese, lang='zh-tw', slow=False)
+
+    vocab_audiofile = gTTS(text=defch2, lang='zh-tw', slow=False)
     vocab_audiofile.save('ch' + string)
 
     ch_data = open('ch' + string, 'rb')
-    en_filename = 'public/added_ch/' + string
+    ch_filename = 'public/added_ch/' + string
 
-    s3_resource.Bucket(bucket_name).put_object(Key=en_filename, Body=ch_data)
+    s3_resource.Bucket(bucket_name).put_object(Key=ch_filename, Body=ch_data)
+    # except:
+    #     result = 'Chinese Audio Fail'
+    #     print('Chinese Audio Fail', defch2)
 
-
-    return True
+    return result
 
 
 
@@ -230,6 +224,19 @@ def add_audio():
     ### no action for delete yet
     result = 'NONE'
 
+    defch2 = None
+
+    try:
+        translator= Translator(to_lang="zh-tw", from_lang="en")
+        translation = translator.translate(word)
+        if translation == chinese:
+            defch2 = chinese
+        else:
+            defch2 = translation
+        print('translation success', defch2)
+    except:
+        print('translation failed')
+
     generalList = []
 
     for obj in bucket.objects.filter(Prefix='public/added_en/'):
@@ -238,13 +245,13 @@ def add_audio():
         generalList.append(checkWord)
 
     if word not in generalList:
-        result = createAudio(word, chinese)
+        result = createAudio(word, defch2)
     else:
         result = 'FOUND'
 
     print(result)
 
-    return jsonify({'result': result})
+    return jsonify({'result': result, 'defch2': defch2})
 
 @app.route("/api/getClass", methods=['POST'])
 def get_class():
@@ -400,24 +407,45 @@ def deleteFriend():
     }
     return jsonify(response)
 
-@app.route("/api/updateAccount", methods=['POST']) #and now the form accepts the submit POST
+@app.route("/api/updateAccount", methods=['POST'])
 def updateAccount():
     print('ACCOUNT')
     data = request.get_json()['userData']
-    #pprint(data)
+
+    classroom = data['classroom']
+    studentID = data['studentID']
+    vocab = data['vocab']
+    school = data['school']
+
+    pprint(data)
     if data['imageData']:
         storeB64(data['imageData'], data['userID'], 'profile')
 
     current_user = User.query.get(data['userID'])
 
+    checkClass = Classroom.query.filter_by(code=classroom).first()
     newVocab = False
-    if current_user.vocab != data['vocab']:
-        newVocab = True
 
-    current_user.classroom = data['classroom']
-    current_user.studentID = data['studentID']
-    current_user.vocab = data['vocab']
-    current_user.school = data['school']
+    if checkClass:
+         ## deal with checks
+        vocab = checkClass.vocab
+        if current_user.vocab != vocab:
+            newVocab = True
+    else:
+         print('CLASS ERROR')
+         return jsonify({'msg' : 'Sorry, there is no class with this code.', 'err': 1})
+
+    email = (data['email'].lower()).strip()
+    checkEmail = User.query.filter_by(email=email).first()
+    if checkEmail and checkEmail != current_user:
+        print('EMAIL ERROR')
+        return jsonify({'msg' : 'This email has been used already.', 'err': 1})
+
+
+    current_user.classroom = classroom
+    current_user.studentID = studentID
+    current_user.vocab = vocab
+    current_user.school = school
     db.session.commit()
 
     response = {
@@ -425,6 +453,7 @@ def updateAccount():
         'dataReturn' : data,
         'newVocab' : newVocab
     }
+
     return jsonify(response)
 
 
