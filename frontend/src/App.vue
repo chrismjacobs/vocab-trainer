@@ -18,12 +18,8 @@
                 <Dash :tableItems="tableItems" type="nav"></Dash>
 
                 <hr>
-                <b-nav-item @click="logout(), goTo('Home')"><div class="sideBtn bg-grape"><b-icon-power></b-icon-power>  <span text=""> &nbsp;Logout </span></div></b-nav-item>
+                <b-nav-item @click="logout(), goTo('Home')"><div class="sideBtn bg-alert"><b-icon-power></b-icon-power>  <span text=""> &nbsp;Logout </span></div></b-nav-item>
 
-            </div>
-           <div v-else>
-                <b-nav-item @click="goTo('Login')"><div class="sideBtn"><b-icon-power></b-icon-power>  <span> &nbsp;Login </span></div></b-nav-item>
-                <b-nav-item @click="goTo('Register')"><div class="sideBtn"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp;Register </span></div></b-nav-item>
             </div>
         </b-navbar-nav>
       </b-collapse>
@@ -66,13 +62,13 @@
                      {{ $store.state.userProfile.username}}</span> </button>
                   </b-col>
                 </b-row>
-                <b-row  v-else>
+                <b-row  v-else align="center">
                   <b-col>
                     <b-avatar size="4rem" text="VT" align="center"></b-avatar>
                   </b-col>
                 </b-row>
 
-                <hr>
+              <hr>
                     <div v-if="isAuthenticated">
                       <Dash :tableItems="tableItems" type="side"></Dash>
                       <hr>
@@ -81,16 +77,15 @@
                     <div v-if="isAuthenticated">
                       <button v-if="$store.state.userProfile.instructor" class="buttonDiv mt-2 bg-warn-light text-prime px-1" style="height:50px; width:100%" @click="goTo('Instructor')"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp;Instructor </span> </button>
                       <button v-if="$store.state.userProfile.userID === 1" class="buttonDiv mt-2 bg-info text-prime px-1" style="height:50px; width:100%" @click="goTo('JGrabber')"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp;JGrabber </span> </button>
+                      <button v-if="$store.state.userProfile.userID === 1" class="buttonDiv mt-2 bg-succes text-prime px-1" style="height:50px; width:100%" @click="goTo('Flash')"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp;Flash </span> </button>
                       <button class="buttonDiv mt-2 bg-third text-prime px-1" style="height:50px; width:100%" @click="alert('help features coming soon')"><b-icon-question-circle></b-icon-question-circle>  <span text=""> &nbsp;Help </span> </button>
                       <button class="buttonDiv mt-2 bg-grape text-cream px-1" style="height:50px; width:100%" @click="logout()"><b-icon-power></b-icon-power>  <span text=""> &nbsp;Logout </span> </button>
                     </div>
-                    <div v-else>
-                      <br>
-                      <br>
-                       <button class="buttonDiv bg-prime text-cream px-2" style="height:50px; width:100%" @click="goTo('Login')"><b-icon-power></b-icon-power>  <span text=""> &nbsp;Login </span> </button>
-                      <br>
-                      <br>
-                      <button class="buttonDiv bg-prime text-cream px-2" style="height:50px; width:100%" @click="goTo('Register')"><b-icon-person-fill></b-icon-person-fill> <span> &nbsp;Register </span> </button>
+                    <div v-else align="center">
+                     <b-card header="Welcome" header-bg-variant="prime" header-text-variant="cream" header-tag="h3">
+                        <button class="buttonDiv  bg-warn text-cream" style="width:60%"  @click="$router.push('/login')"><b-icon-power></b-icon-power><span> &nbsp;Log In</span></button>
+                        <button class="buttonDiv mt-3 bg-info text-cream" style="width:60%"  @click="$router.push('/register')"><b-icon-person-fill></b-icon-person-fill><span> &nbsp;Join</span></button>
+                      </b-card>
                     </div>
               </div>
           </div>
@@ -256,7 +251,6 @@ export default {
 
 .board-enter-to {
   opacity: 1;
-
 }
 
 .board-leave {

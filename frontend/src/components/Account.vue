@@ -1,18 +1,14 @@
 <template>
     <div class="register">
-    <b-container>
-    <b-row class="mt-3 mx-auto">
-      <b-col>
         <b-card header="Account Information" header-bg-variant="prime" header-text-variant="cream" header-tag="h3">
           <b-form @submit="onSubmit">
             <div class="d-flex">
               <b-col >
-                <b-avatar :src="s3 + userProfile.userID + '/avatar.jpg'" size="6rem" :text="userProfile.username[0]"></b-avatar>
+                <b-avatar :src="getPict" size="6rem" :text="userProfile.username[0]"></b-avatar>
               </b-col>
               <b-col >
-                {{ alert }}
-                <h2> {{ userProfile.username }} </h2>
-                <h3> #{{ userProfile.userID }} </h3>
+                <h4> {{ userProfile.username }} </h4>
+                <h4> #{{ userProfile.userID }} </h4>
               </b-col>
             </div>
             <br>
@@ -23,8 +19,11 @@
                 <b-input-group-prepend inline is-text>
                   <b-icon icon="person-fill"></b-icon>
                 </b-input-group-prepend>
-                <b-form-input id="student ID" v-model="userProfile.username" disabled placeholder="Student ID (if joining a class)">
+                <b-form-input id="student ID" v-model="userProfile.username" placeholder="Student ID (if joining a class)">
                 </b-form-input>
+                <b-form-invalid-feedback :state="validName">
+                  Your username must be 3-20 characters long.
+                </b-form-invalid-feedback>
             </b-input-group>
 
             <b-input-group class="my-4" label="Email address:" label-for="exampleInput4">
@@ -40,7 +39,7 @@
                 </b-form-input>
             </b-input-group>
 
-            <div v-if="join">
+            <div v-if="vocabOption">
             <b-input-group class="my-4" label="Vocab:" label-for="exampleInput7">
               <b-input-group-prepend inline is-text>
                   <b-icon icon="card-list"></b-icon>
@@ -52,6 +51,7 @@
                 >
                 </b-form-select>
             </b-input-group>
+           </div>
 
             <b-input-group class="my-4" label="Classroom:" label-for="exampleInput3">
               <b-input-group-prepend inline is-text>
@@ -60,8 +60,11 @@
                 <b-form-input
                             id="school"
                             v-model="userProfile.classroom"
-                            placeholder="Classroom (provided by your teacher)">
+                            placeholder="Classroom">
                 </b-form-input>
+                <b-form-invalid-feedback :state="validClass" class="text-warn">
+                  Please join a classroom to play MATCH MODE; ask your teacher or contact LINE: chrisj0212 to create a new classroom
+                </b-form-invalid-feedback>
             </b-input-group>
 
             <b-input-group class="my-4" label="Student ID:" label-for="exampleInput2">
@@ -79,11 +82,10 @@
                 <b-form-input
                             id="school"
                             v-model="userProfile.school"
-                            placeholder="School name (not required)">
+                            placeholder="School name (if joining a class)">
                 </b-form-input>
             </b-input-group>
 
-            </div>
             <div class="d-flex justify-content-between">
                 <div>
                 <button class="buttonDiv bg-info px-3" style="width:120px" type="submit"> <b-icon-forward variant="cream" font-scale="1.5"></b-icon-forward></button>
@@ -94,9 +96,27 @@
 
         </b-card>
 
-      </b-col>
-    </b-row>
-  </b-container>
+        <br>
+
+        <b-card header="Account Status" header-bg-variant="prime" header-text-variant="cream" header-tag="h3" class="d-block d-lg-none"  no-body>
+          <div class="p-3">
+          <Dash :tableItems="tableItems" type="account" ></Dash>
+          </div>
+        </b-card>
+
+      <b-modal hide-header-close no-close-on-esc no-close-on-backdrop align="center" ref="success" hide-footer title="Logged In">
+      <div class="d-block">
+        <h3> {{msg}} </h3>
+      </div>
+      <button class="buttonDiv mt-3 bg-prime text-cream" style="width:60%"  @click="hideModal('success')">Close</button>
+      </b-modal>
+
+      <b-modal hide-header-close no-close-on-esc no-close-on-backdrop align="center" ref="fail" hide-footer title="Problem Found">
+        <div class="d-block">
+          <h3> {{msg}} </h3>
+        </div>
+        <button class="buttonDiv mt-3 bg-alert text-cream" style="width:60%"  @click="hideModal('fail')">Close</button>
+      </b-modal>
 
   </div>
 
@@ -104,47 +124,67 @@
 
 <script>
 import { imageValidation } from '@/utils'
+import Dash from './Dash'
 
 export default {
   name: 'app',
+  components: {
+    Dash
+  },
   data () {
     return {
       s3: 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/profiles/',
       userProfile: null,
-      join: false,
+      tableItems: [],
       fileData: null,
+      msg: null,
+      avatarLink: this.$store.state.userProfile.userID + '/avatar.jpg',
+      vocabReset: false,
+      vocabOption: false,
       vocabs: [
         {text: 'ESP Tourism', value: 'tourism'},
         {text: 'Food Viet', value: 'food'}
-      ],
-      alert: this.checkAlert
+      ]
     }
   },
   computed: {
     validName () {
       return this.userProfile.username.length > 2 && this.userProfile.username.length < 13
     },
-    checkAlert () {
-      return this.$store.state.alert
-    }
-  },
-  watch: {
-    validName () {
-      return this.userProfile.username.length > 2 && this.userProfile.username.length < 13
+    validClass () {
+      return this.userProfile.classroom.length > 0
     },
-    alert () {
-      if (this.alert) {
-        alert(this.alert, 'text')
-      }
+    getPict () {
+      return this.s3 + this.avatarLink
     }
   },
   methods: {
+    showModal (msg) {
+      this.msg = msg
+      this.$refs['success'].show()
+      // router.push('/login')
+    },
+    showAlert (msg) {
+      this.msg = msg
+      this.$refs['fail'].show()
+    },
+    hideModal (mode) {
+      if (mode === 'success') {
+        this.$refs['success'].hide()
+      } else {
+        this.$refs['fail'].hide()
+      }
+      if (this.vocabReset) {
+        this.$store.dispatch('logout')
+      }
+    },
     onSubmit (evt) {
       evt.preventDefault()
       // check all is okay
       this.account()
     },
     account () {
+      let _this = this
       console.log(localStorage.imageData)
       if (localStorage.imageData) {
         this.userProfile.imageData = JSON.parse(localStorage.imageData)
@@ -152,12 +192,31 @@ export default {
         this.userProfile.imageData = null
       }
 
+      if (!this.validName) {
+        _this.showAlert('Invalid Name')
+        return false
+      }
+
       console.log(this.userProfile)
       this.$store.dispatch('account', { userData: this.userProfile })
-        .then(() => console.log('account action'))
-      localStorage.removeItem('imageData')
+        .then(function (response) {
+          console.log('ACCOUNT', response)
+          if (response.err) {
+            let msg = response.msg
+            _this.showAlert(msg)
+          } else if (response.newVocab) {
+            let msg = 'Your are changing your classroom. Please log in again to update'
+            _this.showModal(msg)
+            _this.vocabReset = true
+          } else {
+            _this.showModal(response.msg)
+            _this.avatarLink = _this.$store.state.userProfile.userID + '/avatar.jpg'
+            localStorage.removeItem('imageData')
+          }
+        })
     },
     handleFileUpload () {
+      this.avatarLink = 'images.jpg'
       imageValidation(document.getElementById('file'))
     }
   },
@@ -165,6 +224,7 @@ export default {
     this.userProfile = this.$store.state.userProfile
     this.userProfile.imageData = ''
     console.log(this.userProfile)
+    this.tableItems = this.$store.getters.makeList
   }
 }
 </script>

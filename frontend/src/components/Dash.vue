@@ -1,6 +1,7 @@
 
 <template>
   <div id="dash">
+    <div v-if="type !== 'account'">
     <h6 :class="label()"> This Session:</h6>
       <span v-if="currentRecItems.length === 0" class="text-cream"> No new words </span>
 
@@ -15,6 +16,13 @@
             </div>
       </div>
     <hr>
+    </div>
+    <div v-else class="text-prime">
+      <h5> Vocab Set:</h5>
+      <h6> {{vocabSet[$store.state.userProfile.vocab]}}</h6>
+      <h6> {{tableItems.length}} Words</h6>
+    <hr>
+    </div>
 
     <h6 :class="label()"> Word Levels:</h6>
 
@@ -51,6 +59,18 @@ export default {
         'typeTest': 'Type',
         'matchTrans': 'Match',
         'matchType': 'Match'
+      },
+      vocabSet: {
+        generalT: 'General Set 4000+ words',
+        generalV: 'Vocational Highschool Set',
+        generalW: 'Senior High Set A',
+        generalD: 'Senior High Set B',
+        generalY: 'Senior High Set C',
+        tourism1: 'ESP: Tourism Level 1',
+        tourism: 'ESP: Tourism Level 2',
+        digital1: 'ESP: Digital Media Level 1',
+        culinary1: 'ESP: Culinary English Level 1',
+        culinary2: 'ESP: Culinary English Level 2'
       }
     }
   },

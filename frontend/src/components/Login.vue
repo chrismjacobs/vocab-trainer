@@ -1,8 +1,5 @@
 <template>
     <div class="login">
-    <b-container style="height:100vh">
-    <b-row class="mt-5">
-      <b-col>
         <b-card v-if="waiting" header="Login" header-bg-variant="prime" header-text-variant="cream" header-tag="h3">
           <b-form @submit="onSubmit" @reset="onReset" v-if="show">
 
@@ -43,9 +40,6 @@
         <h4 class="text-prime"> Logging in </h4>
         <b-icon icon="three-dots" animation="cylon" variant="prime" font-scale="6"></b-icon>
       </div>
-      </b-col>
-    </b-row>
-  </b-container>
 
   <b-modal hide-header-close no-close-on-esc no-close-on-backdrop align="center" ref="success" hide-footer title="Logged In">
       <div class="d-block">
@@ -59,6 +53,7 @@
         <h3> {{msg}} </h3>
       </div>
       <button class="buttonDiv mt-3 bg-alert text-cream" style="width:60%"  @click="hideModal('fail')">Close</button>
+      <button class="buttonDiv mt-3 bg-info text-cream" style="width:60%"  @click="hideModal('register')">Join</button>
     </b-modal>
 
   </div>
@@ -94,7 +89,10 @@ export default {
     hideModal (mode) {
       if (mode === 'success') {
         this.$refs['success'].hide()
-        router.push('/home')
+        router.push('/account')
+      } else if (mode === 'register') {
+        this.$refs['fail'].hide()
+        router.push('/register')
       } else {
         this.$refs['fail'].hide()
         this.msg = null
