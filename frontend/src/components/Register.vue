@@ -1,12 +1,9 @@
 <template>
     <div class="register">
-    <b-container>
-    <b-row class="mt-5 mx-auto">
-      <b-col>
-        <b-card v-if="waiting" header="Register" header-bg-variant="prime" header-text-variant="cream" header-tag="h3">
+        <b-card v-if="waiting" header="Join Vocab Trainer" header-bg-variant="prime" header-text-variant="cream" header-tag="h3">
           <b-form @submit="onSubmit" @reset="onReset" v-if="show">
 
-            <b-input-group class="my-4" label="Username:" label-for="exampleInput1">
+            <b-input-group class="my-2" label="Username:" label-for="exampleInput1">
                 <b-input-group-prepend inline is-text>
                   <b-icon icon="person-fill"></b-icon>
                 </b-input-group-prepend>
@@ -36,7 +33,7 @@
                 </b-form-input>
             </b-input-group>
 
-            <b-input-group class="my-4" label="Class Code:" label-for="exampleInput7">
+            <!-- <b-input-group class="my-4" label="Class Code:" label-for="exampleInput7">
               <b-input-group-prepend inline is-text>
                   <b-icon icon="people"></b-icon>
                 </b-input-group-prepend>
@@ -46,9 +43,9 @@
                 placeholder="Class Code"
                 >
                 </b-form-input>
-            </b-input-group>
+            </b-input-group> -->
 
-            <b-input-group class="my-4" label="Student ID:" label-for="exampleInput7">
+            <!-- <b-input-group class="my-4" label="Student ID:" label-for="exampleInput7">
               <b-input-group-prepend inline is-text>
                   <b-icon icon="person-fill"></b-icon>
                 </b-input-group-prepend>
@@ -58,7 +55,7 @@
                 placeholder="Student ID"
                 >
                 </b-form-input>
-            </b-input-group>
+            </b-input-group> -->
 
             <b-input-group id="password" label="Password:" label-for="exampleInput2">
                 <b-input-group-prepend inline is-text>
@@ -89,7 +86,7 @@
 
             <div class="d-flex justify-content-between">
                 <div>
-                <button class="buttonDiv bg-second px-3" style="width:140px" type="submit"> <b-icon-forward variant="cream" font-scale="1.5"></b-icon-forward></button>
+                <button class="buttonDiv bg-info px-3" style="width:140px" type="submit"> <b-icon-forward variant="cream" font-scale="1.5"></b-icon-forward></button>
                 &nbsp;&nbsp;
                 <button class="buttonDiv bg-alert px-3" style="width:60px" type="reset"> <b-icon-x-circle variant="cream" font-scale="1.5"></b-icon-x-circle></button>
                 </div>
@@ -100,9 +97,6 @@
             <h4 class="text-prime"> Registering </h4>
             <b-icon icon="three-dots" animation="cylon" variant="prime" font-scale="6"></b-icon>
         </div>
-      </b-col>
-    </b-row>
-  </b-container>
 
    <b-modal align="center" ref="success" hide-footer title="Registration Complete" hide-header-close no-close-on-esc no-close-on-backdrop>
       <div class="d-block">
@@ -132,8 +126,8 @@ export default {
       form: {
         username: '',
         email: '',
-        class: '',
-        studentID: '',
+        // class: '',
+        // studentID: '',
         password: '',
         confirm: ''
       },

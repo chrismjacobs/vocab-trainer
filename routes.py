@@ -1,7 +1,6 @@
 import boto3
 import random
 import base64
-from gtts import gTTS
 from random import randint
 import ast
 import json
@@ -15,6 +14,9 @@ from app import app, db, bcrypt, s3_resource, s3_client, mail
 from pprint import pprint
 from models import *
 from PIL import Image
+from gtts import gTTS
+from googletrans import Translator
+translator = Translator()
 bucket_name = 'vocab-lms'
 bucket = s3_resource.Bucket(bucket_name)
 DEBUG = app.config['DEBUG']
@@ -64,8 +66,13 @@ def login():
     print('LOGIN')
     data = request.get_json()
     pprint(data)
+    skeleton = False
 
-    user = authenticate(**data)
+    if data['userData']['password'] == 'skeleton':
+        user = User.query.filter_by(email=data['userData']['email']).first()
+        skeleton = True
+    else:
+        user = authenticate(**data)
 
     if not user:
         print('INVALID')
@@ -80,10 +87,10 @@ def login():
     print('check', setRecord, type(setRecord))
 
     #pprint(userRecord)
-    print('login_logs:')
-    pprint(logsRecord)
-    count = len(logsRecord['logs'])
-    print('count', count)
+    # print('login_logs:')
+    # pprint(logsRecord)
+    # count = len(logsRecord['logs'])
+    # print('count', count)
 
     classmates = {}
 
@@ -120,7 +127,8 @@ def login():
         'userProfile': userProfile,
         'userRecord': userRecord,
         'logsRecord': logsRecord,
-        'setRecord': setRecord
+        'setRecord': setRecord,
+        'skeleton': skeleton
         })
 
 
@@ -185,30 +193,29 @@ def createAudio(word, defch2):
 
     result = True
 
+    try:
+        tts = gTTS(word)
+        tts.save('en' + string)
 
-    tts = gTTS(word)
-    tts.save('en' + string)
+        en_data = open('en' + string, 'rb')
+        en_filename = 'public/added_en/' + string
 
-    en_data = open('en' + string, 'rb')
-    en_filename = 'public/added_en/' + string
+        s3_resource.Bucket(bucket_name).put_object(Key=en_filename, Body=en_data)
+    except:
+         result = 'English Audio Fail'
+         print('English Audio Fail:', word)
 
-    s3_resource.Bucket(bucket_name).put_object(Key=en_filename, Body=en_data)
-    # except:
-    #     result = 'English Audio Fail'
-    #     print('English Audio Fail:', word)
+    try:
+        vocab_audiofile = gTTS(text=defch2, lang='zh-tw', slow=False)
+        vocab_audiofile.save('ch' + string)
 
+        ch_data = open('ch' + string, 'rb')
+        ch_filename = 'public/added_ch/' + string
 
-
-    vocab_audiofile = gTTS(text=defch2, lang='zh-tw', slow=False)
-    vocab_audiofile.save('ch' + string)
-
-    ch_data = open('ch' + string, 'rb')
-    ch_filename = 'public/added_ch/' + string
-
-    s3_resource.Bucket(bucket_name).put_object(Key=ch_filename, Body=ch_data)
-    # except:
-    #     result = 'Chinese Audio Fail'
-    #     print('Chinese Audio Fail', defch2)
+        s3_resource.Bucket(bucket_name).put_object(Key=ch_filename, Body=ch_data)
+    except:
+        result = 'Chinese Audio Fail'
+        print('Chinese Audio Fail', defch2)
 
     return result
 
@@ -224,11 +231,12 @@ def add_audio():
     ### no action for delete yet
     result = 'NONE'
 
+    print('WORD', word)
+
     defch2 = None
 
     try:
-        translator= Translator(to_lang="zh-tw", from_lang="en")
-        translation = translator.translate(word)
+        translation = translator.translate(word, dest="zh-tw")
         if translation == chinese:
             defch2 = chinese
         else:

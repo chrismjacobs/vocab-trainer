@@ -17,25 +17,26 @@
                   </b-col>
 
                 <b-col md="7">
-                <b-input-group class="my-2 p-6" label="Student ID:" label-for="exampleInput2">
+                <b-input-group class="my-2 p-6" label-for="exampleInput2">
                     <b-input-group-prepend inline is-text>
                       <b-icon icon="filter-left"></b-icon>
                     </b-input-group-prepend>
                     <b-form-input
                     v-model="newWord.def"
                     placeholder="Add Definition / Synonyms"
+                    rows="2"
                     >
                     </b-form-input>
                 </b-input-group>
 
-                <b-input-group class="my-2 p-6" label="Student ID:" label-for="exampleInput2">
+                <b-input-group class="my-2 p-6" label-for="exampleInput3">
                     <b-input-group-prepend inline is-text>
                       <b-icon icon="filter-left"></b-icon>
                     </b-input-group-prepend>
                     <b-form-textarea
                     v-model="newWord.text"
                     placeholder="Add Sentence"
-                    rows="2"
+                    rows="3"
                     >
                     </b-form-textarea>
                 </b-input-group>
@@ -107,6 +108,9 @@ export default {
       return this.$store.getters.pictGet
     },
     getPict () {
+      if (this.newWord.link === 'add') {
+        return 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/add.jpg'
+      }
       if (this.newWord.link) {
         let link = this.s3 + this.$store.state.userProfile.userID + '/' + this.newWord.vocab + '/' + this.pictWord + this.newWord.link + '.jpg'
         console.log(link)

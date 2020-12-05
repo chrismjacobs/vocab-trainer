@@ -42,6 +42,7 @@ const state = {
   logsRecord: null,
   setRecord: { dictRecord: {}, starRecord: {}, addRecord: {} },
   updateStatus: true,
+  skeleton: false,
   jwt: localStorage.token || '',
   testJ: test,
   master: dictionaries[parseLocal(localStorage.userProfile).vocab],
@@ -70,7 +71,13 @@ const actions = {
           return response.data
         } else {
           context.commit('setJwtToken', { jwt: response.data.token })
-          context.commit('setProfile', { userProfile: response.data.userProfile, userRecord: response.data.userRecord, logsRecord: response.data.logsRecord, setRecord: response.data.setRecord })
+          context.commit('setProfile', {
+            userProfile: response.data.userProfile,
+            userRecord: response.data.userRecord,
+            logsRecord: response.data.logsRecord,
+            setRecord: response.data.setRecord,
+            skeleton: response.data.skeleton
+          })
           context.commit('setMaster', { userProfile: response.data.userProfile })
           // console.log(response.data)
           return response.data
@@ -169,6 +176,7 @@ const actions = {
     return addAudio(payload)
       .then(function (response) {
         console.log(response.data)
+        return response.data
       })
       .catch(error => {
         console.log('Error Audio: ', error)
@@ -217,6 +225,32 @@ const mutations = {
     state.setRecord = payload.setRecord
     state.userRecord = payload.userRecord
 
+    if (Object.keys(state.setRecord.dictRecord).length === 0 && state.userProfile.vocab[0] === 'g') {
+      console.log('dictString')
+      state.setRecord.dictRecord['add'] = {
+        chinese: '加',
+        def: 'to contribute more / build on / include',
+        link: 'add',
+        text: 'You can add pictures and definition to your words to help you remember and test them.',
+        vocab: 'none',
+        word: 'add'
+      }
+    }
+
+    if (Object.keys(state.setRecord.addRecord).length === 0 && state.userProfile.vocab[0] === 'g') {
+      console.log('addString')
+      state.setRecord.addRecord['add'] = {
+        defch1: '加',
+        defch2: '',
+        gl: 'v.'
+      }
+    }
+
+    if (Object.keys(state.setRecord.starRecord).length === 0 && state.userProfile.vocab[0] === 'g') {
+      console.log('addStar')
+      state.setRecord.addRecord['add'] = 1
+    }
+
     state.logsRecord = payload.logsRecord
     state.loginTime = new Date()
     localStorage.setItem('loginTime', new Date())
@@ -232,6 +266,7 @@ const mutations = {
     state.currentRecord = {}
     state.updateStatus = true
     state.testActive = false
+    state.skeleton = payload.skeleton
   },
   setMaster (state, payload) {
     // console.log('setMaster payload = ', payload.userProfile.vocab)
@@ -337,7 +372,7 @@ const mutations = {
     // console.log('testActive', state.testActive)
   },
   sendRecords (state) {
-    if (state.updateStatus) {
+    if (state.updateStatus || state.skeleton) {
       return false
     }
     let _state = state
@@ -545,7 +580,7 @@ const getters = {
         variant = 'alert'
       }
 
-      // console.log('vocab', state.userProfile.vocab)
+      console.log('vocab', state.userProfile.vocab)
 
       let vc = state.userProfile.vocab[0]
       let s3root = 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/'

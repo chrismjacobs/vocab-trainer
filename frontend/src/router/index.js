@@ -19,7 +19,7 @@ const routerOptions = [
   {path: '/transengmatch', component: 'TransEngMatch'},
   {path: '/transchmatch', component: 'TransChMatch'},
   {path: '/typetest', component: 'TypeTest'},
-  {path: '/matchtest', component: 'MatchTest'},
+  {path: '/flash', component: 'Flash'},
   {path: '/match', component: 'MatchBase'},
   {path: '*', component: 'NotFound'}
 ]
