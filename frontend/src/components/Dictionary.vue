@@ -68,7 +68,7 @@
       </transition>
 
       <transition name="board">
-        <div class="bg-third p-2" v-if="visibleRows.length === 0 && selected[0] !== null && selected[0].length > 1 && selected[1] === null && vocabList[0] === 'g'">
+        <div class="bg-third p-2" v-if="addWait === false && visibleRows.length === 0 && selected[0] !== null && selected[0].length > 1 && selected[1] === null && vocabList[0] === 'g'">
         <b-form @submit="onAdd">
                   <b-input-group class="my-2 p-6">
                       <b-input-group-prepend inline is-text>
@@ -455,8 +455,8 @@ export default {
               } else {
                 console.log('No chinese audio added')
               }
-              this.sendAdd(set, newWord)
-              this.addWait = false
+              _this.sendAdd(set, newWord)
+              _this.addWait = false
             })
         } else {
           this.wordDetails.added = false
