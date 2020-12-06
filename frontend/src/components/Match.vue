@@ -1,7 +1,7 @@
 <template>
   <div class="matchArea">
-    <TransMatch  v-on:leave="leaveMatch()" :testType="testType" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" :socket="socket" :s3="s3" v-if="testType && testType[1] === 'r'"></TransMatch>
-    <TypeMatch   v-on:leave="leaveMatch()" :testType="testType" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" :socket="socket" :s3="s3" v-if="testType && testType[1] === 'y'"></TypeMatch>
+    <TransMatch  v-on:leave="leaveMatch()" :testType="testType" :gameOver="gameOver" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" :socket="socket" :s3="s3" v-if="testType && testType[1] === 'r'"></TransMatch>
+    <TypeMatch   v-on:leave="leaveMatch()" :testType="testType" :gameOver="gameOver" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" :socket="socket" :s3="s3" v-if="testType && testType[1] === 'y'"></TypeMatch>
     <template v-if="waiting && friends !== null">
       <div v-if="testType === null">
             <div class="mt-2 p-2 bg-grape head">
@@ -64,14 +64,24 @@
                 >
                   <template v-slot:cell(id)="data">
                     <b-row>
-                      <b-col>
-                       <b-avatar :src="s3 + data.value + '/avatar.jpg'" size="2rem"></b-avatar> <div align="center" @click="acceptChallenge(data.item.id, data.item.mode)" class="nameTag bg-p1 text-prime">{{data.item.name}} <b-icon icon="circle-fill" animation="throb"></b-icon></div>
+                      <b-col cols="8">
+                       <div class="nameTag bg-p1 pt-2">
+                         <b-row>
+                           <b-col cols="3">
+                             <b-avatar :src="s3 + data.value + '/avatar.jpg'" size="1.5rem" class="ml-2"></b-avatar>
+                           </b-col>
+                           <b-col>
+                             <span> {{getName(data.item.name)}} </span>
+                             <b-icon icon="circle-fill" style="float:right" class="mr-2 mt-1" animation="throb"></b-icon>
+                           </b-col>
+                          </b-row>
+                        </div>
                       </b-col>
-                      <b-col cols="3" align="right" class="pr-3">
-                        <button class="buttonDiv bg-alert mx-1" style="width:40px"  @click="declineChallenge(data.item.id)"> <b-icon icon="x-square-fill"></b-icon> </button>
+                      <b-col>
+                        <button class="buttonDiv bg-prime" style="width:60%;height:40px"  @click="acceptChallenge(data.item.id, data.item.mode)"> <b-icon class="text-p1" icon="box-arrow-in-right"></b-icon> </button>
+                        <b-icon @click="declineChallenge(data.item.id)" class="text-alert mt-1" style="float:right" font-scale="1.5" icon="x-square-fill"></b-icon>
                       </b-col>
                     </b-row>
-
                   </template>
               </b-table>
 
@@ -85,11 +95,21 @@
                 >
                   <template v-slot:cell(id)="data">
                     <b-row>
-                      <b-col>
-                        <b-avatar :src="s3 + data.value + '/avatar.jpg'" size="2rem"></b-avatar> <div align="center" class="nameTag bg-p2 text-cream">{{data.item.name}} <b-icon icon="circle-fill" animation="throb"></b-icon></div>
+                      <b-col cols="8">
+                       <div class="nameTag bg-p2 pt-2">
+                         <b-row>
+                           <b-col cols="3">
+                             <b-avatar :src="s3 + data.value + '/avatar.jpg'" size="1.5rem" class="ml-2"></b-avatar>
+                           </b-col>
+                           <b-col>
+                             <span> {{getName(data.item.name)}} </span>
+                             <b-icon icon="circle-fill" style="float:right" class="mr-2 mt-1" animation="throb"></b-icon>
+                           </b-col>
+                          </b-row>
+                        </div>
                       </b-col>
-                      <b-col cols="3" align="right" class="pr-3">
-                        <button  class="buttonDiv bg-alert mx-1" style="width:40px"  @click="challengeRetract(data.item.id)"> <b-icon icon="x-square-fill"></b-icon> </button>
+                      <b-col>
+                        <b-icon @click="challengeRetract(data.item.id)" class="text-alert mt-2" style="float:right" font-scale="1.5" icon="x-square-fill"></b-icon>
                       </b-col>
                     </b-row>
                   </template>
@@ -104,13 +124,39 @@
                 :filter-function="filterOnline"
                 >
                   <template v-slot:cell(id)="data">
-                    <div v-if="data.item.status === 1">
-                      <b-avatar :src="s3 + data.value + '/avatar.jpg'" size="2rem"></b-avatar> <div align="center" class="nameTag bg-safe text-cream">{{data.item.name}}</div><button v-if="gameSelect" class="buttonDiv bg-prime mx-3" style="width:15%"  @click="challengeSend(data.value, gameSelect)"> <b-icon class="text-p1" icon="box-arrow-in-right"></b-icon></button>
-                      <button v-if="friendDeleter" class="buttonDiv bg-alert mx-3" style="width:100px" @click="deleteFriend()"> <b-icon icon="x-square-fill"></b-icon></button>
-                    </div>
-                    <div v-else>
-                      <b-avatar :src="s3 + data.value + '/avatar.jpg'" size="2rem"></b-avatar> <div align="center" class="nameTag bg-warn text-cream">{{data.item.name}}</div>
-                   </div>
+                    <b-row v-if="data.item.status === 1" >
+                      <b-col cols="8">
+                       <div class="nameTag bg-safe pt-2">
+                         <b-row>
+                           <b-col cols="3">
+                             <b-avatar :src="s3 + data.value + '/avatar.jpg'" size="1.5rem" class="ml-2"></b-avatar>
+                           </b-col>
+                           <b-col>
+                             <span> {{getName(data.item.name)}} </span>
+                             <b-icon icon="circle-fill" style="float:right" class="mr-2 mt-1" animation="throb"></b-icon>
+                           </b-col>
+                          </b-row>
+                        </div>
+                      </b-col>
+                      <b-col>
+                        <button class="buttonDiv bg-prime" style="width:60%;height:40px"  @click="challengeSend(data.value, gameSelect)"> <b-icon class="text-p1" icon="box-arrow-in-right"></b-icon> </button>
+                      </b-col>
+                    </b-row>
+                    <b-row v-else>
+                      <b-col cols="8">
+                       <div class="nameTag bg-warn pt-2">
+                         <b-row>
+                           <b-col cols="3">
+                             <b-avatar :src="s3 + data.value + '/avatar.jpg'" size="1.5rem" class="ml-2"></b-avatar>
+                           </b-col>
+                           <b-col>
+                             <span> {{getName(data.item.name)}} </span>
+                             <b-icon icon="circle-fill" style="float:right" class="mr-2 mt-1" animation="throb"></b-icon>
+                           </b-col>
+                          </b-row>
+                        </div>
+                      </b-col>
+                    </b-row>
                   </template>
               </b-table>
 
@@ -123,7 +169,21 @@
                 :filter-function="filterOffline"
                 >
                   <template v-slot:cell(id)="data">
-                      <b-avatar :src="s3 + data.value + '/avatar.jpg'" size="2rem"></b-avatar> <div align="center" class="nameTag bg-alert text-cream">{{data.item.name}}</div>
+                    <b-row>
+                      <b-col cols="8">
+                       <div class="nameTag bg-alert pt-2">
+                         <b-row>
+                           <b-col cols="3">
+                             <b-avatar :src="s3 + data.value + '/avatar.jpg'" size="1.5rem" class="ml-2"></b-avatar>
+                           </b-col>
+                           <b-col>
+                             <span> {{getName(data.item.name)}} </span>
+                             <b-icon style="float:right" icon="exclamation-circle" class="mr-2 mt-1"></b-icon>
+                           </b-col>
+                          </b-row>
+                        </div>
+                      </b-col>
+                    </b-row>
                   </template>
               </b-table>
 
@@ -156,7 +216,8 @@
       <div class="d-block">
         <h3> {{msg}} </h3>
       </div>
-      <button class="buttonDiv mt-3 bg-third text-prime" style="width:60%"  @click="hideModal('quit')">Close</button>
+      <button class="buttonDiv mt-3 bg-alert text-prime" style="width:60%"  @click="hideModal('quit')">Quit</button>
+      <button class="buttonDiv mt-3 bg-grey text-prime" style="width:60%"  @click="hideModal('cancel')">Cancel</button>
     </b-modal>
 
   </div>
@@ -171,7 +232,8 @@ import { checkFriend, deleteFriend } from '@/api'
 export default {
   name: 'Match',
   props: {
-    s3: String
+    s3: String,
+    friends: Object
   },
   components: {
     TransMatch,
@@ -186,7 +248,6 @@ export default {
       waiter: [],
       challenger: [],
       pageHead: 'Match Area',
-      friends: null,
       friendAdder: false,
       friendDeleter: false,
       friend: {
@@ -202,6 +263,7 @@ export default {
       p1name: null,
       p2name: null,
       player: null,
+      gameOver: false,
       message: null,
       waiting: true,
       msg: null,
@@ -255,9 +317,28 @@ export default {
       } else if (mode === 'success') {
         this.$refs['fail'].hide()
         this.waiting = true
-      } else {
+      } else if (mode === 'cancel') {
         this.$refs['quit'].hide()
-        this.$emit('resetMatch')
+      } else if (mode === 'quit' && this.gameOver) {
+        this.$refs['quit'].hide()
+        this.$emit('resetMatch', {friends: this.friends})
+        this.closeSocket()
+      } else if (mode === 'quit') {
+        console.log('FRIENDS', this.friends)
+        this.$refs['quit'].hide()
+        this.$emit('resetMatch', {friends: this.friends})
+        this.socket.emit('resetEmit', { player: this.username })
+      }
+    },
+    getName: function (name) {
+      let newName
+      let cut = name.split(' ')
+      if (cut[1]) {
+        newName = cut[0] + ' ' + cut[1][0]
+        return newName
+      } else {
+        console.log(cut[0])
+        return name
       }
     },
     startSocket: function () {
@@ -269,8 +350,10 @@ export default {
       this.socket.close()
     },
     leaveMatch: function () {
-      this.socket.emit('resetEmit')
-      console.log('leave activated')
+      this.$store.dispatch('testActive', false)
+      console.log('leaveActivated')
+      this.msg = 'Warning, you are about to leave the game'
+      this.showQuit()
     },
     challengeSend: function (targetID, mode) {
       // this.challengeMarker = targetID
@@ -346,12 +429,6 @@ export default {
     }
   },
   created () {
-    console.log(this.s3)
-    if (!this.$store.getters.isAuthenticated) {
-      this.$router.push('login')
-      return false
-    }
-
     let _this = this
     window.onbeforeunload = function () {
       if (_this.isAuthenticated && _this.$store.state.updateStatus === false) {
@@ -389,9 +466,11 @@ export default {
       found.status = 0
     })
     _this.socket.on('onlineUsers', function (data) {
-      console.log('onlineUsers', data)
+      console.log('onlineUsers', data, {..._this.friends})
       if (data.friends) {
-        _this.friends = data.friends
+        if (Object.keys(_this.friends).length === 0) {
+          _this.friends = data.friends
+        }
       } else {
         let found = _this.friends.find(element => element.id === data.userID)
         found.status = 1
@@ -447,13 +526,11 @@ export default {
 
       console.log('player', _this.player)
     })
-    _this.socket.on('reset', function (data) {
-      _this.$store.dispatch('testActive', false)
-      if (_this.testType) {
-        console.log('reset', data)
-        _this.msg = 'Game Ended, ' + data.opponent + ' has left the game'
-        _this.showQuit()
-      }
+    _this.socket.on('leaveRoom', function (data) {
+      _this.gameOver = true
+      console.log('reset', data)
+      _this.msg = 'Game Ended, ' + data.opponent + ' has left the game'
+      _this.showQuit()
     })
   }
 }
@@ -462,52 +539,27 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-.userList {
-  padding: 3px;
-  margin-top: 2px
-}
-
-.basic {
-  width:300px;
-  height:100px;
-  line-height: 100px;
-  display:flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .nameTag {
-  width: 160px;
-  height: 35px;
+  width: 100%;
+  height: 40px;
   display: inline-block;
-  margin-left: 2px;
+  margin-left: 1px;
   padding: 3px;
   border: 0px solid #CCC;
   box-shadow: 0 0 5px -1px rgba(0,0,0,0.3);
   border-radius: 12px;
 }
 
-@media screen and (max-width:650px) {
-  .basic {
-    width:130px;
-    height:60px;
-    line-height: 60px;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 25px
+@media screen and (max-width: 600px) {
+  div.nameTag {
+    font-size: 15px;
   }
 }
 
-.textLine {
-  font-size: 40px;
-  line-height: 50px;
-}
-
-@media screen and (max-width:650px) {
-  .textLine {
-  font-size: 18px;
-  line-height: 21px;
+@media screen and (min-width: 601px) {
+  div.nameTag {
+    width: 70%;
   }
 }
+
 </style>

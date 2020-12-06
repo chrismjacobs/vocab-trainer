@@ -180,18 +180,19 @@ def on_settings(data):
     print('newSettings:', 'room', room, 'settings', settingsData)
 
 @socketio.on('resetEmit')
-def on_resetEmit():
+def on_resetEmit(data):
     sid = request.sid
     print(sid)
     roomList = rooms(sid=sid)
     print(roomList)
+    player = data['player']
 
-    check = Connected.query.filter_by(sid=sid).first()
-    print('check', check)
+    # check = Connected.query.filter_by(sid=sid).first()
+    # print('check', check)
 
     for r in roomList:
         print('LEAVE ROOM', r)
-        emit('reset', {'opponent': 'your opponent'}, r)
+        emit('leaveRoom', {'opponent': player}, r)
 
 
 @socketio.on('disconnect')
@@ -204,18 +205,18 @@ def on_disconnect():
     check = Connected.query.filter_by(sid=sid).first()
     print('check', check)
 
-    for r in roomList:
-        print('LEAVE ROOM', r)
-        emit('reset', {'opponent': 'your opponent'}, r)
-
-    if sid not in roomList:
-        emit('reset', {'opponent': 'your opponent'}, sid)
-
-
     user = check.connected
     username = user.username
     userID = user.id
     classroom = user.classroom
+
+
+    for r in roomList:
+        print('LEAVE ROOM', r)
+        emit('reset', {'opponent': username }, r)
+
+    # if sid not in roomList:
+    #     emit('reset', {'opponent': 'your opponent'}, sid)
 
     checkAll = Connected.query.all()
 

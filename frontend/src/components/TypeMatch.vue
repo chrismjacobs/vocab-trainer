@@ -177,7 +177,8 @@ export default {
     p2name: String,
     player: String,
     socket: Object,
-    s3: String
+    s3: String,
+    gameOver: Boolean
   },
   data () {
     return {
@@ -422,6 +423,12 @@ export default {
       if (sound && this.sound !== 'sdOff') {
         this.playAudio(sound.sdQue)
       }
+    },
+    gameOver: function () {
+      this.showTest = false
+      this.showAnswers = true
+      this.waiting = 3
+      clearInterval(this.clock)
     },
     currentAnswerHome: function () {
       this.socket.emit('updateType', {room: this.p1 + '-' + this.p2, opponent: this.opponent, current: this.currentAnswerHome, player: this.player, state: this.signalStyle})

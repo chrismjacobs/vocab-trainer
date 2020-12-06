@@ -1,6 +1,6 @@
 <template>
   <div class="matchBase">
-    <Match v-if="marker" v-on:resetMatch="reset()" :s3="s3"></Match>
+    <Match v-if="marker" v-on:resetMatch="reset($event)" :s3="s3" :friends="friends"></Match>
     <div v-else align="center">
         <h4 class="text-prime"> Reloading </h4>
         <b-icon icon="three-dots" animation="cylon" variant="prime" font-scale="6"></b-icon>
@@ -22,12 +22,14 @@ export default {
   data () {
     return {
       marker: true,
-      startTimer: null
+      startTimer: null,
+      friends: {}
     }
   },
   methods: {
-    reset: function () {
-      console.log('RESET ACTIVE')
+    reset: function (data) {
+      console.log('RESET ACTIVE', data)
+      this.friends = data.friends
       this.marker = false
       let _this = this
       _this.startTimer = setTimeout(function () {
@@ -39,6 +41,20 @@ export default {
     if (this.startTimer) {
       clearTimeout(this.startTimer)
       this.startTimer = null
+    }
+  },
+  beforeMount () {
+    if (!this.$store.getters.isAuthenticated) {
+      this.$router.push('login')
+      return false
+    }
+
+    if (this.$store.state.userProfile.classroom === '') {
+      alert('No class found')
+      // this.msg = 'You must join a classroom to play Match Mode'
+      // this.showAlert()
+      this.$router.push('account')
+      return false
     }
   }
 }

@@ -117,14 +117,14 @@ export default {
     p2name: String,
     player: String,
     socket: Object,
-    s3: String
+    s3: String,
+    gameOver: Boolean
   },
   data () {
     return {
       waiting: 0,
       pageHead: 'Translation Match',
       toolbarShow: true,
-      showToolbar: true,
       showAnswers: false,
       showTest: false,
       showProgress: false,
@@ -375,7 +375,7 @@ export default {
       player.play()
     },
     leave: function () {
-      this.$emit('leave')
+      this.$emit('leave', {})
       // this.socket.emit('exitMatch', { player: this.player, p1: this.p1, p2: this.p2 })
     }
   },
@@ -385,6 +385,12 @@ export default {
       if (sound && this.sound !== 'sdOff') {
         this.playAudio(sound.sdQue)
       }
+    },
+    gameOver: function () {
+      this.showTest = false
+      this.showAnswers = true
+      this.waiting = 3
+      clearInterval(this.clock)
     },
     hover: function () {
       if (this.hover === true) {
