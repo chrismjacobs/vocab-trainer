@@ -225,7 +225,7 @@ const mutations = {
     state.setRecord = payload.setRecord
     state.userRecord = payload.userRecord
 
-    if (Object.keys(state.setRecord.dictRecord).length === 0 && state.userProfile.vocab[0] === 'g') {
+    if (Object.keys(state.setRecord.dictRecord).length === 0) {
       console.log('dictString')
       state.setRecord.dictRecord['add'] = {
         chinese: '加',
@@ -237,7 +237,7 @@ const mutations = {
       }
     }
 
-    if (Object.keys(state.setRecord.addRecord).length === 0 && state.userProfile.vocab[0] === 'g') {
+    if (Object.keys(state.setRecord.addRecord).length === 0) {
       console.log('addString')
       state.setRecord.addRecord['add'] = {
         defch1: '加',
@@ -246,7 +246,7 @@ const mutations = {
       }
     }
 
-    if (Object.keys(state.setRecord.starRecord).length === 0 && state.userProfile.vocab[0] === 'g') {
+    if (Object.keys(state.setRecord.starRecord).length === 0) {
       console.log('addStar')
       state.setRecord.addRecord['add'] = 1
     }

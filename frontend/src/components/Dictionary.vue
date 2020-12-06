@@ -59,8 +59,8 @@
         </b-row>
       </div>
 
-      <div align="center" v-if="selected[1] === 'p'">
-        <button class="buttonDiv bg-success px-3" style="width:100%"><b-icon-images variant="cream" font-scale="1.5"></b-icon-images> <span class="text-cream">See all Images</span> </button>
+      <div align="center" v-if="selected[1] === 'p' || showPictures">
+        <button class="buttonDiv bg-success px-3" style="width:100%" @click="showPictures = !showPictures"><b-icon-images variant="cream" font-scale="1.5"></b-icon-images> <span class="text-cream">See all Images</span> </button>
       </div>
 
       <transition name="board">
@@ -104,7 +104,7 @@
           </div>
       </transition>
 
-      <div class="mb-0">
+      <div class="mb-0" v-if="!showPictures">
       <b-table
       striped hover
       :items="tableItems"
@@ -144,6 +144,25 @@
          </template>
       </b-table>
       </div>
+      <div v-else>
+      <b-table
+      striped hover
+      :items="pictList"
+      :fields="pields"
+      head-variant="dark"
+      >
+        <template v-slot:cell(link)="data">
+          <h5> {{data.item.word}} </h5>
+          <h5> {{data.item.chinese}} </h5>
+        <b-img style="max-width:100px" thumbnail fluid :src="getImage(data.item.word, data.item.link)" :alt="pictWord"></b-img>
+         </template>
+        <template v-slot:cell(def)="data">
+          <span style="color:green"> {{data.value}} </span>
+          <hr>
+         {{data.item.text}}
+         </template>
+      </b-table>
+      </div>
 
       <b-modal hide-header-close no-close-on-esc no-close-on-backdrop align="center" ref="alert" hide-footer title="Alert">
         <div class="d-block">
@@ -171,6 +190,10 @@ export default {
       fields: [
         {key: 'English', label: 'Vocab', sortable: true},
         {key: 'ChineseExt', label: 'Chinese', sortable: true}
+      ],
+      pields: [
+        {key: 'link', label: 'Picture', sortable: true},
+        {key: 'def', label: 'Info', sortable: true}
       ],
       // tableItems: null,
       visibleRows: [],
@@ -223,7 +246,8 @@ export default {
       note: null,
       audioMarker: [null, null],
       soundCount: 0,
-      addWait: false
+      addWait: false,
+      showPictures: false
     }
   },
   computed: {
@@ -240,6 +264,14 @@ export default {
       } else {
         return this.optionsP
       }
+    },
+    pictList () {
+      let pictList = []
+      for (let obj in this.$store.getters.pictGet) {
+        pictList.push(this.$store.getters.pictGet[obj])
+      }
+      console.log('pictList', pictList)
+      return pictList
     }
   },
   methods: {
@@ -276,6 +308,16 @@ export default {
         return 'buttonDiv bg-second px-3'
       } else {
         return 'buttonDiv bg-cream px-3'
+      }
+    },
+    getImage: function (word, code) {
+      if (code === 'add') {
+        return 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/add.jpg'
+      } else {
+        let profile = this.$store.state.userProfile
+        let link = this.s3 + profile.userID + '/' + profile.vocab + '/' + word + code + '.jpg'
+        console.log(link)
+        return link
       }
     },
     tapSound: function () {
