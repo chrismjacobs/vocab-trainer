@@ -198,6 +198,11 @@ export default {
           }
         })
     }
+  },
+  created () {
+    if (this.$store.getters.isAuthenticated) {
+      this.$router.push('account')
+    }
   }
 }
 </script>

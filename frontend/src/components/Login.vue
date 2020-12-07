@@ -125,6 +125,11 @@ export default {
           }
         })
     }
+  },
+  beforeMount () {
+    if (this.$store.getters.isAuthenticated) {
+      this.$router.push('account')
+    }
   }
 }
 </script>
