@@ -184,14 +184,13 @@ export default {
       ],
       spelling: '---',
       spellingOptions: [
-        { value: '---', text: '---' },
+        { value: 'blanks', text: '---' },
         { value: 'showFL', text: 'first/last' },
         { value: 'const', text: '+ vowels' },
         { value: 'vowels', text: '- vowels' },
-        { value: 'blanks', text: ' all blanks' },
-        { value: 'all', text: 'show all' },
         { value: 'typos', text: 'typos' },
-        { value: 'scramble', text: 'scramble' }
+        { value: 'scramble', text: 'scramble' },
+        { value: 'all', text: 'show all' }
       ],
       sort: '---',
       sortOptions: [
