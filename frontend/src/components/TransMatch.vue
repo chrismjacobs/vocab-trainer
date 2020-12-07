@@ -1,13 +1,14 @@
 <template>
   <div class="TransEng">
     <audio id="audio"></audio>
-      <div class="mt-2 bg-grape p-2 head">
+
+      <div class="bg-grape p-2 head">
         <b-row align-h="end">
           <b-col cols="6" align="center">
             <h2 class="text-cream"> Match </h2>
           </b-col>
           <b-col cols="3" align="right">
-            <button @click="leave()" class="buttonDiv bg-warn text-cream mt-2 "><span class="d-none d-md-inline">Exit</span><b-icon-backspace-reverse-fill class="text-cream mx-2" style="float:right"  font-scale="1.5"></b-icon-backspace-reverse-fill> </button>
+            <button @click="leave()" class="buttonDiv bg-alert text-cream mt-1 "><span class="d-none d-md-inline">Exit</span><b-icon-backspace-reverse-fill class="text-cream mx-2" style="float:right"  font-scale="1.5"></b-icon-backspace-reverse-fill> </button>
           </b-col>
         </b-row>
       </div>
