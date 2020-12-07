@@ -7,7 +7,7 @@
             <h2> Match </h2>
           </b-col>
           <b-col cols="3" align="right">
-            <button @click="leave()" class="buttonDiv bg-warn text-cream mt-2"> <span class="d-none d-md-inline">Exit</span><b-icon-backspace-reverse-fill class="text-cream ml-3" style="float:right"  font-scale="1.5"></b-icon-backspace-reverse-fill> </button>
+            <button @click="leave()" class="buttonDiv bg-alert text-cream mt-1"> <span class="d-none d-md-inline">Exit</span><b-icon-backspace-reverse-fill class="text-cream ml-3" style="float:right"  font-scale="1.5"></b-icon-backspace-reverse-fill> </button>
           </b-col>
         </b-row>
       </div>
@@ -76,15 +76,40 @@
                       </button>
                     </b-row>
 
-                    <b-row class="px-5 mt-3">
+                    <b-row class="px-5 mt-2">
                       <button class="answerBtn bg-third" @click="playAudio(item.sdAns)" align="center" >
-                          <h3>
+                          <h4>
                             <span v-html="item.Chinese" ></span>
-                          </h3>
+                          </h4>
                       </button>
                     </b-row>
 
-                     <b-row align-h="center" class="mt-3">
+                    <b-row align-h="center" class="mt-2">
+                      <b-col cols="10">
+                        <b-form-group class="mb-2">
+                          <div align="center">
+                            <b-form-input
+                            align="center"
+                            :style="inputStyle"
+                            :class="validStyle(feedback)"
+                            onblur="this.focus()"
+                            autofocus
+                            autocapitalize="none"
+                            autocomplete="off"
+                            v-on:keyup.native.enter="submitAnswer()"
+                            id="homeInput"
+                            v-model="currentAnswerHome"
+                            ></b-form-input>
+
+                            <span class="mt-2">
+                              ({{currentAnswerHome.length}}/{{answerLength}})
+                            </span>
+                          </div>
+                        </b-form-group>
+                      </b-col>
+                    </b-row>
+
+                    <b-row align-h="center" class="mt-1">
                       <b-col cols="10">
                         <b-form-group>
                           <div align="center">
@@ -101,32 +126,6 @@
                         </b-form-group>
                       </b-col>
                     </b-row>
-
-                    <b-row align-h="center" class="mt-3">
-                      <b-col cols="10">
-                        <b-form-group>
-                          <div align="center">
-                            <b-form-input
-                            align="center"
-                            :style="inputStyle"
-                            :class="validStyle(feedback)"
-                            onblur="this.focus()"
-                            autofocus
-                            autocapitalize="none"
-                            autocomplete="off"
-                            v-on:keyup.native.enter="submitAnswer()"
-                            id="homeInput"
-                            v-model="currentAnswerHome"
-                            ></b-form-input>
-
-                            <h5 class="mt-2">
-                              ({{currentAnswerHome.length}}/{{answerLength}})
-                            </h5>
-                          </div>
-                        </b-form-group>
-                      </b-col>
-                    </b-row>
-
               </div>
           </div>
       </div>
@@ -255,6 +254,7 @@ export default {
       this.clock = setInterval(function () {
         if (_this.time === 0) {
           if (_this.clock) {
+            document.getElementById('homeInput').disabled = true
             _this.recordDraw()
             _this.time -= 100
           }
@@ -313,6 +313,7 @@ export default {
     },
     recordDraw: function () {
       console.log('record draw')
+      document.getElementById('homeInput').disabled = true
       this.loadNew = true
       clearInterval(this.clock)
       this.clock = null
