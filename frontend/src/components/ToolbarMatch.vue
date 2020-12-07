@@ -169,15 +169,15 @@ export default {
         { text: 'auto play', value: 'sdOn' },
         { text: 'None', value: 'sdOff' }
       ],
-      spelling: '---',
+      spelling: 'blanks',
       spellingText: 'None',
       spellingOptions: [
-        { value: '---', text: '---' },
+        { value: 'blanks', text: '---' },
         { value: 'showFL', text: 'first/last' },
         { value: 'const', text: '+ vowels' },
         { value: 'vowels', text: '- vowels' },
-        { value: 'all', text: 'show all' },
-        { value: 'scramble', text: 'scramble' }
+        { value: 'scramble', text: 'scramble' },
+        { value: 'all', text: 'show all' }
       ],
       sort: '---',
       sortText: '---',
