@@ -300,7 +300,7 @@ export default {
       } else if (this.soundCount === 1) {
         return 'info'
       } else {
-        return 'grape'
+        return 'alert'
       }
     },
     getSoundButton: function () {
