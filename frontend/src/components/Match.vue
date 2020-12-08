@@ -175,7 +175,7 @@
                            </b-col>
                            <b-col>
                              <span class="text-cream"> {{getName(data.item.name)}} </span>
-                             <b-icon style="float:right" icon="exclamation-circle" class="mr-2 mt-1"></b-icon>
+                             <b-icon style="float:right" icon="exclamation-circle" class="text-cream mr-2 mt-1"></b-icon>
                            </b-col>
                           </b-row>
                         </div>
@@ -450,12 +450,20 @@ export default {
     console.log('beforeDestroyMatch')
     this.closeSocket()
   },
+  watch: {
+    gameSelect: function () {
+      localStorage.setItem('gameSelect', this.gameSelect)
+    }
+  },
   mounted () {
     // 0 offline
     // 1 online
     // 2 busy
     // 3 challenge sent
     // 4 challenge waiting
+    if (localStorage.gameSelect) {
+      this.gameSelect = localStorage.gameSelect
+    }
     this.userID = this.$store.state.userProfile.userID
     this.username = this.$store.state.userProfile.username
     // this.friends = this.$store.state.userProfile.classmates

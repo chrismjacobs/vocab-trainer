@@ -415,25 +415,49 @@ export default {
       this.$emit('waitUpdate', {
         wait: arg
       })
+    },
+    updateSettings: function () {
+      if (localStorage.words) {
+        this.words = localStorage.words
+      }
+      if (localStorage.choices) {
+        this.choices = localStorage.choices
+      }
+      if (localStorage.feedback) {
+        this.feedback = localStorage.feedback
+      }
+      if (localStorage.spelling) {
+        this.spelling = localStorage.spelling
+      }
+      if (localStorage.sort) {
+        this.sort = localStorage.sort
+      }
+      if (localStorage.timeReset) {
+        this.timeReset = localStorage.timeReset
+      }
     }
   },
   watch: {
     words: function () {
+      localStorage.setItem('words', this.words)
       if (this.player === 'p1') {
         this.settingsSend()
       }
     },
     choices: function () {
+      localStorage.setItem('choices', this.choices)
       if (this.player === 'p1') {
         this.settingsSend()
       }
     },
     timeReset: function () {
+      localStorage.setItem('timeReset', this.timeReset)
       if (this.player === 'p1') {
         this.settingsSend()
       }
     },
     feedback: function () {
+      localStorage.setItem('feedback', this.feedback)
       let object = this.feedbackOptions.filter(element => element.value === this.feedback)
       console.log(object)
       this.feedbackText = object[0].text
@@ -442,6 +466,7 @@ export default {
       }
     },
     spelling: function () {
+      localStorage.setItem('spelling', this.spelling)
       let object = this.spellingOptions.filter(element => element.value === this.spelling)
       console.log(object)
       this.spellingText = object[0].text
@@ -450,6 +475,7 @@ export default {
       }
     },
     sort: function () {
+      localStorage.setItem('sort', this.sort)
       let object = this.sortOptions.filter(element => element.value === this.sort)
       console.log(object)
       this.sortText = object[0].text
@@ -474,6 +500,7 @@ export default {
   created () {
     this.tableItems = this.$store.getters.makeList
     this.stringItems = JSON.stringify(this.tableItems)
+    this.updateSettings()
   },
   mounted () {
     if (this.testType[1] === 'r') {
