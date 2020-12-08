@@ -10,23 +10,19 @@
               </h2>
             </div>
 
-            <div class="bg-third text-third p-2">
-              <b-row align="left">
-                <b-col cols="10">
+            <div class="bg-grey text-third p-2">
+              <b-row align="center">
+                <b-col>
                   <div style="color:red !important">
                       <b-form-radio-group
                         id="btn-radios-2"
                         v-model="gameSelect"
                         :options="gameTypes"
                         buttons
-                        button-variant="p1"
+                        :button-variant="gameColors[gameSelect]"
                         name="radio-btn-outline"
                       ></b-form-radio-group>
                     </div>
-                </b-col>
-                <b-col align="right" style="display:none">
-                  <button class="buttonDiv bg-warn mt-2"  @click="friendAdder=!friendAdder"> Add <b-icon icon="person"></b-icon></button>
-                  <button class="buttonDiv bg-alert mt-2"  @click="friendDeleter=!friendDeleter"> Del <b-icon icon="x-square-fill"></b-icon> </button>
                 </b-col>
               </b-row>
             </div>
@@ -78,7 +74,7 @@
                         </div>
                       </b-col>
                       <b-col>
-                        <button class="buttonDiv bg-prime" style="width:60%;height:40px"  @click="acceptChallenge(data.item.id, data.item.mode)"> <b-icon class="text-p1" icon="box-arrow-in-right"></b-icon> </button>
+                        <button :class="classColors[challengeMode]" style="width:60%;height:40px"  @click="acceptChallenge(data.item.id, data.item.mode)"> <b-icon class="text-prime" icon="box-arrow-in-left"></b-icon> </button>
                         <b-icon @click="declineChallenge(data.item.id)" class="text-alert mt-1" style="float:right" font-scale="1.5" icon="x-square-fill"></b-icon>
                       </b-col>
                     </b-row>
@@ -139,7 +135,7 @@
                         </div>
                       </b-col>
                       <b-col>
-                        <button class="buttonDiv bg-prime" style="width:60%;height:40px"  @click="challengeSend(data.value, gameSelect)"> <b-icon class="text-p1" icon="box-arrow-in-right"></b-icon> </button>
+                        <button :class="classColors[gameSelect]" style="width:60%;height:40px"  @click="challengeSend(data.value, gameSelect)"> <b-icon class="text-prime" icon="box-arrow-in-right"></b-icon> </button>
                       </b-col>
                     </b-row>
                     <b-row v-else>
@@ -267,16 +263,22 @@ export default {
       message: null,
       waiting: true,
       msg: null,
+      challengeMode: null,
       gameSelect: 'TransEng',
       gameTypes: [
-        { value: 'TransEng', text: 'En -> Ch' },
-        { value: 'TransCh', text: 'Ch -> En' },
+        { value: 'TransEng', text: 'En > Ch' },
+        { value: 'TransCh', text: 'Ch > En' },
         { value: 'TypeMatch', text: 'Spelling' }
       ],
-      gameNames: {
-        TransEng: 'En -> Ch',
-        TransCh: 'Ch -> En',
-        TypeMatch: 'Spelling'
+      gameColors: {
+        TransEng: 'info',
+        TransCh: 'warn',
+        TypeMatch: 'safe'
+      },
+      classColors: {
+        TransEng: 'buttonDiv bg-info',
+        TransCh: 'butotnDiv bg-warn',
+        TypeMatch: 'buttonDiv bg-safe'
       }
     }
   },
@@ -500,6 +502,7 @@ export default {
       } else {
         found.status = 4
         found['mode'] = data.mode
+        _this.challengeMode = data.mode
       }
     })
     _this.socket.on('start', function (data) {
