@@ -10,7 +10,7 @@
               </h2>
             </div>
 
-            <div class="bg-grey text-third p-2">
+            <div class="bg-grey text-third">
               <b-row align="center">
                 <b-col>
                   <div style="color:red !important">
@@ -19,6 +19,7 @@
                         v-model="gameSelect"
                         :options="gameTypes"
                         buttons
+                        style="width:100%"
                         :button-variant="gameColors[gameSelect]"
                         name="radio-btn-outline"
                       ></b-form-radio-group>
@@ -146,7 +147,7 @@
                              <b-avatar :src="s3 + data.value + '/avatar.jpg'" size="1.5rem" class="ml-2"></b-avatar>
                            </b-col>
                            <b-col>
-                             <span> {{getName(data.item.name)}} </span>
+                             <span class="text-cream"> {{getName(data.item.name)}} </span>
                              <b-icon icon="circle-fill" style="float:right" class="mr-2 mt-1" animation="throb"></b-icon>
                            </b-col>
                           </b-row>
@@ -173,7 +174,7 @@
                              <b-avatar :src="s3 + data.value + '/avatar.jpg'" size="1.5rem" class="ml-2"></b-avatar>
                            </b-col>
                            <b-col>
-                             <span> {{getName(data.item.name)}} </span>
+                             <span class="text-cream"> {{getName(data.item.name)}} </span>
                              <b-icon style="float:right" icon="exclamation-circle" class="mr-2 mt-1"></b-icon>
                            </b-col>
                           </b-row>
@@ -271,13 +272,13 @@ export default {
         { value: 'TypeMatch', text: 'Spelling' }
       ],
       gameColors: {
-        TransEng: 'info',
+        TransEng: 'second',
         TransCh: 'warn',
         TypeMatch: 'safe'
       },
       classColors: {
         TransEng: 'buttonDiv bg-info',
-        TransCh: 'butotnDiv bg-warn',
+        TransCh: 'buttonDiv bg-warn',
         TypeMatch: 'buttonDiv bg-safe'
       }
     }
