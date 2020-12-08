@@ -483,7 +483,8 @@ export default {
         this.$store.dispatch('newAdd', {word: English, details: this.wordDetails, set: set})
       } else {
         // set added status and call api for audio
-        if (!this.generalGet[newWord]) {
+        // '!this.generalGet[newWord]' - change back after gtts token issue fixed
+        if (this.generalGet[newWord] === '0') {
           this.wordDetails.added = true
           this.addWait = true
           let _this = this
