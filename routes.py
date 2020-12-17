@@ -99,6 +99,9 @@ def login():
         if u.classroom == user.classroom and u is not user:
             classmates[u.id] = u.username
 
+    user.extraStr = datetime.now()
+    db.session.commit()
+
     userProfile = {
         'username' : user.username,
         'userID' : user.id,
