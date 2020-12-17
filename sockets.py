@@ -25,7 +25,7 @@ def online(data):
     check = Connected.query.filter_by(connected=user).first()
     print('checkUser', check, user)
 
-    classmates = []
+    classmates = [ {'id': 100000, 'name': 'AI Bot', 'status': 1}]
 
     checkUsers = Connected.query.all()
     checkClass = []
@@ -212,7 +212,7 @@ def on_disconnect():
 
 
     for r in roomList:
-        print('LEAVE ROOM', r)
+        print('LEAVE ROOM DISCONNECT', r)
         emit('reset', {'opponent': username }, r)
 
     # if sid not in roomList:
