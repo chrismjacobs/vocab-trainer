@@ -56,6 +56,15 @@ const state = {
     d: 'digital',
     c: 'culinary',
     g: 'general'
+  },
+  scheme: {
+    prime: 'prime',
+    second: 'second',
+    third: 'third',
+    fourth: 'fourth',
+    warn: 'warn',
+    peel: 'peel',
+    cream: 'cream'
   }
 }
 
@@ -127,7 +136,7 @@ const actions = {
       })
   },
   updateRecord (context, payload) {
-    // console.log('record', payload)
+    console.log('record', payload)
     context.commit('setNewRecord', payload)
   },
   updateMatch (context, payload) {
@@ -420,10 +429,9 @@ const mutations = {
     if (!state.logsRecord.settings[mode]) {
       Vue.set(state.logsRecord.settings, mode)
     }
+    state.logsRecord.settings[mode] = payload.settingsData
 
     // console.log('LOGSRECORD', state.logsRecord, state.logsRecord.settings, state.logsRecord.logs)
-
-    state.logsRecord.settings[mode] = payload.settingsData
 
     if (!state.logsRecord.logs[state.loginTime]['vocab']) {
       Vue.set(state.logsRecord.logs[state.loginTime], 'vocab', state.userProfile.vocab)
@@ -564,8 +572,33 @@ const getters = {
           spellScore = -2
         }
       }
+      let matchScore = 0
+      if (!state.userRecord.matchTrans) {
+        // pass
+      } else if (state.userRecord.matchTrans[vocab]) {
+        // note that this word has been tested
+        tested = true
+        matchScore = state.userRecord.matchTrans[vocab]
+        if (matchScore > 2) {
+          matchScore = 2
+        } else if (matchScore < -2) {
+          matchScore = -2
+        }
+      }
+      if (!state.userRecord.matchType) {
+        // pass
+      } else if (state.userRecord.matchType[vocab]) {
+        // note that this word has been tested
+        tested = true
+        matchScore = state.userRecord.matchType[vocab]
+        if (matchScore > 2) {
+          matchScore = 2
+        } else if (matchScore < -2) {
+          matchScore = -2
+        }
+      }
       let variant = null
-      let total = transEngScore + spellScore + transChScore
+      let total = transEngScore + spellScore + transChScore + matchScore
       if (total >= 2) {
         variant = 'safe'
       } else if (total === 1) {
