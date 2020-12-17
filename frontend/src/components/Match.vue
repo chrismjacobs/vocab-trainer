@@ -1,6 +1,7 @@
 <template>
   <div class="matchArea">
     <TransMatch  v-on:leave="leaveMatch()" :testType="testType" :gameOver="gameOver" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" :socket="socket" :s3="s3" v-if="testType && testType[1] === 'r'"></TransMatch>
+    <TransAI  v-on:leave="leaveMatch()" :testType="testType" :gameOver="gameOver" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" :socket="socket" :s3="s3" v-if="testType && testType[1] === 'I'"></TransAI>
     <TypeMatch   v-on:leave="leaveMatch()" :testType="testType" :gameOver="gameOver" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" :socket="socket" :s3="s3" v-if="testType && testType[1] === 'y'"></TypeMatch>
     <template v-if="waiting && friends !== null">
       <div v-if="testType === null">
@@ -10,10 +11,10 @@
               </h2>
             </div>
 
-            <div class="bg-grey text-third">
+            <div class="bg-grey text-cream">
               <b-row align="center">
                 <b-col>
-                  <div style="color:red !important">
+                  <div>
                       <b-form-radio-group
                         id="btn-radios-2"
                         v-model="gameSelect"
@@ -75,7 +76,7 @@
                         </div>
                       </b-col>
                       <b-col>
-                        <button :class="classColors[challengeMode]" style="width:60%;height:40px"  @click="acceptChallenge(data.item.id, data.item.mode)"> <b-icon class="text-prime" icon="box-arrow-in-left"></b-icon> </button>
+                        <button :class="classColors[challengeMode]" style="width:60%;height:40px"  @click="acceptChallenge(data.item.id, data.item.mode)"> <b-icon icon="box-arrow-in-left"></b-icon> </button>
                         <b-icon @click="declineChallenge(data.item.id)" class="text-alert mt-1" style="float:right" font-scale="1.5" icon="x-square-fill"></b-icon>
                       </b-col>
                     </b-row>
@@ -136,7 +137,7 @@
                         </div>
                       </b-col>
                       <b-col>
-                        <button :class="classColors[gameSelect]" style="width:60%;height:40px"  @click="challengeSend(data.value, gameSelect)"> <b-icon class="text-prime" icon="box-arrow-in-right"></b-icon> </button>
+                        <button :class="classColors[gameSelect]" style="width:60%;height:40px"  @click="challengeSend(data.value, gameSelect)"> <b-icon icon="box-arrow-in-right"></b-icon> </button>
                       </b-col>
                     </b-row>
                     <b-row v-else>
@@ -223,6 +224,7 @@
 <script>
 import TransMatch from './TransMatch'
 import TypeMatch from './TypeMatch'
+import TransAI from './TransAI'
 import { openSocket } from '@/sockets'
 import { checkFriend, deleteFriend } from '@/api'
 
@@ -230,11 +232,12 @@ export default {
   name: 'Match',
   props: {
     s3: String,
-    friends: Object
+    friends: Array
   },
   components: {
     TransMatch,
-    TypeMatch
+    TypeMatch,
+    TransAI
   },
   data () {
     return {
@@ -272,14 +275,14 @@ export default {
         { value: 'TypeMatch', text: 'Spelling' }
       ],
       gameColors: {
-        TransEng: 'second',
+        TransEng: 'third',
         TransCh: 'warn',
         TypeMatch: 'safe'
       },
       classColors: {
-        TransEng: 'buttonDiv bg-info',
-        TransCh: 'buttonDiv bg-warn',
-        TypeMatch: 'buttonDiv bg-safe'
+        TransEng: 'buttonDiv bg-info text-cream',
+        TransCh: 'buttonDiv bg-warn text-cream',
+        TypeMatch: 'buttonDiv bg-safe text-cream'
       }
     }
   },
@@ -322,15 +325,25 @@ export default {
         this.waiting = true
       } else if (mode === 'cancel') {
         this.$refs['quit'].hide()
-      } else if (mode === 'quit' && this.gameOver) {
-        this.$refs['quit'].hide()
-        this.$emit('resetMatch', {friends: this.friends})
-        this.closeSocket()
       } else if (mode === 'quit') {
-        console.log('FRIENDS', this.friends)
+        console.log('quit; gameOVer:', this.gameOver)
+        if (this.gameOver === false) {
+          // only the quitter sends out the socket signal
+          this.socket.emit('resetEmit', { player: this.username })
+        }
+        // change friend status
+        let found
+        if (this.player === 'p1') {
+          found = this.friends.find(element => element.id === this.p2)
+        } else {
+          found = this.friends.find(element => element.id === this.p1)
+        }
+        found.status = 1
+
         this.$refs['quit'].hide()
         this.$emit('resetMatch', {friends: this.friends})
-        this.socket.emit('resetEmit', { player: this.username })
+        this.$store.dispatch('testActive', false)
+        this.closeSocket()
       }
     },
     getName: function (name) {
@@ -353,7 +366,6 @@ export default {
       this.socket.close()
     },
     leaveMatch: function () {
-      this.$store.dispatch('testActive', false)
       console.log('leaveActivated')
       this.msg = 'Warning, you are about to leave the game'
       this.showQuit()
@@ -365,6 +377,9 @@ export default {
       this.socket.emit('challenge', payload)
       let found = this.friends.find(element => element.id === targetID)
       found.status = 3
+      if (targetID === 100000) {
+        this.startAI()
+      }
     },
     challengeRetract: function (targetID, mode) {
       // this.challengeMarker = targetID
@@ -429,6 +444,24 @@ export default {
         .catch(error => {
           console.log('Error Deleting: ', error)
         })
+    },
+    startAI: function () {
+      if (this.gameSelect[1] !== 'r') {
+        this.gameSelect = 'TransEng'
+      }
+      let _this = this
+      console.log('startAI')
+      setTimeout(function () {
+        console.log('TIMEOUT')
+        // let found = _this.friends.find(element => element.id === 100000)
+        _this.p1 = _this.userID
+        _this.p1name = _this.username
+        _this.p2 = 100000
+        _this.p2name = 'AI Bot'
+        _this.player = 'p1'
+        _this.testType = 'AI' + _this.gameSelect
+        // found.status = 1
+      }, 2000)
     }
   },
   created () {
