@@ -2,7 +2,7 @@
   <div class="toolbar" v-if="!toolbarShow">
     <div>
 
-      <div class="mt-2 bg-second p-2 head">
+      <div :class="getClass('second', 'prime', 'mt-2 p-2 head')">
             <h2 class="text-cream" align="center">
               {{ title }}
             </h2>
@@ -23,7 +23,7 @@
         </b-row>
       </div>
 
-      <div class="bg-fourth p-2 pb-4 mb-5" v-if="showToolbar">
+      <div :class="getClass('fourth', 'prime', ' p-2 pb-4 mb-5')" v-if="showToolbar">
         <b-row cols="2" :cols-xl="colGet" >
           <b-col class="mt-4">
               <div align="center">
