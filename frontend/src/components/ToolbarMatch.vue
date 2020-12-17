@@ -22,11 +22,11 @@
         </div>
       </div>
 
-      <div class="bg-fourth p-2 pb-4" v-if="waiting === 0">
+      <div class="bg-fade p-2 pb-4" v-if="waiting === 0">
         <b-row cols="2" :cols-xl="colGet">
           <b-col class="mt-3">
               <div align="center">
-                <div class="headDiv" style="width:120px">
+                <div class="headDiv" style="width:120px;display:inline-block">
                   Words
                 </div>
                 <div class="spinDiv">
@@ -314,7 +314,11 @@ export default {
         }
       }
 
-      this.socket.emit('ready', {room: (this.p1 + '-' + this.p2).toString(), player: this.player, testItems: this.testItemsRoot, timeReset: this.timeReset})
+      if (this.testType[1] === 'I') {
+        this.$emit('ready', {testItems: this.testItemsRoot, timeReset: this.timeReset})
+      } else {
+        this.socket.emit('ready', {room: (this.p1 + '-' + this.p2).toString(), player: this.player, testItems: this.testItemsRoot, timeReset: this.timeReset})
+      }
       // console.log(this.testItemsRoot)
     },
     makeSpelling: function () {
@@ -360,9 +364,6 @@ export default {
         newString += ' '
       }
       return newString
-    },
-    retryTest: function () {
-      this.$emit('retry', null)
     },
     checkDuplicate: function (rand) {
       for (let testEntry in this.testItems) {
@@ -451,35 +452,35 @@ export default {
       }
     },
     timeReset: function () {
-      localStorage.setItem('timeReset', this.timeReset)
       if (this.player === 'p1') {
+        localStorage.setItem('timeReset', this.timeReset)
         this.settingsSend()
       }
     },
     feedback: function () {
-      localStorage.setItem('feedback', this.feedback)
       let object = this.feedbackOptions.filter(element => element.value === this.feedback)
       console.log(object)
       this.feedbackText = object[0].text
       if (this.player === 'p1') {
+        localStorage.setItem('feedback', this.feedback)
         this.settingsSend()
       }
     },
     spelling: function () {
-      localStorage.setItem('spelling', this.spelling)
       let object = this.spellingOptions.filter(element => element.value === this.spelling)
       console.log(object)
       this.spellingText = object[0].text
       if (this.player === 'p1') {
+        localStorage.setItem('spelling', this.spelling)
         this.settingsSend()
       }
     },
     sort: function () {
-      localStorage.setItem('sort', this.sort)
       let object = this.sortOptions.filter(element => element.value === this.sort)
       console.log(object)
       this.sortText = object[0].text
       if (this.player === 'p1') {
+        localStorage.setItem('sort', this.sort)
         this.settingsSend()
       }
     }
