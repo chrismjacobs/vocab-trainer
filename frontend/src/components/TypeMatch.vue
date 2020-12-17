@@ -96,6 +96,8 @@
                             autofocus
                             autocapitalize="none"
                             autocomplete="off"
+                            autocorrect="off"
+                            spellcheck="false"
                             v-on:keyup.native.enter="submitAnswer()"
                             id="homeInput"
                             v-model="currentAnswerHome"
@@ -131,13 +133,34 @@
       </div>
 
     <div v-if="showAnswers">
-      <div class="mt-2">
+      <div class="mt-2 bg-smoke">
         <b-table
         striped hover
         :items="answerData"
         :fields="fields"
         >
+        <template #head(english)="data">
+          <div align="right">
+            English
+          </div>
+        </template>
+
+        <template v-slot:cell(english)="data">
+          <div style="float:left">
+           <template v-if="data.item.English in starGet">
+              <b-icon-star-fill variant="warn" @click="addStar(data.item.English, 0)"></b-icon-star-fill>
+            </template>
+            <template v-else>
+              <b-icon-star variant="grey" @click="addStar(data.item.English, 1)"></b-icon-star>
+            </template>
+          </div>
+          <div align="right">
+            <span :id="data.item.English" @click="playAnswer(data.item.English)"> {{data.item.English}}</span>
+          </div>
+        </template>
+
         </b-table>
+
       </div>
     </div>
 
@@ -214,10 +237,14 @@ export default {
       p2score: 0,
       btnIDMarker: null,
       winner: '',
-      winName: ''
+      winName: '',
+      audioMarker: null
     }
   },
   methods: {
+    addStar: function (word, set) {
+      this.$store.dispatch('newStar', {word: word, set: set})
+    },
     showWinner: function () {
       this.$refs['winner'].show()
     },
@@ -299,12 +326,18 @@ export default {
       this.time = null
 
       let _rowVariant = data.player
+      let score = 0
+
+      if (data.player === this.player) {
+        score = 1
+      }
 
       let entry = {
         English: this.testItems[this.filter].English,
         Chinese: this.testItems[this.filter].Chinese,
         _rowVariant: _rowVariant,
-        Time: count + 's'
+        Time: count + 's',
+        Score: score
       }
 
       this.progressValues[_rowVariant] += 1
@@ -323,7 +356,8 @@ export default {
         English: this.testItems[this.filter].English,
         Chinese: this.testItems[this.filter].Chinese,
         _rowVariant: 'warn',
-        Time: '---'
+        Time: '---',
+        Score: 0
       }
 
       this.progressValues['warn'] += 1
@@ -390,6 +424,7 @@ export default {
       }
 
       this.$store.dispatch('updateMatch', { mode: 'matchTrans', winnerStatus: winnerStatus })
+      this.$store.dispatch('updateRecord', { mode: 'matchType', answerData: this.answerData, settingsData: this.settings })
       this.showAnswers = true
     },
     playAudio: function (arg) {
@@ -397,6 +432,30 @@ export default {
       let player = document.getElementById('audio')
       player.src = arg
       player.play()
+    },
+    playAnswer: function (arg) {
+      var result = this.dictGet.filter(obj => {
+        return obj.English === arg
+      })
+      console.log('PLAY', result)
+
+      if (this.audioMarker) {
+        let icon = document.getElementById(this.audioMarker)
+        icon.setAttribute('class', '')
+      }
+
+      this.audioMarker = arg
+      let icon = document.getElementById(arg)
+
+      icon.setAttribute('class', 'text-warn')
+
+      let audioLink = result[0].mp3en
+      let player = document.getElementById('audio')
+      player.src = audioLink
+      player.play()
+      player.onended = function () {
+        icon.setAttribute('class', '')
+      }
     },
     leave: function () {
       this.$emit('leave')
@@ -436,6 +495,12 @@ export default {
     }
   },
   computed: {
+    starGet () {
+      return this.$store.getters.starGet
+    },
+    dictGet () {
+      return this.$store.getters.makeList
+    },
     inputStyle () {
       let width = this.answerLength + '0%'
       return {'font-size': '30px', width: width, 'text-align': 'center', 'max-width': '100%'}

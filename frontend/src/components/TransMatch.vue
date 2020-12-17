@@ -50,16 +50,16 @@
 
     <ToolbarMatch :toolbarShow='showTest' :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :socket="socket" :player="player" :waiting="waiting" :showAnswers='showAnswers' :testType="testType" v-on:waitUpdate="waiting=1"></ToolbarMatch>
 
-      <div v-if="showTest">
+      <div class="bg-grey" v-if="showTest">
        <div v-for="(item, key) in testItems" :key="key">
-          <div class="bg-third p-3" @mouseover="hover=true" @mouseleave="hover=false" :class="{ active: 'active1' }" v-if="testItems.indexOf(item) === filter" align="center">
+          <div class="bg-second questionDiv" @mouseover="hover=true" @mouseleave="hover=false" :class="{ active: 'active1' }" v-if="testItems.indexOf(item) === filter" align="center">
               <h3>
                 <span v-if="settings.sound !== 'sdEx' || hover == true"> {{ item.Question }} </span>
                 <span v-if="settings.sound == 'sdEx' || settings.sound == 'sdOn'"> <b-icon-soundwave></b-icon-soundwave></span>
               </h3>
           </div>
 
-          <div v-if="testItems.indexOf(item) === filter">
+          <div v-if="testItems.indexOf(item) === filter" class="p-3">
             <div v-for="(choice, index) in item.Choices" :key="index">
               <button class="answerBtn bg-prime text-cream" :name="item.Question" :id="item.Question + choice.Answer" block @click="recordAnswer(item.Question, item.Answer, choice.Answer)">
                 {{ choice.Answer }}
@@ -72,13 +72,37 @@
        </div>
       </div>
 
-    <div v-if="showAnswers">
+    <div class="bg-smoke" v-if="showAnswers">
       <div class="mt-2">
         <b-table
         striped hover
         :items="answerData"
         :fields="fields"
         >
+        <template #head(question)="data">
+          <div align="right">
+            Question
+          </div>
+        </template>
+
+        <template v-slot:cell(question)="data">
+          <div style="float:left">
+           <template v-if="data.item.English in starGet">
+              <b-icon-star-fill variant="warn" @click="addStar(data.item.English, 0)"></b-icon-star-fill>
+            </template>
+            <template v-else>
+              <b-icon-star variant="grey" @click="addStar(data.item.English, 1)"></b-icon-star>
+            </template>
+          </div>
+          <div align="right">
+            <span :id="data.item.Question" @click="playAnswer(data.item.English)"> {{data.item.Question}}</span>
+          </div>
+        </template>
+
+        <template v-slot:cell(answer)="data">
+            <span :id="data.item.Answer" @click="playAnswer(data.item.English)"> {{data.item.Answer}}</span>
+        </template>
+
         </b-table>
       </div>
     </div>
@@ -153,10 +177,14 @@ export default {
       btnIDMarker: null,
       playerDude: null,
       winner: '',
-      winName: ''
+      winName: '',
+      audioMarker: null
     }
   },
   methods: {
+    addStar: function (word, set) {
+      this.$store.dispatch('newStar', {word: word, set: set})
+    },
     showWinner: function () {
       this.$refs['winner'].show()
     },
@@ -304,16 +332,23 @@ export default {
 
       let _rowVariant = 'warn'
       let score = 0
+      let english = question
 
       if (state) {
         _rowVariant = clicker
+        score = 1
+      }
+
+      if (this.testType[5] === 'C') {
+        english = answer
       }
 
       let entry = {
         Question: question,
         Answer: answer,
         _rowVariant: _rowVariant,
-        Score: score
+        Score: score,
+        English: english
       }
 
       this.progressValues[_rowVariant] += 1
@@ -367,6 +402,7 @@ export default {
       }
 
       this.$store.dispatch('updateMatch', { mode: 'matchTrans', winnerStatus: winnerStatus })
+      this.$store.dispatch('updateRecord', { mode: 'matchTrans', answerData: this.answerData, settingsData: this.settings })
       this.showAnswers = true
     },
     playAudio: function (arg) {
@@ -374,6 +410,30 @@ export default {
       let player = document.getElementById('audio')
       player.src = arg
       player.play()
+    },
+    playAnswer: function (arg) {
+      var result = this.dictGet.filter(obj => {
+        return obj.English === arg
+      })
+      console.log('PLAY', result)
+
+      if (this.audioMarker) {
+        let icon = document.getElementById(this.audioMarker)
+        icon.setAttribute('class', '')
+      }
+
+      this.audioMarker = arg
+      let icon = document.getElementById(arg)
+
+      icon.setAttribute('class', 'text-warn')
+
+      let audioLink = result[0].mp3en
+      let player = document.getElementById('audio')
+      player.src = audioLink
+      player.play()
+      player.onended = function () {
+        icon.setAttribute('class', '')
+      }
     },
     leave: function () {
       this.$emit('leave', {})
@@ -404,6 +464,12 @@ export default {
   computed: {
     isAuthenticated () {
       return this.$store.getters.isAuthenticated
+    },
+    starGet () {
+      return this.$store.getters.starGet
+    },
+    dictGet () {
+      return this.$store.getters.makeList
     }
   },
   created () {
