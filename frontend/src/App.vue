@@ -75,9 +75,9 @@
                     </div>
 
                     <div v-if="isAuthenticated">
-                      <button v-if="$store.state.userProfile.instructor" class="buttonDiv mt-2 bg-warn-light text-prime px-1" style="height:50px; width:100%" @click="goTo('Instructor')"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp;Instructor </span> </button>
+                      <button v-if="$store.state.userProfile.instructor" class="buttonDiv mt-2 bg-peel text-prime px-1" style="height:50px; width:100%" @click="goTo('Instructor')"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp;Instructor </span> </button>
                       <button v-if="$store.state.userProfile.userID === 1" class="buttonDiv mt-2 bg-info text-prime px-1" style="height:50px; width:100%" @click="goTo('JGrabber')"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp;JGrabber </span> </button>
-                      <button v-if="$store.state.userProfile.userID === 1" class="buttonDiv mt-2 bg-succes text-prime px-1" style="height:50px; width:100%" @click="goTo('Flash')"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp;Flash </span> </button>
+                      <button v-if="$store.state.userProfile.userID === 1" class="buttonDiv mt-2 bg-success text-prime px-1" style="height:50px; width:100%" @click="goTo('Flash')"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp;Flash </span> </button>
                       <button class="buttonDiv mt-2 bg-third text-prime px-1" style="height:50px; width:100%" @click="alert('help features coming soon')"><b-icon-question-circle></b-icon-question-circle>  <span text=""> &nbsp;Help </span> </button>
                       <button class="buttonDiv mt-2 bg-grape text-cream px-1" style="height:50px; width:100%" @click="logout()"><b-icon-power></b-icon-power>  <span text=""> &nbsp;Logout </span> </button>
                     </div>
@@ -119,11 +119,11 @@ export default {
       contColor: 'bg-cream',
       tableItems: [],
       btnCodes: {
-        '/TransChTest': 'bg-third',
-        '/TransEngTest': 'bg-third',
-        '/TypeTest': 'bg-warn-light',
-        '/Match': 'bg-cream',
-        '/Dictionary': 'bg-cream'
+        '/TransChTest': this.getClass('third', 'prime'),
+        '/TransEngTest': this.getClass('third', 'prime'),
+        '/TypeTest': this.getClass('peel', 'prime'),
+        '/Match': this.getClass('cream', 'prime'),
+        '/Dictionary': this.getClass('cream', 'prime')
       }
     }
   },
