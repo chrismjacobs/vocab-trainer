@@ -59,8 +59,11 @@
         </b-row>
       </div>
 
-      <div align="center" v-if="selected[1] === 'p' || showPictures">
+      <div align="center" v-if="selected[1] === 'p' && !showPictures">
         <button class="buttonDiv bg-success px-3" style="width:100%" @click="showPictures = !showPictures"><b-icon-images variant="cream" font-scale="1.5"></b-icon-images> <span class="text-cream">See all Images</span> </button>
+      </div>
+      <div align="center" v-if="showPictures">
+        <button class="buttonDiv bg-warn px-3" style="width:100%" @click="showPictures = !showPictures"><b-icon-images variant="cream" font-scale="1.5"></b-icon-images> <span class="text-cream">Hide Images</span> </button>
       </div>
 
       <transition name="board">
@@ -149,6 +152,8 @@
       striped hover
       :items="pictList"
       :fields="pields"
+      :filter="selected"
+      :filter-function="filterPics"
       head-variant="dark"
       >
         <template v-slot:cell(link)="data">
@@ -339,6 +344,7 @@ export default {
     changeSelected: function (arg) {
       this.selected[0] = ''
       this.picture = false
+      this.showPictures = false
 
       if (arg === 'grade') {
         this.selected[1] = null
@@ -409,6 +415,19 @@ export default {
         }
       } else {
         return false
+      }
+    },
+    filterPics: function (row, filter) {
+      if (filter[0] === null) {
+        return true
+      } else if (filter[0].trim() != null && filter[0].trim().length === 1) {
+        if (row.word[0].trim().toLowerCase() === filter[0].trim().toLowerCase()) {
+          return true
+        }
+      } else if (filter[0].trim() != null) {
+        if ((row.word.toLowerCase()).includes(filter[0].trim().toLowerCase())) {
+          return true
+        }
       }
     },
     alphabet: function () {
