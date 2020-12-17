@@ -52,6 +52,8 @@
                             autofocus
                             autocapitalize="none"
                             autocomplete="off"
+                            autocorrect="off"
+                            spellcheck="false"
                             v-on:keyup.native.enter="recordAnswer(item.English, item.Chinese, currentAnswer) "
                             id="type"
                             v-model="currentAnswer"
