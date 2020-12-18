@@ -210,6 +210,13 @@
       <button class="buttonDiv mt-3 bg-alert text-cream" style="width:60%"  @click="hideModal('fail')">Close</button>
     </b-modal>
 
+   <b-modal align="center" ref="reject" hide-footer title="Problem Found" hide-header-close no-close-on-esc no-close-on-backdrop>
+      <div class="d-block">
+        <h3> {{msg}} </h3>
+      </div>
+      <button class="buttonDiv mt-3 bg-alert text-cream" style="width:60%"  @click="hideModal('reject')">Close</button>
+    </b-modal>
+
    <b-modal align="center" ref="quit" hide-footer title="Game Over" hide-header-close no-close-on-esc no-close-on-backdrop>
       <div class="d-block">
         <h3> {{msg}} </h3>
@@ -316,13 +323,15 @@ export default {
     showQuit: function () {
       this.$refs['quit'].show()
     },
+    showReject: function () {
+      this.$refs['reject'].show()
+    },
     hideModal: function (mode) {
       if (mode === 'success') {
         this.$refs['success'].hide()
         this.waiting = true
-      } else if (mode === 'success') {
-        this.$refs['fail'].hide()
-        this.waiting = true
+      } else if (mode === 'reject') {
+        this.$refs['reject'].hide()
       } else if (mode === 'cancel') {
         this.$refs['quit'].hide()
       } else if (mode === 'quit') {
@@ -378,7 +387,13 @@ export default {
       let found = this.friends.find(element => element.id === targetID)
       found.status = 3
       if (targetID === 100000) {
-        this.startAI()
+        if (this.gameSelect.includes('ype')) {
+          this.msg = 'Sorry, AI Bot is not good at spelling right now'
+          found.status = 1
+          this.showReject()
+        } else {
+          this.startAI()
+        }
       }
     },
     challengeRetract: function (targetID, mode) {
@@ -446,9 +461,6 @@ export default {
         })
     },
     startAI: function () {
-      if (this.gameSelect[1] !== 'r') {
-        this.gameSelect = 'TransEng'
-      }
       let _this = this
       console.log('startAI')
       setTimeout(function () {
