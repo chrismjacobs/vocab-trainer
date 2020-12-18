@@ -247,7 +247,7 @@ export default {
       let sdAns
       let sdQue
 
-      if (this.testType === 'TransEng') {
+      if (this.testType.includes('Eng')) {
         question = 'English'
         answer = 'Chinese'
         sdQue = 'mp3en'
@@ -504,9 +504,10 @@ export default {
     this.tableItems = this.$store.getters.makeList
     this.stringItems = JSON.stringify(this.tableItems)
     this.updateSettings()
+    console.log(this.testType)
   },
   mounted () {
-    if (this.testType[1] === 'r') {
+    if (this.testType[1] === 'r' || this.testType.includes('AI')) {
       this.timeReset = 6
     } else {
       this.timeReset = 30

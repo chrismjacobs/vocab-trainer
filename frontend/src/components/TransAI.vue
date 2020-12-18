@@ -193,6 +193,7 @@ export default {
       this.waiting = 1
     },
     addStar: function (word, set) {
+      console.log('star', word)
       this.$store.dispatch('newStar', {word: word, set: set})
     },
     showWinner: function () {
@@ -258,6 +259,7 @@ export default {
       } else {
         this.disable(question, btnID, player, false, answer)
         if (player === 'p1') {
+          console.log('clock stopped')
           let _this = this
           setTimeout(function () {
             _this.AIanswer(choice)
