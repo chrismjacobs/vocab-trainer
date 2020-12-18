@@ -8,14 +8,14 @@
             <h2 class="text-cream"> Match </h2>
           </b-col>
           <b-col cols="3" align="right">
-            <button @click="leave()" class="buttonDiv bg-alert text-cream mt-1 "><span class="d-none d-md-inline">Exit</span><b-icon-backspace-reverse-fill class="text-cream mx-2" style="float:right"  font-scale="1.5"></b-icon-backspace-reverse-fill> </button>
+            <button @click="leave()" class="buttonDiv bg-cream text-alert mt-1 "><span class="d-none d-md-inline">Exit</span><b-icon-backspace-reverse-fill class="mx-2" style="float:right"  font-scale="1.5"></b-icon-backspace-reverse-fill> </button>
           </b-col>
         </b-row>
       </div>
 
-     <div class="bg-second">
+     <div class="bg-third">
 
-        <div class="bg-third p-3 " style="height:100px">
+        <div class="p-3 " style="height:100px">
              <b-row no-gutters>
                <b-col align="right" class="mr-3">
                  <b-avatar :src="s3 + p1.toString() + '.jpg'"  size="65px" :badge="nameCut(p1name)" badge-offset="-0.6em" badge-variant="p1"></b-avatar>
@@ -34,16 +34,13 @@
              </b-row>
          </div>
 
-          <div style="height:20px">
-            <b-progress v-if="showProgress" style="height:20px" :max="1"  class="" show-value>
+          <div>
+            <b-progress style="height:20px" :max="1"  class="" show-value>
                     <b-progress-bar :value="progressValues.p1" variant="p1"></b-progress-bar>
                     <b-progress-bar :value="progressValues.warn" variant="warn-light"></b-progress-bar>
                     <b-progress-bar :value="progressValues.p2" variant="p2"></b-progress-bar>
             </b-progress>
-          </div>
-
-          <div style="height:20px">
-            <b-progress v-if="time" :value="time" :max="timeReset" style="height:20px" variant="grape"></b-progress>
+            <b-progress :value="time" :max="timeReset" style="height:20px" variant="grape"></b-progress>
           </div>
 
       </div>
@@ -72,7 +69,7 @@
        </div>
       </div>
 
-    <div class="bg-smoke" v-if="showAnswers">
+    <div class="bg-grape-light" v-if="showAnswers">
       <div class="mt-2">
         <b-table
         striped hover
@@ -258,8 +255,7 @@ export default {
         this.disable(question, btnID, player, true, answer)
       } else {
         this.disable(question, btnID, player, false, answer)
-        if (player === 'p1') {
-          console.log('clock stopped')
+        if (player === 'p1' && this.answered === 1) {
           let _this = this
           setTimeout(function () {
             _this.AIanswer(choice)
@@ -374,7 +370,7 @@ export default {
         score = 1
       }
 
-      if (this.testType[5] === 'C') {
+      if (this.testType.includes('Ch')) {
         english = answer
       }
 
@@ -391,6 +387,7 @@ export default {
       this.answerData.push(entry)
     },
     AIstartclock: function () {
+      clearTimeout(this.AIclock)
       let _this = this
       this.AIclock = setTimeout(function () {
         console.log('AI start')
@@ -406,6 +403,7 @@ export default {
       } else {
         // console.log('filterMax')
         // go back to false
+        this.ready.push('p2')
         this.filter = null
         this.showTest = false
         this.showProgress = false
@@ -516,7 +514,7 @@ export default {
         this.ready.push('p1')
         setTimeout(function () {
           _this.showTest = true
-          _this.ready = ['p2']
+          _this.ready = []
           _this.waiting = 0
           _this.start()
         }, 2000)
