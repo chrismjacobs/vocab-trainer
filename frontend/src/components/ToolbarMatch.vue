@@ -493,8 +493,10 @@ export default {
     colGet () {
       if (this.player === 'p2') {
         return 2
-      } else {
+      } else if (this.testType === 'TypeMatch') {
         return 4
+      } else {
+        return 2
       }
     }
   },
