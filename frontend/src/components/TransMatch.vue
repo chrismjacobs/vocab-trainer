@@ -462,9 +462,6 @@ export default {
     }
   },
   computed: {
-    isAuthenticated () {
-      return this.$store.getters.isAuthenticated
-    },
     starGet () {
       return this.$store.getters.starGet
     },
