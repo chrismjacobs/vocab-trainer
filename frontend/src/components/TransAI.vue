@@ -268,13 +268,18 @@ export default {
       let answerSet = JSON.parse(JSON.stringify(this.testItems[this.filter]))
       let choices = this.AIshuffle(answerSet['Choices'])
       let rand = this.getRandomInt(3)
-      console.log('rand', rand)
+      console.log('rand', rand, choices[0]['Answer'], choice)
       if (rand === 0) {
         this.recordAnswer(answerSet['Question'], answerSet['Answer'], answerSet['Answer'], 'p2')
       } else if (choices[0]['Answer'] !== answerSet['Answer'] && choices[0]['Answer'] !== choice) {
+        console.log('000000')
         this.recordAnswer(answerSet['Question'], answerSet['Answer'], choices[0]['Answer'], 'p2')
       } else if (choices[1]['Answer'] !== choice) {
+        console.log('1111111')
         this.recordAnswer(answerSet['Question'], answerSet['Answer'], choices[1]['Answer'], 'p2')
+      } else if (choices[2]['Answer'] !== choice) {
+        console.log('2222222')
+        this.recordAnswer(answerSet['Question'], answerSet['Answer'], choices[2]['Answer'], 'p2')
       }
     },
     AIshuffle: function (array) {
