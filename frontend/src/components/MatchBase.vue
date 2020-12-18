@@ -23,7 +23,7 @@ export default {
     return {
       marker: true,
       startTimer: null,
-      friends: {}
+      friends: []
     }
   },
   methods: {
