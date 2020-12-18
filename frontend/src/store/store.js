@@ -13,6 +13,7 @@ import generalW from '../assets/json/generalW.json'
 import generalD from '../assets/json/generalD.json'
 import generalV from '../assets/json/generalV.json'
 import generalT from '../assets/json/generalT.json'
+import generalG from '../assets/json/generalG.json'
 import food from '../assets/json/food.json'
 // import vqc from '../assets/json/vqc2.json'
 import test from '../assets/json/vqc2.json'
@@ -29,6 +30,7 @@ let dictionaries = {
   'generalD': generalD,
   'generalV': generalV,
   'generalT': generalT,
+  'generalG': generalG,
   'high': null,
   'food': food
 }
