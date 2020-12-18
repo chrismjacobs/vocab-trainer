@@ -178,7 +178,7 @@ export default {
       btnIDMarker: null,
       winner: '',
       winName: '',
-      AIstart: null,
+      AIclock: null,
       audioMarker: null
     }
   },
@@ -245,7 +245,7 @@ export default {
       // this.setCountdown()
     },
     recordAnswer: function (question, answer, choice, player) {
-      clearTimeout(this.AIstart)
+      clearTimeout(this.AIclock)
       console.log('RECORD', question, answer, choice, player)
       let correct = answer
       // required for disbaling buttons
@@ -355,6 +355,7 @@ export default {
         console.log('TIMEOUT')
         _this.answered = 0
         _this.enterResult(name, answer, clicker, state)
+        clearTimeout(_this.AIstart)
         _this.filterToggle()
         _this.countDown = null
       }, 2000)
@@ -389,7 +390,7 @@ export default {
     },
     AIstartclock: function () {
       let _this = this
-      this.AIstart = setTimeout(function () {
+      this.AIclock = setTimeout(function () {
         console.log('AI start')
         _this.AIanswer()
       }, 2000)
