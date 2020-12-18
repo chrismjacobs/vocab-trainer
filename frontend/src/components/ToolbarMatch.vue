@@ -2,12 +2,6 @@
   <div class="matchBar" v-if="!toolbarShow">
     <div>
 
-      <div class="bg-third p-3" v-if="testType !== 'TypeMatch'">
-            <h3 align="center">
-              {{ gameNames[testType] }}
-            </h3>
-      </div>
-
       <div align="center" class="bg-prime p-2" style="height:60px">
         <div v-if="waiting === 0" :class="'buttonDiv text-prime bg-' + player" style="width: 60%" @click="playerReady(), emitWaiting(1)">
           <h5 class="mt-1"> Ready </h5>
@@ -43,7 +37,7 @@
                   Choices
                 </div>
                 <div class="spinDiv">
-                <b-form-spinbutton v-if="player === 'p1'" v-model="choices" min="2" max="6" style="width:120px"></b-form-spinbutton>
+                <b-form-spinbutton v-if="player === 'p1'" v-model="choices" min="3" max="5" style="width:120px"></b-form-spinbutton>
                 <div v-else class="redDiv">
                     <h5>{{choices}}</h5>
                 </div>
