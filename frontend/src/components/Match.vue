@@ -221,7 +221,7 @@
       <div class="d-block">
         <h3> {{msg}} </h3>
       </div>
-      <button class="buttonDiv mt-3 bg-alert text-prime" style="width:60%"  @click="hideModal('quit')">Quit</button>
+      <button class="buttonDiv mt-3 bg-alert text-cream" style="width:60%"  @click="hideModal('quit')">Quit</button>
       <button class="buttonDiv mt-3 bg-grey text-prime" style="width:60%"  @click="hideModal('cancel')">Cancel</button>
     </b-modal>
 
@@ -388,7 +388,7 @@ export default {
       found.status = 3
       if (targetID === 100000) {
         if (this.gameSelect.includes('ype')) {
-          this.msg = 'Sorry, AI Bot is not good at spelling right now'
+          this.msg = 'Sorry, AI Bot is not good at spelling right now. Try test mode or find a friend :)'
           found.status = 1
           this.showReject()
         } else {

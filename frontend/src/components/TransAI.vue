@@ -25,7 +25,7 @@
                  <b-avatar v-if="ready.includes('p1')" icon="person-check" variant="safe"></b-avatar>
                </b-col>
                <b-col align="right" class="mr-3">
-                  <b-avatar :src="s3 + p2.toString() + '.jpg'" size="65px" :badge="nameCut(p2name)" badge-offset="-0.6em" badge-variant="p2"></b-avatar>
+                  <b-avatar :src="getBot[0]" size="65px" :badge="getBot[1]" badge-offset="-0.6em" badge-variant="p2"></b-avatar>
                </b-col>
                <b-col align="left">
                   <b-badge class="bg-smoke text-p2 badge-lg mb-2" style="font-size:20px;width:40px">{{p2score}}</b-badge> <br>
@@ -104,13 +104,22 @@
       </div>
     </div>
 
-    <b-modal align="center" ref="winner" hide-footer title="Game Over" hide-header-close no-close-on-esc no-close-on-backdrop>
+    <b-modal align="center" ref="win" hide-footer title="Game Over" hide-header-close no-close-on-esc no-close-on-backdrop>
       <div class="d-block">
-        <h3> And the winner is... </h3>
-        <b-avatar :src="s3 + winner.toString() + '.jpg'"  size="100px" :badge="winName" badge-offset="-0.6em" :badge-variant="winner"></b-avatar>
+        <b-avatar :src="getBot[0]" size="100px"></b-avatar>
+        <h3>{{getMessage('win')}} </h3>
       </div>
       <br>
-      <button :class="'buttonDiv mt-3 text-prime bg-' + player" style="width:60%"  @click="hideModal('winner')">Close</button>
+      <button :class="'buttonDiv mt-3 text-cream bg-safe'" style="width:60%"  @click="hideModal('win')">Close</button>
+    </b-modal>
+
+    <b-modal align="center" ref="lose" hide-footer title="Game Over" hide-header-close no-close-on-esc no-close-on-backdrop>
+      <div class="d-block">
+        <b-avatar :src="getBot[0]" size="100px"></b-avatar>
+        <h3>{{getMessage('lose')}} </h3>
+      </div>
+      <br>
+      <button :class="'buttonDiv mt-3 text-cream bg-alert'" style="width:60%"  @click="hideModal('lose')">Close</button>
     </b-modal>
 
    <b-modal align="center" ref="draw" hide-footer title="Problem Found" hide-header-close no-close-on-esc no-close-on-backdrop>
@@ -193,15 +202,20 @@ export default {
       console.log('star', word)
       this.$store.dispatch('newStar', {word: word, set: set})
     },
-    showWinner: function () {
-      this.$refs['winner'].show()
+    showWin: function () {
+      this.$refs['win'].show()
+    },
+    showLose: function () {
+      this.$refs['lose'].show()
     },
     showDraw: function () {
       this.$refs['draw'].show()
     },
     hideModal: function (mode) {
-      if (mode === 'winner') {
+      if (mode === 'win') {
         this.$refs['winner'].hide()
+      } else if (mode === 'lose') {
+        this.$refs['lose'].hide()
       } else if (mode === 'draw') {
         this.$refs['draw'].hide()
       }
@@ -210,6 +224,24 @@ export default {
       this.progressValues.warn = 0
       this.winner = ''
       this.winName = ''
+    },
+    getMessage: function (arg) {
+      let messageSet = []
+      if (arg === 'win') {
+        messageSet = [
+          "''So you think you are smart? Keep it up and I'll level up''",
+          "''Nice work, I might be in trouble here''",
+          "''Pretty good so far, I'd better think faster''"
+        ]
+      } else {
+        messageSet = [
+          "''Well, I guess you need more practice''",
+          "''You lose, don't feel bad, I'm pretty good at this''",
+          "''Too bad, not many people can best me'' "
+        ]
+      }
+
+      return this.AIshuffle(messageSet)[0]
     },
     nameCut: function (name) {
       let cut = name.split(' ')[0]
@@ -267,7 +299,8 @@ export default {
       console.log('answerSet', this.testItems[this.filter], choice)
       let answerSet = JSON.parse(JSON.stringify(this.testItems[this.filter]))
       let choices = this.AIshuffle(answerSet['Choices'])
-      let rand = this.getRandomInt(3)
+      let levelSet = [ 3, 2, 1 ]
+      let rand = this.getRandomInt(levelSet[this.botLevel])
       console.log('rand', rand, choices[0]['Answer'], choice)
       if (rand === 0) {
         this.recordAnswer(answerSet['Question'], answerSet['Answer'], answerSet['Answer'], 'p2')
@@ -291,6 +324,9 @@ export default {
       return array
     },
     getRandomInt: function (max) {
+      // 3 --> return  0,1,2
+      // 2 --> return  0,1
+      // 1 --> 0
       return Math.floor(Math.random() * Math.floor(max))
     },
     recordDisable: function () {
@@ -425,13 +461,9 @@ export default {
       this.p2score += this.progressValues.p2
 
       if (p1C > p2C) {
-        this.winner = 'p1'
-        this.winName = this.p1name
-        this.showWinner()
+        this.showWin()
       } else if (p2C > p1C) {
-        this.winner = 'p2'
-        this.winName = this.p2name
-        this.showWinner()
+        this.showLose()
       } else {
         this.showDraw()
       }
@@ -491,6 +523,38 @@ export default {
     },
     dictGet () {
       return this.$store.getters.makeList
+    },
+    botTime () {
+      let timeSets = {
+        0: [1600, 1800, 2000, 2200, 2400, 2600],
+        1: [1200, 1400, 1600, 1800, 2000, 2200],
+        2: [800, 1000, 1200, 1400, 1600, 1800]
+      }
+      return this.AIshuffle(timeSets[this.botLevel])[0]
+    },
+    botLevel () {
+      if (this.p1score === 0 && this.p2score === 0) {
+        return 0
+      } else if (this.p1score < this.p2score * 1.5) {
+        return 0
+      } else if (this.p1score < this.p2score * 2) {
+        return 1
+      } else {
+        return 2
+      }
+    },
+    getBot () {
+      let img = {
+        0: 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/avatar/robot_01.PNG',
+        1: 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/avatar/robot_02.PNG',
+        2: 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/avatar/robot_03.PNG'
+      }
+      let name = {
+        0: 'Level1',
+        1: 'Level2',
+        2: 'Level3'
+      }
+      return [img[this.botLevel], name[this.botLevel]]
     }
   },
   watch: {
