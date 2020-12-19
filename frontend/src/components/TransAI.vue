@@ -213,7 +213,7 @@ export default {
     },
     hideModal: function (mode) {
       if (mode === 'win') {
-        this.$refs['winner'].hide()
+        this.$refs['win'].hide()
       } else if (mode === 'lose') {
         this.$refs['lose'].hide()
       } else if (mode === 'draw') {
