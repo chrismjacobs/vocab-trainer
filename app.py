@@ -45,6 +45,25 @@ s3_client = boto3.client('s3',
          aws_access_key_id=AWS_ACCESS_KEY_ID,
          aws_secret_access_key= AWS_SECRET_ACCESS_KEY)
 
+client = boto3.client('sts', aws_access_key_id=AWS_ACCESS_KEY_ID,
+    aws_secret_access_key= AWS_SECRET_ACCESS_KEY)
+
+response = client.get_session_token()
+
+translate_client = boto3.client(
+    service_name='translate',
+    region_name='ap-northeast-1',
+    use_ssl=True,
+    aws_access_key_id=AWS_ACCESS_KEY_ID,
+    aws_secret_access_key= AWS_SECRET_ACCESS_KEY
+    )
+
+polly_client = boto3.Session(
+    region_name='ap-northeast-1',
+    aws_access_key_id=AWS_ACCESS_KEY_ID,
+    aws_secret_access_key= AWS_SECRET_ACCESS_KEY
+    ).client('polly')
+
 
 db = SQLAlchemy(app)
 bcrypt = Bcrypt()
