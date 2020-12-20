@@ -10,13 +10,10 @@ from datetime import datetime, timedelta
 from functools import wraps
 from flask import jsonify, render_template, request
 from flask_mail import Message
-from app import app, db, bcrypt, s3_resource, s3_client, mail
+from app import app, db, bcrypt, s3_resource, s3_client, mail, polly_client, translate_client
 from pprint import pprint
 from models import *
 from PIL import Image
-from gtts import gTTS
-from googletrans import Translator
-translator = Translator()
 bucket_name = 'vocab-lms'
 bucket = s3_resource.Bucket(bucket_name)
 DEBUG = app.config['DEBUG']
@@ -190,35 +187,35 @@ def get_records():
 
 
 def createAudio(word, defch2):
-    print('creating audio')
-
-    string = word + '.mp3'
+    print('creating audio', word, defch2)
 
     result = True
 
+    string = word + '.mp3'
+
     try:
-        tts = gTTS(word)
-        tts.save('en' + string)
+        voice1 = 'Joanna'
+        voice2 = 'Zhiyu'
+        response = polly_client.synthesize_speech(VoiceId=voice1,
+                    OutputFormat='mp3',
+                    Text = word)
+        string =  word + '.mp3'
 
-        en_data = open('en' + string, 'rb')
-        en_filename = 'public/added_en/' + string
+        print(response)
 
-        s3_resource.Bucket(bucket_name).put_object(Key=en_filename, Body=en_data)
+        file = open(string, 'wb')
+        file.write(response['AudioStream'].read())
+        file.close()
+
+        data = open(string, 'rb')
+        filename = 'public/added_en/' + string
+
+        s3_resource.Bucket(bucket_name).put_object(Key=filename, Body=data)
+        print('s3 complete')
+
     except:
          result = 'English Audio Fail'
          print('English Audio Fail:', word)
-
-    try:
-        vocab_audiofile = gTTS(text=defch2, lang='zh-tw', slow=False)
-        vocab_audiofile.save('ch' + string)
-
-        ch_data = open('ch' + string, 'rb')
-        ch_filename = 'public/added_ch/' + string
-
-        s3_resource.Bucket(bucket_name).put_object(Key=ch_filename, Body=ch_data)
-    except:
-        result = 'Chinese Audio Fail'
-        print('Chinese Audio Fail', defch2)
 
     return result
 
@@ -239,11 +236,8 @@ def add_audio():
     defch2 = None
 
     try:
-        translation = translator.translate(word, dest="zh-tw")
-        if translation == chinese:
-            defch2 = chinese
-        else:
-            defch2 = translation
+        action = translate_client.translate_text(Text=word, SourceLanguageCode="en", TargetLanguageCode="zh-TW")
+        defch2 = action.get('TranslatedText').split('.')[0]
         print('translation success', defch2)
     except:
         print('translation failed')
@@ -260,7 +254,7 @@ def add_audio():
     else:
         result = 'FOUND'
 
-    print(result)
+    print('RESULT', result)
 
     return jsonify({'result': result, 'defch2': defch2})
 
