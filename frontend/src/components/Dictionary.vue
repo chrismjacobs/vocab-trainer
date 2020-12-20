@@ -495,6 +495,7 @@ export default {
       this.$store.dispatch('newStar', {word: word, set: set})
     },
     addWord: function (English, set) {
+      console.log(English, set, this.wordDetails, this.generalGet[English])
       var newWord = this.selected[0].trim()
       if (set === 0) {
         this.note = 'Your entry -' + English + '- has been removed from the dictionary'
@@ -503,7 +504,7 @@ export default {
       } else {
         // set added status and call api for audio
         // '!this.generalGet[newWord]' - change back after gtts token issue fixed
-        if (this.generalGet[newWord] === '0') {
+        if (!this.generalGet[newWord]) {
           this.wordDetails.added = true
           this.addWait = true
           let _this = this
