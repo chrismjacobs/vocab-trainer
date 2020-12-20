@@ -229,7 +229,7 @@ export default {
       let messageSet = []
       if (arg === 'win') {
         messageSet = [
-          "''So you think you are smart? Keep it up and I'll level up''",
+          "''So you think you're smart? Keep it up and I'll level up''",
           "''Nice work, I might be in trouble here''",
           "''Pretty good so far, I'd better think faster''"
         ]
