@@ -208,7 +208,7 @@ export default {
         this.amendedList = vocabList
       } else if (this.sort === -1) {
         for (let item in vocabList) {
-          if (vocabList[item].totalScore <= -1) {
+          if (vocabList[item].totalScore <= 0) {
             this.amendedList.push(vocabList[item])
           }
         }
