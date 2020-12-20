@@ -577,8 +577,7 @@ const getters = {
       let matchScore = 0
       if (!state.userRecord.matchTrans) {
         // pass
-      } else if (state.userRecord.matchTrans[vocab]) {
-        // note that this word has been tested
+      } else if (vocab in state.userRecord.matchTrans) {
         tested = true
         matchScore = state.userRecord.matchTrans[vocab]
         if (matchScore > 2) {
@@ -587,18 +586,7 @@ const getters = {
           matchScore = -2
         }
       }
-      if (!state.userRecord.matchType) {
-        // pass
-      } else if (state.userRecord.matchType[vocab]) {
-        // note that this word has been tested
-        tested = true
-        matchScore = state.userRecord.matchType[vocab]
-        if (matchScore > 2) {
-          matchScore = 2
-        } else if (matchScore < -2) {
-          matchScore = -2
-        }
-      }
+
       let variant = null
       let total = transEngScore + spellScore + transChScore + matchScore
       if (total >= 2) {
