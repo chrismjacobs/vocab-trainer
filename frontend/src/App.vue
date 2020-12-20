@@ -208,7 +208,7 @@ export default {
     // check the login status everytime the page is change
     this.$store.dispatch('checkLogin')
     this.userProfile = this.$store.state.userProfile
-    if (this.$store.state.userRecord) {
+    if (this.$store.state.userRecord && this.isAuthenticated) {
       this.tableItems = this.$store.getters.makeList
     }
   },
