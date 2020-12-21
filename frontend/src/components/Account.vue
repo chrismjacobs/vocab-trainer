@@ -152,7 +152,11 @@ export default {
       return this.userProfile.username.length > 2 && this.userProfile.username.length < 13
     },
     validClass () {
-      return this.userProfile.classroom.length > 0
+      let value = false
+      if (this.userProfile.classroom) {
+        value = true
+      }
+      return value
     },
     getPict () {
       return this.s3 + this.avatarLink

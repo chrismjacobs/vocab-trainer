@@ -11,6 +11,11 @@
               </h2>
             </div>
 
+            <div v-if="validClass === null" class="bg-grape text-cream p-2" align="center">
+              <h5> Helloo? Sorry no classmates here, please join a classroom first </h5>
+              <h5> Or just play with AI Bot </h5>
+            </div>
+
             <div class="bg-grey text-cream">
               <b-row align="center">
                 <b-col>
@@ -291,6 +296,11 @@ export default {
         TransCh: 'buttonDiv bg-warn text-cream',
         TypeMatch: 'buttonDiv bg-safe text-cream'
       }
+    }
+  },
+  computed: {
+    validClass () {
+      return this.$store.state.userProfile.classroom
     }
   },
   methods: {
