@@ -3,7 +3,7 @@
     <b-navbar toggleable>
       <b-navbar-brand @click="goTo('Home')"><span class="text-cream" > VOCAB TRAINER </span> </b-navbar-brand>
 
-      <b-navbar-toggle  target="navbar-toggle-collapse" class="d-block d-lg-none">
+      <b-navbar-toggle  target="navbar-toggle-collapse" class="d-block d-lg-none" @click="goTo()">
         <b-avatar v-if="isAuthenticated" :src="s3 + $store.state.userProfile.userID + '/avatar.jpg'" size="3rem" :text="$store.state.userProfile.username[0]"></b-avatar>
        <b-avatar v-else size="3rem" text="VC"></b-avatar>
       </b-navbar-toggle>
@@ -98,6 +98,23 @@
         <button :class="navStyle('/TypeTest')" @click="goTo('TypeTest')"><b-icon icon="grid3x3-gap-fill"></b-icon> <span class="d-none d-md-inline"> &nbsp; Type </span></button>
         <button :class="navStyle('/MatchBase')" @click="goTo('Match')"><b-icon icon="gem"></b-icon> <span class="d-none d-md-inline"> &nbsp; Match </span></button>
     </div>
+
+    <b-modal align="center" ref="fail" hide-footer title="Test Mode" hide-header-close no-close-on-esc no-close-on-backdrop>
+      <div class="d-block">
+        <h3> You are in an activity, please exit first </h3>
+         <button class="buttonDiv bg-cream text-alert mt-1" disable>
+           <b-icon-backspace-reverse-fill class="mx-2" style="float:right"  font-scale="1.5">
+             </b-icon-backspace-reverse-fill>
+          </button>
+          or
+          <button class="buttonDiv bg-warn mt-1" style="height:30px;width:30px" disable>
+            <b-icon class="pb-1 pr-1" icon="x-circle" variant="cream" font-scale="1.5">
+              </b-icon>
+          </button>
+      </div>
+      <button class="buttonDiv mt-3 bg-alert text-cream" style="width:60%"  @click="hideModal()">Close</button>
+    </b-modal>
+
   </div>
 
 </template>
@@ -139,6 +156,12 @@ export default {
     }
   },
   methods: {
+    showFail: function () {
+      this.$refs['fail'].show()
+    },
+    hideModal: function () {
+      this.$refs['fail'].hide()
+    },
     contClass: function () {
       if (this.getPath() in this.btnCodes) {
         return this.btnCodes[this.getPath()]
@@ -167,15 +190,13 @@ export default {
     },
     goTo: function (arg) {
       // router will be disbaled is game is active
-      if (!this.$store.state.testActive) {
+      if (!this.$store.state.testActive && arg) {
         this.$router.push(arg)
         // const userId = '123'
         // router.push({ name: 'user', params: { userId } }) // -> /user/123
         // router.push({ path: `/user/${userId}` }) // -> /user/123
-      } else {
-        alert('You are in a test, please finish or exit first')
-        // this.navStyle()
-        // this.navSide()
+      } else if (this.$store.state.testActive) {
+        this.showFail()
       }
     },
     logout: function (arg) {
