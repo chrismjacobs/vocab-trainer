@@ -66,6 +66,10 @@
         <button class="buttonDiv bg-warn px-3" style="width:100%" @click="showPictures = !showPictures"><b-icon-images variant="cream" font-scale="1.5"></b-icon-images> <span class="text-cream">Hide Images</span> </button>
       </div>
 
+      <div align="center" v-if="selected[1] === '*'">
+        <button class="buttonDiv bg-secondary px-3" style="width:100%" @click="showClear()"><b-icon-star-fill variant="warn" font-scale="1.5"></b-icon-star-fill > <span class="text-cream"> Clear all stars </span> </button>
+      </div>
+
       <transition name="board">
       <DictPict v-on:pictureFalse="picture = false" v-if="picture" :s3="s3" :vocabList="vocabList" :pictWord="pictWord" :pictCh="pictCh"></DictPict>
       </transition>
@@ -174,6 +178,14 @@
           <h3> {{note}} </h3>
         </div>
         <button class="buttonDiv mt-3 bg-alert text-cream" style="width:60%"  @click="hideAlert('alert')">Close</button>
+      </b-modal>
+
+      <b-modal hide-header-close no-close-on-esc no-close-on-backdrop align="center" ref="clear" hide-footer title="Alert">
+        <div class="d-block">
+          <h3> Are you sure you want to clear your star list? </h3>
+        </div>
+        <button class="buttonDiv mt-3 bg-alert text-cream" style="width:60%"  @click="hideClear('clear')">Clear</button>
+        <button class="buttonDiv mt-3 bg-secondary text-cream" style="width:60%"  @click="hideClear('cancel')">Cancel</button>
       </b-modal>
 
   </div>
@@ -286,6 +298,15 @@ export default {
     hideAlert: function (mode) {
       this.$refs['alert'].hide()
       this.note = null
+    },
+    showClear: function () {
+      this.$refs['clear'].show()
+    },
+    hideClear: function (mode) {
+      this.$refs['clear'].hide()
+      if (mode === 'clear') {
+        this.$store.dispatch('newStar', {word: null, set: 3})
+      }
     },
     getIcon: function (icon) {
       let colors = {

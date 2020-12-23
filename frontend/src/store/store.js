@@ -35,6 +35,8 @@ let dictionaries = {
   'food': food
 }
 
+// starRecord: {1: {}, 2: {}, 3: {}}
+
 Vue.use(Vuex)
 
 const state = {
@@ -339,10 +341,12 @@ const mutations = {
       console.log('delete')
       delete state.setRecord.starRecord[payload.word]
       state.setRecord = {...state.setRecord}
-    } else {
+    } else if (payload.set === 1) {
       console.log('set')
       state.setRecord.starRecord[payload.word] = 1
       state.setRecord = {...state.setRecord}
+    } else {
+      state.setRecord.starRecord = {}
     }
     state.updateStatus = false
   },
