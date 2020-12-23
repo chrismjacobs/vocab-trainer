@@ -200,6 +200,7 @@ export default {
       // reset variables
       // console.log('make test', this.sort)
       this.testItemsRoot = []
+      this.amendedList = []
 
       // prepare amended list
       let vocabList = JSON.parse(this.stringItems)
@@ -235,6 +236,10 @@ export default {
         this.makeChoices()
       }
     },
+    getRandomItem: function () {
+      let newList = this.shuffle(this.amendedList)
+      return newList
+    },
     makeChoices: function () {
       let question
       let answer
@@ -254,11 +259,14 @@ export default {
       }
 
       let i = 0
-      while (i < this.words) {
-        var randomItem = this.amendedList[Math.floor(Math.random() * this.amendedList.length)]
-        // console.log(this.testItems, randomItem)
+      let newList = this.shuffle(this.amendedList)
+      console.table(newList)
 
-        if (!this.checkDuplicate(randomItem)) {
+      while (i < this.words) {
+        let randomItem = newList[i]
+
+        if (!randomItem) {
+          // this step is unnecessary now
           // console.log('pass', randomItem)
         } else {
           let choices = [{
@@ -283,14 +291,19 @@ export default {
             } else {
               let randomChoice = this.amendedList[Math.floor(Math.random() * this.amendedList.length)]
 
-              if (!choices.includes(randomChoice)) {
-                choices.push({
-                  Question: randomChoice[question],
-                  Answer: randomChoice[answer],
-                  Gr: randomChoice.Gr,
-                  sdQue: randomChoice[sdQue],
-                  sdAns: randomChoice[sdAns]
-                })
+              let newChoice = {
+                Question: randomChoice[question],
+                Answer: randomChoice[answer],
+                Gr: randomChoice.Gr,
+                sdQue: randomChoice[sdQue],
+                sdAns: randomChoice[sdAns]
+              }
+
+              let foundChoice = choices.find(element => element.Question === randomChoice[question])
+              console.log('FOUND', foundChoice)
+
+              if (!foundChoice) {
+                choices.push(newChoice)
                 j++
               }
             }
@@ -360,9 +373,9 @@ export default {
       return newString
     },
     checkDuplicate: function (rand) {
-      for (let testEntry in this.testItems) {
+      for (let testEntry in this.testItemsRoot) {
         //  console.log(this.testItems[testEntry].English, rand.English)
-        if (this.testItems[testEntry].English === rand.English) {
+        if (this.testItemsRoot[testEntry].Question === rand.Question) {
           // console.log('found', rand)
           return false
         }
@@ -388,7 +401,7 @@ export default {
       }
     },
     settingsSend: function (arg) {
-      console.log('settingsSend')
+      // console.log('settingsSend')
       let toolbarSettings = {
         type: this.testType,
         sound: this.sound,
@@ -403,7 +416,7 @@ export default {
         display: this.display,
         feedback: this.feedback
       }
-      console.table(toolbarSettings)
+      // console.table(toolbarSettings)
       this.socket.emit('settingsData', {room: (this.p1 + '-' + this.p2).toString(), settingsData: toolbarSettings})
     },
     emitWaiting: function (arg) {
@@ -453,7 +466,7 @@ export default {
     },
     feedback: function () {
       let object = this.feedbackOptions.filter(element => element.value === this.feedback)
-      console.log(object)
+      // console.log(object)
       this.feedbackText = object[0].text
       if (this.player === 'p1') {
         localStorage.setItem('feedback', this.feedback)
@@ -462,7 +475,7 @@ export default {
     },
     spelling: function () {
       let object = this.spellingOptions.filter(element => element.value === this.spelling)
-      console.log(object)
+      // console.log(object)
       this.spellingText = object[0].text
       if (this.player === 'p1') {
         localStorage.setItem('spelling', this.spelling)
@@ -471,7 +484,7 @@ export default {
     },
     sort: function () {
       let object = this.sortOptions.filter(element => element.value === this.sort)
-      console.log(object)
+      // console.log(object)
       this.sortText = object[0].text
       if (this.player === 'p1') {
         localStorage.setItem('sort', this.sort)
@@ -481,7 +494,7 @@ export default {
   },
   computed: {
     starGet () {
-      console.log('starGet', this.$store.state.setRecord.starRecord)
+      // console.log('starGet', this.$store.state.setRecord.starRecord)
       return this.$store.getters.starGet
     },
     colGet () {
@@ -508,8 +521,8 @@ export default {
     }
     let _this = this
     _this.socket.on('newSettings', function (data) {
-      console.log('settingsReceived')
-      console.table(data)
+      // console.log('settingsReceived')
+      // console.table(data)
       if (_this.player === 'p2') {
         for (let set in data.settingsData) {
           _this[set] = data.settingsData[set]

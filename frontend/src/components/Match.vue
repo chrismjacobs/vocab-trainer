@@ -372,12 +372,12 @@ export default {
         newName = cut[0] + ' ' + cut[1][0]
         return newName
       } else {
-        console.log(cut[0])
+        // console.log(cut[0])
         return name
       }
     },
     startSocket: function () {
-      console.log('STARTSOCKET')
+      // console.log('STARTSOCKET')
       this.socket = openSocket()
       this.socket.emit('checkOnline', { userID: this.userID })
     },
@@ -385,7 +385,7 @@ export default {
       this.socket.close()
     },
     leaveMatch: function () {
-      console.log('leaveActivated')
+      // console.log('leaveActivated')
       this.msg = 'Warning, you are about to leave the game'
       this.showQuit()
     },
@@ -482,6 +482,7 @@ export default {
         _this.p2name = 'AI Bot'
         _this.player = 'p1'
         _this.testType = 'AI' + _this.gameSelect
+        _this.$store.dispatch('testActive', true)
         // found.status = 1
       }, 2000)
     }

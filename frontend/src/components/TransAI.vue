@@ -185,10 +185,40 @@ export default {
       winner: '',
       winName: '',
       AIclock: null,
-      audioMarker: null
+      audioMarker: null,
+      gamesPlayed: 0,
+      botLevel: 1
     }
   },
   methods: {
+    botLevelSetter: function () {
+      // console.log(this.gamesPlayed, this.botLevel, this.progressValues.p1, this.progressValues.p2)
+      if (this.botLevel === 4) {
+        if (this.progressValues.p2 === 0) {
+          alert('CONGRATUALTIONS, You have beaten AI bot')
+        } else {
+          this.botLevel = 3
+        }
+      } else if (this.botLevel === 3) {
+        if (this.progressValues.p1 >= this.progressValues.p2 * 2) {
+          this.botLevel = 4
+        } else if (this.progressValues.p2 >= this.progressValues.p1 * 2) {
+          this.botLevel = 3
+        }
+      } else if (this.botLevel === 2) {
+        if (this.progressValues.p1 >= this.progressValues.p2 * 2) {
+          this.botLevel = 3
+        } else if (this.progressValues.p2 >= this.progressValues.p1 * 2) {
+          this.botLevel = 2
+        }
+      } else if (this.botLevel === 1) {
+        if (this.progressValues.p1 >= this.progressValues.p2 * 2) {
+          this.botLevel = 2
+        } else if (this.progressValues.p2 >= this.progressValues.p1 * 2) {
+          this.botLevel = 1
+        }
+      }
+    },
     go: function (data) {
       console.log('roomReady', data, data.testItems.length)
       if (data.testItems.length > 0) {
@@ -229,19 +259,20 @@ export default {
       let messageSet = []
       if (arg === 'win') {
         messageSet = [
-          "''So you think you're smart? Keep it up and I'll level up''",
-          "''Nice work, I might be in trouble here''",
-          "''Pretty good so far, I'd better think faster''"
+          "So you think you're smart? Keep it up and I'll level up",
+          'Nice work, I might be in trouble here',
+          "Pretty good so far, I'd better think faster"
         ]
       } else {
         messageSet = [
-          "''Well, I guess you need more practice''",
-          "''You lose, don't feel bad, I'm pretty good at this''",
-          "''Too bad, not many people can best me'' "
+          'Well, I guess you need more practice',
+          "You lose, don't feel bad, I'm pretty good at this",
+          'Too bad, not many people can best me'
         ]
       }
+      let q = '"'
 
-      return this.AIshuffle(messageSet)[0]
+      return q + this.AIshuffle(messageSet)[0] + q
     },
     nameCut: function (name) {
       let cut = name.split(' ')[0]
@@ -252,7 +283,6 @@ export default {
       }
     },
     setCountdown: function () {
-      console.log('SET', this.player)
       this.time = this.timeReset
       let _this = this
       this.clock = setInterval(function () {
@@ -266,7 +296,6 @@ export default {
       }, 100)
     },
     start: function () {
-      console.log('START', this.player)
       this.showAnswers = false
       this.showProgress = true
       this.filter = 0
@@ -276,7 +305,7 @@ export default {
     },
     recordAnswer: function (question, answer, choice, player) {
       clearTimeout(this.AIclock)
-      console.log('RECORD', question, answer, choice, player)
+      // console.log('RECORD', question, answer, choice, player)
       let correct = answer
       // required for disbaling buttons
       let btnID = question + choice
@@ -296,22 +325,22 @@ export default {
       }
     },
     AIanswer: function (choice) {
-      console.log('answerSet', this.testItems[this.filter], choice)
+      // console.log('answerSet', this.testItems[this.filter], choice)
       let answerSet = JSON.parse(JSON.stringify(this.testItems[this.filter]))
       let choices = this.AIshuffle(answerSet['Choices'])
-      let levelSet = [ 3, 2, 1 ]
+      let levelSet = [ null, 4, 3, 2, 1 ]
       let rand = this.getRandomInt(levelSet[this.botLevel])
-      console.log('rand', rand, choices[0]['Answer'], choice)
+      // console.log('rand', rand, choices[0]['Answer'], choice)
       if (rand === 0) {
         this.recordAnswer(answerSet['Question'], answerSet['Answer'], answerSet['Answer'], 'p2')
       } else if (choices[0]['Answer'] !== answerSet['Answer'] && choices[0]['Answer'] !== choice) {
-        console.log('000000')
+        // console.log('000000')
         this.recordAnswer(answerSet['Question'], answerSet['Answer'], choices[0]['Answer'], 'p2')
       } else if (choices[1]['Answer'] !== choice) {
-        console.log('1111111')
+        // console.log('1111111')
         this.recordAnswer(answerSet['Question'], answerSet['Answer'], choices[1]['Answer'], 'p2')
       } else if (choices[2]['Answer'] !== choice) {
-        console.log('2222222')
+        // console.log('2222222')
         this.recordAnswer(answerSet['Question'], answerSet['Answer'], choices[2]['Answer'], 'p2')
       }
     },
@@ -331,13 +360,13 @@ export default {
     },
     recordDisable: function () {
       // no answer from opponent so all disable before next question
-      console.log('DISABLE RESULT', this.player)
+      // console.log('DISABLE RESULT', this.player)
       clearInterval(this.clock)
       this.clockBlock = false
       this.disable(this.testItems[this.filter]['Answer'], null, 'p1', false, null)
     },
     disable: function (name, btnID, clicker, state, answer) {
-      console.log('DISABLE', this.player, btnID, name)
+      // console.log('DISABLE', this.player, btnID, name)
       let btnClass = 'bg-' + clicker + '-light'
       let button = document.getElementById(btnID)
 
@@ -366,7 +395,7 @@ export default {
       } else {
         name = this.testItems[this.filter].Question
         answer = this.testItems[this.filter].Answer
-        console.log('Stage3', name, answer)
+        // console.log('Stage3', name, answer)
         let buttons = document.getElementsByName(name)
         for (let i = 0; i < buttons.length; i++) {
           buttons[i].disabled = true
@@ -385,13 +414,13 @@ export default {
       }
     },
     nextQuestion: function (name, answer, clicker, state) {
-      console.log('NEXT', this.player)
+      // console.log('NEXT', this.player)
       clearInterval(this.clock)
       this.answered = 2
       this.time = null
       let _this = this
       _this.countdown = setTimeout(function () {
-        console.log('TIMEOUT')
+        // console.log('TIMEOUT')
         _this.answered = 0
         _this.enterResult(name, answer, clicker, state)
         clearTimeout(_this.AIstart)
@@ -400,7 +429,7 @@ export default {
       }, 2000)
     },
     enterResult: function (question, answer, clicker, state) {
-      console.log('ENTER', this.player)
+      // console.log('ENTER', this.player)
 
       let _rowVariant = 'warn'
       let score = 0
@@ -436,7 +465,7 @@ export default {
       }, 2000)
     },
     filterToggle: function () {
-      console.log('FILTER', this.player)
+      // console.log('FILTER', this.player)
       if (this.filter + 1 < this.testItems.length) {
         // console.log(this.filter, this.testItems.length)
         this.filter += 1
@@ -445,6 +474,8 @@ export default {
         // console.log('filterMax')
         // go back to false
         this.ready.push('p2')
+        this.gamesPlayed += 1
+        this.botLevelSetter()
         this.filter = null
         this.showTest = false
         this.showProgress = false
@@ -452,7 +483,7 @@ export default {
       }
     },
     checkAnswers: function () {
-      console.log('CHECK', this.player)
+      // console.log('CHECK', this.player)
 
       let p1C = this.progressValues.p1
       let p2C = this.progressValues.p2
@@ -493,7 +524,7 @@ export default {
       var result = this.dictGet.filter(obj => {
         return obj.English === arg
       })
-      console.log('PLAY', result)
+      // console.log('PLAY', result)
 
       if (this.audioMarker) {
         let icon = document.getElementById(this.audioMarker)
@@ -526,33 +557,25 @@ export default {
     },
     botTime () {
       let timeSets = {
-        0: [1600, 1800, 2000, 2200, 2400, 2600],
-        1: [1200, 1400, 1600, 1800, 2000, 2200],
-        2: [800, 1000, 1200, 1400, 1600, 1800]
+        1: [2000, 2200, 2400, 2600, 2800, 3000],
+        2: [1600, 1800, 2000, 2200, 2400, 2600],
+        3: [1200, 1400, 1600, 1800, 2000, 2200],
+        4: [800, 1000, 1200, 1400, 1600, 1800]
       }
       return this.AIshuffle(timeSets[this.botLevel])[0]
     },
-    botLevel () {
-      if (this.p1score === 0 && this.p2score === 0) {
-        return 0
-      } else if (this.p1score < this.p2score * 1.5) {
-        return 0
-      } else if (this.p1score < this.p2score * 2) {
-        return 1
-      } else {
-        return 2
-      }
-    },
     getBot () {
       let img = {
-        0: 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/avatar/robot_01.PNG',
-        1: 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/avatar/robot_02.PNG',
-        2: 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/avatar/robot_03.PNG'
+        1: 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/avatar/robot_01.PNG',
+        2: 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/avatar/robot_02.PNG',
+        3: 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/avatar/robot_03.PNG',
+        4: 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/profiles/100000/avatar.jpg'
       }
       let name = {
-        0: 'Level1',
-        1: 'Level2',
-        2: 'Level3'
+        1: 'Level1',
+        2: 'Level2',
+        3: 'Level3',
+        4: 'Level4'
       }
       return [img[this.botLevel], name[this.botLevel]]
     }
