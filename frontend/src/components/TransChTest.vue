@@ -54,7 +54,7 @@
 
         <template #head(chinese)="data">
           <div align="right">
-            Chinese
+            <span v-if="data">Chinese</span>
           </div>
         </template>
 

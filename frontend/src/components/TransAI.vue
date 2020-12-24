@@ -78,7 +78,7 @@
         >
         <template #head(question)="data">
           <div align="right">
-            Question
+            <span v-if="data">Question</span>
           </div>
         </template>
 
