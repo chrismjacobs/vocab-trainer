@@ -58,7 +58,7 @@
 
           <b-col class="mt-4">
             <div align="center">
-              <div class="headDiv"> Sound </div><br>
+              <div class="headDiv"> <span v-if="testType.includes('Eng')"> Sound </span> <span v-else> Mode </span> </div><br>
               <b-form-radio-group
                 style="width:120px"
                 v-model="sound"
@@ -304,11 +304,14 @@ export default {
     },
     makeChoices: function () {
       let i = 0
+      let newList = this.shuffle(this.amendedList)
+
       while (i < this.words) {
-        var randomItem = this.amendedList[Math.floor(Math.random() * this.amendedList.length)]
-        // console.log('MAKE CHOICES', this.testItemsRoot, randomItem, this.checkDuplicate(randomItem))
-        if (!this.checkDuplicate(randomItem)) {
-          // console.log('pass duplicate')
+        let randomItem = newList[i]
+
+        if (!randomItem) {
+          // this step is unnecessary now
+          // console.log('pass', randomItem)
         } else if (this.sound === 'sdTy' && randomItem.Gr === 'abbr.') {
           // console.log('pass abbr')
         } else {
@@ -332,9 +335,11 @@ export default {
               j++
             } else {
               let randomChoice = this.amendedList[Math.floor(Math.random() * this.amendedList.length)]
-              // console.log(randomChoice, choices)
 
-              if (!choices.includes(randomChoice)) {
+              let foundChoice = choices.find(element => element.English === randomChoice.English)
+              // console.log('FOUND', foundChoice)
+
+              if (!foundChoice) {
                 choices.push({
                   English: randomChoice.English,
                   Chinese: randomChoice.Chinese,
@@ -381,11 +386,14 @@ export default {
     },
     makeSpelling: function () {
       let i = 0
+      let newList = this.shuffle(this.amendedList)
+
       while (i < this.words) {
-        var randomItem = this.amendedList[Math.floor(Math.random() * this.amendedList.length)]
-        // console.log(this.testItems, randomItem)
-        if (!this.checkDuplicate(randomItem)) {
-          // console.log('pass Duplicate')
+        let randomItem = newList[i]
+
+        if (!randomItem) {
+          // this step is unnecessary now
+          // console.log('pass', randomItem)
         } else if (this.spelling && randomItem.Gr === 'abbr.') {
           // console.log('pass abbr')
         } else {
@@ -428,18 +436,6 @@ export default {
       if (this.words < 6) {
         this.words = parseInt(this.wordsReset)
       }
-    },
-    checkDuplicate: function (rand) {
-      for (let testEntry in this.testItemsRoot) {
-        // console.log('check duplicate', this.testItemsRoot[testEntry].English, rand.English)
-        if (this.testItemsRoot[testEntry].English === rand.English) {
-          // console.log('found', rand)
-          return false
-        } else {
-          // console.log('clear', rand)
-        }
-      }
-      return true
     },
     typoFix: function (english) {
       // console.log('typos', english)
@@ -502,7 +498,7 @@ export default {
       this.soundOptions = [
         { text: 'Exam', value: 'sdEx' },
         { text: 'Spelling', value: 'sdTy' },
-        { text: 'Off', value: 'sdOff' }
+        { text: 'Normal', value: 'sdOff' }
       ]
     }
 

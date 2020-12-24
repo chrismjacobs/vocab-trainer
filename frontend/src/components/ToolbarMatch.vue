@@ -260,7 +260,7 @@ export default {
 
       let i = 0
       let newList = this.shuffle(this.amendedList)
-      console.table(newList)
+      // console.table(newList)
 
       while (i < this.words) {
         let randomItem = newList[i]
@@ -291,19 +291,17 @@ export default {
             } else {
               let randomChoice = this.amendedList[Math.floor(Math.random() * this.amendedList.length)]
 
-              let newChoice = {
-                Question: randomChoice[question],
-                Answer: randomChoice[answer],
-                Gr: randomChoice.Gr,
-                sdQue: randomChoice[sdQue],
-                sdAns: randomChoice[sdAns]
-              }
-
               let foundChoice = choices.find(element => element.Question === randomChoice[question])
-              console.log('FOUND', foundChoice)
+              // console.log('FOUND', foundChoice)
 
               if (!foundChoice) {
-                choices.push(newChoice)
+                choices.push({
+                  Question: randomChoice[question],
+                  Answer: randomChoice[answer],
+                  Gr: randomChoice.Gr,
+                  sdQue: randomChoice[sdQue],
+                  sdAns: randomChoice[sdAns]
+                })
                 j++
               }
             }
@@ -330,10 +328,13 @@ export default {
     },
     makeSpelling: function () {
       let i = 0
+      let newList = this.shuffle(this.amendedList)
+
       while (i < this.words) {
-        var randomItem = this.amendedList[Math.floor(Math.random() * this.amendedList.length)]
-        // console.log(this.testItems, randomItem)
-        if (!this.checkDuplicate(randomItem)) {
+        let randomItem = newList[i]
+
+        if (!randomItem) {
+          // this step is unnecessary now
           // console.log('pass', randomItem)
         } else {
           // CHANGE MADE new code for spelling set up
@@ -371,16 +372,6 @@ export default {
         newString += ' '
       }
       return newString
-    },
-    checkDuplicate: function (rand) {
-      for (let testEntry in this.testItemsRoot) {
-        //  console.log(this.testItems[testEntry].English, rand.English)
-        if (this.testItemsRoot[testEntry].Question === rand.Question) {
-          // console.log('found', rand)
-          return false
-        }
-      }
-      return true
     },
     shuffle: function (array) {
       // Fisher-Yates shuffle
