@@ -4,11 +4,13 @@
 
       <div class="bg-grape p-2 head">
         <b-row align-h="end">
-          <b-col cols="6" align="center">
-            <h2 class="text-cream"> Match </h2>
+          <b-col  class="d-none d-lg-inline">
           </b-col>
-          <b-col cols="3" align="right">
-            <button @click="leave()" class="buttonDiv bg-cream text-alert mt-1 "><span class="d-none d-md-inline">Exit</span><b-icon-backspace-reverse-fill class="mx-2" style="float:right"  font-scale="1.5"></b-icon-backspace-reverse-fill> </button>
+          <b-col align="center">
+            <h2 class="text-cream"> Match </h2>
+          </b-col >
+          <b-col class="d-none d-lg-inline" align="right">
+            <button @click="leave()" class="buttonDiv bg-cream text-alert mt-1 mr-3" style="height:40px; width:100px"><span style="font-size:16pt" class="mr-2 mb-1">Exit</span><b-icon-backspace-reverse-fill  font-scale="1.5"></b-icon-backspace-reverse-fill> </button>
           </b-col>
         </b-row>
       </div>
@@ -149,7 +151,8 @@ export default {
     player: String,
     socket: Object,
     s3: String,
-    gameOver: Boolean
+    gameOver: Boolean,
+    exit: Boolean
   },
   data () {
     return {
@@ -612,6 +615,9 @@ export default {
           _this.start()
         }, 2000)
       }
+    },
+    exit: function () {
+      this.leave()
     }
   },
   beforeDestroy () {

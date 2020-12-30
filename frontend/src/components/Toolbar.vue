@@ -1,12 +1,6 @@
 <template>
   <div class="toolbar" v-if="!toolbarShow">
     <div>
-
-      <div :class="getClass('second', 'prime', 'mt-2 p-2 head')">
-            <h2 class="text-cream" align="center">
-              {{ title }}
-            </h2>
-      </div>
       <div class="bg-prime p-2 mt-0">
         <b-row>
           <b-col align="center">
@@ -48,10 +42,10 @@
                   Choices
                 </div>
                 <div class="spinDiv d-none d-sm-block">
-                <b-form-spinbutton v-model="choices" min="2" max="6" vertical style="height:125px"></b-form-spinbutton>
+                <b-form-spinbutton v-model="choices" min="3" max="5" vertical style="height:125px"></b-form-spinbutton>
                 </div>
                 <div class="d-sm-none">
-                <b-form-spinbutton v-model="choices" min="2" max="6" style="width:120px"></b-form-spinbutton>
+                <b-form-spinbutton v-model="choices" min="3" max="5" style="width:120px"></b-form-spinbutton>
                 </div>
               </div>
           </b-col>

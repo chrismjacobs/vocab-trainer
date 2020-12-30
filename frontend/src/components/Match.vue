@@ -1,8 +1,8 @@
 <template>
   <div class="matchArea">
-    <TransMatch  v-on:leave="leaveMatch()" :testType="testType" :gameOver="gameOver" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" :socket="socket" :s3="s3" v-if="testType && testType[1] === 'r'"></TransMatch>
-    <TransAI  v-on:leave="leaveMatch()" :testType="testType" :gameOver="gameOver" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" :socket="socket" :s3="s3" v-if="testType && testType[1] === 'I'"></TransAI>
-    <TypeMatch   v-on:leave="leaveMatch()" :testType="testType" :gameOver="gameOver" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" :socket="socket" :s3="s3" v-if="testType && testType[1] === 'y'"></TypeMatch>
+    <TransMatch  v-on:leave="leaveMatch()" :testType="testType" :gameOver="gameOver" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" :socket="socket" :s3="s3" :exit="exit" v-if="testType && testType[1] === 'r'"></TransMatch>
+    <TransAI  v-on:leave="leaveMatch()" :testType="testType" :gameOver="gameOver" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" :socket="socket" :s3="s3" :exit="exit" v-if="testType && testType[1] === 'I'"></TransAI>
+    <TypeMatch   v-on:leave="leaveMatch()" :testType="testType" :gameOver="gameOver" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" :socket="socket" :s3="s3" :exit="exit" v-if="testType && testType[1] === 'y'"></TypeMatch>
     <template v-if="waiting && friends !== null">
       <div v-if="testType === null">
             <div class="mt-2 p-2 bg-grape head">
@@ -244,7 +244,8 @@ export default {
   name: 'Match',
   props: {
     s3: String,
-    friends: Array
+    friends: Array,
+    exit: Boolean
   },
   components: {
     TransMatch,

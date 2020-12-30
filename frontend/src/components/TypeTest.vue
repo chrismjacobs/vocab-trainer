@@ -2,18 +2,30 @@
   <div class="TypeTest">
 
     <audio id="audio" autoplay></audio>
+    <div :class="getClass('second', 'prime', 'mt-2 p-2 head')">
+        <b-row>
+          <b-col class="d-none d-lg-inline">
+
+          </b-col>
+          <b-col>
+            <h2 class="text-cream" align="center">
+              {{ title }} </h2>
+          </b-col>
+          <b-col align="right" class="d-none d-lg-inline">
+            <button v-if="showTest" @click="cancel()" class="buttonDiv bg-cream text-alert mt-1 mr-3" style="height:40px; width:100px"><span style="font-size:16pt" class="mr-2 mb-1">Exit</span><b-icon-backspace-reverse-fill  font-scale="1.5"></b-icon-backspace-reverse-fill> </button>
+          </b-col>
+        </b-row>
+    </div>
 
     <Toolbar :toolbarShow='showTest' :showAnswers='showAnswers' :testType="testType" :title="title" v-on:newTest="start($event)" v-on:retry="start()"></Toolbar>
+
       <b-row no-gutters v-if="showTest" >
-      <b-col cols="8">
-            <b-progress :value="filter" style="height:30px" :max="testItems.length" animated variant="safe"></b-progress>
-      </b-col>
-      <b-col cols="3">
-        <b-progress :value="time" style="height:30px" max="60000" animated variant="alert"></b-progress>
-      </b-col>
-      <b-col cols="1">
-        <button class="buttonDiv bg-alert" style="height:30px;width:100%" @click="cancel()"><b-icon class="pb-1 pr-1" icon="x-circle" variant="cream" font-scale="1.5"></b-icon></button>
-      </b-col>
+        <b-col cols="8">
+              <b-progress :value="filter" style="height:30px" :max="testItems.length" animated variant="safe"></b-progress>
+        </b-col>
+        <b-col cols="4">
+          <b-progress :value="time" style="height:30px" max="60000" animated variant="alert"></b-progress>
+        </b-col>
       </b-row>
 
       <div class="bg-grey" v-if="showTest">
@@ -158,6 +170,10 @@ export default {
   name: 'TypeTest',
   components: {
     Toolbar
+  },
+  props: {
+    s3: String,
+    exit: Boolean
   },
   data () {
     return {
@@ -403,6 +419,9 @@ export default {
       } else if (sound && this.settings.sound === 'sdCh') {
         this.playAudio(sound.sdCh)
       }
+    },
+    exit: function () {
+      this.cancel()
     }
   },
   created () {

@@ -1,13 +1,16 @@
 <template>
   <div class="TypeMatch">
     <audio id="audio"></audio>
-      <div class="mt-2 bg-grape text-cream p-2 head">
+
+      <div class="bg-grape p-2 head">
         <b-row align-h="end">
-          <b-col cols="6" align="center">
-            <h2> Match </h2>
+          <b-col  class="d-none d-lg-inline">
           </b-col>
-          <b-col cols="3" align="right">
-            <button @click="leave()" class="buttonDiv bg-alert text-cream mt-1"> <span class="d-none d-md-inline">Exit</span><b-icon-backspace-reverse-fill class="text-cream ml-3" style="float:right"  font-scale="1.5"></b-icon-backspace-reverse-fill> </button>
+          <b-col align="center">
+            <h2 class="text-cream"> Match </h2>
+          </b-col >
+          <b-col class="d-none d-lg-inline" align="right">
+            <button @click="leave()" class="buttonDiv bg-cream text-alert mt-1 mr-3" style="height:40px; width:100px"><span style="font-size:16pt" class="mr-2 mb-1">Exit</span><b-icon-backspace-reverse-fill  font-scale="1.5"></b-icon-backspace-reverse-fill> </button>
           </b-col>
         </b-row>
       </div>
@@ -200,7 +203,8 @@ export default {
     player: String,
     socket: Object,
     s3: String,
-    gameOver: Boolean
+    gameOver: Boolean,
+    exit: Boolean
   },
   data () {
     return {
@@ -492,6 +496,9 @@ export default {
     },
     currentAnswerHome: function () {
       this.socket.emit('updateType', {room: this.p1 + '-' + this.p2, opponent: this.opponent, current: this.currentAnswerHome, player: this.player, state: this.signalStyle})
+    },
+    exit: function () {
+      this.leave()
     }
   },
   computed: {

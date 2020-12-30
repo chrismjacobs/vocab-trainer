@@ -1,6 +1,6 @@
 <template>
   <div class="matchBase">
-    <Match v-if="marker" v-on:resetMatch="reset($event)" :s3="s3" :friends="friends"></Match>
+    <Match v-if="marker" v-on:resetMatch="reset($event)" :s3="s3" :exit="exit" :friends="friends"></Match>
     <div v-else align="center">
         <h4 class="text-prime"> Reloading </h4>
         <b-icon icon="three-dots" animation="cylon" variant="prime" font-scale="6"></b-icon>
@@ -14,7 +14,8 @@ import Match from './Match'
 export default {
   name: 'MatchBase',
   props: {
-    s3: String
+    s3: String,
+    exit: Boolean
   },
   components: {
     Match
