@@ -69,7 +69,8 @@ const state = {
     warn: 'warn',
     peel: 'peel',
     cream: 'cream'
-  }
+  },
+  friends: []
 }
 
 const actions = {
@@ -171,6 +172,10 @@ const actions = {
   addFriend (context, payload) {
     // console.log('friend data...')
     context.commit('setFriend', payload)
+  },
+  setFriends (context, payload) {
+    // console.log('friend data...')
+    context.commit('setFriends', payload)
   },
   newPicture (context, payload) {
     console.log('new picture data...', payload)
@@ -478,6 +483,10 @@ const mutations = {
     // state.logsRecord.friends = {}
     state.logsRecord.friends = payload.friendData
     state.updateStatus = false
+  },
+  setFriends (state, payload) {
+    console.log(payload)
+    state.friends = payload.friends
   }
 }
 
@@ -500,6 +509,9 @@ const getters = {
   },
   starGet (state) {
     return state.setRecord.starRecord
+  },
+  friendsGet (state) {
+    return state.friends
   },
   generalGet () {
     let totalDict = {}

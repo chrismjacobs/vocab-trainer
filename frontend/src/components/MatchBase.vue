@@ -1,6 +1,6 @@
 <template>
   <div class="matchBase">
-    <Match v-if="marker" v-on:resetMatch="reset($event)" :s3="s3" :exit="exit" :friends="friends"></Match>
+    <Match v-if="marker" v-on:resetMatch="reset()" :s3="s3" :exit="exit"></Match>
     <div v-else align="center">
         <h4 class="text-prime"> Reloading </h4>
         <b-icon icon="three-dots" animation="cylon" variant="prime" font-scale="6"></b-icon>
@@ -23,14 +23,12 @@ export default {
   data () {
     return {
       marker: true,
-      startTimer: null,
-      friends: []
+      startTimer: null
     }
   },
   methods: {
-    reset: function (data) {
-      console.log('RESET ACTIVE', data)
-      this.friends = data.friends
+    reset: function () {
+      console.log('RESET ACTIVE')
       this.marker = false
       let _this = this
       _this.startTimer = setTimeout(function () {

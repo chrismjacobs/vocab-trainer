@@ -112,7 +112,7 @@
                         </div>
                       </b-col>
                       <b-col>
-                        <b-icon @click="challengeRetract(data.item.id)" class="text-alert mt-2" style="float:right" font-scale="1.5" icon="x-square-fill"></b-icon>
+                        <b-icon v-if="data.item.id !== 100000" @click="challengeRetract(data.item.id)" class="text-alert mt-2" style="float:right" font-scale="1.5" icon="x-square-fill"></b-icon>
                       </b-col>
                     </b-row>
                   </template>
@@ -244,7 +244,6 @@ export default {
   name: 'Match',
   props: {
     s3: String,
-    friends: Array,
     exit: Boolean
   },
   components: {
@@ -254,6 +253,7 @@ export default {
   },
   data () {
     return {
+      friends: [],
       fields: [
         {key: 'id'}
       ],
@@ -300,6 +300,9 @@ export default {
     }
   },
   computed: {
+    friendsGet () {
+      return this.$store.getters.friendsGet
+    },
     validClass () {
       return this.$store.state.userProfile.classroom
     }
@@ -361,7 +364,8 @@ export default {
         found.status = 1
 
         this.$refs['quit'].hide()
-        this.$emit('resetMatch', {friends: this.friends})
+        this.$store.dispatch('setFriends', {friends: this.friends})
+        this.$emit('resetMatch')
         this.$store.dispatch('testActive', false)
         this.closeSocket()
       }
@@ -489,6 +493,7 @@ export default {
     }
   },
   created () {
+    this.friends = this.friendsGet
     let _this = this
     window.onbeforeunload = function () {
       if (_this.isAuthenticated && _this.$store.state.updateStatus === false) {
@@ -549,8 +554,12 @@ export default {
       let found1 = _this.friends.find(element => element.id === data.userID)
       let found2 = _this.friends.find(element => element.id === data.targetID)
       if (data.action === 'send') {
-        found1.status = 2
-        found2.status = 2
+        if (found1.id !== 100000) {
+          found1.status = 2
+        }
+        if (found2.id !== 100000) {
+          found2.status = 2
+        }
       } else if (data.action === 'decline') {
         found1.status = 1
       } else {
