@@ -3,10 +3,16 @@
     <b-navbar toggleable>
       <b-navbar-brand @click="goTo('Home')"><span class="text-cream" > VOCAB TRAINER </span> </b-navbar-brand>
 
-      <b-navbar-toggle  target="navbar-toggle-collapse" class="d-block d-lg-none" @click="goTo()">
+      <div v-if="!isActiveCheck" class="d-block d-lg-none">
+      <b-navbar-toggle target="navbar-toggle-collapse">
         <b-avatar v-if="isAuthenticated" :src="s3 + $store.state.userProfile.userID + '/avatar.jpg'" size="3rem" :text="$store.state.userProfile.username[0]"></b-avatar>
        <b-avatar v-else size="3rem" text="VC"></b-avatar>
       </b-navbar-toggle>
+      </div>
+
+      <div v-else  @click="exitToggle()" class="d-block d-lg-none p-1">
+        <b-avatar variant="alert" text="exit" size="3rem"></b-avatar>
+      </div>
 
       <b-collapse id="navbar-toggle-collapse" is-nav>
         <b-navbar-nav class="ml-auto">
@@ -39,7 +45,7 @@
       <b-col :class="contClass()" style="min-height:100vh" >
         <b-container fluid v-if="this.$store.state.userRecord || !isAuthenticated">
           <transition name="board">
-           <router-view :s3="s3"></router-view>
+           <router-view :s3="s3" :exit="exit"></router-view>
           </transition>
         </b-container>
         <b-container v-else align="center">
@@ -102,15 +108,9 @@
     <b-modal align="center" ref="fail" hide-footer title="Test Mode" hide-header-close no-close-on-esc no-close-on-backdrop>
       <div class="d-block">
         <h3> You are in an activity, please exit first </h3>
-         <button class="buttonDiv bg-cream text-alert mt-1" disable>
-           <b-icon-backspace-reverse-fill class="mx-2" style="float:right"  font-scale="1.5">
-             </b-icon-backspace-reverse-fill>
-          </button>
-          or
-          <button class="buttonDiv bg-warn mt-1" style="height:30px;width:30px" disable>
-            <b-icon class="pb-1 pr-1" icon="x-circle" variant="cream" font-scale="1.5">
-              </b-icon>
-          </button>
+        <b-avatar variant="alert" text="exit" size="2rem"></b-avatar>
+        or
+        <button disabled class="buttonDiv bg-cream text-alert mt-1 mr-3" style="height:40px; width:80px"><span style="font-size:12pt" class="mr-2 mb-1">Exit</span><b-icon-backspace-reverse-fill  font-scale="1"></b-icon-backspace-reverse-fill> </button>
       </div>
       <button class="buttonDiv mt-3 bg-alert text-cream" style="width:60%"  @click="hideModal()">Close</button>
     </b-modal>
@@ -132,6 +132,7 @@ export default {
     return {
       path: this.$route.path,
       s3: 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/profiles/',
+      exit: true,
       userProfile: null,
       contColor: 'bg-cream',
       tableItems: [],
@@ -168,6 +169,10 @@ export default {
       } else {
         return this.contColor
       }
+    },
+    exitToggle: function () {
+      this.exit = !this.exit
+      console.log(this.exit)
     },
     getPath: function () {
       return this.$route.path
@@ -330,7 +335,8 @@ body {
 }
 
 .tabLink:active {
-  color: theme-color('warn');
+  color: theme-color('warn') !important;
+  background-color:theme-color('smoke') !important;
 }
 
 .sideNav {
