@@ -24,7 +24,7 @@
                   Words
                 </div>
                 <div class="spinDiv">
-                  <b-form-spinbutton v-if="player === 'p1'" v-model="words" min="6" max="30" step=2 style="width:120px"></b-form-spinbutton>
+                  <b-form-spinbutton v-if="player === 'p1'" v-model="words" :min="getMinMax[0]" :max="getMinMax[1]" step=2 style="width:120px"></b-form-spinbutton>
                   <div v-else class="redDiv">
                     <h5>{{words}}</h5>
                   </div>
@@ -32,7 +32,7 @@
                 <br>
               </div>
 
-              <div align="center" v-if="testType[1] != 'y'">
+              <div align="center" v-if="testType.includes('Trans')">
                 <div class="headDiv" style="width:120px">
                   Choices
                 </div>
@@ -45,7 +45,7 @@
                 <br>
               </div>
 
-              <div align="center">
+              <div align="center" v-if="!testType.includes('Mem')">
 
                 <div class="headDiv" style="width:120px">
                   Timer
@@ -63,9 +63,9 @@
 
             <b-col class="mt-3" align="center" v-if="player === 'p2'">
               <div class="headDiv"> Sort </div><br>
-              <button class="buttonDiv bg-warn-light text-alert" style="width:120px" disabled> {{sortText}} </button>
-              <br>
-              <br>
+                <button class="buttonDiv bg-warn-light text-alert" style="width:120px" disabled> {{sortText}} </button>
+                <br>
+                <br>
               <div v-if="testType[1] === 'y'">
                 <div class="headDiv" style="width:120px"> Assist </div><br>
                 <button class="buttonDiv bg-safe text-alert" style="width:120px" disabled> {{spellingText}} </button>
@@ -76,7 +76,12 @@
                 <br>
                 <br>
               </div>
-
+              <div v-if="testType.includes('Mem')">
+                <div class="headDiv" style="width:120px"> Game Style </div><br>
+                <button class="buttonDiv bg-safe-light text-alert" style="width:120px" disabled> {{gameText}} </button>
+                <br>
+                <br>
+              </div>
             </b-col>
 
             <b-col class="mt-3" align="center" v-if="player === 'p1'">
@@ -88,6 +93,20 @@
                   :options="sortOptions"
                   buttons
                   button-variant="outline-warn"
+                  stacked
+                ></b-form-radio-group>
+              </div>
+            </b-col>
+
+            <b-col class="mt-3" align="center" v-if="player === 'p1'">
+              <div class="headDiv" style="width:120px"> Game</div><br>
+              <div>
+                <b-form-radio-group
+                  style="width:120px"
+                  v-model="game"
+                  :options="gameOptions"
+                  buttons
+                  button-variant="outline-safe"
                   stacked
                 ></b-form-radio-group>
               </div>
@@ -180,6 +199,15 @@ export default {
         { value: '*', text: 'star vocab' },
         { value: -1, text: 'harder' }
       ],
+      game: 'T2',
+      gameText: 'Translate 2',
+      gameOptions: [
+        { value: 'T1', text: 'Translate 1/1' },
+        { value: 'T2', text: 'Translate >>' },
+        { value: 'E1', text: 'English 1/1' },
+        { value: 'E2', text: 'English >>' },
+        { value: 'SA1', text: 'Show All' }
+      ],
       feedback: 'fbConst',
       feedbackText: 'Constant',
       feedbackOptions: [
@@ -232,6 +260,8 @@ export default {
 
       if (this.testType === 'TypeMatch') {
         this.makeSpelling()
+      } else if (this.testType[0] === 'M') { // memory match
+        this.makeMemory()
       } else {
         this.makeChoices()
       }
@@ -326,6 +356,65 @@ export default {
       }
       // console.log(this.testItemsRoot)
     },
+    makeMemory: function () {
+      let question
+      let answer
+      // let sdAns
+      let sdQue
+
+      question = 'English'
+      answer = 'Chinese'
+      sdQue = 'mp3en'
+      // sdAns = 'mp3ch'
+
+      let i = 0
+      let newList = this.shuffle(this.amendedList)
+      // console.table(newList)
+
+      while (i < this.words) {
+        let randomItem = newList[i]
+
+        if (!randomItem) {
+          // this step is unnecessary now
+          // console.log('pass', randomItem)
+        } else {
+          this.testItemsRoot.push({
+            caption: randomItem[question],
+            code: randomItem[question][0] + randomItem[question][1],
+            answer: randomItem[answer],
+            English: randomItem[question],
+            Chinese: randomItem[answer],
+            sound: randomItem[sdQue],
+            match: false,
+            player: null,
+            show: false,
+            disbaled: false
+          })
+          this.testItemsRoot.push({
+            caption: randomItem[answer],
+            code: randomItem[question][0] + randomItem[question][1],
+            answer: randomItem[question],
+            English: randomItem[question],
+            Chinese: randomItem[answer],
+            sound: randomItem[sdQue],
+            match: false,
+            found: null,
+            show: false,
+            disbaled: false
+          })
+          i++
+        }
+      }
+
+      this.shuffle(this.testItemsRoot)
+
+      if (this.testType[1] === 'I') {
+        this.$emit('ready', {testItems: this.testItemsRoot, timeReset: this.timeReset})
+      } else {
+        this.socket.emit('ready', {room: (this.p1 + '-' + this.p2).toString(), player: this.player, testItems: this.testItemsRoot, timeReset: this.timeReset})
+      }
+      // console.log(this.testItemsRoot)
+    },
     makeSpelling: function () {
       let i = 0
       let newList = this.shuffle(this.amendedList)
@@ -402,6 +491,8 @@ export default {
         choices: this.choices,
         spelling: this.spelling,
         spellingText: this.spellingText,
+        game: this.game,
+        gameText: this.gameText,
         sortText: this.sortText,
         feedbackText: this.feedbackText,
         display: this.display,
@@ -424,6 +515,9 @@ export default {
       }
       if (localStorage.feedback) {
         this.feedback = localStorage.feedback
+      }
+      if (localStorage.game) {
+        this.game = localStorage.game
       }
       if (localStorage.spelling) {
         this.spelling = localStorage.spelling
@@ -464,6 +558,17 @@ export default {
         this.settingsSend()
       }
     },
+    game: function () {
+      console.log(this.player)
+      let object = this.gameOptions.filter(element => element.value === this.game)
+      // console.log(object)
+      this.gameText = object[0].text
+      if (this.player === 'p1') {
+        console.log('sending game data')
+        localStorage.setItem('game', this.game)
+        this.settingsSend()
+      }
+    },
     spelling: function () {
       let object = this.spellingOptions.filter(element => element.value === this.spelling)
       // console.log(object)
@@ -496,6 +601,13 @@ export default {
       } else {
         return 2
       }
+    },
+    getMinMax () {
+      if (this.testType.includes('Mem')) {
+        return [6, 12]
+      } else {
+        return [6, 30]
+      }
     }
   },
   created () {
@@ -512,14 +624,14 @@ export default {
     }
     let _this = this
     _this.socket.on('newSettings', function (data) {
-      // console.log('settingsReceived')
-      // console.table(data)
+      console.log('settingsReceived')
+      console.table(data)
       if (_this.player === 'p2') {
         for (let set in data.settingsData) {
           _this[set] = data.settingsData[set]
         }
       }
-      _this.$emit('settings', {feedback: _this.feedback, sound: _this.sound})
+      _this.$emit('settings', {feedback: _this.feedback, sound: _this.sound, gameStyle: _this.game})
     })
   }
 }
