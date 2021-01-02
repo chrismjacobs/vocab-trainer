@@ -60,12 +60,14 @@
           <div class="p-3 bg-warn" style="height:100%">
               <div>
                 <b-row no-gutters v-if="isAuthenticated" align="center">
-                  <b-col>
-                    <b-avatar :src="s3 + $store.state.userProfile.userID + '/avatar.jpg'" size="4rem" :text="$store.state.userProfile.username[0]"></b-avatar>
-                </b-col>
                   <b-col class="text-cream">
-                    <button class="buttonDiv bg-prime text-cream px-1" style="height:70px; width:100%" @click="goTo('Account')"><b-icon-person-fill></b-icon-person-fill>  <span> #{{ $store.state.userProfile.userID}}<br>
-                     {{ $store.state.userProfile.username}}</span> </button>
+                    <button class="buttonDiv bg-prime text-cream px-1" style="height:80px; width:100%" @click="goTo('Account')">
+                    <b-avatar :src="s3 + $store.state.userProfile.userID + '/avatar.jpg'" size="3rem" :text="$store.state.userProfile.username[0]"></b-avatar>
+                      <span class="ml-3"> {{ $store.state.userProfile.username}} </span>
+                      <b-icon-person-fill class="ml-3"></b-icon-person-fill>
+                      <span> #{{ $store.state.userProfile.userID}}</span>
+
+                     </button>
                   </b-col>
                 </b-row>
                 <b-row  v-else align="center">
