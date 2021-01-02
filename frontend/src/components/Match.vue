@@ -1,11 +1,13 @@
 <template>
   <div class="matchArea">
     <TransMatch  v-on:leave="leaveMatch()" :testType="testType" :gameOver="gameOver" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" :socket="socket" :s3="s3" :exit="exit" v-if="testType && testType[1] === 'r'"></TransMatch>
-    <TransAI  v-on:leave="leaveMatch()" :testType="testType" :gameOver="gameOver" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" :socket="socket" :s3="s3" :exit="exit" v-if="testType && testType[1] === 'I'"></TransAI>
+    <TransAI  v-on:leave="leaveMatch()" :testType="testType" :gameOver="gameOver" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" :socket="socket" :s3="s3" :exit="exit" v-if="testType && testType[1] === 'I' && testType[2] === 'T' "></TransAI>
+    <MemoryAI  v-on:leave="leaveMatch()" :testType="testType" :gameOver="gameOver" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" :socket="socket" :s3="s3" :exit="exit" v-if="testType && testType[1] === 'I' && testType[2] === 'M' "></MemoryAI>
     <TypeMatch   v-on:leave="leaveMatch()" :testType="testType" :gameOver="gameOver" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" :socket="socket" :s3="s3" :exit="exit" v-if="testType && testType[1] === 'y'"></TypeMatch>
+    <MemoryMatch v-on:leave="leaveMatch()" :testType="testType" :gameOver="gameOver" :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :player="player" :socket="socket" :s3="s3" :exit="exit" v-if="testType && testType[1] === 'e'"></MemoryMatch>
     <template v-if="waiting && friends !== null">
       <div v-if="testType === null">
-            <div class="mt-2 p-2 bg-grape head">
+            <div class="mt-2 p-2 bg-darkgrey head">
               <h2 class="text-cream" align="center">
                 Match Zone
               </h2>
@@ -237,6 +239,8 @@
 import TransMatch from './TransMatch'
 import TypeMatch from './TypeMatch'
 import TransAI from './TransAI'
+import MemoryMatch from './MemoryMatch'
+import MemoryAI from './MemoryAI'
 import { openSocket } from '@/sockets'
 import { checkFriend, deleteFriend } from '@/api'
 
@@ -249,7 +253,9 @@ export default {
   components: {
     TransMatch,
     TypeMatch,
-    TransAI
+    TransAI,
+    MemoryMatch,
+    MemoryAI
   },
   data () {
     return {
@@ -285,17 +291,20 @@ export default {
       gameTypes: [
         { value: 'TransEng', text: 'En > Ch' },
         { value: 'TransCh', text: 'Ch > En' },
-        { value: 'TypeMatch', text: 'Spelling' }
+        { value: 'TypeMatch', text: 'Spelling' },
+        { value: 'MemoryMatch', text: 'Memory' }
       ],
       gameColors: {
         TransEng: 'third',
         TransCh: 'warn',
-        TypeMatch: 'safe'
+        TypeMatch: 'safe',
+        MemoryMatch: 'grape-light'
       },
       classColors: {
         TransEng: 'buttonDiv bg-info text-cream',
         TransCh: 'buttonDiv bg-warn text-cream',
-        TypeMatch: 'buttonDiv bg-safe text-cream'
+        TypeMatch: 'buttonDiv bg-safe text-cream',
+        MemoryMatch: 'buttonDiv bg-grape text-cream'
       }
     }
   },
@@ -402,8 +411,8 @@ export default {
       let found = this.friends.find(element => element.id === targetID)
       found.status = 3
       if (targetID === 100000) {
-        if (this.gameSelect.includes('ype')) {
-          this.msg = 'Sorry, AI Bot is not good at spelling right now. Try test mode or find a friend :)'
+        if (this.gameSelect.includes('ype') || this.gameSelect.includes('emor')) {
+          this.msg = 'Sorry, AI Bot is not good at this activity right now. Try test mode or find a friend :)'
           found.status = 1
           this.showReject()
         } else {
