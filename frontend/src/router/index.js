@@ -18,6 +18,7 @@ const routerOptions = [
   {path: '/transchtest', component: 'TransChTest'},
   {path: '/transengmatch', component: 'TransEngMatch'},
   {path: '/transchmatch', component: 'TransChMatch'},
+  {path: '/memorymatch', component: 'MemoryMatch'},
   {path: '/typetest', component: 'TypeTest'},
   {path: '/flash', component: 'Flash'},
   {path: '/match', component: 'MatchBase'},
