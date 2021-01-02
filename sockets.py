@@ -142,6 +142,20 @@ def on_answer(data):
 
     print('answerMatch:', 'room', room, 'player', player)
 
+@socketio.on('answerMem')
+def on_answer(data):
+    print(data)
+    room = data['room']
+    card = data['card']
+    match = data['match']
+    player = data['player']
+    answer = data['answer']
+    count = data['count']
+
+    emit('answerCard', {'player': player, 'card': card, 'match': match, 'answer': answer, 'count': count}, room)
+
+    print('answerCard', 'room', room, 'player', player)
+
 @socketio.on('updateType')
 def updateType(data):
     print(data)
