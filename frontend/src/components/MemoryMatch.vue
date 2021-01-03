@@ -50,12 +50,6 @@
 
       <div align="center" class="bg-grey" v-if="showTest">
           <div style="height:30px">
-            <h4 class="d-block d-md-none my-2" v-if="foundCard && gameStyle[0] !== 'E'">{{foundCard.caption}}</h4>
-            <h4 class="d-block d-md-none my-2" v-else-if="foundCard">{{foundCard.English}}</h4>
-          </div>
-          <div style="height:30px" class="d-block d-md-none my-2">
-            <h4 class="d-block d-md-none my-2" v-if="foundCard2 && gameStyle[0] !== 'E'">{{foundCard2.caption}}</h4>
-            <h4 class="d-block d-md-none my-2" v-else-if="foundCard2">{{foundCard2.English}}</h4>
           </div>
           <div v-for="(memcard, idx) in testItems" :key="idx" class="d-inline mt-3">
             <button :class="getCardClass(memcard.caption)"  @click="showCard(memcard.caption, memcard.answer, 'p1')" :id="memcard.caption" style="display:inline-block" :disabled="getDisabled(memcard.caption)">
@@ -68,12 +62,6 @@
             </button>
           </div>
           <div style="height:30px">
-            <h4 class="d-block d-md-none mt-2" v-if="foundCard && gameStyle[0] !== 'E'">{{foundCard.caption}}</h4>
-            <h4 class="d-block d-md-none mt-2" v-else-if="foundCard">{{foundCard.English}}</h4>
-          </div>
-          <div style="height:30px">
-            <h4 class="d-block d-md-none mt-2" v-if="foundCard2 && gameStyle[0] !== 'E'">{{foundCard2.caption}}</h4>
-            <h4 class="d-block d-md-none mt-2" v-else-if="foundCard2">{{foundCard2.English}}</h4>
           </div>
       </div>
 
