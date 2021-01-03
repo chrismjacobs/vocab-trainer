@@ -132,6 +132,14 @@
       <button class="buttonDiv mt-3 bg-warn text-cream" style="width:60%"  @click="hideModal('draw')">Close</button>
     </b-modal>
 
+    <b-modal align="center" ref="complete" hide-footer title="CONGRATULATIONS" hide-header-close no-close-on-esc no-close-on-backdrop>
+      <div class="d-block">
+        <b-avatar :src="getBot[0]" size="100px"></b-avatar>
+        <h3> You have defeated AI Bot! </h3>
+      </div>
+      <button class="buttonDiv mt-3 bg-safe text-cream" style="width:60%"  @click="hideModal('complete')">Close</button>
+    </b-modal>
+
   </div>
 </template>
 
@@ -199,7 +207,8 @@ export default {
       // console.log(this.gamesPlayed, this.botLevel, this.progressValues.p1, this.progressValues.p2)
       if (this.botLevel === 4) {
         if (this.progressValues.p2 === 0) {
-          alert('CONGRATUALTIONS, You have beaten AI bot')
+          this.botLevel = 5
+          this.showComplete()
         } else {
           this.botLevel = 3
         }
@@ -245,6 +254,9 @@ export default {
     showDraw: function () {
       this.$refs['draw'].show()
     },
+    showComplete: function () {
+      this.$refs['complete'].show()
+    },
     hideModal: function (mode) {
       if (mode === 'win') {
         this.$refs['win'].hide()
@@ -252,6 +264,9 @@ export default {
         this.$refs['lose'].hide()
       } else if (mode === 'draw') {
         this.$refs['draw'].hide()
+      } else if (mode === 'complete') {
+        this.$refs['complete'].hide()
+        this.leave()
       }
       this.progressValues.p1 = 0
       this.progressValues.p2 = 0
@@ -573,13 +588,15 @@ export default {
         1: 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/avatar/robot_01.PNG',
         2: 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/avatar/robot_02.PNG',
         3: 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/avatar/robot_03.PNG',
-        4: 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/profiles/100000/avatar.jpg'
+        4: 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/profiles/100000/avatar.jpg',
+        5: 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/avatar/robot_04.PNG'
       }
       let name = {
         1: 'Level1',
         2: 'Level2',
         3: 'Level3',
-        4: 'Level4'
+        4: 'Level4',
+        5: 'Level5'
       }
       return [img[this.botLevel], name[this.botLevel]]
     }
