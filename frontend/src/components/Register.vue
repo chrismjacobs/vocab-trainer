@@ -110,7 +110,8 @@
         <h3> {{msg}} </h3>
       </div>
       <button class="buttonDiv mt-3 bg-alert text-cream" style="width:60%"  @click="hideModal('fail', 0)">Close</button>
-      <button class="buttonDiv mt-3 ml-3 bg-info text-cream" style="width:60%"  @click="hideModal('fail', err)">Close</button>
+      <br>
+      <button class="buttonDiv mt-3 bg-info text-cream" style="width:60%"  @click="hideModal('fail', err)">Login</button>
     </b-modal>
 
   </div>
