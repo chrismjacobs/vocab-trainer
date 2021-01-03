@@ -61,13 +61,15 @@
               <div>
                 <b-row no-gutters v-if="isAuthenticated" align="center">
                   <b-col class="text-cream">
-                    <button class="buttonDiv bg-prime text-cream px-1" style="height:80px; width:100%" @click="goTo('Account')">
+                    <button v-if="!isActiveCheck" class="buttonDiv bg-prime text-cream px-1" style="height:80px; width:100%" @click="goTo('Account')">
                     <b-avatar :src="s3 + $store.state.userProfile.userID + '/avatar.jpg'" size="3rem" :text="$store.state.userProfile.username[0]"></b-avatar>
                       <span class="ml-3"> {{ $store.state.userProfile.username}} </span>
                       <b-icon-person-fill class="ml-3"></b-icon-person-fill>
                       <span> #{{ $store.state.userProfile.userID}}</span>
-
                      </button>
+                    <button v-else class="buttonDiv bg-alert text-alert px-1" style="height:80px; width:100%" @click="exitToggle()">
+                      <b-avatar variant="cream" text="exit" size="3rem"></b-avatar>
+                    </button>
                   </b-col>
                 </b-row>
                 <b-row  v-else align="center">
@@ -112,7 +114,9 @@
         <h3> You are in an activity, please exit first </h3>
         <b-avatar variant="alert" text="exit" size="2rem"></b-avatar>
         or
-        <button disabled class="buttonDiv bg-cream text-alert mt-1 mr-3" style="height:40px; width:80px"><span style="font-size:12pt" class="mr-2 mb-1">Exit</span><b-icon-backspace-reverse-fill  font-scale="1"></b-icon-backspace-reverse-fill> </button>
+        <div class="buttonSample bg-alert text-alert px-1">
+          <b-avatar variant="cream" text="exit" size="2rem"></b-avatar>
+        </div>
       </div>
       <button class="buttonDiv mt-3 bg-alert text-cream" style="width:60%"  @click="hideModal()">Close</button>
     </b-modal>
@@ -415,6 +419,18 @@ body {
     border-radius: 5px;
     box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.2);
     cursor:pointer;
+    vertical-align:middle;
+    padding: 5px;
+    text-align: center;
+}
+
+.buttonSample {
+    display:inline-block;
+    color: theme-color('prime');
+    border:0px solid #CCC;
+    outline:none;
+    border-radius: 5px;
+    box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.2);
     vertical-align:middle;
     padding: 5px;
     text-align: center;
