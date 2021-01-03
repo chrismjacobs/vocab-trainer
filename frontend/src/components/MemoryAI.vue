@@ -3,16 +3,7 @@
     <audio id="audio"></audio>
 
       <div class="bg-grape p-2 head">
-        <b-row align-h="end">
-          <b-col  class="d-none d-lg-inline">
-          </b-col>
-          <b-col align="center">
-            <h2 class="text-cream"> Memory </h2>
-          </b-col >
-          <b-col class="d-none d-lg-inline" align="right">
-            <button @click="leave()" class="buttonDiv bg-cream text-alert mt-1 mr-3" style="height:40px; width:100px"><span style="font-size:16pt" class="mr-2 mb-1">Exit</span><b-icon-backspace-reverse-fill  font-scale="1.5"></b-icon-backspace-reverse-fill> </button>
-          </b-col>
-        </b-row>
+            <h2 class="text-cream" align="center"> Memory AI </h2>
       </div>
 
      <div class="bg-second">
@@ -63,9 +54,9 @@
           </div>
           <div v-for="(memcard, idx) in testItems" :key="idx" class="d-inline mt-3">
             <button :class="getCardClass(memcard.caption)"  @click="showCard(memcard.caption, memcard.answer, 'p1')" :id="memcard.caption" style="display:inline-block" :disabled="getDisabled(memcard.caption)">
-                <div class="divHeight testLine py-2">
-                <span v-if="$store.state.userProfile.userID === 1"> {{ memcard.code }} </span>
-                <span v-else> </span>
+                <div class="divHeight textLine py-2">
+                <span v-if="$store.state.userProfile.userID === 2"> {{ memcard.code }} </span>
+                <span v-else-if="!showStatus(memcard.caption)">{{idx + 1}}</span>
                 <span v-if="showStatus(memcard.caption) || gameStyle === 'SA1'"> {{ memcard[cardText] }} </span>
                 </div>
             </button>
@@ -672,11 +663,11 @@ export default {
 <style scoped>
 
 .borderDiv {
-  border:4px solid #48c490 !important;
+  border:4px solid rgb(137, 69, 247) !important;
 }
 
 .basic {
-  border:0px solid #CCC;
+  border:4px solid #CCC;
   outline:none;
   border-radius: 5px;
   box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.2);
@@ -687,7 +678,7 @@ export default {
 
 @media screen and (max-width:650px) {
   .basic {
-    border:0px solid #CCC;
+    border:4px solid #CCC;
     outline:none;
     border-radius: 5px;
     box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.2);
