@@ -260,7 +260,7 @@ export default {
 
       if (this.testType === 'TypeMatch') {
         this.makeSpelling()
-      } else if (this.testType[0] === 'M') { // memory match
+      } else if (this.testType.includes('Mem')) { // memory match
         this.makeMemory()
       } else {
         this.makeChoices()
@@ -409,6 +409,7 @@ export default {
       this.shuffle(this.testItemsRoot)
 
       if (this.testType[1] === 'I') {
+        // triggers 'go' on parent component
         this.$emit('ready', {testItems: this.testItemsRoot, timeReset: this.timeReset})
       } else {
         this.socket.emit('ready', {room: (this.p1 + '-' + this.p2).toString(), player: this.player, testItems: this.testItemsRoot, timeReset: this.timeReset})
@@ -508,10 +509,14 @@ export default {
     },
     updateSettings: function () {
       if (localStorage.words) {
-        this.words = localStorage.words
+        this.words = parseInt(localStorage.words)
+      } else {
+        if (this.testType.includes('Mem')) {
+          this.words = 8
+        }
       }
       if (localStorage.choices) {
-        this.choices = localStorage.choices
+        this.choices = parseInt(localStorage.choices)
       }
       if (localStorage.feedback) {
         this.feedback = localStorage.feedback
