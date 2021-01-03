@@ -98,7 +98,7 @@
               </div>
             </b-col>
 
-            <b-col class="mt-3" align="center" v-if="player === 'p1'">
+            <b-col class="mt-3" align="center" v-if="player === 'p1' && testType.includes('Mem')">
               <div class="headDiv" style="width:120px"> Game</div><br>
               <div>
                 <b-form-radio-group

@@ -56,8 +56,8 @@
             <button :class="getCardClass(memcard.caption)"  @click="showCard(memcard.caption, memcard.answer, 'p1')" :id="memcard.caption" style="display:inline-block" :disabled="getDisabled(memcard.caption)">
                 <div class="divHeight textLine py-2">
                 <span v-if="$store.state.userProfile.userID === 2"> {{ memcard.code }} </span>
+                <span v-else-if="showStatus(memcard.caption) || gameStyle === 'SA1'"> {{ memcard[cardText] }} </span>
                 <span v-else-if="!showStatus(memcard.caption)">{{idx + 1}}</span>
-                <span v-if="showStatus(memcard.caption) || gameStyle === 'SA1'"> {{ memcard[cardText] }} </span>
                 </div>
             </button>
           </div>
