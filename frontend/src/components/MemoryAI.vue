@@ -63,9 +63,9 @@
           </div>
           <div v-for="(memcard, idx) in testItems" :key="idx" class="d-inline mt-3">
             <button :class="getCardClass(memcard.caption)"  @click="showCard(memcard.caption, memcard.answer, 'p1')" :id="memcard.caption" style="display:inline-block" :disabled="getDisabled(memcard.caption)">
-                <div class="divHeight py-2">
-                <span v-if="$store.state.userProfile.userID === 1" class="textLine"> {{ memcard.code }} </span>
-                <span v-if="showStatus(memcard.caption) || gameStyle === 'SA1'" class="textLine">
+                <div class="divHeight testLine py-2">
+                <span v-if="$store.state.userProfile.userID === 1"> {{ memcard.code }} </span>
+                <span v-if="showStatus(memcard.caption) || gameStyle === 'SA1'">
                   {{ memcard[cardText] }}
                 </span>
                 </div>
