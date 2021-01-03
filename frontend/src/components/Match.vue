@@ -411,8 +411,8 @@ export default {
       let found = this.friends.find(element => element.id === targetID)
       found.status = 3
       if (targetID === 100000) {
-        if (this.gameSelect.includes('ype') || this.gameSelect.includes('emor')) {
-          this.msg = 'Sorry, AI Bot is not good at this activity right now. Try test mode or find a friend :)'
+        if (this.gameSelect.includes('ype')) {
+          this.msg = 'Sorry, AI Bot is not good at spelling right now. Try test mode or find a friend :)'
           found.status = 1
           this.showReject()
         } else {

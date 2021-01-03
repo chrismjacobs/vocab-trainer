@@ -58,22 +58,31 @@
     ></ToolbarMatch>
 
       <div align="center" class="bg-grey" v-if="showTest">
-          <div style="height:30px" class="d-block d-md-none">
-            <h4 v-if="foundCard && gameStyle[0] !== 'E'">{{foundCard.caption}}</h4>
-            <h4 v-else-if="foundCard">{{foundCard.English}}</h4>
+          <div style="height:30px">
+            <h4 class="d-block d-md-none my-2" v-if="foundCard && gameStyle[0] !== 'E'">{{foundCard.caption}}</h4>
+            <h4 class="d-block d-md-none my-2" v-else-if="foundCard">{{foundCard.English}}</h4>
           </div>
-          <div style="height:30px" class="d-block d-md-none">
-            <h4 v-if="foundCard2 && gameStyle[0] !== 'E'">{{foundCard2.caption}}</h4>
-            <h4 v-else-if="foundCard2">{{foundCard2.English}}</h4>
+          <div style="height:30px" class="d-block d-md-none my-2">
+            <h4 class="d-block d-md-none my-2" v-if="foundCard2 && gameStyle[0] !== 'E'">{{foundCard2.caption}}</h4>
+            <h4 class="d-block d-md-none my-2" v-else-if="foundCard2">{{foundCard2.English}}</h4>
           </div>
-          <div v-for="(memcard, idx) in testItems" :key="idx" class="d-inline mb-3">
-            <button :class="getCardClass(memcard.caption)"  @click="showCard(memcard.caption, memcard.answer)" :id="memcard.caption" style="display:inline-block" :disabled="getDisabled(memcard.caption)">
-                <span class="textLine mt-3"> {{ memcard.code }} </span>
-                <br>
-                <span v-if="showStatus(memcard.caption) || gameStyle === 'SA1'" class="textLine mt-3">
+          <div v-for="(memcard, idx) in testItems" :key="idx" class="d-inline mt-3">
+            <button :class="getCardClass(memcard.caption)"  @click="showCard(memcard.caption, memcard.answer, 'p1')" :id="memcard.caption" style="display:inline-block" :disabled="getDisabled(memcard.caption)">
+                <div class="divHeight py-2">
+                <span v-if="$store.state.userProfile.userID === 1" class="textLine"> {{ memcard.code }} </span>
+                <span v-if="showStatus(memcard.caption) || gameStyle === 'SA1'" class="textLine">
                   {{ memcard[cardText] }}
                 </span>
+                </div>
             </button>
+          </div>
+          <div style="height:30px">
+            <h4 class="d-block d-md-none mt-2" v-if="foundCard && gameStyle[0] !== 'E'">{{foundCard.caption}}</h4>
+            <h4 class="d-block d-md-none mt-2" v-else-if="foundCard">{{foundCard.English}}</h4>
+          </div>
+          <div style="height:30px">
+            <h4 class="d-block d-md-none mt-2" v-if="foundCard2 && gameStyle[0] !== 'E'">{{foundCard2.caption}}</h4>
+            <h4 class="d-block d-md-none mt-2" v-else-if="foundCard2">{{foundCard2.English}}</h4>
           </div>
       </div>
 
@@ -112,16 +121,16 @@
       </div>
     </div>
 
-    <b-modal align="center" ref="winner" hide-footer title="Game Over" hide-header-close no-close-on-esc no-close-on-backdrop>
+    <b-modal align="center" ref="win" hide-footer title="Game Over" hide-header-close no-close-on-esc no-close-on-backdrop>
       <div class="d-block">
         <h3> And the winner is... </h3>
         <b-avatar :src="s3 + winner.toString() + '.jpg'"  size="100px" :badge="winName" badge-offset="-0.6em" :badge-variant="winner"></b-avatar>
       </div>
       <br>
-      <button :class="'buttonDiv mt-3 text-prime bg-' + player" style="width:60%"  @click="hideModal('winner')">Close</button>
+      <button :class="'buttonDiv mt-3 text-prime bg-' + player" style="width:60%"  @click="hideModal('win')">Close</button>
     </b-modal>
 
-   <b-modal align="center" ref="draw" hide-footer title="Problem Found" hide-header-close no-close-on-esc no-close-on-backdrop>
+   <b-modal align="center" ref="draw" hide-footer title="Result" hide-header-close no-close-on-esc no-close-on-backdrop>
       <div class="d-block">
         <h3> It's a draw! </h3>
       </div>
@@ -160,19 +169,12 @@ export default {
       showTest: false,
       showProgress: false,
       timeReset: null,
-      hover: false,
       ready: [],
       answered: 0,
       answerData: [],
-      filter: null,
       testItems: [],
       settings: {},
       fields: ['Question', 'Answer'],
-      time: null,
-      clock: null,
-      clockBlock: false,
-      startTimer: null,
-      countDown: null,
       progressValues: {
         p1: 0,
         p2: 0,
@@ -181,7 +183,6 @@ export default {
       p1score: 0,
       p2score: 0,
       btnIDMarker: null,
-      playerDude: null,
       winner: '',
       winName: '',
       audioMarker: null,
@@ -196,15 +197,15 @@ export default {
     addStar: function (word, set) {
       this.$store.dispatch('newStar', {word: word, set: set})
     },
-    showWinner: function () {
-      this.$refs['winner'].show()
+    showWin: function () {
+      this.$refs['win'].show()
     },
     showDraw: function () {
       this.$refs['draw'].show()
     },
     hideModal: function (mode) {
-      if (mode === 'winner') {
-        this.$refs['winner'].hide()
+      if (mode === 'win') {
+        this.$refs['win'].hide()
       } else if (mode === 'draw') {
         this.$refs['draw'].hide()
       }
@@ -223,16 +224,15 @@ export default {
       }
     },
     start: function () {
-      console.log('START', this.player)
+      // console.log('START', this.player)
       this.showAnswers = false
       this.showProgress = true
-      this.filter = 0
       this.answerData = []
       this.showTest = true
       // this.setCountdown()
     },
     readyCheck: function () {
-      console.log('length', this.ready, this.ready.length, this.player)
+      // console.log('length', this.ready, this.ready.length, this.player)
       if (this.ready.length === 2) {
         this.waiting = 2
         if (this.player === 'p2') {
@@ -251,10 +251,16 @@ export default {
     getCardClass: function (arg) {
       let found = this.testItems.find(element => element.caption === arg)
 
+      let border = ''
+
+      if (found === this.foundCard || found === this.foundCard2) {
+        border = 'borderDiv'
+      }
+
       if (found.match) {
         return 'basic text-prime bg-' + found.player
       } else if (found.show) {
-        return 'basic text-prime bg-' + found.player + '-light'
+        return 'basic text-prime bg-' + found.player + '-light ' + border
       } else if (this.disabledMarker) {
         return 'basic text-cream bg-darkgrey'
       } else {
@@ -275,7 +281,7 @@ export default {
       return found.show
     },
     showCard: function (card, answer) {
-      console.log('cardMAtch', card, answer, this.cardMatch)
+      // console.log('cardMAtch', card, answer, this.cardMatch)
       let match = false
       let count = 1
       // if card and answer are already marked
@@ -295,7 +301,7 @@ export default {
         this.cardMatch.push(card)
         this.socket.emit('answerMem', {room: this.p1 + '-' + this.p2, card: card, match: match, answer: answer, player: this.player, count: count})
       } else {
-        this.disableAll()
+        this.disabledMarker = true
         this.cardMatch = []
       }
     },
@@ -338,11 +344,11 @@ export default {
       if (p1C > p2C) {
         this.winner = 'p1'
         this.winName = this.p1name
-        this.showWinner()
+        this.showWin()
       } else if (p2C > p1C) {
         this.winner = 'p2'
         this.winName = this.p2name
-        this.showWinner()
+        this.showWin()
       } else {
         this.showDraw()
       }
@@ -404,24 +410,11 @@ export default {
     }
   },
   watch: {
-    filter: function () {
-      let sound = this.testItems[this.filter]
-      if (sound && this.sound !== 'sdOff') {
-        this.playAudio(sound.sdQue)
-      }
-    },
     gameOver: function () {
       this.showTest = false
       this.showAnswers = true
       this.waiting = 3
       clearInterval(this.clock)
-    },
-    hover: function () {
-      if (this.hover === true) {
-        // console.log('hover_active')
-        let sound = this.testItems[this.filter]
-        this.playAudio(sound.sdQue)
-      }
     },
     exit: function () {
       this.leave()
@@ -445,30 +438,12 @@ export default {
     }
   },
   created () {
-    let options = {
-      p1: 'p1',
-      p2: 'p2'
-    }
-    this.playerDude = options[this.player]
+    console.log('testType', this.testType)
   },
   beforeDestroy () {
     console.log('LEAVE')
     this.answered = 0
-    this.filter = null
     this.showTest = false
-
-    if (this.clock) {
-      clearInterval(this.clock)
-      this.clock = null
-    }
-    if (this.startTimer) {
-      clearTimeout(this.startTimer)
-      this.startTimer = null
-    }
-    if (this.countDown) {
-      clearTimeout(this.countDown)
-      this.countDown = null
-    }
   },
   mounted () {
     let _this = this
@@ -547,14 +522,8 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-.mistake {
-  border:4px solid #d35944;
-  color: #205372 !important
-}
-
-.correct {
-  border:4px solid #48c490;
-  color: #205372 !important
+.borderDiv {
+  border:4px solid #48c490 !important;
 }
 
 .basic {
@@ -564,26 +533,32 @@ export default {
   box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.2);
   cursor:pointer;
   margin: 1px;
-  text-align: center;
   width:24%;
-  height:100px;
-  align-items: center;
 }
 
 @media screen and (max-width:650px) {
-  .basicc {
-    width:130px;
-    height:60px;
-    line-height: 60px;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 25px
+  .basic {
+    border:0px solid #CCC;
+    outline:none;
+    border-radius: 5px;
+    box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.2);
+    cursor:pointer;
+    margin: 1px;
+    width:48%;
+  }
+}
+
+.divHeight {
+  height: 100px;
+}
+
+@media screen and (max-width:650px) {
+  .divHeight {
+    height: 60px;
   }
 }
 
 .textLine {
-  display: inline-block;
   vertical-align: middle;
   word-break: break-all;
   font-size: 24px;
@@ -604,7 +579,7 @@ export default {
 @media screen and (max-width:650px) {
   .textLine {
   font-size: 16px;
-  word-break: break-all;
+  line-height: 90%;
   }
 }
 
