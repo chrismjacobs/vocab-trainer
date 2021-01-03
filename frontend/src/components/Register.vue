@@ -109,7 +109,8 @@
       <div class="d-block">
         <h3> {{msg}} </h3>
       </div>
-      <button class="buttonDiv mt-3 bg-alert text-cream" style="width:60%"  @click="hideModal('fail')">Close</button>
+      <button class="buttonDiv mt-3 bg-alert text-cream" style="width:60%"  @click="hideModal('fail', 0)">Close</button>
+      <button class="buttonDiv mt-3 ml-3 bg-info text-cream" style="width:60%"  @click="hideModal('fail', err)">Close</button>
     </b-modal>
 
   </div>
@@ -137,7 +138,8 @@ export default {
         {text: 'ESP Tourism 1', value: 'tourism'},
         {text: 'ESP Food (Vietnamese)', value: 'food'}
       ],
-      msg: null
+      msg: null,
+      err: 0
     }
   },
   computed: {
@@ -157,12 +159,15 @@ export default {
       this.msg = msg
       this.$refs['fail'].show()
     },
-    hideModal (mode) {
+    hideModal (mode, arg) {
       if (mode === 'success') {
         this.$refs['success'].hide()
         router.push('/login')
       } else {
         this.$refs['fail'].hide()
+        if (arg === 1) {
+          router.push('/login')
+        }
         this.msg = null
         this.waiting = true
       }
@@ -193,6 +198,7 @@ export default {
         .then(function (response) {
           if (response.err) {
             _this.showAlert(response.msg)
+            _this.err = response.err
           } else {
             _this.showModal(response.msg)
           }
