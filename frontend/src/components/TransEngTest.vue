@@ -3,37 +3,12 @@
 
       <audio id="audio" autoplay></audio>
 
-    <div :class="getClass('second', 'prime', 'mt-2 p-2 head')">
-        <b-row>
-          <b-col class="d-none d-lg-inline">
-
-          </b-col>
-          <b-col>
-            <h2 class="text-cream" align="center">
-              {{ title }} </h2>
-          </b-col>
-          <b-col align="right" class="d-none d-lg-inline">
-            <button v-if="showTest" @click="cancel()" class="buttonDiv bg-cream text-alert mt-1 mr-3" style="height:40px; width:100px"><span style="font-size:16pt" class="mr-2 mb-1">Exit</span><b-icon-backspace-reverse-fill  font-scale="1.5"></b-icon-backspace-reverse-fill> </button>
-          </b-col>
-        </b-row>
+    <div :class="getClass('second', 'cream', 'mt-2 p-2 head')">
+            <h2 align="center"> {{ title }} </h2>
     </div>
 
     <Toolbar :toolbarShow='showTest' :showAnswers='showAnswers' :testType="testType" :title="title" v-on:newTest="start($event)" v-on:retry="start()"></Toolbar>
     <div v-if="showTest">
-      <div :class="getClass('second', 'prime', 'mt-2 p-2 head')">
-        <b-row>
-          <b-col class="d-none d-md-inline">
-
-          </b-col>
-          <b-col>
-            <h2 class="text-cream" align="center">
-              {{ title }} </h2>
-          </b-col>
-          <b-col align="right" class="d-none d-md-inline">
-            <button @click="cancel()" class="buttonDiv bg-alert text-cream mt-1 mr-3" style="height:40px"><span>Exit</span><b-icon-backspace-reverse-fill class="text-cream mx-2" style="float:right"  font-scale="1.5"></b-icon-backspace-reverse-fill> </button>
-          </b-col>
-        </b-row>
-      </div>
         <b-progress :value="filter" style="height:30px" :max="testItems.length" variant="warn-light" show-progress animated></b-progress>
 
       <div class="bg-grey">
@@ -124,9 +99,9 @@ export default {
   },
   data () {
     return {
-      pageHead: 'English --> Chinese',
+      pageHead: 'English >> Chinese',
       testType: 'transEng',
-      title: 'English --> Chinese',
+      title: 'English >> Chinese',
       toolbarShow: true,
       hover: false,
       showAnswers: false,
