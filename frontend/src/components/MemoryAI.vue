@@ -60,12 +60,6 @@
 
       <div align="center" class="bg-grey" v-if="showTest">
           <div style="height:30px">
-            <h4 class="d-block d-md-none my-2" v-if="foundCard && gameStyle[0] !== 'E'">{{foundCard.caption}}</h4>
-            <h4 class="d-block d-md-none my-2" v-else-if="foundCard">{{foundCard.English}}</h4>
-          </div>
-          <div style="height:30px" class="d-block d-md-none my-2">
-            <h4 class="d-block d-md-none my-2" v-if="foundCard2 && gameStyle[0] !== 'E'">{{foundCard2.caption}}</h4>
-            <h4 class="d-block d-md-none my-2" v-else-if="foundCard2">{{foundCard2.English}}</h4>
           </div>
           <div v-for="(memcard, idx) in testItems" :key="idx" class="d-inline mt-3">
             <button :class="getCardClass(memcard.caption)"  @click="showCard(memcard.caption, memcard.answer, 'p1')" :id="memcard.caption" style="display:inline-block" :disabled="getDisabled(memcard.caption)">
@@ -78,12 +72,6 @@
             </button>
           </div>
           <div style="height:30px">
-            <h4 class="d-block d-md-none mt-2" v-if="foundCard && gameStyle[0] !== 'E'">{{foundCard.caption}}</h4>
-            <h4 class="d-block d-md-none mt-2" v-else-if="foundCard">{{foundCard.English}}</h4>
-          </div>
-          <div style="height:30px">
-            <h4 class="d-block d-md-none mt-2" v-if="foundCard2 && gameStyle[0] !== 'E'">{{foundCard2.caption}}</h4>
-            <h4 class="d-block d-md-none mt-2" v-else-if="foundCard2">{{foundCard2.English}}</h4>
           </div>
       </div>
 
@@ -144,6 +132,14 @@
         <h3> It's a draw! </h3>
       </div>
       <button class="buttonDiv mt-3 bg-warn text-cream" style="width:60%"  @click="hideModal('draw')">Close</button>
+    </b-modal>
+
+   <b-modal align="center" ref="complete" hide-footer title="CONGRATULATIONS" hide-header-close no-close-on-esc no-close-on-backdrop>
+      <div class="d-block">
+        <b-avatar :src="getBot[0]" size="100px"></b-avatar>
+        <h3> You have defeated AI Bot! </h3>
+      </div>
+      <button class="buttonDiv mt-3 bg-safe text-cream" style="width:60%"  @click="hideModal('complete')">Close</button>
     </b-modal>
 
   </div>
@@ -211,7 +207,8 @@ export default {
       if (player === 'p1' && this.botLevel < 4) {
         this.botLevel += 1
       } else if (player === 'p1' && this.botLevel === 4) {
-        alert('CONGRATULATION YOU have beat level 4 BOT!')
+        this.botLevel = 5
+        this.showComplete()
       } else if (player === 'p2' && this.botLevel !== 1) {
         this.botLevel -= 1
       }
@@ -236,6 +233,9 @@ export default {
     showDraw: function () {
       this.$refs['draw'].show()
     },
+    showComplete: function () {
+      this.$refs['complete'].show()
+    },
     hideModal: function (mode) {
       if (mode === 'win') {
         this.$refs['win'].hide()
@@ -243,6 +243,9 @@ export default {
         this.$refs['lose'].hide()
       } else if (mode === 'draw') {
         this.$refs['draw'].hide()
+      } else if (mode === 'complete') {
+        this.$refs['complete'].hide()
+        this.leave()
       }
       this.progressValues.p1 = 0
       this.progressValues.p2 = 0
@@ -365,10 +368,11 @@ export default {
       let shuffledOptions = this.AIshuffle(unmatchedCards)
 
       let levelSet = [ null, 4, 3, 2, 1 ]
-      // level one will return 0,1,2,3
+      // level one will return 0,1,2,3 == 25% chance
+      // level four will return 0
       let rand
 
-      if (shuffledOptions.length === this.testItems.length) {
+      if (shuffledOptions.length >= this.testItems.length - 2) {
         rand = 1 // can never be right until one match found
       } else {
         rand = this.getRandomInt(levelSet[this.botLevel])
@@ -638,16 +642,18 @@ export default {
     },
     getBot () {
       let img = {
-        1: 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/avatar/robot_01.PNG',
-        2: 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/avatar/robot_02.PNG',
-        3: 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/avatar/robot_03.PNG',
-        4: 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/profiles/100000/avatar.jpg'
+        1: 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/avatar/robot_05.PNG',
+        2: 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/avatar/robot_06.PNG',
+        3: 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/avatar/robot_07.PNG',
+        4: 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/profiles/100000/avatar.jpg',
+        5: 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/avatar/robot_08.PNG'
       }
       let name = {
         1: 'Level1',
         2: 'Level2',
         3: 'Level3',
-        4: 'Level4'
+        4: 'Level4',
+        5: 'Level5'
       }
       return [img[this.botLevel], name[this.botLevel]]
     }
