@@ -3,16 +3,7 @@
     <audio id="audio"></audio>
 
       <div class="bg-grape p-2 head">
-        <b-row align-h="end">
-          <b-col  class="d-none d-lg-inline">
-          </b-col>
-          <b-col align="center">
             <h2 class="text-cream"> Match </h2>
-          </b-col >
-          <b-col class="d-none d-lg-inline" align="right">
-            <button @click="leave()" class="buttonDiv bg-cream text-alert mt-1 mr-3" style="height:40px; width:100px"><span style="font-size:16pt" class="mr-2 mb-1">Exit</span><b-icon-backspace-reverse-fill  font-scale="1.5"></b-icon-backspace-reverse-fill> </button>
-          </b-col>
-        </b-row>
       </div>
 
      <div class="bg-second">
@@ -118,7 +109,7 @@
       <button :class="'buttonDiv mt-3 text-prime bg-' + player" style="width:60%"  @click="hideModal('winner')">Close</button>
     </b-modal>
 
-   <b-modal align="center" ref="draw" hide-footer title="Problem Found" hide-header-close no-close-on-esc no-close-on-backdrop>
+   <b-modal align="center" ref="draw" hide-footer title="Result" hide-header-close no-close-on-esc no-close-on-backdrop>
       <div class="d-block">
         <h3> It's a draw! </h3>
       </div>

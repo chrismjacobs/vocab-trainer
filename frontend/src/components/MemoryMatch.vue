@@ -3,16 +3,7 @@
     <audio id="audio"></audio>
 
       <div class="bg-grape p-2 head">
-        <b-row align-h="end">
-          <b-col  class="d-none d-lg-inline">
-          </b-col>
-          <b-col align="center">
             <h2 class="text-cream"> Memory </h2>
-          </b-col >
-          <b-col class="d-none d-lg-inline" align="right">
-            <button @click="leave()" class="buttonDiv bg-cream text-alert mt-1 mr-3" style="height:40px; width:100px"><span style="font-size:16pt" class="mr-2 mb-1">Exit</span><b-icon-backspace-reverse-fill  font-scale="1.5"></b-icon-backspace-reverse-fill> </button>
-          </b-col>
-        </b-row>
       </div>
 
      <div class="bg-second">

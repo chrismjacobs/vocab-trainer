@@ -3,16 +3,7 @@
     <audio id="audio"></audio>
 
       <div class="bg-grape p-2 head">
-        <b-row align-h="end">
-          <b-col  class="d-none d-lg-inline">
-          </b-col>
-          <b-col align="center">
-            <h2 class="text-cream"> Match </h2>
-          </b-col >
-          <b-col class="d-none d-lg-inline" align="right">
-            <button @click="leave()" class="buttonDiv bg-cream text-alert mt-1 mr-3" style="height:40px; width:100px"><span style="font-size:16pt" class="mr-2 mb-1">Exit</span><b-icon-backspace-reverse-fill  font-scale="1.5"></b-icon-backspace-reverse-fill> </button>
-          </b-col>
-        </b-row>
+            <h2 class="text-cream"> AI Match </h2>
       </div>
 
      <div class="bg-third">
@@ -47,7 +38,17 @@
 
       </div>
 
-    <ToolbarMatch :toolbarShow='showTest' :p1="p1" :p2="p2" :p1name="p1name" :p2name="p2name" :socket="socket" :player="player" :waiting="waiting" :showAnswers='showAnswers' :testType="testType" v-on:waitUpdate="waitUpdate=true" v-on:ready="go($event)"></ToolbarMatch>
+    <ToolbarMatch
+    :toolbarShow='showTest'
+    :p1="p1" :p2="p2"
+    :p1name="p1name" :p2name="p2name"
+    :socket="socket" :player="player"
+    :waiting="waiting"
+    :showAnswers='showAnswers'
+    :testType="testType"
+    v-on:waitUpdate="waitUpdate=true"
+    v-on:ready="go($event)"
+    ></ToolbarMatch>
 
       <div class="bg-grey" v-if="showTest">
        <div v-for="(item, key) in testItems" :key="key">
@@ -124,7 +125,7 @@
       <button :class="'buttonDiv mt-3 text-cream bg-alert'" style="width:60%"  @click="hideModal('lose')">Close</button>
     </b-modal>
 
-   <b-modal align="center" ref="draw" hide-footer title="Problem Found" hide-header-close no-close-on-esc no-close-on-backdrop>
+   <b-modal align="center" ref="draw" hide-footer title="Result" hide-header-close no-close-on-esc no-close-on-backdrop>
       <div class="d-block">
         <h3> It's a draw! </h3>
       </div>
@@ -158,7 +159,7 @@ export default {
     return {
       waitUpdate: false,
       waiting: 0,
-      pageHead: 'Translation Match',
+      pageHead: 'Translation Match AI',
       toolbarShow: true,
       showAnswers: false,
       showTest: false,
