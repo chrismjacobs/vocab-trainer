@@ -203,9 +203,9 @@ export default {
       gameText: 'Translate 2',
       gameOptions: [
         { value: 'T1', text: 'Trans 1/1' },
-        { value: 'T2', text: 'Trans >>' },
+        { value: 'T2', text: 'Trans >>>' },
         { value: 'E1', text: 'English 1/1' },
-        { value: 'E2', text: 'English >>' },
+        { value: 'E2', text: 'English >>>' },
         { value: 'SA1', text: 'Show All' }
       ],
       feedback: 'fbConst',
