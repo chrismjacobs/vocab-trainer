@@ -188,7 +188,9 @@ export default {
       foundCard: null,
       foundCard2: null,
       gameStyle: null,
-      botLevel: 1
+      botLevel: 1,
+      botTries: 0
+
     }
   },
   methods: {
@@ -276,6 +278,7 @@ export default {
       this.showProgress = true
       this.answerData = []
       this.showTest = true
+      this.botTries = 0
       // this.setCountdown()
     },
     readyCheck: function () {
@@ -357,22 +360,26 @@ export default {
 
       let shuffledOptions = this.AIshuffle(unmatchedCards)
 
-      let levelSet = [ null, 4, 3, 2, 1 ]
-      // level one will return 0,1,2,3 == 25% chance
-      // level four will return 0
+      let levelSet = [ null, 8, 6, 4, 4 ]
+      // level one will return 0,1,2,3,4,5,6,7 == 0,1,2 = 35% chance
+      // level two will return 0,1,2,3,4,5 == 0,1,2 = 50% chance
+      // level three will return 0,1,2,3 == 0,1,2 = 75% chance
       let rand
 
-      if (shuffledOptions.length >= this.testItems.length - 2) {
-        rand = 1 // can never be right until one match found
+      if (this.botTries < levelSet[this.botLevel]) {
+        rand = 2 // can never be right until one match found
+        this.botTries += 1
       } else {
         rand = this.getRandomInt(levelSet[this.botLevel])
       }
+
+      let randSet = [0, 1, 2]
 
       let correct
       let answerChoice
       let choiceCard = shuffledOptions[0]
       let answerCard = shuffledOptions.find(element => element.caption === choiceCard.answer)
-      if (rand === 0 || shuffledOptions.length < 4) {
+      if (randSet.includes(rand) || shuffledOptions.length < 4) {
         correct = true
         answerChoice = answerCard
       } else {
