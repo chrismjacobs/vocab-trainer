@@ -51,3 +51,7 @@ export function getClass (payload) {
 export function addImage (payload) {
   return axios.post(host + '/api/addImage', payload)
 }
+
+export function sendEmailAPI (payload) {
+  return axios.post(host + '/api/sendEmail', payload)
+}

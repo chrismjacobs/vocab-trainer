@@ -88,7 +88,7 @@
                       <button v-if="$store.state.userProfile.instructor" class="buttonDiv mt-2 bg-peel text-prime px-1" style="height:50px; width:100%" @click="goTo('Instructor')"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp;Instructor </span> </button>
                       <button v-if="$store.state.userProfile.userID === 1" class="buttonDiv mt-2 bg-info text-prime px-1" style="height:50px; width:100%" @click="goTo('JGrabber')"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp;JGrabber </span> </button>
                       <button v-if="$store.state.userProfile.userID === 1" class="buttonDiv mt-2 bg-success text-prime px-1" style="height:50px; width:100%" @click="goTo('Flash')"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp;Flash </span> </button>
-                      <button class="buttonDiv mt-2 bg-third text-prime px-1" style="height:50px; width:100%" @click="alert('help features coming soon')"><b-icon-question-circle></b-icon-question-circle>  <span text=""> &nbsp;Help </span> </button>
+                      <button class="buttonDiv mt-2 bg-third text-prime px-1" style="height:50px; width:100%" @click="sendEmail()"><b-icon-question-circle></b-icon-question-circle>  <span text=""> &nbsp;Help </span> </button>
                       <button class="buttonDiv mt-2 bg-grape text-cream px-1" style="height:50px; width:100%" @click="logout()"><b-icon-power></b-icon-power>  <span text=""> &nbsp;Logout </span> </button>
                     </div>
                     <div v-else align="center">
@@ -224,6 +224,9 @@ export default {
         }
       }
       return count
+    },
+    sendEmail: function () {
+      this.$store.dispatch('sendEmail', { userID: this.$store.state.userProfile.userID })
     }
   },
   watch: {

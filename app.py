@@ -36,6 +36,20 @@ except:
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     DEBUG = False
 
+## https://pythonhosted.org/Flask-Mail/
+app.config.update(dict(
+    MAIL_SERVER = 'smtp.gmail.com',
+    MAIL_PORT = 587, # 465
+    MAIL_USE_TLS = True,
+    MAIL_USE_SSL = False,
+    MAIL_USERNAME = 'vocab1trainer@gmail.com',
+    MAIL_PASSWORD = MAIL_PASSWORD,
+    MAIL_SUPPRESS_SEND = False,
+    MAIL_DEBUG = True,
+    TESTING = False
+))
+
+mail = Mail(app)
 
 s3_resource = boto3.resource('s3',
         aws_access_key_id=AWS_ACCESS_KEY_ID,
@@ -73,21 +87,6 @@ socketio = SocketIO(app, cors_allowed_origins="*", manage_session=False)
 ## see documentation
 ## every api call with the prefix /api/ will be accepted cross platfrom
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
-
-## https://pythonhosted.org/Flask-Mail/
-app.config.update(dict(
-    MAIL_SERVER = 'smtp.gmail.com',
-    MAIL_PORT = 587,
-    MAIL_USE_TLS = True,
-    MAIL_USERNAME = 'chrisflask0212@gmail.com',
-    MAIL_PASSWORD = MAIL_PASSWORD,
-    MAIL_SUPPRESS_SEND = False,
-    MAIL_DEBUG = True,
-    TESTING = False
-))
-
-mail = Mail(app)
-
 
 from routes import *
 from sockets import *

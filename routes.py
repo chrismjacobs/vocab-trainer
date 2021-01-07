@@ -55,6 +55,12 @@ def register():
     response = {
         'msg' : 'Hi ' + data['username'] + ', you have been registered. Please log in to continue'
     }
+
+    try:
+        send_welcome_email(user)
+    except:
+        print('email failed')
+
     return jsonify(response)
 
 
@@ -144,8 +150,20 @@ def send_reset_email(user):
     else:
         link = 'https://vocab-lms.herokuapp.com/reset/' + token
 
-    msg.body = 'To reset your password, user the token. If you did not request this email then please ignore'
+    msg.body = 'To reset your password, use the token. If you did not request this email then please ignore'
     msg.html = '<a href=' + link + '> Reset Link </a>'
+
+    mail.send(msg)
+
+
+def send_welcome_email(user):
+    print(user)
+    msg = Message('Welcome' + user.username + ', to VOCAB TRAINER',
+                sender=('VOCAB TRAINER','vocab1trainer@gmail.com'),
+                recipients=[user.email, 'cjx02121981@gmail.com'])
+
+    msg.body = 'Your email has been used to register an account with vocab-lms.herokuapp.com. We hope you enjoy building your vocabulary with our application. If you would like to talk to a developer about how to use the application, please contact Chris (LINE: chrisj0212).'
+    ## msg.html = "<img href='https://picsum.photos/1024/480'> </img>"
 
     mail.send(msg)
 
@@ -489,6 +507,33 @@ def updateTicket():
         'msg' : 'Thank you, your ticket has been recorded',
         'dataReturn' : data
     }
+    return jsonify(response)
+
+
+@app.route("/api/sendEmail", methods=['POST'])
+def sendEmail():
+    print('EMAIL')
+    data = request.get_json()['userID']
+    pprint(data)
+
+    current_user = User.query.get(data)
+    print(current_user)
+
+    msg = Message('Welcome' + current_user.username + ', to VOCAB TRAINER',
+                sender=('VOCAB TRAINER','vocab1trainer@gmail.com'),
+                recipients=[current_user.email, 'cjx02121981@gmail.com'])
+
+    msg.body = 'Your email has been used to register an account with vocab-lms.herokuapp.com. We hope you enjoy building your vocabulary with our application. If you would like to talk to a developer about how to use the application, please contact Chris (LINE: chrisj0212).'
+    ## msg.html = "<img href='https://picsum.photos/1024/480'> </img>"
+
+    mail.send(msg)
+
+
+    response = {
+        'msg' : 'Thank you, your email has been sent',
+        'dataReturn' : data
+    }
+
     return jsonify(response)
 
 @app.route("/api/addImage", methods=['POST']) #and now the form accepts the submit POST

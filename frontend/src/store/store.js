@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import router from '../router'
 import { isValidJwt, parseLocal, checkDevice } from '@/utils'
-import { authenticate, register, updateRecAPI, updateAccount, getRecordAPI, ticket, getClass, addAudio } from '@/api'
+import { authenticate, register, updateRecAPI, updateAccount, getRecordAPI, ticket, getClass, addAudio, sendEmailAPI } from '@/api'
 import tourism1 from '../assets/json/tourism1.json'
 import tourism from '../assets/json/tourism.json'
 import digital1 from '../assets/json/digital1.json'
@@ -120,6 +120,17 @@ const actions = {
       })
       .catch(error => {
         console.log('Error Ticketing: ', error)
+      })
+  },
+  sendEmail (context, userData) {
+    // console.log(context)
+    console.log(userData)
+    return sendEmailAPI(userData)
+      .then(function (response) {
+        return response.data
+      })
+      .catch(error => {
+        console.log('Error Sending: ', error)
       })
   },
   account (context, userData) {
