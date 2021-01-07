@@ -2,7 +2,7 @@
   <div class="TypeMatch">
     <audio id="audio"></audio>
 
-      <div class="bg-grape p-2 head">
+      <div class="bg-grape p-2 head" align="center">
             <h2 class="text-cream"> Type Match </h2>
       </div>
 

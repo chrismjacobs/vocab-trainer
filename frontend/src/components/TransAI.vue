@@ -2,7 +2,7 @@
   <div class="TransEng">
     <audio id="audio"></audio>
 
-      <div class="bg-grape p-2 head">
+      <div class="bg-grape p-2 head" align="center">
             <h2 class="text-cream"> AI Match </h2>
       </div>
 
