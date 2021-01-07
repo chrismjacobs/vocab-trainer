@@ -367,7 +367,7 @@ export default {
       let rand
 
       if (this.botTries < levelSet[this.botLevel]) {
-        rand = 2 // can never be right until one match found
+        rand = 3 // can never be right until one match found
         this.botTries += 1
       } else {
         rand = this.getRandomInt(levelSet[this.botLevel])

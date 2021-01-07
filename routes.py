@@ -158,7 +158,7 @@ def send_reset_email(user):
 
 def send_welcome_email(user):
     print(user)
-    msg = Message('Welcome' + user.username + ', to VOCAB TRAINER',
+    msg = Message('Welcome ' + user.username + ', to VOCAB TRAINER',
                 sender=('VOCAB TRAINER','vocab1trainer@gmail.com'),
                 recipients=[user.email, 'cjx02121981@gmail.com'])
 
