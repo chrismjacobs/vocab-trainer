@@ -67,8 +67,8 @@
                       <b-icon-person-fill class="ml-3"></b-icon-person-fill>
                       <span> #{{ $store.state.userProfile.userID}}</span>
                      </button>
-                    <button v-else class="buttonDiv bg-alert text-alert px-1" style="height:80px; width:100%" @click="exitToggle()">
-                      <b-avatar variant="cream" text="exit" size="3rem"></b-avatar>
+                    <button v-else class="buttonDiv bg-cream text-cream px-1" style="height:80px; width:100%" @click="exitToggle()">
+                      <b-avatar variant="alert" text="exit" size="3rem"></b-avatar>
                     </button>
                   </b-col>
                 </b-row>

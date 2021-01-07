@@ -360,10 +360,10 @@ export default {
 
       let shuffledOptions = this.AIshuffle(unmatchedCards)
 
-      let levelSet = [ null, 8, 6, 4, 4 ]
+      let levelSet = [ null, 8, 7, 6, 5 ]
       // level one will return 0,1,2,3,4,5,6,7 == 0,1,2 = 35% chance
-      // level two will return 0,1,2,3,4,5 == 0,1,2 = 50% chance
-      // level three will return 0,1,2,3 == 0,1,2 = 75% chance
+      // level two will return 0,1,2,3,4,5,6 == 0,1,2 = 42% chance
+      // level four will return 0,1,2,3,4 == 0,1,2 = 60% chance
       let rand
 
       if (this.botTries < levelSet[this.botLevel]) {
