@@ -534,7 +534,7 @@ export default {
       } else if (p2C > p1C) {
         this.winner = 'p2'
         this.winName = this.p2name
-        this.showWin()
+        this.showLose()
         this.botLevelSetter('p2')
       } else {
         this.showDraw()
