@@ -13,7 +13,7 @@
             </div>
             <br>
             <b-form-file accept="image/*" placeholder="Change Avatar" type="file" id="file" ref="file" v-on:change="handleFileUpload()"></b-form-file>
-            <div v-if="avatarLink === 'images.jpg'" class="bg-info text-cream p-2"> Ready to update </div>
+            <div v-if="lsi" class="bg-info text-cream p-2"> Ready to update </div>
             <br>
             <b-input-group class="my-4" label="Student ID:" label-for="exampleInput2">
                 <b-input-group-prepend inline is-text>
@@ -135,6 +135,7 @@ export default {
     return {
       s3: 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/profiles/',
       userProfile: null,
+      lsi: null,
       tableItems: [],
       fileData: null,
       msg: null,
@@ -150,13 +151,6 @@ export default {
   computed: {
     validName () {
       return this.userProfile.username.length > 2 && this.userProfile.username.length < 13
-    },
-    validImage () {
-      if (localStorage.imageData) {
-        return true
-      } else {
-        return false
-      }
     },
     validClass () {
       let value = false
@@ -232,7 +226,14 @@ export default {
     },
     handleFileUpload () {
       imageValidation(document.getElementById('file'))
-      this.avatarLink = 'images.jpg'
+      let _this = this
+      setTimeout(function () {
+        if (localStorage.imageData) {
+          console.log('IMAGE')
+          _this.avatarLink = 'images.jpg'
+          _this.lsi = localStorage.imageData
+        }
+       }, 3000)
     }
   },
   created () {
