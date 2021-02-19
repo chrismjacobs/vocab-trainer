@@ -195,7 +195,7 @@ export default {
     register () {
       this.waiting = false
       let _this = this
-      this.$store.dispatch('register', { userData: this.form })
+      this.$store.dispatch('register', { form: this.form })
         .then(function (response) {
           if (response.err) {
             _this.showAlert(response.msg)

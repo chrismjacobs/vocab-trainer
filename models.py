@@ -11,7 +11,7 @@ class User(db.Model): #import the model
     username =  db.Column(db.String(20), nullable=False) #must be a unique name and cannot be null
     email = db.Column(db.String(120), unique=True, nullable=False)
     studentID = db.Column(db.String(20))
-    vocab = db.Column(db.String(), nullable=False, default='generalD')
+    vocab = db.Column(db.String(), nullable=False, default='generalW')
     password = db.Column(db.String(60), nullable=False)
     school = db.Column(db.String(30))
     classroom = db.Column(db.String(20))

@@ -271,6 +271,10 @@ export default {
     generalGet () {
       return this.$store.getters.generalGet
     },
+    starGet () {
+      console.log('stars', this.$store.getters.starGet)
+      return this.$store.getters.starGet
+    },
     tableItems () {
       // console.log('tableGet', this.$store.getters.makeList)
       return this.$store.getters.makeList
@@ -363,6 +367,12 @@ export default {
       this.selected = [...this.selected]
     },
     changeSelected: function (arg) {
+      let extra = ['+', 'p']
+      if (!this.$store.state.userProfile.classroom && extra.includes(arg)) {
+        this.note = 'Please join a classroom to access extra features'
+        this.showAlert()
+        return false
+      }
       this.selected[0] = ''
       this.picture = false
       this.showPictures = false

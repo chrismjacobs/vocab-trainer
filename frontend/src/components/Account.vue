@@ -3,7 +3,7 @@
         <b-card header="Account Information" header-bg-variant="prime" header-text-variant="cream" header-tag="h3">
           <b-form @submit="onSubmit">
             <div class="d-flex">
-              <b-col >
+              <b-col @click="browse()">
                 <b-avatar :src="getPict" size="6rem" :text="userProfile.username[0]"></b-avatar>
               </b-col>
               <b-col >
@@ -12,14 +12,14 @@
               </b-col>
             </div>
             <br>
-
-            <b-form-file accept="image/*" placeholder="Change Avatar" type="file" id="file" ref="file" v-on:change="handleFileUpload()" ></b-form-file>
+            <b-form-file accept="image/*" placeholder="Change Avatar" type="file" id="file" ref="file" v-on:change="handleFileUpload()"></b-form-file>
+            <div v-if="avatarLink === 'images.jpg'" class="bg-info text-cream p-2"> Ready to update </div>
             <br>
             <b-input-group class="my-4" label="Student ID:" label-for="exampleInput2">
                 <b-input-group-prepend inline is-text>
                   <b-icon icon="person-fill"></b-icon>
                 </b-input-group-prepend>
-                <b-form-input id="student ID" v-model="userProfile.username" placeholder="Student ID (if joining a class)">
+                <b-form-input id="username" v-model="userProfile.username" placeholder="Student ID (if joining a class)">
                 </b-form-input>
                 <b-form-invalid-feedback :state="validName">
                   Your username must be 3-20 characters long.
@@ -58,12 +58,12 @@
                   <b-icon icon="people"></b-icon>
                 </b-input-group-prepend>
                 <b-form-input
-                            id="school"
+                            id="class"
                             v-model="userProfile.classroom"
                             placeholder="Classroom">
                 </b-form-input>
                 <b-form-invalid-feedback :state="validClass" class="text-warn">
-                  Please join a classroom to play MATCH MODE; ask your teacher or contact LINE: chrisj0212 to create a new classroom
+                  Please join a classroom to play MATCH MODE and ADD PICTURES/NEW WORDS; ask your teacher for a classroom code or contact LINE: chrisj0212 to create a new classroom
                 </b-form-invalid-feedback>
             </b-input-group>
 
@@ -151,6 +151,13 @@ export default {
     validName () {
       return this.userProfile.username.length > 2 && this.userProfile.username.length < 13
     },
+    validImage () {
+      if (localStorage.imageData) {
+        return true
+      } else {
+        return false
+      }
+    },
     validClass () {
       let value = false
       if (this.userProfile.classroom) {
@@ -163,6 +170,9 @@ export default {
     }
   },
   methods: {
+    browse () {
+      document.getElementById('file').click()
+    },
     showModal (msg) {
       this.msg = msg
       this.$refs['success'].show()
@@ -173,6 +183,7 @@ export default {
       this.$refs['fail'].show()
     },
     hideModal (mode) {
+      console.log(this.vocabReset)
       if (mode === 'success') {
         this.$refs['success'].hide()
       } else {
@@ -220,11 +231,12 @@ export default {
         })
     },
     handleFileUpload () {
-      this.avatarLink = 'images.jpg'
       imageValidation(document.getElementById('file'))
+      this.avatarLink = 'images.jpg'
     }
   },
   created () {
+    localStorage.removeItem('imageData')
     this.userProfile = this.$store.state.userProfile
     this.userProfile.imageData = ''
     console.log(this.userProfile)

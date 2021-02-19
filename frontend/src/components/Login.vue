@@ -33,7 +33,12 @@
             </div>
           </b-form>
           <template v-slot:footer>
-            <em><a href="#" @click="$router.push('/Home')">Forgot Password</a></em>
+            <em><a href="#" @click="showEmail = true">Forgot Password</a></em>
+
+            <div v-if="showEmail">
+              If you have forgotten your password please contact vocab trainer for a new password
+              <a href="cjx02121981@gmail.com"> cjx02121981@gmail.com </a>
+            </div>
           </template>
         </b-card>
       <div v-else align="center">
@@ -73,7 +78,8 @@ export default {
       },
       show: true,
       waiting: true,
-      msg: null
+      msg: null,
+      showEmail: false
     }
   },
   methods: {
@@ -124,6 +130,11 @@ export default {
             _this.showModal(response.msg)
           }
         })
+    }
+  },
+  created () {
+    if (localStorage.floatEmail) {
+      this.form.email = localStorage.floatEmail
     }
   },
   beforeMount () {

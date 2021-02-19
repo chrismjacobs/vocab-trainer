@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import router from '../router'
 import { isValidJwt, parseLocal, checkDevice } from '@/utils'
-import { authenticate, register, updateRecAPI, updateAccount, getRecordAPI, ticket, getClass, addAudio, sendEmailAPI } from '@/api'
+import { authenticate, register, updateRecAPI, updateAccount, getRecordAPI, ticket, getClass, addAudio, sendEmailAPI, requestToken, changePassword } from '@/api'
 import tourism1 from '../assets/json/tourism1.json'
 import tourism from '../assets/json/tourism.json'
 import digital1 from '../assets/json/digital1.json'
@@ -102,9 +102,13 @@ const actions = {
       })
   },
   register (context, userData) {
-    // console.log(context)
+    console.log(userData)
     return register(userData)
       .then(function (response) {
+        if (!response.data.err) {
+          console.log(userData)
+          localStorage.setItem('floatEmail', userData.form.email)
+        }
         return response.data
       })
       .catch(error => {
@@ -112,9 +116,28 @@ const actions = {
       })
   },
   ticket (context, userData) {
-    // console.log(context)
     console.log(userData)
     return ticket(userData)
+      .then(function (response) {
+        return response.data
+      })
+      .catch(error => {
+        console.log('Error Ticketing: ', error)
+      })
+  },
+  requestToken (context, userData) {
+    console.log(userData)
+    return requestToken(userData)
+      .then(function (response) {
+        return response.data
+      })
+      .catch(error => {
+        console.log('Error Ticketing: ', error)
+      })
+  },
+  changePassword (context, userData) {
+    console.log(userData)
+    return changePassword(userData)
       .then(function (response) {
         return response.data
       })
@@ -389,6 +412,7 @@ const mutations = {
   },
   destroyToken (state) {
     // console.log('destroyToken')
+    var email = state.userProfile.email
     state.userProfile = {}
     state.userRecord = {}
     state.currentRecord = {}
@@ -396,7 +420,7 @@ const mutations = {
     state.setRecord = {dictRecord: {}, starRecord: {}, addRecord: {}}
     state.jwt = ''
     localStorage.clear()
-    router.push('login')
+    localStorage.setItem('floatEmail', email)
   },
   setTestActive (state, bol) {
     state.testActive = bol

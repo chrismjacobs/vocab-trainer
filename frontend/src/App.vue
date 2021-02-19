@@ -4,10 +4,10 @@
       <b-navbar-brand @click="goTo('Home')"><span class="text-cream" > VOCAB TRAINER </span> </b-navbar-brand>
 
       <div v-if="!isActiveCheck" class="d-block d-lg-none">
-      <b-navbar-toggle target="navbar-toggle-collapse">
-        <b-avatar v-if="isAuthenticated" :src="s3 + $store.state.userProfile.userID + '/avatar.jpg'" size="3rem" :text="$store.state.userProfile.username[0]"></b-avatar>
-       <b-avatar v-else size="3rem" text="VC"></b-avatar>
-      </b-navbar-toggle>
+        <b-button id="toggler" v-b-toggle.navbar-toggle-collapse style="background:none; border:none">
+          <b-avatar v-if="isAuthenticated" :src="s3 + $store.state.userProfile.userID + '/avatar.jpg'" size="3rem" :text="$store.state.userProfile.username[0]"></b-avatar>
+          <b-avatar v-else size="3rem" text="VC"></b-avatar>
+        </b-button>
       </div>
 
       <div v-else  @click="exitToggle()" class="d-block d-lg-none p-1">
@@ -42,7 +42,7 @@
       <b-col v-else cols="1" class="bg-prime d-none d-lg-block">
       </b-col>
 
-      <b-col :class="contClass()" style="min-height:100vh" >
+      <b-col :class="contClass()" style="min-height:100vh"  @click="collapseCheck()">
         <b-container fluid v-if="this.$store.state.userRecord || !isAuthenticated">
           <transition name="board">
            <router-view :s3="s3" :exit="exit"></router-view>
@@ -163,6 +163,11 @@ export default {
     }
   },
   methods: {
+    collapseCheck: function () {
+      if (document.getElementById('navbar-toggle-collapse').classList.contains('show')) {
+        document.getElementById('toggler').click()
+      }
+    },
     showFail: function () {
       this.$refs['fail'].show()
     },

@@ -1,5 +1,7 @@
 import boto3
 import random
+import secrets
+import time
 import base64
 from random import randint
 import ast
@@ -31,7 +33,7 @@ def catch_all(path):
 @app.route("/api/register", methods=['POST']) #and now the form accepts the submit POST
 def register():
     print('REGISTER')
-    data = request.get_json()['userData']
+    data = request.get_json()['form']
     pprint(data)
 
     # name = data['username'].strip()
@@ -98,9 +100,10 @@ def login():
     classmates = {}
 
     users = User.query.all()
-    for u in users:
-        if u.classroom == user.classroom and u is not user:
-            classmates[u.id] = u.username
+    if user.classroom: # no action if classroom is not set
+        for u in users:
+            if u.classroom == user.classroom and u is not user:
+                classmates[u.id] = u.username
 
     user.extraStr = datetime.now()
     db.session.commit()
@@ -125,7 +128,12 @@ def login():
 
     print(token)
 
-    msg = 'Welcome ' + user.username + ', you have been logged in.'
+    msg = ''
+
+    if user.classroom == None:
+        msg = 'Welcome ' + user.username + ', please join a classroom to unlock more features.'
+    else:
+        msg = 'Welcome ' + user.username + ', you have been logged in.'
 
     return jsonify({
         'token': token.decode('UTF-8'),
@@ -136,24 +144,6 @@ def login():
         'setRecord': setRecord,
         'skeleton': skeleton
         })
-
-
-
-def send_reset_email(user):
-    token = user.get_reset_token()
-    msg = Message('Password Reset Request',
-                sender=('VOCAB TRAINER','chrisflask0212@gmail.com'),
-                recipients=[user.email])
-
-    if DEBUG:
-        link = 'https://vocab-lms.herokuapp.com/reset/' + token
-    else:
-        link = 'https://vocab-lms.herokuapp.com/reset/' + token
-
-    msg.body = 'To reset your password, use the token. If you did not request this email then please ignore'
-    msg.html = '<a href=' + link + '> Reset Link </a>'
-
-    mail.send(msg)
 
 
 def send_welcome_email(user):
@@ -169,21 +159,66 @@ def send_welcome_email(user):
 
 
 
-@app.route("/api/send_reset", methods=['POST'])
-def send_reset():
+@app.route("/api/requestToken", methods=['POST'])
+def requestToken():
     print('RESET PASSWORD')
-    userEmail = request.get_json()['email']
-    userName = request.get_json()['username']
-    user = User.query.filter_by(email=userEmail).first()
+    email = request.get_json()['email']
+    user = User.query.filter_by(email=email).first()
 
-    if user:
-        if user.username.lower().strip() == userName.lower().strip():
-            send_reset_email(user)
-            return jsonify({'msg': 'A reset link has been sent to your email account'})
-        else:
-            {'msg': 'There is no account associated with this username'}
+    if not user:
+        return jsonify({'msg': 'There is no account associated with this email', 'status': False})
+
+    tokenSet = False
+    secret = secrets.token_hex(16)
+    timestamp = time.time()
+    print(timestamp) # 1610367054.5547
+
+    try:
+        tokenSet = json.loads(user.extraStr)
+    except:
+        print('token not set yet')
+
+    if tokenSet == False or int(tokenSet['timestamp']) + 60 > time.time():
+        user.extraStr = json.dumps({'secret':secret, 'timestamp': timestamp})
+        db.session.commit()
+        try:
+            msg = Message('Welcome ' + user.username + ', to VOCAB TRAINER',
+                sender=('VOCAB TRAINER','vocab1trainer@gmail.com'),
+                recipients=[user.email, 'cjx02121981@gmail.com'])
+
+            msg.body = 'You have requested to change your password for Vocab Trainer. Please use the following token to change your password within 1 hour: '
+            msg.html = "<a>" + secret + "</a>"
+            # mail.send(msg)
+            return jsonify({'msg': 'An email with a recovery token has been sent to your address. Please check your email.', 'status': True})
+        except:
+            return jsonify({'msg': 'Sorry the website cannot send an email for you right now. Please contact Chris (LINE: chrisj0212) to help resolve your problem', 'status': False})
     else:
-        return jsonify({'msg': 'There is no account associated with this email'})
+        return jsonify({'msg': 'Please enter the token that was sent to your email', 'status': True})
+
+
+@app.route("/api/changePassword", methods=['POST'])
+def changePassword():
+    print('RESET PASSWORD 2')
+    data = request.get_json()['userData']
+    user = User.query.filter_by(email=data['email']).first()
+
+    if not user:
+        return jsonify({'msg': 'There is no account associated with this email', 'status': False})
+
+    tokenSet = False
+
+    try:
+        tokenSet = json.loads(user.extraStr)
+    except:
+        return jsonify({'msg': 'Please request a new token', 'status': False})
+
+    if int(tokenSet['timestamp']) + 60 < time.time():
+        return jsonify({'msg': 'Your token has expired. Please request a new token', 'status': 1})
+    else:
+        hashed_password = bcrypt.generate_password_hash(data['password']).decode('utf-8')
+        user.password = hashed_password
+        db.session.commit()
+        return jsonify({'msg': 'Your password has been changed. Please login again', 'status': True})
 
 
 @app.route("/api/getRecord", methods=['POST'])
@@ -435,12 +470,26 @@ def updateAccount():
     print('ACCOUNT')
     data = request.get_json()['userData']
 
-    classroom = data['classroom']
-    studentID = data['studentID']
-    vocab = data['vocab']
-    school = data['school']
+    classroom = None
+    studentID = None
+    school = None
 
-    pprint(data)
+    username = data['username'].strip()
+    classroom_raw = data['classroom']
+    studentID_raw = data['studentID']
+    vocab = data['vocab']
+    school_raw = data['school']
+
+    if classroom_raw:
+        classroom = classroom_raw.lower().strip()
+
+    if school_raw:
+        school = school_raw.strip()
+
+    if studentID_raw:
+        studentID = studentID_raw.strip()
+
+    ## pprint(data) don't print image data
     if data['imageData']:
         storeB64(data['imageData'], data['userID'], 'profile')
 
@@ -451,6 +500,7 @@ def updateAccount():
 
     if checkClass:
          ## deal with checks
+        print('classoom', classroom)
         vocab = checkClass.vocab
         if current_user.vocab != vocab:
             newVocab = True
@@ -464,7 +514,7 @@ def updateAccount():
         print('EMAIL ERROR')
         return jsonify({'msg' : 'This email has been used already.', 'err': 1})
 
-
+    current_user.username = username
     current_user.classroom = classroom
     current_user.studentID = studentID
     current_user.vocab = vocab
