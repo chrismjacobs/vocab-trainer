@@ -29,17 +29,19 @@ def online(data):
 
     checkUsers = Connected.query.all()
     checkClass = []
-    users = User.query.filter_by(classroom=classroom).all()
-    for cu in checkUsers:
-        checkClass.append(cu.connected)
 
-    for u in users:
-        if u is not user:
-            if u in checkClass:
-                status = 1
-            else:
-                status = 0
-            classmates.append({ 'id': u.id, 'name': u.username, 'status': status })
+    if classroom:
+        users = User.query.filter_by(classroom=classroom).all()
+        for cu in checkUsers:
+            checkClass.append(cu.connected)
+
+        for u in users:
+            if u is not user:
+                if u in checkClass:
+                    status = 1
+                else:
+                    status = 0
+                classmates.append({ 'id': u.id, 'name': u.username, 'status': status })
 
     if check:
         ## replace old sid with new

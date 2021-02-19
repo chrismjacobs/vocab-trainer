@@ -101,6 +101,7 @@ def login():
 
     users = User.query.all()
     if user.classroom: # no action if classroom is not set
+        print('CLASSROOM', user.classroom)
         for u in users:
             if u.classroom == user.classroom and u is not user:
                 classmates[u.id] = u.username
