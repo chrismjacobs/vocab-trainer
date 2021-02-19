@@ -419,6 +419,7 @@ const mutations = {
     state.logsRecord = {}
     state.setRecord = {dictRecord: {}, starRecord: {}, addRecord: {}}
     state.jwt = ''
+    state.testActive = false
     localStorage.clear()
     localStorage.setItem('floatEmail', email)
   },
