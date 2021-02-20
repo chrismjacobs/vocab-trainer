@@ -7,6 +7,7 @@ from flask_mail import Mail
 import os
 import requests
 import boto3
+import redis
 
 ##gunicorn==19.9.0
 ##web: gunicorn run (py file):app (flask name)
@@ -24,6 +25,7 @@ try:
     AWS_ACCESS_KEY_ID = config.BaseConfig.AWS_ACCESS_KEY_ID
     AWS_SECRET_ACCESS_KEY = config.BaseConfig.AWS_SECRET_ACCESS_KEY
     MAIL_PASSWORD = config.BaseConfig.MAIL_PASSWORD,
+    REDIS_PASSWORD = config.BaseConfig.REDIS_PASSWORD
     DEBUG = True
     print('DEV_MODE')
 except:
@@ -34,6 +36,7 @@ except:
     AWS_SECRET_ACCESS_KEY =  os.environ.get('AWS_SECRET_ACCESS_KEY')
     AWS_ACCESS_KEY_ID =  os.environ.get('AWS_ACCESS_KEY_ID')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
+    REDIS_PASSWORD = os.environ.get('REDIS_PASSWORD')
     DEBUG = False
 
 ## https://pythonhosted.org/Flask-Mail/
@@ -77,6 +80,13 @@ polly_client = boto3.Session(
     aws_access_key_id=AWS_ACCESS_KEY_ID,
     aws_secret_access_key= AWS_SECRET_ACCESS_KEY
     ).client('polly')
+
+redisData = redis.Redis(
+    host = 'redis-12011.c54.ap-northeast-1-2.ec2.cloud.redislabs.com',
+    port = 12011,
+    password = REDIS_PASSWORD,
+    decode_responses = True # get python freiendlt format
+)
 
 
 db = SQLAlchemy(app)

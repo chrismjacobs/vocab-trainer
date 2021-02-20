@@ -1,3 +1,4 @@
+import redis
 import boto3
 import random
 import secrets
@@ -12,7 +13,7 @@ from datetime import datetime, timedelta
 from functools import wraps
 from flask import jsonify, render_template, request
 from flask_mail import Message
-from app import app, db, bcrypt, s3_resource, s3_client, mail, polly_client, translate_client
+from app import app, db, bcrypt, s3_resource, s3_client, mail, polly_client, translate_client, redisData
 from pprint import pprint
 from models import *
 from PIL import Image
@@ -354,6 +355,7 @@ def update_record():
 
     #jStorer(user, logsRecord, userRecord, userDictionary)
     jStorer(user, logsRecord, userRecord, setRecord)
+    redisStorer(user, logsRecord, userRecord, setRecord)
 
 
     response = {
@@ -411,6 +413,7 @@ def checkFriend():
         logsRecord['friends'][friendID] = friend.username
         ## ad friend to logs
         jStorer(user, logsRecord, None, None)
+        redisStorer(user, logsRecord, None, None)
 
 
     print(friends, type(friends))
@@ -457,6 +460,7 @@ def deleteFriend():
     check2 = logsRecord['friends'].pop(friendID, None)
     if check2:
         jStorer(user, logsRecord, None, None)
+        redisStorer(user, logsRecord, None, None)
 
     print(friends, type(friends))
     response = {
@@ -743,7 +747,33 @@ def jStorer(user, logsRecord, userRecord, userSet):
 
     return True
 
-''' ########## email feature ###########'''
+
+def redisStorer(user, logsRecord, userRecord, userSet):
+    print('##redisStorer')
+
+    try:
+        if logsRecord:
+            print('redis logs stored')
+            logs_content = json.dumps(logsRecord)
+            redisData.hset(user.id, 'logs', logs_content)
+
+        if userRecord:
+            print('redis vocab stored')
+            vocab_content = json.dumps(userRecord)
+            folder_string =  'vocab_' + user.vocab
+            redisData.hset(user.id, folder_string, vocab_content)
+
+        if userSet:
+            print('redis set stored')
+            set_content = json.dumps(userSet)
+            folder_string = 'set_' + user.vocab
+            redisData.hset(user.id, folder_string, set_content)
+    except:
+        print('redis failed')
+
+    return True
+
+
 
 
 
