@@ -3,6 +3,8 @@ master.json
 venv
 .env
 audio/
+xPython/
+redisdb.py
 audio.py
 high.py
 ripper.py
