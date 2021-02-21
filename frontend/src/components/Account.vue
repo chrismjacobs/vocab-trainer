@@ -214,7 +214,7 @@ export default {
             let msg = response.msg
             _this.showAlert(msg)
           } else if (response.newVocab) {
-            let msg = 'Your are changing your classroom. Please log in again to update'
+            let msg = 'You are changing your classroom. Please log in again to update'
             _this.showModal(msg)
             _this.vocabReset = true
           } else {
