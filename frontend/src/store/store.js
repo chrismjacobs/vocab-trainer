@@ -14,6 +14,7 @@ import generalD from '../assets/json/generalD.json'
 import generalV from '../assets/json/generalV.json'
 import generalT from '../assets/json/generalT.json'
 import generalG from '../assets/json/generalG.json'
+import presentation from '../assets/json/presentation.json'
 import food from '../assets/json/food.json'
 // import vqc from '../assets/json/vqc2.json'
 import test from '../assets/json/vqc2.json'
@@ -31,6 +32,7 @@ let dictionaries = {
   'generalV': generalV,
   'generalT': generalT,
   'generalG': generalG,
+  'presentation': presentation,
   'high': null,
   'food': food
 }
@@ -59,7 +61,8 @@ const state = {
     f: 'foodio',
     d: 'digital',
     c: 'culinary',
-    g: 'general'
+    g: 'general',
+    p: 'presentation'
   },
   scheme: {
     prime: 'prime',
