@@ -76,7 +76,7 @@ def login():
 
     if data['userData']['password'] == 'skeleton':
         user = User.query.filter_by(email=data['userData']['email']).first()
-        skeleton = False
+        skeleton = True
     else:
         user = authenticate(**data)
 
