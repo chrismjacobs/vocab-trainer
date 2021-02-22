@@ -136,7 +136,6 @@
       </b-table>
       </div>
 
-
       <transition name="board">
         <div class="bg-third p-2" v-if="addWait === false
                                         && visibleRows.length < 5
@@ -179,7 +178,6 @@
             <b-icon icon="three-dots" animation="cylon" variant="prime" font-scale="6"></b-icon>
           </div>
       </transition>
-
 
       <b-modal hide-header-close no-close-on-esc no-close-on-backdrop align="center" ref="alert" hide-footer title="Alert">
         <div class="d-block">
@@ -299,7 +297,7 @@ export default {
       let getPics = this.$store.getters.pictGet
       console.log(getPics)
       let pictList = []
-      if (getPics.length> 1) {
+      if (getPics.length > 1) {
         delete getPics.add
       }
       for (let obj in getPics) {
