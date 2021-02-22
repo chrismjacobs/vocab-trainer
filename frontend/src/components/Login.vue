@@ -33,8 +33,10 @@
             </div>
           </b-form>
           <template v-slot:footer>
+            <div class="mb-3">
+                <em><a href="#" @click="$router.push('/register')">Start New Account</a></em>
+            </div>
             <em><a href="#" @click="showEmail = true">Forgot Password</a></em>
-
             <div v-if="showEmail">
               If you have forgotten your password please contact vocab trainer for a new password
               <a href="cjx02121981@gmail.com"> cjx02121981@gmail.com </a>
