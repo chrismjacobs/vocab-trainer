@@ -74,43 +74,6 @@
       <DictPict v-on:pictureFalse="picture = false" v-if="picture" :s3="s3" :vocabList="vocabList" :pictWord="pictWord" :pictCh="pictCh"></DictPict>
       </transition>
 
-      <transition name="board">
-        <div class="bg-third p-2" v-if="addWait === false && visibleRows.length === 0 && selected[0] !== null && selected[0].length > 1 && selected[1] === null && vocabList[0] === 'g'">
-        <b-form @submit="onAdd">
-                  <b-input-group class="my-2 p-6">
-                      <b-input-group-prepend inline is-text>
-                        <b-icon icon="hash"></b-icon>
-                      </b-input-group-prepend>
-                      <b-form-input v-model="selected[0]" disabled>
-                      </b-form-input>
-                  </b-input-group>
-
-                  <b-input-group class="my-2 p-6" label="Chinese" label-for="exampleInput2">
-                      <b-input-group-prepend inline is-text>
-                        <b-icon icon="filter-left"></b-icon>
-                      </b-input-group-prepend>
-                      <b-form-textarea
-                      v-model="wordDetails.defch1"
-                      placeholder="Add Chinese"
-                      rows="2"
-                      >
-                      </b-form-textarea>
-                  </b-input-group>
-
-                  <b-row>
-                    <b-col align="center">
-                      <b-form-select class="bg-grey" style="width:100%;overflow-y: hidden" v-model="wordDetails.gl" :options="optionsG" :select-size="1"></b-form-select>
-                      <button class="buttonDiv bg-info px-3 mt-2" type="submit"> <b-icon-arrow-up-circle-fill variant="cream" font-scale="1.5"></b-icon-arrow-up-circle-fill> <span class="text-cream" style="font-weight:bold">Add to Dictionary </span> </button>
-                    </b-col>
-                  </b-row>
-        </b-form>
-        </div>
-          <div v-else-if="addWait" align="center" class="p-3 bg-third">
-            <h4 class="text-prime"> Adding New Word </h4>
-            <b-icon icon="three-dots" animation="cylon" variant="prime" font-scale="6"></b-icon>
-          </div>
-      </transition>
-
       <div class="mb-0" v-if="!showPictures">
       <b-table
       striped hover
@@ -173,6 +136,51 @@
       </b-table>
       </div>
 
+
+      <transition name="board">
+        <div class="bg-third p-2" v-if="addWait === false
+                                        && visibleRows.length < 5
+                                        && selected[0] !== null
+                                        && selected[0].length > 1
+                                        && !visibleRows.find(element => element.English === selected[0])
+                                        && selected[1] === null
+                                        && vocabList[0] === 'g'">
+        <b-form @submit="onAdd">
+                  <b-input-group class="my-2 p-6">
+                      <b-input-group-prepend inline is-text>
+                        <b-icon icon="hash"></b-icon>
+                      </b-input-group-prepend>
+                      <b-form-input v-model="selected[0]" disabled>
+                      </b-form-input>
+                  </b-input-group>
+
+                  <b-input-group class="my-2 p-6" label="Chinese" label-for="exampleInput2">
+                      <b-input-group-prepend inline is-text>
+                        <b-icon icon="filter-left"></b-icon>
+                      </b-input-group-prepend>
+                      <b-form-textarea
+                      v-model="wordDetails.defch1"
+                      placeholder="Add Chinese"
+                      rows="2"
+                      >
+                      </b-form-textarea>
+                  </b-input-group>
+
+                  <b-row>
+                    <b-col align="center">
+                      <b-form-select class="bg-grey" style="width:100%;overflow-y: hidden" v-model="wordDetails.gl" :options="optionsG" :select-size="1"></b-form-select>
+                      <button class="buttonDiv bg-info px-3 mt-2" type="submit"> <b-icon-arrow-up-circle-fill variant="cream" font-scale="1.5"></b-icon-arrow-up-circle-fill> <span class="text-cream" style="font-weight:bold">Add to Dictionary </span> </button>
+                    </b-col>
+                  </b-row>
+        </b-form>
+        </div>
+          <div v-else-if="addWait" align="center" class="p-3 bg-third">
+            <h4 class="text-prime"> Adding New Word </h4>
+            <b-icon icon="three-dots" animation="cylon" variant="prime" font-scale="6"></b-icon>
+          </div>
+      </transition>
+
+
       <b-modal hide-header-close no-close-on-esc no-close-on-backdrop align="center" ref="alert" hide-footer title="Alert">
         <div class="d-block">
           <h3> {{note}} </h3>
@@ -223,6 +231,7 @@ export default {
         { value: null, text: '---' },
         { value: 'v.', text: 'verbs' },
         { value: 'adj.', text: 'adjectives' },
+        { value: 'adv.', text: 'adverbs' },
         { value: 'n.', text: 'nouns' },
         { value: 'phr.', text: 'phrases' }
       ],
@@ -287,8 +296,13 @@ export default {
       }
     },
     pictList () {
+      let getPics = this.$store.getters.pictGet
+      console.log(getPics)
       let pictList = []
-      for (let obj in this.$store.getters.pictGet) {
+      if (getPics.length> 1) {
+        delete getPics.add
+      }
+      for (let obj in getPics) {
         pictList.push(this.$store.getters.pictGet[obj])
       }
       console.log('pictList', pictList)
