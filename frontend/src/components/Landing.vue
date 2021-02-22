@@ -44,6 +44,11 @@
 export default {
   name: 'Landing',
   props: {
+  },
+  created () {
+    if (localStorage.floatEmail) {
+      this.$router.push('/login')
+    }
   }
 }
 </script>
