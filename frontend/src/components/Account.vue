@@ -233,7 +233,7 @@ export default {
           _this.avatarLink = 'images.jpg'
           _this.lsi = localStorage.imageData
         }
-       }, 3000)
+      }, 3000)
     }
   },
   created () {
