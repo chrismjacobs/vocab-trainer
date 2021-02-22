@@ -286,7 +286,7 @@ const mutations = {
         chinese: '加',
         def: 'to contribute more / build on / include',
         link: 'add',
-        text: 'You can add pictures and definition to your words to help you remember and test them.',
+        text: 'You can add pictures and definitions to your words to help you remember and test them.',
         vocab: 'none',
         word: 'add'
       }
