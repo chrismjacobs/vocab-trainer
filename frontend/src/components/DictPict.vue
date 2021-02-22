@@ -21,12 +21,12 @@
                     <b-input-group-prepend inline is-text>
                       <b-icon icon="filter-left"></b-icon>
                     </b-input-group-prepend>
-                    <b-form-input
+                    <b-form-textarea
                     v-model="newWord.def"
                     placeholder="Add Definition / Synonyms"
                     rows="2"
                     >
-                    </b-form-input>
+                    </b-form-textarea>
                 </b-input-group>
 
                 <b-input-group class="my-2 p-6" label-for="exampleInput3">
@@ -36,7 +36,7 @@
                     <b-form-textarea
                     v-model="newWord.text"
                     placeholder="Add Sentence"
-                    rows="3"
+                    rows="4"
                     >
                     </b-form-textarea>
                 </b-input-group>
