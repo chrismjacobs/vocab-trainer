@@ -92,6 +92,11 @@
                 </div>
             </div>
           </b-form>
+          <template v-slot:footer>
+            <div class="mb-3">
+                <em><a href="#" @click="$router.push('/login')">Already have an account</a></em>
+            </div>
+          </template>
         </b-card>
         <div v-else align="center">
             <h4 class="text-prime"> Registering </h4>
