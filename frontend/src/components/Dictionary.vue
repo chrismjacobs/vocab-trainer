@@ -227,10 +227,12 @@ export default {
       gValue: '---',
       optionsG: [
         { value: null, text: '---' },
+        { value: 'n.', text: 'nouns' },
         { value: 'v.', text: 'verbs' },
         { value: 'adj.', text: 'adjectives' },
         { value: 'adv.', text: 'adverbs' },
-        { value: 'n.', text: 'nouns' },
+        { value: 'conj.', text: 'conjunctions' },
+        { value: 'prep.', text: 'prepositions' },
         { value: 'phr.', text: 'phrases' }
       ],
       optionsP: [
