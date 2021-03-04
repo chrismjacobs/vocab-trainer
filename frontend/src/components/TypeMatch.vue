@@ -419,7 +419,7 @@ export default {
       }
 
       this.$store.dispatch('updateMatch', { mode: 'matchTrans', winnerStatus: winnerStatus })
-      this.$store.dispatch('updateRecord', { mode: 'matchType', answerData: this.answerData, settingsData: this.settings })
+      this.$store.dispatch('updateRecord', { mode: 'matchTrans', answerData: this.answerData, settingsData: this.settings })
       this.showAnswers = true
     },
     playAudio: function (arg) {
