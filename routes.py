@@ -92,12 +92,6 @@ def login():
 
     print('check', setRecord, type(setRecord))
 
-    #pprint(userRecord)
-    # print('login_logs:')
-    # pprint(logsRecord)
-    # count = len(logsRecord['logs'])
-    # print('count', count)
-
     classmates = {}
 
     users = User.query.all()
@@ -128,7 +122,12 @@ def login():
                 'exp': datetime.utcnow() + timedelta(minutes=240)
                 }, app.config['SECRET_KEY'])
 
-    print(token)
+    token_string = token.decode('UTF-8')
+    print('TOKEN', token_string)
+
+    user.extraInfo = token_string
+    db.session.commit()
+
 
     msg = ''
 
@@ -138,13 +137,31 @@ def login():
         msg = 'Welcome ' + user.username + ', you have been logged in.'
 
     return jsonify({
-        'token': token.decode('UTF-8'),
+        'token': token_string,
         'msg': msg,
         'userProfile': userProfile,
         'userRecord': userRecord,
         'logsRecord': logsRecord,
         'setRecord': setRecord,
         'skeleton': skeleton
+        })
+
+@app.route("/api/getGroups", methods=['POST'])
+def getGroups():
+    print('INSTRUCTOR GROUPS')
+    data = request.get_json()
+    pprint(data)
+
+    userID = data['userID']
+
+    classroomList = Classroom.query.filter_by(user_id=userID).all()
+
+    groups = []
+    for c in classroomList:
+        groups.append({'code': c.code, 'count': User.query.filter_by(classroom=c.code).count()})
+
+    return jsonify({
+        'classGroups' : groups
         })
 
 
@@ -347,9 +364,19 @@ def update_record():
     userRecord = payload['userRecord']
     setRecord = payload['setRecord']
     logsRecord = payload['logsRecord']
+    jwt = payload['jwt']
 
     userID = payload['userID']
     user = User.query.get(userID)
+
+    if jwt != user.extraInfo:
+        print ('jwt non match', jwt, userextra.Info)
+        response = {
+        'msg' : 'Data was not saved due to multiple logins. Please refresh page to update your records'
+        }
+        return jsonify(response)
+    else:
+        print ('jwt match', jwt)
 
     print('updateRecord', setRecord)
 
