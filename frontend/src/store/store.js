@@ -454,6 +454,7 @@ const mutations = {
       .then(function (response) {
         _state.updateStatus = true
         // localStorage.settings = JSON.stringify({})
+        alert(response.msg)
         localStorage.setItem('userProfile', JSON.stringify(state.userProfile))
         localStorage.setItem('currentRecord', JSON.stringify(state.currentRecord))
         // console.log('RECORDS UPDATED', response)
