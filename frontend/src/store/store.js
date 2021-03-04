@@ -249,7 +249,7 @@ const actions = {
         context.commit('setRecords', response.data)
       })
       .catch(error => {
-        console.log('Error Registering: ', error)
+        console.log('Error Getting Records: ', error)
       })
   },
   classRecords (context, payload) {
@@ -452,12 +452,16 @@ const mutations = {
     let _state = state
     updateRecAPI({userRecord: state.userRecord, userID: state.userProfile.userID, logsRecord: state.logsRecord, setRecord: state.setRecord, jwt: state.jwt})
       .then(function (response) {
+        console.log(response.data)
         _state.updateStatus = true
-        // localStorage.settings = JSON.stringify({})
-        alert(response.msg)
-        localStorage.setItem('userProfile', JSON.stringify(state.userProfile))
-        localStorage.setItem('currentRecord', JSON.stringify(state.currentRecord))
-        // console.log('RECORDS UPDATED', response)
+        if (response.data.status === 2) {
+          // user is logged in on another device
+          alert(response.data.msg)
+          state.jwt = ''
+        } else {
+          localStorage.setItem('userProfile', JSON.stringify(state.userProfile))
+          localStorage.setItem('currentRecord', JSON.stringify(state.currentRecord))
+        }
       })
       .catch(error => {
         // log and signal to app

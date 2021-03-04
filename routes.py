@@ -370,25 +370,26 @@ def update_record():
     user = User.query.get(userID)
 
     if jwt != user.extraInfo:
-        print ('jwt non match', jwt, userextra.Info)
+        print ('jwt non match', jwt, user.extraInfo)
         response = {
-        'msg' : 'Data was not saved due to multiple logins. Please refresh page to update your records'
+        'status' : 2,
+        'msg' : 'You will be logged out because you might be logged in on another device. Please log in again'
         }
         return jsonify(response)
     else:
         print ('jwt match', jwt)
 
-    print('updateRecord', setRecord)
+        print('updateRecord', setRecord)
 
-    #jStorer(user, logsRecord, userRecord, userDictionary)
-    jStorer(user, logsRecord, userRecord, setRecord)
-    redisStorer(user, logsRecord, userRecord, setRecord)
+        #jStorer(user, logsRecord, userRecord, userDictionary)
+        jStorer(user, logsRecord, userRecord, setRecord)
+        redisStorer(user, logsRecord, userRecord, setRecord)
 
-
-    response = {
-        'msg' : 'success'
-    }
-    return jsonify(response)
+        response = {
+            'status' : 1,
+            'msg' : 'success'
+        }
+        return jsonify(response)
 
 
 @app.route('/api/checkFriend', methods=['POST'])
@@ -496,6 +497,7 @@ def deleteFriend():
         'friends': friendString
     }
     return jsonify(response)
+
 
 @app.route("/api/updateAccount", methods=['POST'])
 def updateAccount():
