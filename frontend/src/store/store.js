@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import router from '../router'
 import { isValidJwt, parseLocal, checkDevice } from '@/utils'
-import { authenticate, register, updateRecAPI, updateAccount, getRecordAPI, ticket, getClass, addAudio, sendEmailAPI, requestToken, changePassword } from '@/api'
+import { authenticate, register, updateRecAPI, updateAccount, getRecordAPI, ticket, getClass, getGroups, addAudio, sendEmailAPI, requestToken, changePassword } from '@/api'
 import tourism1 from '../assets/json/tourism1.json'
 import tourism from '../assets/json/tourism.json'
 import digital1 from '../assets/json/digital1.json'
@@ -56,6 +56,7 @@ const state = {
   device: localStorage.device || '',
   loginTime: localStorage.loginTime || '',
   classRecords: null,
+  classGroups: null,
   audioLinks: {
     t: 'audio',
     f: 'foodio',
@@ -259,7 +260,18 @@ const actions = {
         context.commit('setClassRecords', response.data.classRecords)
       })
       .catch(error => {
-        console.log('Error Registering: ', error)
+        console.log('Error Retreiving Data: ', error)
+      })
+  },
+  classGroups (context, payload) {
+    // console.log('record request...')
+    return getGroups(payload)
+      .then(function (response) {
+        console.log(response.data)
+        context.commit('setClassGroups', response.data.classGroups)
+      })
+      .catch(error => {
+        console.log('Error Retrieving Data: ', error)
       })
   }
 }
@@ -345,6 +357,9 @@ const mutations = {
   },
   setClassRecords (state, payload) {
     state.classRecords = payload
+  },
+  setClassGroups (state, payload) {
+    state.classGroups = payload
   },
   setAccount (state, payload) {
     console.log('setAccount payload = ', payload.dataReturn)
@@ -435,7 +450,7 @@ const mutations = {
       return false
     }
     let _state = state
-    updateRecAPI({userRecord: state.userRecord, userID: state.userProfile.userID, logsRecord: state.logsRecord, setRecord: state.setRecord})
+    updateRecAPI({userRecord: state.userRecord, userID: state.userProfile.userID, logsRecord: state.logsRecord, setRecord: state.setRecord, jwt: state.jwt})
       .then(function (response) {
         _state.updateStatus = true
         // localStorage.settings = JSON.stringify({})
@@ -534,6 +549,10 @@ const getters = {
   classRecords (state) {
     // console.log(state.jwt)
     return state.classRecords
+  },
+  classGroups (state) {
+    // console.log(state.jwt)
+    return state.classGroups
   },
   isAuthenticated (state) {
     // console.log(state.jwt)
