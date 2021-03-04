@@ -48,10 +48,22 @@ export function getClass (payload) {
   return axios.post(host + '/api/getClass', payload)
 }
 
+export function getGroups (payload) {
+  return axios.post(host + '/api/getGroups', payload)
+}
+
 export function addImage (payload) {
   return axios.post(host + '/api/addImage', payload)
 }
 
 export function sendEmailAPI (payload) {
   return axios.post(host + '/api/sendEmail', payload)
+}
+
+export function requestToken (payload) {
+  return axios.post(host + '/api/requestToken', payload)
+}
+
+export function changePassword (payload) {
+  return axios.post(host + '/api/changePassword', payload)
 }
