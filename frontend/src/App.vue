@@ -111,14 +111,10 @@
 
     <b-modal align="center" ref="fail" hide-footer title="Test Mode" hide-header-close no-close-on-esc no-close-on-backdrop>
       <div class="d-block">
-        <h3> You are in an activity, please exit first </h3>
-        <b-avatar variant="alert" text="exit" size="2rem"></b-avatar>
-        or
-        <div class="buttonSample bg-alert text-alert px-1">
-          <b-avatar variant="cream" text="exit" size="2rem"></b-avatar>
-        </div>
+        <h3> Would you like to exit this activity now? </h3>
       </div>
-      <button class="buttonDiv mt-3 bg-alert text-cream" style="width:60%"  @click="hideModal()">Close</button>
+      <button class="buttonDiv mt-3 bg-info text-cream" style="width:40%"  @click="hideModal('stay')">No</button>
+      <button class="buttonDiv mt-3 bg-alert text-cream" style="width:40%"  @click="hideModal('exit')">Exit</button>
     </b-modal>
 
   </div>
@@ -171,8 +167,13 @@ export default {
     showFail: function () {
       this.$refs['fail'].show()
     },
-    hideModal: function () {
-      this.$refs['fail'].hide()
+    hideModal: function (arg) {
+      if (arg === 'stay') {
+        this.$refs['fail'].hide()
+      } else {
+        this.exitToggle()
+        this.$refs['fail'].hide()
+      }
     },
     contClass: function () {
       if (this.getPath() in this.btnCodes) {
