@@ -98,7 +98,9 @@ export default {
         chinese: this.pictCh,
         link: null,
         code: this.codeGen(),
-        vocab: this.vocabList
+        vocab: this.vocabList,
+        note: null,
+        status: null
       }
     }
   },

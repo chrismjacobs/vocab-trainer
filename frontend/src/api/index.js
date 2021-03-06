@@ -67,3 +67,7 @@ export function requestToken (payload) {
 export function changePassword (payload) {
   return axios.post(host + '/api/changePassword', payload)
 }
+
+export function instructorRedis (payload) {
+  return axios.post(host + '/api/instructorRedis', payload)
+}

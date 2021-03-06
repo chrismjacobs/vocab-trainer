@@ -37,10 +37,7 @@ def register():
     data = request.get_json()['form']
     pprint(data)
 
-    # name = data['username'].strip()
-
-    # studentID = data['studentID']
-    # classroom = (data['classroom'].lower()).strip()
+    name = data['username'].strip()
 
     email = (data['email'].lower()).strip()
     checkEmail = User.query.filter_by(email=email).first()
@@ -49,11 +46,11 @@ def register():
         return jsonify({'msg' : 'This email has been used already.', 'err': 1})
 
     hashed_password = bcrypt.generate_password_hash(data['password']).decode('utf-8')
-    newUser = User(username=data['username'], email=email, password=hashed_password)
+    newUser = User(username=name, email=email, password=hashed_password)
     db.session.add(newUser)
     db.session.commit()
 
-    user = User.query.filter_by(username=data['username']).first()
+    user = User.query.filter_by(username=name).first()
 
     response = {
         'msg' : 'Hi ' + data['username'] + ', you have been registered. Please log in to continue'
@@ -165,6 +162,78 @@ def getGroups():
         })
 
 
+@app.route("/api/instructorRedis", methods=['POST'])
+def instructorRedis():
+    print('INSTRUCTOR REDIS')
+
+    data = request.get_json()
+    pprint(data)
+
+    group = data['group']
+    action = data['action']
+
+    msg= None
+    payload = {}
+
+    if action == 'setNotes':
+        notes = data['notes']
+        redisData.hset(group, "notes", json.dumps(notes))
+        msg = 'notes success'
+
+    elif action == 'getNotesInstructor':
+        string = redisData.hget(group, "notes")
+        if string:
+            payload = json.loads(string)
+        msg = 'notes'
+
+    elif action == 'getNotesStudent':
+        student = (data['student'])
+        rDict = json.loads(redisData.hget(group, "notes"))
+        pprint(rDict)
+        if rDict[str(student)]:
+            payload = rDict[str(student)]
+        msg = 'notes'
+
+    elif action == 'setTests':
+        testData = data['testData']
+        redisData.hset(group, "tests", json.dumps(testData))
+        msg = 'tests success'
+
+    else:
+        msg = 'fail'
+
+    return jsonify({
+        'payload' : payload,
+        'msg' : msg,
+        })
+
+
+@app.route("/api/getClass", methods=['POST'])
+def get_class():
+    print('GET CLASS')
+
+    userID = request.get_json()['userID']
+    user = User.query.get(userID)
+    classroom = request.get_json()['classroom']
+
+    users = User.query.filter_by(classroom=classroom).all()
+
+    classDict = {}
+
+    for user in users:
+        classDict[user.id] = {}
+        classDict[user.id]['user'] = user.username
+
+        content = jChecker(user, True, True, True)
+        classDict[user.id]['userRecord'] = content['userRecord']
+        classDict[user.id]['setRecord'] = content['setRecord']
+        classDict[user.id]['logsRecord'] = content['logsRecord']
+
+    return jsonify({
+        'classRecords': classDict
+        })
+
+
 def send_welcome_email(user):
     print(user)
     msg = Message('Welcome ' + user.username + ', to VOCAB TRAINER',
@@ -175,7 +244,6 @@ def send_welcome_email(user):
     ## msg.html = "<img href='https://picsum.photos/1024/480'> </img>"
 
     mail.send(msg)
-
 
 
 @app.route("/api/requestToken", methods=['POST'])
@@ -330,30 +398,6 @@ def add_audio():
 
     return jsonify({'result': result, 'defch2': defch2})
 
-@app.route("/api/getClass", methods=['POST'])
-def get_class():
-    print('GET CLASS')
-
-    userID = request.get_json()['userID']
-    user = User.query.get(userID)
-    classroom = request.get_json()['classroom']
-
-    users = User.query.filter_by(classroom=classroom).all()
-
-    classDict = {}
-
-    for user in users:
-        classDict[user.id] = {}
-        classDict[user.id]['user'] = user.username
-
-        content = jChecker(user, True, True, True)
-        classDict[user.id]['userRecord'] = content['userRecord']
-        classDict[user.id]['setRecord'] = content['setRecord']
-        classDict[user.id]['logsRecord'] = content['logsRecord']
-
-    return jsonify({
-        'classRecords': classDict
-        })
 
 @app.route('/api/updateRecord', methods=['POST'])
 def update_record():

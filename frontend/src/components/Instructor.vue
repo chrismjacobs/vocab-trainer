@@ -1,28 +1,82 @@
 
 <template>
-  <div>
-    <b-container>
-      <div class="bg-grey p-3">
-          <b-row>
-            <b-col align="center">
-              <button class="buttonDiv bg-alert px-3" style="width:45%; height:50px" @click="getClass()"> <b-icon-arrow-clockwise variant="cream" font-scale="1.5"></b-icon-arrow-clockwise></button>
-            </b-col>
-          </b-row>
-      </div>
+  <div id="instructor">
 
-      <table class="table">
+    <div class="mt-2 bg-second p-2 head">
+      <div class="ml-2">
+        <b-row >
+          <b-col >
+            <h3 class="text-cream" > Instructor Dashboard </h3>
+          </b-col>
+        </b-row>
+      </div>
+    </div>
+
+    <div class="bg-white">
+
+          <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Class</th>
+                  <th scope="col">Students</th>
+                  <th scope="col">Load</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(entry, index) in classGroups" :key="index">
+                  <th scope="row">{{index}}</th>
+                  <td>{{entry.code}}</td>
+                  <td> {{entry.count}}</td>
+                  <td>  <button class="buttonDiv bg-info px-3" style="width:auto; height:auto" @click="getClass(entry.code)">
+                    <b-icon-arrow-clockwise variant="cream" font-scale="1.5"></b-icon-arrow-clockwise>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+    </div>
+
+    <div class="mt-2 bg-second p-2 head">
+      <div class="ml-2">
+        <b-row >
+          <b-col >
+            <h3 class="text-cream" > Class: {{$store.state.classLoad}} </h3>
+          </b-col>
+          <b-col align="right">
+            <button class="buttonDiv bg-alert text-cream px-3" style="width:auto; height:auto" @click="saveRecords()">
+                        SAVE
+            </button>
+          </b-col>
+        </b-row>
+      </div>
+    </div>
+
+    <div v-if="classRecords" class="bg-white mt-0 p-0">
+
+      <table class="table table-striped">
+              <thead>
+                    <tr>
+                      <th scope="col">Student</th>
+                      <th scope="col">Logs</th>
+                      <th scope="col">Favs</th>
+                      <th scope="col">Pics</th>
+                      <th scope="col">Adds</th>
+                      <th scope="col">Stats</th>
+                    </tr>
+              </thead>
                     <tbody>
-                      <div v-for="(item, key) in classRecords" :key="key">
-                        <tr>
+                      <template v-for="(item, key) in classRecords">
+                        <tr :key="key">
                           <td  style="width:150px" >{{key}}# {{item.user}}</td>
-                          <td></td>
                           <td>
                             <b-form-select style="width:50px;overflow-y: hidden">
                               <option v-for="(line, date) in getDates(item.logsRecord.logs)" :key="line[0]"> {{date}}: {{line}}  </option>
                             </b-form-select>
                           <td>
-                            <div style="display:inline-block">
-                            <b-icon-star-fill variant="warning" font-scale="1.5"></b-icon-star-fill> ({{getLength(item.setRecord.starRecord)}})
+                            <div style="width:70px; display:inline-block">
+                            <b-icon-star-fill variant="warning" font-scale="1.5"></b-icon-star-fill> {{getLength(item.setRecord.starRecord)}}
                             </div>
                             <div style="display:inline-block">
                              <b-form-select style="width:100px;overflow-y: hidden">
@@ -31,8 +85,8 @@
                             </div>
                           </td>
                           <td>
-                            <div style="display:inline-block">
-                            <b-icon-images variant="safe" font-scale="1.5" ></b-icon-images> ({{getLength(item.setRecord.dictRecord)}})
+                            <div style="width:70px; display:inline-block">
+                            <b-icon-images @click="showPicts(key)" variant="safe" font-scale="1.5" ></b-icon-images> {{getLength(item.setRecord.dictRecord)}}
                             </div>
                             <div style="display:inline-block">
                                <b-form-select style="width:100px;overflow-y: hidden; display:inline">
@@ -41,8 +95,8 @@
                             </div>
                           </td>
                           <td>
-                            <div style="display:inline-block">
-                              <b-icon-arrow-up-circle-fill variant="info" font-scale="1.5"></b-icon-arrow-up-circle-fill> ({{getLength(item.setRecord.addRecord)}})
+                            <div style="width:70px; display:inline-block">
+                              <b-icon-arrow-up-circle-fill variant="info" font-scale="1.5"></b-icon-arrow-up-circle-fill> {{getLength(item.setRecord.addRecord)}}
                             </div>
                             <div style="display:inline-block">
                              <b-form-select style="width:100px;overflow-y: hidden">
@@ -54,26 +108,83 @@
                             <b-icon @click="showScores(key)" icon="bar-chart-fill" variant="alert" font-scale="1.5"></b-icon> {{vocabCount(item.userRecord, item.user)}}
                           </td>
                         </tr>
-                        <div v-if="key.toString() in scores && scores[key.toString()] === 1">
-                          <div v-for="(test, key) in userRecItems(item.userRecord)" :key="key">
-                            <div v-if="valueSum(test) > 0">
-                             {{key}}
-                              <b-progress style="height:20px" show-value>
-                                      <b-progress-bar :value="test.problem" :variant="getVariant('problem')"></b-progress-bar>
-                                      <b-progress-bar :value="test.weak" :variant="getVariant('weak')"></b-progress-bar>
-                                      <b-progress-bar :value="test.okay" :variant="getVariant('okay')"></b-progress-bar>
-                                      <b-progress-bar :value="test.good" :variant="getVariant('good')"></b-progress-bar>
-                                      <b-progress-bar :value="test.strong" :variant="getVariant('strong')"></b-progress-bar>
-                              </b-progress>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                        <transition name="tableboard" :key="key">
+                            <tr v-if="key.toString() in scoreShow && scoreShow[key.toString()] === 1">
+                              <td colspan="6">
+                                <b-row v-for="(test, keyy) in userRecItems(item.userRecord)" :key="keyy">
+                                  <b-col cols="2" align="right">
+                                    {{counterKeys[keyy]}}
+                                  </b-col>
+                                  <b-col>
+                                      <div v-if="valueSum(test) > 0">
+                                        <b-progress style="height:20px" show-value>
+                                                <b-progress-bar :value="test.problem" :variant="getVariant('problem')"></b-progress-bar>
+                                                <b-progress-bar :value="test.weak" :variant="getVariant('weak')"></b-progress-bar>
+                                                <b-progress-bar :value="test.okay" :variant="getVariant('okay')"></b-progress-bar>
+                                                <b-progress-bar :value="test.good" :variant="getVariant('good')"></b-progress-bar>
+                                                <b-progress-bar :value="test.strong" :variant="getVariant('strong')"></b-progress-bar>
+                                        </b-progress>
+                                      </div>
+                                  </b-col>
+                                </b-row>
+                              </td>
+                            </tr>
+                        </transition>
+
+                        <transition name="tableboard" :key="key">
+                          <tr v-if="key.toString() in pictShow && pictShow[key.toString()] === 1">
+                            <td colspan="6">
+                            <b-table
+                              striped hover
+                              :items="getPictArray(item.setRecord.dictRecord)"
+                              :fields="pields"
+                              head-variant="dark"
+                              >
+                                <template v-slot:cell(link)="data">
+                                  <h5> {{data.item.word}} </h5>
+                                  <h5> {{data.item.chinese}} </h5>
+                                <b-img style="max-width:100px" thumbnail fluid :src="getImage(data.item.word, data.item.link, key, data.item.vocab)"></b-img>
+                                </template>
+                                <template v-slot:cell(def)="data">
+                                  <span style="color:green"> {{data.value}} </span>
+                                  <hr>
+                                {{data.item.text}}
+
+                                <hr>
+                                <b-form-input
+                                v-model="data.item.note"
+                                placeholder="Add Note"
+                                >
+                                </b-form-input>
+
+                                </template>
+                                <template v-slot:cell(status)="data">
+                                   <b-form-select
+                                   style="width:100px;overflow-y: hidden"
+                                   v-model="data.item.status"
+                                   >
+                                      <option v-for="(x, key) in [0,1,2,3]" :key="key"> {{x}} </option>
+                                    </b-form-select>
+                                </template>
+                              </b-table>
+                            </td>
+                          </tr>
+                        </transition>
+                      </template>
 
                     </tbody>
-                  </table>
+      </table>
 
-    </b-container>
+    </div>
+
+    <div v-else-if="waiting" align="center" class="bg-smoke">
+      <br>
+      <br>
+        <h4 class="text-prime"> Loading Data </h4>
+        <b-icon icon="three-dots" animation="cylon" variant="prime" font-scale="6"></b-icon>
+      <br>
+      <br>
+    </div>
   </div>
 
 </template>
@@ -83,12 +194,46 @@ export default {
   data () {
     return {
       master: this.classRecords,
-      scores: {}
+      counterKeys: {
+        transEng: 'English Test',
+        transCh: 'Chinese Test',
+        typeTest: 'Type Test',
+        matchTrans: 'Match',
+        matchType: 'Type Match'
+      },
+      scoreShow: {},
+      pictShow: {},
+      waiting: false,
+      instrucorLogs: {},
+      pields: [
+        {key: 'link', label: 'Picture', sortable: true},
+        {key: 'def', label: 'Info', sortable: true},
+        {key: 'status', label: 'Record', sortable: true}
+      ]
     }
   },
   methods: {
-    getClass: function () {
-      this.$store.dispatch('classRecords', { userID: this.$store.state.userProfile.userID, classroom: this.$store.state.userProfile.classroom })
+    saveRecords: function () {
+      alert('saving data')
+
+      let notes = {}
+      for (let student in this.classRecords) {
+        notes[student] = this.classRecords[student]['setRecord']['dictRecord']
+      }
+      this.$store.dispatch('instructorLogs', { notes: notes, group: this.$store.state.classLoad, action: 'setNotes' })
+    },
+    getClass: function (group) {
+      this.waiting = true
+      this.$store.dispatch('instructorLogs', { group: group, action: 'getNotesInstructor' })
+      this.$store.dispatch('classRecords', { userID: this.$store.state.userProfile.userID, classroom: group })
+    },
+    getPictArray: function (obj) {
+      let pictList = []
+      for (let entry in obj) {
+        pictList.push(obj[entry])
+      }
+      console.log('pictList', pictList)
+      return pictList
     },
     getVariant: function (arg) {
       let styles = {
@@ -102,13 +247,22 @@ export default {
       return styles[arg]
     },
     showScores: function (user) {
-      if (!this.scores[user] || this.scores[user] === 0) {
-        this.scores[user] = 1
+      if (!this.scoreShow[user] || this.scoreShow[user] === 0) {
+        this.scoreShow[user] = 1
       } else {
-        this.scores[user] = 0
+        this.scoreShow[user] = 0
       }
-      this.scores = {...this.scores}
-      console.log(user, this.scores)
+      this.scoreShow = {...this.scoreShow}
+      console.log(user, this.scoreShow)
+    },
+    showPicts: function (user) {
+      if (!this.pictShow[user] || this.pictShow[user] === 0) {
+        this.pictShow[user] = 1
+      } else {
+        this.pictShow[user] = 0
+      }
+      this.pictShow = {...this.pictShow}
+      console.log(user, this.pictShow)
     },
     valueSum: function (test) {
       let sum = 0
@@ -118,6 +272,7 @@ export default {
       return sum
     },
     getLength: function (obj) {
+      delete obj['add']
       return Object.keys(obj).length
     },
     getDates: function (logs) {
@@ -133,6 +288,15 @@ export default {
         }
       }
       return dates
+    },
+    getImage: function (word, code, userID, vocab) {
+      if (code === 'add') {
+        return 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/add.jpg'
+      } else {
+        let link = 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/profiles/' + userID + '/' + vocab + '/' + word + code + '.jpg'
+        console.log(link)
+        return link
+      }
     },
     userRecItems: function (userRecord) {
       let counter = {
@@ -162,30 +326,43 @@ export default {
     },
     vocabCount: function (userRecord, user) {
       let counter = {}
-      let score = 0
+      // let score = 0
 
       for (let item in userRecord) {
-        console.log(userRecord[item])
         for (let word in userRecord[item]) {
           counter[word] = 1
-          let vocabScore = userRecord[item][word]
-          score += vocabScore
+          // let vocabScore = userRecord[item][word]
+          // score += vocabScore
         }
       }
-      // console.log(user, counter)
-      // console.log(userRecord)
 
       let vCount = Object.keys(counter).length
 
-      return [vCount, score]
+      return vCount
     }
   },
   created () {
+    this.$store.dispatch('classGroups', { userID: this.$store.state.userProfile.userID })
   },
   computed: {
     classRecords () {
-      console.log('computed')
       return this.$store.getters.classRecords
+    },
+    classGroups () {
+      return this.$store.getters.classGroups
+    }
+  },
+  watch: {
+    classRecords: function () {
+      if (this.classRecords !== null) {
+        for (let student in this.classRecords) {
+          for (let vocab in this.classRecords[student]['setRecord']['dictRecord']) {
+            this.classRecords[student]['setRecord']['dictRecord'][vocab]['note'] = null
+            this.classRecords[student]['setRecord']['dictRecord'][vocab]['status'] = null
+          }
+        }
+      }
+      console.log('classRecords Redux', this.classRecords)
     }
   }
 }
@@ -193,5 +370,31 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+.tableboard-enter-active, .tableboard-leave-active  {
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease;
+}
+
+.tableboard-enter-active {
+  transition-delay: 0.2s;
+}
+
+.tableboard-enter {
+  opacity: 0;
+}
+
+.tableboard-enter-to {
+  opacity: 1;
+}
+
+.tableboard-leave {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.tableboard-leave-to {
+  opacity: 0;
+  transform: translateY(100px);
+}
 
 </style>

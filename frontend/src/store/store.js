@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import router from '../router'
 import { isValidJwt, parseLocal, checkDevice } from '@/utils'
-import { authenticate, register, updateRecAPI, updateAccount, getRecordAPI, ticket, getClass, getGroups, addAudio, sendEmailAPI, requestToken, changePassword } from '@/api'
+import { authenticate, register, updateRecAPI, updateAccount, getRecordAPI, ticket, getClass, getGroups, instructorRedis, addAudio, sendEmailAPI, requestToken, changePassword } from '@/api'
 import tourism1 from '../assets/json/tourism1.json'
 import tourism from '../assets/json/tourism.json'
 import digital1 from '../assets/json/digital1.json'
@@ -55,8 +55,10 @@ const state = {
   testActive: false,
   device: localStorage.device || '',
   loginTime: localStorage.loginTime || '',
+  classLoad: null,
   classRecords: null,
   classGroups: null,
+  studentNotes: {},
   audioLinks: {
     t: 'audio',
     f: 'foodio',
@@ -254,9 +256,13 @@ const actions = {
   },
   classRecords (context, payload) {
     // console.log('record request...')
+    let classroom = payload.classroom
+    context.commit('setClassRecords', null)
+    context.commit('setClassLoad', null)
     return getClass(payload)
       .then(function (response) {
         console.log(response.data)
+        context.commit('setClassLoad', classroom)
         context.commit('setClassRecords', response.data.classRecords)
       })
       .catch(error => {
@@ -272,6 +278,21 @@ const actions = {
       })
       .catch(error => {
         console.log('Error Retrieving Data: ', error)
+      })
+  },
+  instructorLogs (context, payload) {
+    // console.log('record request...')
+    return instructorRedis(payload)
+      .then(function (response) {
+        console.log(response.data)
+        if (response.data.msg === 'notes') {
+          context.commit('setNotes', response.data.payload)
+        } else {
+          console.log(response.data.msg)
+        }
+      })
+      .catch(error => {
+        console.log('Error Retrieving Redis Data: ', error)
       })
   }
 }
@@ -356,10 +377,18 @@ const mutations = {
     }
   },
   setClassRecords (state, payload) {
+    // set to null initially before api is returned
     state.classRecords = payload
+  },
+  setClassLoad (state, payload) {
+    // set to null initially before api is returned
+    state.classLoad = payload
   },
   setClassGroups (state, payload) {
     state.classGroups = payload
+  },
+  setNotes (state, payload) {
+    state.studentNotes = payload
   },
   setAccount (state, payload) {
     console.log('setAccount payload = ', payload.dataReturn)
@@ -552,7 +581,14 @@ const mutations = {
 const getters = {
   // reusable data accessors
   classRecords (state) {
-    // console.log(state.jwt)
+    for (let s in state.studentNotes) {
+      for (let word in state.studentNotes[s]) {
+        if (state.classRecords[s] && state.classRecords[s]['setRecord']['dictRecord'][word]) {
+          state.classRecords[s]['setRecord']['dictRecord'][word]['status'] = state.studentNotes[s][word]['status']
+          state.classRecords[s]['setRecord']['dictRecord'][word]['note'] = state.studentNotes[s][word]['note']
+        }
+      }
+    }
     return state.classRecords
   },
   classGroups (state) {

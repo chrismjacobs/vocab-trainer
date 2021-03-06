@@ -32,7 +32,7 @@
         </b-row>
         <b-row >
           <b-col align="center">
-            <button class="buttonDiv bg-second px-3" style="width:60px" @click="changeSelected('p')"> <b-icon-images :variant="getIcon('p')" font-scale="1.5"></b-icon-images></button>
+            <button class="buttonDiv bg-second px-3" style="width:60px" @click="changeSelected('p'), getNotes()"> <b-icon-images :variant="getIcon('p')" font-scale="1.5"></b-icon-images></button>
             <button class="buttonDiv bg-second px-3" style="width:60px" @click="changeSelected('*')"> <b-icon-star-fill :variant="getIcon('*')" font-scale="1.5"></b-icon-star-fill></button>
             <button v-if="vocabList[0] === 'g'" class="buttonDiv bg-second px-3" style="width:60px;t" @click="changeSelected('+')"> <b-icon-arrow-up-circle-fill :variant="getIcon('+')" font-scale="1.5"></b-icon-arrow-up-circle-fill></button>
             <button  :class="getSoundButton()" style="width:60px;t" @click="tapSound()"> <b-icon-soundwave :variant="getSoundwave()" font-scale="1.5"></b-icon-soundwave></button>
@@ -95,7 +95,7 @@
              <template v-else>
                 <b-icon-star @click="addStar(data.value, 1)"></b-icon-star> &nbsp; <br class="d-lg-none">
              </template>
-             <b-icon-card-image :variant="getVariant(data.item.Picture)" @click="picture = !picture, filterPicture(data.value, data.item.Chinese)"></b-icon-card-image>  &nbsp; <br class="d-lg-none">
+             <b-icon-card-image :variant="getVariant(data.item.Picture, data.value)" @click="picture = !picture, filterPicture(data.value, data.item.Chinese)"></b-icon-card-image>  &nbsp; <br class="d-lg-none">
             </b-col>
             <b-col>
               <span v-if="soundCount !== 1" :id="data.value + '_en/'" @click="playAudio(data.value, '_en/', data.item.mp3en, true)"> {{data.value}} <br> ({{data.item.Gr}}) </span>
@@ -132,6 +132,11 @@
           <span style="color:green"> {{data.value}} </span>
           <hr>
          {{data.item.text}}
+
+         <div :class="getStatus(data.item.word)" v-if="getNote(data.item.word)">
+           <hr>
+           {{getNote(data.item.word)}}
+         </div>
          </template>
       </b-table>
       </div>
@@ -364,6 +369,40 @@ export default {
         return link
       }
     },
+    getColors: function (word) {
+      if (this.getStatus(word) > 0) {
+        return 'bg-warn text-cream'
+      } else {
+        return null
+      }
+    },
+    getStatus: function (word) {
+      let status = 0
+      if (this.$store.state.studentNotes[word]) {
+        status = this.$store.state.studentNotes[word]['status']
+      }
+      return status
+    },
+    getNote: function (word) {
+      if (this.$store.state.studentNotes[word]) {
+        return this.$store.state.studentNotes[word]['note']
+      } else {
+        return null
+      }
+    },
+    getNotes: function () {
+      this.$store.dispatch('instructorLogs', { student: this.$store.state.userProfile.userID, group: this.$store.state.userProfile.classroom, action: 'getNotesStudent' })
+    },
+    getVariant: function (arg, word) {
+      let v = 'prime'
+      if (arg) {
+        v = 'success'
+      }
+      if (this.getStatus(word) > 0) {
+        v = 'warn'
+      }
+      return v
+    },
     tapSound: function () {
       if (this.soundCount === 2) {
         this.soundCount = 0
@@ -411,7 +450,6 @@ export default {
       let alArr = alphabet.split('')
 
       this.shuffle(alArr)
-      console.log(alArr)
       this.selected = [alArr[0], null, null]
     },
     filterTable: function (row, filter) {
@@ -480,13 +518,6 @@ export default {
       for (let letter in alphabet) {
         this.optionsA.push({ value: alphabet[letter], text: alphabet[letter] })
       }
-    },
-    getVariant: function (arg) {
-      let v = 'prime'
-      if (arg) {
-        v = 'success'
-      }
-      return v
     },
     playAudio: function (arg, folder, link, normal) {
       // folder === '_en'
