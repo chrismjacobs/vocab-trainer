@@ -280,8 +280,12 @@ const actions = {
         console.log('Error Retrieving Data: ', error)
       })
   },
+  updateNotes (context, payload) {
+    console.log('notes payload', payload)
+    context.commit('setNotes', payload.notes)
+  },
   instructorLogs (context, payload) {
-    // console.log('record request...')
+    console.log('instrcutor logs request...', payload)
     return instructorRedis(payload)
       .then(function (response) {
         console.log(response.data)
@@ -581,14 +585,6 @@ const mutations = {
 const getters = {
   // reusable data accessors
   classRecords (state) {
-    for (let s in state.studentNotes) {
-      for (let word in state.studentNotes[s]) {
-        if (state.classRecords[s] && state.classRecords[s]['setRecord']['dictRecord'][word]) {
-          state.classRecords[s]['setRecord']['dictRecord'][word]['status'] = state.studentNotes[s][word]['status']
-          state.classRecords[s]['setRecord']['dictRecord'][word]['note'] = state.studentNotes[s][word]['note']
-        }
-      }
-    }
     return state.classRecords
   },
   classGroups (state) {
@@ -631,6 +627,11 @@ const getters = {
     for (let v in state.setRecord.addRecord) {
       // console.log(v)
       dict[v] = state.setRecord.addRecord[v]
+    }
+
+    // having add in the match game causes complications
+    if (dict['add']) {
+      delete dict['add']
     }
 
     for (let vocab in dict) {
