@@ -143,11 +143,9 @@
           <hr>
          {{data.item.text}}
 
-         <div v-if="getNote(data.item.word)">
+         <div v-if="getNote(data.item.word)" @click="picture = !picture, filterPicture(data.item.word, data.item.chinese), showPictures = !showPictures">
            <hr>
-           <div :class="getColors(data.item.word)" >
-             {{getNote(data.item.word)}}
-           </div>
+             <span :class="getColors(data.item.word)"> &nbsp;  <b-icon-card-image></b-icon-card-image>  &nbsp; {{getNote(data.item.word)}} </span>
          </div>
          </template>
       </b-table>
@@ -281,7 +279,7 @@ export default {
         1: 'safe',
         2: 'alert',
         3: 'warn',
-        4: 'second',
+        4: 'p1',
         5: 'p2'
       },
       noteCodes: {
@@ -637,6 +635,7 @@ export default {
       this.$store.dispatch('newAdd', {word: newWord, details: {...this.wordDetails}, set: set})
       this.wordDetails.gl = null
       this.wordDetails.defch1 = null
+      this.wordDetails.defch２ = ''
     },
     shuffle: function (array) {
       // Fisher-Yates shuffle
