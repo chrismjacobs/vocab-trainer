@@ -85,7 +85,7 @@ export default {
       ],
       optionsR: [
         // { value: null, text: 'none' },
-        { value: null, text: '--' },
+        { value: null, text: '-' },
         { value: 1, text: '1' },
         { value: 2, text: '2' },
         { value: 3, text: '3' },
@@ -97,7 +97,7 @@ export default {
         1: 'safe',
         2: 'alert',
         3: 'warn',
-        4: 'second',
+        4: 'p1',
         5: 'p2'
       },
       noteCodes: {
