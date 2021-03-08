@@ -167,16 +167,19 @@ def instructorRedis():
     print('INSTRUCTOR REDIS')
 
     data = request.get_json()
-    pprint(data)
 
     group = data['group']
     action = data['action']
+
+    print(group)
+    print(action)
 
     msg= None
     payload = {}
 
     if action == 'setNotes':
         notes = data['notes']
+        print(notes)
         redisData.hset(group, "notes", json.dumps(notes))
         msg = 'notes success'
 
@@ -223,6 +226,7 @@ def get_class():
     for user in users:
         classDict[user.id] = {}
         classDict[user.id]['user'] = user.username
+        classDict[user.id]['studentID'] = user.studentID
 
         content = jChecker(user, True, True, True)
         classDict[user.id]['userRecord'] = content['userRecord']
