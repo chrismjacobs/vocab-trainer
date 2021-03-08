@@ -71,7 +71,17 @@
       </div>
 
       <transition name="board">
-      <DictPict v-on:pictureFalse="picture = false" v-if="picture" :s3="s3" :vocabList="vocabList" :pictWord="pictWord" :pictCh="pictCh"></DictPict>
+      <DictPict
+      v-on:pictureFalse="picture = false"
+      v-if="picture"
+      :s3="s3"
+      :vocabList="vocabList"
+      :pictWord="pictWord"
+      :pictCh="pictCh"
+      :colors="getColors(pictWord)"
+      :note="getNote(pictWord)"
+
+      ></DictPict>
       </transition>
 
       <div class="mb-0" v-if="!showPictures">
@@ -133,9 +143,11 @@
           <hr>
          {{data.item.text}}
 
-         <div :class="getStatus(data.item.word)" v-if="getNote(data.item.word)">
+         <div v-if="getNote(data.item.word)">
            <hr>
-           {{getNote(data.item.word)}}
+           <div :class="getColors(data.item.word)" >
+             {{getNote(data.item.word)}}
+           </div>
          </div>
          </template>
       </b-table>
@@ -264,6 +276,22 @@ export default {
         '-1': 'warn',
         '-2': 'alert'
       },
+      colors: {
+        null: 'smoke',
+        1: 'safe',
+        2: 'alert',
+        3: 'warn',
+        4: 'second',
+        5: 'p2'
+      },
+      noteCodes: {
+        null: null,
+        1: 'Good',
+        2: 'Grammar',
+        3: 'Punctuation',
+        4: 'Detail',
+        5: 'Spelling'
+      },
       wordDetails: {
         gl: null,
         defch1: null,
@@ -370,11 +398,8 @@ export default {
       }
     },
     getColors: function (word) {
-      if (this.getStatus(word) > 0) {
-        return 'bg-warn text-cream'
-      } else {
-        return null
-      }
+      let color = this.colors[this.getStatus(word)]
+      return 'bg-' + color + ' text-cream'
     },
     getStatus: function (word) {
       let status = 0
@@ -385,7 +410,12 @@ export default {
     },
     getNote: function (word) {
       if (this.$store.state.studentNotes[word]) {
-        return this.$store.state.studentNotes[word]['note']
+        let noteTag = this.noteCodes[this.$store.state.studentNotes[word]['status']]
+        if (this.$store.state.studentNotes[word]['note']) {
+          return noteTag + ': ' + this.$store.state.studentNotes[word]['note']
+        } else {
+          return noteTag
+        }
       } else {
         return null
       }
@@ -398,8 +428,8 @@ export default {
       if (arg) {
         v = 'success'
       }
-      if (this.getStatus(word) > 0) {
-        v = 'warn'
+      if (this.getStatus(word)) {
+        v = this.colors[this.getStatus(word)]
       }
       return v
     },

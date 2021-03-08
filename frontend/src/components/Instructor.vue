@@ -46,7 +46,7 @@
           </b-col>
           <b-col align="right">
             <button class="buttonDiv bg-alert text-cream px-3" style="width:auto; height:auto" @click="saveRecords()">
-                        SAVE
+                        SAVE NOTES
             </button>
           </b-col>
         </b-row>
@@ -86,7 +86,7 @@
                           </td>
                           <td>
                             <div style="width:70px; display:inline-block">
-                            <b-icon-images @click="showPicts(key)" variant="safe" font-scale="1.5" ></b-icon-images> {{getLength(item.setRecord.dictRecord)}}
+                            <b-icon-images @click="showPictsOne(key)" variant="safe" font-scale="1.5" ></b-icon-images> {{getLength(item.setRecord.dictRecord)}}
                             </div>
                             <div style="display:inline-block">
                                <b-form-select style="width:100px;overflow-y: hidden; display:inline">
@@ -132,41 +132,10 @@
                         </transition>
 
                         <transition name="tableboard" :key="key">
-                          <tr v-if="key.toString() in pictShow && pictShow[key.toString()] === 1">
+                          <!--<tr v-if="key.toString() in pictShow && pictShow[key.toString()] === 1">-->
+                          <tr v-if="key.toString() === pictShowOne">
                             <td colspan="6">
-                            <b-table
-                              striped hover
-                              :items="getPictArray(item.setRecord.dictRecord)"
-                              :fields="pields"
-                              head-variant="dark"
-                              >
-                                <template v-slot:cell(link)="data">
-                                  <h5> {{data.item.word}} </h5>
-                                  <h5> {{data.item.chinese}} </h5>
-                                <b-img style="max-width:100px" thumbnail fluid :src="getImage(data.item.word, data.item.link, key, data.item.vocab)"></b-img>
-                                </template>
-                                <template v-slot:cell(def)="data">
-                                  <span style="color:green"> {{data.value}} </span>
-                                  <hr>
-                                {{data.item.text}}
-
-                                <hr>
-                                <b-form-input
-                                v-model="data.item.note"
-                                placeholder="Add Note"
-                                >
-                                </b-form-input>
-
-                                </template>
-                                <template v-slot:cell(status)="data">
-                                   <b-form-select
-                                   style="width:100px;overflow-y: hidden"
-                                   v-model="data.item.status"
-                                   >
-                                      <option v-for="(x, key) in [0,1,2,3]" :key="key"> {{x}} </option>
-                                    </b-form-select>
-                                </template>
-                              </b-table>
+                              <InstPicts :s3="s3" :student="key" :itemMaster="item"></InstPicts>
                             </td>
                           </tr>
                         </transition>
@@ -190,7 +159,16 @@
 </template>
 
 <script>
+import InstPicts from './InstPicts'
+
 export default {
+  name: 'Instructor',
+  props: {
+    s3: String
+  },
+  components: {
+    InstPicts
+  },
   data () {
     return {
       master: this.classRecords,
@@ -203,37 +181,15 @@ export default {
       },
       scoreShow: {},
       pictShow: {},
-      waiting: false,
-      instrucorLogs: {},
-      pields: [
-        {key: 'link', label: 'Picture', sortable: true},
-        {key: 'def', label: 'Info', sortable: true},
-        {key: 'status', label: 'Record', sortable: true}
-      ]
+      pictShowOne: null,
+      waiting: false
     }
   },
   methods: {
-    saveRecords: function () {
-      alert('saving data')
-
-      let notes = {}
-      for (let student in this.classRecords) {
-        notes[student] = this.classRecords[student]['setRecord']['dictRecord']
-      }
-      this.$store.dispatch('instructorLogs', { notes: notes, group: this.$store.state.classLoad, action: 'setNotes' })
-    },
     getClass: function (group) {
       this.waiting = true
       this.$store.dispatch('instructorLogs', { group: group, action: 'getNotesInstructor' })
       this.$store.dispatch('classRecords', { userID: this.$store.state.userProfile.userID, classroom: group })
-    },
-    getPictArray: function (obj) {
-      let pictList = []
-      for (let entry in obj) {
-        pictList.push(obj[entry])
-      }
-      console.log('pictList', pictList)
-      return pictList
     },
     getVariant: function (arg) {
       let styles = {
@@ -264,6 +220,9 @@ export default {
       this.pictShow = {...this.pictShow}
       console.log(user, this.pictShow)
     },
+    showPictsOne: function (user) {
+      this.pictShowOne = user
+    },
     valueSum: function (test) {
       let sum = 0
       for (let c in test) {
@@ -288,15 +247,6 @@ export default {
         }
       }
       return dates
-    },
-    getImage: function (word, code, userID, vocab) {
-      if (code === 'add') {
-        return 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/add.jpg'
-      } else {
-        let link = 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/profiles/' + userID + '/' + vocab + '/' + word + code + '.jpg'
-        console.log(link)
-        return link
-      }
     },
     userRecItems: function (userRecord) {
       let counter = {
@@ -339,6 +289,11 @@ export default {
       let vCount = Object.keys(counter).length
 
       return vCount
+    },
+    saveRecords: function () {
+      if (this.$store.state.studentNotes !== {}) {
+        this.$store.dispatch('instructorLogs', { group: this.$store.state.classLoad, action: 'setNotes', notes: this.$store.state.studentNotes })
+      }
     }
   },
   created () {
@@ -353,17 +308,20 @@ export default {
     }
   },
   watch: {
-    classRecords: function () {
-      if (this.classRecords !== null) {
-        for (let student in this.classRecords) {
-          for (let vocab in this.classRecords[student]['setRecord']['dictRecord']) {
-            this.classRecords[student]['setRecord']['dictRecord'][vocab]['note'] = null
-            this.classRecords[student]['setRecord']['dictRecord'][vocab]['status'] = null
-          }
-        }
-      }
-      console.log('classRecords Redux', this.classRecords)
-    }
+    // classRecords: function () {
+    //   if (this.classRecords !== null) {
+    //     for (let student in this.classRecords) {
+    //       for (let vocab in this.classRecords[student]['setRecord']['dictRecord']) {
+    //         this.classRecords[student]['setRecord']['dictRecord'][vocab]['note'] = null
+    //         this.classRecords[student]['setRecord']['dictRecord'][vocab]['status'] = null
+    //       }
+    //     }
+    //   }
+    //   console.log('classRecords Redux', this.classRecords)
+    // }
+  },
+  beforeDestroy () {
+    this.saveRecords()
   }
 }
 </script>

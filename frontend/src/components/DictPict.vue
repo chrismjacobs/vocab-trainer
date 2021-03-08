@@ -40,6 +40,13 @@
                     >
                     </b-form-textarea>
                 </b-input-group>
+                <div v-if="note">
+                  <hr>
+                  <div :class="colors" >
+                    {{note}}
+                  </div>
+                  <br>
+                </div>
                 <div class=" mt-2">
                   <button class="buttonDiv bg-success px-3" style="width:120px" @click="saveWord()"> <b-icon variant="cream" font-scale="1.5" icon="arrow-up"></b-icon><b-icon-card-image variant="cream" font-scale="1.5"></b-icon-card-image></button>
                   <button v-if="newWord.link" class="buttonDiv bg-danger px-3" style="width:60px;float:right" @click="deleteAlert()"> <b-icon variant="cream" font-scale="1.5" icon="trash-fill"></b-icon></button>
@@ -84,7 +91,9 @@ export default {
     s3: String,
     pictWord: String,
     pictCh: String,
-    vocabList: String
+    vocabList: String,
+    note: String,
+    colors: String
   },
   data () {
     return {
