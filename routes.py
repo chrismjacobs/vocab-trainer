@@ -228,7 +228,7 @@ def get_class():
         classDict[user.id]['user'] = user.username
         classDict[user.id]['studentID'] = user.studentID
 
-        content = jChecker(user, True, True, True)
+        content = redisChecker(user, True, True, True)
         classDict[user.id]['userRecord'] = content['userRecord']
         classDict[user.id]['setRecord'] = content['setRecord']
         classDict[user.id]['logsRecord'] = content['logsRecord']
@@ -364,7 +364,6 @@ def createAudio(word, defch2):
     return result
 
 
-
 @app.route("/api/addAudio", methods=['POST'])
 def add_audio():
     print(request.get_json())
@@ -438,113 +437,6 @@ def update_record():
             'msg' : 'success'
         }
         return jsonify(response)
-
-
-@app.route('/api/checkFriend', methods=['POST'])
-def checkFriend():
-    print('FRIEND')
-    payload = request.get_json()
-    pprint(payload)
-    friendName = payload['friendName']
-    friendID = payload['friendID']
-    userID = payload['userID']
-
-    print(friendName)
-    print(friendID)
-    print(userID)
-
-    friend = User.query.get(friendID)
-    user = User.query.get(userID)
-    friends = {}
-    friendsString = None
-
-    print(friend)
-
-    check = True
-
-    if friend and friend.id != userID:
-        checkName1 = (friendName.lower()).strip()
-        checkName2 = (friend.username.lower()).strip()
-        print(checkName1, checkName2)
-        if checkName1 != checkName2:
-            check = False
-    else:
-        check = False
-        return jsonify({'check': check})
-
-
-    ## add friend to sql connected and logs json
-    if check:
-        conUser = Connected.query.filter_by(connected=user).first()
-        print(conUser)
-        friends = json.loads(conUser.friends)
-        print(friends, type(friends))
-        friends[friend.id] = friend.username
-        conUser.friends = json.dumps(friends)
-        print(conUser.friends, type(conUser.friends))
-        friendString = conUser.friends
-        db.session.commit()
-
-        logsRecord = jChecker(user, True, False, False)['logsRecord']
-        logsRecord['friends'][friendID] = friend.username
-        ## ad friend to logs
-        jStorer(user, logsRecord, None, None)
-        redisStorer(user, logsRecord, None, None)
-
-
-    print(friends, type(friends))
-    response = {
-        'check' : check,
-        'friendName' : friend.username,
-        'friendID': friend.id,
-        'friends': friendString
-    }
-    return jsonify(response)
-
-@app.route('/api/deleteFriend', methods=['POST'])
-def deleteFriend():
-    print('DELETE FRIEND')
-    payload = request.get_json()
-    pprint(payload)
-    friendID = payload['friendID']
-    userID = payload['userID']
-
-    print(friendID)
-    print(userID)
-
-    friend = User.query.get(friendID)
-    user = User.query.get(userID)
-    friends = {}
-    friendsString = None
-
-
-    ## remove friend from sql connected and logs json
-    conUser = Connected.query.filter_by(connected=user).first()
-    print(conUser)
-    friends = json.loads(conUser.friends)
-
-    # check frined is in list
-    check = friends.pop(friendID, None)
-    if check:
-        conUser.friends = json.dumps(friends)
-        print(conUser.friends, type(conUser.friends))
-        friendString = conUser.friends
-        db.session.commit()
-
-    logsRecord = jChecker(user, True, False, False)['logsRecord']
-
-    check2 = logsRecord['friends'].pop(friendID, None)
-    if check2:
-        jStorer(user, logsRecord, None, None)
-        redisStorer(user, logsRecord, None, None)
-
-    print(friends, type(friends))
-    response = {
-        'check' : check,
-        'friendID': friend.id,
-        'friends': friendString
-    }
-    return jsonify(response)
 
 
 @app.route("/api/updateAccount", methods=['POST'])
@@ -668,6 +560,7 @@ def sendEmail():
 
     return jsonify(response)
 
+
 @app.route("/api/addImage", methods=['POST']) #and now the form accepts the submit POST
 def addImage():
     print('IMAGE')
@@ -699,6 +592,7 @@ def addImage():
         'obj' : wordData
     }
     return jsonify(response)
+
 
 def storeB64(fileData, uid, mode):
     print('STORE_B64', uid)
@@ -823,6 +717,33 @@ def jStorer(user, logsRecord, userRecord, userSet):
         s3_resource.Bucket(bucket_name).put_object(Key=setKey, Body=str(set_content))
 
     return True
+
+def redisChecker(user, logs, vocab, setD):
+    print('##jChecker')
+
+    ## do not delete these they must referenced at the start
+    vocab_content = json.dumps({})
+    logs_content = json.dumps({})
+    set_content = json.dumps({'dictRecord': {}, 'starRecord': {}, 'addRecord': {}})
+
+    #print(type(json.loads(logs_content)), type(json.loads(set_content)))
+
+    if vocab:
+        vocabGet = redisData.hget(user.id, 'vocab_' + user.vocab)
+        if not vocabGet:
+            vocabGet = vocab_content
+
+    if setD:
+        setGet = redisData.hget(user.id, 'set_' + user.vocab)
+        if not setGet:
+            setGet = set_content
+
+    if logs:
+        logsGet = redisData.hget(user.id, 'logs')
+        if not logsGet:
+            logsGet = logs_content
+
+    return {'userRecord': json.loads(vocabGet), 'logsRecord': json.loads(logsGet), 'setRecord': json.loads(setGet)}
 
 
 def redisStorer(user, logsRecord, userRecord, userSet):
