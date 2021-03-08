@@ -220,7 +220,9 @@ export default {
         TransEng: 'English -> Chinese',
         TransCh: 'Chinese -> English',
         TypeMatch: 'Typing'
-      }
+      },
+      stringItems: null,
+      tableItems: null
     }
   },
   methods: {
