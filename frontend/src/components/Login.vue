@@ -129,7 +129,15 @@ export default {
           if (response.err) {
             _this.showAlert(response.msg)
           } else {
-            _this.showModal(response.msg)
+            let msg = response.msg
+            var report = navigator.userAgent
+            console.log(report)
+            if (report.includes('Line')){
+              msg = 'WARNING - You are using LINE to use this webapp. Please switch to other browser for a better user experience.'
+            } else if (report.includes('FB')){
+              msg = 'WARNING - You are using FACEBOOK to use this webapp. Please switch to other browser for a better user experience.'
+            }
+            _this.showModal(msg)
           }
         })
     }
