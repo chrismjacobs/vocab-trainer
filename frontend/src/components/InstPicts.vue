@@ -67,7 +67,6 @@
 export default {
   name: 'IntPict',
   props: {
-    s3: String,
     itemMaster: Object,
     student: String
   },
@@ -165,10 +164,12 @@ export default {
     this.notes = {...this.$store.state.studentNotes}
     this.item = {...this.itemMaster}
     console.log('NOTES', this.notes)
-    console.log(this.item)
+    console.log('ITEM', this.item)
     for (let word in this.notes[this.student]) {
-      this.item['setRecord']['dictRecord'][word]['status'] = this.notes[this.student][word]['status']
-      this.item['setRecord']['dictRecord'][word]['note'] = this.notes[this.student][word]['note']
+      if (this.item['setRecord']['dictRecord'][word]) {
+        this.item['setRecord']['dictRecord'][word]['status'] = this.notes[this.student][word]['status']
+        this.item['setRecord']['dictRecord'][word]['note'] = this.notes[this.student][word]['note']
+      }
     }
   },
   beforeDestroy () {

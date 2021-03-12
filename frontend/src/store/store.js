@@ -2,7 +2,15 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import router from '../router'
 import { isValidJwt, parseLocal, checkDevice } from '@/utils'
-import { authenticate, register, updateRecAPI, updateAccount, getRecordAPI, ticket, getClass, getGroups, instructorRedis, addAudio, sendEmailAPI, requestToken, changePassword } from '@/api'
+import { authenticate, register,
+  updateRecAPI, getRecordAPI,
+  updateAccount,
+  ticket, requestToken, changePassword,
+  getClass, getGroups,
+  instructorRedis,
+  addAudio,
+  sendEmailAPI
+} from '@/api'
 import tourism1 from '../assets/json/tourism1.json'
 import tourism from '../assets/json/tourism.json'
 import digital1 from '../assets/json/digital1.json'
@@ -58,6 +66,8 @@ const state = {
   classLoad: null,
   classRecords: null,
   classGroups: null,
+  testRecords: {},
+  activeTest: null,
   studentNotes: {},
   audioLinks: {
     t: 'audio',
@@ -291,6 +301,10 @@ const actions = {
         console.log(response.data)
         if (response.data.msg === 'notes') {
           context.commit('setNotes', response.data.payload)
+        } if (response.data.msg === 'tests') {
+          context.commit('setTests', response.data.payload)
+        } else if (response.data.msg === 'active') {
+          context.commit('setActive', response.data.payload)
         } else {
           console.log(response.data.msg)
         }
@@ -391,8 +405,15 @@ const mutations = {
   setClassGroups (state, payload) {
     state.classGroups = payload
   },
+  setTests (state, payload) {
+    state.testRecords = payload.testRecords
+    state.activeTest = payload.activeTest
+  },
   setNotes (state, payload) {
     state.studentNotes = payload
+  },
+  setActive (state, payload) {
+    state.activeTest = payload
   },
   setAccount (state, payload) {
     console.log('setAccount payload = ', payload.dataReturn)
@@ -591,6 +612,10 @@ const getters = {
     // console.log(state.jwt)
     return state.classGroups
   },
+  testRecords (state) {
+    // console.log(state.jwt)
+    return state.testRecords
+  },
   isAuthenticated (state) {
     // console.log(state.jwt)
     return isValidJwt(state.jwt)
@@ -618,6 +643,17 @@ const getters = {
       }
     }
     return totalDict
+  },
+  makeActiveOptions (state) {
+    let options = []
+    for (let index in state.testRecords) {
+      if (index === state.activeTest) {
+        options.push({ value: true, text: index })
+      } else {
+        options.push({ value: false, text: index })
+      }
+    }
+    return options
   },
   makeList (state) {
     let tableItems = []
