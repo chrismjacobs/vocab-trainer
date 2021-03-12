@@ -174,14 +174,28 @@ def instructorRedis():
     print(group)
     print(action)
 
-    msg= None
+    msg= 'action'
     payload = {}
+
 
     if action == 'setNotes':
         notes = data['notes']
         print(notes)
         redisData.hset(group, "notes", json.dumps(notes))
-        msg = 'notes success'
+
+    elif action == 'setTests':
+        testData = data['testData']
+        redisData.hset(group, "tests", json.dumps(testData))
+        payload = testData
+        msg = 'tests'
+
+    elif action == 'setActive':
+        activeTest = data['activeTest']
+        redisData.hset(group, "active", activeTest)
+        payload = activeTest
+        msg = 'active'
+
+    #############################33
 
     elif action == 'getNotesInstructor':
         string = redisData.hget(group, "notes")
@@ -197,10 +211,18 @@ def instructorRedis():
             payload = rDict[str(student)]
         msg = 'notes'
 
-    elif action == 'setTests':
-        testData = data['testData']
-        redisData.hset(group, "tests", json.dumps(testData))
-        msg = 'tests success'
+    elif action == 'getTests':
+        string = redisData.hget(group, "tests")
+        active = redisData.hget(group, "active")
+        if string:
+            payload['testRecords'] = json.loads(string)
+            payload['activeTest'] = active
+        else:
+            payload['testRecords'] = None
+            payload['activeTest'] = None
+
+
+        msg = 'tests'
 
     else:
         msg = 'fail'
