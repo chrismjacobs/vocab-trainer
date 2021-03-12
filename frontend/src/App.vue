@@ -397,6 +397,11 @@ body {
   border-radius: 10px 10px 0px 0px;
 }
 
+.foot {
+  border:0px solid #CCC;
+  border-radius: 0px 0px 10px 10px;
+}
+
 .headDiv {
     display:inline-block;
     border:0px solid #CCC;
