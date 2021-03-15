@@ -113,15 +113,14 @@ def login():
         'instructor': user.extraInt
     }
 
-    token_string = jwt.encode({
+    token = jwt.encode({
                 'sub': user.id,
                 'iat':datetime.utcnow(),
                 'exp': datetime.utcnow() + timedelta(minutes=240)
                 }, app.config['SECRET_KEY'])
 
-    ##print('TOKEN PRE', type(token), token)
-    ##token_string = token.decode('UTF-8')
-    ##print('TOKEN', token_string)
+    token_string = token.decode('UTF-8')
+    print('TOKEN', token_string)
 
     if not skeleton:
         user.extraInfo = token_string
