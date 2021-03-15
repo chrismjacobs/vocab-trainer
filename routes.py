@@ -113,17 +113,19 @@ def login():
         'instructor': user.extraInt
     }
 
-    token = jwt.encode({
+    token_string = jwt.encode({
                 'sub': user.id,
                 'iat':datetime.utcnow(),
                 'exp': datetime.utcnow() + timedelta(minutes=240)
                 }, app.config['SECRET_KEY'])
 
-    token_string = token.decode('UTF-8')
-    print('TOKEN', token_string)
+    ##print('TOKEN PRE', type(token), token)
+    ##token_string = token.decode('UTF-8')
+    ##print('TOKEN', token_string)
 
-    user.extraInfo = token_string
-    db.session.commit()
+    if not skeleton:
+        user.extraInfo = token_string
+        db.session.commit()
 
 
     msg = ''
@@ -131,7 +133,7 @@ def login():
     if user.classroom == None:
         msg = 'Welcome ' + user.username + ', please join a classroom to unlock more features.'
     else:
-        msg = 'Welcome ' + user.username + ', you have been logged in.'
+        msg = 'Welcome ' + user.username + ', you have been logged in with classroom: ' + user.classroom
 
     return jsonify({
         'token': token_string,
@@ -167,14 +169,12 @@ def instructorRedis():
     print('INSTRUCTOR REDIS')
 
     data = request.get_json()
+    pprint(data)
 
     group = data['group']
     action = data['action']
 
-    print(group)
-    print(action)
-
-    msg= 'action'
+    msg = None
     payload = {}
 
 
@@ -186,14 +186,25 @@ def instructorRedis():
     elif action == 'setTests':
         testData = data['testData']
         redisData.hset(group, "tests", json.dumps(testData))
-        payload = testData
-        msg = 'tests'
+
+        active = redisData.hget(group, "active")
+        payload['testRecords'] = testData
+        payload['activeQuiz'] = active
+
+        msg = 'setTests'
 
     elif action == 'setActive':
-        activeTest = data['activeTest']
-        redisData.hset(group, "active", activeTest)
-        payload = activeTest
-        msg = 'active'
+        activeQuiz = data['activeQuiz']
+        redisData.hset(group, "active", activeQuiz)
+        payload = activeQuiz
+        msg = None
+
+    elif action == 'setStudent':
+        studentTests = data['studentTests']
+        student = data['student']
+        redisData.hset(group, student, json.dumps(studentTests))
+        payload = studentTests
+        msg = 'setStudent'
 
     #############################33
 
@@ -201,31 +212,39 @@ def instructorRedis():
         string = redisData.hget(group, "notes")
         if string:
             payload = json.loads(string)
-        msg = 'notes'
+        msg = 'setNotes'
 
     elif action == 'getNotesStudent':
         student = (data['student'])
         rDict = json.loads(redisData.hget(group, "notes"))
-        pprint(rDict)
         if rDict[str(student)]:
             payload = rDict[str(student)]
-        msg = 'notes'
+        msg = 'setNotes'
+
+    elif action == 'getStudent':
+        student = (data['student'])
+        jString = redisData.hget(group, student)
+        if jString:
+            sDict = json.loads(redisData.hget(group, student))
+            payload = sDict
+        msg = 'setStudent'
 
     elif action == 'getTests':
         string = redisData.hget(group, "tests")
         active = redisData.hget(group, "active")
         if string:
             payload['testRecords'] = json.loads(string)
-            payload['activeTest'] = active
+            payload['activeQuiz'] = active
         else:
-            payload['testRecords'] = None
-            payload['activeTest'] = None
+            payload['testRecords'] = {}
+            payload['activeQuiz'] = None
 
-
-        msg = 'tests'
+        msg = 'setTests'
 
     else:
         msg = 'fail'
+
+    print(action, msg, payload)
 
     return jsonify({
         'payload' : payload,

@@ -67,8 +67,9 @@ const state = {
   classRecords: null,
   classGroups: null,
   testRecords: {},
-  activeTest: null,
+  activeQuiz: null,
   studentNotes: {},
+  studentTests: {},
   audioLinks: {
     t: 'audio',
     f: 'foodio',
@@ -291,6 +292,7 @@ const actions = {
       })
   },
   updateNotes (context, payload) {
+    // might be redundant?????????? why not use instrucotr logs
     console.log('notes payload', payload)
     context.commit('setNotes', payload.notes)
   },
@@ -299,14 +301,10 @@ const actions = {
     return instructorRedis(payload)
       .then(function (response) {
         console.log(response.data)
-        if (response.data.msg === 'notes') {
-          context.commit('setNotes', response.data.payload)
-        } if (response.data.msg === 'tests') {
-          context.commit('setTests', response.data.payload)
-        } else if (response.data.msg === 'active') {
-          context.commit('setActive', response.data.payload)
+        if (response.data.msg) {
+          context.commit(response.data.msg, response.data.payload)
         } else {
-          console.log(response.data.msg)
+          console.log('no redis data action')
         }
       })
       .catch(error => {
@@ -406,14 +404,15 @@ const mutations = {
     state.classGroups = payload
   },
   setTests (state, payload) {
+    console.log('testUpdate', payload)
     state.testRecords = payload.testRecords
-    state.activeTest = payload.activeTest
+    state.activeQuiz = payload.activeQuiz
   },
   setNotes (state, payload) {
     state.studentNotes = payload
   },
-  setActive (state, payload) {
-    state.activeTest = payload
+  setStudent (state, payload) {
+    state.studentTests = payload
   },
   setAccount (state, payload) {
     console.log('setAccount payload = ', payload.dataReturn)
@@ -609,19 +608,15 @@ const getters = {
     return state.classRecords
   },
   classGroups (state) {
-    // console.log(state.jwt)
     return state.classGroups
   },
   testRecords (state) {
-    // console.log(state.jwt)
     return state.testRecords
   },
   isAuthenticated (state) {
-    // console.log(state.jwt)
     return isValidJwt(state.jwt)
   },
   isActive (state) {
-    // console.log('getterActive', state.testActive)
     return state.testActive
   },
   pictGet (state) {
@@ -629,6 +624,13 @@ const getters = {
   },
   starGet (state) {
     return state.setRecord.starRecord
+  },
+  quizGet (state) {
+    if (state.activeQuiz) {
+      return state.testRecords[state.activeQuiz].list
+    } else {
+      return []
+    }
   },
   friendsGet (state) {
     return state.friends
@@ -645,12 +647,12 @@ const getters = {
     return totalDict
   },
   makeActiveOptions (state) {
-    let options = []
+    let options = [{ value: null, text: '---' }]
     for (let index in state.testRecords) {
-      if (index === state.activeTest) {
-        options.push({ value: true, text: index })
+      if (index === state.activeQuiz) {
+        options.push({ value: index, text: index })
       } else {
-        options.push({ value: false, text: index })
+        options.push({ value: index, text: index })
       }
     }
     return options

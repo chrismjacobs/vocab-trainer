@@ -17,13 +17,11 @@
       <b-collapse id="navbar-toggle-collapse" is-nav>
         <b-navbar-nav class="ml-auto">
            <div v-if="isAuthenticated">
-                <b-nav-item @click="goTo('Account')"><div class="sideBtn"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp;Account #{{$store.state.userProfile.userID}} </span></div></b-nav-item>
-                <b-nav-item @click="goTo('Help')"><div class="sideBtn"><b-icon-question-circle></b-icon-question-circle>  <span> &nbsp;Help </span></div></b-nav-item>
-                <hr>
-
                 <Dash :tableItems="tableItems" type="nav"></Dash>
-
                 <hr>
+                <b-nav-item @click="goTo('Account')"><div class="sideBtn bg-second"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp;Account #{{$store.state.userProfile.userID}} </span></div></b-nav-item>
+                <b-nav-item @click="goTo('Help')"><div class="sideBtn bg-grey"><b-icon-question-circle></b-icon-question-circle>  <span> &nbsp;Help </span></div></b-nav-item>
+                <b-nav-item @click="goTo('InstStud')"><div class="sideBtn bg-warning"><b-icon-check-square></b-icon-check-square>  <span> &nbsp;Tests </span></div></b-nav-item>
                 <b-nav-item @click="logout(), goTo('Home')"><div class="sideBtn bg-alert"><b-icon-power></b-icon-power>  <span text=""> &nbsp;Logout </span></div></b-nav-item>
 
             </div>
@@ -87,7 +85,7 @@
                     <div v-if="isAuthenticated">
                       <button v-if="$store.state.userProfile.instructor" class="buttonDiv mt-2 bg-peel text-prime px-1" style="height:50px; width:100%" @click="goTo('Instructor')"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp;Instructor </span> </button>
                       <button v-if="$store.state.userProfile.userID === 1" class="buttonDiv mt-2 bg-info text-prime px-1" style="height:50px; width:100%" @click="goTo('JGrabber')"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp;JGrabber </span> </button>
-                      <button v-if="$store.state.userProfile.userID === 1" class="buttonDiv mt-2 bg-success text-prime px-1" style="height:50px; width:100%" @click="goTo('Flash')"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp;Flash </span> </button>
+                      <button v-if="$store.state.userProfile.classroom" class="buttonDiv mt-2 bg-warning text-prime px-1" style="height:50px; width:100%" @click="goTo('InstStud')"><b-icon-check-square></b-icon-check-square>  <span> &nbsp;Quiz </span> </button>
                       <button class="buttonDiv mt-2 bg-third text-prime px-1" style="height:50px; width:100%" @click="sendEmail()"><b-icon-question-circle></b-icon-question-circle>  <span text=""> &nbsp;Help </span> </button>
                       <button class="buttonDiv mt-2 bg-grape text-cream px-1" style="height:50px; width:100%" @click="logout()"><b-icon-power></b-icon-power>  <span text=""> &nbsp;Logout </span> </button>
                     </div>
@@ -101,7 +99,7 @@
           </div>
         </b-col>
     </b-row>
-    <div v-if="isAuthenticated && !isActiveCheck" class="btnNav d-lg-none" style="z-index: 5">
+    <div v-if="isAuthenticated" class="btnNav d-lg-none" style="z-index: 5">
         <button :class="navStyle('/Dictionary')" @click="goTo('Dictionary')"><b-icon-card-list></b-icon-card-list>  <span class="d-none d-md-inline" text=""> &nbsp; List </span> </button>
         <button :class="navStyle('/TransEngTest')" @click="goTo('TransEngTest')"><b-icon-box-arrow-up-right></b-icon-box-arrow-up-right>  <span class="d-none d-md-inline"> &nbsp; Eng-Ch </span> </button>
         <button :class="navStyle('/TransChTest')" @click="goTo('TransChTest')"><b-icon-box-arrow-up-left></b-icon-box-arrow-up-left>  <span class="d-none d-md-inline"> &nbsp; Ch-Eng </span></button>
@@ -260,6 +258,7 @@ export default {
     if (!this.$store.state.userRecord && this.isAuthenticated) {
       // console.log('created: get api records')
       this.$store.dispatch('apiRecords', { userID: this.$store.state.userProfile.userID })
+      this.$store.dispatch('instructorLogs', { group: this.$store.state.userProfile.classroom, action: 'getTests' })
     }
 
     let _this = this
