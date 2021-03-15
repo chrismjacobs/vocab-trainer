@@ -5,13 +5,31 @@
 
     <div class="bg-white mt-0 p-0">
 
+      <div class="bg-grey p-2">
+        <b-row>
+          <b-col>
+            <h3 class="text-cream"> Active Test: {{activeQuiz}} </h3>
+            <b-form-select class="bg-second text-cream"
+              @change="updateActive()"
+              v-model="activeQuiz"
+              :options="activeOptions"
+              :select-size="1">
+            </b-form-select>
+          </b-col>
+          <b-col align="right">
+            <button class="buttonDiv bg-dark text-cream px-3" style="width:auto; height:auto" @click="newTest()">
+                  New Test
+            </button>
+          </b-col>
+        </b-row>
+      </div>
+
       <table class="table table-striped">
               <thead>
                     <tr>
                       <th scope="col">Test</th>
                       <th scope="col">Type</th>
                       <th scope="col">Vocab</th>
-                      <th scope="col">Status</th>
                       <th scope="col">Results</th>
                       <th scope="col">Action</th>
                     </tr>
@@ -21,17 +39,6 @@
                         <th scope="row">{{index}}</th>
                         <td>{{test.type}}</td>
                         <td>{{test.list.length}}</td>
-                        <td>
-                             <b-form-radio-group
-                                :id="index"
-                                v-model="test.status"
-                                :options="optionsS"
-                                buttons
-                                @change="statusAction(index)"
-                                :button-variant="getColor(index)"
-                                name="radio-btn-outline-1"
-                              ></b-form-radio-group>
-                        </td>
                         <td>
                           <button class="buttonDiv bg-info px-3" style="width:60px" @click="showResults()">
                             <b-icon variant="cream" font-scale="1.5" icon="arrow"></b-icon>
@@ -50,40 +57,16 @@
                     </tbody>
       </table>
 
-      <div class="mt-2 bg-warn p-2">
-            <b-row>
-              <b-col>
-                <h3 class="text-cream"> Active Test: {{activeTest}} </h3>
-              </b-col>
-              <b-col>
-                <b-form-select class="bg-second text-cream"
-                @change="updateActive()"
-                v-model="activeTest"
-                :options="activeOptions"
-                :select-size="1">
-              </b-form-select>
-
-              </b-col>
-              <b-col>
-                <button class="buttonDiv bg-dark text-safe px-3" style="width:auto; height:auto" @click="newTest()">
-                      New Test
-                </button>
-              </b-col>
-            </b-row>
-        </div>
-
     </div>
 
     <div v-if="showDetails">
-        <div class="mt-2 bg-warn p-2 head">
+        <div class="mt-2 bg-warn p-2">
             <b-row >
               <b-col>
-                <h3 class="text-cream"> Test Details </h3>
-              </b-col>
-              <b-col>
+                <h3 class="text-cream"> Test Details: {{testDetails.title}} </h3>
                 <b-input-group label="Test Title:" label-for="exampleInput1">
                     <b-input-group-prepend inline is-text>
-                      <b-icon icon="envelope"></b-icon>
+                      <b-icon icon="filter-left"></b-icon>
                     </b-input-group-prepend>
                     <b-form-input id="exampleInput1"
                                 v-model="testDetails.title"
@@ -92,51 +75,31 @@
                     </b-form-input>
                 </b-input-group>
               </b-col>
-              <b-col>
-                <button class="buttonDiv bg-safe text-cream px-3" style="width:auto; height:auto" @click="saveTest()">
+              <b-col align="right">
+                <button class="buttonDiv bg-warning text-cream px-3" style="width:auto; height:auto" @click="saveTest()">
                       Save Test
                 </button>
               </b-col>
             </b-row>
-        </div>
-
-        <div>
+        <b-row class="mt-2">
+          <b-col>
           <b-input-group label="Vocab:" label-for="exampleInput2">
               <b-input-group-prepend inline is-text>
-                <b-icon icon="envelope"></b-icon>
+                <b-icon icon="grid3x2-gap"></b-icon>
               </b-input-group-prepend>
               <b-form-input id="exampleInput2"
                           v-model="selected[0]"
                           placeholder="Search Vocab">
               </b-form-input>
           </b-input-group>
+          </b-col>
+        </b-row>
         </div>
 
-          <div class="mb-0">
-              <b-table
-              striped hover
-              :items="tableItems"
-              :fields="fields"
-              :filter="selected"
-              :filter-function="filterTable"
-              show-empty
-              fixed
-              head-variant="dark"
-              >
-                <template v-slot:cell(english)="data">
-                    <template v-if="testDetails['list'].includes(data.item.English)">
-                      <b-icon-star-fill variant="safe" @click="addCheck(data.item.English, 0)"></b-icon-star-fill> <span class="d-lg-none"> &nbsp; <br> </span>
-                    </template>
-                    <template v-else>
-                        <b-icon-star @click="addCheck(data.item.English, 1)"></b-icon-star> &nbsp; <br class="d-lg-none">
-                    </template>
-                      <span :id="data.value + '_en/'" @click="playAudio(data.value, '_en/', data.item.mp3en, true)"> {{data.value}} ({{data.item.Gr}}) </span>
-                </template>
-                <template v-slot:cell(chineseext)="data">
-                      <span :id="data.item.English + '_ch/'" @click="playAudio(data.item.English, '_ch/', data.item.mp3ch, true)"> {{data.value}} </span>
-                </template>
-              </b-table>
-          </div>
+        <div>
+          <InstTable :selected="selected" :list="testDetails['list']" mode="instructor"></InstTable>
+        </div>
+
     </div>
 
     <b-modal hide-header-close no-close-on-esc no-close-on-backdrop align="center" ref="success" hide-footer title="Success">
@@ -158,12 +121,12 @@
 </template>
 
 <script>
-// import InstPicts from './InstPicts'
+import InstTable from './InstTable'
 
 export default {
   name: 'InstTests',
   components: {
-    // InstPicts
+    InstTable
   },
   data () {
     return {
@@ -183,17 +146,8 @@ export default {
       testRecords: {},
       showDetails: false,
       selected: ['', true],
-      fields: [
-        {key: 'English', label: 'Vocab', sortable: true},
-        {key: 'ChineseExt', label: 'Chinese', sortable: true}
-      ],
-      audioMarker: [null, null],
       testTypes: [
         { value: 'ECN', label: 'Eng --> Ch (Normal)' }
-      ],
-      optionsS: [
-        { value: 0, text: 'Closed' },
-        { value: 1, text: 'Active' }
       ]
     }
   },
@@ -201,7 +155,6 @@ export default {
     showModal: function (msg) {
       this.msg = msg
       this.$refs['success'].show()
-      // router.push('/login')
     },
     showAlert: function (msg) {
       this.msg = msg
@@ -220,7 +173,7 @@ export default {
       }
     },
     updateActive: function () {
-        this.$store.dispatch('instructorLogs', { group: this.$store.state.classLoad, action: 'setActive', activeTest: this.activeTest })
+      this.$store.dispatch('instructorLogs', { group: this.$store.state.classLoad, action: 'setActive', activeQuiz: this.activeQuiz })
     },
     getDetails: function (test) {
       this.showDetails = true
@@ -236,18 +189,6 @@ export default {
       this.testRecords[this.testDetails.title] = this.testDetails
       this.testRecords = {...this.testRecords}
       this.$store.dispatch('instructorLogs', { group: this.$store.state.classLoad, action: 'setTests', testData: this.testRecords })
-    },
-    addCheck: function (vocab) {
-      let array = this.testDetails.list
-      if (array.includes(vocab)) {
-        let idx = array.indexOf(vocab)
-        if (idx > -1) {
-          array.splice(idx, 1)
-        }
-      } else {
-        this.testDetails.list.push(vocab)
-      }
-      console.log(this.testDetails.list)
     },
     getColor: function (index) {
       let status = this.testRecords[index].status
@@ -322,8 +263,15 @@ export default {
     activeOptions () {
       return this.$store.getters.makeActiveOptions
     },
-    activeTest () {
-      return this.$store.state.activeTest
+    activeQuiz: {
+      // getter
+      get: function () {
+        return this.$store.state.activeQuiz
+      },
+      // setter
+      set: function (newValue) {
+        this.$store.state.activeQuiz = newValue
+      }
     }
   },
   created () {
