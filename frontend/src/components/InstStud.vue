@@ -12,7 +12,7 @@
       </div>
     </div>
 
-    <div class="bg-white">
+    <div class="bg-white" v-if="!showQuiz">
 
           <table class="table table-striped">
               <thead>
@@ -27,26 +27,29 @@
                   <th scope="row">{{index}}</th>
                   <td>{{entry.list.length}}</td>
                   <td>
-                    <button  v-if="$store.state.activeQuiz === index && getScore(index) === 0" class="buttonDiv bg-warning px-3">
-                      <b-icon-forward @click="startQuiz(index)" variant="cream" font-scale="1.5"></b-icon-forward>
+                    <button  v-if="$store.state.activeQuiz === index && getScore(index) === 0"  @click="startQuiz(index)" class="buttonDiv bg-warning px-3">
+                      <b-icon-forward variant="cream" font-scale="1.5"></b-icon-forward>
                     </button>
-                    <button  v-else-if="$store.state.activeQuiz === index && getScore(index) > 0" class="buttonDiv bg-warning px-3">
-                      <b-icon-filter-left @click="showAnswers(index)" variant="cream" font-scale="1.5"></b-icon-filter-left> {{getScore(index)}}
+                    <button  v-else-if="$store.state.activeQuiz === index && getScore(index) > 0" @click="showAnswers(index)" class="buttonDiv bg-warning px-3">
+                      <b-icon-filter-left variant="cream" font-scale="1.5"></b-icon-filter-left> {{getScore(index)}}
                     </button>
-                    <button  v-else-if="getScore(index) > 0" class="buttonDiv bg-info px-3">
-                      <b-icon-filter-left @click="showAnswers(index)" variant="cream" font-scale="1.5"></b-icon-filter-left> {{getScore(index)}}
+                    <button  v-else-if="getScore(index) > 0" @click="showAnswers(index)" class="buttonDiv bg-info px-3">
+                      <b-icon-filter-left variant="cream" font-scale="1.5"></b-icon-filter-left> {{getScore(index)}}
                     </button>
                     <button  v-else-if="getScore(index) === 0" class="buttonDiv bg-grey px-3" disabled>
-                      <b-icon-filter-left @click="showAnswers(index)" variant="cream" font-scale="1.5"></b-icon-filter-left>
+                      <b-icon-filter-left variant="cream" font-scale="1.5"></b-icon-filter-left>
                     </button>
+                  </td>
+                </tr>
+                <tr v-if="showAns" >
+                  <td colspan="3">
+                    <div class="bg-white mt-0 p-0">
+                      <InstAns :answerData="answerData" mode="CE"></InstAns>
+                    </div>
                   </td>
                 </tr>
               </tbody>
             </table>
-    </div>
-
-    <div v-if="showAns" class="bg-white mt-0 p-0">
-     <InstAns :answerData="answerData" mode="CE"></InstAns>
     </div>
 
     <div v-if="showQuiz">
@@ -90,13 +93,12 @@ export default {
       this.showQuiz = true
     },
     showAnswers: function (index) {
-      this.showAns = true
-      console.log('answerData', index, this.studentTests, this.studentTests[index]['answerData'])
       this.answerData = this.studentTests[index]['answerData']
+      this.showAns = !this.showAns
     },
     recordQuiz: function (payload) {
       // this.studentTestDup = {...this.studentTests}
-
+      this.showQuiz = false
       this.studentTests[this.$store.state.activeQuiz] = payload
       let profile = this.$store.state.userProfile
 

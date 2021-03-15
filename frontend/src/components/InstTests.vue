@@ -35,25 +35,64 @@
                     </tr>
               </thead>
                     <tbody>
-                      <tr v-for="(test, index) in testRecords" :key="index">
+                      <template v-for="(test, index) in testRecords" >
+                      <tr :key="index">
                         <th scope="row">{{index}}</th>
                         <td>{{test.type}}</td>
                         <td>{{test.list.length}}</td>
                         <td>
-                          <button class="buttonDiv bg-info px-3" style="width:60px" @click="showResults()">
-                            <b-icon variant="cream" font-scale="1.5" icon="arrow"></b-icon>
+                          <button class="buttonDiv bg-info px-3" style="width:60px" @click="showResults(index)">
+                            <b-icon variant="cream" font-scale="1" icon="arrow"></b-icon>
                           </button>
                         </td>
                         <td>
                           <button class="buttonDiv bg-safe px-3" style="width:auto; height:auto" @click="getDetails(index)">
-                              <b-icon-arrow-clockwise variant="cream" font-scale="1.5"></b-icon-arrow-clockwise>
+                              <b-icon-arrow-clockwise variant="cream" font-scale="1"></b-icon-arrow-clockwise>
                           </button>
                           <button class="buttonDiv bg-danger px-3" style="width:60px;float:right" @click="deleteAlert(index)">
-                            <b-icon variant="cream" font-scale="1.5" icon="trash-fill"></b-icon>
+                            <b-icon variant="cream" font-scale="1" icon="trash-fill"></b-icon>
                           </button>
 
                         </td>
                       </tr>
+                      <tr :key="index" v-if="results === index">
+                        <td colspan="5">
+                          <thead>
+                            <tr>
+                              <th scope="col">ID</th>
+                              <th scope="col">Name</th>
+                              <th scope="col">Grade</th>
+                              <th scope="col">Time</th>
+                              <th scope="col">Action</th>
+                            </tr>
+                          </thead>
+                           <tbody>
+                            <template v-for="(res, idx) in $store.state.studentResults" >
+                            <tr :key="idx">
+                              <td> {{idx}} </td>
+                              <td> {{res.name}} </td>
+                              <td> {{getScore(res.quizData[index])[0]}} </td>
+                              <td> {{getScore(res.quizData[index])[1]}} </td>
+                              <td>  <button v-if="res.quizData[index]" @click="showAnswers(idx, index, res.quizData[index]['answerData'])" class="buttonDiv bg-info px-3">
+                                      <b-icon-filter-left variant="cream" font-scale="1.5"></b-icon-filter-left>
+                                    </button>
+                                      <button v-if="res.quizData[index]" @click="deleteAnswers(idx, index)" class="buttonDiv bg-alert px-3">
+                                        <b-icon-filter-left  variant="cream" font-scale="1.5"></b-icon-filter-left>
+                                      </button>
+                              </td>
+                            </tr>
+                            <tr v-if="answers === idx" :key="idx">
+                              <td colspan="5">
+                                <div class="bg-white mt-0 p-0">
+                                  <InstAns :answerData="answerData" mode="CE"></InstAns>
+                                </div>
+                              </td>
+                            </tr>
+                            </template>
+                          </tbody>
+                        </td>
+                      </tr>
+                      </template>
                     </tbody>
       </table>
 
@@ -122,11 +161,13 @@
 
 <script>
 import InstTable from './InstTable'
+import InstAns from './InstAns'
 
 export default {
   name: 'InstTests',
   components: {
-    InstTable
+    InstTable,
+    InstAns
   },
   data () {
     return {
@@ -143,6 +184,9 @@ export default {
         status: 0
       },
       msg: null,
+      results: null,
+      answers: null,
+      answerData: [],
       testRecords: {},
       showDetails: false,
       selected: ['', true],
@@ -166,10 +210,48 @@ export default {
     deleteAlert: function (index) {
       console.log(this.testRecords)
       let array = this.testRecords
+      this.showDetails = false
+      this.results = false
       if (array[index]) {
         delete array[index]
         this.testRecords = {...this.testRecords}
         this.$store.dispatch('instructorLogs', { group: this.$store.state.classLoad, action: 'setTests', testData: this.testRecords })
+      }
+    },
+    deleteAnswers: function (idx, index) {
+      console.log('delete', idx, index)
+      this.studentTests = {...this.$store.state.studentResults[idx]}
+
+      this.studentTests[index] = {
+        answerData: [], score: 0, time: 0
+      }
+      this.$store.dispatch('instructorLogs', { group: this.$store.state.classLoad, action: 'setStudent', student: idx, studentTests: this.studentTests })
+      this.answers = [null, null]
+    },
+    showAnswers: function (idx, index, answerData) {
+      console.log('show', idx, index, answerData)
+      if (this.answers === idx) {
+        this.answerData = null
+        this.answers = null
+      } else {
+        this.answerData = answerData
+        this.answers = idx
+      }
+      console.log(this.answers)
+    },
+    showResults: function (index) {
+      if (this.results === index) {
+        this.results = null
+      } else {
+        this.results = index
+      }
+    },
+    getScore: function (data) {
+      console.log(data)
+      if (data) {
+        return [data.score, data.time]
+      } else {
+        return ['-', '-']
       }
     },
     updateActive: function () {
@@ -177,6 +259,7 @@ export default {
     },
     getDetails: function (test) {
       this.showDetails = true
+      this.results = false
       this.testDetails = this.testRecords[test]
     },
     newTest: function () {

@@ -67,9 +67,9 @@ export default {
       msg: null,
       fields: [
         {key: 'English', label: 'Vocab', sortable: true},
-        {key: 'ChineseExt', label: 'Chinese', sortable: true}
+        {key: 'Chinese', label: 'Chinese', sortable: true}
       ],
-      audioMarker: [null, null]
+      audioMarker: null
     }
   },
   methods: {
@@ -88,44 +88,39 @@ export default {
     addStar: function (word, set) {
       this.$store.dispatch('newStar', {word: word, set: set})
     },
-    playAudio: function (arg, folder, link, normal) {
-      // folder === '_en'
-      let markerIcon = document.getElementById(this.audioMarker[0] + this.audioMarker[1])
-      console.log(markerIcon, link)
-
-      // sets unreset icon back
-      if (markerIcon) {
-        markerIcon.setAttribute('class', 'text-prime')
-      }
-
-      let textColor
-
-      if (normal) {
-        textColor = 'text-warn'
-      } else {
-        textColor = 'text-' + this.getSoundwave()
-      }
-
-      this.audioMarker = [arg, folder]
-      let icon = document.getElementById(arg + folder)
-      icon.setAttribute('class', textColor)
-
-      let player = document.getElementById('audio')
-      player.src = link
-
-      let _this = this
-
-      player.addEventListener('error', function (e) {
-        console.log('Logging playback error: ' + e)
-        icon.setAttribute('class', 'text-prime')
-        _this.note = 'Sorry, no audio available'
-        _this.showAlert()
+    playAnswer: function (arg) {
+      console.log(this.dictGet)
+      var result = this.dictGet.filter(obj => {
+        return obj.English === arg
       })
+      console.log('PLAY', result)
 
+      if (this.audioMarker) {
+        let icon = document.getElementById(this.audioMarker)
+        icon.setAttribute('class', '')
+      }
+
+      this.audioMarker = arg
+      let icon = document.getElementById(arg)
+
+      icon.setAttribute('class', 'text-warn')
+
+      let audioLink = result[0].mp3en
+      let player = document.getElementById('audio')
+      player.src = audioLink
       player.play()
       player.onended = function () {
-        icon.setAttribute('class', 'text-prime')
+        icon.setAttribute('class', '')
       }
+    }
+  },
+  computed: {
+    starGet () {
+      console.log('stars', this.$store.getters.starGet)
+      return this.$store.getters.starGet
+    },
+    dictGet () {
+      return this.$store.getters.makeList
     }
   }
 }

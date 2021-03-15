@@ -105,8 +105,10 @@ export default {
   methods: {
     getClass: function (group) {
       this.waiting = true
+      this.group = group
       this.$store.dispatch('instructorLogs', { group: group, action: 'getNotesInstructor' })
       this.$store.dispatch('instructorLogs', { group: group, action: 'getTests' })
+      this.$store.dispatch('instructorLogs', { group: group, action: 'getResults' })
       this.$store.dispatch('classRecords', { userID: this.$store.state.userProfile.userID, classroom: group })
       this.show = 'class'
     },

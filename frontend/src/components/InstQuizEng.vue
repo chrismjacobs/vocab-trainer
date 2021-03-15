@@ -34,10 +34,6 @@
       </div>
     </div>
 
-    <div v-else-if="showAnswers" class="bg-white mt-0 p-0">
-     <InstAns :answerData="answerData" mode="CE"></InstAns>
-    </div>
-
       <b-modal hide-header-close no-close-on-esc no-close-on-backdrop align="center" ref="complete" hide-footer title="Test Complete">
       <div class="d-block">
         <h3> {{sCount}}/{{qCount}} </h3>
@@ -51,11 +47,13 @@
 
 <script>
 import ToolbarQuiz from './ToolbarQuiz'
+import InstAns from './InstAns'
 
 export default {
   name: 'InstQuizEng',
   components: {
-    ToolbarQuiz
+    ToolbarQuiz,
+    InstAns
   },
   props: {
     s3: String,
@@ -139,7 +137,6 @@ export default {
     },
     checkAnswers: function () {
       console.log('testEnded')
-      this.showAnswers = true
       this.$store.dispatch('testActive', false)
       this.$emit('quizData', { answerData: this.answerData, score: this.sCount, time: this.timeSpan() })
     },

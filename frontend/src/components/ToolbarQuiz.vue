@@ -3,7 +3,7 @@
           <div class="bg-prime p-2 mt-0">
             <b-row>
               <b-col align="center">
-                <button class="buttonDiv bg-info px-3" style="width:45%; height:50px" @click="showWarn(), showToolbar=false"> <b-icon-forward variant="cream" font-scale="1.5"></b-icon-forward></button>
+                <button class="buttonDiv bg-info px-3" style="width:45%; height:50px" @click="makeTest(), showToolbar=false"> <b-icon-forward variant="cream" font-scale="1.5"></b-icon-forward></button>
               </b-col>
             </b-row>
           </div>
@@ -56,15 +56,17 @@ export default {
       this.$refs['warning'].show()
     },
     hideWarn: function (mode) {
-      if (mode === 'cancel') {
-        this.$refs['warning'].hide()
-      } else {
+      console.log('hideWarn')
+      if (mode === 'start') {
         this.$refs['warning'].hide()
         this.makeTest()
+      } else {
+        this.$refs['warning'].hide()
       }
       // start
     },
     makeTest: function () {
+      console.log('make test')
       this.testItemsRoot = []
 
       // prepare amended list
@@ -84,17 +86,19 @@ export default {
       }
     },
     makeChoices: function () {
+      console.log('make choices')
       let i = 0
       let newList = this.shuffle(this.amendedList)
+      console.log(this.words, newList)
 
       while (i < this.words) {
         let randomItem = newList[i]
 
         if (!randomItem) {
           // this step is unnecessary now
-          // console.log('pass', randomItem)
+          console.log('pass', randomItem)
         } else if (this.sound === 'sdTy' && randomItem.Gr === 'abbr.') {
-          // console.log('pass abbr')
+          console.log('pass abbr')
         } else {
           let choices = [{
             English: randomItem.English,
@@ -105,6 +109,7 @@ export default {
           }]
           let j = 1
           while (j < this.choices) {
+            console.log('j')
             if (this.sound === 'sdTy') {
               choices.push({
                 English: this.typoFix(randomItem.English),
@@ -153,6 +158,7 @@ export default {
         choices: this.choices,
         sort: this.sort
       }
+      console.log('emit')
 
       this.$emit('newTest', {
         test: this.testItemsRoot,
@@ -236,6 +242,7 @@ export default {
       console.log('words', this.$store.getters.quizGet)
       if (this.$store.getters.quizGet) {
         if (this.$store.getters.quizGet.length) {
+          console.log('length', this.$store.getters.quizGet.length)
           return this.$store.getters.quizGet.length
         } else {
           return 0
