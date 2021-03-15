@@ -189,7 +189,7 @@ export default {
       sort: '---',
       sortOptions: [
         { value: '---', text: '---' },
-        { value: '*', text: 'star vocab' },
+        { value: '*', text: 'stars' },
         { value: 'phr.', text: 'phrases' },
         { value: 0, text: 'neutral' },
         { value: 1, text: 'easier' },
@@ -256,6 +256,12 @@ export default {
             this.amendedList.push(vocabList[item])
           }
         }
+      } else if (this.sort === 'q') {
+        for (let item in vocabList) {
+          if (this.quizGet.includes(vocabList[item].English)) {
+            this.amendedList.push(vocabList[item])
+          }
+        }
       } else if (this.sort === 'misc.') {
         for (let item in vocabList) {
           if (vocabList[item].English.includes('-') ||
@@ -288,7 +294,6 @@ export default {
         // console.log('few words', this.amendedList)
       } else if (this.amendedList.length < this.words) {
         this.words = this.amendedList.length
-        // console.log('few words', this.amendedList)
       }
       if (this.testType === 'typeTest') {
         this.makeSpelling()
@@ -475,6 +480,10 @@ export default {
       console.log('starGet', this.$store.state.setRecord.starRecord)
       return this.$store.getters.starGet
     },
+    quizGet () {
+      console.log('quizGet')
+      return this.$store.getters.quizGet
+    },
     colGet () {
       if (this.testType === 'typeTest') {
         return 6
@@ -498,6 +507,10 @@ export default {
 
     if (this.$store.state.userProfile.vocab[0] === 'g') {
       this.sortOptions.pop()
+    }
+
+    if (this.$store.state.activeQuiz) {
+      this.sortOptions.push({ value: 'q', text: 'QUIZ' })
     }
 
     if (this.testType === 'typeTest') {

@@ -197,7 +197,8 @@ export default {
       sortOptions: [
         { value: '---', text: '---' },
         { value: '*', text: 'star vocab' },
-        { value: -1, text: 'harder' }
+        { value: -1, text: 'harder' },
+        { value: 1, text: 'easier' }
       ],
       game: 'T2',
       gameText: 'Translate 2',
@@ -228,7 +229,6 @@ export default {
   methods: {
     makeTest: function () {
       // reset variables
-      // console.log('make test', this.sort)
       this.testItemsRoot = []
       this.amendedList = []
 
@@ -249,7 +249,26 @@ export default {
             this.amendedList.push(vocabList[item])
           }
         }
+      } else if (this.sort === 'q') {
+        for (let item in vocabList) {
+          if (this.quizGet.includes(vocabList[item].English)) {
+            this.amendedList.push(vocabList[item])
+          }
+        }
+      } else if (this.sort === -1) {
+        for (let item in vocabList) {
+          if (vocabList[item].totalScore <= 0) {
+            this.amendedList.push(vocabList[item])
+          }
+        }
+      } else if (this.sort === 1) {
+        for (let item in vocabList) {
+          if (vocabList[item].totalScore >= 0) {
+            this.amendedList.push(vocabList[item])
+          }
+        }
       }
+
       if (this.amendedList.length < 6) {
         alert('Not enough words found to test this category')
         this.sort = '---'
@@ -600,6 +619,10 @@ export default {
       // console.log('starGet', this.$store.state.setRecord.starRecord)
       return this.$store.getters.starGet
     },
+    quizGet () {
+      console.log('quizGet')
+      return this.$store.getters.quizGet
+    },
     colGet () {
       if (this.player === 'p2') {
         return 2
@@ -622,6 +645,9 @@ export default {
     this.stringItems = JSON.stringify(this.tableItems)
     this.updateSettings()
     console.log(this.testType)
+    if (this.$store.state.activeQuiz) {
+      this.sortOptions.push({ value: 'q', text: 'QUIZ' })
+    }
   },
   mounted () {
     if (this.testType[1] === 'r' || this.testType.includes('AI')) {
