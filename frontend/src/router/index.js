@@ -11,6 +11,7 @@ const routerOptions = [
   {path: '/account', component: 'Account'},
   {path: '/help', component: 'Help'},
   {path: '/dictionary', component: 'Dictionary'},
+  {path: '/inststud', component: 'InstStud'},
   {path: '/instructor', component: 'Instructor'},
   {path: '/jGrabber', component: 'JGrabber'},
   {path: '/transeng', component: 'TransEng'},
