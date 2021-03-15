@@ -70,6 +70,7 @@ const state = {
   activeQuiz: null,
   studentNotes: {},
   studentTests: {},
+  studentResults: {},
   audioLinks: {
     t: 'audio',
     f: 'foodio',
@@ -413,6 +414,9 @@ const mutations = {
   },
   setStudent (state, payload) {
     state.studentTests = payload
+  },
+  setResults (state, payload) {
+    state.studentResults = payload
   },
   setAccount (state, payload) {
     console.log('setAccount payload = ', payload.dataReturn)

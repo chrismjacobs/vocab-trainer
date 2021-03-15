@@ -240,6 +240,23 @@ def instructorRedis():
 
         msg = 'setTests'
 
+    elif action == 'getResults':
+        classList = User.query.filter_by(classroom=group).all()
+        uDict = {}
+        for u in classList:
+            if redisData.hget(group, u.id):
+                uDict[u.id] = {
+                    'name': u.username,
+                    'quizData': json.loads(redisData.hget(group, u.id))
+                }
+            else:
+                uDict[u.id] = {
+                    'name': u.username,
+                    'quizData': {}
+                }
+        payload = uDict
+        msg = 'setResults'
+
     else:
         msg = 'fail'
 
