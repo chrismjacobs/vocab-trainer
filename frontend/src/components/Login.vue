@@ -14,7 +14,8 @@
                 </b-form-input>
             </b-input-group>
 
-            <b-input-group class="my-4" label="Password:" label-for="exampleInput2">
+            {{getLabel()}}
+            <b-input-group class="my-4" label="Email" label-for="exampleInput2">
                 <b-input-group-prepend inline is-text>
                   <b-icon icon="lock-fill"></b-icon>
                 </b-input-group-prepend>
@@ -36,7 +37,7 @@
             <div class="mb-3">
                 <em><a href="#" @click="$router.push('/register')">Start New Account</a></em>
             </div>
-            <em><a href="#" @click="showEmail = true">Forgot Password</a></em>
+            <em><a href="#" @click="resetDirect()">Forgot Password</a></em>
             <div v-if="showEmail">
               If you have forgotten your password please contact vocab trainer for a new password
               <a href="cjx02121981@gmail.com"> cjx02121981@gmail.com </a>
@@ -50,10 +51,17 @@
 
   <b-modal hide-header-close no-close-on-esc no-close-on-backdrop align="center" ref="success" hide-footer title="Logged In">
       <div class="d-block">
-        <h3> {{msg}} </h3>
+        <h3 :class="msgColor"> {{msg}} </h3>
       </div>
       <button class="buttonDiv mt-3 bg-prime text-cream" style="width:60%"  @click="hideModal('success')">Close</button>
-    </b-modal>
+  </b-modal>
+
+  <b-modal hide-header-close no-close-on-esc no-close-on-backdrop align="center" ref="reset" hide-footer title="Password Reset">
+      <div class="d-block">
+        <h3 :class="msgColor"> {{msg}} </h3>
+      </div>
+      <button class="buttonDiv mt-3 bg-prime text-cream" style="width:60%"  @click="hideModal('reset')">Close</button>
+  </b-modal>
 
    <b-modal hide-header-close no-close-on-esc no-close-on-backdrop align="center" ref="fail" hide-footer title="Problem Found">
       <div class="d-block">
@@ -68,8 +76,6 @@
 </template>
 
 <script>
-import router from '../router/index'
-
 export default {
   name: 'app',
   data () {
@@ -81,35 +87,49 @@ export default {
       show: true,
       waiting: true,
       msg: null,
-      showEmail: false
+      showEmail: false,
+      msgColor: 'text-prime'
     }
   },
   methods: {
-    showModal (msg) {
-      this.msg = msg
+    showModal () {
       this.$refs['success'].show()
-      // router.push('/login')
     },
-    showAlert (msg) {
-      this.msg = msg
+    showReset () {
+      this.$refs['reset'].show()
+    },
+    showAlert () {
       this.$refs['fail'].show()
     },
     hideModal (mode) {
       if (mode === 'success') {
         this.$refs['success'].hide()
-        router.push('/account')
+        this.$router.push('/account')
       } else if (mode === 'register') {
         this.$refs['fail'].hide()
-        router.push('/register')
+        this.$router.push('/register')
+      } else if (mode === 'reset') {
+        this.$refs['fail'].hide()
+        this.$router.push('/resetpass')
       } else {
         this.$refs['fail'].hide()
         this.msg = null
         this.waiting = true
       }
     },
+    resetDirect () {
+      this.$router.push('/reset')
+    },
     onSubmit (evt) {
       evt.preventDefault()
       this.authenticate()
+    },
+    getLabel () {
+      if (localStorage.setItem('tokenReady', true)) {
+        return 'Password Reset - Check Email for Temporary Password'
+      } else {
+        return null
+      }
     },
     onReset (evt) {
       evt.preventDefault()
@@ -126,18 +146,28 @@ export default {
       this.$store.dispatch('login', { userData: this.form })
         .then(function (response) {
           console.log('RESPONSE', response)
+          let msg = response.msg
+          _this.msg = msg
           if (response.err) {
-            _this.showAlert(response.msg)
+            if (response.err === 1) {
+              _this.showAlert()
+            } else if (response.err === 2) {
+              localStorage.setItem('tokenReady', false)
+              _this.msgColor = 'text-warn'
+              _this.showReset()
+            }
           } else {
-            let msg = response.msg
             var report = navigator.userAgent
             console.log(report)
+            _this.msgColor = 'text-prime'
             if (report.includes('Line')) {
-              msg = 'WARNING - You are using LINE to use this webapp. Please switch to other browser for a better user experience.'
+              _this.msg = 'WARNING - You are using LINE to use this webapp. Please switch to other browser for a better user experience.'
+              _this.msgColor = 'text-alert'
             } else if (report.includes('FB')) {
-              msg = 'WARNING - You are using FACEBOOK to use this webapp. Please switch to other browser for a better user experience.'
+              _this.msg = 'WARNING - You are using FACEBOOK to use this webapp. Please switch to other browser for a better user experience.'
+              _this.msgColor = 'text-alert'
             }
-            _this.showModal(msg)
+            _this.showModal()
           }
         })
     }

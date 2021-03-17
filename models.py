@@ -21,21 +21,6 @@ class User(db.Model): #import the model
     connects = db.relationship('Connected', backref='connected')
     classes = db.relationship('Classroom', backref='classroom')
 
-    def get_reset_token(self, expires_sec=1800):
-        expires_sec = 1800
-        s = Serializer(app.config['SECRET_KEY'], expires_sec)
-        return s.dumps({'user_id': self.id}).decode('utf-8')
-
-    @staticmethod #tell python not to expect that self parameter as an argument, just accepting the token
-    def verify_reset_token(token):
-        expires_sec = 1800
-        s = Serializer(app.config['SECRET_KEY'], expires_sec)
-        try:
-            user_id = s.loads(token)['user_id']
-        except:
-            return None
-        return User.query.get(user_id)
-
 
 class Tickets(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -87,7 +72,7 @@ def authenticate(**kwargs): # cls represents iteself in this case User
     print(user)
 
     if not user or not bcrypt.check_password_hash(user.password, password):
-        print('PASS FAIL')
+        print('PASSWORD FAIL')
         return None
 
     print('RETURN USER')

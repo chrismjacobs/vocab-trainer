@@ -8,6 +8,7 @@ const routerOptions = [
   {path: '/login', component: 'Login'},
   {path: '/register', component: 'Register'},
   {path: '/reset', component: 'Reset'},
+  {path: '/resetpass', component: 'ResetPass'},
   {path: '/account', component: 'Account'},
   {path: '/help', component: 'Help'},
   {path: '/dictionary', component: 'Dictionary'},

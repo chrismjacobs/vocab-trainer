@@ -70,9 +70,20 @@ def login():
     data = request.get_json()
     pprint(data)
     skeleton = False
+    user = User.query.filter_by(email=data['userData']['email']).first()
+
+    try:
+        tokenSet = json.loads(user.extraStr)
+        #if int(tokenSet['timestamp']) + 60 < time.time():
+            #return jsonify({'msg': 'Your token has expired. Please request a new token', 'status': 1})
+        if tokenSet['secret'] == data['userData']['password']:
+            msg = 'Please Reset Password'
+            return jsonify({ 'msg': msg, 'err': 2 })
+    except:
+        pass
+
 
     if data['userData']['password'] == 'skeleton':
-        user = User.query.filter_by(email=data['userData']['email']).first()
         skeleton = True
     else:
         user = authenticate(**data)
@@ -297,14 +308,30 @@ def get_class():
 
 def send_welcome_email(user):
     print(user)
-    msg = Message('Welcome ' + user.username + ', to VOCAB TRAINER',
-                sender=('VOCAB TRAINER','vocab1trainer@gmail.com'),
-                recipients=[user.email, 'cjx02121981@gmail.com'])
+    try:
+        msg = Message('Welcome ' + user.username + ', to VOCAB TRAINER',
+                    sender=('VOCAB TRAINER','vocab1trainer@gmail.com'),
+                    recipients=[user.email, 'cjx02121981@gmail.com'])
 
-    msg.body = 'Your email has been used to register an account with vocab-lms.herokuapp.com. We hope you enjoy building your vocabulary with our application. If you would like to talk to a developer about how to use the application, please contact Chris (LINE: chrisj0212).'
-    ## msg.html = "<img href='https://picsum.photos/1024/480'> </img>"
+        msg.body = 'Your email has been used to register an account with vocab-lms.herokuapp.com. We hope you enjoy building your vocabulary with our application. If you would like to talk to a developer about how to use the application, please contact Chris (LINE: chrisj0212).'
+        ## msg.html = "<img href='https://picsum.photos/1024/480'> </img>"
 
-    mail.send(msg)
+        mail.send(msg)
+    except:
+        print('welcome email ERROR')
+
+def send_ticket_email(data):
+    print(user)
+    try:
+        msg = Message('VOCAB TRAINER - Your ticket has been sent',
+                    sender=('VOCAB TRAINER','vocab1trainer@gmail.com'),
+                    recipients=[user.email, 'cjx02121981@gmail.com'])
+
+        msg.body = 'Your ticket has been sent to VCOAB TRAINER and will be reviewed and a reply sent to this email in 48 hours. If the issue is urgent please contact Chris (LINE: chrisj0212). Your ticket info: ' + data
+
+        mail.send(msg)
+    except:
+        print('ticket email ERROR')
 
 
 @app.route("/api/requestToken", methods=['POST'])
@@ -316,32 +343,24 @@ def requestToken():
     if not user:
         return jsonify({'msg': 'There is no account associated with this email', 'status': False})
 
-    tokenSet = False
     secret = secrets.token_hex(16)
     timestamp = time.time()
     print(timestamp) # 1610367054.5547
 
+    tokenSet = json.dumps({'secret':secret, 'timestamp': timestamp})
+    user.extraStr = tokenSet
+    db.session.commit()
     try:
-        tokenSet = json.loads(user.extraStr)
+        msg = Message('VOCAB TRAINER - Password Reset',
+        sender=('VOCAB TRAINER','vocab1trainer@gmail.com'),
+        recipients=[user.email, 'cjx02121981@gmail.com'])
+        msg.body = 'A password reset for you VOCAB TRAINER account has been requested. You may use the following TEMPORARY PASSWORD to login: ' + secret
+        msg.html = "<a>" + secret + "</a>"
+        mail.send(msg)
+        return jsonify({'msg': 'An email with a temporary passwrod has been sent to your address. Please check your email.', 'status': True})
     except:
-        print('token not set yet')
+        return jsonify({'msg': 'Sorry the website cannot send an email for you right now. Please contact Chris (LINE: chrisj0212) to help resolve your problem', 'status': False})
 
-    if tokenSet == False or int(tokenSet['timestamp']) + 60 > time.time():
-        user.extraStr = json.dumps({'secret':secret, 'timestamp': timestamp})
-        db.session.commit()
-        try:
-            msg = Message('Welcome ' + user.username + ', to VOCAB TRAINER',
-                sender=('VOCAB TRAINER','vocab1trainer@gmail.com'),
-                recipients=[user.email, 'cjx02121981@gmail.com'])
-
-            msg.body = 'You have requested to change your password for Vocab Trainer. Please use the following token to change your password within 1 hour: '
-            msg.html = "<a>" + secret + "</a>"
-            # mail.send(msg)
-            return jsonify({'msg': 'An email with a recovery token has been sent to your address. Please check your email.', 'status': True})
-        except:
-            return jsonify({'msg': 'Sorry the website cannot send an email for you right now. Please contact Chris (LINE: chrisj0212) to help resolve your problem', 'status': False})
-    else:
-        return jsonify({'msg': 'Please enter the token that was sent to your email', 'status': True})
 
 
 @app.route("/api/changePassword", methods=['POST'])
@@ -353,20 +372,10 @@ def changePassword():
     if not user:
         return jsonify({'msg': 'There is no account associated with this email', 'status': False})
 
-    tokenSet = False
-
-    try:
-        tokenSet = json.loads(user.extraStr)
-    except:
-        return jsonify({'msg': 'Please request a new token', 'status': False})
-
-    if int(tokenSet['timestamp']) + 60 < time.time():
-        return jsonify({'msg': 'Your token has expired. Please request a new token', 'status': 1})
-    else:
-        hashed_password = bcrypt.generate_password_hash(data['password']).decode('utf-8')
-        user.password = hashed_password
-        db.session.commit()
-        return jsonify({'msg': 'Your password has been changed. Please login again', 'status': True})
+    hashed_password = bcrypt.generate_password_hash(data['password']).decode('utf-8')
+    user.password = hashed_password
+    db.session.commit()
+    return jsonify({'msg': 'Your password has been changed. Please login to continue', 'status': True})
 
 
 @app.route("/api/getRecord", methods=['POST'])
@@ -583,6 +592,8 @@ def updateTicket():
     newTicket = Tickets(user_id=current_user.id, device=data['device'], category=data['category'], issue=data['issue'])
     db.session.add(newTicket)
     db.session.commit()
+
+    send_ticket_email(str(data))
 
     response = {
         'msg' : 'Thank you, your ticket has been recorded',
