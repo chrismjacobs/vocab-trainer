@@ -19,9 +19,9 @@
            <div v-if="isAuthenticated">
                 <Dash :tableItems="tableItems" type="nav"></Dash>
                 <hr>
-                <b-nav-item @click="goTo('Account')"><div class="sideBtn bg-second"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp;Account #{{$store.state.userProfile.userID}} </span></div></b-nav-item>
+                <b-nav-item @click="goTo('Account')"><div class="sideBtn bg-second"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp;Account </span></div></b-nav-item>
+                <b-nav-item @click="goTo('InstStud')"><div class="sideBtn bg-warning"><b-icon-check-square></b-icon-check-square>  <span> &nbsp;Quiz </span></div></b-nav-item>
                 <b-nav-item @click="goTo('Help')"><div class="sideBtn bg-grey"><b-icon-question-circle></b-icon-question-circle>  <span> &nbsp;Help </span></div></b-nav-item>
-                <b-nav-item @click="goTo('InstStud')"><div class="sideBtn bg-warning"><b-icon-check-square></b-icon-check-square>  <span> &nbsp;Tests </span></div></b-nav-item>
                 <b-nav-item @click="logout(), goTo('Home')"><div class="sideBtn bg-alert"><b-icon-power></b-icon-power>  <span text=""> &nbsp;Logout </span></div></b-nav-item>
 
             </div>
@@ -62,8 +62,6 @@
                     <button v-if="!isActiveCheck" class="buttonDiv bg-prime text-cream px-1" style="height:80px; width:100%" @click="goTo('Account')">
                     <b-avatar :src="s3 + $store.state.userProfile.userID + '/avatar.jpg'" size="3rem" :text="$store.state.userProfile.username[0]"></b-avatar>
                       <span class="ml-3"> {{ $store.state.userProfile.username}} </span>
-                      <b-icon-person-fill class="ml-3"></b-icon-person-fill>
-                      <span> #{{ $store.state.userProfile.userID}}</span>
                      </button>
                     <button v-else class="buttonDiv bg-cream text-cream px-1" style="height:80px; width:100%" @click="exitToggle()">
                       <b-avatar variant="alert" text="exit" size="3rem"></b-avatar>
