@@ -60,7 +60,8 @@
                 <b-form-input
                             id="class"
                             v-model="userProfile.classroom"
-                            placeholder="Classroom">
+                            placeholder="Classroom"
+                            class="bg-warn-light">
                 </b-form-input>
                 <b-form-invalid-feedback :state="validClass" class="text-warn">
                   Please join a classroom to play MATCH MODE and ADD PICTURES/NEW WORDS; ask your teacher for a classroom code or contact LINE: chrisj0212 to create a new classroom
