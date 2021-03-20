@@ -23,31 +23,51 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="(entry, index) in $store.getters.testRecords" :key="index">
+                <template v-for="(entry, index) in $store.getters.testRecords">
+                <tr :key="index">
                   <th scope="row">{{index}}</th>
-                  <td>{{entry.list.length}}</td>
+                  <td><button @click="showVocab(index)" class="buttonDiv bg-info px-3">
+                      <b-icon-filter-left variant="cream" font-scale="1.5"></b-icon-filter-left>
+                    </button> ({{entry.list.length}})
+                    </td>
                   <td>
-                    <button  v-if="$store.state.activeQuiz === index && getScore(index) === 0"  @click="startQuiz(index)" class="buttonDiv bg-warning px-3">
+                    <div v-if="$store.state.activeQuiz === index && getScore(index) === 0"  >
+                      <button  @click="startQuiz(index)" class="buttonDiv bg-warning px-3">
                       <b-icon-forward variant="cream" font-scale="1.5"></b-icon-forward>
-                    </button>
-                    <button  v-else-if="$store.state.activeQuiz === index && getScore(index) > 0" @click="showAnswers(index)" class="buttonDiv bg-warning px-3">
-                      <b-icon-filter-left variant="cream" font-scale="1.5"></b-icon-filter-left> {{getScore(index)}}
-                    </button>
-                    <button  v-else-if="getScore(index) > 0" @click="showAnswers(index)" class="buttonDiv bg-info px-3">
-                      <b-icon-filter-left variant="cream" font-scale="1.5"></b-icon-filter-left> {{getScore(index)}}
-                    </button>
-                    <button  v-else-if="getScore(index) === 0" class="buttonDiv bg-grey px-3" disabled>
+                      </button>
+                    </div>
+                    <div v-else-if="$store.state.activeQuiz === index && getScore(index) > 0" >
+                      <button  @click="showAnswers(index)" class="buttonDiv bg-warning px-3">
+                      <b-icon-filter-left variant="cream" font-scale="1.5"></b-icon-filter-left>
+                    </button>  {{getScore(index)}}%
+                    </div>
+                    <div v-else-if="getScore(index) > 0" @click="showAnswers(index)" >
+                      <button  class="buttonDiv bg-info px-3">
+                      <b-icon-filter-left variant="cream" font-scale="1.5"></b-icon-filter-left>
+                    </button> {{getScore(index)}}%
+                    </div>
+                    <div v-else-if="getScore(index) === 0" >
+                      <button  class="buttonDiv bg-grey px-3" disabled>
                       <b-icon-filter-left variant="cream" font-scale="1.5"></b-icon-filter-left>
                     </button>
+                    </div>
                   </td>
                 </tr>
-                <tr v-if="showAns" >
+                <tr v-if="showAns" :key="index + '1'">
                   <td colspan="3">
                     <div class="bg-white mt-0 p-0">
                       <InstAns :answerData="answerData" mode="CE"></InstAns>
                     </div>
                   </td>
                 </tr>
+                <tr v-if="showVoc" :key="index + '2'">
+                  <td colspan="3">
+                    <div class="bg-white mt-0 p-0">
+                      <InstTable :selected="['', true]" :list="entry.list" mode="student"></InstTable>
+                    </div>
+                  </td>
+                </tr>
+               </template>
               </tbody>
             </table>
     </div>
@@ -62,11 +82,14 @@
 <script>
 import InstQuizEng from './InstQuizEng'
 import InstAns from './InstAns'
+import InstTable from './InstTable'
+
 export default {
   name: 'InstStud',
   components: {
     InstQuizEng,
-    InstAns
+    InstAns,
+    InstTable
   },
   data () {
     return {
@@ -74,6 +97,7 @@ export default {
       waiting: false,
       studentTestDup: null,
       showAns: false,
+      showVoc: false,
       answerData: []
     }
   },
@@ -83,8 +107,12 @@ export default {
       this.$store.dispatch('instructorLogs', { group: profile.classroom, action: 'getStudent', student: profile.userID })
     },
     getScore: function (index) {
+      console.log(index, this.studentTests[index])
       if (this.studentTests[index]) {
-        return this.studentTests[index].score
+        let score = this.studentTests[index].score
+        let list = this.$store.state.testRecords[index].list.length
+        let grade = (score / list) * 100
+        return Math.round(grade)
       } else {
         return 0
       }
@@ -95,6 +123,11 @@ export default {
     showAnswers: function (index) {
       this.answerData = this.studentTests[index]['answerData']
       this.showAns = !this.showAns
+    },
+    showVocab: function (index) {
+      this.showAns = false
+      this.showVoc = true
+      this.answerData = this.studentTests[index]['answerData']
     },
     recordQuiz: function (payload) {
       // this.studentTestDup = {...this.studentTests}

@@ -4,9 +4,20 @@
 
     <div class="bg-white mt-0 p-0">
 
+      <div class="bg-grey p-2">
+        <b-row>
+          <b-col align="right">
+            <button class="buttonDiv bg-alert text-cream px-3" style="width:auto; height:auto" @click="saveRecords()">
+                    Save Notes
+            </button>
+          </b-col>
+        </b-row>
+      </div>
+
       <table class="table table-striped">
               <thead>
                     <tr>
+                      <th scope="col">ID</th>
                       <th scope="col">Student</th>
                       <th scope="col">Logs</th>
                       <th scope="col">Favs</th>
@@ -18,7 +29,8 @@
                     <tbody>
                       <template v-for="(item, key) in classRecords">
                         <tr :key="key">
-                          <td  style="width:150px" >{{key}}# {{item.user}}</td>
+                          <td  style="width:150px" >{{item.studentID}}</td>
+                          <td  style="width:150px" >{{item.user}}</td>
                           <td>
                             <b-form-select style="width:50px;overflow-y: hidden">
                               <option v-for="(line, date) in getDates(item.logsRecord.logs)" :key="line[0]"> {{date}}: {{line}}  </option>
@@ -180,6 +192,11 @@ export default {
         }
       }
       return dates
+    },
+    saveRecords: function () {
+      if (this.$store.state.studentNotes !== {}) {
+        this.$store.dispatch('instructorLogs', { group: this.$store.state.classLoad, action: 'setNotes', notes: this.$store.state.studentNotes })
+      }
     },
     userRecItems: function (userRecord) {
       let counter = {

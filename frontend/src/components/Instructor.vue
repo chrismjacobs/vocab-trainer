@@ -24,13 +24,14 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="(entry, index) in classGroups" :key="index">
+                <tr v-for="(entry, index) in classGroups" :key="index" :class="getRow(entry.code)">
                   <th scope="row">{{index}}</th>
                   <td>{{entry.code}}</td>
-                  <td> {{entry.count}}</td>
+                  <td>{{entry.count}}</td>
                   <td>  <button class="buttonDiv bg-info px-3" style="width:auto; height:auto" @click="getClass(entry.code)">
                     <b-icon-arrow-clockwise variant="cream" font-scale="1.5"></b-icon-arrow-clockwise>
                     </button>
+                    <span class="ml-2" v-if="getRow(entry.code)"> (Logged in) </span>
                   </td>
                 </tr>
               </tbody>
@@ -44,20 +45,19 @@
             <h3 class="text-cream" > Class: {{$store.state.classLoad}} </h3>
           </b-col>
           <template v-if="$store.state.classLoad">
-              <b-col>
-                <button class="buttonDiv bg-info text-cream px-3" style="width:auto; height:auto" @click="show = 'class'">
-                            CLASS LIST
-                </button>
-              </b-col>
-              <b-col>
-                <button v-if="show === 'class'" class="buttonDiv bg-alert text-cream px-3" style="width:auto; height:auto" @click="saveRecords()">
-                            SAVE NOTES
-                </button>
-              </b-col>
-              <b-col>
-                <button class="buttonDiv bg-warn text-cream px-3" style="width:auto; height:auto" @click="getTests()">
-                            TESTS
-                </button>
+              <b-col align="right">
+                <b-form-group>
+                  <b-form-radio-group
+                    id="btn-radios-2"
+                    v-model="show"
+                    :options="optionsR"
+                    style="width:100%:color:cream"
+                    buttons
+                    :button-variant="color[show]"
+                    size="lg"
+                    name="radio-btn-outline"
+                  ></b-form-radio-group>
+                </b-form-group>
               </b-col>
           </template>
         </b-row>
@@ -69,6 +69,10 @@
     </div>
     <div v-else-if="testRecords && show === 'tests'" class="bg-white mt-0 p-0">
      <InstTests></InstTests>
+    </div>
+
+    <div v-else-if="testRecords && show === 'match'" class="bg-white mt-0 p-0">
+     <InstMatch></InstMatch>
     </div>
 
     <div v-else-if="waiting" align="center" class="bg-smoke">
@@ -86,6 +90,7 @@
 <script>
 import InstClass from './InstClass'
 import InstTests from './InstTests'
+import InstMatch from './InstMatch'
 
 export default {
   name: 'Instructor',
@@ -94,12 +99,24 @@ export default {
   },
   components: {
     InstClass,
-    InstTests
+    InstTests,
+    InstMatch
   },
   data () {
     return {
       show: null,
-      waiting: false
+      waiting: false,
+      optionsR: [
+        // { value: null, text: 'none' },
+        { value: 'class', text: 'CLASS' },
+        { value: 'tests', text: 'TEST' },
+        { value: 'match', text: 'MATCH' }
+      ],
+      color: {
+        class: 'info',
+        tests: 'warn',
+        match: 'grape'
+      }
     }
   },
   methods: {
@@ -116,14 +133,17 @@ export default {
       this.waiting = true
       this.show = 'tests'
     },
-    saveRecords: function () {
-      if (this.$store.state.studentNotes !== {}) {
-        this.$store.dispatch('instructorLogs', { group: this.$store.state.classLoad, action: 'setNotes', notes: this.$store.state.studentNotes })
+    getRow: function (index) {
+      if (index === this.$store.state.userProfile.classroom) {
+        return 'bg-p1-light'
+      } else {
+        return null
       }
     }
   },
   created () {
     this.$store.dispatch('classGroups', { userID: this.$store.state.userProfile.userID })
+    this.getClass(this.$store.state.userProfile.classroom)
   },
   computed: {
     classRecords () {

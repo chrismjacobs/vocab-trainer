@@ -7,15 +7,6 @@
 
       <div class="bg-grey p-2">
         <b-row>
-          <b-col>
-            <h3 class="text-cream"> Active Test: {{activeQuiz}} </h3>
-            <b-form-select class="bg-second text-cream"
-              @change="updateActive()"
-              v-model="activeQuiz"
-              :options="activeOptions"
-              :select-size="1">
-            </b-form-select>
-          </b-col>
           <b-col align="right">
             <button class="buttonDiv bg-dark text-cream px-3" style="width:auto; height:auto" @click="newTest()">
                   New Test
@@ -31,7 +22,10 @@
                       <th scope="col">Type</th>
                       <th scope="col">Vocab</th>
                       <th scope="col">Results</th>
-                      <th scope="col">Action</th>
+                      <th scope="col">Edit</th>
+                      <th scope="col">Active</th>
+                      <th scope="col">Copy</th>
+                      <th scope="col">Delete</th>
                     </tr>
               </thead>
                     <tbody>
@@ -42,68 +36,83 @@
                         <td>{{test.list.length}}</td>
                         <td>
                           <button class="buttonDiv bg-info px-3" style="width:60px" @click="showResults(index)">
-                            <b-icon variant="cream" font-scale="1" icon="arrow"></b-icon>
+                            <b-icon-filter-left variant="cream" font-scale="1"></b-icon-filter-left>
                           </button>
                         </td>
                         <td>
-                          <button class="buttonDiv bg-safe px-3" style="width:auto; height:auto" @click="getDetails(index)">
-                              <b-icon-arrow-clockwise variant="cream" font-scale="1"></b-icon-arrow-clockwise>
+                          <button class="buttonDiv bg-safe px-3 mr-3" style="width:auto; height:auto" @click="getDetails(index)">
+                              <b-icon-folder-plus variant="cream" font-scale="1"></b-icon-folder-plus>
                           </button>
-                          <button class="buttonDiv bg-danger px-3" style="width:60px;float:right" @click="deleteAlert(index)">
+                        </td>
+                        <td>
+                          <button v-if="activeQuiz === index" class="buttonDiv bg-warning px-3" style="width:auto; height:auto" @click="activeCheck(index, 0)">
+                              <b-icon icon="check"></b-icon>
+                          </button>
+                          <button v-else class="buttonDiv bg-grey px-3" style="width:auto; height:auto" @click="activeCheck(index, 1)">
+                              <b-icon icon="check"></b-icon>
+                          </button>
+                        </td>
+                        <td>
+                          <button class="buttonDiv bg-warn px-3 mr-3 " style="width:auto; height:auto" @click="copyDetails(index)">
+                              <b-icon-collection variant="cream" font-scale="1"></b-icon-collection>
+                          </button>
+                        </td>
+                        <td>
+                          <button class="buttonDiv bg-alert px-3 mr-3" style="width:60px" @click="deleteModal(null, index)">
                             <b-icon variant="cream" font-scale="1" icon="trash-fill"></b-icon>
                           </button>
-
                         </td>
                       </tr>
-                      <tr :key="index" v-if="results === index">
+                      <tr :key="index + '1'" v-if="results === index">
+                        <td colspan="8">
+                          <b-table
+                            striped hover
+                            :items="$store.state.studentResults"
+                            :fields="fields"
+                            show-empty
+                            fixed
+                            head-variant="dark"
+                            >
+
+                          <template v-slot:cell(quizData)="data">
+                              {{getScore(data.item.quizData[index])[0], index}}
+                                </button>
+                          </template>
+                          <template v-slot:cell(time)="data">
+                              {{getScore(data.item.quizData[index])[1], index}}
+                          </template>
+                          <template v-slot:cell(buttons)="data">
+                                <button v-if="data.item.quizData[index]" @click="showAnswers(idx, index, data.item.quizData[index]['answerData'])" class="buttonDiv bg-info px-3">
+                                  <b-icon-filter-left variant="cream" font-scale="1"></b-icon-filter-left>
+                                </button>
+                                <button v-if="data.item.quizData[index]" @click="deleteModal(idx, index)" class="buttonDiv bg-alert px-3">
+                                  <b-icon variant="cream" font-scale="1" icon="trash-fill"></b-icon>
+                                </button>
+                          </template>
+                          </b-table>
+                        </td>
+                      </tr>
+
+                      <tr v-if="answers === idx" :key="index + '2'">
                         <td colspan="5">
-                          <thead>
-                            <tr>
-                              <th scope="col">ID</th>
-                              <th scope="col">Name</th>
-                              <th scope="col">Grade</th>
-                              <th scope="col">Time</th>
-                              <th scope="col">Action</th>
-                            </tr>
-                          </thead>
-                           <tbody>
-                            <template v-for="(res, idx) in $store.state.studentResults" >
-                            <tr :key="idx">
-                              <td> {{idx}} </td>
-                              <td> {{res.name}} </td>
-                              <td> {{getScore(res.quizData[index])[0]}} </td>
-                              <td> {{getScore(res.quizData[index])[1]}} </td>
-                              <td>  <button v-if="res.quizData[index]" @click="showAnswers(idx, index, res.quizData[index]['answerData'])" class="buttonDiv bg-info px-3">
-                                      <b-icon-filter-left variant="cream" font-scale="1.5"></b-icon-filter-left>
-                                    </button>
-                                      <button v-if="res.quizData[index]" @click="deleteAnswers(idx, index)" class="buttonDiv bg-alert px-3">
-                                        <b-icon-filter-left  variant="cream" font-scale="1.5"></b-icon-filter-left>
-                                      </button>
-                              </td>
-                            </tr>
-                            <tr v-if="answers === idx" :key="idx">
-                              <td colspan="5">
-                                <div class="bg-white mt-0 p-0">
-                                  <InstAns :answerData="answerData" mode="CE"></InstAns>
-                                </div>
-                              </td>
-                            </tr>
-                            </template>
-                          </tbody>
+                          <div class="bg-white mt-0 p-0">
+                            <InstAns :answerData="answerData" mode="CE"></InstAns>
+                          </div>
                         </td>
                       </tr>
                       </template>
+
                     </tbody>
       </table>
 
     </div>
 
     <div v-if="showDetails">
-        <div class="mt-2 bg-warn p-2">
+        <div class="mt-2 bg-darkgrey p-2">
             <b-row >
               <b-col>
                 <h3 class="text-cream"> Test Details: {{testDetails.title}} </h3>
-                <b-input-group label="Test Title:" label-for="exampleInput1">
+                <b-input-group label="Test Title:" label-for="exampleInput1" v-if="!testRecords[testDetails.title]">
                     <b-input-group-prepend inline is-text>
                       <b-icon icon="filter-left"></b-icon>
                     </b-input-group-prepend>
@@ -116,7 +125,7 @@
               </b-col>
               <b-col align="right">
                 <button class="buttonDiv bg-warning text-cream px-3" style="width:auto; height:auto" @click="saveTest()">
-                      Save Test
+                      <b-icon icon="cloud-upload" font-scale="2"></b-icon>
                 </button>
               </b-col>
             </b-row>
@@ -148,6 +157,15 @@
       <button class="buttonDiv mt-3 bg-prime text-cream" style="width:60%"  @click="hideModal('success')">Close</button>
     </b-modal>
 
+    <b-modal hide-header-close no-close-on-esc no-close-on-backdrop align="center" ref="delete" hide-footer title="Success">
+      <div class="d-block">
+        <h3> You are about to delete a record. Are you sure you want to delete? </h3>
+      </div>
+      <button class="buttonDiv mt-3 bg-alert text-cream" style="width:60%"  @click="hideModal('delete')">No</button>
+
+      <button class="buttonDiv mt-3 bg-safe text-cream" style="width:60%"  @click="deleteMode()">Yes</button>
+    </b-modal>
+
    <b-modal hide-header-close no-close-on-esc no-close-on-backdrop align="center" ref="fail" hide-footer title="Problem Found">
       <div class="d-block">
         <h3> {{msg}} </h3>
@@ -171,12 +189,6 @@ export default {
   },
   data () {
     return {
-      masterDetails: {
-        title: null,
-        type: 'ECN',
-        list: [],
-        status: 0
-      },
       testDetails: {
         title: null,
         type: 'ECN',
@@ -184,6 +196,7 @@ export default {
         status: 0
       },
       msg: null,
+      holder: [null, null],
       results: null,
       answers: null,
       answerData: [],
@@ -192,6 +205,13 @@ export default {
       selected: ['', true],
       testTypes: [
         { value: 'ECN', label: 'Eng --> Ch (Normal)' }
+      ],
+      fields: [
+        {key: 'studentID', label: 'ID', sortable: true},
+        {key: 'user', label: 'Name', sortable: true},
+        {key: 'quizData', label: 'Grade', sortable: true},
+        {key: 'time', label: 'Time', sortable: true},
+        {key: 'buttons', label: 'Action'}
       ]
     }
   },
@@ -200,6 +220,11 @@ export default {
       this.msg = msg
       this.$refs['success'].show()
     },
+    deleteModal: function (idx, index) {
+      console.log('deleteModal', idx, index)
+      this.holder = [idx, index]
+      this.$refs['delete'].show()
+    },
     showAlert: function (msg) {
       this.msg = msg
       this.$refs['fail'].show()
@@ -207,18 +232,37 @@ export default {
     hideModal: function (mode) {
       this.$refs[mode].hide()
     },
-    deleteAlert: function (index) {
+    deleteMode: function () {
+      this.$refs['delete'].hide()
+      if (!this.holder[0]) {
+        this.deleteQuiz()
+      } else {
+        this.deleteAnswers()
+      }
+    },
+    deleteQuiz: function () {
+      console.log(this.holder, this.activeQuiz)
+      let index = this.holder[1]
+      this.$refs['delete'].hide()
       console.log(this.testRecords)
       let array = this.testRecords
       this.showDetails = false
       this.results = false
+      /// a little mess to figure out here
+      if (this.activeQuiz === index) {
+        this.activeQuiz = ''
+        this.updateActive()
+      }
       if (array[index]) {
         delete array[index]
         this.testRecords = {...this.testRecords}
         this.$store.dispatch('instructorLogs', { group: this.$store.state.classLoad, action: 'setTests', testData: this.testRecords })
       }
     },
-    deleteAnswers: function (idx, index) {
+    deleteAnswers: function () {
+      let idx = this.holder[0]
+      let index = this.holder[1]
+
       console.log('delete', idx, index)
       this.studentTests = {...this.$store.state.studentResults[idx]}
 
@@ -226,7 +270,6 @@ export default {
         answerData: [], score: 0, time: 0
       }
       this.$store.dispatch('instructorLogs', { group: this.$store.state.classLoad, action: 'setStudent', student: idx, studentTests: this.studentTests })
-      this.answers = [null, null]
     },
     showAnswers: function (idx, index, answerData) {
       console.log('show', idx, index, answerData)
@@ -254,17 +297,50 @@ export default {
         return ['-', '-']
       }
     },
+    activeCheck: function (index, action) {
+      if (action === 0) {
+        this.activeQuiz = ''
+      } else {
+        this.activeQuiz = index
+      }
+      this.updateActive()
+    },
     updateActive: function () {
       this.$store.dispatch('instructorLogs', { group: this.$store.state.classLoad, action: 'setActive', activeQuiz: this.activeQuiz })
     },
     getDetails: function (test) {
+      if (this.showDetails && this.testDetails === this.testRecords[test]) {
+        this.showDetails = false
+        this.testDetails = {
+          title: null,
+          type: 'ECN',
+          list: [],
+          status: 0
+        }
+      } else {
+        this.showDetails = true
+        this.results = false
+        this.testDetails = this.testRecords[test]
+      }
+    },
+    copyDetails: function (test) {
+      this.testDetails = {
+        title: this.testRecords[test].title + 'copy',
+        type: 'ECN',
+        list: this.testRecords[test].list
+      }
+
       this.showDetails = true
       this.results = false
-      this.testDetails = this.testRecords[test]
     },
     newTest: function () {
+      let masterDetails = {
+        title: null,
+        type: 'ECN',
+        list: []
+      }
       this.showDetails = true
-      this.testDetails = {...this.masterDetails}
+      this.testDetails = {...masterDetails}
     },
     saveTest: function () {
       this.showDetails = false
@@ -272,14 +348,6 @@ export default {
       this.testRecords[this.testDetails.title] = this.testDetails
       this.testRecords = {...this.testRecords}
       this.$store.dispatch('instructorLogs', { group: this.$store.state.classLoad, action: 'setTests', testData: this.testRecords })
-    },
-    getColor: function (index) {
-      let status = this.testRecords[index].status
-      let colors = {
-        0: 'alert',
-        1: 'warning'
-      }
-      return colors[status]
     },
     filterTable: function (row, filter) {
       if (filter[0] === '') {

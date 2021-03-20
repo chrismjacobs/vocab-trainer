@@ -17,14 +17,25 @@
               >
                 <template v-slot:cell(english)="data">
                     <template v-if="list.includes(data.item.English)">
-                      <b-icon-star-fill v-if="mode === 'student'" variant="warning" ></b-icon-star-fill>
-                      <b-icon-check-circle-fill scale="1.5" variant="safe" @click="addCheck(data.item.English, 0)"></b-icon-check-circle-fill> &nbsp;
+                      <div v-if="mode === 'student'">
+                        <template v-if="data.item.Star">
+                            <b-icon-star-fill variant="warn" @click="addStar(data.item.English, 0)"></b-icon-star-fill> <span class="d-lg-none"> &nbsp; <br> </span>
+                        </template>
+                        <template v-else>
+                            <b-icon-star @click="addStar(data.item.English, 1)"></b-icon-star> &nbsp; <br class="d-lg-none">
+                        </template>
+                      </div>
+                      <div v-else>
+                        <template v-if="list.includes(data.item.English)">
+                          <b-icon-check-circle-fill  scale="1.5" variant="safe" @click="addCheck(data.item.English, 0)"></b-icon-check-circle-fill>
+                        </template>
+                        <template v-else>
+                          ok
+                           <b-icon-check-circle scale="1.5" @click="addCheck(data.item.English, 1)"></b-icon-check-circle>
+                        </template>
+                      </div>
                     </template>
-                    <template v-else>
-                      <b-icon-star v-if="mode === 'student'"></b-icon-star>
-                      <b-icon-check-circle scale="1.5" @click="addCheck(data.item.English, 1)"></b-icon-check-circle>  &nbsp;
-                    </template>
-                      <span :id="data.value + '_en/'" @click="playAudio(data.value, '_en/', data.item.mp3en, true)"> {{data.value}} ({{data.item.Gr}}) </span>
+                    <span class="ml-3" :id="data.value + '_en/'" @click="playAudio(data.value, '_en/', data.item.mp3en, true)"> {{data.value}} ({{data.item.Gr}}) </span>
                 </template>
                 <template v-slot:cell(chineseext)="data">
                       <span :id="data.item.English + '_ch/'" @click="playAudio(data.item.English, '_ch/', data.item.mp3ch, true)"> {{data.value}} </span>
@@ -148,6 +159,10 @@ export default {
     tableItems () {
       // console.log('tableGet', this.$store.getters.makeList)
       return this.$store.getters.makeList
+    },
+    starGet () {
+      console.log('stars', this.$store.getters.starGet)
+      return this.$store.getters.starGet
     }
   },
   created () {
