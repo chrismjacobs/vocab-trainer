@@ -76,7 +76,6 @@
 
                           <template v-slot:cell(quizData)="data">
                               {{getScore(data.item.quizData[index])[0], index}}
-                                </button>
                           </template>
                           <template v-slot:cell(time)="data">
                               {{getScore(data.item.quizData[index])[1], index}}
