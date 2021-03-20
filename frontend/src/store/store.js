@@ -67,7 +67,7 @@ const state = {
   classRecords: null,
   classGroups: null,
   testRecords: {},
-  activeQuiz: null,
+  activeQuiz: '',
   studentNotes: {},
   studentTests: {},
   studentResults: {},

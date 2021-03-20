@@ -253,18 +253,13 @@ def instructorRedis():
 
     elif action == 'getResults':
         classList = User.query.filter_by(classroom=group).all()
-        uDict = {}
+        uDict = []
         for u in classList:
             if redisData.hget(group, u.id):
-                uDict[u.id] = {
-                    'name': u.username,
-                    'quizData': json.loads(redisData.hget(group, u.id))
-                }
+                uDict.append({'uid': u.id, 'user': u.username, 'studentID': u.studentID, 'quizData': json.loads(redisData.hget(group, u.id)), 'time': None, 'buttons': None})
             else:
-                uDict[u.id] = {
-                    'name': u.username,
-                    'quizData': {}
-                }
+                uDict.append({'uid': u.id, 'user': u.username, 'studentID': u.studentID, 'quizData': {} })
+
         payload = uDict
         msg = 'setResults'
 
