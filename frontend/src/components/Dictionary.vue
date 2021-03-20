@@ -32,8 +32,12 @@
         </b-row>
         <b-row >
           <b-col align="center">
+            <button v-if="$store.state.activeQuiz" class="buttonDiv bg-second px-3" style="width:60px" @click="changeSelected('q')"> <b-icon-check :variant="getIcon('q')" font-scale="1.5"></b-icon-check></button>
             <button class="buttonDiv bg-second px-3" style="width:60px" @click="changeSelected('p'), getNotes()"> <b-icon-images :variant="getIcon('p')" font-scale="1.5"></b-icon-images></button>
             <button class="buttonDiv bg-second px-3" style="width:60px" @click="changeSelected('*')"> <b-icon-star-fill :variant="getIcon('*')" font-scale="1.5"></b-icon-star-fill></button>
+                <div  v-if="$store.state.activeQuiz" class="d-lg-none">
+                  <br>
+                </div>
             <button v-if="vocabList[0] === 'g'" class="buttonDiv bg-second px-3" style="width:60px;t" @click="changeSelected('+')"> <b-icon-arrow-up-circle-fill :variant="getIcon('+')" font-scale="1.5"></b-icon-arrow-up-circle-fill></button>
             <button  :class="getSoundButton()" style="width:60px;t" @click="tapSound()"> <b-icon-soundwave :variant="getSoundwave()" font-scale="1.5"></b-icon-soundwave></button>
             <b-form-select class="bg-second text-cream" style="width:10%;overflow-y: hidden" @change="selected[2] = null" v-model="selected[1]" :options="optionsCheck" :select-size="1"></b-form-select>
@@ -319,6 +323,18 @@ export default {
       // console.log('tableGet', this.$store.getters.makeList)
       return this.$store.getters.makeList
     },
+    getList () {
+      let tr = this.$store.state.testRecords
+      let aq = this.$store.state.activeQuiz
+
+      if (tr[aq]) {
+        let qList = tr[aq].list
+        return qList
+      } else {
+        console.log('getList', tr, aq)
+        return []
+      }
+    },
     optionsCheck () {
       if (this.vocabList[0] === 'g') {
         return this.optionsG
@@ -361,7 +377,8 @@ export default {
       let colors = {
         '*': 'warn',
         '+': 'info',
-        'p': 'safe'
+        'p': 'safe',
+        'q': 'grape-light'
       }
       if (this.selected[1] === icon) {
         return colors[icon]
@@ -496,6 +513,10 @@ export default {
         return true
       } else if (filter[1] === 'p') {
         if (row.Picture) {
+          return true
+        }
+      } else if (filter[1] === 'q') {
+        if (this.getList.includes(row.English)) {
           return true
         }
       } else if (filter[1] === 'abbr.' || filter[1] === 'prop.') {
