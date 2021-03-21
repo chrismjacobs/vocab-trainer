@@ -248,6 +248,9 @@ export default {
     classGroups () {
       return this.$store.getters.classGroups
     }
+  },
+  beforeDestroy () {
+    this.saveRecords()
   }
 }
 </script>

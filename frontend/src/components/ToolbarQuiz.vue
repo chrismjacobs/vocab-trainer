@@ -2,8 +2,13 @@
   <div class="toolbar" v-if="!toolbarShow">
           <div class="bg-prime p-2 mt-0">
             <b-row>
+              <b-col align="center" cols="3">
+              </b-col>
               <b-col align="center">
-                <button class="buttonDiv bg-info px-3" style="width:45%; height:50px" @click="makeTest(), showToolbar=false"> <b-icon-forward variant="cream" font-scale="1.5"></b-icon-forward></button>
+                <button class="buttonDiv bg-info px-3 mr-3" style="width:100%; height:50px" @click="showWarn(), showToolbar=false"> <b-icon-forward variant="cream" font-scale="1.5"></b-icon-forward></button>
+              </b-col>
+              <b-col align="center" cols="3">
+                <button class="buttonDiv bg-alert px-3 text-cream" style="height:50px" @click="$emit('cancel')"> X </button>
               </b-col>
             </b-row>
           </div>

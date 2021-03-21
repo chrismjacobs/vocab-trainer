@@ -7,7 +7,7 @@
             <h2 align="center"> {{ title }} </h2>
     </div>
 
-    <ToolbarQuiz :toolbarShow='showTest' :showAnswers='showAnswers' :testType="testType" :title="title" v-on:newTest="start($event)" v-on:retry="start()"></ToolbarQuiz>
+    <ToolbarQuiz :toolbarShow='showTest' :showAnswers='showAnswers' :testType="testType" :title="title" v-on:newTest="start($event)"  v-on:cancel="$emit('cancel')"></ToolbarQuiz>
     <div v-if="showTest">
         <b-progress :value="filter" style="height:30px" :max="testItems.length" variant="warn-light" show-progress animated></b-progress>
 

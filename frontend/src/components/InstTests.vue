@@ -63,42 +63,37 @@
                           </button>
                         </td>
                       </tr>
-                      <tr :key="index + '1'" v-if="results === index">
-                        <td colspan="8">
-                          <b-table
-                            striped hover
-                            :items="$store.state.studentResults"
-                            :fields="fields"
-                            show-empty
-                            fixed
-                            head-variant="dark"
-                            >
+                      <transition name="tableboard" :key="index + '1'">
+                        <tr v-if="results === index">
+                          <td colspan="8">
+                            <b-table
+                              striped hover
+                              :items="$store.state.studentResults"
+                              :fields="fields"
+                              show-empty
+                              fixed
+                              head-variant="dark"
+                              >
 
-                          <template v-slot:cell(quizData)="data">
-                              {{getScore(data.item.quizData[index])[0], index}}
-                          </template>
-                          <template v-slot:cell(time)="data">
-                              {{getScore(data.item.quizData[index])[1], index}}
-                          </template>
-                          <template v-slot:cell(buttons)="data">
-                                <button v-if="data.item.quizData[index]" @click="showAnswers(idx, index, data.item.quizData[index]['answerData'])" class="buttonDiv bg-info px-3">
-                                  <b-icon-filter-left variant="cream" font-scale="1"></b-icon-filter-left>
-                                </button>
-                                <button v-if="data.item.quizData[index]" @click="deleteModal(idx, index)" class="buttonDiv bg-alert px-3">
-                                  <b-icon variant="cream" font-scale="1" icon="trash-fill"></b-icon>
-                                </button>
-                          </template>
-                          </b-table>
-                        </td>
-                      </tr>
+                            <template v-slot:cell(quizData)="data">
+                                {{ getScore(data.item.quizData[index], index)[0] }}
+                            </template>
+                            <template v-slot:cell(time)="data">
+                                {{ getScore(data.item.quizData[index], index)[2] }}
+                            </template>
+                            <template v-slot:cell(buttons)="data">
+                                  <button v-if="data.item.quizData[index]" @click="showAnswers(data.item.uid, index, data.item.quizData[index]['answerData'])" class="buttonDiv bg-warning px-3">
+                                    <b-icon-filter-left variant="cream" font-scale="1"></b-icon-filter-left>
+                                  </button>
+                                  <button v-if="data.item.quizData[index]" @click="deleteModal(data.item.uid, index)" class="buttonDiv bg-alert px-3">
+                                    <b-icon variant="cream" font-scale="1" icon="trash-fill"></b-icon>
+                                  </button>
+                            </template>
+                            </b-table>
+                          </td>
+                        </tr>
+                      </transition>
 
-                      <tr v-if="answers === idx" :key="index + '2'">
-                        <td colspan="5">
-                          <div class="bg-white mt-0 p-0">
-                            <InstAns :answerData="answerData" mode="CE"></InstAns>
-                          </div>
-                        </td>
-                      </tr>
                       </template>
 
                     </tbody>
@@ -156,13 +151,23 @@
       <button class="buttonDiv mt-3 bg-prime text-cream" style="width:60%"  @click="hideModal('success')">Close</button>
     </b-modal>
 
-    <b-modal hide-header-close no-close-on-esc no-close-on-backdrop align="center" ref="delete" hide-footer title="Success">
+    <b-modal hide-header-close no-close-on-esc no-close-on-backdrop align="center" ref="delete" hide-footer title="Delete">
       <div class="d-block">
         <h3> You are about to delete a record. Are you sure you want to delete? </h3>
       </div>
       <button class="buttonDiv mt-3 bg-alert text-cream" style="width:60%"  @click="hideModal('delete')">No</button>
 
-      <button class="buttonDiv mt-3 bg-safe text-cream" style="width:60%"  @click="deleteMode()">Yes</button>
+      <button class="buttonDiv mt-3 bg-safe text-cream" style="width:60%"  @click="deleteMode('delete')">Yes</button>
+    </b-modal>
+
+    <b-modal hide-header-close no-close-on-esc no-close-on-backdrop align="center" ref="reset" hide-footer title="Reset">
+      <div class="d-block">
+        <h3> You are about to reset a students quiz. Are you sure you want to reset? </h3>
+        {{$store.state.studentResults[holder[0]]}}
+      </div>
+      <button class="buttonDiv mt-3 bg-alert text-cream" style="width:60%"  @click="hideModal('reset')">No</button>
+
+      <button class="buttonDiv mt-3 bg-safe text-cream" style="width:60%"  @click="deleteMode('reset')">Yes</button>
     </b-modal>
 
    <b-modal hide-header-close no-close-on-esc no-close-on-backdrop align="center" ref="fail" hide-footer title="Problem Found">
@@ -170,6 +175,15 @@
         <h3> {{msg}} </h3>
       </div>
       <button class="buttonDiv mt-3 bg-alert text-cream" style="width:60%"  @click="hideModal('fail')">Close</button>
+    </b-modal>
+
+   <b-modal hide-header-close no-close-on-esc no-close-on-backdrop align="center" ref="answers" hide-footer title="Student Answers">
+      <div class="d-block">
+         <div class="bg-white mt-0 p-0">
+            <InstAns :answerData="answerData" mode="CE"></InstAns>
+          </div>
+      </div>
+      <button class="buttonDiv mt-3 bg-alert text-cream" style="width:60%"  @click="hideModal('answers')">Close</button>
     </b-modal>
 
   </div>
@@ -208,7 +222,7 @@ export default {
       fields: [
         {key: 'studentID', label: 'ID', sortable: true},
         {key: 'user', label: 'Name', sortable: true},
-        {key: 'quizData', label: 'Grade', sortable: true},
+        {key: 'quizData', label: 'Grade(%)', sortable: true},
         {key: 'time', label: 'Time', sortable: true},
         {key: 'buttons', label: 'Action'}
       ]
@@ -219,10 +233,17 @@ export default {
       this.msg = msg
       this.$refs['success'].show()
     },
+    showAnsModal: function (msg) {
+      this.$refs['answers'].show()
+    },
     deleteModal: function (idx, index) {
       console.log('deleteModal', idx, index)
       this.holder = [idx, index]
-      this.$refs['delete'].show()
+      if (idx) {
+        this.$refs['reset'].show()
+      } else {
+        this.$refs['delete'].show()
+      }
     },
     showAlert: function (msg) {
       this.msg = msg
@@ -231,8 +252,8 @@ export default {
     hideModal: function (mode) {
       this.$refs[mode].hide()
     },
-    deleteMode: function () {
-      this.$refs['delete'].hide()
+    deleteMode: function (mode) {
+      this.$refs[mode].hide()
       if (!this.holder[0]) {
         this.deleteQuiz()
       } else {
@@ -259,8 +280,8 @@ export default {
       }
     },
     deleteAnswers: function () {
-      let idx = this.holder[0]
-      let index = this.holder[1]
+      let idx = this.holder[0] // student
+      let index = this.holder[1] // test
 
       console.log('delete', idx, index)
       this.studentTests = {...this.$store.state.studentResults[idx]}
@@ -268,18 +289,14 @@ export default {
       this.studentTests[index] = {
         answerData: [], score: 0, time: 0
       }
+      /// need to update student Results
       this.$store.dispatch('instructorLogs', { group: this.$store.state.classLoad, action: 'setStudent', student: idx, studentTests: this.studentTests })
+      this.$store.dispatch('instructorLogs', { group: this.$store.state.classLoad, action: 'getResults' })
     },
     showAnswers: function (idx, index, answerData) {
       console.log('show', idx, index, answerData)
-      if (this.answers === idx) {
-        this.answerData = null
-        this.answers = null
-      } else {
-        this.answerData = answerData
-        this.answers = idx
-      }
-      console.log(this.answers)
+      this.answerData = answerData
+      this.showAnsModal()
     },
     showResults: function (index) {
       if (this.results === index) {
@@ -288,12 +305,17 @@ export default {
         this.results = index
       }
     },
-    getScore: function (data) {
-      console.log(data)
+    getScore: function (data, index) {
+      console.log(data, index, this.$store.state.testRecord)
       if (data) {
-        return [data.score, data.time]
+        let score = data.score
+        let comp = data.answerData.length
+        let list = this.$store.state.testRecords[index].list.length
+        let grade = (score / list) * 100
+        let complete = (list / comp) * 100
+        return [Math.round(grade), Math.round(complete), data.time]
       } else {
-        return ['-', '-']
+        return ['-', '-', '-']
       }
     },
     activeCheck: function (index, action) {

@@ -6,6 +6,7 @@
     <div>
           <div class="mb-0">
               <b-table
+              sticky-header
               striped hover
               :items="tableItems"
               :fields="fields"
@@ -16,27 +17,28 @@
               head-variant="dark"
               >
                 <template v-slot:cell(english)="data">
-                    <template v-if="list.includes(data.item.English)">
-                      <div v-if="mode === 'student'">
-                        <template v-if="data.item.Star">
-                            <b-icon-star-fill variant="warn" @click="addStar(data.item.English, 0)"></b-icon-star-fill> <span class="d-lg-none"> &nbsp; <br> </span>
-                        </template>
-                        <template v-else>
+                      <template v-if="mode === 'student'">
+                        <div v-if="data.item.Star">
+                            <b-icon-star-fill variant="warn" @click="addStar(data.item.English, 0)"></b-icon-star-fill> <br class="d-lg-none">
+                            <span class="ml-3" :id="data.value + '_en/'" @click="playAudio(data.value, '_en/', data.item.mp3en, true)"> {{data.value}} ({{data.item.Gr}}) </span>
+                        </div>
+                        <div v-else>
                             <b-icon-star @click="addStar(data.item.English, 1)"></b-icon-star> &nbsp; <br class="d-lg-none">
-                        </template>
-                      </div>
-                      <div v-else>
-                        <template v-if="list.includes(data.item.English)">
+                            <span class="ml-3" :id="data.value + '_en/'" @click="playAudio(data.value, '_en/', data.item.mp3en, true)"> {{data.value}} ({{data.item.Gr}}) </span>
+                        </div>
+                      </template>
+                      <template v-else>
+                        <div v-if="list.includes(data.item.English)">
                           <b-icon-check-circle-fill  scale="1.5" variant="safe" @click="addCheck(data.item.English, 0)"></b-icon-check-circle-fill>
-                        </template>
-                        <template v-else>
-                          ok
+                          <span class="ml-3" :id="data.value + '_en/'" @click="playAudio(data.value, '_en/', data.item.mp3en, true)"> {{data.value}} ({{data.item.Gr}}) </span>
+                        </div>
+                        <div v-else>
                            <b-icon-check-circle scale="1.5" @click="addCheck(data.item.English, 1)"></b-icon-check-circle>
-                        </template>
-                      </div>
-                    </template>
-                    <span class="ml-3" :id="data.value + '_en/'" @click="playAudio(data.value, '_en/', data.item.mp3en, true)"> {{data.value}} ({{data.item.Gr}}) </span>
+                           <span class="ml-3" :id="data.value + '_en/'" @click="playAudio(data.value, '_en/', data.item.mp3en, true)"> {{data.value}} ({{data.item.Gr}}) </span>
+                        </div>
+                      </template>
                 </template>
+
                 <template v-slot:cell(chineseext)="data">
                       <span :id="data.item.English + '_ch/'" @click="playAudio(data.item.English, '_ch/', data.item.mp3ch, true)"> {{data.value}} </span>
                 </template>

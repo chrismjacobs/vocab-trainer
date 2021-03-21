@@ -32,7 +32,7 @@
         </b-row>
         <b-row >
           <b-col align="center">
-            <button v-if="$store.state.activeQuiz" class="buttonDiv bg-second px-3" style="width:60px" @click="changeSelected('q')"> <b-icon-check :variant="getIcon('q')" font-scale="1.5"></b-icon-check></button>
+            <button v-if="$store.state.activeQuiz" class="buttonDiv bg-second px-3" style="width:60px" @click="changeSelected('q')"> <b-icon-card-checklist :variant="getIcon('q')" font-scale="1.5"></b-icon-card-checklist></button>
             <button class="buttonDiv bg-second px-3" style="width:60px" @click="changeSelected('p'), getNotes()"> <b-icon-images :variant="getIcon('p')" font-scale="1.5"></b-icon-images></button>
             <button class="buttonDiv bg-second px-3" style="width:60px" @click="changeSelected('*')"> <b-icon-star-fill :variant="getIcon('*')" font-scale="1.5"></b-icon-star-fill></button>
                 <div  v-if="$store.state.activeQuiz" class="d-lg-none">

@@ -6,10 +6,12 @@
     <div>
       <div class="bg-smoke">
         <b-table
+        sticky-header
         striped hover
         fixed
         :items="answerData"
         :fields="fields"
+        head-variant="dark"
         >
         <template #head(english)="data">
           <div align="right">

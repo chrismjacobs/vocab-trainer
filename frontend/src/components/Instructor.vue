@@ -2,7 +2,7 @@
 <template>
   <div id="instructor">
 
-    <div class="mt-2 bg-second p-2 head">
+    <div class="mt-2 bg-prime p-2 head">
       <div class="ml-2">
         <b-row >
           <b-col >
@@ -38,7 +38,7 @@
             </table>
     </div>
 
-    <div class="mt-2 bg-second p-2 head">
+    <div class="mt-2 bg-prime p-2 head">
       <div class="ml-2">
         <b-row >
           <b-col >
@@ -155,9 +155,6 @@ export default {
     testRecords () {
       return this.$store.getters.testRecords
     }
-  },
-  beforeDestroy () {
-    this.saveRecords()
   }
 }
 </script>
