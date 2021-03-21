@@ -79,12 +79,12 @@ export default {
     },
     requestToken () {
       let _this = this
-      this.$store.dispatch('requestToken', { email: this.form.email })
+      this.$store.dispatch('requestToken', { email: _this.form.email })
         .then(function (response) {
           if (!response.status) {
             _this.showAlert(response.msg)
           } else {
-            localStorage.setItem('floatEmail', this.form.email)
+            localStorage.setItem('floatEmail', _this.form.email)
             localStorage.setItem('tokenReady', true)
             _this.showModal(response.msg)
           }
