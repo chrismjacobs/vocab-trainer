@@ -298,7 +298,7 @@ const actions = {
     context.commit('setNotes', payload.notes)
   },
   instructorLogs (context, payload) {
-    console.log('instrcutor logs request...', payload)
+    console.log('instructor logs request...', payload)
     return instructorRedis(payload)
       .then(function (response) {
         console.log(response.data)
