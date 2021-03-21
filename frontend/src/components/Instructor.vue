@@ -45,7 +45,8 @@
             <h3 class="text-cream" > Class: {{$store.state.classLoad}} </h3>
           </b-col>
           <template v-if="$store.state.classLoad">
-              <b-col align="right">
+              <b-col align="center" cols="4">
+                <div class="bg-cream p-3">
                 <b-form-group>
                   <b-form-radio-group
                     id="btn-radios-2"
@@ -58,6 +59,7 @@
                     name="radio-btn-outline"
                   ></b-form-radio-group>
                 </b-form-group>
+                </div>
               </b-col>
           </template>
         </b-row>
@@ -72,7 +74,7 @@
     </div>
 
     <div v-else-if="testRecords && show === 'match'" class="bg-white mt-0 p-0">
-     <InstMatch></InstMatch>
+     <InstMatch :s3="s3"></InstMatch>
     </div>
 
     <div v-else-if="waiting" align="center" class="bg-smoke">
