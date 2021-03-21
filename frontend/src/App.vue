@@ -304,6 +304,32 @@ export default {
   transform: translateY(100px);
 }
 
+.tableboard-enter-active, .tableboard-leave-active  {
+  transition: opacity 0.2s ease-in-out, transform 0.3s ease;
+}
+
+.tableboard-enter-active {
+  transition-delay: 0.2s;
+}
+
+.tableboard-enter {
+  opacity: 0;
+}
+
+.tableboard-enter-to {
+  opacity: 1;
+}
+
+.tableboard-leave {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.tableboard-leave-to {
+  opacity: 0;
+  transform: translateY(100px);
+}
+
 body {
   font-family: 'Inconsolata', !important;
 }
