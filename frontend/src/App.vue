@@ -20,7 +20,7 @@
                 <Dash :tableItems="tableItems" type="nav"></Dash>
                 <hr>
                 <b-nav-item @click="goTo('Account')"><div class="sideBtn bg-second"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp;Account </span></div></b-nav-item>
-                <b-nav-item v-if="$store.state.userProfile.vocab[0] === 'g'" @click="goTo('InstStud')"><div class="sideBtn bg-warning"><b-icon-check-square></b-icon-check-square>  <span> &nbsp;Quiz </span></div></b-nav-item>
+                <b-nav-item v-if="checkQuiz()" @click="goTo('InstStud')"><div class="sideBtn bg-warning"><b-icon-check-square></b-icon-check-square>  <span> &nbsp;Quiz </span></div></b-nav-item>
                 <b-nav-item @click="goTo('Help')"><div class="sideBtn bg-grey"><b-icon-question-circle></b-icon-question-circle>  <span> &nbsp;Help </span></div></b-nav-item>
                 <b-nav-item @click="logout(), goTo('Home')"><div class="sideBtn bg-alert"><b-icon-power></b-icon-power>  <span text=""> &nbsp;Logout </span></div></b-nav-item>
 
@@ -83,7 +83,7 @@
                     <div v-if="isAuthenticated">
                       <button v-if="$store.state.userProfile.instructor" class="buttonDiv mt-2 bg-info text-cream px-1" style="height:50px; width:100%" @click="goTo('Instructor')"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp;Instructor </span> </button>
                       <button v-if="$store.state.userProfile.userID === 1" class="buttonDiv mt-2 bg-peel text-prime px-1" style="height:50px; width:100%" @click="goTo('JGrabber')"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp;JGrabber </span> </button>
-                      <button v-if="$store.state.userProfile.vocab[0] === 'g'" class="buttonDiv mt-2 bg-warning text-prime px-1" style="height:50px; width:100%" @click="goTo('InstStud')"><b-icon-check-square></b-icon-check-square>  <span> &nbsp;Quiz </span> </button>
+                      <button v-if="checkQuiz()" class="buttonDiv mt-2 bg-warning text-prime px-1" style="height:50px; width:100%" @click="goTo('InstStud')"><b-icon-check-square></b-icon-check-square>  <span> &nbsp;Quiz </span> </button>
                       <button class="buttonDiv mt-2 bg-third text-prime px-1" style="height:50px; width:100%" @click="sendEmail()"><b-icon-question-circle></b-icon-question-circle>  <span text=""> &nbsp;Help </span> </button>
                       <button class="buttonDiv mt-2 bg-alert text-cream px-1" style="height:50px; width:100%" @click="logout()"><b-icon-power></b-icon-power>  <span text=""> &nbsp;Logout </span> </button>
                     </div>
@@ -181,6 +181,14 @@ export default {
     exitToggle: function () {
       this.exit = !this.exit
       console.log(this.exit)
+    },
+    checkQuiz: function () {
+      let qList = ['g', 'p']
+      if (qList.includes(this.$store.state.userProfile.vocab[0])) {
+        return true
+      } else {
+        return false
+      }
     },
     getPath: function () {
       return this.$route.path
