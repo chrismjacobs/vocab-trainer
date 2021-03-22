@@ -4,8 +4,6 @@
     <b-row class="mt-5 mx-auto">
       <b-col>
         <b-card header="Reset" header-bg-variant="prime" header-text-variant="cream" header-tag="h3">
-          <b-form @submit="onSubmit">
-
            <b-input-group class="my-4" label="Email address:" label-for="exampleInput4">
               <b-input-group-prepend inline is-text>
                   <b-icon icon="envelope"></b-icon>
@@ -17,9 +15,7 @@
                             placeholder="Enter email">
                 </b-form-input>
             </b-input-group>
-
             <button class="buttonDiv bg-alert second text-cream px-3" style="width:140px" @click="requestToken()"> New Password </button>
-          </b-form>
         </b-card>
       </b-col>
     </b-row>
@@ -72,14 +68,10 @@ export default {
         this.msg = null
       }
     },
-    onSubmit (evt) {
-      console.log(evt)
-      evt.preventDefault()
-      this.requestToken()
-    },
     requestToken () {
       let _this = this
-      this.$store.dispatch('requestToken', { email: _this.form.email })
+      console.log('requestPage')
+      this.$store.dispatch('requestEmail', { email: _this.form.email })
         .then(function (response) {
           if (!response.status) {
             _this.showAlert(response.msg)
@@ -88,7 +80,6 @@ export default {
             localStorage.setItem('tokenReady', true)
             _this.showModal(response.msg)
           }
-          _this.$router.push('login')
         })
     }
   }
