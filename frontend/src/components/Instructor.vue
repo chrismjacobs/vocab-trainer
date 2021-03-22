@@ -46,7 +46,7 @@
           </b-col>
           <template>
               <b-col align="center" cols="4">
-                <div class="bg-cream p-3">
+                <div class="bg-third p-2">
                 <b-form-group>
                   <b-form-radio-group
                     id="btn-radios-2"
@@ -116,9 +116,9 @@ export default {
         { value: 'match', text: 'MATCH' }
       ],
       color: {
-        class: 'info',
+        class: 'p1',
         tests: 'warn',
-        match: 'grape'
+        match: 'grape-light'
       }
     }
   },
