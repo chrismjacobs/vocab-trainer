@@ -143,8 +143,8 @@ const actions = {
         console.log('Error Ticketing: ', error)
       })
   },
-  requestToken (context, userData) {
-    console.log(userData)
+  requestEmail (context, userData) {
+    console.log('requestEmail', userData)
     return requestToken(userData)
       .then(function (response) {
         return response.data
