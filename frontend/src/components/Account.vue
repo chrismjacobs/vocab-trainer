@@ -151,7 +151,7 @@ export default {
   },
   computed: {
     validName () {
-      return this.userProfile.username.length > 2 && this.userProfile.username.length < 13
+      return this.userProfile.username.length > 2 && this.userProfile.username.length < 20
     },
     validClass () {
       let value = false
