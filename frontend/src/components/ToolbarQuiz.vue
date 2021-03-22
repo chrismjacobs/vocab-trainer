@@ -15,12 +15,12 @@
 
     <b-modal hide-header-close no-close-on-esc no-close-on-backdrop align="center" ref="warning" hide-footer title="Quiz Mode">
       <div class="d-block">
-        <h3> You are about to start your quiz </h3>
         <h3> There are {{ words }} words in this quiz </h3>
-        <h3> If you exit the quiz early your grade will be incomplete </h3>
+        <h6> If you exit the quiz early your grade will be incomplete </h6>
       </div>
-      <button class="buttonDiv mt-3 bg-alert text-cream" style="width:60%"  @click="hideWarn('cancel')">Cancel</button>
       <button class="buttonDiv mt-3 bg-second text-cream" style="width:60%"  @click="hideWarn('start')">Start</button>
+      <button class="buttonDiv mt-3 bg-alert text-cream" style="width:40%"  @click="hideWarn('cancel')">Cancel</button>
+
       </b-modal>
 
   </div>
