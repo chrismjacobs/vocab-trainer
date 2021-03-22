@@ -48,10 +48,10 @@
             </div>
           </b-col>
           <b-col v-if="array1.length > 1">
-            <div @click="winner(round4['1'])" style="height:240px">
+            <div @click="showWin(round4['1'])" style="height:240px">
                <b-avatar :src="s3 + round4['1'] + '/avatar.jpg'" size="5rem" class="ml-2"></b-avatar> {{getUser(round4['1'])}}
             </div>
-            <div @click="winner(round4['2'])" style="height:240px">
+            <div @click="showWin(round4['2'])" style="height:240px">
                <b-avatar :src="s3 + round4['2'] + '/avatar.jpg'" size="5rem" class="ml-2"></b-avatar> {{getUser(round4['2'])}}
             </div>
           </b-col>
@@ -84,6 +84,16 @@
       </table>
 
     </div>
+
+  <b-modal align="center" ref="win" hide-footer title="Game Over" hide-header-close no-close-on-esc no-close-on-backdrop>
+      <div class="d-block">
+        <h3> And the winner is... </h3>
+        <b-avatar :src="s3 + winner + '/avatar.jpg'"  size="100px" :badge="getUser(winner)" badge-offset="-0.6em"></b-avatar>
+      </div>
+      <br>
+      <button :class="'buttonDiv mt-3 text-prime bg-' + player" style="width:60%"  @click="hideModal()">Close</button>
+    </b-modal>
+
   </div>
 
 </template>
@@ -106,18 +116,29 @@ export default {
       round3: {},
       array3: [],
       round4: {},
-      array4: []
+      array4: [],
+      winner: null
     }
   },
   methods: {
-    winner: function (winner) {
-      alert(winner)
+    showWin: function (winner) {
+      this.winner = winner
+      this.$refs['win'].show()
+    },
+    hideModal: function () {
+      this.$refs['win'].hide()
     },
     getBG: function (key) {
       console.log('getBG', key)
       let array = [1, 2, 5, 6, 9, 10, 13, 14]
       if (array.includes(parseInt(key))) {
         return 'bg-grape text-cream'
+      }
+    },
+    getUser: function (std) {
+      console.log(std, this.classRecords)
+      if (std) {
+        return this.classRecords[std].user
       }
     },
     newMatch: function () {
@@ -153,12 +174,6 @@ export default {
         this.array1.push(i)
       }
       console.log(this.round1, this.array1)
-    },
-    getUser: function (std) {
-      console.log(std, this.classRecords)
-      if (std) {
-        return this.classRecords[std].user
-      }
     },
     levelOne: function (student, action) {
       let newArray = this.shuffle(this.array1)
