@@ -25,18 +25,18 @@
     </b-row>
    </b-container>
 
-   <b-modal align="center" ref="success" hide-footer title="Reset Complete">
+   <b-modal align="center" ref="reset" hide-footer title="Reset Complete">
       <div class="d-block">
         <h3> {{msg}} </h3>
       </div>
-      <button class="buttonDiv mt-3 bg-safe text-cream" style="width:60%"  @click="hideModal('success')">Close</button>
+      <button class="buttonDiv mt-3 bg-safe text-cream" style="width:60%"  @click="hideModal('reset')">Close</button>
     </b-modal>
 
-   <b-modal align="center" ref="fail" hide-footer title="Problem Found">
+   <b-modal align="center" ref="error" hide-footer title="Problem Found">
       <div class="d-block">
         <h3> {{msg}} </h3>
       </div>
-      <button class="buttonDiv mt-3 bg-alert text-cream" style="width:60%"  @click="hideModal('fail')">Close</button>
+      <button class="buttonDiv mt-3 bg-alert text-cream" style="width:60%"  @click="hideModal('error')">Close</button>
     </b-modal>
 
   </div>
@@ -57,18 +57,18 @@ export default {
   methods: {
     showModal (msg) {
       this.msg = msg
-      this.$refs['success'].show()
+      this.$refs['reset'].show()
     },
     showAlert (msg) {
       this.msg = msg
-      this.$refs['fail'].show()
+      this.$refs['error'].show()
     },
     hideModal (mode) {
-      if (mode === 'success') {
-        this.$refs['success'].hide()
+      if (mode === 'reset') {
+        this.$refs['reset'].hide()
         this.$router.push('/login')
       } else {
-        this.$refs['fail'].hide()
+        this.$refs['error'].hide()
         this.msg = null
       }
     },
