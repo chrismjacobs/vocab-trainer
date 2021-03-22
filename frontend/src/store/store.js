@@ -611,6 +611,14 @@ const getters = {
   classRecords (state) {
     return state.classRecords
   },
+  checkQuiz (state) {
+    let qList = ['g', 'p']
+    if (qList.includes(state.userProfile.vocab[0])) {
+      return true
+    } else {
+      return false
+    }
+  },
   classGroups (state) {
     return state.classGroups
   },

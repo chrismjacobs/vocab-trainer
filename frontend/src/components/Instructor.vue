@@ -44,7 +44,7 @@
           <b-col >
             <h3 class="text-cream" > Class: {{$store.state.classLoad}} </h3>
           </b-col>
-          <template v-if="$store.state.classLoad">
+          <template>
               <b-col align="center" cols="4">
                 <div class="bg-cream p-3">
                 <b-form-group>
@@ -66,14 +66,15 @@
       </div>
     </div>
 
-    <div v-if="classRecords && show === 'class'" class="bg-white mt-0 p-0">
-     <InstClass></InstClass>
-    </div>
-    <div v-else-if="testRecords && show === 'tests'" class="bg-white mt-0 p-0">
+    <div v-if="show === 'tests'" class="bg-white mt-0 p-0">
      <InstTests></InstTests>
     </div>
 
-    <div v-else-if="testRecords && show === 'match'" class="bg-white mt-0 p-0">
+    <div v-else-if="classRecords && show === 'class'" class="bg-white mt-0 p-0">
+     <InstClass></InstClass>
+    </div>
+
+    <div v-else-if="show === 'match'" class="bg-white mt-0 p-0">
      <InstMatch :s3="s3"></InstMatch>
     </div>
 
@@ -106,12 +107,12 @@ export default {
   },
   data () {
     return {
-      show: null,
+      show: 'tests',
       waiting: false,
       optionsR: [
         // { value: null, text: 'none' },
-        { value: 'class', text: 'CLASS' },
         { value: 'tests', text: 'TEST' },
+        { value: 'class', text: 'CLASS' },
         { value: 'match', text: 'MATCH' }
       ],
       color: {
@@ -124,12 +125,12 @@ export default {
   methods: {
     getClass: function (group) {
       this.waiting = true
+      this.show = 'tests'
       this.group = group
       this.$store.dispatch('instructorLogs', { group: group, action: 'getNotesInstructor' })
       this.$store.dispatch('instructorLogs', { group: group, action: 'getTests' })
       this.$store.dispatch('instructorLogs', { group: group, action: 'getResults' })
       this.$store.dispatch('classRecords', { userID: this.$store.state.userProfile.userID, classroom: group })
-      this.show = 'class'
     },
     getTests: function () {
       this.waiting = true

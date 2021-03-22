@@ -38,7 +38,7 @@
                 <div  v-if="$store.state.activeQuiz" class="d-lg-none">
                   <br>
                 </div>
-            <button v-if="vocabList[0] === 'g'" class="buttonDiv bg-second px-3" style="width:60px;t" @click="changeSelected('+')"> <b-icon-arrow-up-circle-fill :variant="getIcon('+')" font-scale="1.5"></b-icon-arrow-up-circle-fill></button>
+            <button v-if="$store.getters.checkQuiz" class="buttonDiv bg-second px-3" style="width:60px;t" @click="changeSelected('+')"> <b-icon-arrow-up-circle-fill :variant="getIcon('+')" font-scale="1.5"></b-icon-arrow-up-circle-fill></button>
             <button  :class="getSoundButton()" style="width:60px;t" @click="tapSound()"> <b-icon-soundwave :variant="getSoundwave()" font-scale="1.5"></b-icon-soundwave></button>
             <b-form-select class="bg-second text-cream" style="width:10%;overflow-y: hidden" @change="selected[2] = null" v-model="selected[1]" :options="optionsCheck" :select-size="1"></b-form-select>
           </b-col>
@@ -162,7 +162,7 @@
                                         && selected[0].length > 1
                                         && !visibleRows.find(element => element.English === selected[0])
                                         && selected[1] === null
-                                        && vocabList[0] === 'g'">
+                                        && $store.getters.checkQuiz">
         <b-form @submit="onAdd">
                   <b-input-group class="my-2 p-6">
                       <b-input-group-prepend inline is-text>
@@ -336,7 +336,7 @@ export default {
       }
     },
     optionsCheck () {
-      if (this.vocabList[0] === 'g') {
+      if (this.$store.getters.checkQuiz) {
         return this.optionsG
       } else {
         return this.optionsP

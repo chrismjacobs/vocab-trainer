@@ -177,8 +177,14 @@ export default {
         }
       }
     },
-    levelTwo: function (student, action) {
+    levelTwo: function (student) {
       let newArray = this.shuffle(this.array2)
+      let action
+      if (Object.values(this.round2).includes(student)) {
+        action = 0
+      } else {
+        action = 1
+      }
       for (let idx in newArray) {
         let n = newArray[idx]
         if (this.round2[n] === null && action === 1) {
@@ -194,7 +200,14 @@ export default {
         }
       }
     },
-    levelThree: function (student, action) {
+    levelThree: function (student) {
+      let action
+
+      if (Object.values(this.round3).includes(student)) {
+        action = 0
+      } else {
+        action = 1
+      }
       let newArray = this.shuffle(this.array3)
       for (let idx in newArray) {
         let n = newArray[idx]
@@ -212,7 +225,11 @@ export default {
       }
     },
     levelFour: function (student) {
-      if (this.round4[1] === null) {
+      if (this.round4[1] === student) {
+        this.round4[1] = null
+      } else if (this.round4[2] === student) {
+        this.round4[2] = null
+      } else if (this.round4[1] === null) {
         this.round4[1] = student
       } else {
         this.round4[2] = student

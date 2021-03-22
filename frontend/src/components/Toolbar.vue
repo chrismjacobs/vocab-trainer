@@ -505,7 +505,7 @@ export default {
       ]
     }
 
-    if (this.$store.state.userProfile.vocab[0] === 'g') {
+    if (this.$store.getters.checkQuiz) {
       this.sortOptions.pop()
     }
 

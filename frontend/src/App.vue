@@ -183,12 +183,7 @@ export default {
       console.log(this.exit)
     },
     checkQuiz: function () {
-      let qList = ['g', 'p']
-      if (qList.includes(this.$store.state.userProfile.vocab[0])) {
-        return true
-      } else {
-        return false
-      }
+      return this.$store.getters.checkQuiz
     },
     getPath: function () {
       return this.$route.path
