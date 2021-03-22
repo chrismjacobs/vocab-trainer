@@ -163,7 +163,6 @@
     <b-modal hide-header-close no-close-on-esc no-close-on-backdrop align="center" ref="reset" hide-footer title="Reset">
       <div class="d-block">
         <h3> You are about to reset a students quiz. Are you sure you want to reset? </h3>
-        {{$store.state.studentResults[holder[0]]}}
       </div>
       <button class="buttonDiv mt-3 bg-alert text-cream" style="width:60%"  @click="hideModal('reset')">No</button>
 
