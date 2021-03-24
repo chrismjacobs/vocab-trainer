@@ -3,7 +3,7 @@
     <audio id="audio"></audio>
 
     <!-- headers and toggle buttons -->
-    <div class="mt-2 bg-second p-2 head">
+    <div class="mt-2 bg-prime p-2 head">
       <div align="center">
         <b-row >
           <b-col >
@@ -72,6 +72,10 @@
 
       <div align="center" v-if="selected[1] === '*'">
         <button class="buttonDiv bg-secondary px-3" style="width:100%" @click="showClear()"><b-icon-star-fill variant="warn" font-scale="1.5"></b-icon-star-fill > <span class="text-cream"> Clear all stars </span> </button>
+      </div>
+
+      <div align="center" v-if="selected[1] === 'q'">
+        <button class="buttonDiv bg-secondary px-3" style="width:100%" @click="showAdd()"><b-icon-star-fill variant="grape-light" font-scale="1.5"></b-icon-star-fill > <span class="text-cream"> Add all stars </span> </button>
       </div>
 
       <transition name="board">
@@ -211,6 +215,14 @@
         </div>
         <button class="buttonDiv mt-3 bg-alert text-cream" style="width:60%"  @click="hideClear('clear')">Clear</button>
         <button class="buttonDiv mt-3 bg-secondary text-cream" style="width:60%"  @click="hideClear('cancel')">Cancel</button>
+      </b-modal>
+
+      <b-modal hide-header-close no-close-on-esc no-close-on-backdrop align="center" ref="add" hide-footer title="Alert">
+        <div class="d-block">
+          <h3> Would you like to add all quiz words to your star list? </h3>
+        </div>
+        <button class="buttonDiv mt-3 bg-grape text-cream" style="width:60%"  @click="hideAdd('add')">Add</button>
+        <button class="buttonDiv mt-3 bg-secondary text-cream" style="width:60%"  @click="hideAdd('cancel')">Cancel</button>
       </b-modal>
 
   </div>
@@ -367,10 +379,24 @@ export default {
     showClear: function () {
       this.$refs['clear'].show()
     },
+    showAdd: function () {
+      this.$refs['add'].show()
+    },
     hideClear: function (mode) {
       this.$refs['clear'].hide()
       if (mode === 'clear') {
         this.$store.dispatch('newStar', {word: null, set: 3})
+      }
+    },
+    hideAdd: function (mode) {
+      this.$refs['add'].hide()
+      if (mode === 'add') {
+        this.addAllStars()
+      }
+    },
+    addAllStars: function () {
+      for (let word in this.getList) {
+        this.addStar(this.getList[word], 1)
       }
     },
     getIcon: function (icon) {
