@@ -7,8 +7,8 @@
       <div class="bg-grey p-2">
         <b-row>
           <b-col align="right">
-            <button class="buttonDiv bg-alert text-cream px-3" style="width:auto; height:auto" @click="saveRecords()">
-                    Save Notes
+            <button class="buttonDiv bg-safe-light text-prime px-3" style="width:auto; height:auto" @click="saveRecords()">
+                    Save Picture Notes
             </button>
           </b-col>
         </b-row>
@@ -29,7 +29,7 @@
                           <td  style="width:150px" >{{item.user}}</td>
                           <td>
                             <div style="width:70px; display:inline-block">
-                            <b-icon-images @click="showPictsOne(key)" variant="safe" font-scale="1.5" ></b-icon-images> {{getLength(item.setRecord.dictRecord)}}
+                            <b-icon-images variant="safe" font-scale="1.5" ></b-icon-images> {{getLength(item.setRecord.dictRecord)}}
                             </div>
                             <div style="display:inline-block">
                                <b-form-select style="width:100px;overflow-y: hidden; display:inline">
@@ -37,6 +37,12 @@
                               </b-form-select>
                             </div>
                           </td>
+                          <td align="left">
+                            <button class="buttonDiv bg-safe text-cream px-3" style="width:auto; height:auto" @click="showPictsOne(key)">
+                                  OPEN
+                            </button>
+                          </td>
+
                         </tr>
 
                         <transition name="tableboard" :key="key">

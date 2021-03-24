@@ -8,7 +8,7 @@
       <div class="bg-grey p-2">
         <b-row>
           <b-col align="right">
-            <button class="buttonDiv bg-dark text-cream px-3" style="width:auto; height:auto" @click="newTest()">
+            <button class="buttonDiv bg-warn text-cream px-3" style="width:auto; height:auto" @click="newTest()">
                   New Test
             </button>
           </b-col>

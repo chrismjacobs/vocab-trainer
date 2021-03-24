@@ -113,12 +113,12 @@ export default {
   },
   data () {
     return {
-      show: 'class',
+      show: 'tests',
       waiting: false,
       optionsR: [
-        { value: 'class', text: 'CLASS' },
         { value: 'tests', text: 'TEST' },
-        { value: 'picts', text: 'PICTS' },
+        { value: 'class', text: 'CLASS' },
+        { value: 'picts', text: 'PICTURES' },
         { value: 'match', text: 'MATCH' }
       ],
       color: {
