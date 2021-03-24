@@ -5,7 +5,7 @@
               <b-col align="center" cols="3">
               </b-col>
               <b-col align="center">
-                <button class="buttonDiv bg-info px-3 mr-3" style="width:100%; height:50px" @click="showWarn(), showToolbar=false"> <b-icon-forward variant="cream" font-scale="1.5"></b-icon-forward></button>
+                <button class="buttonDiv bg-info text-cream px-3 mr-3" style="width:100%; height:50px" @click="showWarn(), showToolbar=false"> <b-icon-forward variant="cream" font-scale="1.5"></b-icon-forward><span style="font-size:16pt"> START</span></button>
               </b-col>
               <b-col align="center" cols="3">
                 <button class="buttonDiv bg-alert px-3 text-cream" style="height:50px" @click="$emit('cancel')"> X </button>
@@ -45,11 +45,12 @@ export default {
       retry: false,
       testItemsRoot: [],
       amendedList: [],
+      vocabList: [],
       selected: null,
       toolbarSettings: {},
       optionsA: [{ value: null, text: '---' }],
-      label: 'lbAn',
-      sound: 'sdEx',
+      label: 'lbOff',
+      sound: 'sdOff',
       spelling: '---',
       sort: 'q',
       display: 'text_On',
@@ -75,12 +76,12 @@ export default {
       this.testItemsRoot = []
 
       // prepare amended list
-      let vocabList = JSON.parse(this.stringItems)
+      this.vocabList = JSON.parse(this.stringItems)
       this.amendedList = []
 
-      for (let item in vocabList) {
-        if (this.quizGet.includes(vocabList[item].English)) {
-          this.amendedList.push(vocabList[item])
+      for (let item in this.vocabList) {
+        if (this.quizGet.includes(this.vocabList[item].English)) {
+          this.amendedList.push(this.vocabList[item])
         }
       }
 
@@ -91,65 +92,67 @@ export default {
       }
     },
     makeChoices: function () {
-      console.log('make choices')
+      let question
+      let answer
+      let sdAns
+      let sdQue
+
+      if (this.testType.includes('E ->')) {
+        question = 'English'
+        answer = 'Chinese'
+        sdQue = 'mp3en'
+        sdAns = 'mp3ch'
+      } else {
+        question = 'Chinese'
+        answer = 'English'
+        sdQue = 'mp3ch'
+        sdAns = 'mp3en'
+      }
+
       let i = 0
       let newList = this.shuffle(this.amendedList)
-      console.log(this.words, newList)
+      // console.table(newList)
 
       while (i < this.words) {
         let randomItem = newList[i]
 
         if (!randomItem) {
           // this step is unnecessary now
-          console.log('pass', randomItem)
-        } else if (this.sound === 'sdTy' && randomItem.Gr === 'abbr.') {
-          console.log('pass abbr')
+          // console.log('pass', randomItem)
         } else {
           let choices = [{
-            English: randomItem.English,
-            Chinese: randomItem.Chinese,
+            Question: randomItem[question],
+            Answer: randomItem[answer],
             Gr: randomItem.Gr,
-            sdEn: randomItem.mp3en,
-            sdCh: randomItem.mp3ch
+            sdQue: randomItem[sdQue],
+            sdAns: randomItem[sdAns]
           }]
           let j = 1
           while (j < this.choices) {
-            console.log('j')
-            if (this.sound === 'sdTy') {
+            let randomChoice = this.vocabList[Math.floor(Math.random() * this.vocabList.length)]
+
+            let foundChoice = choices.find(element => element.Question === randomChoice[question])
+            // console.log('FOUND', foundChoice)
+
+            if (!foundChoice) {
               choices.push({
-                English: this.typoFix(randomItem.English),
-                Gr: randomItem.Gr,
-                sdEn: randomItem.mp3en,
-                sdCh: randomItem.mp3ch,
-                Chinese: randomItem.Chinese
+                Question: randomChoice[question],
+                Answer: randomChoice[answer],
+                Gr: randomChoice.Gr,
+                sdQue: randomChoice[sdQue],
+                sdAns: randomChoice[sdAns]
               })
               j++
-            } else {
-              let randomChoice = this.amendedList[Math.floor(Math.random() * this.amendedList.length)]
-
-              let foundChoice = choices.find(element => element.English === randomChoice.English)
-              // console.log('FOUND', foundChoice)
-
-              if (!foundChoice) {
-                choices.push({
-                  English: randomChoice.English,
-                  Chinese: randomChoice.Chinese,
-                  Gr: randomChoice.Gr,
-                  sdEn: randomChoice.mp3en,
-                  sdCh: randomChoice.mp3ch
-                })
-                j++
-              }
             }
           }
           let shuffChoices = this.shuffle(choices)
           this.testItemsRoot.push({
-            English: randomItem.English,
-            Chinese: randomItem.Chinese,
-            Choices: shuffChoices,
+            Question: randomItem[question],
+            Answer: randomItem[answer],
             Gr: randomItem.Gr,
-            sdEn: randomItem.mp3en,
-            sdCh: randomItem.mp3ch
+            sdQue: randomItem[sdQue],
+            sdAns: randomItem[sdAns],
+            Choices: shuffChoices
           })
           i++
         }

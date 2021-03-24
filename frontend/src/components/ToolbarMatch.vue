@@ -195,7 +195,7 @@ export default {
       sort: '---',
       sortText: '---',
       sortOptions: [
-        { value: '---', text: '---' },
+        { value: '---', text: 'none' },
         { value: '*', text: 'star vocab' },
         { value: -1, text: 'harder' },
         { value: 1, text: 'easier' }
@@ -645,9 +645,9 @@ export default {
     this.stringItems = JSON.stringify(this.tableItems)
     this.updateSettings()
     console.log(this.testType)
-    if (this.$store.state.activeQuiz) {
-      this.sortOptions.push({ value: 'q', text: 'QUIZ' })
-    }
+    // if (this.$store.state.activeQuiz) {
+    //   this.sortOptions.push({ value: 'q', text: 'QUIZ' })
+    // }
   },
   mounted () {
     if (this.testType[1] === 'r' || this.testType.includes('AI')) {

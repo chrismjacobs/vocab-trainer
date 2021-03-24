@@ -4,15 +4,15 @@
       <div class="bg-prime p-2 mt-0">
         <b-row>
           <b-col align="center">
-            <button class="buttonDiv bg-info px-3" style="width:45%; height:50px" @click="makeTest(), showToolbar=false"> <b-icon-forward variant="cream" font-scale="1.5"></b-icon-forward></button>
+            <button class="buttonDiv bg-info text-cream px-3" style="width:45%; height:50px" @click="makeTest(), showToolbar=false"> <b-icon-forward variant="cream" font-scale="1.5"></b-icon-forward><span style="font-size:16pt"> NEW</span></button>
           </b-col>
         </b-row>
         <b-row class="mt-2" v-if="showAnswers && !showToolbar"  align="center">
           <b-col>
-            <button class="buttonDiv bg-warn" style="width:100%" @click="retryTest()"> <b-icon-arrow-clockwise variant="cream" font-scale="1.5"></b-icon-arrow-clockwise></button>
+            <button class="buttonDiv bg-warn text-cream" style="width:100%" @click="retryTest()"> <b-icon-arrow-clockwise variant="cream" font-scale="1.5"></b-icon-arrow-clockwise><span style="font-size:16pt"> REDO</span></button>
          </b-col>
           <b-col>
-            <button class="buttonDiv bg-grey" style="width:100%" @click="showToolbar=true"> <b-icon-tools variant="cream" font-scale="1.5"></b-icon-tools></button>
+            <button class="buttonDiv bg-grey text-cream" style="width:100%" @click="showToolbar=true"> <b-icon-tools variant="cream" font-scale="1.5"></b-icon-tools><span style="font-size:16pt"> SETUP</span></button>
           </b-col>
         </b-row>
       </div>
@@ -178,7 +178,7 @@ export default {
       ],
       spelling: '---',
       spellingOptions: [
-        { value: 'blanks', text: '---' },
+        { value: 'blanks', text: 'blank' },
         { value: 'showFL', text: 'first/last' },
         { value: 'const', text: '+ vowels' },
         { value: 'vowels', text: '- vowels' },
@@ -188,13 +188,13 @@ export default {
       ],
       sort: '---',
       sortOptions: [
-        { value: '---', text: '---' },
+        { value: '---', text: 'none' },
         { value: '*', text: 'stars' },
-        { value: 'phr.', text: 'phrases' },
-        { value: 0, text: 'neutral' },
+        //  { value: 0, text: 'neutral' },
         { value: 1, text: 'easier' },
         { value: -1, text: 'harder' },
-        { value: 'misc.', text: 'misc' }
+        { value: 'misc.', text: 'misc' },
+        { value: 'phr.', text: 'phrases' }
       ],
       display: 'text_On',
       displayOptions: [
@@ -507,11 +507,12 @@ export default {
 
     if (this.$store.getters.checkQuiz) {
       this.sortOptions.pop()
+      this.sortOptions.pop()
     }
 
-    if (this.$store.state.activeQuiz) {
-      this.sortOptions.push({ value: 'q', text: 'QUIZ' })
-    }
+    // if (this.$store.state.activeQuiz) {
+    //   this.sortOptions.push({ value: 'q', text: 'QUIZ' })
+    // }
 
     if (this.testType === 'typeTest') {
       this.sound = 'sdEn'
