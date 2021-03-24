@@ -24,29 +24,29 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="(entry, index) in classGroups" :key="index" :class="getRow(entry.code)">
+                <tr v-for="(entry, index) in classGroups" :key="index" :class="getRow(entry.code)[0]">
                   <th scope="row">{{index}}</th>
                   <td>{{entry.code}}</td>
                   <td>{{entry.count}}</td>
                   <td>  <button class="buttonDiv bg-info px-3" style="width:auto; height:auto" @click="getClass(entry.code)">
                     <b-icon-arrow-clockwise variant="cream" font-scale="1.5"></b-icon-arrow-clockwise>
                     </button>
-                    <span class="ml-2" v-if="getRow(entry.code)"> (Logged in) </span>
+                    <span class="ml-2" v-if="getRow(entry.code)[0]"> {{getRow(entry.code)[1]}} </span>
                   </td>
                 </tr>
               </tbody>
             </table>
     </div>
 
-    <div class="mt-2 bg-prime p-2 head">
+    <div :class="'mt-2 p-2 head bg-' + color[show] ">
       <div class="ml-2">
         <b-row >
           <b-col >
-            <h3 class="text-cream" > Class: {{$store.state.classLoad}} </h3>
+            <h3 class="text-prime" > Class: {{$store.state.classLoad}} </h3>
           </b-col>
           <template>
-              <b-col align="center" cols="4">
-                <div class="bg-third p-2">
+              <b-col align="right">
+                <div>
                 <b-form-group>
                   <b-form-radio-group
                     id="btn-radios-2"
@@ -66,12 +66,16 @@
       </div>
     </div>
 
-    <div v-if="show === 'tests'" class="bg-white mt-0 p-0">
-     <InstTests></InstTests>
+    <div v-if="classRecords && show === 'class'" class="bg-white mt-0 p-0">
+     <InstClass></InstClass>
     </div>
 
-    <div v-else-if="classRecords && show === 'class'" class="bg-white mt-0 p-0">
-     <InstClass></InstClass>
+    <div v-else-if="show === 'tests'" class="bg-white mt-0 p-0">
+     <InstTests :group="group"></InstTests>
+    </div>
+
+    <div v-else-if="classRecords && show === 'picts'" class="bg-white mt-0 p-0">
+     <InstSent :group="group"></InstSent>
     </div>
 
     <div v-else-if="show === 'match'" class="bg-white mt-0 p-0">
@@ -94,6 +98,7 @@
 import InstClass from './InstClass'
 import InstTests from './InstTests'
 import InstMatch from './InstMatch'
+import InstSent from './InstSent'
 
 export default {
   name: 'Instructor',
@@ -103,21 +108,23 @@ export default {
   components: {
     InstClass,
     InstTests,
-    InstMatch
+    InstMatch,
+    InstSent
   },
   data () {
     return {
-      show: 'tests',
+      show: 'class',
       waiting: false,
       optionsR: [
-        // { value: null, text: 'none' },
-        { value: 'tests', text: 'TEST' },
         { value: 'class', text: 'CLASS' },
+        { value: 'tests', text: 'TEST' },
+        { value: 'picts', text: 'PICTS' },
         { value: 'match', text: 'MATCH' }
       ],
       color: {
         class: 'p1',
-        tests: 'warn',
+        tests: 'warn-light',
+        picts: 'safe',
         match: 'grape-light'
       }
     }
@@ -125,11 +132,7 @@ export default {
   methods: {
     getClass: function (group) {
       this.waiting = true
-      this.show = 'tests'
       this.group = group
-      this.$store.dispatch('instructorLogs', { group: group, action: 'getNotesInstructor' })
-      this.$store.dispatch('instructorLogs', { group: group, action: 'getTests' })
-      this.$store.dispatch('instructorLogs', { group: group, action: 'getResults' })
       this.$store.dispatch('classRecords', { userID: this.$store.state.userProfile.userID, classroom: group })
     },
     getTests: function () {
@@ -138,9 +141,11 @@ export default {
     },
     getRow: function (index) {
       if (index === this.$store.state.userProfile.classroom) {
-        return 'bg-p1-light'
+        return ['bg-p1-light', 'logged in']
+      } else if (this.group === index) {
+        return ['bg-warn-light', 'loaded']
       } else {
-        return null
+        return [null, null]
       }
     }
   },

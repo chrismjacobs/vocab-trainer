@@ -4,22 +4,11 @@
 
     <div class="bg-white mt-0 p-0">
 
-      <div class="bg-grey p-2">
-        <b-row>
-          <b-col align="right">
-            <button class="buttonDiv bg-alert text-cream px-3" style="width:auto; height:auto" @click="saveRecords()">
-                    Save Notes
-            </button>
-          </b-col>
-        </b-row>
-      </div>
-
       <table class="table table-striped">
               <thead>
                     <tr>
                       <th scope="col">ID</th>
                       <th scope="col">Student</th>
-                      <th scope="col">Logs</th>
                       <th scope="col">Favs</th>
                       <th scope="col">Pics</th>
                       <th scope="col">Adds</th>
@@ -32,10 +21,6 @@
                           <td  style="width:150px" >{{item.studentID}}</td>
                           <td  style="width:150px" >{{item.user}}</td>
                           <td>
-                            <b-form-select style="width:50px;overflow-y: hidden">
-                              <option v-for="(line, date) in getDates(item.logsRecord.logs)" :key="line[0]"> {{date}}: {{line}}  </option>
-                            </b-form-select>
-                          <td>
                             <div style="width:70px; display:inline-block">
                             <b-icon-star-fill variant="warning" font-scale="1.5"></b-icon-star-fill> {{getLength(item.setRecord.starRecord)}}
                             </div>
@@ -47,7 +32,7 @@
                           </td>
                           <td>
                             <div style="width:70px; display:inline-block">
-                            <b-icon-images @click="showPictsOne(key)" variant="safe" font-scale="1.5" ></b-icon-images> {{getLength(item.setRecord.dictRecord)}}
+                            <b-icon-images variant="safe" font-scale="1.5" ></b-icon-images> {{getLength(item.setRecord.dictRecord)}}
                             </div>
                             <div style="display:inline-block">
                                <b-form-select style="width:100px;overflow-y: hidden; display:inline">
@@ -91,15 +76,6 @@
                               </td>
                             </tr>
                         </transition>
-
-                        <transition name="tableboard" :key="key">
-                          <!--<tr v-if="key.toString() in pictShow && pictShow[key.toString()] === 1">-->
-                          <tr v-if="key.toString() === pictShowOne">
-                            <td colspan="6">
-                              <InstPicts :student="key" :itemMaster="item"></InstPicts>
-                            </td>
-                          </tr>
-                        </transition>
                       </template>
 
                     </tbody>
@@ -111,15 +87,12 @@
 </template>
 
 <script>
-import InstPicts from './InstPicts'
-
 export default {
   name: 'InstClass',
   props: {
     s3: String
   },
   components: {
-    InstPicts
   },
   data () {
     return {
@@ -130,9 +103,7 @@ export default {
         matchTrans: 'Match',
         matchType: 'Type Match'
       },
-      scoreShow: {},
-      pictShow: {},
-      pictShowOne: null
+      scoreShow: {}
     }
   },
   methods: {
@@ -155,18 +126,6 @@ export default {
       }
       this.scoreShow = {...this.scoreShow}
       console.log(user, this.scoreShow)
-    },
-    showPicts: function (user) {
-      if (!this.pictShow[user] || this.pictShow[user] === 0) {
-        this.pictShow[user] = 1
-      } else {
-        this.pictShow[user] = 0
-      }
-      this.pictShow = {...this.pictShow}
-      console.log(user, this.pictShow)
-    },
-    showPictsOne: function (user) {
-      this.pictShowOne = user
     },
     valueSum: function (test) {
       let sum = 0
@@ -192,11 +151,6 @@ export default {
         }
       }
       return dates
-    },
-    saveRecords: function () {
-      if (this.$store.state.studentNotes !== {}) {
-        this.$store.dispatch('instructorLogs', { group: this.$store.state.classLoad, action: 'setNotes', notes: this.$store.state.studentNotes })
-      }
     },
     userRecItems: function (userRecord) {
       let counter = {
@@ -248,9 +202,6 @@ export default {
     classGroups () {
       return this.$store.getters.classGroups
     }
-  },
-  beforeDestroy () {
-    this.saveRecords()
   }
 }
 </script>

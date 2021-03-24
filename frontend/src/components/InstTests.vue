@@ -35,8 +35,8 @@
                         <td>{{test.type}}</td>
                         <td>{{test.list.length}}</td>
                         <td>
-                          <button class="buttonDiv bg-info px-3" style="width:60px" @click="showResults(index)">
-                            <b-icon-filter-left variant="cream" font-scale="1"></b-icon-filter-left>
+                          <button class="buttonDiv bg-info text-cream px-3" style="width:60px" @click="showResults(index)">
+                            {{getCompleted(index)}}
                           </button>
                         </td>
                         <td>
@@ -81,10 +81,12 @@
                             <template v-slot:cell(time)="data">
                                 {{ getScore(data.item.quizData[index], index)[2] }}
                             </template>
-                            <template v-slot:cell(buttons)="data">
-                                  <button v-if="data.item.quizData[index]" @click="showAnswers(data.item.uid, index, data.item.quizData[index]['answerData'])" class="buttonDiv bg-warning px-3">
+                            <template v-slot:cell(answers)="data">
+                                  <button v-if="data.item.quizData[index]" @click="showAnswers(data.item.uid, index, data.item.quizData[index]['answerData'])" class="buttonDiv bg-grey px-3">
                                     <b-icon-filter-left variant="cream" font-scale="1"></b-icon-filter-left>
                                   </button>
+                            </template>
+                            <template v-slot:cell(delete)="data">
                                   <button v-if="data.item.quizData[index]" @click="deleteModal(data.item.uid, index)" class="buttonDiv bg-alert px-3">
                                     <b-icon variant="cream" font-scale="1" icon="trash-fill"></b-icon>
                                   </button>
@@ -117,9 +119,20 @@
                     </b-form-input>
                 </b-input-group>
               </b-col>
+              <b-col>
+                <h3 class="text-cream"> Count: {{testDetails.list.length}} </h3>
+                <b-form-radio-group
+                    id="btn-radios-2"
+                    v-model="testDetails.type"
+                    :options="testTypes"
+                    buttons
+                    :button-variant="getTypeVar()"
+                    name="radio-btn-outline"
+                  ></b-form-radio-group>
+              </b-col>
               <b-col align="right">
                 <button class="buttonDiv bg-warning text-cream px-3" style="width:auto; height:auto" @click="saveTest()">
-                      <b-icon icon="cloud-upload" font-scale="2"></b-icon>
+                      <b-icon icon="cloud-upload" font-scale="2"></b-icon> SAVE
                 </button>
               </b-col>
             </b-row>
@@ -199,31 +212,36 @@ export default {
     InstTable,
     InstAns
   },
+  props: {
+    group: String
+  },
   data () {
     return {
       testDetails: {
         title: null,
-        type: 'ECN',
+        type: null,
         list: [],
         status: 0
       },
       msg: null,
       holder: [null, null],
+      testHolder: null,
       results: null,
       answers: null,
       answerData: [],
-      testRecords: {},
       showDetails: false,
       selected: ['', true],
       testTypes: [
-        { value: 'ECN', label: 'Eng --> Ch (Normal)' }
+        { value: 'E>C', text: 'Eng>Ch' },
+        { value: 'C>E', text: 'Ch>Eng' }
       ],
       fields: [
         {key: 'studentID', label: 'ID', sortable: true},
         {key: 'user', label: 'Name', sortable: true},
         {key: 'quizData', label: 'Grade(%)', sortable: true},
-        {key: 'time', label: 'Time', sortable: true},
-        {key: 'buttons', label: 'Action'}
+        {key: 'time', label: 'Time'},
+        {key: 'answers', label: 'Answers'},
+        {key: 'delete', label: 'Delete'}
       ]
     }
   },
@@ -264,7 +282,6 @@ export default {
       let index = this.holder[1]
       this.$refs['delete'].hide()
       console.log(this.testRecords)
-      let array = this.testRecords
       this.showDetails = false
       this.results = false
       /// a little mess to figure out here
@@ -272,10 +289,10 @@ export default {
         this.activeQuiz = ''
         this.updateActive()
       }
-      if (array[index]) {
-        delete array[index]
-        this.testRecords = {...this.testRecords}
-        this.$store.dispatch('instructorLogs', { group: this.$store.state.classLoad, action: 'setTests', testData: this.testRecords })
+      if (this.testRecords[index]) {
+        this.testHolder = {...this.testRecords}
+        delete (this.testHolder[index])
+        this.$store.dispatch('instructorLogs', { group: this.$store.state.classLoad, action: 'setTests', testData: this.testHolder })
       }
     },
     deleteAnswers: function () {
@@ -303,6 +320,23 @@ export default {
       } else {
         this.results = index
       }
+    },
+    getTypeVar: function () {
+      if (this.testDetails.type) {
+        return 'safe'
+      } else {
+        return 'warning'
+      }
+    },
+    getCompleted: function (index) {
+      let results = this.$store.state.studentResults
+      let count = 0
+      for (let s in results) {
+        if (results[s].quizData[index]) {
+          count += 1
+        }
+      }
+      return count
     },
     getScore: function (data, index) {
       console.log(data, index, this.$store.state.testRecord)
@@ -333,7 +367,7 @@ export default {
         this.showDetails = false
         this.testDetails = {
           title: null,
-          type: 'ECN',
+          type: null,
           list: [],
           status: 0
         }
@@ -346,7 +380,7 @@ export default {
     copyDetails: function (test) {
       this.testDetails = {
         title: this.testRecords[test].title + 'copy',
-        type: 'ECN',
+        type: null,
         list: this.testRecords[test].list
       }
 
@@ -356,7 +390,7 @@ export default {
     newTest: function () {
       let masterDetails = {
         title: null,
-        type: 'ECN',
+        type: null,
         list: []
       }
       this.showDetails = true
@@ -443,11 +477,15 @@ export default {
       set: function (newValue) {
         this.$store.state.activeQuiz = newValue
       }
+    },
+    testRecords () {
+      return this.$store.state.testRecords
     }
+
   },
   created () {
-    let recs = this.$store.getters.testRecords
-    this.testRecords = {...recs}
+    this.$store.dispatch('instructorLogs', { group: this.group, action: 'getTests' })
+    this.$store.dispatch('instructorLogs', { group: this.group, action: 'getResults' })
   }
 }
 </script>

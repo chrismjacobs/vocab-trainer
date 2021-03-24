@@ -2,7 +2,7 @@
 <template>
   <div id="InstStud">
 
-    <div class="mt-2 bg-prime p-2 head">
+    <div class="mt-2 bg-prime p-2 head"  v-if="!showQuiz">
       <div class="ml-2">
         <b-row >
           <b-col >
@@ -19,8 +19,8 @@
                 <tr>
                   <th scope="col">Quiz</th>
                   <th scope="col">Type</th>
-                  <th scope="col">Words</th>
-                  <th scope="col">Complete</th>
+                  <th scope="col">Preview</th>
+                  <th scope="col">Answers</th>
                   <th scope="col">Grade</th>
                 </tr>
               </thead>
@@ -40,7 +40,8 @@
                     <button :class="getCompColor(index)" @click="showAnswers(index)">
                       <b-icon-bookmark-check variant="cream" font-scale="1"></b-icon-bookmark-check>
                     </button>
-                     <span v-if="getScore(index)[1] < 100"> {{getScore(index)[1]}}% </span>
+                     <span v-if="getScore(index)[1] < 100 && getScore(index)[1] > 0"> {{getScore(index)[1]}}% Complete </span>
+
                   </td>
 
                   <td>
@@ -60,7 +61,7 @@
     </div>
 
     <div v-if="showQuiz">
-      <InstQuizEng  v-on:quizData="recordQuiz($event)"  v-on:cancel="showQuiz = false"></InstQuizEng>
+      <InstQuiz  v-on:quizData="recordQuiz($event)"  v-on:cancel="showQuiz = false" testType></InstQuiz>
     </div>
 
     <b-modal hide-header-close no-close-on-esc no-close-on-backdrop align="center" ref="answers" hide-footer title="Student Answers">
@@ -86,14 +87,14 @@
 </template>
 
 <script>
-import InstQuizEng from './InstQuizEng'
+import InstQuiz from './InstQuiz'
 import InstAns from './InstAns'
 import InstTable from './InstTable'
 
 export default {
   name: 'InstStud',
   components: {
-    InstQuizEng,
+    InstQuiz,
     InstAns,
     InstTable
   },
