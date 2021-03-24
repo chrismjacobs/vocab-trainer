@@ -9,7 +9,7 @@
       <div v-if="testType === null">
             <div class="mt-2 p-2 bg-darkgrey head">
               <h2 class="text-cream" align="center">
-                Match Zone
+                Game Zone
               </h2>
             </div>
 
