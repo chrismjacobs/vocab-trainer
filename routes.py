@@ -137,11 +137,14 @@ def login():
         user.extraInfo = token_string
         db.session.commit()
 
+    redisEmails = json.loads(redisData.hgetall('emails')['list'])
 
     msg = ''
 
     if user.classroom == None:
         msg = 'Welcome ' + user.username + ', please join a classroom to unlock more features.'
+    elif user.email in redisEmails:
+        msg = 'Welcome ' + user.username + ', your email: ' + user.email + ' may not be valid, please update.'
     else:
         msg = 'Welcome ' + user.username + ', you have been logged in with classroom: ' + user.classroom
 
@@ -291,10 +294,9 @@ def get_class():
         classDict[user.id]['user'] = user.username
         classDict[user.id]['studentID'] = user.studentID
 
-        content = redisChecker(user, True, True, True)
+        content = redisChecker(user, False, True, True)
         classDict[user.id]['userRecord'] = content['userRecord']
         classDict[user.id]['setRecord'] = content['setRecord']
-        classDict[user.id]['logsRecord'] = content['logsRecord']
 
     return jsonify({
         'classRecords': classDict
@@ -738,6 +740,7 @@ def jChecker(user, logs, vocab, setD):
 
     if setD:
         setKey = "jfolder/" + str(user.id) + '/' + user.vocab + '/set.json'
+        print(setKey)
         setD = {'dictRecord': {}, 'starRecord': {}, 'addRecord': {}}
         try:
             content_object = s3_resource.Object( 'vocab-lms', setKey )
@@ -791,20 +794,20 @@ def redisChecker(user, logs, vocab, setD):
 
     #print(type(json.loads(logs_content)), type(json.loads(set_content)))
 
-    if vocab:
+    if vocab and redisData.hget(user.id, 'vocab_' + user.vocab):
         vocabGet = redisData.hget(user.id, 'vocab_' + user.vocab)
-        if not vocabGet:
-            vocabGet = vocab_content
+    else:
+        vocabGet = vocab_content
 
-    if setD:
+    if setD and redisData.hget(user.id, 'set_' + user.vocab):
         setGet = redisData.hget(user.id, 'set_' + user.vocab)
-        if not setGet:
-            setGet = set_content
+    else:
+        setGet = set_content
 
-    if logs:
+    if logs and redisData.hget(user.id, 'logs'):
         logsGet = redisData.hget(user.id, 'logs')
-        if not logsGet:
-            logsGet = logs_content
+    else:
+        logsGet = logs_content
 
     return {'userRecord': json.loads(vocabGet), 'logsRecord': json.loads(logsGet), 'setRecord': json.loads(setGet)}
 
