@@ -34,8 +34,7 @@ export default {
   props: {
     toolbarShow: Boolean,
     showAnswers: Boolean,
-    testType: String,
-    title: String
+    testType: String
   },
   data () {
     return {
@@ -97,7 +96,7 @@ export default {
       let sdAns
       let sdQue
 
-      if (this.testType.includes('E ->')) {
+      if (this.testType.includes('E>')) {
         question = 'English'
         answer = 'Chinese'
         sdQue = 'mp3en'

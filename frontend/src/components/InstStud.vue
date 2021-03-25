@@ -61,7 +61,7 @@
     </div>
 
     <div v-if="showQuiz">
-      <InstQuiz  v-on:quizData="recordQuiz($event)"  v-on:cancel="showQuiz = false" testType></InstQuiz>
+      <InstQuiz  v-on:quizData="recordQuiz($event)"  v-on:cancel="showQuiz = false" ></InstQuiz>
     </div>
 
     <b-modal hide-header-close no-close-on-esc no-close-on-backdrop align="center" ref="answers" hide-footer title="Student Answers">

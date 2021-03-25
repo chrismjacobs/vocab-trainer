@@ -484,8 +484,6 @@ export default {
 
   },
   created () {
-    this.$store.dispatch('instructorLogs', { group: this.group, action: 'getTests' })
-    this.$store.dispatch('instructorLogs', { group: this.group, action: 'getResults' })
   }
 }
 </script>
