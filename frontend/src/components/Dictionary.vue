@@ -32,14 +32,14 @@
         </b-row>
         <b-row >
           <b-col align="center">
-            <button v-if="$store.state.activeQuiz" class="buttonDiv bg-second px-3" style="width:60px" @click="changeSelected('q')"> <b-icon-card-checklist :variant="getIcon('q')" font-scale="1.5"></b-icon-card-checklist></button>
-            <button class="buttonDiv bg-second px-3" style="width:60px" @click="changeSelected('p'), getNotes()"> <b-icon-images :variant="getIcon('p')" font-scale="1.5"></b-icon-images></button>
-            <button class="buttonDiv bg-second px-3" style="width:60px" @click="changeSelected('*')"> <b-icon-star-fill :variant="getIcon('*')" font-scale="1.5"></b-icon-star-fill></button>
+            <button v-if="$store.state.activeQuiz" class="buttonDiv bg-second p-1" style="width:60px" @click="changeSelected('q')"> <b-icon-card-checklist :variant="getIcon('q')" font-scale="1.5"></b-icon-card-checklist><br><span class="text-cream" style="font-size:10pt">QUIZ</span></button>
+            <button class="buttonDiv bg-second p-1" style="width:60px" @click="changeSelected('p'), getNotes()"> <b-icon-images :variant="getIcon('p')" font-scale="1.5"></b-icon-images><br><span class="text-cream" style="font-size:10pt">PICT</span></button>
+            <button class="buttonDiv bg-second p-1" style="width:60px" @click="changeSelected('*')"> <b-icon-star-fill :variant="getIcon('*')" font-scale="1.5"></b-icon-star-fill><br><span class="text-cream" style="font-size:10pt">STAR</span></button>
                 <div  v-if="$store.state.activeQuiz" class="d-lg-none">
                   <br>
                 </div>
-            <button v-if="$store.getters.checkQuiz" class="buttonDiv bg-second px-3" style="width:60px;t" @click="changeSelected('+')"> <b-icon-arrow-up-circle-fill :variant="getIcon('+')" font-scale="1.5"></b-icon-arrow-up-circle-fill></button>
-            <button  :class="getSoundButton()" style="width:60px;t" @click="tapSound()"> <b-icon-soundwave :variant="getSoundwave()" font-scale="1.5"></b-icon-soundwave></button>
+            <button v-if="$store.getters.checkQuiz" class="buttonDiv bg-second p-1" style="width:60px;t" @click="changeSelected('+')"> <b-icon-arrow-up-circle-fill :variant="getIcon('+')" font-scale="1.5"></b-icon-arrow-up-circle-fill><br><span class="text-cream" style="font-size:10pt">ADD</span></button>
+            <button  :class="getSoundButton()" style="width:60px;t" @click="tapSound()"> <b-icon-soundwave :variant="getSoundwave()" font-scale="1.5"></b-icon-soundwave><br><span class="text-cream" style="font-size:10pt">TEST</span></button>
             <b-form-select class="bg-second text-cream" style="width:10%;overflow-y: hidden" @change="selected[2] = null" v-model="selected[1]" :options="optionsCheck" :select-size="1"></b-form-select>
           </b-col>
 
@@ -75,7 +75,7 @@
       </div>
 
       <div align="center" v-if="selected[1] === 'q'">
-        <button class="buttonDiv bg-secondary px-3" style="width:100%" @click="showAdd()"><b-icon-star-fill variant="grape-light" font-scale="1.5"></b-icon-star-fill > <span class="text-cream"> Add all stars </span> </button>
+        <button class="buttonDiv bg-secondary px-3" style="width:100%" @click="showAdd()"><b-icon-star-fill variant="grape-light" font-scale="1.5"></b-icon-star-fill > <span class="text-cream"> Add all quiz words </span> </button>
       </div>
 
       <transition name="board">
@@ -423,9 +423,9 @@ export default {
     },
     getSoundButton: function () {
       if (this.soundCount === 0) {
-        return 'buttonDiv bg-second px-3'
+        return 'buttonDiv bg-second p-1'
       } else {
-        return 'buttonDiv bg-cream px-3'
+        return 'buttonDiv bg-cream p-1'
       }
     },
     getImage: function (word, code) {
