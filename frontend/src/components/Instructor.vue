@@ -54,6 +54,7 @@
                     :options="optionsR"
                     style="width:100%:color:cream"
                     buttons
+                    @change="getResults()"
                     :button-variant="color[show]"
                     size="lg"
                     name="radio-btn-outline"
@@ -70,7 +71,7 @@
      <InstClass></InstClass>
     </div>
 
-    <div v-else-if="show === 'tests'" class="bg-white mt-0 p-0">
+    <div v-else-if="$store.state.studentResults.length > 0 && show === 'tests'" class="bg-white mt-0 p-0">
      <InstTests :group="group"></InstTests>
     </div>
 
@@ -133,6 +134,8 @@ export default {
     getClass: function (group) {
       this.waiting = true
       this.group = group
+      this.getResults()
+      this.$store.dispatch('clearResults')
       this.$store.dispatch('classRecords', { userID: this.$store.state.userProfile.userID, classroom: group })
     },
     getTests: function () {
@@ -146,6 +149,12 @@ export default {
         return ['bg-warn-light', 'loaded']
       } else {
         return [null, null]
+      }
+    },
+    getResults: function () {
+      if (this.show === 'tests') {
+        this.$store.dispatch('instructorLogs', { group: this.group, action: 'getTests' })
+        this.$store.dispatch('instructorLogs', { group: this.group, action: 'getResults' })
       }
     }
   },
