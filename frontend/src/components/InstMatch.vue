@@ -91,7 +91,7 @@
         <b-avatar :src="s3 + winner + '/avatar.jpg'"  size="100px" :badge="getUser(winner)" badge-offset="-0.6em"></b-avatar>
       </div>
       <br>
-      <button :class="'buttonDiv mt-3 text-prime bg-' + player" style="width:60%"  @click="hideModal()">Close</button>
+      <button style="width:60%"  @click="hideModal()">Close</button>
     </b-modal>
 
   </div>
