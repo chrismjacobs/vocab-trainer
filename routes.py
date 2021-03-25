@@ -256,14 +256,10 @@ def instructorRedis():
 
     elif action == 'getResults':
         classList = User.query.filter_by(classroom=group).all()
-        uDict = []
-        for u in classList:
-            if redisData.hget(group, u.id):
-                uDict.append({'uid': u.id, 'user': u.username, 'studentID': u.studentID, 'quizData': json.loads(redisData.hget(group, u.id)), 'time': None, 'buttons': None})
-            else:
-                uDict.append({'uid': u.id, 'user': u.username, 'studentID': u.studentID, 'quizData': {} })
-
-        payload = uDict
+        allData = redisData.hgetall(group)
+        if allData['notes']:
+            del allData['notes']
+        payload = allData
         msg = 'setResults'
 
     else:
@@ -299,6 +295,7 @@ def get_class():
         classDict[user.id]['setRecord'] = content['setRecord']
 
     return jsonify({
+        'classroom': classroom,
         'classRecords': classDict
         })
 

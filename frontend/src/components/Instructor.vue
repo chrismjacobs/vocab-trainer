@@ -42,7 +42,7 @@
       <div class="ml-2">
         <b-row >
           <b-col >
-            <h3 class="text-prime" > Class: {{$store.state.classLoad}} </h3>
+            <h3 class="text-prime" > Class: {{classLoad}} </h3>
           </b-col>
           <template>
               <b-col align="right">
@@ -54,7 +54,6 @@
                     :options="optionsR"
                     style="width:100%:color:cream"
                     buttons
-                    @change="getResults()"
                     :button-variant="color[show]"
                     size="lg"
                     name="radio-btn-outline"
@@ -71,12 +70,12 @@
      <InstClass></InstClass>
     </div>
 
-    <div v-else-if="$store.state.studentResults.length > 0 && show === 'tests'" class="bg-white mt-0 p-0">
-     <InstTests :group="group"></InstTests>
+    <div v-else-if="classLoad && show === 'tests' " class="bg-white mt-0 p-0">
+     <InstTests :group="classLoad"></InstTests>
     </div>
 
     <div v-else-if="classRecords && show === 'picts'" class="bg-white mt-0 p-0">
-     <InstSent :group="group"></InstSent>
+     <InstSent :group="classLoad"></InstSent>
     </div>
 
     <div v-else-if="show === 'match'" class="bg-white mt-0 p-0">
@@ -119,7 +118,7 @@ export default {
       optionsR: [
         { value: 'tests', text: 'TEST' },
         { value: 'class', text: 'CLASS' },
-        { value: 'picts', text: 'PICTURES' },
+        // { value: 'picts', text: 'PICTURES' },
         { value: 'match', text: 'MATCH' }
       ],
       color: {
@@ -133,9 +132,7 @@ export default {
   methods: {
     getClass: function (group) {
       this.waiting = true
-      this.group = group
-      this.getResults()
-      this.$store.dispatch('clearResults')
+      this.$store.dispatch('clearRecords')
       this.$store.dispatch('classRecords', { userID: this.$store.state.userProfile.userID, classroom: group })
     },
     getTests: function () {
@@ -150,17 +147,15 @@ export default {
       } else {
         return [null, null]
       }
-    },
-    getResults: function () {
-      if (this.show === 'tests') {
-        this.$store.dispatch('instructorLogs', { group: this.group, action: 'getTests' })
-        this.$store.dispatch('instructorLogs', { group: this.group, action: 'getResults' })
-      }
     }
   },
   created () {
-    this.$store.dispatch('classGroups', { userID: this.$store.state.userProfile.userID })
-    this.getClass(this.$store.state.userProfile.classroom)
+    if (!this.classGroups) {
+      this.$store.dispatch('classGroups', { userID: this.$store.state.userProfile.userID })
+    }
+    if (!this.classLoad) {
+      this.getClass(this.$store.state.userProfile.classroom)
+    }
   },
   computed: {
     classRecords () {
@@ -171,6 +166,9 @@ export default {
     },
     testRecords () {
       return this.$store.getters.testRecords
+    },
+    classLoad () {
+      return this.$store.state.instructor.classLoad
     }
   }
 }

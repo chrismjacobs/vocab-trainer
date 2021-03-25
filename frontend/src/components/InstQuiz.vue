@@ -89,8 +89,7 @@ export default {
       return this.$store.getters.starGet
     },
     testType () {
-      console.log('testType', this.$store.state.testRecords[this.$store.state.activeQuiz].type)
-      return this.$store.state.testRecords[this.$store.state.activeQuiz].type
+      return this.$store.state.instructor.testRecords[this.$store.state.instructor.activeQuiz].type
     }
   },
   methods: {

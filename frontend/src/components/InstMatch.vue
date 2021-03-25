@@ -129,14 +129,14 @@ export default {
       this.$refs['win'].hide()
     },
     getBG: function (key) {
-      console.log('getBG', key)
+      // console.log('getBG', key)
       let array = [1, 2, 5, 6, 9, 10, 13, 14]
       if (array.includes(parseInt(key))) {
         return 'bg-grape text-cream'
       }
     },
     getUser: function (std) {
-      console.log(std, this.classRecords)
+      // console.log(std, this.classRecords)
       if (std) {
         return this.classRecords[std].user
       }
@@ -152,28 +152,28 @@ export default {
         this.round4[i] = null
         this.array4.push(i)
       }
-      console.log(this.round4, this.array4)
+      // console.log(this.round4, this.array4)
     },
     round3set: function () {
       for (let i = 1; i < 5; i += 1) {
         this.round3[i] = null
         this.array3.push(i)
       }
-      console.log(this.round3, this.array3)
+      // console.log(this.round3, this.array3)
     },
     round2set: function () {
       for (let i = 1; i < 9; i += 1) {
         this.round2[i] = null
         this.array2.push(i)
       }
-      console.log(this.round3, this.array2)
+      // console.log(this.round3, this.array2)
     },
     round1set: function () {
       for (let i = 1; i < 17; i += 1) {
         this.round1[i] = null
         this.array1.push(i)
       }
-      console.log(this.round1, this.array1)
+      // console.log(this.round1, this.array1)
     },
     levelOne: function (student, action) {
       let newArray = this.shuffle(this.array1)
@@ -181,12 +181,12 @@ export default {
         let n = newArray[idx]
         if (this.round1[n] === null && action === 1) {
           this.round1[n] = student
-          console.log('add', this.round1)
+          // console.log('add', this.round1)
           this.round1 = {...this.round1}
           return true
         } else if (action === 0 && this.round1[n] === student) {
           this.round1[n] = null
-          console.log('remove', this.round1)
+          // console.log('remove', this.round1)
           this.round1 = {...this.round1}
           return true
         }
@@ -204,12 +204,12 @@ export default {
         let n = newArray[idx]
         if (this.round2[n] === null && action === 1) {
           this.round2[n] = student
-          console.log('add', this.round2)
+          // console.log('add', this.round2)
           this.round2 = {...this.round2}
           return true
         } else if (action === 0 && this.round2[n] === student) {
           this.round2[n] = null
-          console.log('remove', this.round2)
+          // console.log('remove', this.round2)
           this.round2 = {...this.round2}
           return true
         }
@@ -228,12 +228,12 @@ export default {
         let n = newArray[idx]
         if (this.round3[n] === null && action === 1) {
           this.round3[n] = student
-          console.log('add', this.round3)
+          // console.log('add', this.round3)
           this.round3 = {...this.round3}
           return true
         } else if (action === 0 && this.round3[n] === student) {
           this.round3[n] = null
-          console.log('remove', this.round3)
+          // console.log('remove', this.round3)
           this.round3 = {...this.round3}
           return true
         }

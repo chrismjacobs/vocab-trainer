@@ -25,7 +25,7 @@
                 </tr>
               </thead>
               <tbody>
-                <template v-for="(entry, index) in $store.state.testRecords">
+                <template v-for="(entry, index) in testRecords">
                 <tr :key="index" :class="getRow(index)">
                   <th scope="row">{{index}}</th>
                   <td scope="row"> {{entry.type}}</td>
@@ -45,7 +45,7 @@
                   </td>
 
                   <td>
-                    <div v-if="$store.state.activeQuiz === index && getScore(index)[0] === 0">
+                    <div v-if="activeQuiz === index && getScore(index)[0] === 0">
                       <button  @click="startQuiz(index)" class="buttonDiv bg-safe px-3">
                         <b-icon-forward variant="cream" font-scale="1"></b-icon-forward>
                       </button>
@@ -132,7 +132,7 @@ export default {
       }
     },
     getRow: function (index) {
-      if (this.$store.state.activeQuiz === index) {
+      if (this.activeQuiz === index) {
         return 'bg-peel'
       }
     },
@@ -147,7 +147,7 @@ export default {
       if (student && student.score > 0) {
         let score = student.score
         let comp = student.answerData.length
-        let list = this.$store.state.testRecords[index].list.length
+        let list = this.testRecords[index].list.length
         let grade = (score / list) * 100
         let complete = (list / comp) * 100
         return [Math.round(grade), Math.round(complete)]
@@ -169,7 +169,7 @@ export default {
     recordQuiz: function (payload) {
       // this.studentTestDup = {...this.studentTests}
       this.showQuiz = false
-      this.studentTests[this.$store.state.activeQuiz] = payload
+      this.studentTests[this.activeQuiz] = payload
       let profile = this.$store.state.userProfile
 
       this.$store.dispatch('instructorLogs', { group: profile.classroom, action: 'setStudent', student: profile.userID, studentTests: this.studentTests })
@@ -180,7 +180,13 @@ export default {
   },
   computed: {
     studentTests () {
-      return this.$store.state.studentTests
+      return this.$store.state.instructor.studentTests
+    },
+    activeQuiz () {
+      return this.$store.state.instructor.activeQuiz
+    },
+    testRecords () {
+      return this.$store.state.instructor.testRecords
     }
   },
   beforeDestroy () {

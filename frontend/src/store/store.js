@@ -63,14 +63,16 @@ const state = {
   testActive: false,
   device: localStorage.device || '',
   loginTime: localStorage.loginTime || '',
-  classLoad: null,
-  classRecords: null,
-  classGroups: null,
-  testRecords: {},
-  activeQuiz: '',
-  studentNotes: {},
-  studentTests: {},
-  studentResults: {},
+  instructor: {
+    classRecords: null,
+    classLoad: null,
+    classGroups: null,
+    testRecords: {},
+    activeQuiz: '',
+    studentNotes: {},
+    studentTests: {},
+    studentResults: {}
+  },
   audioLinks: {
     t: 'audio',
     f: 'foodio',
@@ -268,14 +270,10 @@ const actions = {
   },
   classRecords (context, payload) {
     // console.log('record request...')
-    let classroom = payload.classroom
-    context.commit('setClassRecords', null)
-    context.commit('setClassLoad', null)
     return getClass(payload)
       .then(function (response) {
         console.log(response.data)
-        context.commit('setClassLoad', classroom)
-        context.commit('setClassRecords', response.data.classRecords)
+        context.commit('setClassRecords', response.data)
       })
       .catch(error => {
         console.log('Error Retreiving Data: ', error)
@@ -300,6 +298,10 @@ const actions = {
   clearResults (context, payload) {
     console.log('clearResults', payload)
     context.commit('clearResults')
+  },
+  clearRecords (context, payload) {
+    console.log('clearRecords', payload)
+    context.commit('clearRecords')
   },
   instructorLogs (context, payload) {
     console.log('instructor logs request...', payload)
@@ -398,32 +400,46 @@ const mutations = {
     }
   },
   setClassRecords (state, payload) {
-    // set to null initially before api is returned
-    state.classRecords = payload
-  },
-  setClassLoad (state, payload) {
-    // set to null initially before api is returned
-    state.classLoad = payload
+    state.instructor.classRecords = payload.classRecords
+    state.instructor.classLoad = payload.classroom
   },
   setClassGroups (state, payload) {
-    state.classGroups = payload
+    state.instructor.classGroups = payload
   },
   setTests (state, payload) {
     console.log('testUpdate', payload)
-    state.testRecords = payload.testRecords
-    state.activeQuiz = payload.activeQuiz
+    state.instructor.testRecords = payload.testRecords
+    state.instructor.activeQuiz = payload.activeQuiz
   },
   setNotes (state, payload) {
-    state.studentNotes = payload
+    state.instructor.studentNotes = payload
   },
   setStudent (state, payload) {
-    state.studentTests = payload
+    state.instructor.studentTests = payload
   },
   setResults (state, payload) {
-    state.studentResults = payload
+    console.log('setResults', payload)
+    let results = []
+    for (let k in payload) {
+      let u = payload[k]
+      if (parseInt(k)) {
+        results.push({uid: k, quizData: JSON.parse(u)})
+      } else if (k === 'tests') {
+        state.instructor.testRecords = JSON.parse(u)
+      } else if (k === 'active') {
+        state.instructor.activeQuiz = u
+      } else {
+        console.log('not stored', u)
+      }
+    }
+    state.instructor.studentResults = results
   },
-  clearResults (state, payload) {
-    state.studentResults = {}
+  clearResults (state) {
+    state.instructor.studentResults = {}
+  },
+  clearRecords (state) {
+    state.instructor.classLoad = null
+    state.instructor.classRecords = {}
   },
   setAccount (state, payload) {
     console.log('setAccount payload = ', payload.dataReturn)
@@ -616,7 +632,7 @@ const mutations = {
 const getters = {
   // reusable data accessors
   classRecords (state) {
-    return state.classRecords
+    return state.instructor.classRecords
   },
   checkQuiz (state) {
     let qList = ['g', 'p']
@@ -627,10 +643,17 @@ const getters = {
     }
   },
   classGroups (state) {
-    return state.classGroups
+    return state.instructor.classGroups
   },
   testRecords (state) {
-    return state.testRecords
+    return state.instructor.testRecords
+  },
+  quizGet (state) {
+    if (state.instructor.activeQuiz) {
+      return state.instructor.testRecords[state.instructor.activeQuiz].list
+    } else {
+      return []
+    }
   },
   isAuthenticated (state) {
     return isValidJwt(state.jwt)
@@ -643,13 +666,6 @@ const getters = {
   },
   starGet (state) {
     return state.setRecord.starRecord
-  },
-  quizGet (state) {
-    if (state.activeQuiz) {
-      return state.testRecords[state.activeQuiz].list
-    } else {
-      return []
-    }
   },
   friendsGet (state) {
     return state.friends

@@ -32,10 +32,10 @@
         </b-row>
         <b-row >
           <b-col align="center">
-            <button v-if="$store.state.activeQuiz" class="buttonDiv bg-second p-1" style="width:60px" @click="changeSelected('q')"> <b-icon-card-checklist :variant="getIcon('q')" font-scale="1.5"></b-icon-card-checklist><br><span class="text-cream" style="font-size:10pt">QUIZ</span></button>
+            <button v-if="$store.state.instructor.activeQuiz" class="buttonDiv bg-second p-1" style="width:60px" @click="changeSelected('q')"> <b-icon-card-checklist :variant="getIcon('q')" font-scale="1.5"></b-icon-card-checklist><br><span class="text-cream" style="font-size:10pt">QUIZ</span></button>
             <button class="buttonDiv bg-second p-1" style="width:60px" @click="changeSelected('p'), getNotes()"> <b-icon-images :variant="getIcon('p')" font-scale="1.5"></b-icon-images><br><span class="text-cream" style="font-size:10pt">PICT</span></button>
             <button class="buttonDiv bg-second p-1" style="width:60px" @click="changeSelected('*')"> <b-icon-star-fill :variant="getIcon('*')" font-scale="1.5"></b-icon-star-fill><br><span class="text-cream" style="font-size:10pt">STAR</span></button>
-                <div  v-if="$store.state.activeQuiz" class="d-lg-none">
+                <div  v-if="$store.state.instructor.activeQuiz" class="d-lg-none">
                   <br>
                 </div>
             <button v-if="$store.getters.checkQuiz" class="buttonDiv bg-second p-1" style="width:60px;t" @click="changeSelected('+')"> <b-icon-arrow-up-circle-fill :variant="getIcon('+')" font-scale="1.5"></b-icon-arrow-up-circle-fill><br><span class="text-cream" style="font-size:10pt">ADD</span></button>
@@ -336,8 +336,8 @@ export default {
       return this.$store.getters.makeList
     },
     getList () {
-      let tr = this.$store.state.testRecords
-      let aq = this.$store.state.activeQuiz
+      let tr = this.$store.state.instructor.testRecords
+      let aq = this.$store.state.instructor.activeQuiz
 
       if (tr[aq]) {
         let qList = tr[aq].list
@@ -444,16 +444,16 @@ export default {
     },
     getStatus: function (word) {
       let status = 0
-      if (this.$store.state.studentNotes[word]) {
-        status = this.$store.state.studentNotes[word]['status']
+      if (this.$store.state.instructor.studentNotes[word]) {
+        status = this.$store.state.instructor.studentNotes[word]['status']
       }
       return status
     },
     getNote: function (word) {
-      if (this.$store.state.studentNotes[word]) {
-        let noteTag = this.noteCodes[this.$store.state.studentNotes[word]['status']]
-        if (this.$store.state.studentNotes[word]['note']) {
-          return noteTag + ': ' + this.$store.state.studentNotes[word]['note']
+      if (this.$store.state.instructor.studentNotes[word]) {
+        let noteTag = this.noteCodes[this.$store.state.instructor.studentNotes[word]['status']]
+        if (this.$store.state.instructor.studentNotes[word]['note']) {
+          return noteTag + ': ' + this.$store.state.instructor.studentNotes[word]['note']
         } else {
           return noteTag
         }

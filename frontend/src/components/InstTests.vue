@@ -8,6 +8,9 @@
       <div class="bg-grey p-2">
         <b-row>
           <b-col align="right">
+            <button class="buttonDiv bg-darkgrey text-cream px-3 ml-3" style="width:auto; height:auto" @click="getResults()">
+                  Update
+            </button>
             <button class="buttonDiv bg-warn text-cream px-3" style="width:auto; height:auto" @click="newTest()">
                   New Test
             </button>
@@ -67,8 +70,9 @@
                         <tr v-if="results === index">
                           <td colspan="8">
                             <b-table
+                              sticky-header="500px"
                               striped hover
-                              :items="$store.state.studentResults"
+                              :items="studentResults"
                               :fields="fields"
                               show-empty
                               fixed
@@ -292,7 +296,7 @@ export default {
       if (this.testRecords[index]) {
         this.testHolder = {...this.testRecords}
         delete (this.testHolder[index])
-        this.$store.dispatch('instructorLogs', { group: this.$store.state.classLoad, action: 'setTests', testData: this.testHolder })
+        this.$store.dispatch('instructorLogs', { group: this.classLoad, action: 'setTests', testData: this.testHolder })
       }
     },
     deleteAnswers: function () {
@@ -300,14 +304,14 @@ export default {
       let index = this.holder[1] // test
 
       console.log('delete', idx, index)
-      this.studentTests = {...this.$store.state.studentResults[idx]}
+      this.studentTests = {...this.studentResults[idx]}
 
       this.studentTests[index] = {
         answerData: [], score: 0, time: 0
       }
       /// need to update student Results
-      this.$store.dispatch('instructorLogs', { group: this.$store.state.classLoad, action: 'setStudent', student: idx, studentTests: this.studentTests })
-      this.$store.dispatch('instructorLogs', { group: this.$store.state.classLoad, action: 'getResults' })
+      this.$store.dispatch('instructorLogs', { group: this.classLoad, action: 'setStudent', student: idx, studentTests: this.studentTests })
+      this.$store.dispatch('instructorLogs', { group: this.classLoad, action: 'getResults' })
     },
     showAnswers: function (idx, index, answerData) {
       console.log('show', idx, index, answerData)
@@ -329,7 +333,8 @@ export default {
       }
     },
     getCompleted: function (index) {
-      let results = this.$store.state.studentResults
+      console.log(index, this.studentResults)
+      let results = this.studentResults
       let count = 0
       for (let s in results) {
         if (results[s].quizData[index]) {
@@ -339,11 +344,11 @@ export default {
       return count
     },
     getScore: function (data, index) {
-      console.log(data, index, this.$store.state.testRecord)
+      console.log(data, index, this.testRecords)
       if (data) {
         let score = data.score
         let comp = data.answerData.length
-        let list = this.$store.state.testRecords[index].list.length
+        let list = this.testRecords[index].list.length
         let grade = (score / list) * 100
         let complete = (list / comp) * 100
         return [Math.round(grade), Math.round(complete), data.time]
@@ -360,7 +365,11 @@ export default {
       this.updateActive()
     },
     updateActive: function () {
-      this.$store.dispatch('instructorLogs', { group: this.$store.state.classLoad, action: 'setActive', activeQuiz: this.activeQuiz })
+      this.$store.dispatch('instructorLogs', { group: this.classLoad, action: 'setActive', activeQuiz: this.activeQuiz })
+    },
+    getResults: function () {
+      this.$store.dispatch('clearResults')
+      this.$store.dispatch('instructorLogs', { group: this.group, action: 'getResults' })
     },
     getDetails: function (test) {
       if (this.showDetails && this.testDetails === this.testRecords[test]) {
@@ -401,7 +410,7 @@ export default {
       this.selected[0] = ''
       this.testRecords[this.testDetails.title] = this.testDetails
       this.testRecords = {...this.testRecords}
-      this.$store.dispatch('instructorLogs', { group: this.$store.state.classLoad, action: 'setTests', testData: this.testRecords })
+      this.$store.dispatch('instructorLogs', { group: this.classLoad, action: 'setTests', testData: this.testRecords })
     },
     filterTable: function (row, filter) {
       if (filter[0] === '') {
@@ -419,45 +428,6 @@ export default {
       } else {
         return false
       }
-    },
-    playAudio: function (arg, folder, link, normal) {
-      // folder === '_en'
-      let markerIcon = document.getElementById(this.audioMarker[0] + this.audioMarker[1])
-      console.log(markerIcon, link)
-
-      // sets unreset icon back
-      if (markerIcon) {
-        markerIcon.setAttribute('class', 'text-prime')
-      }
-
-      let textColor
-
-      if (normal) {
-        textColor = 'text-warn'
-      } else {
-        textColor = 'text-' + this.getSoundwave()
-      }
-
-      this.audioMarker = [arg, folder]
-      let icon = document.getElementById(arg + folder)
-      icon.setAttribute('class', textColor)
-
-      let player = document.getElementById('audio')
-      player.src = link
-
-      let _this = this
-
-      player.addEventListener('error', function (e) {
-        console.log('Logging playback error: ' + e)
-        icon.setAttribute('class', 'text-prime')
-        _this.note = 'Sorry, no audio available'
-        _this.showAlert()
-      })
-
-      player.play()
-      player.onended = function () {
-        icon.setAttribute('class', 'text-prime')
-      }
     }
   },
   computed: {
@@ -471,19 +441,39 @@ export default {
     activeQuiz: {
       // getter
       get: function () {
-        return this.$store.state.activeQuiz
+        return this.$store.state.instructor.activeQuiz
       },
       // setter
       set: function (newValue) {
-        this.$store.state.activeQuiz = newValue
+        this.$store.state.instructor.activeQuiz = newValue
       }
     },
     testRecords () {
-      return this.$store.state.testRecords
+      return this.$store.state.instructor.testRecords
+    },
+    classLoad () {
+      return this.$store.state.instructor.classLoad
+    },
+    studentResults () {
+      let classRec = this.$store.state.instructor.classRecords
+      let oldResults = this.$store.state.instructor.studentResults
+      let newResults = []
+      if (oldResults !== {}) {
+        for (let n in classRec) {
+          let found = oldResults.find(element => element.uid === n)
+          let quizData = {}
+          if (found) {
+            quizData = found.quizData
+          }
+          newResults.push({uid: n, quizData: quizData, user: classRec[n].user, studentID: classRec[n].studentID})
+        }
+      }
+      return newResults
     }
 
   },
   created () {
+    this.getResults()
   }
 }
 </script>
