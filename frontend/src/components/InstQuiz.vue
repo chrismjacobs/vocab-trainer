@@ -7,7 +7,7 @@
             <h2 align="center"> {{ titles[testType] }} </h2>
     </div>
 
-    <ToolbarQuiz :toolbarShow='showTest' :showAnswers='showAnswers' :testType="testType" :title="title" v-on:newTest="start($event)"  v-on:cancel="$emit('cancel')"></ToolbarQuiz>
+    <ToolbarQuiz :toolbarShow='showTest' :showAnswers='showAnswers' :testType="testType" v-on:newTest="start($event)"  v-on:cancel="$emit('cancel')"></ToolbarQuiz>
     <div v-if="showTest">
         <b-progress :value="filter" style="height:30px" :max="testItems.length" variant="warn-light" show-progress animated></b-progress>
 
@@ -127,6 +127,7 @@ export default {
       }
     },
     start: function (data) {
+      console.log(data)
       this.sCount = 0
       this.qCount = 0
       this.startTime = new Date()
@@ -214,15 +215,15 @@ export default {
   watch: {
     filter: function () {
       let sound = this.testItems[this.filter]
-      if (sound && this.sound !== 'sdOff') {
-        this.playAudio(sound.sdEn)
+      if (sound && this.settings.sound !== 'sdOff') {
+        this.playAudio(sound.sdQue)
       }
     },
     hover: function () {
       if (this.hover) {
         console.log('hover_active')
         let sound = this.testItems[this.filter]
-        this.playAudio(sound.sdEn)
+        this.playAudio(sound.sdQue)
       }
     },
     exit: function () {
