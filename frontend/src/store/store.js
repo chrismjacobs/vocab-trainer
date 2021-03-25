@@ -297,6 +297,10 @@ const actions = {
     console.log('notes payload', payload)
     context.commit('setNotes', payload.notes)
   },
+  clearResults (context, payload) {
+    console.log('clearResults', payload)
+    context.commit('clearResults')
+  },
   instructorLogs (context, payload) {
     console.log('instructor logs request...', payload)
     return instructorRedis(payload)
@@ -417,6 +421,9 @@ const mutations = {
   },
   setResults (state, payload) {
     state.studentResults = payload
+  },
+  clearResults (state, payload) {
+    state.studentResults = {}
   },
   setAccount (state, payload) {
     console.log('setAccount payload = ', payload.dataReturn)
