@@ -199,16 +199,13 @@ def instructorRedis():
     elif action == 'setTests':
         testData = data['testData']
         redisData.hset(group, "tests", json.dumps(testData))
-
         active = redisData.hget(group, "active")
-        payload['testRecords'] = testData
-        payload['activeQuiz'] = active
-
-        msg = 'setTests'
+        payload = testData
+        msg = None
 
     elif action == 'setActive':
         activeQuiz = data['activeQuiz']
-        redisData.hset(group, "active", activeQuiz)
+        redisData.hset(group, "active", json.dumps(activeQuiz))
         payload = activeQuiz
         msg = None
 
@@ -247,10 +244,13 @@ def instructorRedis():
         active = redisData.hget(group, "active")
         if string:
             payload['testRecords'] = json.loads(string)
-            payload['activeQuiz'] = active
+            try:
+                payload['activeQuiz'] = json.loads(active)
+            except:
+                payload['activeQuiz'] = {}
         else:
             payload['testRecords'] = {}
-            payload['activeQuiz'] = None
+            payload['activeQuiz'] = {}
 
         msg = 'setTests'
 

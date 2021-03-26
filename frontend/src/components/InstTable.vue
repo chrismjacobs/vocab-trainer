@@ -28,19 +28,19 @@
                         </div>
                       </template>
                       <template v-else>
-                        <div v-if="list.includes(data.item.English)">
-                          <b-icon-check-circle-fill  scale="1.5" variant="safe" @click="addCheck(data.item.English, 0)"></b-icon-check-circle-fill>
+                        <div v-if="list.includes(data.item.English)" @click="addCheck(data.item.English, 0)">
+                          <b-icon-check-circle-fill  scale="2" variant="safe"></b-icon-check-circle-fill>
                           <span class="ml-3" :id="data.value + '_en/'" @click="playAudio(data.value, '_en/', data.item.mp3en, true)"> {{data.value}} ({{data.item.Gr}}) </span>
                         </div>
-                        <div v-else>
-                           <b-icon-check-circle scale="1.5" @click="addCheck(data.item.English, 1)"></b-icon-check-circle>
+                        <div v-else @click="addCheck(data.item.English, 1)">
+                           <b-icon-check-circle scale="2"></b-icon-check-circle>
                            <span class="ml-3" :id="data.value + '_en/'" @click="playAudio(data.value, '_en/', data.item.mp3en, true)"> {{data.value}} ({{data.item.Gr}}) </span>
                         </div>
                       </template>
                 </template>
 
                 <template v-slot:cell(chineseext)="data">
-                      <span :id="data.item.English + '_ch/'" @click="playAudio(data.item.English, '_ch/', data.item.mp3ch, true)"> {{data.value}} </span>
+                      <span class="ml-3" :id="data.item.English + '_ch/'" @click="playAudio(data.item.English, '_ch/', data.item.mp3ch, true)"> {{data.value}} </span>
                 </template>
               </b-table>
           </div>
@@ -124,15 +124,15 @@ export default {
 
       // sets unreset icon back
       if (markerIcon) {
-        markerIcon.setAttribute('class', 'text-prime')
+        markerIcon.setAttribute('class', 'text-prime ml-3')
       }
 
       let textColor
 
       if (normal) {
-        textColor = 'text-warn'
+        textColor = 'text-warn ml-3'
       } else {
-        textColor = 'text-' + this.getSoundwave()
+        textColor = 'ml-3 text-' + this.getSoundwave()
       }
 
       this.audioMarker = [arg, folder]
@@ -146,14 +146,14 @@ export default {
 
       player.addEventListener('error', function (e) {
         console.log('Logging playback error: ' + e)
-        icon.setAttribute('class', 'text-prime')
+        icon.setAttribute('class', 'text-prime ml-3')
         _this.note = 'Sorry, no audio available'
         _this.showAlert()
       })
 
       player.play()
       player.onended = function () {
-        icon.setAttribute('class', 'text-prime')
+        icon.setAttribute('class', 'text-prime ml-3')
       }
     }
   },

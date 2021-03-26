@@ -7,7 +7,7 @@
             <h2 align="center"> {{ titles[testType] }} </h2>
     </div>
 
-    <ToolbarQuiz :toolbarShow='showTest' :showAnswers='showAnswers' :testType="testType" v-on:newTest="start($event)"  v-on:cancel="$emit('cancel')"></ToolbarQuiz>
+    <ToolbarQuiz :index="index" :toolbarShow='showTest' :showAnswers='showAnswers' :testType="testType" v-on:newTest="start($event)"  v-on:cancel="$emit('cancel')"></ToolbarQuiz>
     <div v-if="showTest">
         <b-progress :value="filter" style="height:30px" :max="testItems.length" variant="warn-light" show-progress animated></b-progress>
 
@@ -57,7 +57,8 @@ export default {
   },
   props: {
     s3: String,
-    exit: Boolean
+    exit: Boolean,
+    index: String
   },
   data () {
     return {
@@ -89,14 +90,20 @@ export default {
       return this.$store.getters.starGet
     },
     testType () {
-      return this.$store.state.instructor.testRecords[this.$store.state.instructor.activeQuiz].type
+      return this.$store.state.instructor.testRecords[this.index].type
     }
   },
   methods: {
-    recordAnswer: function (english, chinese, choice) {
+    recordAnswer: function (question, answer, choice) {
       this.qCount += 1
 
-      let correct = chinese
+      let types = {
+        'E>C': question,
+        'C>E': answer
+      }
+
+      let english = types[this.testType]
+      let correct = answer
       let score
       let _rowVariant
       if (choice === correct) {
@@ -108,9 +115,10 @@ export default {
         _rowVariant = 'warn'
       }
       let entry = {
-        English: english,
-        Chinese: chinese,
+        Question: question,
+        Answer: answer,
         Choice: choice,
+        English: english,
         Score: score,
         _rowVariant: _rowVariant
       }
@@ -143,7 +151,7 @@ export default {
     checkAnswers: function () {
       console.log('testEnded')
       this.$store.dispatch('testActive', false)
-      this.$emit('quizData', { answerData: this.answerData, score: this.sCount, time: this.timeSpan() })
+      this.$emit('quizData', { answerData: this.answerData, score: this.sCount, time: this.timeSpan(), index: this.index })
     },
     cancel: function () {
       console.log('cancel')

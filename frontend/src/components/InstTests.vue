@@ -35,34 +35,34 @@
                       <template v-for="(test, index) in testRecords" >
                       <tr :key="index">
                         <th scope="row">{{index}}</th>
-                        <td>{{test.type}}</td>
+                        <td :class="getTypeCol(test.type)">{{test.type}}</td>
                         <td>{{test.list.length}}</td>
                         <td>
-                          <button class="buttonDiv bg-info text-cream px-3" style="width:60px" @click="showResults(index)">
+                          <button class="buttonDiv bg-smoke text-prime px-3" style="width:60px" @click="showResults(index)">
                             {{getCompleted(index)}}
                           </button>
                         </td>
                         <td>
-                          <button class="buttonDiv bg-safe px-3 mr-3" style="width:auto; height:auto" @click="getDetails(index)">
-                              <b-icon-folder-plus variant="cream" font-scale="1"></b-icon-folder-plus>
+                          <button class="buttonDiv bg-smoke text-safe px-3 mr-3" style="width:auto; height:auto" @click="getDetails(index)">
+                              <b-icon-folder-plus variant="safe" font-scale="1"></b-icon-folder-plus>
                           </button>
                         </td>
                         <td>
-                          <button v-if="activeQuiz === index" class="buttonDiv bg-warning px-3" style="width:auto; height:auto" @click="activeCheck(index, 0)">
+                          <button v-if="index in activeQuiz" class="buttonDiv bg-warning px-3" style="width:auto; height:auto" @click="updateActive(index)">
                               <b-icon icon="check"></b-icon>
                           </button>
-                          <button v-else class="buttonDiv bg-grey px-3" style="width:auto; height:auto" @click="activeCheck(index, 1)">
+                          <button v-else class="buttonDiv bg-smoke px-3" style="width:auto; height:auto" @click="updateActive(index)">
                               <b-icon icon="check"></b-icon>
                           </button>
                         </td>
                         <td>
-                          <button class="buttonDiv bg-warn px-3 mr-3 " style="width:auto; height:auto" @click="copyDetails(index)">
-                              <b-icon-collection variant="cream" font-scale="1"></b-icon-collection>
+                          <button class="buttonDiv bg-smoke text-warn px-3 mr-3 " style="width:auto; height:auto" @click="copyDetails(index)">
+                              <b-icon-collection variant="warn" font-scale="1"></b-icon-collection>
                           </button>
                         </td>
                         <td>
-                          <button class="buttonDiv bg-alert px-3 mr-3" style="width:60px" @click="deleteModal(null, index)">
-                            <b-icon variant="cream" font-scale="1" icon="trash-fill"></b-icon>
+                          <button class="buttonDiv bg-smoke px-3 mr-3" style="width:60px" @click="deleteModal(null, index)">
+                            <b-icon variant="alert" font-scale="1" icon="trash-fill"></b-icon>
                           </button>
                         </td>
                       </tr>
@@ -95,6 +95,17 @@
                                     <b-icon variant="cream" font-scale="1" icon="trash-fill"></b-icon>
                                   </button>
                             </template>
+                            </b-table>
+
+                            <b-table
+                              sticky-header="300px"
+                              striped hover
+                              :items="answerStats"
+                              :fields="fieldStats"
+                              show-empty
+                              fixed
+                              head-variant="light"
+                              >
                             </b-table>
                           </td>
                         </tr>
@@ -246,6 +257,10 @@ export default {
         {key: 'time', label: 'Time'},
         {key: 'answers', label: 'Answers'},
         {key: 'delete', label: 'Delete'}
+      ],
+      fieldStats: [
+        {key: 'vocab', label: 'Vocab', sortable: true},
+        {key: 'errors', label: 'Errors', sortable: true}
       ]
     }
   },
@@ -282,17 +297,14 @@ export default {
       }
     },
     deleteQuiz: function () {
-      console.log(this.holder, this.activeQuiz)
+      // console.log(this.holder, this.activeQuiz)
       let index = this.holder[1]
       this.$refs['delete'].hide()
-      console.log(this.testRecords)
       this.showDetails = false
       this.results = false
-      /// a little mess to figure out here
-      if (this.activeQuiz === index) {
-        this.activeQuiz = ''
-        this.updateActive()
-      }
+
+      this.updateActive(index, true)
+
       if (this.testRecords[index]) {
         this.testHolder = {...this.testRecords}
         delete (this.testHolder[index])
@@ -332,6 +344,14 @@ export default {
         return 'warning'
       }
     },
+    getTypeCol: function (type) {
+      let colors = {
+        'E>C': 'text-info',
+        'C>E': 'text-warn',
+        null: 'bg-alert'
+      }
+      return colors[type]
+    },
     getCompleted: function (index) {
       console.log(index, this.studentResults)
       let results = this.studentResults
@@ -344,7 +364,7 @@ export default {
       return count
     },
     getScore: function (data, index) {
-      console.log(data, index, this.testRecords)
+      // console.log(data, index, this.testRecords)
       if (data) {
         let score = data.score
         let comp = data.answerData.length
@@ -356,16 +376,8 @@ export default {
         return ['-', '-', '-']
       }
     },
-    activeCheck: function (index, action) {
-      if (action === 0) {
-        this.activeQuiz = ''
-      } else {
-        this.activeQuiz = index
-      }
-      this.updateActive()
-    },
-    updateActive: function () {
-      this.$store.dispatch('instructorLogs', { group: this.classLoad, action: 'setActive', activeQuiz: this.activeQuiz })
+    updateActive: function (index, action) {
+      this.$store.dispatch('updateActive', { index: index, action: action })
     },
     getResults: function () {
       this.$store.dispatch('clearResults')
@@ -381,6 +393,7 @@ export default {
           status: 0
         }
       } else {
+        this.results = null
         this.showDetails = true
         this.results = false
         this.testDetails = this.testRecords[test]
@@ -403,6 +416,7 @@ export default {
         list: []
       }
       this.showDetails = true
+      this.results = null
       this.testDetails = {...masterDetails}
     },
     saveTest: function () {
@@ -435,18 +449,8 @@ export default {
       // console.log('tableGet', this.$store.getters.makeList)
       return this.$store.getters.makeList
     },
-    activeOptions () {
-      return this.$store.getters.makeActiveOptions
-    },
-    activeQuiz: {
-      // getter
-      get: function () {
-        return this.$store.state.instructor.activeQuiz
-      },
-      // setter
-      set: function (newValue) {
-        this.$store.state.instructor.activeQuiz = newValue
-      }
+    activeQuiz () {
+      return this.$store.state.instructor.activeQuiz
     },
     testRecords () {
       return this.$store.state.instructor.testRecords
@@ -458,7 +462,7 @@ export default {
       let classRec = this.$store.state.instructor.classRecords
       let oldResults = this.$store.state.instructor.studentResults
       let newResults = []
-      if (oldResults !== {}) {
+      if (oldResults.length > 0) {
         for (let n in classRec) {
           let found = oldResults.find(element => element.uid === n)
           let quizData = {}
@@ -469,8 +473,30 @@ export default {
         }
       }
       return newResults
+    },
+    answerStats () {
+      let stats = {}
+      for (let s in this.studentResults) {
+        console.log('stats', this.studentResults[s].quizData)
+        if (this.studentResults[s].quizData[this.results]) {
+          let data = this.studentResults[s].quizData[this.results].answerData
+          for (let a in data) {
+            let english = data[a].English
+            if (!stats[english]) {
+              stats[english] = 0
+            }
+            if (data[a].Score === -1) {
+              stats[english] += 1
+            }
+          }
+        }
+      }
+      let arrayItems = []
+      for (let e in stats) {
+        arrayItems.push({vocab: e, errors: stats[e]})
+      }
+      return arrayItems
     }
-
   },
   created () {
     this.getResults()

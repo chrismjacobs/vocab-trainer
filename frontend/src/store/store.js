@@ -68,7 +68,7 @@ const state = {
     classLoad: null,
     classGroups: null,
     testRecords: {},
-    activeQuiz: '',
+    activeQuiz: {},
     studentNotes: {},
     studentTests: {},
     studentResults: {}
@@ -303,6 +303,10 @@ const actions = {
     console.log('clearRecords', payload)
     context.commit('clearRecords')
   },
+  updateActive (context, payload) {
+    console.log('updateActive', payload)
+    context.commit('checkActive', payload)
+  },
   instructorLogs (context, payload) {
     console.log('instructor logs request...', payload)
     return instructorRedis(payload)
@@ -406,10 +410,23 @@ const mutations = {
   setClassGroups (state, payload) {
     state.instructor.classGroups = payload
   },
+  checkActive (state, payload) {
+    console.log('checkActive', payload)
+    // state.instructor.activeQuiz = {}
+
+    let newObject = {...state.instructor.activeQuiz}
+    if (newObject[payload.index] || payload.action) {
+      delete newObject[payload.index]
+    } else {
+      newObject[payload.index] = []
+    }
+
+    state.instructor.activeQuiz = newObject
+    instructorRedis({group: state.instructor.classLoad, action: 'setActive', activeQuiz: newObject})
+  },
   setTests (state, payload) {
     console.log('testUpdate', payload)
-    state.instructor.testRecords = payload.testRecords
-    state.instructor.activeQuiz = payload.activeQuiz
+    state.instructor.testRecords = payload
   },
   setNotes (state, payload) {
     state.instructor.studentNotes = payload
@@ -427,7 +444,7 @@ const mutations = {
       } else if (k === 'tests') {
         state.instructor.testRecords = JSON.parse(u)
       } else if (k === 'active') {
-        state.instructor.activeQuiz = u
+        state.instructor.activeQuiz = JSON.parse(u)
       } else {
         console.log('not stored', u)
       }

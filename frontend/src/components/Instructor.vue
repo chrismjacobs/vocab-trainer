@@ -142,7 +142,7 @@ export default {
     getRow: function (index) {
       if (index === this.$store.state.userProfile.classroom) {
         return ['bg-p1-light', 'logged in']
-      } else if (this.group === index) {
+      } else if (this.classLoad === index) {
         return ['bg-warn-light', 'loaded']
       } else {
         return [null, null]

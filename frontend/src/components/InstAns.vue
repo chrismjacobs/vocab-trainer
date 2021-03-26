@@ -19,9 +19,9 @@
           </div>
         </template>
 
-        <template v-slot:cell(english)="data">
+        <template v-slot:cell(question)="data">
           <div style="float:left">
-           <template v-if="data.item.English in starGet">
+           <template v-if="data.item.Question in starGet">
               <b-icon-star-fill variant="warn" @click="addStar(data.item.English, 0)"></b-icon-star-fill>
             </template>
             <template v-else>
@@ -29,17 +29,17 @@
             </template>
           </div>
           <div align="right">
-            <span :id="data.item.English" @click="playAnswer(data.item.English)"> {{data.item.English}}</span>
+            <span :id="data.item.Question" @click="playAnswer(data.item.Question)"> {{data.item.Question}}</span>
           </div>
         </template>
 
-        <template v-slot:cell(chinese)="data" style="width:50%" >
+        <template v-slot:cell(answer)="data" style="width:50%" >
           <div v-if="data.item._rowVariant === 'warn'">
-            <b-icon icon="x" variant="alert" font-scale="1" ></b-icon> {{data.item.Choice}}<br>
-            <b-icon icon="check2" variant="safe" font-scale="1"></b-icon> {{data.item.Chinese}}
+            <b-icon icon="x" variant="alert" font-scale="1" ></b-icon> {{data.item.Answer}}<br>
+            <b-icon icon="check2" variant="safe" font-scale="1"></b-icon> {{data.item.Answer}}
           </div>
           <div v-else>
-            {{data.item.Chinese}}
+            {{data.item.Answer}}
           </div>
         </template>
 
@@ -68,8 +68,8 @@ export default {
     return {
       msg: null,
       fields: [
-        {key: 'English', label: 'Vocab', sortable: true},
-        {key: 'Chinese', label: 'Chinese', sortable: true}
+        {key: 'Question', label: 'Question', sortable: true},
+        {key: 'Answer', label: 'Answer', sortable: true}
       ],
       audioMarker: null
     }

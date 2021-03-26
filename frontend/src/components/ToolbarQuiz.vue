@@ -34,7 +34,8 @@ export default {
   props: {
     toolbarShow: Boolean,
     showAnswers: Boolean,
-    testType: String
+    testType: String,
+    index: String
   },
   data () {
     return {
@@ -79,7 +80,7 @@ export default {
       this.amendedList = []
 
       for (let item in this.vocabList) {
-        if (this.quizGet.includes(this.vocabList[item].English)) {
+        if (this.quizList.includes(this.vocabList[item].English)) {
           this.amendedList.push(this.vocabList[item])
         }
       }
@@ -95,17 +96,20 @@ export default {
       let answer
       let sdAns
       let sdQue
+      let listBank
 
       if (this.testType.includes('E>')) {
         question = 'English'
         answer = 'Chinese'
         sdQue = 'mp3en'
         sdAns = 'mp3ch'
+        listBank = this.vocabList
       } else {
         question = 'Chinese'
         answer = 'English'
         sdQue = 'mp3ch'
         sdAns = 'mp3en'
+        listBank = this.amendedList
       }
 
       let i = 0
@@ -128,7 +132,7 @@ export default {
           }]
           let j = 1
           while (j < this.choices) {
-            let randomChoice = this.vocabList[Math.floor(Math.random() * this.vocabList.length)]
+            let randomChoice = listBank[Math.floor(Math.random() * listBank.length)]
 
             let foundChoice = choices.find(element => element.Question === randomChoice[question])
             // console.log('FOUND', foundChoice)
@@ -218,6 +222,7 @@ export default {
 
       this.$emit('newTest', {
         test: this.testItemsRoot,
+        type: this.testType,
         settings: JSON.stringify(this.toolbarSettings)
       })
     },
@@ -241,24 +246,19 @@ export default {
     }
   },
   computed: {
-    quizGet () {
-      console.log('quizGet', this.$store.getters.quizGet)
-      return this.$store.getters.quizGet
+    testRecords () {
+      return this.$store.state.instructor.testRecords
+    },
+    activeQuiz () {
+      return this.$store.state.instructor.activeQuiz
+    },
+    quizList () {
+      console.log('quizList', this.index, this.$store.state.instructor.testRecords[this.index])
+      return this.$store.state.instructor.testRecords[this.index].list
     },
     words () {
-      console.log('words', this.$store.getters.quizGet)
-      if (this.$store.getters.quizGet) {
-        if (this.$store.getters.quizGet.length) {
-          console.log('length', this.$store.getters.quizGet.length)
-          return this.$store.getters.quizGet.length
-        } else {
-          return 0
-        }
-      } else {
-        return 100
-      }
+      return this.quizList.length
     }
-
   },
   created () {
     this.tableItems = this.$store.getters.makeList

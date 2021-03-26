@@ -32,7 +32,7 @@
         </b-row>
         <b-row >
           <b-col align="center">
-            <button v-if="$store.state.instructor.activeQuiz" class="buttonDiv bg-second p-1" style="width:60px" @click="changeSelected('q')"> <b-icon-card-checklist :variant="getIcon('q')" font-scale="1.5"></b-icon-card-checklist><br><span class="text-cream" style="font-size:10pt">QUIZ</span></button>
+            <button v-if="Object.keys(activeQuiz).length > 0" class="buttonDiv bg-second p-1" style="width:60px" @click="changeSelected('q')"> <b-icon-card-checklist :variant="getIcon('q')" font-scale="1.5"></b-icon-card-checklist><br><span class="text-cream" style="font-size:10pt">QUIZ</span></button>
             <button class="buttonDiv bg-second p-1" style="width:60px" @click="changeSelected('p'), getNotes()"> <b-icon-images :variant="getIcon('p')" font-scale="1.5"></b-icon-images><br><span class="text-cream" style="font-size:10pt">PICT</span></button>
             <button class="buttonDiv bg-second p-1" style="width:60px" @click="changeSelected('*')"> <b-icon-star-fill :variant="getIcon('*')" font-scale="1.5"></b-icon-star-fill><br><span class="text-cream" style="font-size:10pt">STAR</span></button>
                 <div  v-if="$store.state.instructor.activeQuiz" class="d-lg-none">
@@ -324,6 +324,9 @@ export default {
     }
   },
   computed: {
+    activeQuiz () {
+      return this.$store.state.instructor.activeQuiz
+    },
     generalGet () {
       return this.$store.getters.generalGet
     },
@@ -339,13 +342,16 @@ export default {
       let tr = this.$store.state.instructor.testRecords
       let aq = this.$store.state.instructor.activeQuiz
 
-      if (tr[aq]) {
-        let qList = tr[aq].list
-        return qList
-      } else {
-        console.log('getList', tr, aq)
-        return []
+      let totList = []
+
+      for (let q in aq) {
+        if (tr[q]) {
+          for (let n in tr[q].list) {
+            totList.push(tr[q].list[n])
+          }
+        }
       }
+      return totList
     },
     optionsCheck () {
       if (this.$store.getters.checkQuiz) {

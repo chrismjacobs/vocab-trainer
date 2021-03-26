@@ -45,7 +45,7 @@
                   </td>
 
                   <td>
-                    <div v-if="activeQuiz === index && getScore(index)[0] === 0">
+                    <div v-if="index in activeQuiz && getScore(index)[0] === 0">
                       <button  @click="startQuiz(index)" class="buttonDiv bg-safe px-3">
                         <b-icon-forward variant="cream" font-scale="1"></b-icon-forward>
                       </button>
@@ -61,7 +61,7 @@
     </div>
 
     <div v-if="showQuiz">
-      <InstQuiz  v-on:quizData="recordQuiz($event)"  v-on:cancel="showQuiz = false" ></InstQuiz>
+      <InstQuiz  v-on:quizData="recordQuiz($event)"  v-on:cancel="showQuiz = false" :index="quiz" :exit="exit"></InstQuiz>
     </div>
 
     <b-modal hide-header-close no-close-on-esc no-close-on-backdrop align="center" ref="answers" hide-footer title="Student Answers">
@@ -98,10 +98,14 @@ export default {
     InstAns,
     InstTable
   },
+  props: {
+    exit: Boolean
+  },
   data () {
     return {
       showQuiz: false,
       waiting: false,
+      quiz: null,
       studentTestDup: null,
       showAns: null,
       showVoc: null,
@@ -132,7 +136,7 @@ export default {
       }
     },
     getRow: function (index) {
-      if (this.activeQuiz === index) {
+      if (index in this.activeQuiz) {
         return 'bg-peel'
       }
     },
@@ -142,7 +146,7 @@ export default {
       this.$store.dispatch('instructorLogs', { group: profile.classroom, action: 'getTests', student: profile.userID })
     },
     getScore: function (index) {
-      console.log(index, this.studentTests[index])
+      // console.log(index, this.studentTests[index])
       let student = this.studentTests[index]
       if (student && student.score > 0) {
         let score = student.score
@@ -155,7 +159,8 @@ export default {
         return [0, 0]
       }
     },
-    startQuiz: function () {
+    startQuiz: function (quiz) {
+      this.quiz = quiz
       this.showQuiz = true
     },
     showAnswers: function (index) {
@@ -169,7 +174,7 @@ export default {
     recordQuiz: function (payload) {
       // this.studentTestDup = {...this.studentTests}
       this.showQuiz = false
-      this.studentTests[this.activeQuiz] = payload
+      this.studentTests[payload.index] = payload
       let profile = this.$store.state.userProfile
 
       this.$store.dispatch('instructorLogs', { group: profile.classroom, action: 'setStudent', student: profile.userID, studentTests: this.studentTests })
