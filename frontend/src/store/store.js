@@ -427,6 +427,7 @@ const mutations = {
   setTests (state, payload) {
     console.log('testUpdate', payload)
     state.instructor.testRecords = payload.testRecords
+    state.instructor.activeQuiz = payload.activeQuiz
   },
   setNotes (state, payload) {
     state.instructor.studentNotes = payload
@@ -500,6 +501,16 @@ const mutations = {
       console.log('set')
       state.setRecord.starRecord[payload.word] = 1
       state.setRecord = {...state.setRecord}
+    } else if (payload.set === 4) {
+      for (let vocab in payload.word) {
+        state.setRecord.starRecord[payload.word[vocab]] = 1
+      }
+      state.setRecord = {...state.setRecord}
+    } else if (payload.set === 5) {
+      for (let vocab in payload.word) {
+        delete state.setRecord.starRecord[payload.word[vocab]]
+      }
+      state.setRecord = {...state.setRecord}
     } else {
       state.setRecord.starRecord = {}
     }
@@ -548,6 +559,7 @@ const mutations = {
     state.testActive = false
     localStorage.clear()
     localStorage.setItem('floatEmail', email)
+    router.push('/login')
   },
   setTestActive (state, bol) {
     state.testActive = bol
