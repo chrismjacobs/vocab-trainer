@@ -21,7 +21,7 @@
 
         <template v-slot:cell(question)="data">
           <div style="float:left">
-           <template v-if="data.item.Question in starGet">
+           <template v-if="data.item.English in starGet">
               <b-icon-star-fill variant="warn" @click="addStar(data.item.English, 0)"></b-icon-star-fill>
             </template>
             <template v-else>
