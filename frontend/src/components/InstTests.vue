@@ -86,12 +86,12 @@
                                 {{ getScore(data.item.quizData[index], index)[2] }}
                             </template>
                             <template v-slot:cell(answers)="data">
-                                  <button v-if="data.item.quizData[index]" @click="showAnswers(data.item.uid, index, data.item.quizData[index]['answerData'])" class="buttonDiv bg-grey px-3">
+                                  <button v-if="data.item.quizData[index] && getScore(data.item.quizData[index], index)[0] !== 0" @click="showAnswers(data.item.uid, index, data.item.quizData[index]['answerData'])" class="buttonDiv bg-grey px-3">
                                     <b-icon-filter-left variant="cream" font-scale="1"></b-icon-filter-left>
                                   </button>
                             </template>
                             <template v-slot:cell(delete)="data">
-                                  <button v-if="data.item.quizData[index]" @click="deleteModal(data.item.uid, index)" class="buttonDiv bg-alert px-3">
+                                  <button v-if="data.item.quizData[index] && getScore(data.item.quizData[index], index)[0] !== 0" @click="deleteModal(data.item.uid, index)" class="buttonDiv bg-alert px-3">
                                     <b-icon variant="cream" font-scale="1" icon="trash-fill"></b-icon>
                                   </button>
                             </template>
@@ -273,9 +273,11 @@ export default {
       this.$refs['answers'].show()
     },
     deleteModal: function (idx, index) {
-      console.log('deleteModal', idx, index)
+      // console.log('deleteModal', idx, index)
       this.holder = [idx, index]
       if (idx) {
+        // update before reset
+        this.getResults()
         this.$refs['reset'].show()
       } else {
         this.$refs['delete'].show()
@@ -316,17 +318,25 @@ export default {
       let index = this.holder[1] // test
 
       console.log('delete', idx, index)
-      this.studentTests = {...this.studentResults[idx]}
 
-      this.studentTests[index] = {
-        answerData: [], score: 0, time: 0
+      let found = this.studentResults.find(element => element.uid === idx)
+      console.log(found)
+
+      let studentTests = {}
+
+      for (let test in found.quizData) {
+        if (test === index) {
+          studentTests[test] = {answerData: [], score: 0, time: 0}
+        } else {
+          studentTests[test] = found.quizData[test]
+        }
       }
-      /// need to update student Results
-      this.$store.dispatch('instructorLogs', { group: this.classLoad, action: 'setStudent', student: idx, studentTests: this.studentTests })
-      this.$store.dispatch('instructorLogs', { group: this.classLoad, action: 'getResults' })
+
+      this.$store.dispatch('instructorLogs', { group: this.classLoad, action: 'setStudent', student: idx, studentTests: studentTests })
+      this.getResults()
     },
     showAnswers: function (idx, index, answerData) {
-      console.log('show', idx, index, answerData)
+      // console.log('show', idx, index, answerData)
       this.answerData = answerData
       this.showAnsModal()
     },
@@ -353,7 +363,7 @@ export default {
       return colors[type]
     },
     getCompleted: function (index) {
-      console.log(index, this.studentResults)
+      // console.log(index, this.studentResults)
       let results = this.studentResults
       let count = 0
       for (let s in results) {
@@ -459,6 +469,7 @@ export default {
       return this.$store.state.instructor.classLoad
     },
     studentResults () {
+      // reformulate to add username and id
       let classRec = this.$store.state.instructor.classRecords
       let oldResults = this.$store.state.instructor.studentResults
       let newResults = []
@@ -477,7 +488,7 @@ export default {
     answerStats () {
       let stats = {}
       for (let s in this.studentResults) {
-        console.log('stats', this.studentResults[s].quizData)
+        // console.log('stats', this.studentResults[s].quizData)
         if (this.studentResults[s].quizData[this.results]) {
           let data = this.studentResults[s].quizData[this.results].answerData
           for (let a in data) {
