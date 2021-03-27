@@ -426,12 +426,13 @@ const mutations = {
   },
   setTests (state, payload) {
     console.log('testUpdate', payload)
-    state.instructor.testRecords = payload
+    state.instructor.testRecords = payload.testRecords
   },
   setNotes (state, payload) {
     state.instructor.studentNotes = payload
   },
   setStudent (state, payload) {
+    console.log('studentUpdate', payload)
     state.instructor.studentTests = payload
   },
   setResults (state, payload) {
@@ -533,6 +534,16 @@ const mutations = {
     state.currentRecord = {}
     state.logsRecord = {}
     state.setRecord = {dictRecord: {}, starRecord: {}, addRecord: {}}
+    state.instructor = {
+      classRecords: null,
+      classLoad: null,
+      classGroups: null,
+      testRecords: {},
+      activeQuiz: {},
+      studentNotes: {},
+      studentTests: {},
+      studentResults: {}
+    }
     state.jwt = ''
     state.testActive = false
     localStorage.clear()

@@ -104,7 +104,7 @@
                               :fields="fieldStats"
                               show-empty
                               fixed
-                              head-variant="light"
+                              head-variant="dark"
                               >
                             </b-table>
                           </td>
