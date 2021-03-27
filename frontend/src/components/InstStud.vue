@@ -142,7 +142,9 @@ export default {
     },
     getStudent: function () {
       let profile = this.$store.state.userProfile
+      // get student's performance log
       this.$store.dispatch('instructorLogs', { group: profile.classroom, action: 'getStudent', student: profile.userID })
+      // get the test data from instructor
       this.$store.dispatch('instructorLogs', { group: profile.classroom, action: 'getTests', student: profile.userID })
     },
     getScore: function (index) {
@@ -172,10 +174,12 @@ export default {
       this.showVocModal()
     },
     recordQuiz: function (payload) {
-      // this.studentTestDup = {...this.studentTests}
+      let profile = this.$store.state.userProfile
+      // this call is made first incase the instructor has deleted test thus updating the record
+      this.$store.dispatch('instructorLogs', { group: profile.classroom, action: 'getStudent', student: profile.userID })
+
       this.showQuiz = false
       this.studentTests[payload.index] = payload
-      let profile = this.$store.state.userProfile
 
       this.$store.dispatch('instructorLogs', { group: profile.classroom, action: 'setStudent', student: profile.userID, studentTests: this.studentTests })
     }
