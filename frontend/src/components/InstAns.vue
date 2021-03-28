@@ -35,7 +35,7 @@
 
         <template v-slot:cell(answer)="data" style="width:50%" >
           <div v-if="data.item._rowVariant === 'warn'">
-            <b-icon icon="x" variant="alert" font-scale="1" ></b-icon> {{data.item.Answer}}<br>
+            <b-icon icon="x" variant="alert" font-scale="1" ></b-icon> {{data.item.Choice}}<br>
             <b-icon icon="check2" variant="safe" font-scale="1"></b-icon> {{data.item.Answer}}
           </div>
           <div v-else>
