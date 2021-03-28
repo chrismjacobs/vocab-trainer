@@ -23,6 +23,7 @@
                     <tr>
                       <th scope="col">Test</th>
                       <th scope="col">Type</th>
+                      <th scope="col">Ans</th>
                       <th scope="col">Vocab</th>
                       <th scope="col">Results</th>
                       <th scope="col">Edit</th>
@@ -36,6 +37,7 @@
                       <tr :key="index">
                         <th scope="row">{{index}}</th>
                         <td :class="getTypeCol(test.type)">{{test.type}}</td>
+                        <td :class="getTypeCol(test.ans)">{{test.ans}}</td>
                         <td>{{test.list.length}}</td>
                         <td>
                           <button class="buttonDiv bg-smoke text-prime px-3" style="width:60px" @click="showResults(index)">
@@ -68,7 +70,7 @@
                       </tr>
                       <transition name="tableboard" :key="index + '1'">
                         <tr v-if="results === index">
-                          <td colspan="8">
+                          <td colspan="9">
                             <b-table
                               sticky-header="500px"
                               striped hover
@@ -92,7 +94,7 @@
                             </template>
                             <template v-slot:cell(delete)="data">
                                   <button v-if="data.item.quizData[index] && getScore(data.item.quizData[index], index)[0] !== 0" @click="deleteModal(data.item.uid, index)" class="buttonDiv bg-alert px-3">
-                                    <b-icon variant="cream" font-scale="1" icon="trash-fill"></b-icon>
+                                    <b-icon variant="cream" font-scale="1" icon="arrow-clockwise"></b-icon>
                                   </button>
                             </template>
                             </b-table>
@@ -134,15 +136,27 @@
                     </b-form-input>
                 </b-input-group>
               </b-col>
-              <b-col>
-                <h3 class="text-cream"> Count: {{testDetails.list.length}} </h3>
+              <b-col class="text-cream">
+                <h3> Count: {{testDetails.list.length}} </h3>
+              </b-col>
+              <b-col class="text-cream">
                 <b-form-radio-group
                     id="btn-radios-2"
                     v-model="testDetails.type"
                     :options="testTypes"
                     buttons
-                    :button-variant="getTypeVar()"
+                    :button-variant="getTypeVar(testDetails.type)"
                     name="radio-btn-outline"
+                  ></b-form-radio-group>
+              </b-col>
+              <b-col class="text-cream">
+                <b-form-radio-group
+                    id="btn-radios-3"
+                    v-model="testDetails.ans"
+                    :options="ansTypes"
+                    buttons
+                    :button-variant="getTypeVar(testDetails.ans)"
+                    name="radio-btn-outline-2"
                   ></b-form-radio-group>
               </b-col>
               <b-col align="right">
@@ -235,6 +249,7 @@ export default {
       testDetails: {
         title: null,
         type: null,
+        ans: null,
         list: [],
         status: 0
       },
@@ -250,13 +265,17 @@ export default {
         { value: 'E>C', text: 'Eng>Ch' },
         { value: 'C>E', text: 'Ch>Eng' }
       ],
+      ansTypes: [
+        { value: 'Set', text: 'Set' },
+        { value: 'Dict', text: 'Dict' }
+      ],
       fields: [
         {key: 'studentID', label: 'ID', sortable: true},
         {key: 'user', label: 'Name', sortable: true},
         {key: 'quizData', label: 'Grade(%)', sortable: true},
         {key: 'time', label: 'Time'},
         {key: 'answers', label: 'Answers'},
-        {key: 'delete', label: 'Delete'}
+        {key: 'delete', label: 'Redo'}
       ],
       fieldStats: [
         {key: 'vocab', label: 'Vocab', sortable: true},
@@ -347,8 +366,8 @@ export default {
         this.results = index
       }
     },
-    getTypeVar: function () {
-      if (this.testDetails.type) {
+    getTypeVar: function (check) {
+      if (check) {
         return 'safe'
       } else {
         return 'warning'
@@ -358,6 +377,8 @@ export default {
       let colors = {
         'E>C': 'text-info',
         'C>E': 'text-warn',
+        'Set': 'text-info',
+        'Dict': 'text-warn',
         null: 'bg-alert'
       }
       return colors[type]

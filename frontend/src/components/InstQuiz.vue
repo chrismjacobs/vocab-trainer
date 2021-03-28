@@ -7,7 +7,7 @@
             <h2 align="center"> {{ titles[testType] }} </h2>
     </div>
 
-    <ToolbarQuiz :index="index" :toolbarShow='showTest' :showAnswers='showAnswers' :testType="testType" v-on:newTest="start($event)"  v-on:cancel="$emit('cancel')"></ToolbarQuiz>
+    <ToolbarQuiz :index="index" :toolbarShow='showTest' :showAnswers='showAnswers' :testType="testType" :testAns="testAns" v-on:newTest="start($event)"  v-on:cancel="$emit('cancel')"></ToolbarQuiz>
     <div v-if="showTest">
         <b-progress :value="filter" style="height:30px" :max="testItems.length" variant="warn-light" show-progress animated></b-progress>
 
@@ -91,6 +91,13 @@ export default {
     },
     testType () {
       return this.$store.state.instructor.testRecords[this.index].type
+    },
+    testAns () {
+      if (this.$store.state.instructor.testRecords[this.index].ans) {
+        return this.$store.state.instructor.testRecords[this.index].ans
+      } else {
+        return ' '
+      }
     }
   },
   methods: {
@@ -185,7 +192,7 @@ export default {
         seconds = Math.floor(time - (minutes * 60))
         return minutes.toString() + ' m' + seconds.toString() + ' s'
       } else {
-        return Math.floor(time).toString() + ' seconds'
+        return Math.floor(time).toString() + ' s'
       }
     },
     playAudio: function (arg) {

@@ -35,6 +35,7 @@ export default {
     toolbarShow: Boolean,
     showAnswers: Boolean,
     testType: String,
+    testAns: String,
     index: String
   },
   data () {
@@ -103,12 +104,16 @@ export default {
         answer = 'Chinese'
         sdQue = 'mp3en'
         sdAns = 'mp3ch'
-        listBank = this.vocabList
       } else {
         question = 'Chinese'
         answer = 'English'
         sdQue = 'mp3ch'
         sdAns = 'mp3en'
+      }
+
+      if (this.testAns === 'Dict') {
+        listBank = this.vocabList
+      } else {
         listBank = this.amendedList
       }
 
