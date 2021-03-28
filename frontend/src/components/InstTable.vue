@@ -3,7 +3,7 @@
   <div id="instTable">
     <audio id="audio"></audio>
     <div align="center">
-      <b-row no-gutters class="bg-secondary">
+      <b-row no-gutters class="bg-secondary" v-if="mode === 'student'">
         <b-col>
           <button class="buttonDiv bg-secondary px-3" style="width:100%" @click="showClear()"><b-icon-star-fill variant="warn" font-scale="1.5"></b-icon-star-fill > <span class="text-cream">Clear all</span> </button>
         </b-col>
