@@ -249,7 +249,7 @@ export default {
       testDetails: {
         title: null,
         type: null,
-        ans: null,
+        ans: 'Set',
         list: [],
         status: 0
       },
@@ -330,6 +330,7 @@ export default {
         this.testHolder = {...this.testRecords}
         delete (this.testHolder[index])
         this.$store.dispatch('instructorLogs', { group: this.classLoad, action: 'setTests', testData: this.testHolder })
+        this.getResults()
       }
     },
     deleteAnswers: function () {
@@ -453,12 +454,15 @@ export default {
     saveTest: function () {
       this.showDetails = false
       this.selected[0] = ''
-      this.testRecords[this.testDetails.title] = this.testDetails
-      this.testRecords = {...this.testRecords}
-      this.$store.dispatch('instructorLogs', { group: this.classLoad, action: 'setTests', testData: this.testRecords })
+      this.testHolder = {...this.testRecords}
+      this.testHolder[this.testDetails.title] = this.testDetails
+      this.$store.dispatch('instructorLogs', { group: this.classLoad, action: 'setTests', testData: this.testHolder })
+      this.getResults()
     },
     filterTable: function (row, filter) {
-      if (filter[0] === '') {
+      if (filter[0] === 'allwords') {
+        return true
+      } else if (filter[0] === '') {
         if (this.testDetails.list.includes(row.English)) {
           return true
         } else {

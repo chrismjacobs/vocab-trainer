@@ -52,6 +52,10 @@
   <b-modal hide-header-close no-close-on-esc no-close-on-backdrop align="center" ref="success" hide-footer title="Logged In">
       <div class="d-block">
         <h3 :class="msgColor"> {{msg}} </h3>
+        <div class="p-3 bg-cream" v-if="adverts.includes($store.state.userProfile.classroom)">
+          <img src="https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/afld.PNG" alt="JUST LOGO" width="100">
+          <a href="https://www.jinwen-english.com" target="_blank"> <h3 class="text-safe">www.jinwen-english.com </h3></a>
+        </div>
       </div>
       <button class="buttonDiv mt-3 bg-prime text-cream" style="width:60%"  @click="hideModal('success')">Close</button>
   </b-modal>
@@ -88,7 +92,8 @@ export default {
       waiting: true,
       msg: null,
       showEmail: false,
-      msgColor: 'text-prime'
+      msgColor: 'text-prime',
+      adverts: ['fhvs701']
     }
   },
   methods: {
