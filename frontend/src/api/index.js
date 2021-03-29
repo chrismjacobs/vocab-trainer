@@ -71,3 +71,7 @@ export function changePassword (payload) {
 export function instructorRedis (payload) {
   return axios.post(host + '/api/instructorRedis', payload)
 }
+
+export function classCodes (payload) {
+  return axios.post(host + '/api/classCodes', payload)
+}

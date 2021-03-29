@@ -83,6 +83,7 @@
                     <div v-if="isAuthenticated">
                       <button v-if="$store.state.userProfile.instructor" class="buttonDiv mt-2 bg-info text-cream px-1" style="height:50px; width:100%" @click="goTo('Instructor')"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp;Instructor </span> </button>
                       <button v-if="$store.state.userProfile.userID === 1" class="buttonDiv mt-2 bg-peel text-prime px-1" style="height:50px; width:100%" @click="goTo('JGrabber')"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp;JGrabber </span> </button>
+                      <button v-if="$store.state.userProfile.userID === 1" class="buttonDiv mt-2 bg-safe text-prime px-1" style="height:50px; width:100%" @click="goTo('ClassCodes')"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp;CODES </span> </button>
                       <button v-if="checkQuiz()" class="buttonDiv mt-2 bg-warning text-prime px-1" style="height:50px; width:100%" @click="goTo('InstStud')"><b-icon-check-square></b-icon-check-square>  <span> &nbsp;Quiz </span> </button>
                       <button class="buttonDiv mt-2 bg-third text-prime px-1" style="height:50px; width:100%" @click="sendEmail()"><b-icon-question-circle></b-icon-question-circle>  <span text=""> &nbsp;Help </span> </button>
                       <button class="buttonDiv mt-2 bg-alert text-cream px-1" style="height:50px; width:100%" @click="logout()"><b-icon-power></b-icon-power>  <span text=""> &nbsp;Logout </span> </button>

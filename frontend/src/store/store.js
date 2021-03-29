@@ -6,7 +6,7 @@ import { authenticate, register,
   updateRecAPI, getRecordAPI,
   updateAccount,
   ticket, requestToken, changePassword,
-  getClass, getGroups,
+  getClass, getGroups, classCodes,
   instructorRedis,
   addAudio,
   sendEmailAPI
@@ -63,6 +63,7 @@ const state = {
   testActive: false,
   device: localStorage.device || '',
   loginTime: localStorage.loginTime || '',
+  classCodes: {},
   instructor: {
     classRecords: null,
     classLoad: null,
@@ -307,6 +308,13 @@ const actions = {
     console.log('updateActive', payload)
     context.commit('checkActive', payload)
   },
+  classCodesRedis (context, payload) {
+    return classCodes(payload)
+      .then(function (response) {
+        console.log('classCodes', response.data)
+        context.commit('setClassCodes', response.data)
+      })
+  },
   instructorLogs (context, payload) {
     console.log('instructor logs request...', payload)
     return instructorRedis(payload)
@@ -409,6 +417,9 @@ const mutations = {
   },
   setClassGroups (state, payload) {
     state.instructor.classGroups = payload
+  },
+  setClassCodes (state, payload) {
+    state.classCodes = payload.classCodes
   },
   checkActive (state, payload) {
     console.log('checkActive', payload)

@@ -15,6 +15,7 @@ const routerOptions = [
   {path: '/inststud', component: 'InstStud'},
   {path: '/instructor', component: 'Instructor'},
   {path: '/jGrabber', component: 'JGrabber'},
+  {path: '/classcodes', component: 'ClassCodes'},
   {path: '/transeng', component: 'TransEng'},
   {path: '/transengtest', component: 'TransEngTest'},
   {path: '/transchtest', component: 'TransChTest'},
