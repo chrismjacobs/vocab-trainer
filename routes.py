@@ -63,6 +63,33 @@ def register():
 
     return jsonify(response)
 
+def redisDataGetter(user):
+    rData = redisData.hgetall(user.id)
+    print('redis', rData.keys())
+
+    userRecord = {}
+    logsRecord = {'friends': {}, 'settings': {}, 'logs': {}}
+    setRecord = {'dictRecord': {}, 'starRecord': {}, 'addRecord': {}}
+
+    try:
+        userRecord = json.loads(rData['vocab_' + user.vocab])
+    except:
+        print('no userRecord found')
+
+    try:
+        setRecord = json.loads(rData['set_' + user.vocab])
+    except:
+        print('no setRecord found')
+
+    try:
+        logsRecord = json.loads(rData['logs'])
+    except:
+        print('no logsRecord found')
+
+    return [userRecord, logsRecord, setRecord]
+
+
+
 
 @app.route("/api/login", methods=['POST'])
 def login():
@@ -92,20 +119,17 @@ def login():
         print('INVALID')
         return jsonify({ 'msg': 'Invalid credentials - please check username and password', 'err': 1 })
 
-    content = jChecker(user, True, True, True)
-
-    userRecord = content['userRecord']
-    logsRecord = content['logsRecord']
-    setRecord = content['setRecord']
-
-    print('check', setRecord, type(setRecord))
+    ## content = redisChecker(user, True, True, True)
+    rArray = redisDataGetter(user)
+    # print(rArray)
 
     classmates = {}
 
-    users = User.query.all()
     if user.classroom: # no action if classroom is not set
+        users = User.query.filter_by(classroom = user.classroom).all()
         print('CLASSROOM', user.classroom)
         for u in users:
+            print('maker')
             if u.classroom == user.classroom and u is not user:
                 classmates[u.id] = u.username
 
@@ -148,15 +172,32 @@ def login():
     else:
         msg = 'Welcome ' + user.username + ', you have been logged in with classroom: ' + user.classroom
 
+    print(msg)
+
     return jsonify({
         'token': token_string,
         'msg': msg,
         'userProfile': userProfile,
-        'userRecord': userRecord,
-        'logsRecord': logsRecord,
-        'setRecord': setRecord,
+        'userRecord': rArray[0],
+        'logsRecord': rArray[1],
+        'setRecord': rArray[2],
         'skeleton': skeleton
         })
+
+@app.route("/api/getRecord", methods=['POST'])
+def get_records():
+    print('RECORDS')
+    userID = request.get_json()['userID']
+    user = User.query.get(userID)
+
+    rArray = redisDataGetter(user)
+
+    return jsonify({
+        'userRecord': rArray[0],
+        'logsRecord': rArray[1],
+        'setRecord': rArray[2]
+        })
+
 
 @app.route("/api/getGroups", methods=['POST'])
 def getGroups():
@@ -166,16 +207,45 @@ def getGroups():
 
     userID = data['userID']
 
-    classroomList = Classroom.query.filter_by(user_id=userID).all()
+    # classroomList = Classroom.query.filter_by(user_id=userID).all()
+    returnData = redisData.hget('classcodes', 'master')
+    classroomList = json.loads(returnData)
+
+    codeList = ['fhvs701']
 
     groups = []
     for c in classroomList:
-        groups.append({'code': c.code, 'count': User.query.filter_by(classroom=c.code).count()})
+        if classroomList[c]['instID'] == userID:
+            groups.append({'code': classroomList[c]['code'], 'count': User.query.filter_by(classroom=classroomList[c]['code']).count()})
+        elif userID == 1 and classroomList[c]['code'] in codeList:
+            groups.append({'code': classroomList[c]['code'], 'count': User.query.filter_by(classroom=classroomList[c]['code']).count()})
 
     return jsonify({
         'classGroups' : groups
         })
 
+
+@app.route("/api/classCodes", methods=['POST'])
+def classCodes():
+    print('CLASS CODES')
+    data = request.get_json()
+    pprint(data)
+
+    dataReturn = redisData.hget('classcodes', 'master')
+
+    if not dataReturn and data['action'] == 'get':
+        return jsonify({
+            'classCodes' : {}
+        })
+    elif data['action'] == 'get':
+        return jsonify({
+            'classCodes' : json.loads(dataReturn)
+        })
+    elif data['action'] == 'set':
+        redisData.hset('classcodes', 'master', json.dumps(data['codeData']))
+        return jsonify({
+            'classCodes' : data['codeData']
+        })
 
 @app.route("/api/instructorRedis", methods=['POST'])
 def instructorRedis():
@@ -193,15 +263,16 @@ def instructorRedis():
 
     if action == 'setNotes':
         notes = data['notes']
-        print(notes)
+        # print(notes)
         redisData.hset(group, "notes", json.dumps(notes))
 
     elif action == 'setTests':
         testData = data['testData']
         redisData.hset(group, "tests", json.dumps(testData))
         active = redisData.hget(group, "active")
-        payload = testData
-        msg = None
+        payload['testData'] = testData
+        payload['activeQuiz'] = json.loads(active)
+        msg = 'setTests'
 
     elif action == 'setActive':
         activeQuiz = data['activeQuiz']
@@ -265,7 +336,7 @@ def instructorRedis():
     else:
         msg = 'fail'
 
-    print(action, msg, payload)
+    # print(action, msg, payload)
 
     return jsonify({
         'payload' : payload,
@@ -370,24 +441,6 @@ def changePassword():
     user.password = hashed_password
     db.session.commit()
     return jsonify({'msg': 'Your password has been changed. Please login to continue', 'status': True})
-
-
-@app.route("/api/getRecord", methods=['POST'])
-def get_records():
-    print('RECORDS')
-    userID = request.get_json()['userID']
-    user = User.query.get(userID)
-
-    content = jChecker(user, True, True, True)
-    userRecord = content['userRecord']
-    setRecord = content['setRecord']
-    logsRecord = content['logsRecord']
-
-    return jsonify({
-        'userRecord': userRecord,
-        'logsRecord': logsRecord,
-        'setRecord': setRecord
-        })
 
 
 def createAudio(word, defch2):
