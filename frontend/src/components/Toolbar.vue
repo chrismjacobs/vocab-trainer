@@ -165,7 +165,7 @@ export default {
       selected: null,
       toolbarSettings: {},
       optionsA: [{ value: null, text: '---' }],
-      label: 'lbAn',
+      label: 'lbOff',
       labelOptions: [
         { text: 'Off', value: 'lbOff' },
         { text: 'On', value: 'lbAn' }

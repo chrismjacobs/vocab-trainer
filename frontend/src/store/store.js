@@ -22,10 +22,11 @@ import generalD from '../assets/json/generalD.json'
 import generalV from '../assets/json/generalV.json'
 import generalT from '../assets/json/generalT.json'
 import generalG from '../assets/json/generalG.json'
+import generalJW1 from '../assets/json/generalJW1.json'
 import presentation from '../assets/json/presentation.json'
 import food from '../assets/json/food.json'
 // import vqc from '../assets/json/vqc2.json'
-import test from '../assets/json/vqc2.json'
+// import test from '../assets/json/vqc2.json'
 // import cul from '../assets/json/cul.json'
 
 let dictionaries = {
@@ -40,6 +41,7 @@ let dictionaries = {
   'generalV': generalV,
   'generalT': generalT,
   'generalG': generalG,
+  'generalJW1': generalJW1,
   'presentation': presentation,
   'high': null,
   'food': food
@@ -58,7 +60,7 @@ const state = {
   updateStatus: true,
   skeleton: false,
   jwt: localStorage.token || '',
-  testJ: test,
+  testJ: generalJW1,
   master: dictionaries[parseLocal(localStorage.userProfile).vocab],
   testActive: false,
   device: localStorage.device || '',

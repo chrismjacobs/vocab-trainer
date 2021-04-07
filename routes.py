@@ -328,7 +328,7 @@ def instructorRedis():
     elif action == 'getResults':
         classList = User.query.filter_by(classroom=group).all()
         allData = redisData.hgetall(group)
-        if allData['notes']:
+        if allData and allData['notes']:
             del allData['notes']
         payload = allData
         msg = 'setResults'
@@ -582,13 +582,15 @@ def updateAccount():
 
     current_user = User.query.get(data['userID'])
 
-    checkClass = Classroom.query.filter_by(code=classroom).first()
+    #checkClass = Classroom.query.filter_by(code=classroom).first()
+    returnData = redisData.hget('classcodes', 'master')
+    classroomList = json.loads(returnData)
     newVocab = False
 
-    if checkClass:
+    if classroomList[classroom]:
          ## deal with checks
         print('classoom', classroom)
-        vocab = checkClass.vocab
+        vocab = classroomList[classroom]['vocab']
         if current_user.vocab != vocab:
             newVocab = True
     else:
