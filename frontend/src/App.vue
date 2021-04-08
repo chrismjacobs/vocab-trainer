@@ -260,7 +260,9 @@ export default {
     if (!this.$store.state.userRecord && this.isAuthenticated) {
       // console.log('created: get api records')
       this.$store.dispatch('apiRecords', { userID: this.$store.state.userProfile.userID })
-      this.$store.dispatch('instructorLogs', { group: this.$store.state.userProfile.classroom, action: 'getTests' })
+      if (this.$store.state.userProfile.classroom) {
+        this.$store.dispatch('instructorLogs', { group: this.$store.state.userProfile.classroom, action: 'getTests' })
+      }
     }
 
     let _this = this

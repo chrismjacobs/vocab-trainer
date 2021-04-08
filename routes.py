@@ -208,17 +208,19 @@ def getGroups():
     userID = data['userID']
 
     # classroomList = Classroom.query.filter_by(user_id=userID).all()
-    returnData = redisData.hget('classcodes', 'master')
-    classroomList = json.loads(returnData)
+    returnData = redisData.hgetall('classcodes')
+
 
     codeList = ['fhvs701']
 
     groups = []
-    for c in classroomList:
-        if classroomList[c]['instID'] == userID:
-            groups.append({'code': classroomList[c]['code'], 'count': User.query.filter_by(classroom=classroomList[c]['code']).count()})
-        elif userID == 1 and classroomList[c]['code'] in codeList:
-            groups.append({'code': classroomList[c]['code'], 'count': User.query.filter_by(classroom=classroomList[c]['code']).count()})
+    for c in returnData:
+        loadC = json.loads(returnData[c])
+        print(loadC)
+        if loadC['instID'] == userID:
+            groups.append({'code': c, 'count': User.query.filter_by(classroom=c).count()})
+        elif userID == 1 and c in codeList:
+            groups.append({'code': c, 'count': User.query.filter_by(classroom=c).count()})
 
     return jsonify({
         'classGroups' : groups
@@ -583,14 +585,13 @@ def updateAccount():
     current_user = User.query.get(data['userID'])
 
     #checkClass = Classroom.query.filter_by(code=classroom).first()
-    returnData = redisData.hget('classcodes', 'master')
-    classroomList = json.loads(returnData)
+    returnData = redisData.hgetall('classcodes')
     newVocab = False
 
-    if classroomList[classroom]:
+    if returnData[classroom]:
          ## deal with checks
         print('classoom', classroom)
-        vocab = classroomList[classroom]['vocab']
+        vocab = returnData[classroom]['vocab']
         if current_user.vocab != vocab:
             newVocab = True
     else:
