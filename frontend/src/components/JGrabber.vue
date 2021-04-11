@@ -33,6 +33,7 @@ export default {
   methods: {
   },
   created () {
+    console.log(this.$store.state.testJ)
   }
 }
 </script>
