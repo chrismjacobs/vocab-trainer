@@ -487,16 +487,10 @@ const mutations = {
     let parseData = JSON.parse(payload['newWord'])
     console.log('setNewWord payload = ', payload)
     console.log('setNewWord parse = ', parseData)
-    let newLink
-    if (parseData.link === null) {
-      newLink = parseData.code
-    } else {
-      newLink = parseData.link
-    }
     state.setRecord.dictRecord[parseData.word] = {
       'word': parseData.word,
       'text': parseData.text,
-      'link': newLink,
+      'link': parseData.link,
       'def': parseData.def,
       'chinese': parseData.chinese,
       'vocab': parseData.vocab
