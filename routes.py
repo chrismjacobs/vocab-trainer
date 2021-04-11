@@ -233,18 +233,21 @@ def classCodes():
     data = request.get_json()
     pprint(data)
 
-    dataReturn = redisData.hget('classcodes', 'master')
+    dataReturn = redisData.hgetall('classcodes')
 
     if not dataReturn and data['action'] == 'get':
         return jsonify({
             'classCodes' : {}
         })
     elif data['action'] == 'get':
+        newDict = {}
+        for cc in dataReturn:
+            newDict[cc] = json.loads(dataReturn[cc])
         return jsonify({
-            'classCodes' : json.loads(dataReturn)
+            'classCodes' : newDict
         })
     elif data['action'] == 'set':
-        redisData.hset('classcodes', 'master', json.dumps(data['codeData']))
+        ##redisData.hset('classcodes', 'master', json.dumps(data['codeData']))
         return jsonify({
             'classCodes' : data['codeData']
         })
@@ -387,18 +390,20 @@ def send_welcome_email(user):
     except:
         print('welcome email ERROR')
 
-def send_ticket_email(data):
-    print(user)
+    return True
+
+def send_ticket_email(data, user):
     try:
         msg = Message('VOCAB TRAINER - Your ticket has been sent',
                     sender=('VOCAB TRAINER','vocab1trainer@gmail.com'),
                     recipients=[user.email, 'cjx02121981@gmail.com'])
-
         msg.body = 'Your ticket has been sent to VCOAB TRAINER and will be reviewed and a reply sent to this email in 48 hours. If the issue is urgent please contact Chris (LINE: chrisj0212). Your ticket info: ' + data
 
         mail.send(msg)
     except:
         print('ticket email ERROR')
+
+    return True
 
 
 @app.route("/api/requestToken", methods=['POST'])
@@ -587,11 +592,13 @@ def updateAccount():
     #checkClass = Classroom.query.filter_by(code=classroom).first()
     returnData = redisData.hgetall('classcodes')
     newVocab = False
+    print(returnData)
 
     if returnData[classroom]:
          ## deal with checks
         print('classoom', classroom)
-        vocab = returnData[classroom]['vocab']
+        jsonData = json.loads(returnData[classroom])
+        vocab = jsonData['vocab']
         if current_user.vocab != vocab:
             newVocab = True
     else:
@@ -643,7 +650,7 @@ def updateTicket():
     db.session.add(newTicket)
     db.session.commit()
 
-    send_ticket_email(str(data))
+    send_ticket_email(str(data), current_user)
 
     response = {
         'msg' : 'Thank you, your ticket has been recorded',
@@ -684,25 +691,31 @@ def addImage():
     print('IMAGE')
     userID = request.get_json()['userID']
     wordData = request.get_json()['wordData']
-    mode = [wordData['word'], wordData['link'], wordData['code'], wordData['vocab']]
-    print(mode)
+    modeDict = {
+        'word': wordData['word'],
+        'oldLink': wordData['link'],
+        'newLink': wordData['code'],
+        'vocab': wordData['vocab']
+    }
+    print(modeDict)
     msg = None
     try:
+        wordData['link'] = str(int(wordData['code']))
         stringData = request.get_json()['imageData']
         imageData = json.loads(stringData)
-        print(len(imageData))
+        print('imageDataLength', len(imageData))
         if len(imageData) > 0:
-            storeB64(imageData, userID, mode)
+            storeB64(imageData, userID, modeDict)
             status = 1
             msg = 'Your entry has been added'
+            ## switch up link codes: new Link equal code
+
     except:
-        print('STORE FAIL')
+        print('STORE ABORT: No Image')
         msg = 'No Image to Upload'
         status = 0
 
-    ## switch up link codes
-    wordData['link'] = str(int(wordData['code']))
-    wordData['code'] = str(int(wordData['link']))
+    print('wordData', wordData)
 
     response = {
         'msg' : msg,
@@ -712,35 +725,34 @@ def addImage():
     return jsonify(response)
 
 
-def storeB64(fileData, uid, mode):
+def storeB64(fileData, uid, modeDict):
     print('STORE_B64', uid)
     user = User.query.get(uid)
-    print(user)
 
-    if fileData['image64'] and mode == 'profile':
-        print('STORE AVATAR', mode)
+    if fileData['image64'] and modeDict == 'profile':
+        print('STORE AVATAR', modeDict)
         link = 'profileLink'
         b64data = fileData['image64']
         fileType = '.jpg'
         location = 'public/profiles/' + str(uid) + '/'
         filename = location + 'avatar' + fileType
     elif fileData['image64']:
-        print('STORE PICT', mode)
-        word = mode[0]
-        last_link = mode[1]
-        code = mode[2]
-        vocab = mode[3]
+        print('STORE PICT', modeDict)
+        word = modeDict['word']
+        oldLink = modeDict['oldLink']
+        newLink = modeDict['newLink']
+        vocab = modeDict['vocab']
         link = 'dictionaryLink'
         b64data = fileData['image64']
         fileType = '.jpg'
         location = 'public/profiles/' + str(uid) + '/' + vocab + '/'
         print(location)
-        filename = location + word + str(code) + fileType
+        filename = location + word + str(newLink) + fileType
         print(filename)
 
         try:
             print('try delete')
-            oldname = location + word + str(last_link) + fileType
+            oldname = location + word + str(oldLink) + fileType
             s3_resource.Object(bucket_name, oldname).delete()
             print('filename_deleted', oldname)
         except:
