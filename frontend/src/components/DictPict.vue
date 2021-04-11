@@ -8,7 +8,7 @@
             <b-form @submit="onSubmit">
                 <b-row>
                   <b-col align="center">
-                    <div v-if="newWord.link">
+                    <div @click="browse()">
                      <b-img style="max-height:200px" thumbnail fluid :src="getPict" :alt="pictWord"></b-img>
                     </div>
                     <div style="max-width:250px" align="left">
@@ -25,6 +25,7 @@
                     v-model="newWord.def"
                     placeholder="Add Definition / Synonyms"
                     rows="2"
+                    :class="getBG('def')"
                     >
                     </b-form-textarea>
                 </b-input-group>
@@ -37,6 +38,7 @@
                     v-model="newWord.text"
                     placeholder="Add Sentence"
                     rows="4"
+                    :class="getBG('text')"
                     >
                     </b-form-textarea>
                 </b-input-group>
@@ -100,6 +102,7 @@ export default {
       imageData: null,
       msg: 'Action Complete',
       waiting: false,
+      ready: false,
       newWord: {
         word: this.pictWord,
         text: null,
@@ -121,8 +124,9 @@ export default {
     getPict () {
       if (this.newWord.link === 'add') {
         return 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/add.jpg'
-      }
-      if (this.newWord.link) {
+      } else if (this.ready) {
+        return 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/ready.png'
+      } else if (this.newWord.link) {
         let link = this.s3 + this.$store.state.userProfile.userID + '/' + this.newWord.vocab + '/' + this.pictWord + this.newWord.link + '.jpg'
         console.log(link)
         return link
@@ -132,6 +136,14 @@ export default {
     }
   },
   methods: {
+    getBG: function (part) {
+      if (!this.newWord[part]) {
+        return 'bg-warn-light'
+      }
+    },
+    browse: function () {
+      document.getElementById('file').click()
+    },
     showModal: function () {
       this.$refs['success'].show()
     },
@@ -178,6 +190,7 @@ export default {
     },
     handleFileUpload: function () {
       imageValidation(document.getElementById('file'))
+      this.ready = true
     },
     saveWord: function () {
       let _this = this
@@ -186,10 +199,14 @@ export default {
       if (localStorage.imageData === 'null' && this.newWord.link === null) {
         alert('please add image')
         return false
-      } else if (this.newWord.text === null) {
+      } else if (!this.newWord.text) {
         alert('please add sentence')
         return false
+      } else if (!this.newWord.def) {
+        alert('please add definition')
+        return false
       } else if (localStorage.imageData.length < 1) {
+        // ?????????????
         _this.$store.dispatch('newPicture', {newWord: JSON.stringify(_this.newWord)})
       } else {
         this.waiting = true
@@ -199,10 +216,10 @@ export default {
           userID: _this.$store.state.userProfile.userID
         })
           .then(function (response) {
+            localStorage.imageData = null
             console.log('response', response.data)
-            if (localStorage.imageData && response.data.status === 1) {
-              _this.$store.dispatch('newPicture', {newWord: JSON.stringify(_this.newWord)})
-            }
+            _this.$store.dispatch('newPicture', {newWord: JSON.stringify(_this.newWord)})
+            _this.ready = false
             _this.newWord = {...response.data.obj}
             _this.waiting = false
             _this.msg = 'New image/sentence added'
@@ -223,6 +240,7 @@ export default {
       this.newWord = this.pictGet[this.pictWord]
       this.newWord['code'] = this.codeGen()
     }
+    console.log('newWord', this.newWord)
   }
 }
 </script>
