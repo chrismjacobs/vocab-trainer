@@ -21,7 +21,6 @@
                     <tbody>
                         <tr v-for="(item, key) in $store.state.classCodes" :key="key">
                           <td>{{key}}</td>
-                          <td>{{item.code}}</td>
                           <td>{{item.vocab}}</td>
                           <td>{{item.instructor}}</td>
                           <td>{{item.instID}}</td>
