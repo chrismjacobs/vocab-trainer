@@ -426,10 +426,9 @@ def requestToken():
         msg = Message('VOCAB TRAINER - Password Reset',
         sender=('VOCAB TRAINER','vocab1trainer@gmail.com'),
         recipients=[user.email, 'cjx02121981@gmail.com'])
-        msg.body = 'A password reset for you VOCAB TRAINER account has been requested. You may use the following TEMPORARY PASSWORD to login: ' + secret
-        msg.html = "<a>" + secret + "</a>"
+        msg.body = 'A password reset for your VOCAB TRAINER account has been requested. You may use the following TEMPORARY PASSWORD to login: ' + secret
         mail.send(msg)
-        return jsonify({'msg': 'An email with a temporary passwrod has been sent to your address. Please check your email.', 'status': True})
+        return jsonify({'msg': 'An email with a temporary password has been sent to your address. Please check your email.', 'status': True})
     except:
         return jsonify({'msg': 'Sorry the website cannot send an email for you right now. Please contact Chris (LINE: chrisj0212) to help resolve your problem', 'status': False})
 
