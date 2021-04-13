@@ -118,7 +118,7 @@ export default {
       optionsR: [
         { value: 'tests', text: 'TEST' },
         { value: 'class', text: 'CLASS' },
-        // { value: 'picts', text: 'PICTURES' },
+        { value: 'picts', text: 'PICTURES' },
         { value: 'match', text: 'MATCH' }
       ],
       color: {

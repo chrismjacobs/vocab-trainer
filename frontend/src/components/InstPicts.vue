@@ -161,7 +161,7 @@ export default {
   },
   created () {
     this.classRecords = {...this.$store.getters.classRecords}
-    this.notes = {...this.$store.state.studentNotes}
+    this.notes = {...this.$store.state.instructor.studentNotes}
     this.item = {...this.itemMaster}
     console.log('NOTES', this.notes)
     console.log('ITEM', this.item)
@@ -173,7 +173,7 @@ export default {
     }
   },
   beforeDestroy () {
-    this.saveData()
+    // this.saveData()
   }
 }
 

@@ -446,7 +446,7 @@ export default {
     },
     getColors: function (word) {
       let color = this.colors[this.getStatus(word)]
-      return 'bg-' + color + ' text-cream'
+      return 'bg-' + color + ' text-cream p-2'
     },
     getStatus: function (word) {
       let status = 0

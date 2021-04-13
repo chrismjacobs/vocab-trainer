@@ -111,8 +111,8 @@ export default {
       return Object.keys(obj).length
     },
     saveRecords: function () {
-      if (this.$store.state.studentNotes !== {}) {
-        this.$store.dispatch('instructorLogs', { group: this.$store.state.classLoad, action: 'setNotes', notes: this.$store.state.studentNotes })
+      if (this.$store.state.instructor.studentNotes !== {}) {
+        this.$store.dispatch('instructorLogs', { group: this.$store.state.instructor.classLoad, action: 'setNotes', notes: this.$store.state.instructor.studentNotes })
       }
     }
   },
@@ -128,7 +128,7 @@ export default {
     this.$store.dispatch('instructorLogs', { group: this.group, action: 'getNotesInstructor' })
   },
   beforeDestroy () {
-    this.saveRecords()
+    // this.saveRecords()
   }
 }
 </script>
