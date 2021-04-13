@@ -90,7 +90,6 @@ def redisDataGetter(user):
 
 
 
-
 @app.route("/api/login", methods=['POST'])
 def login():
     print('LOGIN')
@@ -211,7 +210,7 @@ def getGroups():
     returnData = redisData.hgetall('classcodes')
 
 
-    codeList = ['fhvs701']
+    codeList = ['fhvs701', 'jwsh10']
 
     groups = []
     for c in returnData:
@@ -426,12 +425,11 @@ def requestToken():
         msg = Message('VOCAB TRAINER - Password Reset',
         sender=('VOCAB TRAINER','vocab1trainer@gmail.com'),
         recipients=[user.email, 'cjx02121981@gmail.com'])
-        msg.body = 'A password reset for your VOCAB TRAINER account has been requested. You may use the following TEMPORARY PASSWORD to login: ' + secret
+        msg.body = 'Dear ' + user.username + ', a password reset for your VOCAB TRAINER account has been requested. You may use the following TEMPORARY PASSWORD to login: ' + secret
         mail.send(msg)
         return jsonify({'msg': 'An email with a temporary password has been sent to your address. Please check your email.', 'status': True})
     except:
         return jsonify({'msg': 'Sorry the website cannot send an email for you right now. Please contact Chris (LINE: chrisj0212) to help resolve your problem', 'status': False})
-
 
 
 @app.route("/api/changePassword", methods=['POST'])
@@ -521,8 +519,25 @@ def add_audio():
     return jsonify({'result': result, 'defch2': defch2})
 
 
+@app.route("/api/copyImage", methods=['POST'])
+def copy_image():
+    print(request.get_json())
+
+    word = request.get_json()['word']
+    link = request.get_json()['link']
+    user = request.get_json()['user']
+
+    new_filepath = 'user/test/word.jpeg'
+
+    # Copy object A as object B
+    s3_resource.Object(bucket_name, new_filepath).copy_from(
+    CopySource=link)
+
+    return jsonify({'new_filepath': new_filepath})
+
+
 @app.route('/api/updateRecord', methods=['POST'])
-def update_record():
+def updateRecord():
     print('UPDATE')
     payload = request.get_json()
     # pprint(payload)
@@ -655,33 +670,6 @@ def updateTicket():
         'msg' : 'Thank you, your ticket has been recorded',
         'dataReturn' : data
     }
-    return jsonify(response)
-
-
-@app.route("/api/sendEmail", methods=['POST'])
-def sendEmail():
-    print('EMAIL')
-    data = request.get_json()['userID']
-    pprint(data)
-
-    current_user = User.query.get(data)
-    print(current_user)
-
-    msg = Message('Welcome' + current_user.username + ', to VOCAB TRAINER',
-                sender=('VOCAB TRAINER','vocab1trainer@gmail.com'),
-                recipients=[current_user.email, 'cjx02121981@gmail.com'])
-
-    msg.body = 'Your email has been used to register an account with vocab-lms.herokuapp.com. We hope you enjoy building your vocabulary with our application. If you would like to talk to a developer about how to use the application, please contact Chris (LINE: chrisj0212).'
-    ## msg.html = "<img href='https://picsum.photos/1024/480'> </img>"
-
-    mail.send(msg)
-
-
-    response = {
-        'msg' : 'Thank you, your email has been sent',
-        'dataReturn' : data
-    }
-
     return jsonify(response)
 
 
