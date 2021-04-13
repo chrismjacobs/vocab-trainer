@@ -8,8 +8,7 @@ import { authenticate, register,
   ticket, requestToken, changePassword,
   getClass, getGroups, classCodes,
   instructorRedis,
-  addAudio,
-  sendEmailAPI
+  addAudio
 } from '@/api'
 import tourism1 from '../assets/json/tourism1.json'
 import tourism from '../assets/json/tourism.json'
@@ -166,17 +165,6 @@ const actions = {
       })
       .catch(error => {
         console.log('Error Ticketing: ', error)
-      })
-  },
-  sendEmail (context, userData) {
-    // console.log(context)
-    console.log(userData)
-    return sendEmailAPI(userData)
-      .then(function (response) {
-        return response.data
-      })
-      .catch(error => {
-        console.log('Error Sending: ', error)
       })
   },
   account (context, userData) {
