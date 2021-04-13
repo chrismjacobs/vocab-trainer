@@ -8,10 +8,13 @@
       <div class="bg-grey p-2">
         <b-row>
           <b-col align="right">
+            <button class="buttonDiv bg-darkgrey text-cream px-3" style="width:auto; height:auto" @click="showAllModal()">
+                  See all Results
+            </button>
             <button class="buttonDiv bg-darkgrey text-cream px-3 ml-3" style="width:auto; height:auto" @click="getResults()">
                   Update
             </button>
-            <button class="buttonDiv bg-warn text-cream px-3" style="width:auto; height:auto" @click="newTest()">
+            <button class="buttonDiv bg-warn text-cream px-3 ml-3" style="width:auto; height:auto" @click="newTest()">
                   New Test
             </button>
           </b-col>
@@ -38,7 +41,11 @@
                         <th scope="row">{{index}}</th>
                         <td :class="getTypeCol(test.type)">{{test.type}}</td>
                         <td :class="getTypeCol(test.ans)">{{test.ans}}</td>
-                        <td>{{test.list.length}}</td>
+                        <td>
+                          <button class="buttonDiv bg-smoke text-prime px-3" style="width:60px" @click="showErrModal(index)">
+                            {{test.list.length}}
+                          </button>
+                        </td>
                         <td>
                           <button class="buttonDiv bg-smoke text-prime px-3" style="width:60px" @click="showResults(index)">
                             {{getCompleted(index)}}
@@ -72,6 +79,7 @@
                         <tr v-if="results === index">
                           <td colspan="9">
                             <b-table
+                              small
                               sticky-header="500px"
                               striped hover
                               :items="studentResults"
@@ -88,26 +96,15 @@
                                 {{ getScore(data.item.quizData[index], index)[2] }}
                             </template>
                             <template v-slot:cell(answers)="data">
-                                  <button v-if="data.item.quizData[index] && getScore(data.item.quizData[index], index)[0] !== 0" @click="showAnswers(data.item.uid, index, data.item.quizData[index]['answerData'])" class="buttonDiv bg-grey px-3">
+                                  <button v-if="data.item.quizData[index] && getScore(data.item.quizData[index], index)[0] !== 0" @click="showAnswers(data.item.uid, index, data.item.quizData[index]['answerData'])" class="buttonDiv bg-grey px-2">
                                     <b-icon-filter-left variant="cream" font-scale="1"></b-icon-filter-left>
                                   </button>
                             </template>
                             <template v-slot:cell(delete)="data">
-                                  <button v-if="data.item.quizData[index] && getScore(data.item.quizData[index], index)[0] !== 0" @click="deleteModal(data.item.uid, index)" class="buttonDiv bg-alert px-3">
+                                  <button v-if="data.item.quizData[index] && getScore(data.item.quizData[index], index)[0] !== 0" @click="deleteModal(data.item.uid, index)" class="buttonDiv bg-alert px-2">
                                     <b-icon variant="cream" font-scale="1" icon="arrow-clockwise"></b-icon>
                                   </button>
                             </template>
-                            </b-table>
-
-                            <b-table
-                              sticky-header="300px"
-                              striped hover
-                              :items="answerStats"
-                              :fields="fieldStats"
-                              show-empty
-                              fixed
-                              head-variant="dark"
-                              >
                             </b-table>
                           </td>
                         </tr>
@@ -227,6 +224,42 @@
       <button class="buttonDiv mt-3 bg-alert text-cream" style="width:60%"  @click="hideModal('answers')">Close</button>
     </b-modal>
 
+   <b-modal hide-header-close no-close-on-esc no-close-on-backdrop align="center" ref="errors" hide-footer title="Student Errors">
+     <button class="buttonDiv mb-3 bg-alert text-cream" style="width:100%"  @click="hideModal('errors')">Close</button>
+     <br>
+      <div class="d-block">
+         <b-table
+            small
+            sticky-header="300px"
+            striped hover
+            :items="answerStats"
+            :fields="fieldStats"
+            show-empty
+            fixed
+            head-variant="dark"
+            >
+          </b-table>
+      </div>
+    </b-modal>
+
+   <b-modal hide-header-close no-close-on-esc no-close-on-backdrop align="center" size="xl" ref="allResults" hide-footer title="Student Grades">
+     <button class="buttonDiv mb-3 bg-alert text-cream" style="width:100%"  @click="hideModal('allResults')">Close</button>
+     <br>
+      <div class="d-block">
+         <b-table
+            small
+            sticky-header="300px"
+            striped hover
+            :items="allResults"
+            :fields="allStats"
+            show-empty
+            fixed
+            head-variant="dark"
+            >
+          </b-table>
+      </div>
+    </b-modal>
+
   </div>
 
 </template>
@@ -257,6 +290,7 @@ export default {
       holder: [null, null],
       testHolder: null,
       results: null,
+      errors: null,
       answers: null,
       answerData: [],
       showDetails: false,
@@ -280,7 +314,8 @@ export default {
       fieldStats: [
         {key: 'vocab', label: 'Vocab', sortable: true},
         {key: 'errors', label: 'Errors', sortable: true}
-      ]
+      ],
+      allStats: null
     }
   },
   methods: {
@@ -290,6 +325,20 @@ export default {
     },
     showAnsModal: function (msg) {
       this.$refs['answers'].show()
+    },
+    showErrModal: function (index) {
+      this.errors = index
+      this.$refs['errors'].show()
+    },
+    showAllModal: function () {
+      this.allStats = [
+        {key: 'studentID', label: 'ID', sortable: true, stickyColumn: true, variant: 'warn'},
+        {key: 'user', label: 'Name', sortable: true, stickyColumn: true, variant: 'warn'}
+      ]
+      for (let index in this.testRecords) {
+        this.allStats.push({key: index, label: index, sortable: true})
+      }
+      this.$refs['allResults'].show()
     },
     deleteModal: function (idx, index) {
       // console.log('deleteModal', idx, index)
@@ -514,8 +563,8 @@ export default {
       let stats = {}
       for (let s in this.studentResults) {
         // console.log('stats', this.studentResults[s].quizData)
-        if (this.studentResults[s].quizData[this.results]) {
-          let data = this.studentResults[s].quizData[this.results].answerData
+        if (this.studentResults[s].quizData[this.errors]) {
+          let data = this.studentResults[s].quizData[this.errors].answerData
           for (let a in data) {
             let english = data[a].English
             if (!stats[english]) {
@@ -532,6 +581,32 @@ export default {
         arrayItems.push({vocab: e, errors: stats[e]})
       }
       return arrayItems
+    },
+    allResults () {
+      let allResults = []
+      for (let s in this.studentResults) {
+        let newRecord = {}
+
+        newRecord['user'] = this.studentResults[s].user
+        newRecord['studentID'] = this.studentResults[s].studentID
+
+        console.log('stats', this.studentResults[s].quizData)
+
+        for (let index in this.testRecords) {
+          let data = this.studentResults[s].quizData[index]
+          if (data) {
+            let score = data.score
+            let list = this.testRecords[index].list.length
+            let grade = (score / list) * 100
+            newRecord[index] = Math.round(grade)
+          } else {
+            newRecord[index] = '-'
+          }
+        }
+        allResults.push(newRecord)
+      }
+      console.log('allResults', allResults)
+      return allResults
     }
   },
   created () {
