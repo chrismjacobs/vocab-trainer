@@ -72,7 +72,7 @@
         :fields="fields"
         >
         <template #head(question)="data">
-          <div align="right">
+          <div align="right" :id="data.item.English">
             Question
           </div>
         </template>
@@ -443,20 +443,23 @@ export default {
       console.log('answerCard', data)
       let found = _this.testItems.find(element => element.caption === data.card)
       let answer = _this.testItems.find(element => element.caption === data.answer)
-      console.log(found, answer)
+      console.log('found', found)
+      console.log('answer', answer)
+      console.log('count', data.count)
       if (data.count === 1) {
         found.show = true
         found.player = data.player
         found.disabled = true
-        _this.foundCard = found
+        _this.foundCard = {...found}
       } else if (data.count === 2) {
         found.show = true
         found.player = data.player
         found.disabled = true
-        _this.foundCard2 = found
+        _this.foundCard2 = {...found}
         let xThis = _this
         if (!data.match) {
-          console.log(22222)
+          console.log(111, {..._this.foundCard})
+          console.log(222, {..._this.foundCard2})
           _this.disabledMarker = true
           setTimeout(function () {
             found.show = false
@@ -470,8 +473,12 @@ export default {
             if (data.player !== xThis.player) {
               xThis.disabledMarker = false
             }
+            console.log(xThis.foundCard)
+            console.log(xThis.foundCard2)
           }, 2000)
         } else { // if match
+          console.log(333, {..._this.foundCard})
+          console.log(444, {..._this.foundCard2})
           _this.disabledMarker = true
           found.disabled = true
           _this.foundCard.disabled = true
@@ -489,6 +496,8 @@ export default {
             if (data.player === xThis.player && xThis.gameStyle.includes('2')) {
               xThis.disabledMarker = false
             }
+            console.log(xThis.foundCard)
+            console.log(xThis.foundCard2)
           }, 2000)
         }
       }
