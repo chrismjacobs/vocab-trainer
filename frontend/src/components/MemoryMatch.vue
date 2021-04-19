@@ -168,7 +168,8 @@ export default {
       disabledMarker: false,
       foundCard: null,
       foundCard2: null,
-      gameStyle: null
+      gameStyle: null,
+      blocker: false
     }
   },
   methods: {
@@ -273,12 +274,14 @@ export default {
         }
         this.cardMatch = []
         this.socket.emit('answerMem', {room: this.p1 + '-' + this.p2, card: card, match: match, answer: answer, player: this.player, count: count})
-      } else if (this.cardMatch.length === 0) {
+      } else if (this.cardMatch.length === 0 && this.blocker == false) {
         // add card and answer for checking
+        this.blocker = true
         this.cardMatch.push(answer)
         this.cardMatch.push(card)
         // check length again to stop double entry
-        if (this.cardMatch.length === 0) {
+        if (this.cardMatch.length === 2) {
+          this.blocker = false
           this.socket.emit('answerMem', {room: this.p1 + '-' + this.p2, card: card, match: match, answer: answer, player: this.player, count: count})
         }
       } else {
