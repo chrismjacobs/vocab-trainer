@@ -419,7 +419,7 @@ export default {
             Chinese: randomItem[answer],
             sound: randomItem[sdQue],
             match: false,
-            found: null,
+            player: null,
             show: false,
             disbaled: false
           })

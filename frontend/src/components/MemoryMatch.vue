@@ -447,27 +447,31 @@ export default {
       console.log('answer', answer)
       console.log('count', data.count)
       if (data.count === 1) {
+        found.disabled = true
         found.show = true
         found.player = data.player
-        found.disabled = true
         _this.foundCard = {...found}
       } else if (data.count === 2) {
+        found.disabled = true
         found.show = true
         found.player = data.player
-        found.disabled = true
         _this.foundCard2 = {...found}
         let xThis = _this
         if (!data.match) {
           console.log(111, {..._this.foundCard})
           console.log(222, {..._this.foundCard2})
+          let originalCard = _this.testItems.find(element => element.caption === _this.foundCard.caption)
           _this.disabledMarker = true
           setTimeout(function () {
             found.show = false
-            xThis.foundCard.show = false
             found.player = null
-            xThis.foundCard.player = null
             found.disabled = false
-            xThis.foundCard.disabled = false
+            originalCard.show = false
+            originalCard.player = null
+            originalCard.disabled = false
+
+            xThis.foundCard.player = null
+
             xThis.foundCard = null
             xThis.foundCard2 = null
             if (data.player !== xThis.player) {
