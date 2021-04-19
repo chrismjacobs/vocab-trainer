@@ -181,6 +181,9 @@ export default {
     },
     exitToggle: function () {
       console.log(router.currentRoute.fullPath)
+      if (router.currentRoute.fullPath[1] != 'M') {
+        this.$store.dispatch('testActive', false)
+      }
       this.exit = !this.exit
       console.log(this.exit)
     },

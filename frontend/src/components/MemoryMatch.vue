@@ -445,7 +445,7 @@ export default {
       _this.readyCheck()
     })
     _this.socket.on('answerCard', function (data) {
-      this.disabledTemp = false
+      _this.disabledTemp = false
       console.log('answerCard', data)
       let found = _this.testItems.find(element => element.caption === data.card)
       let answer = _this.testItems.find(element => element.caption === data.answer)
