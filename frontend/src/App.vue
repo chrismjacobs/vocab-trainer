@@ -207,7 +207,7 @@ export default {
     },
     goTo: function (arg) {
       // router will be disbaled is game is active
-      if (!this.$store.state.testActive && arg) {
+      if (!this.isActiveCheck && arg) {
         if (arg === 'Home' && this.isAuthenticated) {
           arg = 'Account'
         }
@@ -215,7 +215,7 @@ export default {
         // const userId = '123'
         // router.push({ name: 'user', params: { userId } }) // -> /user/123
         // router.push({ path: `/user/${userId}` }) // -> /user/123
-      } else if (this.$store.state.testActive) {
+      } else {
         this.showFail()
       }
     },
