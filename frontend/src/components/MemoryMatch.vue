@@ -166,6 +166,7 @@ export default {
       audioMarker: null,
       cardMatch: [],
       disabledMarker: false,
+      disabledTemp: false,
       foundCard: null,
       foundCard2: null,
       gameStyle: null,
@@ -249,7 +250,7 @@ export default {
     getDisabled: function (arg) {
       let found = this.testItems.find(element => element.caption === arg)
 
-      if (this.disabledMarker) {
+      if (this.disabledMarker || this.disabledTemp) {
         return true
       } else {
         return found.disabled
@@ -260,6 +261,7 @@ export default {
       return found.show
     },
     showCard: function (card, answer) {
+      this.disabledTemp = true
       console.log('cardMAtch', card, answer, this.cardMatch.toString())
       let match = false
       let count = 1
@@ -274,14 +276,11 @@ export default {
         }
         this.cardMatch = []
         this.socket.emit('answerMem', {room: this.p1 + '-' + this.p2, card: card, match: match, answer: answer, player: this.player, count: count})
-      } else if (this.cardMatch.length === 0 && this.blocker == false) {
-        // add card and answer for checking
-        this.blocker = true
+      } else if (this.cardMatch.length === 0) {
         this.cardMatch.push(answer)
         this.cardMatch.push(card)
         // check length again to stop double entry
         if (this.cardMatch.length === 2) {
-          this.blocker = false
           this.socket.emit('answerMem', {room: this.p1 + '-' + this.p2, card: card, match: match, answer: answer, player: this.player, count: count})
         }
       } else {
@@ -446,6 +445,7 @@ export default {
       _this.readyCheck()
     })
     _this.socket.on('answerCard', function (data) {
+      this.disabledTemp = false
       console.log('answerCard', data)
       let found = _this.testItems.find(element => element.caption === data.card)
       let answer = _this.testItems.find(element => element.caption === data.answer)

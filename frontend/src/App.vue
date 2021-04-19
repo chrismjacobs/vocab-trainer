@@ -180,7 +180,7 @@ export default {
       }
     },
     exitToggle: function () {
-      console.log(router)
+      console.log(router.currentRoute.fullPath)
       this.exit = !this.exit
       console.log(this.exit)
     },
