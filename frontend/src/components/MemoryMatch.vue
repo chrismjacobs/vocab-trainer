@@ -259,7 +259,7 @@ export default {
       return found.show
     },
     showCard: function (card, answer) {
-      // console.log('cardMAtch', card, answer, this.cardMatch)
+      console.log('cardMAtch', card, answer, this.cardMatch.toString())
       let match = false
       let count = 1
       // if card and answer are already marked
@@ -277,7 +277,10 @@ export default {
         // add card and answer for checking
         this.cardMatch.push(answer)
         this.cardMatch.push(card)
-        this.socket.emit('answerMem', {room: this.p1 + '-' + this.p2, card: card, match: match, answer: answer, player: this.player, count: count})
+        // check length again to stop double entry
+        if (this.cardMatch.length === 0) {
+          this.socket.emit('answerMem', {room: this.p1 + '-' + this.p2, card: card, match: match, answer: answer, player: this.player, count: count})
+        }
       } else {
         this.disabledMarker = true
         this.cardMatch = []
@@ -457,10 +460,10 @@ export default {
         found.player = data.player
         _this.foundCard2 = {...found}
         let xThis = _this
+        let originalCard = _this.testItems.find(element => element.caption === _this.foundCard.caption)
         if (!data.match) {
           console.log(111, {..._this.foundCard})
           console.log(222, {..._this.foundCard2})
-          let originalCard = _this.testItems.find(element => element.caption === _this.foundCard.caption)
           _this.disabledMarker = true
           setTimeout(function () {
             found.show = false
@@ -483,13 +486,17 @@ export default {
         } else { // if match
           console.log(333, {..._this.foundCard})
           console.log(444, {..._this.foundCard2})
-          _this.disabledMarker = true
+
+          originalCard.match = true
+          originalCard.disabled = true
+
           found.disabled = true
-          _this.foundCard.disabled = true
           found.match = true
-          _this.foundCard.match = true
+
+          _this.disabledMarker = true
           _this.playAudio(found.sound)
           _this.enterResult(found.English, found.Chinese, data.player, true)
+
           let xThis = _this
           setTimeout(function () {
             xThis.foundCard = null
