@@ -14,7 +14,6 @@
                     <div style="max-width:250px" align="left">
                       <b-form-file accept="image/*" placeholder="" type="file" id="file" ref="file" v-on:change="handleFileUpload()" ></b-form-file>
                     </div>
-                    {{localStorage.imageData.length}}
                   </b-col>
 
                 <b-col md="7">
@@ -113,7 +112,9 @@ export default {
         code: this.codeGen(),
         vocab: this.vocabList,
         note: null,
-        status: null
+        status: null,
+        updated: new Date(),
+        submitted: new Date()
       }
     }
   },
@@ -206,9 +207,11 @@ export default {
       } else if (!this.newWord.def) {
         alert('please add definition')
         return false
-      } else if (localStorage.imageData.length < 1) {
-        // ?????????????
+      } else if (localStorage.imageData.length < 5) {
+        // localStorage.imageData.length = "null"
         _this.$store.dispatch('newPicture', {newWord: JSON.stringify(_this.newWord)})
+        _this.msg = 'Sentence/Definition Updated'
+        _this.showModal()
       } else {
         this.waiting = true
         return addImage({
@@ -240,6 +243,7 @@ export default {
     if (this.pictGet[this.pictWord]) {
       this.newWord = this.pictGet[this.pictWord]
       this.newWord['code'] = this.codeGen()
+      this.newWord['updated'] = new Date()
     }
     console.log('newWord', this.newWord)
   }
