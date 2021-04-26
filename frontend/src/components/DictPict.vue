@@ -14,6 +14,7 @@
                     <div style="max-width:250px" align="left">
                       <b-form-file accept="image/*" placeholder="" type="file" id="file" ref="file" v-on:change="handleFileUpload()" ></b-form-file>
                     </div>
+                    {{localStorage.imageData.length}}
                   </b-col>
 
                 <b-col md="7">
