@@ -218,9 +218,9 @@ export default {
           .then(function (response) {
             localStorage.imageData = null
             console.log('response', response.data)
+            _this.newWord = {...response.data.obj}
             _this.$store.dispatch('newPicture', {newWord: JSON.stringify(_this.newWord)})
             _this.ready = false
-            _this.newWord = {...response.data.obj}
             _this.waiting = false
             _this.msg = 'New image/sentence added'
             _this.showModal()

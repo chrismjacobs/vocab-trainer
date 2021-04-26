@@ -684,7 +684,9 @@ def addImage():
         'newLink': wordData['code'],
         'vocab': wordData['vocab']
     }
-    print(modeDict)
+
+    #print(modeDict)
+    print('wordData1', wordData)
     msg = None
     try:
         wordData['link'] = str(int(wordData['code']))
@@ -702,7 +704,7 @@ def addImage():
         msg = 'No Image to Upload'
         status = 0
 
-    print('wordData', wordData)
+    print('wordData2', wordData)
 
     response = {
         'msg' : msg,
