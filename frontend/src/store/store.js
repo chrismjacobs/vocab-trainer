@@ -22,6 +22,7 @@ import generalV from '../assets/json/generalV.json'
 import generalT from '../assets/json/generalT.json'
 import generalG from '../assets/json/generalG.json'
 import generalJW1 from '../assets/json/generalJW1.json'
+import generalAlice from '../assets/json/generalAlice.json'
 import presentation from '../assets/json/presentation.json'
 import food from '../assets/json/food.json'
 // import vqc from '../assets/json/vqc2.json'
@@ -41,12 +42,11 @@ let dictionaries = {
   'generalT': generalT,
   'generalG': generalG,
   'generalJW1': generalJW1,
+  'generalAlice': generalAlice,
   'presentation': presentation,
   'high': null,
   'food': food
 }
-
-// starRecord: {1: {}, 2: {}, 3: {}}
 
 Vue.use(Vuex)
 
@@ -59,7 +59,7 @@ const state = {
   updateStatus: true,
   skeleton: false,
   jwt: localStorage.token || '',
-  testJ: generalJW1,
+  testJ: generalAlice,
   master: dictionaries[parseLocal(localStorage.userProfile).vocab],
   testActive: false,
   device: localStorage.device || '',

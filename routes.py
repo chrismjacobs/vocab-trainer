@@ -226,30 +226,43 @@ def getGroups():
         })
 
 
+def classCodesGet():
+    dataReturn = redisData.hgetall('classcodes')
+    #pprint(dataReturn)
+
+    if not dataReturn:
+        print('NO DATA RETURN')
+        return {}
+
+    newDict = {}
+    for cc in dataReturn:
+        newDict[cc] = json.loads(dataReturn[cc])
+
+    return newDict
+
 @app.route("/api/classCodes", methods=['POST'])
 def classCodes():
     print('CLASS CODES')
     data = request.get_json()
     pprint(data)
 
-    dataReturn = redisData.hgetall('classcodes')
-
-    if not dataReturn and data['action'] == 'get':
+    if data['action'] == 'get':
         return jsonify({
-            'classCodes' : {}
-        })
-    elif data['action'] == 'get':
-        newDict = {}
-        for cc in dataReturn:
-            newDict[cc] = json.loads(dataReturn[cc])
-        return jsonify({
-            'classCodes' : newDict
+            'classCodes' : classCodesGet()
         })
     elif data['action'] == 'set':
-        ##redisData.hset('classcodes', 'master', json.dumps(data['codeData']))
+        print('SET', data['codeData']['code'], type(json.dumps(data['codeData'])))
+        redisData.hset('classcodes', data['codeData']['code'], json.dumps(data['codeData']))
         return jsonify({
-            'classCodes' : data['codeData']
+            'classCodes' : classCodesGet()
         })
+    elif data['action'] == 'delete':
+        print('DELETE')
+        redisData.hdel('classcodes', data['codeData']['code'])
+        return jsonify({
+            'classCodes' : classCodesGet()
+        })
+
 
 @app.route("/api/instructorRedis", methods=['POST'])
 def instructorRedis():
@@ -269,6 +282,11 @@ def instructorRedis():
         notes = data['notes']
         # print(notes)
         redisData.hset(group, "notes", json.dumps(notes))
+
+    elif action == 'setPictQuiz':
+        notes = data['notes']
+        # print(notes)
+        redisData.hset(group, "pictquiz", json.dumps(notes))
 
     elif action == 'setTests':
         testData = data['testData']
@@ -313,6 +331,13 @@ def instructorRedis():
             sDict = json.loads(redisData.hget(group, student))
             payload = sDict
         msg = 'setStudent'
+
+    elif action == 'getPictQuiz':
+        jString = redisData.hget(group, 'pictList')
+        if jString:
+            sDict = json.loads(redisData.hget(group, student))
+            payload = sDict
+        msg = 'setPictList'
 
     elif action == 'getTests':
         string = redisData.hget(group, "tests")
@@ -739,6 +764,8 @@ def storeB64(fileData, uid, modeDict):
         filename = location + word + str(newLink) + fileType
         print(filename)
 
+        '''
+        ## delete old file because might be used in picture quiz
         try:
             print('try delete')
             oldname = location + word + str(oldLink) + fileType
@@ -746,7 +773,7 @@ def storeB64(fileData, uid, modeDict):
             print('filename_deleted', oldname)
         except:
             print('no filename found')
-
+        '''
 
     print('PROCESSING: ' + link)
     data = base64.b64decode(b64data)
