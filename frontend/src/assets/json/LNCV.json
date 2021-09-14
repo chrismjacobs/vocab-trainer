@@ -1,0 +1,287 @@
+{
+    "culture": {
+        "gl": "n.",
+        "defch1": "v\u0103n h\u00f3a",
+        "defch2": ""
+    },
+    "associated": {
+        "gl": "adj.",
+        "defch1": "li\u00ean k\u1ebft",
+        "defch2": ""
+    },
+    "complicated": {
+        "gl": "adj.",
+        "defch1": "ph\u1ee9c t\u1ea1p",
+        "defch2": ""
+    },
+    "group": {
+        "gl": "n.",
+        "defch1": "nh\u00f3m",
+        "defch2": ""
+    },
+    "manners": {
+        "gl": "n.",
+        "defch1": "t\u00e1c phong",
+        "defch2": ""
+    },
+    "customs": {
+        "gl": "n.",
+        "defch1": "thu\u1ebf nh\u1eadp kh\u1ea9u",
+        "defch2": ""
+    },
+    "behavior": {
+        "gl": "n.",
+        "defch1": "h\u00e0nh vi",
+        "defch2": ""
+    },
+    "iceberg": {
+        "gl": "n.",
+        "defch1": "t\u1ea3ng b\u0103ng tr\u00f4i",
+        "defch2": ""
+    },
+    "attitude": {
+        "gl": "n.",
+        "defch1": "Th\u00e1i \u0111\u1ed9",
+        "defch2": ""
+    },
+    "celebration": {
+        "gl": "n.",
+        "defch1": "l\u1ec5 k\u1ef7 ni\u1ec7m",
+        "defch2": ""
+    },
+    "superstition": {
+        "gl": "n.",
+        "defch1": "m\u00ea t\u00edn",
+        "defch2": ""
+    },
+    "habits": {
+        "gl": "n.",
+        "defch1": "th\u00f3i quen",
+        "defch2": ""
+    },
+    "fashion": {
+        "gl": "n.",
+        "defch1": "th\u1eddi trang",
+        "defch2": ""
+    },
+    "body language": {
+        "gl": "n.",
+        "defch1": "ng\u00f4n ng\u1eef c\u01a1 th\u1ec3",
+        "defch2": ""
+    },
+    "country": {
+        "gl": "n.",
+        "defch1": "Qu\u1ed1c gia",
+        "defch2": ""
+    },
+    "region": {
+        "gl": "n.",
+        "defch1": "khu v\u1ef1c",
+        "defch2": ""
+    },
+    "community": {
+        "gl": "n.",
+        "defch1": "c\u1ed9ng \u0111\u1ed3ng",
+        "defch2": ""
+    },
+    "generation": {
+        "gl": "n.",
+        "defch1": "th\u1ebf h\u1ec7",
+        "defch2": ""
+    },
+    "definition": {
+        "gl": "n.",
+        "defch1": "\u0110\u1ecbnh ngh\u0129a",
+        "defch2": ""
+    },
+    "visable": {
+        "gl": "adj.",
+        "defch1": "h\u1eefu h\u00ecnh",
+        "defch2": ""
+    },
+    "unseen": {
+        "gl": "adj.",
+        "defch1": "v\u00f4 h\u00ecnh",
+        "defch2": ""
+    },
+    "metaphor": {
+        "gl": "n.",
+        "defch1": "ph\u00e9p \u1ea9n d\u1ee5",
+        "defch2": ""
+    },
+    "deep": {
+        "gl": "adj.",
+        "defch1": "s\u00e2u",
+        "defch2": ""
+    },
+    "core": {
+        "gl": "n.",
+        "defch1": "l\u00f5i",
+        "defch2": ""
+    },
+    "belief": {
+        "gl": "n.",
+        "defch1": "ni\u1ec1m tin",
+        "defch2": ""
+    },
+    "friendship": {
+        "gl": "n.",
+        "defch1": "t\u00ecnh b\u1ea1n",
+        "defch2": ""
+    },
+    "rules": {
+        "gl": "n.",
+        "defch1": "quy t\u1eafc",
+        "defch2": ""
+    },
+    "status": {
+        "gl": "n.",
+        "defch1": "tr\u1ea1ng th\u00e1i",
+        "defch2": ""
+    },
+    "gender": {
+        "gl": "n.",
+        "defch1": "gi\u1edbi t\u00ednh",
+        "defch2": ""
+    },
+    "society": {
+        "gl": "n.",
+        "defch1": "x\u00e3 h\u1ed9i",
+        "defch2": ""
+    },
+    "organization": {
+        "gl": "n.",
+        "defch1": "t\u1ed5 ch\u1ee9c",
+        "defch2": ""
+    },
+    "religion": {
+        "gl": "n.",
+        "defch1": "t\u00f4n gi\u00e1o",
+        "defch2": ""
+    },
+    "economics": {
+        "gl": "n.",
+        "defch1": "n\u1ec1n kinh t\u1ebf",
+        "defch2": ""
+    },
+    "tradition": {
+        "gl": "n.",
+        "defch1": "truy\u1ec1n th\u1ed1ng",
+        "defch2": ""
+    },
+    "literature": {
+        "gl": "n.",
+        "defch1": "v\u0103n h\u1ecdc",
+        "defch2": ""
+    },
+    "government": {
+        "gl": "n.",
+        "defch1": "ch\u00ednh quy\u1ec1n",
+        "defch2": ""
+    },
+    "system": {
+        "gl": "n.",
+        "defch1": "h\u1ec7 th\u1ed1ng",
+        "defch2": ""
+    },
+    "background": {
+        "gl": "n.",
+        "defch1": "n\u1ec1n t\u1ea3ng",
+        "defch2": ""
+    },
+    "population": {
+        "gl": "n.",
+        "defch1": "d\u00e2n s\u1ed1",
+        "defch2": ""
+    },
+    "life expectancy": {
+        "gl": "n.",
+        "defch1": "tu\u1ed5i th\u1ecd b\u00ecnh qu\u00e2n",
+        "defch2": ""
+    },
+    "employment": {
+        "gl": "n.",
+        "defch1": "s\u1ef1 thu\u00ea l\u00e0m",
+        "defch2": ""
+    },
+    "language": {
+        "gl": "n.",
+        "defch1": "ng\u00f4n ng\u1eef ",
+        "defch2": ""
+    },
+    "export": {
+        "gl": "v.",
+        "defch1": "xu\u1ea5t kh\u1ea9u",
+        "defch2": ""
+    },
+    "density": {
+        "gl": "n.",
+        "defch1": "m\u1eadt \u0111\u1ed9",
+        "defch2": ""
+    },
+    "marriage": {
+        "gl": "n.",
+        "defch1": "h\u00f4n nh\u00e2n",
+        "defch2": ""
+    },
+    "birth rate": {
+        "gl": "n.",
+        "defch1": "t\u1ef7 l\u1ec7 sinh",
+        "defch2": ""
+    },
+    "symbol": {
+        "gl": "n.",
+        "defch1": "bi\u1ec3u t\u01b0\u1ee3ng",
+        "defch2": ""
+    },
+    "unite": {
+        "gl": "v.",
+        "defch1": "li\u00ean hi\u1ec7p",
+        "defch2": ""
+    },
+    "environment": {
+        "gl": "n.",
+        "defch1": "m\u00f4i tr\u01b0\u1eddng",
+        "defch2": ""
+    },
+    "history": {
+        "gl": "n.",
+        "defch1": "l\u1ecbch s\u1eed",
+        "defch2": ""
+    },
+    "values": {
+        "gl": "n.",
+        "defch1": "gi\u00e1 tr\u1ecb",
+        "defch2": ""
+    },
+    "recognize": {
+        "gl": "v.",
+        "defch1": "nh\u1eadn ra",
+        "defch2": ""
+    },
+    "influence": {
+        "gl": "v.",
+        "defch1": "\u1ea3nh h\u01b0\u1edfng",
+        "defch2": ""
+    },
+    "role": {
+        "gl": "n.",
+        "defch1": "vai tr\u00f2",
+        "defch2": ""
+    },
+    "politeness": {
+        "gl": "n.",
+        "defch1": "l\u1ecbch s\u1ef1",
+        "defch2": ""
+    },
+    "acceptable": {
+        "gl": "adj.",
+        "defch1": "ch\u1ea5p nh\u1eadn \u0111\u01b0\u1ee3c",
+        "defch2": ""
+    },
+    "rude": {
+        "gl": "adj.",
+        "defch1": "th\u00f4 l\u1ed7",
+        "defch2": ""
+    }
+}
