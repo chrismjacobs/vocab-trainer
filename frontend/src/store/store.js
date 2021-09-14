@@ -79,7 +79,7 @@ const state = {
   },
   audioLinks: {
     t: 'audio',
-    l: 'culture',
+    L: 'culture',
     d: 'digital',
     c: 'culinary',
     g: 'general',
