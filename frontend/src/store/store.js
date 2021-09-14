@@ -23,6 +23,7 @@ import generalT from '../assets/json/generalT.json'
 import generalG from '../assets/json/generalG.json'
 import generalJW1 from '../assets/json/generalJW1.json'
 import generalAlice from '../assets/json/generalAlice.json'
+import LNC1 from '../assets/json/LNCV.json'
 import presentation from '../assets/json/presentation.json'
 import food from '../assets/json/food.json'
 // import vqc from '../assets/json/vqc2.json'
@@ -43,6 +44,7 @@ let dictionaries = {
   'generalG': generalG,
   'generalJW1': generalJW1,
   'generalAlice': generalAlice,
+  'LNC1': LNC1,
   'presentation': presentation,
   'high': null,
   'food': food
@@ -59,7 +61,7 @@ const state = {
   updateStatus: true,
   skeleton: false,
   jwt: localStorage.token || '',
-  testJ: generalAlice,
+  testJ: LNC1,
   master: dictionaries[parseLocal(localStorage.userProfile).vocab],
   testActive: false,
   device: localStorage.device || '',
@@ -77,7 +79,7 @@ const state = {
   },
   audioLinks: {
     t: 'audio',
-    f: 'foodio',
+    l: 'culture',
     d: 'digital',
     c: 'culinary',
     g: 'general',
