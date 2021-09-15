@@ -216,7 +216,12 @@ def getGroups():
     for c in returnData:
         loadC = json.loads(returnData[c])
         print(loadC)
-        if loadC['instID'] == userID:
+        intID = loadC['instID']
+        try:
+            intID = int(loadC['instID'])
+        except:
+            pass
+        if intID == userID:
             groups.append({'code': c, 'count': User.query.filter_by(classroom=c).count()})
         elif userID == 1 and c in codeList:
             groups.append({'code': c, 'count': User.query.filter_by(classroom=c).count()})
@@ -357,6 +362,7 @@ def instructorRedis():
     elif action == 'getResults':
         classList = User.query.filter_by(classroom=group).all()
         allData = redisData.hgetall(group)
+        # not sure what this is for
         if allData and allData['notes']:
             del allData['notes']
         payload = allData
@@ -365,7 +371,7 @@ def instructorRedis():
     else:
         msg = 'fail'
 
-    # print(action, msg, payload)
+    print(action, msg, payload)
 
     return jsonify({
         'payload' : payload,
