@@ -114,6 +114,13 @@
       <button class="buttonDiv mt-3 bg-alert text-cream" style="width:40%"  @click="hideModal('exit')">Exit</button>
     </b-modal>
 
+    <b-modal align="center" ref="access" hide-footer title="Access" hide-header-close no-close-on-esc no-close-on-backdrop>
+      <div class="d-block">
+        <h3> Match mode is not open right now </h3>
+      </div>
+      <button class="buttonDiv mt-3 bg-info text-cream" style="width:40%"  @click="hideModal('close')">Close</button>
+    </b-modal>
+
   </div>
 
 </template>
@@ -164,9 +171,14 @@ export default {
     showFail: function () {
       this.$refs['fail'].show()
     },
+    showAccess: function () {
+      this.$refs['access'].show()
+    },
     hideModal: function (arg) {
       if (arg === 'stay') {
         this.$refs['fail'].hide()
+      } else if (arg === 'close') {
+        this.$refs['access'].hide()
       } else {
         this.exitToggle()
         this.$refs['fail'].hide()
@@ -210,6 +222,12 @@ export default {
       }
     },
     goTo: function (arg) {
+      // disable match mode for certain classrooms
+      if (arg === 'Match' && this.$store.state.userProfile.classroom === 'work@pvqc'){
+        this.showAccess()
+        return false
+      }
+
       // router will be disbaled is game is active
       if (!this.isActiveCheck && arg) {
         if (arg === 'Home' && this.isAuthenticated) {
