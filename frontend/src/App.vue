@@ -223,10 +223,10 @@ export default {
     },
     goTo: function (arg) {
       // disable match mode for certain classrooms
-      if (arg === 'Match' && this.$store.state.userProfile.classroom === 'work@pvqc'){
-        this.showAccess()
-        return false
-      }
+      // if (arg === 'Match' && this.$store.state.userProfile.classroom === 'work@pvqc') {
+      //   this.showAccess()
+      //   return false
+      // }
 
       // router will be disbaled is game is active
       if (!this.isActiveCheck && arg) {

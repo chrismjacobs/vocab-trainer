@@ -265,7 +265,7 @@ const actions = {
     // console.log('record request...')
     return getClass(payload)
       .then(function (response) {
-        console.log(response.data)
+        console.log('classRecords', response.data)
         context.commit('setClassRecords', response.data)
       })
       .catch(error => {
@@ -276,7 +276,7 @@ const actions = {
     // console.log('record request...')
     return getGroups(payload)
       .then(function (response) {
-        console.log(response.data)
+        console.log('classGroups', response.data)
         context.commit('setClassGroups', response.data.classGroups)
       })
       .catch(error => {
@@ -311,7 +311,7 @@ const actions = {
     console.log('instructor logs request...', payload)
     return instructorRedis(payload)
       .then(function (response) {
-        console.log(response.data)
+        console.log('instructor logs', response.data)
         if (response.data.msg) {
           context.commit(response.data.msg, response.data.payload)
         } else {

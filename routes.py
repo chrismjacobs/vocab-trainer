@@ -395,6 +395,8 @@ def get_class():
         classDict[user.id] = {}
         classDict[user.id]['user'] = user.username
         classDict[user.id]['studentID'] = user.studentID
+        classDict[user.id]['userID'] = user.id
+        classDict[user.id]['email'] = user.email
 
         content = redisChecker(user, False, True, True)
         classDict[user.id]['userRecord'] = content['userRecord']

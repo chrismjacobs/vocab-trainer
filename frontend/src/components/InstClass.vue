@@ -81,6 +81,42 @@
                     </tbody>
       </table>
 
+      <br>
+
+      <div class="mt-2 bg-prime p-2 head">
+            <div class="ml-2">
+              <b-row >
+                <b-col >
+                  <h3 class="text-cream" > Class Details </h3>
+                </b-col>
+              </b-row>
+            </div>
+          </div>
+      <table class="table table-striped">
+              <thead>
+                    <tr>
+                      <th scope="col">user ID</th>
+                      <th scope="col">student ID</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Score</th>
+                    </tr>
+              </thead>
+                    <tbody>
+                      <template v-for="(item, key) in classRecords">
+                        <tr :key="key">
+                          <td  style="width:150px" >{{item.userID}}</td>
+                          <td  style="width:150px" >{{item.studentID}}</td>
+                          <td  style="width:150px" >{{item.user}}</td>
+                          <td  style="width:150px" >{{item.email}}</td>
+                          <td :class="getVcountStyle(item.user)">
+                            {{vocabCount(item.userRecord, item.user)}}
+                          </td>
+                        </tr>
+                      </template>
+                    </tbody>
+      </table>
+
     </div>
   </div>
 
@@ -103,7 +139,8 @@ export default {
         matchTrans: 'Match',
         matchType: 'Type Match'
       },
-      scoreShow: {}
+      scoreShow: {},
+      vCounts: {}
     }
   },
   methods: {
@@ -192,7 +229,15 @@ export default {
 
       let vCount = Object.keys(counter).length
 
+      console.log(this.vCounts, user, vCount)
+      this.vCounts[user] = vCount
+      console.log(this.vCounts)
       return vCount
+    },
+    getVcountStyle: function (user) {
+      if (this.vCounts[user] === 0) {
+        return 'bg-warn'
+      }
     }
   },
   computed: {
