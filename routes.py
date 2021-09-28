@@ -314,6 +314,25 @@ def instructorRedis():
         payload = studentTests
         msg = 'setStudent'
 
+    elif action == 'setUpdate':
+        student = data['student']
+        word = data['word']
+        string = redisData.hget(group, "updates")
+        if string == None:
+            print('NEW UPDATES NOTES SET')
+            redisData.hset(group, "updates", json.dumps({}))
+            updatesData = {}
+        else:
+            updatesData = json.loads(string)
+
+        if student not in updatesData:
+            updatesData[student] = {word:1}
+        else:
+            updatesData[student][word] = 1
+
+        redisData.hset(group, "updates", json.dumps(updatesData))
+        payload = updatesData
+
     #############################33
 
     elif action == 'getNotesInstructor':
@@ -321,6 +340,14 @@ def instructorRedis():
         if string:
             payload = json.loads(string)
         msg = 'setNotes'
+
+    elif action == 'getUpdatesInstructor':
+        string = redisData.hget(group, "updates")
+        if string:
+            payload = json.loads(string)
+        else:
+            payload = {}
+        msg = 'setUpdates'
 
     elif action == 'getNotesStudent':
         student = (data['student'])
@@ -397,6 +424,7 @@ def get_class():
         classDict[user.id]['studentID'] = user.studentID
         classDict[user.id]['userID'] = user.id
         classDict[user.id]['email'] = user.email
+        classDict[user.id]['date'] = user.extraStr
 
         content = redisChecker(user, False, True, True)
         classDict[user.id]['userRecord'] = content['userRecord']
