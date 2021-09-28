@@ -74,6 +74,7 @@ const state = {
     testRecords: {},
     activeQuiz: {},
     studentNotes: {},
+    studentUpdates: {},
     studentTests: {},
     studentResults: {}
   },
@@ -435,6 +436,9 @@ const mutations = {
   setNotes (state, payload) {
     state.instructor.studentNotes = payload
   },
+  setUpdates (state, payload) {
+    state.instructor.studentUpdates = payload
+  },
   setStudent (state, payload) {
     console.log('studentUpdate', payload)
     state.instructor.studentTests = payload
@@ -487,6 +491,9 @@ const mutations = {
     }
     state.setRecord = {...state.setRecord}
     state.updateStatus = false
+    if (parseData.status !== 0) {
+      instructorRedis({group: state.userProfile.classroom, action: 'setUpdate', student: state.userProfile.userID, word: parseData.word})
+    }
   },
   setNewStar (state, payload) {
     console.log('setNewStar payload = ', payload)

@@ -2,7 +2,7 @@
   <div class="Intpict">
     <b-table
       striped hover
-      :items="getPictArray(item.setRecord.dictRecord)"
+      :items="getPictArray(itemLocal.setRecord.dictRecord)"
       :fields="pields"
       head-variant="dark"
       >
@@ -15,7 +15,7 @@
           <span style="color:green"> {{data.value}} </span>
 
           <hr>
-          {{data.item.text}}
+          <span :style="getUpdateStyle(data.item.word, data.item.status)"> {{data.item.text}} </span>
 
         <div v-if="data.item.status !== null && data.item.status !== 0">
           <hr>
@@ -41,6 +41,9 @@
             <br>
 
             {{noteCodes[data.item.status]}}
+            <br>
+            <button class="buttonDiv mt-3 bg-smoke text-prime" style="width:40%"  @click="data.item.note = data.item.text, loadSentence()">Load</button>
+
         </template>
       </b-table>
 
@@ -89,7 +92,8 @@ export default {
         { value: 2, text: '2' },
         { value: 3, text: '3' },
         { value: 4, text: '4' },
-        { value: 5, text: '5' }
+        { value: 5, text: '5' },
+        { value: 6, text: '6' }
       ],
       color: {
         null: 'smoke',
@@ -97,7 +101,8 @@ export default {
         2: 'alert',
         3: 'warn',
         4: 'p1',
-        5: 'p2'
+        5: 'p2',
+        6: 'grape-light'
       },
       noteCodes: {
         null: null,
@@ -105,7 +110,8 @@ export default {
         2: 'Grammar',
         3: 'Punctuation',
         4: 'Detail',
-        5: 'Spelling'
+        5: 'Spelling',
+        6: 'Picture'
       }
     }
   },
@@ -118,6 +124,16 @@ export default {
     },
     hideModal: function (mode) {
     },
+    getUpdateStyle: function (word, status) {
+      let studentUpdates = this.$store.state.instructor.studentUpdates[this.student]
+      console.log(this.student, word, status, studentUpdates)
+      if (status === 1) {
+        return { }
+      }
+      if (studentUpdates && studentUpdates[word] && studentUpdates[word] === 1) {
+        return { background: 'lime' }
+      }
+    },
     getImage: function (word, code, student, vocab) {
       if (code === 'add') {
         return 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/add.jpg'
@@ -129,6 +145,7 @@ export default {
     },
     saveData: function () {
       if (this.save) {
+        console.log('saveNoteData')
         this.$store.dispatch('updateNotes', { notes: this.notes })
       }
     },
@@ -145,16 +162,30 @@ export default {
       let stat = 0
       if (dItem['word']) {
         let word = dItem['word']
-        stat = this.item.setRecord.dictRecord[word].status
+        stat = this.itemLocal.setRecord.dictRecord[word].status
       }
       return this.color[stat]
     },
+    loadSentence: function () {
+      let _this = this
+      setTimeout(function () {
+        console.log(_this.itemLocal)
+        _this.itemLocal = {..._this.itemLocal}
+      }, 100)
+    },
+    updateNotes: function () {
+      if (!this.notes[this.student]) {
+        this.notes[this.student] = {}
+      }
+    },
     radioAction: function (dItem) {
+      this.updateNotes()
+      console.log('dItem', dItem)
+      console.log('notes', this.notes)
       let word = dItem['word']
       let _this = this
-      console.log('dItem', dItem)
       setTimeout(function () {
-        _this.item = {..._this.item}
+        _this.itemLocal = {..._this.itemLocal}
         _this.notes[_this.student][word] = dItem
       }, 100)
     }
@@ -162,18 +193,18 @@ export default {
   created () {
     this.classRecords = {...this.$store.getters.classRecords}
     this.notes = {...this.$store.state.instructor.studentNotes}
-    this.item = {...this.itemMaster}
+    this.itemLocal = {...this.itemMaster}
     console.log('NOTES', this.notes)
-    console.log('ITEM', this.item)
+    console.log('ITEM', this.itemLocal)
     for (let word in this.notes[this.student]) {
-      if (this.item['setRecord']['dictRecord'][word]) {
-        this.item['setRecord']['dictRecord'][word]['status'] = this.notes[this.student][word]['status']
-        this.item['setRecord']['dictRecord'][word]['note'] = this.notes[this.student][word]['note']
+      if (this.itemLocal['setRecord']['dictRecord'][word]) {
+        this.itemLocal['setRecord']['dictRecord'][word]['status'] = this.notes[this.student][word]['status']
+        this.itemLocal['setRecord']['dictRecord'][word]['note'] = this.notes[this.student][word]['note']
       }
     }
   },
   beforeDestroy () {
-    // this.saveData()
+    this.saveData()
   }
 }
 

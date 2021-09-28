@@ -62,7 +62,7 @@
                           <!--<tr v-if="key.toString() in pictShow && pictShow[key.toString()] === 1">-->
                           <tr v-if="key.toString() === pictShowOne || pictShowOne === 'all' ">
                             <td colspan="6">
-                              <InstPicts :student="key" :itemMaster="item"></InstPicts>
+                              <InstPicts :student="key" :itemMaster="item" ></InstPicts>
                             </td>
                           </tr>
                         </transition>
@@ -308,6 +308,7 @@ export default {
   },
   created () {
     this.$store.dispatch('instructorLogs', { group: this.group, action: 'getNotesInstructor' })
+    this.$store.dispatch('instructorLogs', { group: this.group, action: 'getUpdatesInstructor' })
     this.notes = {...this.$store.state.instructor.studentNotes}
   },
   beforeDestroy () {
