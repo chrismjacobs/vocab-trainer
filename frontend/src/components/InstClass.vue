@@ -108,6 +108,7 @@
                           <td  style="width:150px" >{{item.userID}}</td>
                           <td  style="width:150px" >{{item.studentID}}</td>
                           <td  style="width:150px" >{{item.user}}</td>
+                          <td  style="width:150px" >{{item.date}}</td>
                           <td  style="width:150px" >{{item.email}}</td>
                           <td :class="getVcountStyle(item.user)">
                             {{vocabCount(item.userRecord, item.user)}}
