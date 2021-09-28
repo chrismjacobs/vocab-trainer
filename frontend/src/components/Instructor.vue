@@ -113,7 +113,7 @@ export default {
   },
   data () {
     return {
-      show: 'tests',
+      show: 'class',
       waiting: false,
       optionsR: [
         { value: 'tests', text: 'TEST' },
