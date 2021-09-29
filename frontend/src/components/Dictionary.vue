@@ -296,7 +296,8 @@ export default {
         2: 'alert',
         3: 'warn',
         4: 'p1',
-        5: 'p2'
+        5: 'p2',
+        6: 'grape-light'
       },
       noteCodes: {
         null: null,
@@ -304,7 +305,8 @@ export default {
         2: 'Grammar',
         3: 'Punctuation',
         4: 'Detail',
-        5: 'Spelling'
+        5: 'Spelling',
+        6: 'Picture'
       },
       wordDetails: {
         gl: null,
