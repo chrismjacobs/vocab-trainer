@@ -491,7 +491,7 @@ const mutations = {
     }
     state.setRecord = {...state.setRecord}
     state.updateStatus = false
-    if (parseData.status !== 0) {
+    if (!parseData.status || parseData.status !== 0) {
       instructorRedis({group: state.userProfile.classroom, action: 'setUpdate', student: state.userProfile.userID, word: parseData.word})
     }
   },
