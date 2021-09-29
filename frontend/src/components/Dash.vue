@@ -27,15 +27,15 @@
     <h6 :class="label()"> Word Levels:</h6>
 
     <div v-for="(item, key) in userRecItems" :key="key">
-          <div v-if="key !== 'not tested'">
+          <div v-if="key[0] !== 't'">
             <b-progress style="height:20px; background:none" class="mt-1" :max="maxRec * 1.3" show-value>
               <b-progress-bar :value="maxRec * 0.30" variant="second text-cream"><span> {{key}} </span></b-progress-bar>
               <b-progress-bar :value="item" :variant="getClass(key)"></b-progress-bar>
             </b-progress>
           </div>
           <div v-else>
-            <b-progress style="height:20px; background:none" class="mt-1" max="1000" show-value>
-              <b-progress-bar :value="maxRec * 0.30" variant="second text-cream"><span> --- </span></b-progress-bar>
+            <b-progress style="height:20px; background:none" class="mt-1" show-value>
+              <b-progress-bar value="200" variant="second text-cream"><span> {{key}}  </span></b-progress-bar>
               <b-progress-bar :value="item" :variant="getClass(key)"></b-progress-bar>
             </b-progress>
           </div>
@@ -82,7 +82,8 @@ export default {
         okay: 'spanDiv bg-grey text-prime',
         weak: 'spanDiv bg-warn-light text-prime',
         problem: 'spanDiv bg-alert-light text-prime',
-        'not tested': 'spanDiv bg-cream text-prime'
+        'total+': 'spanDiv bg-cream text-prime',
+        'total-': 'spanDiv bg-grey text-prime'
       }
       return styles[arg]
     },
@@ -132,22 +133,29 @@ export default {
         okay: 0,
         weak: 0,
         problem: 0,
-        'not tested': 0
+        'total+': 0,
+        'total-': 0
       }
+
       for (let item in this.tableItems) {
         let row = this.tableItems[item]
         if (row.totalScore >= 2) {
           counter.strong += 1
+          counter['total+'] += 1
         } else if (row.totalScore === 1) {
           counter.good += 1
+          counter['total+'] += 1
         } else if (row.totalScore === 0 && row.tested) {
           counter.okay += 1
+          counter['total+'] += 1
         } else if (row.totalScore === -1) {
           counter.weak += 1
+          counter['total+'] += 1
         } else if (row.totalScore <= -2) {
           counter.problem += 1
+          counter['total+'] += 1
         } else {
-          counter['not tested'] += 1
+          counter['total-'] += 1
         }
       }
       return counter
@@ -155,7 +163,7 @@ export default {
     maxRec () {
       let max = 1
       for (let rec in this.userRecItems) {
-        if (this.userRecItems[rec] > max && rec !== 'not tested') {
+        if (this.userRecItems[rec] > max && rec !== 'total-' && rec !== 'total+') {
           max = this.userRecItems[rec]
         }
       }
