@@ -42,7 +42,7 @@
 
             {{noteCodes[data.item.status]}}
             <br>
-            <button class="buttonDiv mt-3 bg-smoke text-prime" style="width:40%"  @click="data.item.note = data.item.text, loadSentence()">Load</button>
+            <button class="buttonDiv mt-3 bg-smoke text-prime" style="width:40%"  @click="loadSentence(data.item.word)">Load</button>
 
         </template>
       </b-table>
@@ -112,6 +112,11 @@ export default {
         4: 'Detail',
         5: 'Spelling',
         6: 'Picture'
+      },
+      commonFeedback: {
+        1: 'please add period (.)',
+        2: 'please choose a better picture to match your sentence',
+        3: 'please do not choose a picture that shows the word you are using'
       }
     }
   },
@@ -126,7 +131,7 @@ export default {
     },
     getUpdateStyle: function (word, status) {
       let studentUpdates = this.$store.state.instructor.studentUpdates[this.student]
-      console.log(this.student, word, status, studentUpdates)
+      // console.log(this.student, word, status, studentUpdates)
       if (status === 1) {
         return { }
       }
@@ -144,6 +149,7 @@ export default {
       }
     },
     saveData: function () {
+      console.log('this.save', this.notes)
       if (this.save) {
         console.log('saveNoteData')
         this.$store.dispatch('updateNotes', { notes: this.notes })
@@ -166,7 +172,26 @@ export default {
       }
       return this.color[stat]
     },
-    loadSentence: function () {
+    loadSentence: function (word) {
+      let note = this.itemLocal.setRecord.dictRecord[word].note
+      let text = this.itemLocal.setRecord.dictRecord[word].text
+      let count = 0
+      console.log()
+      for (let fb in this.commonFeedback) {
+        if (note === this.commonFeedback[fb]) {
+          count = fb
+        }
+      }
+
+      if (count === 0) {
+        this.itemLocal.setRecord.dictRecord[word].note = this.commonFeedback[1]
+      } else if (count === Object.keys(this.commonFeedback).length) {
+        this.itemLocal.setRecord.dictRecord[word].note = text
+      } else {
+        let key = parseInt(count) + 1
+        this.itemLocal.setRecord.dictRecord[word].note = this.commonFeedback[key]
+      }
+
       let _this = this
       setTimeout(function () {
         console.log(_this.itemLocal)
@@ -187,6 +212,7 @@ export default {
       setTimeout(function () {
         _this.itemLocal = {..._this.itemLocal}
         _this.notes[_this.student][word] = dItem
+        _this.notes = {..._this.notes}
       }, 100)
     }
   },
