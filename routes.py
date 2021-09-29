@@ -624,7 +624,7 @@ def updateRecord():
         print('updateRecord', setRecord)
 
         #jStorer(user, logsRecord, userRecord, userDictionary)
-        jStorer(user, logsRecord, userRecord, setRecord)
+        #jStorer(user, logsRecord, userRecord, setRecord)
         redisStorer(user, logsRecord, userRecord, setRecord)
 
         response = {
@@ -902,7 +902,7 @@ def jStorer(user, logsRecord, userRecord, userSet):
     return True
 
 def redisChecker(user, logs, vocab, setD):
-    print('##jChecker')
+    print('##jRedisChecker')
 
     ## do not delete these they must referenced at the start
     vocab_content = json.dumps({})
