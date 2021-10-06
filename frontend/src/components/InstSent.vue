@@ -42,7 +42,7 @@
                           <td  style="width:150px" >{{item.user}}</td>
                           <td>
                             <div style="width:70px; display:inline-block">
-                            <b-icon-images variant="safe" font-scale="1.5" ></b-icon-images> {{getLength(item.setRecord.dictRecord)}}
+                            <b-icon-images class="text-safe" font-scale="1.5" ></b-icon-images> {{getLength(item.setRecord.dictRecord)}}
                             </div>
                             <div style="display:inline-block">
                                <b-form-select style="width:100px;overflow-y: hidden; display:inline">
@@ -51,8 +51,8 @@
                             </div>
                           </td>
                           <td align="left">
-                            <button class="buttonDiv bg-safe text-cream px-3" style="width:auto; height:auto" @click="showPictsOne(key)">
-                                  OPEN
+                            <button :class="openClass(item.user, key, item.setRecord.dictRecord)" style="width:auto; height:auto" @click="showPictsOne(key)">
+                                  {{workChecker(item.user, key, item.setRecord.dictRecord)}}
                             </button>
                           </td>
 
@@ -154,7 +154,7 @@ export default {
   },
   data () {
     return {
-      show: 'quiz',
+      show: 'students',
       notes: {},
       scoreShow: {},
       pictShow: {},
@@ -181,6 +181,41 @@ export default {
     }
   },
   methods: {
+    openClass: function (name, key, rec) {
+      if (this.workChecker(false, key, rec)[0] > 0) {
+        return 'buttonDiv bg-alert text-cream px-3'
+      } else if (this.workChecker(false, key, rec)[1] > 0) {
+        return 'buttonDiv bg-second text-cream px-3'
+      } else {
+        return 'buttonDiv bg-safe text-cream px-3'
+      }
+    },
+    workChecker: function (name, key, rec) {
+      let updates = false
+      let notes = false
+      if (key in this.$store.state.instructor.studentUpdates) {
+        updates = this.$store.state.instructor.studentUpdates[key]
+      }
+      if (key in this.notes) {
+        notes = this.notes[key]
+      }
+      var checkCount = 0
+      var waitCount = 0
+      for (let w in rec) {
+        if (updates && updates[w] && notes && notes[w] && notes[w]['status'] !== 1) {
+          checkCount += 1
+          if (name) {
+            console.log('redo', name, key, w, updates[w], notes[w]['status'])
+          }
+        } else if (notes && notes[w] && notes[w]['status'] !== 1) {
+          waitCount += 1
+        } else if (rec[w]['status'] === null) {
+          checkCount += 1
+          console.log('new entry', name, key, w, updates[w])
+        }
+      }
+      return [checkCount, waitCount]
+    },
     showPicts: function (user) {
       if (!this.pictShow[user] || this.pictShow[user] === 0) {
         this.pictShow[user] = 1
