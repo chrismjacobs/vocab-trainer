@@ -1,6 +1,9 @@
 <template>
     <div class="login">
         <b-card v-if="waiting" header="Login" header-bg-variant="prime" header-text-variant="cream" header-tag="h3">
+
+          <h5 class="bg-warn text-cream" v-if="report !== ''"> If using {{report}} browser, you cannot log in. Please switch to Chrome /Safari / Brave browser </h5>
+          <br>
           <b-form @submit="onSubmit" @reset="onReset" v-if="show">
 
             <b-input-group label="Email:" label-for="exampleInput1">
@@ -93,7 +96,8 @@ export default {
       msg: null,
       showEmail: false,
       msgColor: 'text-prime',
-      adverts: ['fhvs701']
+      adverts: ['fhvs701'],
+      report: ''
     }
   },
   methods: {
@@ -107,9 +111,13 @@ export default {
       this.$refs['fail'].show()
     },
     hideModal (mode) {
-      if (mode === 'success') {
+      if (mode === 'success' && this.report === '') {
         this.$refs['success'].hide()
         this.$router.push('/account')
+      } else if (mode === 'success') {
+        this.report = true
+        this.$refs['success'].hide()
+        this.$router.push('/login')
       } else if (mode === 'register') {
         this.$refs['fail'].hide()
         this.$router.push('/register')
@@ -146,40 +154,45 @@ export default {
       this.$nextTick(() => { this.show = true })
     },
     authenticate () {
-      this.waiting = false
       let _this = this
-      this.$store.dispatch('login', { userData: this.form })
-        .then(function (response) {
-          console.log('RESPONSE', response)
-          let msg = response.msg
-          _this.msg = msg
-          if (response.err) {
-            if (response.err === 1) {
-              _this.showAlert()
-            } else if (response.err === 2) {
-              localStorage.setItem('tokenReady', false)
-              _this.msgColor = 'text-warn'
-              _this.showReset()
-            }
-          } else {
-            var report = navigator.userAgent
-            console.log(report)
-            _this.msgColor = 'text-prime'
-            if (report.includes('Line')) {
-              _this.msg = 'WARNING - You are using LINE to use this webapp. Please switch to other browser for a better user experience.'
-              _this.msgColor = 'text-alert'
-            } else if (report.includes('FB')) {
-              _this.msg = 'WARNING - You are using FACEBOOK to use this webapp. Please switch to other browser for a better user experience.'
-              _this.msgColor = 'text-alert'
+      console.log(this.report)
+      _this.msgColor = 'text-prime'
+      if (this.report !== '') {
+        _this.msg = 'WARNING - Vocab Trainer cannot be used with ' + this.report + ' browser. You must first switch to other browser (eg  Chrome / Safari / Brave) to use this webapp'
+        _this.msgColor = 'text-alert'
+        _this.report = false
+        _this.showModal()
+      } else {
+        this.waiting = false
+        this.$store.dispatch('login', { userData: this.form })
+          .then(function (response) {
+            console.log('RESPONSE', response)
+            let msg = response.msg
+            _this.msg = msg
+            if (response.err) {
+              if (response.err === 1) {
+                _this.showAlert()
+              } else if (response.err === 2) {
+                localStorage.setItem('tokenReady', false)
+                _this.msgColor = 'text-warn'
+                _this.showReset()
+              }
             }
             _this.showModal()
-          }
-        })
+          })
+      }
     }
   },
   created () {
     if (localStorage.floatEmail) {
       this.form.email = localStorage.floatEmail
+    }
+    var report = navigator.userAgent
+    if (report.includes('Line')) {
+      this.report = 'Line'
+    }
+    if (report.includes('Facebook')) {
+      this.report = 'Facebook'
     }
   },
   beforeMount () {
