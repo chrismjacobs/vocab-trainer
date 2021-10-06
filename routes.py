@@ -315,7 +315,7 @@ def instructorRedis():
         msg = 'setStudent'
 
     elif action == 'setUpdate':
-        student = data['student']
+        student = str(data['student'])
         word = data['word']
         string = redisData.hget(group, "updates")
         if string == None:
@@ -324,6 +324,8 @@ def instructorRedis():
             updatesData = {}
         else:
             updatesData = json.loads(string)
+
+        print(updatesData)
 
         if student not in updatesData:
             updatesData[student] = {word:1}
