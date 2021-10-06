@@ -115,7 +115,6 @@ export default {
         this.$refs['success'].hide()
         this.$router.push('/account')
       } else if (mode === 'success') {
-        this.report = true
         this.$refs['success'].hide()
         this.$router.push('/login')
       } else if (mode === 'register') {
