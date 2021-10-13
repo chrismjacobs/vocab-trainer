@@ -121,7 +121,7 @@ export default {
         this.$refs['fail'].hide()
         this.$router.push('/register')
       } else if (mode === 'reset') {
-        this.$refs['fail'].hide()
+        this.$refs['reset'].hide()
         this.$router.push('/resetpass')
       } else {
         this.$refs['fail'].hide()
