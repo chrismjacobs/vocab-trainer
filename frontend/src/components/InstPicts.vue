@@ -100,7 +100,7 @@ export default {
         1: 'safe',
         2: 'alert',
         3: 'warn',
-        4: 'p1',
+        4: 'second',
         5: 'p2',
         6: 'grape-light'
       },
