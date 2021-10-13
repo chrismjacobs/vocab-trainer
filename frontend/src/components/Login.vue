@@ -111,6 +111,7 @@ export default {
       this.$refs['fail'].show()
     },
     hideModal (mode) {
+      console.log('mode', mode)
       if (mode === 'success' && this.report === '') {
         this.$refs['success'].hide()
         this.$router.push('/account')
@@ -121,6 +122,7 @@ export default {
         this.$refs['fail'].hide()
         this.$router.push('/register')
       } else if (mode === 'reset') {
+        console.log('passwordReset')
         this.$refs['reset'].hide()
         this.$router.push('/resetpass')
       } else {
@@ -130,6 +132,7 @@ export default {
       }
     },
     resetDirect () {
+      // click reset password link
       this.$router.push('/reset')
     },
     onSubmit (evt) {
@@ -173,11 +176,13 @@ export default {
                 _this.showAlert()
               } else if (response.err === 2) {
                 localStorage.setItem('tokenReady', false)
+                console.log('showReset')
                 _this.msgColor = 'text-warn'
                 _this.showReset()
               }
+            } else {
+              _this.showModal()
             }
-            _this.showModal()
           })
       }
     }
