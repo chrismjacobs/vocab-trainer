@@ -679,7 +679,7 @@ const getters = {
     return state.instructor.classRecords
   },
   checkQuiz (state) {
-    let qList = ['g', 'p', 'c']
+    let qList = ['g', 'p', 'L']
     if (qList.includes(state.userProfile.vocab[0])) {
       return true
     } else {
