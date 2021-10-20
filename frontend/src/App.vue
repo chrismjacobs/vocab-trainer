@@ -22,6 +22,7 @@
                 <b-nav-item @click="goTo('Account')"><div class="sideBtn bg-second"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp;Account </span></div></b-nav-item>
                 <b-nav-item v-if="checkQuiz()" @click="goTo('InstStud')"><div class="sideBtn bg-warning"><b-icon-check-square></b-icon-check-square>  <span> &nbsp;Quiz </span></div></b-nav-item>
                 <b-nav-item @click="goTo('Help')"><div class="sideBtn bg-grey"><b-icon-question-circle></b-icon-question-circle>  <span> &nbsp;Help </span></div></b-nav-item>
+                <b-nav-item @click="saveData()"><div class="sideBtn bg-cream text-prime"> <span> Save Data </span></div></b-nav-item>
                 <b-nav-item @click="logout(), goTo('Home')"><div class="sideBtn bg-alert"><b-icon-power></b-icon-power>  <span text=""> &nbsp;Logout </span></div></b-nav-item>
 
             </div>
@@ -118,7 +119,14 @@
       <div class="d-block">
         <h3> Match mode is not open right now </h3>
       </div>
-      <button class="buttonDiv mt-3 bg-info text-cream" style="width:40%"  @click="hideModal('close')">Close</button>
+      <button class="buttonDiv mt-3 bg-info text-cream" style="width:40%"  @click="hideModal('access')">Close</button>
+    </b-modal>
+
+    <b-modal align="center" ref="reload" hide-footer title="Reload" hide-header-close no-close-on-esc no-close-on-backdrop>
+      <div class="d-block">
+        <h3> You are reloading and your data will be saved </h3>
+      </div>
+      <button class="buttonDiv mt-3 bg-info text-cream" style="width:40%"  @click="hideModal('reload')">Close</button>
     </b-modal>
 
   </div>
@@ -174,11 +182,14 @@ export default {
     showAccess: function () {
       this.$refs['access'].show()
     },
+    showReload: function () {
+      this.$refs['reload'].show()
+    },
     hideModal: function (arg) {
       if (arg === 'stay') {
         this.$refs['fail'].hide()
-      } else if (arg === 'close') {
-        this.$refs['access'].hide()
+      } else if (arg === 'access' || arg === 'reload') {
+        this.$refs[arg].hide()
       } else {
         this.exitToggle()
         this.$refs['fail'].hide()
@@ -247,6 +258,12 @@ export default {
       }
       this.$store.dispatch('logout')
     },
+    saveData: function (arg) {
+      if (!this.$store.state.updateStatus) {
+        this.$store.dispatch('saveData')
+      }
+      alert('Data Saved')
+    },
     currentCount: function () {
       let count = 0
       for (let key in this.$store.state.currentActivity) {
@@ -289,13 +306,17 @@ export default {
 
     let _this = this
     window.onbeforeunload = function () {
+      _this.showReload()
       if (_this.isAuthenticated && _this.$store.state.updateStatus === false) {
         _this.$store.dispatch('saveData')
       }
       return undefined
     }
     window.onblur = function () {
-      _this.$store.dispatch('saveData')
+      if (_this.isAuthenticated && _this.$store.state.updateStatus === false) {
+        _this.$store.dispatch('saveData')
+      }
+      return undefined
     }
   }
 
