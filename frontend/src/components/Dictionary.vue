@@ -113,9 +113,9 @@
              <template v-else>
                 <b-icon-star @click="addStar(data.value, 1)"></b-icon-star> &nbsp; <br class="d-lg-none">
              </template>
-             <b-icon-card-image :variant="getVariant(data.item.Picture, data.value)" @click="picture = !picture, filterPicture(data.value, data.item.Chinese)"></b-icon-card-image>  &nbsp; <br class="d-lg-none">
+             <b-icon-card-image :class="getVariant(data.item.Picture, data.value, 'icon')" @click="filterPicture(data.value, data.item.Chinese, 'icon')"></b-icon-card-image>  &nbsp; <br class="d-lg-none">
             </b-col>
-            <b-col>
+            <b-col :class="getVariant(data.item.Picture, data.value, 'col')" @click="filterPicture(data.value, data.item.Chinese, 'col')">
               <span v-if="soundCount !== 1" :id="data.value + '_en/'" @click="playAudio(data.value, '_en/', data.item.mp3en, true)"> {{data.value}} <br> ({{data.item.Gr}}) </span>
               <span v-else align="center"> <b-icon-soundwave  font-scale="1.5" class="text-prime" :id="data.value + '_en/'" @click="playAudio(data.value, '_en/', data.item.mp3en, false)"></b-icon-soundwave> </span>
             </b-col>
@@ -472,15 +472,17 @@ export default {
     getNotes: function () {
       this.$store.dispatch('instructorLogs', { student: this.$store.state.userProfile.userID, group: this.$store.state.userProfile.classroom, action: 'getNotesStudent' })
     },
-    getVariant: function (arg, word) {
-      let v = 'prime'
-      if (arg) {
-        v = 'success'
+    getVariant: function (arg, word, mode) {
+      let v = null
+      let form = 'bg-'
+      if (mode === 'icon') {
+        v = 'prime'
+        form = 'text-'
       }
       if (this.getStatus(word)) {
         v = this.colors[this.getStatus(word)]
       }
-      return v
+      return form + v
     },
     tapSound: function () {
       if (this.soundCount === 2) {
@@ -489,7 +491,14 @@ export default {
         this.soundCount += 1
       }
     },
-    filterPicture: function (word, chinese) {
+    filterPicture: function (word, chinese, mode) {
+      console.log('filter', word, mode, this.getStatus(word))
+      if (!this.getStatus(word) && mode === 'col') {
+        return false
+      } else if (this.getStatus(word) === 0 && mode === 'col') {
+        return false
+      }
+      this.picture = !this.picture
       this.pictWord = word
       this.pictCh = chinese
       this.selected[2] = null
