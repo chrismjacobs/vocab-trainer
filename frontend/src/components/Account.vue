@@ -15,7 +15,7 @@
             <b-form-file accept="image/*" placeholder="Change Avatar" type="file" id="file" ref="file" v-on:change="handleFileUpload()"></b-form-file>
             <div v-if="lsi" class="bg-info text-cream p-2"> Ready to update </div>
             <br>
-            <b-input-group class="my-4" label="Student ID:" label-for="exampleInput2">
+            <b-input-group class="mt-3" label="Student ID:" label-for="exampleInput2">
                 <b-input-group-prepend inline is-text>
                   <b-icon icon="person-fill"></b-icon>
                 </b-input-group-prepend>
@@ -25,8 +25,9 @@
                   Your username must be 3-20 characters long.
                 </b-form-invalid-feedback>
             </b-input-group>
+            <div class="helpTab1" v-if="$store.getters.getHelp"> {{$store.getters.getHelp['Account']['name']}}  </div>
 
-            <b-input-group class="my-4" label="Email address:" label-for="exampleInput4">
+            <b-input-group class="mt-3" label="Email address:" label-for="exampleInput4">
               <b-input-group-prepend inline is-text>
                   <b-icon icon="envelope"></b-icon>
                 </b-input-group-prepend>
@@ -38,9 +39,10 @@
                 >
                 </b-form-input>
             </b-input-group>
+            <div class="helpTab1" v-if="$store.getters.getHelp"> {{$store.getters.getHelp['Account']['email']}}  </div>
 
             <div v-if="vocabOption">
-            <b-input-group class="my-4" label="Vocab:" label-for="exampleInput7">
+            <b-input-group class="mt-3" label="Vocab:" label-for="exampleInput7">
               <b-input-group-prepend inline is-text>
                   <b-icon icon="card-list"></b-icon>
                 </b-input-group-prepend>
@@ -51,9 +53,10 @@
                 >
                 </b-form-select>
             </b-input-group>
+
            </div>
 
-            <b-input-group class="my-4" label="Classroom:" label-for="exampleInput3">
+            <b-input-group class="mt-3" label="Classroom:" label-for="exampleInput3">
               <b-input-group-prepend inline is-text>
                   <b-icon icon="people"></b-icon>
                 </b-input-group-prepend>
@@ -67,16 +70,18 @@
                   Please join a classroom to play MATCH MODE and ADD PICTURES/NEW WORDS; ask your teacher for a classroom code or contact LINE: chrisj0212 to create a new classroom
                 </b-form-invalid-feedback>
             </b-input-group>
+            <div class="helpTab1" v-if="$store.getters.getHelp"> {{$store.getters.getHelp['Account']['classroom']}}  </div>
 
-            <b-input-group class="my-4" label="Student ID:" label-for="exampleInput2">
+            <b-input-group class="mt-3" label="Student ID:" label-for="exampleInput2">
                 <b-input-group-prepend inline is-text>
                   <b-icon icon="grid3x2-gap"></b-icon>
                 </b-input-group-prepend>
                 <b-form-input id="student ID" v-model="userProfile.studentID" placeholder="Student ID (if joining a class)">
                 </b-form-input>
             </b-input-group>
+            <div class="helpTab1" v-if="$store.getters.getHelp"> {{$store.getters.getHelp['Account']['studentid']}}  </div>
 
-            <b-input-group class="my-4" label="School:" label-for="exampleInput3">
+            <b-input-group class="mt-3" label="School:" label-for="exampleInput3">
               <b-input-group-prepend inline is-text>
                   <b-icon icon="geo-alt"></b-icon>
                 </b-input-group-prepend>
@@ -87,7 +92,7 @@
                 </b-form-input>
             </b-input-group>
 
-            <div class="d-flex justify-content-between">
+            <div class="d-flex justify-content-between mt-3">
                 <div>
                 <button class="buttonDiv bg-info px-3" style="width:120px" type="submit"> <b-icon-forward variant="cream" font-scale="1.5"></b-icon-forward></button>
                 </div>
@@ -128,12 +133,13 @@ import { imageValidation } from '@/utils'
 import Dash from './Dash'
 
 export default {
-  name: 'app',
+  name: 'Account',
   components: {
     Dash
   },
   data () {
     return {
+      cName: 'Account',
       s3: 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/profiles/',
       userProfile: null,
       lsi: null,

@@ -1,7 +1,6 @@
 <template>
   <div class="matchBar" v-if="!toolbarShow">
     <div>
-
       <div align="center" class="bg-prime p-2" style="height:60px">
         <div v-if="waiting === 0" :class="'buttonDiv text-prime bg-' + player" style="width: 60%" @click="playerReady(), emitWaiting(1)">
           <h5 class="mt-1"> Ready </h5>
@@ -15,6 +14,7 @@
           <b-spinner class="align-middle"></b-spinner> &nbsp;&nbsp; <strong>Loading...</strong>
         </div>
       </div>
+      <div class="helpTab1" v-if="$store.getters.getHelp"> <h6 style="border-bottom: 2px solid grey" v-for="(t, key) in breaker($store.getters.getHelp['Toolbar'][testType])" :key="key"> {{t}} </h6>  </div>
 
       <div class="bg-fade p-2 pb-4" v-if="waiting === 0">
         <b-row cols="2" :cols-xl="colGet">
@@ -227,6 +227,10 @@ export default {
     }
   },
   methods: {
+    breaker: function (text) {
+      var tList = text.split(';')
+      return tList
+    },
     makeTest: function () {
       // reset variables
       this.testItemsRoot = []
@@ -650,6 +654,7 @@ export default {
     // }
   },
   mounted () {
+    console.log('testType', this.testType)
     if (this.testType[1] === 'r' || this.testType.includes('AI')) {
       this.timeReset = 6
     } else {

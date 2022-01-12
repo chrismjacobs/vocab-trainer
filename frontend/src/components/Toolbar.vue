@@ -17,12 +17,12 @@
         </b-row>
       </div>
 
-      <div :class="getClass('fourth', 'prime', ' p-2 pb-4 mb-5')" v-if="showToolbar">
+      <div :class="getClass('fourth', 'prime', ' p-2 pb-4 mb-3')" v-if="showToolbar">
         <b-row cols="2" :cols-xl="colGet" >
           <b-col class="mt-4">
               <div align="center">
                 <div class="headDiv">
-                  Words
+                  WORDS
                 </div>
                 <div class="spinDiv d-none d-sm-block">
                   <b-form-spinbutton v-model="words" min="6" max="30" step=2 vertical style="height:125px"></b-form-spinbutton>
@@ -39,7 +39,7 @@
           <b-col class="mt-4" v-if="testType === 'transEng' || testType === 'transCh'">
               <div align="center">
                 <div class="headDiv">
-                  Choices
+                  CHOICES
                 </div>
                 <div class="spinDiv d-none d-sm-block">
                 <b-form-spinbutton v-model="choices" min="3" max="5" vertical style="height:125px"></b-form-spinbutton>
@@ -52,7 +52,7 @@
 
           <b-col class="mt-4">
             <div align="center">
-              <div class="headDiv"> <span v-if="testType.includes('Eng')"> Sound </span> <span v-else> Mode </span> </div><br>
+              <div class="headDiv"> <span v-if="testType.includes('Eng') || testType.includes('type')"> SOUND </span> <span v-else> MODE </span> </div><br>
               <b-form-radio-group
                 style="width:120px"
                 v-model="sound"
@@ -64,7 +64,7 @@
             </div>
             <br>
             <div align="center"  v-if="testType === 'transEng' || testType === 'transCh'">
-              <div class="headDiv"> Labels </div><br>
+              <div class="headDiv"> LABELS </div><br>
               <b-form-radio-group
                   style="width:120px"
                   v-model="label"
@@ -78,7 +78,7 @@
 
           <b-col class="mt-4" v-if="testType === 'typeTest'">
             <div align="center">
-              <div class="headDiv"> Display </div><br>
+              <div class="headDiv"> DISPLAY </div><br>
               <b-form-radio-group
               style="width:120px"
               v-model="display"
@@ -92,7 +92,7 @@
 
           <b-col class="mt-4" v-if="testType === 'typeTest'">
              <div align="center">
-              <div class="headDiv"> Feedback </div><br>
+              <div class="headDiv"> FEEDBACK </div><br>
               <b-form-radio-group
               style="width:120px"
               v-model="feedback"
@@ -106,7 +106,7 @@
 
           <b-col class="mt-4" v-if="testType === 'typeTest'">
             <div align="center">
-                <div class="headDiv"> Assist </div><br>
+                <div class="headDiv"> ASSIST </div><br>
               <b-form-radio-group
                 style="width:120px"
                 v-model="spelling"
@@ -120,7 +120,7 @@
 
           <b-col class="mt-4">
             <div align="center">
-                <div class="headDiv"> Sort </div><br>
+                <div class="headDiv"> SORT </div><br>
               <b-form-radio-group
                 style="width:120px"
                 v-model="sort"
@@ -134,6 +134,9 @@
 
         </b-row>
       </div>
+
+      <div class="helpTab1" v-if="$store.getters.getHelp && showToolbar"> <h6 style="border-bottom: 2px solid grey" v-for="(t, key) in breaker($store.getters.getHelp['Toolbar'][testType])" :key="key"> {{t}} </h6>  </div>
+      <div class="helpTab1" v-if="$store.getters.getHelp && !showToolbar"> <h6 style="border-bottom: 2px solid grey" v-for="(t, key) in breaker($store.getters.getHelp['Toolbar']['answers'])" :key="key"> {{t}} </h6>  </div>
 
       <div>
       </div>
@@ -448,6 +451,10 @@ export default {
     },
     retryTest: function () {
       this.$emit('retry', null)
+    },
+    breaker: function (text) {
+      var tList = text.split(';')
+      return tList
     },
     alphabet: function () {
       let alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'

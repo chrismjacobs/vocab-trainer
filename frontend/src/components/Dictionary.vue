@@ -29,7 +29,10 @@
             v-model="selected[0]"
             ></b-form-input>
           </b-col>
+
         </b-row>
+          <div class="helpTab1" v-if="$store.getters.getHelp"> {{$store.getters.getHelp['Dictionary']['input']}}  </div>
+
         <b-row >
           <b-col align="center">
             <button v-if="Object.keys(activeQuiz).length > 0" class="buttonDiv bg-second p-1" style="width:60px" @click="changeSelected('q')"> <b-icon-card-checklist :variant="getIcon('q')" font-scale="1.5"></b-icon-card-checklist><br><span class="text-cream" style="font-size:10pt">QUIZ</span></button>
@@ -42,8 +45,8 @@
             <button  :class="getSoundButton()" style="width:60px;t" @click="tapSound()"> <b-icon-soundwave :variant="getSoundwave()" font-scale="1.5"></b-icon-soundwave><br><span class="text-cream" style="font-size:10pt">TEST</span></button>
             <b-form-select class="bg-second text-cream" style="width:10%;overflow-y: hidden" @change="selected[2] = null" v-model="selected[1]" :options="optionsCheck" :select-size="1"></b-form-select>
           </b-col>
-
         </b-row>
+          <div class="helpTab1" v-if="$store.getters.getHelp"> <span v-for="(t, key) in breaker($store.getters.getHelp['Dictionary']['dictTabs'])" :key="key"> {{t}} <br> </span> </div>
         <b-row class="mt-3" align="center">
           <b-col>
               <b-form-group>
@@ -61,6 +64,8 @@
               </b-form-group>
           </b-col>
         </b-row>
+          <div class="helpTab1" v-if="$store.getters.getHelp"> {{$store.getters.getHelp['Dictionary']['sortTabs']}}  </div>
+
       </div>
 
       <div align="center" v-if="selected[1] === 'p' && !showPictures">
@@ -377,6 +382,10 @@ export default {
     }
   },
   methods: {
+    breaker: function (text) {
+      var tList = text.split(';')
+      return tList
+    },
     showAlert: function () {
       this.$refs['alert'].show()
     },

@@ -20,10 +20,11 @@
                 <Dash :tableItems="tableItems" type="nav"></Dash>
                 <hr>
                 <b-nav-item @click="goTo('Account')"><div class="sideBtn bg-second"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp;Account </span></div></b-nav-item>
-                <b-nav-item v-if="checkQuiz()" @click="goTo('InstStud')"><div class="sideBtn bg-warning"><b-icon-check-square></b-icon-check-square>  <span> &nbsp;Quiz </span></div></b-nav-item>
-                <b-nav-item @click="goTo('Help')"><div class="sideBtn bg-grey"><b-icon-question-circle></b-icon-question-circle>  <span> &nbsp;Help </span></div></b-nav-item>
-                <b-nav-item @click="saveData()"><div class="sideBtn bg-cream text-prime"> <span> Save Data </span></div></b-nav-item>
-                <b-nav-item @click="logout(), goTo('Home')"><div class="sideBtn bg-alert"><b-icon-power></b-icon-power>  <span text=""> &nbsp;Logout </span></div></b-nav-item>
+                <b-nav-item @click="setHelp()"><div :class="setHelpClass('sideBtn ')"><b-icon-question-circle></b-icon-question-circle>  <span> &nbsp;Help Mode </span></div></b-nav-item>
+                <b-nav-item v-if="checkQuiz()" @click="goTo('InstStud')"><div class="sideBtn bg-warning text-prime"><b-icon-check-square></b-icon-check-square>  <span> &nbsp;Quiz </span></div></b-nav-item>
+                <b-nav-item @click="goTo('Help')"><div class="sideBtn bg-peel text-prime"><b-icon-question-circle></b-icon-question-circle>  <span> &nbsp;Feedback </span></div></b-nav-item>
+                <b-nav-item @click="saveData()"><div class="sideBtn bg-cream text-prime"> <b-icon-cloud-upload></b-icon-cloud-upload><span> &nbsp;Save Data </span></div></b-nav-item>
+                <b-nav-item @click="logout(), goTo('Home')"><div class="sideBtn bg-black"><b-icon-power></b-icon-power>  <span text=""> &nbsp;Logout </span></div></b-nav-item>
 
             </div>
         </b-navbar-nav>
@@ -83,11 +84,12 @@
 
                     <div v-if="isAuthenticated">
                       <button v-if="$store.state.userProfile.instructor" class="buttonDiv mt-2 bg-info text-cream px-1" style="height:50px; width:100%" @click="goTo('Instructor')"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp;Instructor </span> </button>
-                      <button v-if="$store.state.userProfile.userID === 1" class="buttonDiv mt-2 bg-peel text-prime px-1" style="height:50px; width:100%" @click="goTo('JGrabber')"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp;JGrabber </span> </button>
+                      <button v-if="$store.state.userProfile.userID === 1" class="buttonDiv mt-2 bg-grape text-cream px-1" style="height:50px; width:100%" @click="goTo('JGrabber')"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp;JGrabber </span> </button>
                       <button v-if="$store.state.userProfile.userID === 1" class="buttonDiv mt-2 bg-safe text-prime px-1" style="height:50px; width:100%" @click="goTo('ClassCodes')"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp;CODES </span> </button>
                       <button v-if="checkQuiz()" class="buttonDiv mt-2 bg-warning text-prime px-1" style="height:50px; width:100%" @click="goTo('InstStud')"><b-icon-check-square></b-icon-check-square>  <span> &nbsp;Quiz </span> </button>
-                      <button class="buttonDiv mt-2 bg-third text-prime px-1" style="height:50px; width:100%" @click="sendEmail()"><b-icon-question-circle></b-icon-question-circle>  <span text=""> &nbsp;Help </span> </button>
-                      <button class="buttonDiv mt-2 bg-alert text-cream px-1" style="height:50px; width:100%" @click="logout()"><b-icon-power></b-icon-power>  <span text=""> &nbsp;Logout </span> </button>
+                      <button :class="setHelpClass('buttonDiv ')" style="height:50px; width:100%" @click="setHelp()"><b-icon-question-circle></b-icon-question-circle>  <span text=""> &nbsp;Help Mode</span> </button>
+                      <button class="buttonDiv mt-2 bg-peel text-prime px-1" style="height:50px; width:100%" @click="sendEmail()"><b-icon-question-circle></b-icon-question-circle>  <span text=""> &nbsp;Feedback </span> </button>
+                      <button class="buttonDiv mt-2 bg-black text-cream px-1" style="height:50px; width:100%" @click="logout()"><b-icon-power></b-icon-power>  <span text=""> &nbsp;Logout </span> </button>
                     </div>
                     <div v-else align="center">
                      <b-card header="Welcome" header-bg-variant="prime" header-text-variant="cream" header-tag="h3">
@@ -209,6 +211,17 @@ export default {
       }
       this.exit = !this.exit
       console.log(this.exit)
+    },
+    setHelp: function () {
+      console.log('setHelp')
+      this.$store.dispatch('setHelp')
+    },
+    setHelpClass: function (note) {
+      if (this.$store.state.helpMode) {
+        return note + 'mt-2 bg-alert text-cream px-1'
+      } else {
+        return note + 'mt-2 bg-cream text-alert px-1'
+      }
     },
     checkQuiz: function () {
       return this.$store.getters.checkQuiz
@@ -410,7 +423,8 @@ body {
   height: 53px;
   display: flex;
   align-items: center;
-  justify-content: center
+  justify-content: center;
+  border-radius: 5px;
 }
 
 .tabLink {
@@ -598,6 +612,19 @@ body {
     color: theme-color('prime');
     background:  #c2c2c2;
     content:"";
+}
+
+.helpTab1 {
+  background: theme-color('fade');
+  color: theme-color('alert');
+  padding: 6px;
+  border-radius: 5px;
+}
+
+.helpTab2 {
+  background: theme-color('fade');
+  color: theme-color('alert');
+  padding: 6px;
 }
 
 </style>

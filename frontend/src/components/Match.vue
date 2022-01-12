@@ -18,6 +18,10 @@
               <h5> Or just play with AI Bot </h5>
             </div>
 
+      <div class="helpTab1" v-if="$store.getters.getHelp && validClass"> <h6 style="border-bottom: 2px solid grey" v-for="(t, key) in breaker($store.getters.getHelp['Toolbar']['games'])" :key="key"> {{t}} </h6>  </div>
+
+
+
             <div class="bg-grey text-cream">
               <b-row align="center">
                 <b-col>
@@ -317,6 +321,10 @@ export default {
     }
   },
   methods: {
+    breaker: function (text) {
+      var tList = text.split(';')
+      return tList
+    },
     filterOnline: function (row) {
       if (row.status === 1 || row.status === 2) {
         return true
