@@ -1,0 +1,31 @@
+{
+    "Account": {
+        "name": "This is your username, you can change at any time",
+        "email": "You will need your email address to log in",
+        "classroom": "Use a classroom code to join a classroom a load a word list",
+        "studentid": "Add your student ID for indentification in the classroom",
+        "account": "",
+        "history": "",
+        "session": "",
+        "activities": ""
+    },
+    "Dictionary": {
+        "input": "Search dictionary by first letter",
+        "dictTabs": "PICT - add pictures and sentences to words ; STAR - view/edit/clear star word list ; TEST - Hide vocab list and test with sound",
+        "sortTabs": "Sort your vocab by difficulty; (--) Problem words (-) Weak words (0) Neutral words (+) Good words (++) Strong words"
+    },
+    "Toolbar": {
+        "transEng": "WORDS - choose 6-30 words; CHOICES - set 3/4/5 answer choices; SOUND:; - Exam Mode (hide answer / play audio); - Auto Mode (show answer / play audio); - None (show answer / no audio); LABELS - show grammar labels in test; SORT - load a list from starred words or words that are easier or harder from your practice",
+        "transCh": "WORDS - choose 6-30 words; CHOICES - set 3/4/5 answer choices; MODE:; - Exam Mode (choose by listening); - Spelling (choose by spelling mistake); - Normal (choose by reading); LABELS - show grammar labels in test; SORT - load a list from starred words or words that are easier or harder from your practice",
+        "typeTest": "WORDS - choose 6-30 words; SOUND:; - English (play English audio); - Chinese (play Chinese audio); - None (no audio); DISPLAY:; - Chinese (show Chinese only); - Labels (show grammar label only); - None (show no Chinese or labels); FEEDBACK:; - Constant (spelling feedback always on); - Complete (feedback after word completed); - None (exam mode - no feedback given); ASSIST - choose blank for exam mode or choose another mode to assist your typing skill; SORT - load a list from starred words or words that are easier or harder from your practice",
+        "TransEng": "Match Mode - challenger can choose settings, match will start with both player select 'Ready'; WORDS - choose 6-30 words; CHOICES - set 3/4/5 answer choices; TIMER - decide how long is allowed for opponents second choice; SORT - load a list from starred words or words that are easier or harder from your practice",
+        "TransCh": "Match Mode - challenger can choose settings, match will start with both player select 'Ready'; WORDS - choose 6-30 words; CHOICES - set 3/4/5 answer choices; TIMER - decide how long is allowed for opponents second choice; SORT - load a list from starred words or words that are easier or harder from your practice",
+        "TypeMatch": "Match Mode - challenger can choose settings, match will start with both player select 'Ready'; WORDS - choose 6-30 words; ASSIST - choose blank for exam mode or choose another mode to assist your typing skill; SORT - load a list from starred words or words that are easier or harder from your practice",
+        "MemoryMatch": "AI Mode - the bot has 3 levels for you to try and beat; Memory Card Game:; Trans - translate vocab; English - all English vocab; 1/1 take turns; >>> correct answer can continue; Show All - All vocab is visible; WORDS - choose 6-12 words; SORT - load a list from starred words or words that are easier or harder from your practice",
+        "AITransEng": "AI Mode - the bot has 3 levels for you to try and beat, match will start when you select ready; WORDS - choose 6-30 words; CHOICES - set 3/4/5 answer choices; TIMER - you have 6 seconds to choose after AI makes a mistake; SORT - load a list from starred words or words that are easier or harder from your practice; CHECK ANSWERS - after match, check answers/scores then have rematch or exit",
+        "AITransCh": "AI Mode - the bot has 3 levels for you to try and beat, match will start when you select ready; WORDS - choose 6-30 words; CHOICES - set 3/4/5 answer choices; TIMER - you have 6 seconds to choose after AI makes a mistake; SORT - load a list from starred words or words that are easier or harder from your practice; CHECK ANSWERS - after match, check answers/scores then have rematch or exit",
+        "AIMemoryMatch": "AI Mode - the bot has 3 levels for you to try and beat, match will start when you select ready; Memory Card Game:; Trans - translate vocab; English - all English vocab; 1/1 take turns; >>> correct answer can continue; Show All - All vocab is visible; WORDS - choose 6-12 words; SORT - load a list from starred words or words that are easier or harder from your practice; CHECK ANSWERS - after match, check answers/scores then have rematch or exit",
+        "answers": "NEW - start a new test; REDO - redo the last test words; SETUP - change test settings; CHECK ANSWERS:; - see correct answers; - select vocab to play audio ; mark star words for later practice",
+        "games": "Welcome to the Game Zone; First, choose your game style;  - English to Chinese; - Chinese to English; - Spelling (typing match); - Memory Match; Then, choose your opponent and wait for them to accept challenge; If someone challenges you, then accept or decline; If no classmates are online, challenge the AI Bot"
+    }
+}

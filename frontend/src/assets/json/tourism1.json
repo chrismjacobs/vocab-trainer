@@ -1,1 +1,3357 @@
-{"a party of": {"gl": "phr.", "defch1": "\u4e00\u5925(\u7fa4)\u4eba\u4e00\u884c\u56db\u4eba", "defch2": ""}, "accept": {"gl": "v.", "defch1": "\u63a5\u53d7", "defch2": ""}, "accommodation": {"gl": "n.", "defch1": "\u4f4f\u8655;\u81b3\u5bbf", "defch2": ""}, "accompany": {"gl": "v.", "defch1": "\u966a\u4f34", "defch2": ""}, "ache": {"gl": "v.", "defch1": "\u75bc\u75db", "defch2": ""}, "actually": {"gl": "adv.", "defch1": "\u8aaa\u5be6\u5728\u7684;\u4e8b\u5be6\u4e0a", "defch2": ""}, "additional": {"gl": "adj.", "defch1": "\u984d\u5916\u7684", "defch2": ""}, "address": {"gl": "n.", "defch1": "\u5730\u5740", "defch2": ""}, "adjust": {"gl": "v.", "defch1": "\u8abf\u6574", "defch2": ""}, "advise": {"gl": "v.", "defch1": "\u5efa\u8b70;\u52f8\u544a;\u901a\u77e5;\u63a8\u85a6", "defch2": ""}, "Africa": {"gl": "prop.", "defch1": "\u975e\u6d32", "defch2": ""}, "air conditioning": {"gl": "n.", "defch1": "\u51b7\u6c23;\u7a7a\u6c23\u8abf\u7bc0\u7cfb\u7d71", "defch2": ""}, "airline": {"gl": "n.", "defch1": "\u822a\u7a7a\u516c\u53f8", "defch2": ""}, "airline service counter": {"gl": "n.", "defch1": "\u822a\u7a7a\u516c\u53f8\u670d\u52d9\u6ac3\u6aaf", "defch2": ""}, "airplane": {"gl": "n.", "defch1": "\u98db\u6a5f", "defch2": ""}, "airport": {"gl": "n.", "defch1": "\u6a5f\u5834", "defch2": ""}, "airsickness bag": {"gl": "n.", "defch1": "\u6688\u6a5f\u888b", "defch2": ""}, "aisle": {"gl": "n.", "defch1": "\u8d70\u9053", "defch2": ""}, "aisle seat": {"gl": "n.", "defch1": "\u9760\u8d70\u9053\u7684\u5ea7\u4f4d", "defch2": ""}, "alcohol": {"gl": "n.", "defch1": "\u542b\u6709\u9152\u7cbe\u98f2\u6599", "defch2": ""}, "allow": {"gl": "v.", "defch1": "\u5141\u8a31;\u7d66\u4e88", "defch2": ""}, "ancient": {"gl": "adj.", "defch1": "\u53e4\u8001\u7684", "defch2": ""}, "anniversary party": {"gl": "n.", "defch1": "\u5468\u5e74\u7d00\u5ff5\u6d3e\u5c0d", "defch2": ""}, "announce": {"gl": "v.", "defch1": "\u5ba3\u5e03;\u8072\u660e", "defch2": ""}, "annual meeting": {"gl": "n.", "defch1": "\u5e74\u5ea6\u6703\u8b70", "defch2": ""}, "annual sale": {"gl": "n.", "defch1": "\u9031\u5e74\u6176", "defch2": ""}, "answer the door": {"gl": "phr.", "defch1": "\u61c9\u9580", "defch2": ""}, "apologize": {"gl": "v.", "defch1": "\u9053\u6b49", "defch2": ""}, "appointment": {"gl": "n.", "defch1": "(\u8f03\u6b63\u5f0f\u7684)\u7d04\u6703", "defch2": ""}, "appreciate": {"gl": "v.", "defch1": "\u611f\u6fc0;\u611f\u8b1d", "defch2": ""}, "appropriate": {"gl": "adj.", "defch1": "\u6070\u7576\u7684", "defch2": ""}, "Arctic Ocean": {"gl": "prop.", "defch1": "\u5317\u6975\u6d77;\u5317\u51b0\u6d0b", "defch2": ""}, "area": {"gl": "n.", "defch1": "\u5730\u5340", "defch2": ""}, "armrest": {"gl": "n.", "defch1": "\u6276\u624b", "defch2": ""}, "arrange": {"gl": "v.", "defch1": "\u5b89\u6392;\u7c4c\u5099", "defch2": ""}, "arrival": {"gl": "n.", "defch1": "\u62b5\u9054;\u5165\u5883", "defch2": ""}, "arrival time": {"gl": "n.", "defch1": "\u5230\u9054\u6642\u9593", "defch2": ""}, "arrive": {"gl": "v.", "defch1": "\u62b5\u9054", "defch2": ""}, "as soon as possible": {"gl": "phr.", "defch1": "\u76e1\u5feb\u5730", "defch2": ""}, "Asia": {"gl": "prop.", "defch1": "\u4e9e\u6d32", "defch2": ""}, "assistant manager": {"gl": "n.", "defch1": "\u5354\u7406;\u8944\u7406", "defch2": ""}, "at least": {"gl": "phr.", "defch1": "\u6700\u5c11;\u81f3\u5c11", "defch2": ""}, "at once": {"gl": "phr.", "defch1": "\u99ac\u4e0a;\u7acb\u5373", "defch2": ""}, "Atlantic Ocean": {"gl": "prop.", "defch1": "\u5927\u897f\u6d0b", "defch2": ""}, "audio guide": {"gl": "n.", "defch1": "\u8a9e\u97f3\u5c0e\u89bd", "defch2": ""}, "audio tour": {"gl": "n.", "defch1": "\u8a9e\u97f3\u5c0e\u89bd", "defch2": ""}, "Australia": {"gl": "prop.", "defch1": "\u6fb3\u6d32", "defch2": ""}, "available": {"gl": "adj.", "defch1": "\u53ef\u7528\u7684;\u6709\u7a7a\u7684", "defch2": ""}, "avoid": {"gl": "v.", "defch1": "\u907f\u514d", "defch2": ""}, "B&B": {"gl": "prop.", "defch1": "\u6c11\u5bbf", "defch2": ""}, "baggage": {"gl": "n.", "defch1": "\u884c\u674e", "defch2": ""}, "baggage cart": {"gl": "n.", "defch1": "\u884c\u674e\u63a8\u8eca", "defch2": ""}, "baggage claim area": {"gl": "n.", "defch1": "\u884c\u674e\u9818\u53d6\u8655", "defch2": ""}, "bake": {"gl": "v.", "defch1": "\u70d8\u70e4", "defch2": ""}, "balcony": {"gl": "n.", "defch1": "\u967d\u81fa", "defch2": ""}, "ballroom": {"gl": "n.", "defch1": "\u5bb4\u6703\u5ef3", "defch2": ""}, "banquet": {"gl": "n.", "defch1": "\u5bb4\u6703", "defch2": ""}, "banquet hall": {"gl": "n.", "defch1": "\u5bb4\u6703\u5ef3", "defch2": ""}, "banquet room": {"gl": "n.", "defch1": "\u5bb4\u6703\u5ef3", "defch2": ""}, "bartender": {"gl": "n.", "defch1": "\u9152\u4fdd", "defch2": ""}, "bathtub": {"gl": "n.", "defch1": "\u6d74\u7f38", "defch2": ""}, "bay": {"gl": "n.", "defch1": "(\u6d77\u6216\u6e56\u6cca\u7684)\u7063", "defch2": ""}, "bed and breakfast": {"gl": "n.", "defch1": "\u6c11\u5bbf", "defch2": ""}, "bellboy": {"gl": "n.", "defch1": "\u884c\u674e\u54e1", "defch2": ""}, "bellhop": {"gl": "n.", "defch1": "\u4f8d\u8005", "defch2": ""}, "benefit": {"gl": "n.", "defch1": "\u597d\u8655;\u5229\u76ca", "defch2": ""}, "between": {"gl": "prep.", "defch1": "\u4e4b\u9593", "defch2": ""}, "bicycle": {"gl": "n.", "defch1": "\u81ea\u884c\u8eca", "defch2": ""}, "bill": {"gl": "n.", "defch1": "\u5e33\u55ae;(\u7f8e)\u9214\u7968", "defch2": ""}, "birthday party": {"gl": "n.", "defch1": "\u751f\u65e5\u6d3e\u5c0d(\u805a\u6703)", "defch2": ""}, "blanket": {"gl": "n.", "defch1": "\u6bdb\u6bef;\u6bef\u5b50", "defch2": ""}, "board": {"gl": "n.", "defch1": "\u767b\u4e0a(\u98db\u6a5f\u3001\u8239\u6216\u706b\u8eca)", "defch2": ""}, "boarding": {"gl": "n.", "defch1": "\u767b\u6a5f;\u4e0a\u8239(\u6216\u706b\u8eca)", "defch2": ""}, "boarding gate": {"gl": "n.", "defch1": "\u767b\u6a5f\u9580", "defch2": ""}, "boarding pass": {"gl": "n.", "defch1": "\u767b\u6a5f\u8b49", "defch2": ""}, "boat": {"gl": "n.", "defch1": "\u8239", "defch2": ""}, "book": {"gl": "v.", "defch1": "\u9810\u8a02;\u8a02\u623f;\u8a02\u4f4d", "defch2": ""}, "booklet": {"gl": "n.", "defch1": "\u5c0f\u518a\u5b50", "defch2": ""}, "Boston": {"gl": "prop.", "defch1": "\u6ce2\u58eb\u9813", "defch2": ""}, "boutique": {"gl": "n.", "defch1": "\u7cbe\u54c1\u5e97", "defch2": ""}, "Brazil": {"gl": "prop.", "defch1": "\u5df4\u897f", "defch2": ""}, "breakfast voucher": {"gl": "n.", "defch1": "\u65e9\u9910\u5238", "defch2": ""}, "briefcase": {"gl": "n.", "defch1": "\u516c\u4e8b\u5305", "defch2": ""}, "buffet": {"gl": "n.", "defch1": "\u81ea\u52a9\u9910", "defch2": ""}, "bus stop": {"gl": "n.", "defch1": "\u516c\u8eca\u505c\u9760\u7ad9", "defch2": ""}, "business card": {"gl": "n.", "defch1": "\u540d\u7247", "defch2": ""}, "business center": {"gl": "n.", "defch1": "\u5546\u52d9\u4e2d\u5fc3", "defch2": ""}, "business class": {"gl": "n.", "defch1": "\u5546\u52d9\u8259", "defch2": ""}, "by the way": {"gl": "phr.", "defch1": "\u9806\u5e36\u4e00\u63d0", "defch2": ""}, "cab": {"gl": "n.", "defch1": "\u8a08\u7a0b\u8eca", "defch2": ""}, "cabin": {"gl": "n.", "defch1": "\u5c0f\u5c4b;\u5ba2\u8259", "defch2": ""}, "cafe": {"gl": "n.", "defch1": "\u5496\u5561\u5ef3(\u9928)", "defch2": ""}, "camera": {"gl": "n.", "defch1": "\u76f8\u6a5f", "defch2": ""}, "campsite": {"gl": "n.", "defch1": "\u9732\u71df\u5730", "defch2": ""}, "Canada": {"gl": "prop.", "defch1": "\u52a0\u62ff\u5927", "defch2": ""}, "cancel": {"gl": "v.", "defch1": "\u53d6\u6d88", "defch2": ""}, "cancellation": {"gl": "n.", "defch1": "\u53d6\u6d88", "defch2": ""}, "capacity": {"gl": "n.", "defch1": "\u80fd\u529b;\u5bb9\u91cf;\u8cc7\u683c", "defch2": ""}, "capital": {"gl": "n.", "defch1": "\u9996\u90fd", "defch2": ""}, "captain": {"gl": "n.", "defch1": "\u8239\u9577;\u6a5f\u9577;\u968a\u9577", "defch2": ""}, "car rental": {"gl": "n.", "defch1": "\u79df\u8eca\u79df\u8cc3", "defch2": ""}, "carried mail": {"gl": "phr.", "defch1": "\u904b\u8f09\u90f5\u4ef6", "defch2": ""}, "carry-on": {"gl": "adj.", "defch1": "\u96a8\u8eab\u651c\u5e36\u7684", "defch2": ""}, "carry-on bag": {"gl": "n.", "defch1": "\u96a8\u8eab\u651c\u5e36\u7684\u5305", "defch2": ""}, "cart": {"gl": "n.", "defch1": "\u8cfc\u7269\u8eca", "defch2": ""}, "cash": {"gl": "n.", "defch1": "\u73fe\u91d1", "defch2": ""}, "cashier": {"gl": "n.", "defch1": "\u6536\u9280\u54e1", "defch2": ""}, "casino": {"gl": "n.", "defch1": "\u8ced\u5834", "defch2": ""}, "castle": {"gl": "n.", "defch1": "\u57ce\u5821", "defch2": ""}, "cell phone": {"gl": "n.", "defch1": "\u624b\u6a5f", "defch2": ""}, "change": {"gl": "n.", "defch1": "\u6539\u8b8a", "defch2": ""}, "change planes": {"gl": "phr.", "defch1": "\u8f49\u6a5f", "defch2": ""}, "charge": {"gl": "n.", "defch1": "\u6536\u8cbb;\u8cbb\u7528", "defch2": ""}, "chart": {"gl": "n.", "defch1": "\u5716\u8868", "defch2": ""}, "check": {"gl": "n.", "defch1": "\u652f\u7968;\u5e33\u55ae", "defch2": ""}, "check in": {"gl": "phr.", "defch1": "\u7c3d\u5230", "defch2": ""}, "check out": {"gl": "phr.", "defch1": "\u9000\u623f", "defch2": ""}, "check-in": {"gl": "n.", "defch1": "\u5831\u5230", "defch2": ""}, "check-in counter": {"gl": "n.", "defch1": "\u767b\u6a5f\u6ac3\u6aaf", "defch2": ""}, "check-out time": {"gl": "phr.", "defch1": "\u9000\u623f\u6642\u9593", "defch2": ""}, "chef": {"gl": "n.", "defch1": "\u9910\u5ef3\u5927\u5eda;\u4e3b\u5eda", "defch2": ""}, "child care": {"gl": "n.", "defch1": "\u6258\u5152\u670d\u52d9", "defch2": ""}, "children": {"gl": "n.", "defch1": "\u5c0f\u5b69(\u8907\u6578)", "defch2": ""}, "China": {"gl": "prop.", "defch1": "\u4e2d\u570b", "defch2": ""}, "Christmas party": {"gl": "prop.", "defch1": "\u8056\u8a95\u6d3e\u5c0d;\u8056\u8a95\u7bc0\u805a\u6703", "defch2": ""}, "church": {"gl": "n.", "defch1": "\u6559\u5802", "defch2": ""}, "city tour": {"gl": "phr.", "defch1": "\u5e02\u5340\u5c0e\u89bd(\u89c0\u5149)", "defch2": ""}, "claim": {"gl": "n.", "defch1": "\u5ba3\u544a", "defch2": ""}, "climate": {"gl": "n.", "defch1": "\u6c23\u5019", "defch2": ""}, "clothes": {"gl": "n.", "defch1": "\u8863\u670d", "defch2": ""}, "coach": {"gl": "n.", "defch1": "\u6559\u7df4;(\u666e\u901a)\u65c5\u5ba2\u8eca\u5ec2;\u5df4\u58eb", "defch2": ""}, "coat": {"gl": "n.", "defch1": "\u5916\u5957", "defch2": ""}, "cocktail": {"gl": "n.", "defch1": "\u96de\u5c3e\u9152", "defch2": ""}, "coffee shop": {"gl": "phr.", "defch1": "\u5496\u5561\u5e97", "defch2": ""}, "coffeemaker": {"gl": "n.", "defch1": "\u5496\u5561\u6a5f", "defch2": ""}, "coin": {"gl": "n.", "defch1": "\u786c\u5e63", "defch2": ""}, "compact": {"gl": "n.", "defch1": "\u5c0f\u8f4e\u8eca", "defch2": ""}, "company": {"gl": "n.", "defch1": "\u516c\u53f8", "defch2": ""}, "complaint": {"gl": "n.", "defch1": "\u62b1\u6028", "defch2": ""}, "complete": {"gl": "adj.", "defch1": "\u5b8c\u6210;\u5b8c\u6574\u7684;\u5168\u90e8\u7684", "defch2": ""}, "complicated": {"gl": "adj.", "defch1": "\u8907\u96dc\u7684", "defch2": ""}, "concierge": {"gl": "n.", "defch1": "\u670d\u52d9\u81fa\u4eba\u54e1", "defch2": ""}, "conference": {"gl": "n.", "defch1": "\u6b63\u5f0f\u7814\u8a0e\u6703(\u8b70);\u8a0e\u8ad6;\u6703\u8ac7", "defch2": ""}, "conference room": {"gl": "phr.", "defch1": "\u6703\u8b70\u5ba4", "defch2": ""}, "confirm": {"gl": "v.", "defch1": "\u78ba\u8a8d;\u8b49\u5be6;\u6279\u51c6", "defch2": ""}, "congratulation": {"gl": "n.", "defch1": "\u606d\u8cc0", "defch2": ""}, "connect": {"gl": "v.", "defch1": "\u9023\u63a5", "defch2": ""}, "connecting room": {"gl": "n.", "defch1": "\u9023\u901a\u623f", "defch2": ""}, "consume": {"gl": "v.", "defch1": "\u5403\u5b8c;\u559d\u5149;\u8017\u76e1", "defch2": ""}, "contact": {"gl": "v.", "defch1": "\u63a5\u89f8;\u8207...\u806f\u7e6b", "defch2": ""}, "continent": {"gl": "n.", "defch1": "\u5927\u9678;\u5927\u6d32", "defch2": ""}, "contract": {"gl": "n.", "defch1": "\u8a02\u5951\u7d04", "defch2": ""}, "control tower": {"gl": "phr.", "defch1": "\u63a7\u5236\u5854\u81fa", "defch2": ""}, "convenience": {"gl": "n.", "defch1": "\u65b9\u4fbf;\u5408\u5b9c", "defch2": ""}, "convenience store": {"gl": "phr.", "defch1": "\u4fbf\u5229\u5546\u5e97", "defch2": ""}, "cooperate": {"gl": "v.", "defch1": "\u5408\u4f5c", "defch2": ""}, "cooperation": {"gl": "n.", "defch1": "\u5408\u4f5c;\u5354\u529b", "defch2": ""}, "corner": {"gl": "adj.", "defch1": "(\u8857)\u89d2", "defch2": ""}, "cost": {"gl": "v.", "defch1": "\u8cbb\u7528;\u82b1\u8cbb", "defch2": ""}, "cottage": {"gl": "n.", "defch1": "\u5c71\u5be8", "defch2": ""}, "country": {"gl": "n.", "defch1": "\u570b\u5bb6", "defch2": ""}, "credit card": {"gl": "phr.", "defch1": "\u4fe1\u7528\u5361", "defch2": ""}, "cross": {"gl": "v.", "defch1": "\u7a7f\u904e", "defch2": ""}, "cruise": {"gl": "v.", "defch1": "\u4e58\u8239\u65c5\u884c;\u822a\u884c;\u6f2b\u904a", "defch2": ""}, "cruise ship": {"gl": "phr.", "defch1": "\u904a\u8f2a;\u904a\u8247", "defch2": ""}, "cuisine": {"gl": "n.", "defch1": "\u6599\u7406", "defch2": ""}, "currency": {"gl": "n.", "defch1": "\u8ca8\u5e63", "defch2": ""}, "customer": {"gl": "n.", "defch1": "\u9867\u5ba2", "defch2": ""}, "Customs": {"gl": "prop.", "defch1": "\u6d77\u95dc", "defch2": ""}, "cut": {"gl": "v.", "defch1": "\u5207\u5272;\u524a\u6e1b", "defch2": ""}, "declaration form": {"gl": "phr.", "defch1": "\u5831\u95dc\u8868\u683c", "defch2": ""}, "declare": {"gl": "v.", "defch1": "\u7533\u5831;\u5ba3\u544a;\u8072\u660e", "defch2": ""}, "decline": {"gl": "n.", "defch1": "\u8b1d\u7d55;\u5a49\u8a00\u62d2\u7d55;\u4e0b\u964d", "defch2": ""}, "delay": {"gl": "v.", "defch1": "\u5ef6\u9072;\u803d\u64f1;\u5ef6\u8aa4", "defch2": ""}, "delayed": {"gl": "adj.", "defch1": "\u5ef6\u9072\u7684", "defch2": ""}, "deliver": {"gl": "v.", "defch1": "\u6295\u905e;\u50b3\u905e;\u904b\u9001", "defch2": ""}, "demand": {"gl": "v.", "defch1": "\u8981\u6c42", "defch2": ""}, "depart": {"gl": "v.", "defch1": "\u51fa\u767c;\u555f\u7a0b", "defch2": ""}, "department": {"gl": "n.", "defch1": "\u90e8\u9580", "defch2": ""}, "department store": {"gl": "phr.", "defch1": "\u767e\u8ca8\u516c\u53f8", "defch2": ""}, "departure": {"gl": "n.", "defch1": "\u51fa\u5883", "defch2": ""}, "departure time": {"gl": "phr.", "defch1": "\u51fa\u767c\u6642\u9593", "defch2": ""}, "deposit": {"gl": "v.", "defch1": "\u5bc4\u5b58;\u8a02\u91d1;\u4fdd\u8b49\u91d1;\u62bc\u91d1;\u653e\u7f6e", "defch2": ""}, "describe": {"gl": "v.", "defch1": "\u63cf\u8ff0", "defch2": ""}, "designate": {"gl": "adj.", "defch1": "\u9078\u5b9a;\u6307\u6d3e(\u7684)", "defch2": ""}, "desk clerk": {"gl": "phr.", "defch1": "\u6ac3\u6aaf\u670d\u52d9\u54e1", "defch2": ""}, "develop": {"gl": "v.", "defch1": "\u4f7f\u6210\u9577;\u767c\u5c55", "defch2": ""}, "dial": {"gl": "v.", "defch1": "\u64a5(\u865f)", "defch2": ""}, "digital camera": {"gl": "phr.", "defch1": "\u6578\u4f4d\u76f8\u6a5f", "defch2": ""}, "dine": {"gl": "v.", "defch1": "\u7528\u9910", "defch2": ""}, "dining room": {"gl": "n.", "defch1": "\u9910\u5ef3", "defch2": ""}, "direct": {"gl": "adv.", "defch1": "\u76f4\u63a5\u7684;\u5f91\u76f4\u7684;\u76f4\u63a5\u5730", "defch2": ""}, "direct flight": {"gl": "phr.", "defch1": "\u76f4\u98db\u822a\u73ed(\u76f4\u822a)", "defch2": ""}, "direction": {"gl": "n.", "defch1": "\u65b9\u5411", "defch2": ""}, "directly": {"gl": "adv.", "defch1": "\u76f4\u63a5\u5730", "defch2": ""}, "discount": {"gl": "v.", "defch1": "\u6298\u6263", "defch2": ""}, "display": {"gl": "v.", "defch1": "\u5c55\u793a", "defch2": ""}, "dissatisfied": {"gl": "adj.", "defch1": "\u4e0d\u6eff\u610f\u7684", "defch2": ""}, "dock": {"gl": "v.", "defch1": "\u78bc\u982d;\u505c\u9760\u78bc\u982d", "defch2": ""}, "dollar": {"gl": "n.", "defch1": "\u5143", "defch2": ""}, "domestic terminal": {"gl": "phr.", "defch1": "\u570b\u5167\u7dda\u822a\u5ec8", "defch2": ""}, "doorman": {"gl": "n.", "defch1": "\u9580\u623f;\u9580\u5ef3\u4f8d\u8005", "defch2": ""}, "double": {"gl": "v.", "defch1": "\u96d9\u4eba\u623f;\u5169\u500d\u7684;\u52a0\u500d", "defch2": ""}, "double bed": {"gl": "phr.", "defch1": "\u96d9\u4eba\u5e8a", "defch2": ""}, "double room": {"gl": "phr.", "defch1": "\u96d9\u4eba\u623f", "defch2": ""}, "double-check": {"gl": "phr.", "defch1": "\u518d\u6b21\u78ba\u8a8d;\u4ed4\u7d30\u67e5\u6838", "defch2": ""}, "dress": {"gl": "v.", "defch1": "\u6253\u626e;\u88fd\u4f5c;\u88dd\u98fe", "defch2": ""}, "dress code": {"gl": "phr.", "defch1": "\u670d\u98fe\u898f\u5b9a;\u8457\u88dd\u6a19\u6e96", "defch2": ""}, "dressing": {"gl": "n.", "defch1": "\u8abf\u6599;\u88dd\u98fe", "defch2": ""}, "driver's license": {"gl": "phr.", "defch1": "\u99d5\u7167", "defch2": ""}, "drug store": {"gl": "n.", "defch1": "\u85e5\u599d\u5e97", "defch2": ""}, "dry-clean": {"gl": "v.", "defch1": "\u4e7e\u6d17", "defch2": ""}, "due": {"gl": "adj.", "defch1": "\u5230\u671f\u7684", "defch2": ""}, "duty-free shop": {"gl": "phr.", "defch1": "\u514d\u7a05\u5546\u5e97", "defch2": ""}, "earring": {"gl": "n.", "defch1": "\u8033\u74b0", "defch2": ""}, "easily": {"gl": "adv.", "defch1": "\u5bb9\u6613\u5730", "defch2": ""}, "economy": {"gl": "n.", "defch1": "\u7d93\u6fdf", "defch2": ""}, "economy class": {"gl": "phr.", "defch1": "\u7d93\u6fdf\u8259", "defch2": ""}, "effort": {"gl": "n.", "defch1": "\u52aa\u529b;\u76e1\u529b", "defch2": ""}, "elevator": {"gl": "n.", "defch1": "\u96fb\u68af", "defch2": ""}, "emergency": {"gl": "n.", "defch1": "\u7dca\u6025\u72c0\u6cc1", "defch2": ""}, "employ": {"gl": "v.", "defch1": "\u96c7\u7528", "defch2": ""}, "enjoyable": {"gl": "adj.", "defch1": "\u4ee4\u4eba\u6109\u5feb\u7684", "defch2": ""}, "entertainment": {"gl": "n.", "defch1": "\u5a1b\u6a02", "defch2": ""}, "especially": {"gl": "adv.", "defch1": "\u7279\u5225\u5730", "defch2": ""}, "Europe": {"gl": "prop.", "defch1": "\u6b50\u6d32", "defch2": ""}, "European": {"gl": "prop.", "defch1": "\u6b50\u6d32\u7684", "defch2": ""}, "exceed": {"gl": "v.", "defch1": "\u8d85\u904e", "defch2": ""}, "exchange": {"gl": "n.", "defch1": "\u514c\u63db", "defch2": ""}, "exchange rate": {"gl": "phr.", "defch1": "\u532f\u7387", "defch2": ""}, "exciting": {"gl": "adj.", "defch1": "\u4ee4\u4eba\u8208\u596e\u7684", "defch2": ""}, "excuse": {"gl": "n.", "defch1": "\u85c9\u53e3;\u85c9\u53e3", "defch2": ""}, "excuse me": {"gl": "phr.", "defch1": "\u4e0d\u597d\u610f\u601d;\u8acb\u554f", "defch2": ""}, "exhibition": {"gl": "n.", "defch1": "\u5c55\u89bd", "defch2": ""}, "exit": {"gl": "n.", "defch1": "\u51fa\u53e3", "defch2": ""}, "expect": {"gl": "v.", "defch1": "\u671f\u5f85;\u9810\u671f", "defch2": ""}, "experience": {"gl": "n.", "defch1": "\u7d93\u9a57;\u7d93\u6b77;\u7d93\u53d7", "defch2": ""}, "expiration date": {"gl": "phr.", "defch1": "\u5230\u671f(\u622a\u6b62)\u65e5;\u6709\u6548\u65e5\u671f", "defch2": ""}, "extra": {"gl": "n.", "defch1": "\u984d\u5916;\u9644\u52a0\u8cbb\u7528", "defch2": ""}, "facility": {"gl": "n.", "defch1": "\u8a2d\u65bd", "defch2": ""}, "family room": {"gl": "phr.", "defch1": "\u5bb6\u5ead\u5957\u623f", "defch2": ""}, "fare": {"gl": "n.", "defch1": "\u7968\u50f9;\u7968\u50f9", "defch2": ""}, "fasten": {"gl": "v.", "defch1": "\u7e6b\u7dca;\u6263\u4e0a;\u9582\u4f4f", "defch2": ""}, "ferry": {"gl": "v.", "defch1": "\u6e21\u8239;\u6e21\u8239", "defch2": ""}, "figure out": {"gl": "phr.", "defch1": "\u89e3\u6c7a", "defch2": ""}, "fine": {"gl": "n.", "defch1": "\u4e0a\u7b49\u7684;\u7f70\u6b3e", "defch2": ""}, "first class": {"gl": "phr.", "defch1": "\u982d\u7b49\u8259;\u982d\u7b49\u8259", "defch2": ""}, "fitness center": {"gl": "phr.", "defch1": "\u5065\u8eab\u4e2d\u5fc3", "defch2": ""}, "fix": {"gl": "v.", "defch1": "\u8655\u7406;\u4fee\u7406", "defch2": ""}, "flight attendant": {"gl": "phr.", "defch1": "\u7a7a\u670d\u54e1", "defch2": ""}, "fold": {"gl": "v.", "defch1": "\u6298\u758a", "defch2": ""}, "forbidden": {"gl": "adj.", "defch1": "\u88ab\u7981\u6b62\u7684;\u88ab\u7981\u6b62\u7684", "defch2": ""}, "force": {"gl": "n.", "defch1": "\u5f71\u97ff;\u5f37\u8feb;\u8aaa\u670d\u529b", "defch2": ""}, "foreign currency exchange": {"gl": "phr.", "defch1": "\u5916\u5e63\u514c\u63db", "defch2": ""}, "frequently": {"gl": "adv.", "defch1": "\u983b\u7e41\u5730;\u983b\u7e41", "defch2": ""}, "front desk": {"gl": "phr.", "defch1": "\u6ac3\u6aaf", "defch2": ""}, "front desk clerk": {"gl": "phr.", "defch1": "\u63a5\u5f85\u4eba\u54e1", "defch2": ""}, "full": {"gl": "n.", "defch1": "\u5b8c\u5168\u7684;\u6975\u76db\u6642", "defch2": ""}, "full-day tour": {"gl": "phr.", "defch1": "\u4e00\u65e5\u904a;\u4e00\u65e5\u904a", "defch2": ""}, "furnishings": {"gl": "n.", "defch1": "\u50a2\u4ff1\u64fa\u8a2d(\u591a\u7528\u8907\u6578)", "defch2": ""}, "gas": {"gl": "n.", "defch1": "\u6c7d\u6cb9", "defch2": ""}, "gas station": {"gl": "n.", "defch1": "\u52a0\u6cb9\u7ad9", "defch2": ""}, "gate": {"gl": "n.", "defch1": "\u767b\u6a5f\u9580;\u5927\u9580", "defch2": ""}, "get off": {"gl": "phr.", "defch1": "\u4e0b\u8eca", "defch2": ""}, "get seasick": {"gl": "phr.", "defch1": "\u6688\u8239", "defch2": ""}, "get to": {"gl": "phr.", "defch1": "\u62b5\u9054;\u62b5\u9054", "defch2": ""}, "gift shop": {"gl": "phr.", "defch1": "\u79ae\u54c1\u5e97", "defch2": ""}, "gloves": {"gl": "n.", "defch1": "\u624b\u5957", "defch2": ""}, "go crazy": {"gl": "phr.", "defch1": "\u767c\u760b;\u767c\u760b", "defch2": ""}, "go straight": {"gl": "phr.", "defch1": "\u76f4\u8d70;\u76f4\u8d70", "defch2": ""}, "golf course": {"gl": "n.", "defch1": "\u9ad8\u723e\u592b\u7403\u5834", "defch2": ""}, "graveyard": {"gl": "n.", "defch1": "\u5893\u5730", "defch2": ""}, "Great Wall of China": {"gl": "prop.", "defch1": "\u4e2d\u570b\u9577\u57ce", "defch2": ""}, "ground crew": {"gl": "phr.", "defch1": "\u5730\u52e4\u4eba\u54e1", "defch2": ""}, "group": {"gl": "n.", "defch1": "\u7fa4;\u5718\u9ad4", "defch2": ""}, "guest": {"gl": "n.", "defch1": "\u5ba2\u4eba;\u5ba2\u4eba", "defch2": ""}, "guest key": {"gl": "phr.", "defch1": "\u65c5\u5ba2\u9470\u5319", "defch2": ""}, "guesthouse": {"gl": "n.", "defch1": "\u62db\u5f85\u6240", "defch2": ""}, "guidebook": {"gl": "n.", "defch1": "\u5c0e\u89bd\u624b\u518a;\u6307\u5357", "defch2": ""}, "guided tour": {"gl": "phr.", "defch1": "\u5c08\u4eba\u5c0e\u89bd;\u6709\u5c0e\u904a\u966a\u540c\u7684\u65c5\u904a", "defch2": ""}, "gym": {"gl": "n.", "defch1": "\u5065\u8eab\u623f", "defch2": ""}, "hair dryer": {"gl": "phr.", "defch1": "\u5439\u98a8\u6a5f", "defch2": ""}, "half": {"gl": "n.", "defch1": "\u4e00\u534a", "defch2": ""}, "half price": {"gl": "phr.", "defch1": "\u534a\u50f9", "defch2": ""}, "hand": {"gl": "n.", "defch1": "\u905e\u7d66;\u624b", "defch2": ""}, "handle": {"gl": "n.", "defch1": "\u8655\u7406;\u61c9\u4ed8;\u628a\u624b", "defch2": ""}, "hang up": {"gl": "phr.", "defch1": "\u639b\u65b7\u96fb\u8a71", "defch2": ""}, "harbor": {"gl": "n.", "defch1": "\u6e2f\u53e3;\u6e2f\u7063", "defch2": ""}, "Hawaii": {"gl": "prop.", "defch1": "\u590f\u5a01\u5937", "defch2": ""}, "headphones": {"gl": "n.", "defch1": "\u982d\u6234\u5f0f\u8033\u6a5f", "defch2": ""}, "helicopter": {"gl": "n.", "defch1": "\u76f4\u5347\u6a5f;\u76f4\u5347\u6a5f", "defch2": ""}, "helpful": {"gl": "adj.", "defch1": "\u6709\u5e6b\u52a9\u7684", "defch2": ""}, "high-speed rail": {"gl": "phr.", "defch1": "\u9ad8\u901f\u9435\u8def;\u9ad8\u9435", "defch2": ""}, "high-speed train": {"gl": "n.", "defch1": "\u9ad8\u901f\u5217\u8eca", "defch2": ""}, "highway": {"gl": "n.", "defch1": "\u516c\u8def", "defch2": ""}, "hold a passport": {"gl": "phr.", "defch1": "\u6301\u6709\u8b77\u7167", "defch2": ""}, "hold on a second": {"gl": "phr.", "defch1": "\u8acb\u7a0d\u5f85;\u7b49\u4e00\u4e0b", "defch2": ""}, "honeymoon suite": {"gl": "phr.", "defch1": "\u871c\u6708\u5957\u623f", "defch2": ""}, "Hong Kong": {"gl": "prop.", "defch1": "\u9999\u6e2f", "defch2": ""}, "hospital": {"gl": "n.", "defch1": "\u91ab\u9662", "defch2": ""}, "hospitality": {"gl": "n.", "defch1": "\u6b3e\u5f85;\u597d\u5ba2", "defch2": ""}, "hostel": {"gl": "n.", "defch1": "\u9752\u5e74\u5bbf\u820d", "defch2": ""}, "hot spring": {"gl": "phr.", "defch1": "\u6eab\u6cc9", "defch2": ""}, "hot-air balloon": {"gl": "phr.", "defch1": "\u71b1\u6c23\u7403", "defch2": ""}, "hotel": {"gl": "n.", "defch1": "\u65c5\u9928", "defch2": ""}, "hotel room": {"gl": "n.", "defch1": "\u9152\u5e97\u623f\u9593;\u65c5\u9928\u623f\u9593", "defch2": ""}, "hotel shuttle": {"gl": "phr.", "defch1": "\u65c5\u9928\u63a5\u99c1\u8eca", "defch2": ""}, "hours": {"gl": "n.", "defch1": "\u5c0f\u6642;\u71df\u696d\u6642\u9593(\u591a\u7528\u8907\u6578)", "defch2": ""}, "housekeeping": {"gl": "n.", "defch1": "\u5ba2\u623f\u6e05\u6f54;\u5bb6\u52d9", "defch2": ""}, "however": {"gl": "adv.", "defch1": "\u7136\u800c;\u7136\u800c", "defch2": ""}, "identification": {"gl": "n.", "defch1": "\u8eab\u5206\u8b49\u4ef6;\u9451\u5b9a\u7e2e\u5beb\u70baID", "defch2": ""}, "immediately": {"gl": "adv.", "defch1": "\u7acb\u5373;\u99ac\u4e0a", "defch2": ""}, "immigration": {"gl": "n.", "defch1": "\u5165\u5883, \u79fb\u6c11(\u5c40)", "defch2": ""}, "in a hurry": {"gl": "v.", "defch1": "\u5306\u5306;\u8d95\u6642\u9593", "defch2": ""}, "in a rush": {"gl": "phr.", "defch1": "\u8d95\u6642\u9593;\u8d95\u6642\u9593", "defch2": ""}, "in back of": {"gl": "phr.", "defch1": "\u5728...\u5f8c\u9762", "defch2": ""}, "in cash": {"gl": "phr.", "defch1": "\u4ed8\u73fe\u91d1", "defch2": ""}, "in front of": {"gl": "phr.", "defch1": "\u5728...\u524d\u9762", "defch2": ""}, "in love": {"gl": "phr.", "defch1": "\u6200\u611b;\u6709\u76f8\u611b\u7684\u4eba;\u589c\u5165\u611b\u6cb3", "defch2": ""}, "in the meantime": {"gl": "phr.", "defch1": "\u540c\u6642;\u5728...\u671f\u9593\u4e4b\u5167", "defch2": ""}, "include": {"gl": "v.", "defch1": "\u5305\u62ec;\u5305\u62ec", "defch2": ""}, "inconvenience": {"gl": "v.", "defch1": "\u4e0d\u65b9\u4fbf;\u6253\u64fe", "defch2": ""}, "India": {"gl": "prop.", "defch1": "\u5370\u5ea6", "defch2": ""}, "Indian Ocean": {"gl": "prop.", "defch1": "\u5370\u5ea6\u6d0b", "defch2": ""}, "inform": {"gl": "v.", "defch1": "\u544a\u77e5;\u901a\u77e5", "defch2": ""}, "information board": {"gl": "n.", "defch1": "\u822a\u73ed\u8868;\u8cc7\u8a0a\u677f", "defch2": ""}, "information center": {"gl": "phr.", "defch1": "\u65c5\u904a\u670d\u52d9\u4e2d\u5fc3;\u8cc7\u8a0a\u4e2d\u5fc3", "defch2": ""}, "information counter": {"gl": "phr.", "defch1": "\u8a62\u554f\u8655;\u670d\u52d9\u81fa", "defch2": ""}, "information desk": {"gl": "phr.", "defch1": "\u670d\u52d9\u81fa;\u8a62\u554f\u8655", "defch2": ""}, "inside room": {"gl": "phr.", "defch1": "\u5167\u5411\u623f\u9593", "defch2": ""}, "international": {"gl": "adj.", "defch1": "\u570b\u969b\u6027\u7684;\u570b\u969b\u7684", "defch2": ""}, "international flight": {"gl": "n.", "defch1": "\u570b\u969b\u822a\u73ed", "defch2": ""}, "internet access": {"gl": "phr.", "defch1": "\u4e0a\u7db2;\u7db2\u969b\u7db2\u8def\u9023\u7dda\u5b58\u53d6", "defch2": ""}, "island": {"gl": "n.", "defch1": "\u5cf6\u5dbc;\u5cf6\u5dbc", "defch2": ""}, "Italy": {"gl": "prop.", "defch1": "\u7fa9\u5927\u5229", "defch2": ""}, "jealous": {"gl": "adj.", "defch1": "\u5ac9\u5992\u7684;\u5ac9\u5992\u7684", "defch2": ""}, "jeans": {"gl": "n.", "defch1": "\u725b\u4ed4\u8932", "defch2": ""}, "jet": {"gl": "n.", "defch1": "\u5674\u5c04;\u5674\u5c04", "defch2": ""}, "jet lag": {"gl": "phr.", "defch1": "\u65f6\u5dee\u95ee\u9898", "defch2": ""}, "join": {"gl": "v.", "defch1": "\u53c3\u52a0;\u9023\u7d50", "defch2": ""}, "journey": {"gl": "n.", "defch1": "\u65c5\u884c;\u65c5\u7a0b", "defch2": ""}, "key card": {"gl": "phr.", "defch1": "\u9580\u7981\u5361;\u958b\u9580\u7528\u78c1\u5361;\u9470\u5319\u5361", "defch2": ""}, "key chain": {"gl": "phr.", "defch1": "\u9470\u5319\u93c8", "defch2": ""}, "knife": {"gl": "n.", "defch1": "\u5200", "defch2": ""}, "lamp": {"gl": "n.", "defch1": "\u71c8;\u71c8", "defch2": ""}, "land": {"gl": "v.", "defch1": "\u571f\u5730;\u9678\u5730;\u964d\u843d", "defch2": ""}, "laundry": {"gl": "n.", "defch1": "\u6d17\u8863\u5e97;\u9001\u6d17(\u597d)\u7684\u8863\u670d", "defch2": ""}, "laundry service": {"gl": "phr.", "defch1": "\u6d17\u8863\u670d\u52d9", "defch2": ""}, "leave": {"gl": "v.", "defch1": "\u96e2\u958b", "defch2": ""}, "library": {"gl": "n.", "defch1": "\u5716\u66f8\u9928;\u5716\u66f8\u9928", "defch2": ""}, "life vest": {"gl": "phr.", "defch1": "\u6551\u751f\u8863", "defch2": "lifejacket"}, "limited": {"gl": "adj.", "defch1": "\u6709\u9650\u7684", "defch2": ""}, "listen to": {"gl": "phr.", "defch1": "\u807d\u5f9e", "defch2": ""}, "lobby": {"gl": "n.", "defch1": "\u524d\u5ef3;\u98ef\u5e97(\u65c5\u9928)\u5927\u5ef3", "defch2": ""}, "local": {"gl": "adj.", "defch1": "\u7576\u5730\u7684;\u7576\u5730\u5c45\u6c11", "defch2": ""}, "local call": {"gl": "phr.", "defch1": "\u5e02\u5167\u96fb\u8a71", "defch2": ""}, "locate": {"gl": "v.", "defch1": "\u4f4d\u65bc", "defch2": ""}, "lock": {"gl": "v.", "defch1": "\u9396", "defch2": ""}, "look forward to": {"gl": "phr.", "defch1": "\u671f\u5f85", "defch2": ""}, "lost and found": {"gl": "phr.", "defch1": "\u5931\u7269\u62db\u9818", "defch2": ""}, "lotion": {"gl": "n.", "defch1": "\u4e73\u6db2", "defch2": ""}, "lounge": {"gl": "n.", "defch1": "\u6703\u5ba2\u5ba4", "defch2": ""}, "lovely": {"gl": "adj.", "defch1": "\u7f8e\u597d\u7684", "defch2": ""}, "low-cost airline": {"gl": "phr.", "defch1": "\u5ec9\u50f9\u822a\u7a7a", "defch2": ""}, "luggage": {"gl": "n.", "defch1": "\u884c\u674e", "defch2": ""}, "luggage carousel": {"gl": "n.", "defch1": "\u884c\u674e\u50b3\u9001\u5e36", "defch2": ""}, "luggage cart": {"gl": "n.", "defch1": "\u884c\u674e\u63a8\u8eca;\u884c\u674e\u63a8\u8eca", "defch2": ""}, "machine": {"gl": "n.", "defch1": "\u6a5f\u5668", "defch2": ""}, "Machu Picchu": {"gl": "prop.", "defch1": "\u99ac\u4e18\u6bd4\u4e18", "defch2": ""}, "magazine": {"gl": "n.", "defch1": "\u96dc\u8a8c", "defch2": ""}, "maid": {"gl": "n.", "defch1": "\u5973\u50ad", "defch2": ""}, "maintenance": {"gl": "n.", "defch1": "\u4fdd\u990a;\u7dad\u4fee\u670d\u52d9", "defch2": ""}, "maintenance worker": {"gl": "phr.", "defch1": "\u7dad\u4fee\u5de5\u4eba", "defch2": ""}, "make sure": {"gl": "phr.", "defch1": "\u78ba\u4fdd;\u52d9\u5fc5;\u78ba\u8a8d;\u67e5\u660e", "defch2": ""}, "management": {"gl": "n.", "defch1": "\u7ba1\u7406;\u8cc7\u65b9", "defch2": ""}, "manager": {"gl": "n.", "defch1": "\u7d93\u7406;\u7d93\u7406", "defch2": ""}, "Manila": {"gl": "prop.", "defch1": "\u99ac\u5c3c\u62c9", "defch2": ""}, "Maokong Gondola": {"gl": "prop.", "defch1": "\u8c93\u7a7a\u7e9c\u8eca", "defch2": ""}, "map": {"gl": "n.", "defch1": "\u5730\u5716", "defch2": ""}, "massage": {"gl": "v.", "defch1": "\u6309\u6469;\u63a8\u62ff;\u99ac\u6bba\u96de", "defch2": ""}, "maximum": {"gl": "n.", "defch1": "\u6700\u5927\u7684;\u6700\u5927\u91cf", "defch2": ""}, "meal": {"gl": "n.", "defch1": "\u9910\u9ede", "defch2": ""}, "mean": {"gl": "adj.", "defch1": "\u610f\u601d;\u610f\u5473\u8457;\u5e73\u5747\u503c;\u5351\u52a3\u7684;", "defch2": ""}, "medium": {"gl": "adj.", "defch1": "\u4e94\u5206\u719f;\u534a\u719f;\u4e2d\u7b49", "defch2": ""}, "mention": {"gl": "v.", "defch1": "\u63d0\u5230", "defch2": ""}, "menu": {"gl": "n.", "defch1": "\u83dc\u55ae;\u83dc\u55ae", "defch2": ""}, "message": {"gl": "n.", "defch1": "\u8a0a\u606f", "defch2": ""}, "metal detector": {"gl": "phr.", "defch1": "\u91d1\u5c6c\u63a2\u6e2c\u5668", "defch2": ""}, "meter": {"gl": "n.", "defch1": "\u8a08\u91cf\u5668;(\u8a08\u8cbb)\u5100\u8868", "defch2": ""}, "Metro card": {"gl": "prop.", "defch1": "\u6377\u904b\u5361", "defch2": ""}, "Mexico": {"gl": "prop.", "defch1": "\u58a8\u897f\u54e5", "defch2": ""}, "Middle East": {"gl": "prop.", "defch1": "\u4e2d\u6771", "defch2": ""}, "mind": {"gl": "n.", "defch1": "\u7559\u610f;\u4ecb\u610f;\u53cd\u5c0d;\u7559\u610f;\u6ce8\u610f\u529b;\u60f3\u6cd5", "defch2": ""}, "minivan": {"gl": "n.", "defch1": "(\u8ff7\u4f60)\u5ec2\u578b\u8eca", "defch2": ""}, "miss": {"gl": "v.", "defch1": "\u932f\u904e;\u932f\u904e", "defch2": ""}, "misunderstanding": {"gl": "n.", "defch1": "\u8aa4\u6703;\u8aa4\u89e3", "defch2": ""}, "mix up": {"gl": "phr.", "defch1": "\u652a\u62cc;\u6df7\u5408;\u6df7\u6dc6;\u6df7\u4e82", "defch2": ""}, "mobile phone": {"gl": "phr.", "defch1": "\u624b\u6a5f", "defch2": ""}, "monument": {"gl": "n.", "defch1": "\u7d00\u5ff5\u7891;\u6b77\u53f2\u907a\u8de1", "defch2": ""}, "motel": {"gl": "n.", "defch1": "\u6c7d\u8eca\u65c5\u9928;\u6c7d\u8eca\u65c5\u9928", "defch2": ""}, "motorcycle": {"gl": "n.", "defch1": "\u6469\u6258\u8eca", "defch2": ""}, "mountain": {"gl": "n.", "defch1": "\u5c71", "defch2": ""}, "movie theater": {"gl": "phr.", "defch1": "\u96fb\u5f71\u9662", "defch2": ""}, "museum": {"gl": "n.", "defch1": "\u535a\u7269\u9928", "defch2": ""}, "national park": {"gl": "phr.", "defch1": "\u570b\u5bb6\u516c\u5712", "defch2": ""}, "nature": {"gl": "n.", "defch1": "\u81ea\u7136;\u672c\u8cea;\u57fa\u672c\u8cc7\u6599", "defch2": ""}, "near": {"gl": "adj.", "defch1": "\u63a5\u8fd1;\u9644\u8fd1", "defch2": ""}, "necessary": {"gl": "adj.", "defch1": "\u5fc5\u8981\u7684", "defch2": ""}, "New York City": {"gl": "prop.", "defch1": "\u7d10\u7d04\u5e02", "defch2": ""}, "next to": {"gl": "phr.", "defch1": "...\u5728...\u65c1\u908a", "defch2": ""}, "nightlight": {"gl": "phr.", "defch1": "\u591c\u9593\u7167\u660e\u71c8;\u5c0f\u591c\u71c8", "defch2": ""}, "noisy": {"gl": "adj.", "defch1": "\u55a7\u9b27\u7684", "defch2": ""}, "non-smoking": {"gl": "phr.", "defch1": "\u8acb\u52ff\u5438\u7159", "defch2": ""}, "non-smoking area": {"gl": "phr.", "defch1": "\u975e\u5438\u83f8\u5340;\u7981\u83f8\u5340", "defch2": ""}, "North America": {"gl": "prop.", "defch1": "\u5317\u7f8e\u6d32", "defch2": ""}, "note": {"gl": "v.", "defch1": "\u7b46\u8a18;\u6ce8\u610f;\u770b\u5230", "defch2": ""}, "ocean": {"gl": "n.", "defch1": "\u6d77\u6d0b", "defch2": ""}, "offer": {"gl": "v.", "defch1": "\u7d66\u4e88", "defch2": ""}, "officer": {"gl": "n.", "defch1": "\u5b98\u54e1;\u5b98\u54e1", "defch2": ""}, "on the internet": {"gl": "phr.", "defch1": "\u5728\u7db2\u8def\u4e0a", "defch2": ""}, "on the left": {"gl": "phr.", "defch1": "\u5728\u5de6\u908a;\u5728\u5de6\u908a", "defch2": ""}, "on the list": {"gl": "phr.", "defch1": "\u5728\u540d\u55ae\u4e0a;\u5728\u540d\u55ae\u4e0a", "defch2": ""}, "on the right": {"gl": "phr.", "defch1": "\u5728\u53f3\u908a;\u5728\u53f3\u908a", "defch2": ""}, "on time": {"gl": "phr.", "defch1": "\u6e96\u6642", "defch2": ""}, "one way": {"gl": "phr.", "defch1": "\u55ae\u7a0b;\u55ae\u884c\u9053\u7684", "defch2": ""}, "opening": {"gl": "adj.", "defch1": "\u958b\u53e3;\u7a7a\u7f3a;\u958b\u62d3;\u7b2c\u4e00;\u958b\u59cb\u7684", "defch2": ""}, "opposite": {"gl": "prep.", "defch1": "\u5c0d\u7acb", "defch2": ""}, "option": {"gl": "n.", "defch1": "\u9078\u9805", "defch2": ""}, "ordinary": {"gl": "adj.", "defch1": "\u666e\u901a\u7684;\u666e\u901a\u7684", "defch2": ""}, "organize": {"gl": "v.", "defch1": "\u5b89\u6392;\u7d44\u7e54", "defch2": ""}, "original": {"gl": "n.", "defch1": "\u539f\u59cb\u7684;\u539f\u7269", "defch2": ""}, "originally": {"gl": "adv.", "defch1": "\u8d77\u521d;\u539f\u5148\u5730", "defch2": ""}, "outside": {"gl": "prep.", "defch1": "\u5916\u9762\u7684", "defch2": ""}, "overhead compartment": {"gl": "phr.", "defch1": "\u982d\u9802\u7f6e\u7269\u8259", "defch2": ""}, "Pacific Ocean": {"gl": "prop.", "defch1": "\u592a\u5e73\u6d0b", "defch2": ""}, "package": {"gl": "n.", "defch1": "\u5305\u88f9", "defch2": ""}, "park": {"gl": "n.", "defch1": "\u505c\u8eca;\u6cca\u8eca;\u505c\u8eca\u5834;\u516c\u5712", "defch2": ""}, "parking lot": {"gl": "phr.", "defch1": "\u505c\u8eca\u5834", "defch2": ""}, "party": {"gl": "n.", "defch1": "\u4e00\u5925\u4eba;\u540c\u9ee8\u7684;\u6d3e\u5c0d", "defch2": ""}, "passenger": {"gl": "n.", "defch1": "\u4e58\u5ba2", "defch2": ""}, "passport": {"gl": "n.", "defch1": "\u8b77\u7167", "defch2": ""}, "password": {"gl": "n.", "defch1": "\u5bc6\u78bc", "defch2": ""}, "patience": {"gl": "n.", "defch1": "\u8010\u5fc3", "defch2": ""}, "pay": {"gl": "n.", "defch1": "\u4ed8\u6b3e;\u85aa\u4ff8;\u5831\u916c", "defch2": ""}, "permission": {"gl": "n.", "defch1": "\u8a31\u53ef", "defch2": ""}, "personal check": {"gl": "phr.", "defch1": "\u500b\u4eba\u652f\u7968", "defch2": ""}, "phone": {"gl": "n.", "defch1": "\u96fb\u8a71;\u96fb\u8a71", "defch2": ""}, "photo": {"gl": "n.", "defch1": "\u7167\u7247", "defch2": ""}, "pick up": {"gl": "phr.", "defch1": "\u62fe\u8d77;\u63a5\u96fb\u8a71", "defch2": ""}, "pillow": {"gl": "n.", "defch1": "\u6795\u982d", "defch2": ""}, "pilot": {"gl": "n.", "defch1": "\u99d5\u99db\u54e1;\u98db\u884c\u54e1", "defch2": ""}, "place": {"gl": "n.", "defch1": "\u5730\u9ede;\u4e0b\u6307\u793a;\u653e\u7f6e;\u64fa\u5217;\u4f4d\u7f6e", "defch2": ""}, "plane": {"gl": "n.", "defch1": "\u98db\u6a5f", "defch2": ""}, "plane ticket": {"gl": "phr.", "defch1": "\u98db\u6a5f\u7968", "defch2": ""}, "planet": {"gl": "n.", "defch1": "\u884c\u661f", "defch2": ""}, "plastic": {"gl": "adj.", "defch1": "\u5851\u81a0\u7684;\u5851\u81a0", "defch2": ""}, "platform": {"gl": "n.", "defch1": "\u5e73\u81fa", "defch2": ""}, "pleasant": {"gl": "adj.", "defch1": "\u4ee4\u4eba\u6109\u5feb\u7684", "defch2": ""}, "pole": {"gl": "n.", "defch1": "\u6975\u5730", "defch2": ""}, "pool": {"gl": "v.", "defch1": "\u6e38\u6cf3\u6c60;\u5171\u7528\u7269;\u96c6\u8cc7", "defch2": ""}, "port": {"gl": "v.", "defch1": "\u6e2f\u53e3", "defch2": ""}, "position": {"gl": "n.", "defch1": "\u8077\u52d9;\u65b9\u4f4d", "defch2": ""}, "postcard": {"gl": "n.", "defch1": "\u660e\u4fe1\u7247", "defch2": ""}, "potential": {"gl": "adj.", "defch1": "\u6f5b\u5728\u7684;\u6f5c\u5728", "defch2": ""}, "prefer": {"gl": "v.", "defch1": "\u504f\u597d", "defch2": ""}, "prepare": {"gl": "v.", "defch1": "\u6e96\u5099", "defch2": ""}, "present": {"gl": "adj.", "defch1": "\u73fe\u5728", "defch2": ""}, "presidential suite": {"gl": "phr.", "defch1": "\u7e3d\u7d71\u5957\u623f", "defch2": ""}, "press": {"gl": "n.", "defch1": "\u71a8\u5e73(\u8863\u670d)", "defch2": ""}, "previous": {"gl": "adj.", "defch1": "\u5148\u524d\u7684", "defch2": ""}, "price": {"gl": "n.", "defch1": "\u50f9\u683c", "defch2": ""}, "private": {"gl": "adj.", "defch1": "\u79c1\u4eba\u7684", "defch2": ""}, "private plane": {"gl": "n.", "defch1": "\u79c1\u4eba\u98db\u6a5f;\u5c08\u6a5f", "defch2": ""}, "procedure": {"gl": "n.", "defch1": "\u6b65\u9a5f;\u7a0b\u5e8f", "defch2": ""}, "professional": {"gl": "adj.", "defch1": "\u5c08\u696d\u7684;\u5c08\u696d\u7684", "defch2": ""}, "proof": {"gl": "n.", "defch1": "\u8b49\u64da;\u8b49\u660e", "defch2": ""}, "provide": {"gl": "v.", "defch1": "\u63d0\u4f9b", "defch2": ""}, "purse": {"gl": "n.", "defch1": "\u76ae\u5305;\u6350\u6b3e;\u734e\u91d1", "defch2": ""}, "put on": {"gl": "phr.", "defch1": "\u8209\u8fa6;\u4e0a\u6f14;\u555f\u52d5;\u7a7f\u4e0a", "defch2": ""}, "rail": {"gl": "n.", "defch1": "\u9435\u8ecc;\u9435\u8def", "defch2": ""}, "raincoat": {"gl": "n.", "defch1": "\u96e8\u8863", "defch2": ""}, "rare": {"gl": "adj.", "defch1": "\u4e09\u5206\u719f;\u751f\u7684", "defch2": ""}, "rate": {"gl": "n.", "defch1": "\u8cbb\u7528;\u50f9\u683c", "defch2": ""}, "reach": {"gl": "v.", "defch1": "\u806f\u7e6b;\u62b5\u9054", "defch2": ""}, "ready": {"gl": "adj.", "defch1": "\u6e96\u5099", "defch2": ""}, "realize": {"gl": "v.", "defch1": "\u7406\u89e3;\u9818\u6703", "defch2": ""}, "reasonable": {"gl": "adj.", "defch1": "\u53ef\u63a5\u53d7\u7684;\u5408\u7406\u7684;\u516c\u9053\u7684", "defch2": ""}, "receipt": {"gl": "n.", "defch1": "\u767c\u7968;\u6536\u64da", "defch2": ""}, "reception": {"gl": "n.", "defch1": "\u62db\u5f85\u6703;\u63a5\u5f85\u5340;\u63a5\u5f85;\u63a5\u53d7", "defch2": ""}, "receptionist": {"gl": "n.", "defch1": "\u63a5\u5f85\u54e1", "defch2": ""}, "recommend": {"gl": "v.", "defch1": "\u63a8\u85a6;\u5efa\u8b70", "defch2": ""}, "recreation": {"gl": "n.", "defch1": "\u4f11\u9592;\u5a1b\u6a02", "defch2": ""}, "refer to": {"gl": "phr.", "defch1": "\u53c3\u8003;\u63d0\u53ca", "defch2": ""}, "refrigerator": {"gl": "n.", "defch1": "\u51b0\u7bb1", "defch2": ""}, "register": {"gl": "v.", "defch1": "\u8a3b\u518a;\u767b\u8a18", "defch2": ""}, "registration": {"gl": "v.", "defch1": "\u767b\u8a18;\u8a3b\u518a", "defch2": ""}, "remote control": {"gl": "phr.", "defch1": "\u9059\u63a7(\u5668);\u9059\u63a7\u5668", "defch2": ""}, "rent": {"gl": "v.", "defch1": "\u79df\u7528;\u79df\u7528", "defch2": ""}, "repeat": {"gl": "v.", "defch1": "\u91cd\u8907;\u91cd\u8986", "defch2": ""}, "replace": {"gl": "v.", "defch1": "\u66f4\u63db;\u53d6\u4ee3", "defch2": ""}, "request": {"gl": "n.", "defch1": "\u8981\u6c42;\u8acb\u6c42", "defch2": ""}, "require": {"gl": "v.", "defch1": "\u8981\u6c42;\u9700\u8981", "defch2": ""}, "reservation": {"gl": "n.", "defch1": "\u9810\u7d04", "defch2": ""}, "reservation staff": {"gl": "phr.", "defch1": "\u9810\u8a02\u4eba\u54e1;\u9810\u8a02\u4eba\u54e1", "defch2": ""}, "reserve": {"gl": "v.", "defch1": "\u9810\u5b9a", "defch2": ""}, "responsible": {"gl": "adj.", "defch1": "\u9700\u8ca0\u8cac\u4efb\u7684;\u8cac\u4efb", "defch2": ""}, "responsible for": {"gl": "phr.", "defch1": "\u5c0d...\u8ca0\u8cac;\u8cac\u4efb", "defch2": ""}, "restaurant": {"gl": "n.", "defch1": "\u9910\u5ef3", "defch2": ""}, "right": {"gl": "n.", "defch1": "\u53f3\u5074;\u6b63\u78ba\u7684", "defch2": ""}, "ring": {"gl": "n.", "defch1": "\u9234\u8072;\u6212\u6307", "defch2": ""}, "road": {"gl": "n.", "defch1": "\u9053\u8def;\u9053\u8def", "defch2": ""}, "room": {"gl": "n.", "defch1": "\u7a7a\u9593;\u623f\u9593", "defch2": ""}, "room key": {"gl": "phr.", "defch1": "\u623f\u9593\u9470\u5319", "defch2": ""}, "room service": {"gl": "phr.", "defch1": "\u5ba2\u623f\u670d\u52d9;\u5ba2\u623f\u670d\u52d9", "defch2": ""}, "rope": {"gl": "v.", "defch1": "\u7e69\u7d22", "defch2": ""}, "route map": {"gl": "phr.", "defch1": "\u8def\u7dda\u5716", "defch2": ""}, "row": {"gl": "n.", "defch1": "\u4e00\u6392", "defch2": ""}, "runway": {"gl": "n.", "defch1": "\u98db\u6a5f\u8dd1\u9053;\u8dd1\u9053", "defch2": ""}, "Russia": {"gl": "prop.", "defch1": "\u4fc4\u570b", "defch2": ""}, "safe": {"gl": "adj.", "defch1": "\u5b89\u5168\u7684;\u4fdd\u96aa\u7bb1", "defch2": ""}, "safe deposit box": {"gl": "phr.", "defch1": "\u4fdd\u96aa\u7bb1;\u8cb4\u91cd\u7269\u54c1\u4fdd\u7ba1\u7bb1", "defch2": ""}, "sail": {"gl": "v.", "defch1": "\u8239\u5e06;\u822a\u884c", "defch2": ""}, "sale": {"gl": "n.", "defch1": "\u51fa\u552e;\u62cd\u8ce3;\u92b7\u552e\u696d\u52d9;\u92b7\u8def", "defch2": ""}, "San Francisco": {"gl": "prop.", "defch1": "\u820a\u91d1\u5c71", "defch2": ""}, "sauna": {"gl": "n.", "defch1": "\u6851\u62ff\u6d74;\u4e09\u6eab\u6696", "defch2": ""}, "scenery": {"gl": "n.", "defch1": "\u98a8\u666f", "defch2": ""}, "schedule": {"gl": "v.", "defch1": "\u6642\u523b\u8868;\u65e5\u7a0b\u8868;\u9810\u5b9a", "defch2": ""}, "sea plane": {"gl": "n.", "defch1": "\u6d77\u4e0a\u98db\u6a5f;\u6d77\u4e0a\u98db\u6a5f", "defch2": ""}, "seasick": {"gl": "adj.", "defch1": "\u6688\u8239;\u6688\u8239\u7684", "defch2": ""}, "season": {"gl": "n.", "defch1": "\u5b63\u7bc0", "defch2": ""}, "seat": {"gl": "n.", "defch1": "\u5ea7\u4f4d", "defch2": ""}, "seat belt": {"gl": "phr.", "defch1": "\u5b89\u5168\u5e36", "defch2": ""}, "section": {"gl": "n.", "defch1": "\u5340\u57df;\u90e8\u5206", "defch2": ""}, "security guard": {"gl": "phr.", "defch1": "\u8b66\u885b;\u4fdd\u5168(\u4eba\u54e1)", "defch2": ""}, "serve": {"gl": "v.", "defch1": "\u63d0\u4f9b;\u7aef\u4e0a;\u4f9b\u61c9;\u670d\u52d9", "defch2": ""}, "service": {"gl": "n.", "defch1": "\u670d\u52d9", "defch2": ""}, "set menu": {"gl": "phr.", "defch1": "\u5957\u9910", "defch2": ""}, "settle": {"gl": "v.", "defch1": "\u652f\u4ed8;\u7d50\u7b97;\u5b89\u9813", "defch2": ""}, "shampoo": {"gl": "n.", "defch1": "\u6d17\u9aee\u7cbe", "defch2": ""}, "shape": {"gl": "n.", "defch1": "\u5f62\u72c0;\u5f62\u72c0", "defch2": ""}, "sharp": {"gl": "adj.", "defch1": "\u92d2\u5229\u7684", "defch2": ""}, "ship": {"gl": "n.", "defch1": "\u8239", "defch2": ""}, "shirt": {"gl": "n.", "defch1": "\u896f\u886b", "defch2": ""}, "shoe": {"gl": "n.", "defch1": "\u978b\u5b50", "defch2": ""}, "shopping mall": {"gl": "n.", "defch1": "\u8cfc\u7269\u4e2d\u5fc3;\u5546\u5834", "defch2": ""}, "shorts": {"gl": "n.", "defch1": "\u77ed\u8932;\u77ed\u8932", "defch2": ""}, "shuttle bus": {"gl": "phr.", "defch1": "\u63a5\u99c1\u5df4\u58eb", "defch2": ""}, "sightseeing": {"gl": "n.", "defch1": "\u89c0\u5149", "defch2": ""}, "sightseeing tour": {"gl": "phr.", "defch1": "\u89c0\u5149\u65c5\u904a;\u89c0\u5149\u65c5\u904a", "defch2": ""}, "signature": {"gl": "n.", "defch1": "\u7c3d\u540d;\u7f72\u540d", "defch2": ""}, "Singapore": {"gl": "prop.", "defch1": "\u65b0\u52a0\u5761", "defch2": ""}, "single room": {"gl": "phr.", "defch1": "\u55ae\u4eba\u623f;\u55ae\u4eba\u623f", "defch2": ""}, "skip": {"gl": "v.", "defch1": "\u8df3\u904e", "defch2": ""}, "skirt": {"gl": "n.", "defch1": "\u88d9\u5b50", "defch2": ""}, "slip": {"gl": "v.", "defch1": "\u7d19\u689d;\u6ed1\u8de4;\u5931\u8db3", "defch2": ""}, "slippers": {"gl": "n.", "defch1": "\u62d6\u978b", "defch2": ""}, "slow down": {"gl": "phr.", "defch1": "\u6e1b\u901f;\u6162\u4e0b\u4f86", "defch2": ""}, "smoking area": {"gl": "phr.", "defch1": "\u5438\u83f8\u5340", "defch2": ""}, "sneakers": {"gl": "n.", "defch1": "\u7403\u978b", "defch2": ""}, "soap": {"gl": "n.", "defch1": "\u80a5\u7682", "defch2": ""}, "socks": {"gl": "n.", "defch1": "\u896a\u5b50;\u896a\u5b50", "defch2": ""}, "sofa bed": {"gl": "phr.", "defch1": "\u6c99\u767c\u5e8a", "defch2": ""}, "solar system": {"gl": "n.", "defch1": "\u592a\u967d\u7cfb", "defch2": ""}, "South America": {"gl": "prop.", "defch1": "\u5357\u7f8e\u6d32", "defch2": ""}, "souvenir": {"gl": "n.", "defch1": "\u7d00\u5ff5\u54c1", "defch2": ""}, "spa": {"gl": "n.", "defch1": "\u6c34\u7642", "defch2": ""}, "space": {"gl": "n.", "defch1": "\u592a\u7a7a;\u592a\u7a7a", "defch2": ""}, "special": {"gl": "adj.", "defch1": "\u7279\u9910;\u7279\u5225\u5c08\u9580\u7684;\u7279\u5225\u7684", "defch2": ""}, "spot": {"gl": "n.", "defch1": "\u666f\u9ede", "defch2": ""}, "staff": {"gl": "v.", "defch1": "\u5168\u9ad4\u8077\u54e1;\u54e1\u5de5", "defch2": ""}, "stage": {"gl": "n.", "defch1": "\u821e\u81fa", "defch2": ""}, "stair": {"gl": "n.", "defch1": "\u6a13\u68af", "defch2": ""}, "standard": {"gl": "adj.", "defch1": "\u6a19\u6e96", "defch2": ""}, "standard room": {"gl": "phr.", "defch1": "\u6a19\u6e96\u623f", "defch2": ""}, "standby": {"gl": "n.", "defch1": "\u5f85\u547d;\u5019\u88dc\u6a5f\u4f4d;\u5099\u7528\u54c1", "defch2": ""}, "starving": {"gl": "adj.", "defch1": "\u98e2\u9913\u7684", "defch2": ""}, "state": {"gl": "n.", "defch1": "\u5dde", "defch2": ""}, "station": {"gl": "n.", "defch1": "\u8eca\u7ad9", "defch2": ""}, "statue": {"gl": "n.", "defch1": "\u96d5\u50cf;\u96d5\u50cf", "defch2": ""}, "stay": {"gl": "n.", "defch1": "\u505c\u7559", "defch2": ""}, "steward": {"gl": "n.", "defch1": "\u670d\u52d9\u54e1", "defch2": ""}, "still": {"gl": "adv.", "defch1": "\u4ecd\u820a;\u975c\u6b62", "defch2": ""}, "store": {"gl": "v.", "defch1": "\u5b58\u653e;\u4fdd\u7ba1", "defch2": ""}, "stranger": {"gl": "n.", "defch1": "\u964c\u751f\u4eba", "defch2": ""}, "stressful": {"gl": "adj.", "defch1": "\u7dca\u5f35\u7684", "defch2": ""}, "subway": {"gl": "n.", "defch1": "\u5730\u9435", "defch2": ""}, "suit": {"gl": "v.", "defch1": "\u897f\u88dd;\u5957\u88dd;\u5957;\u7d44;\u8a34\u8a1f;\u5408\u9069", "defch2": ""}, "suitable": {"gl": "adj.", "defch1": "\u9069\u5408\u7684;\u9069\u5408", "defch2": ""}, "suitcase": {"gl": "n.", "defch1": "\u884c\u674e\u7bb1", "defch2": ""}, "suite": {"gl": "n.", "defch1": "\u5957\u623f", "defch2": ""}, "superior room": {"gl": "phr.", "defch1": "\u9ad8\u7d1a(\u7cbe\u7dfb)\u5ba2\u623f", "defch2": ""}, "supermarket": {"gl": "n.", "defch1": "\u8d85\u7d1a\u5e02\u5834;\u8d85\u7d1a\u5e02\u5834", "defch2": ""}, "supply": {"gl": "n.", "defch1": "\u88dc\u7d66\u54c1;\u63d0\u4f9b;\u88dc\u5145", "defch2": ""}, "sweater": {"gl": "n.", "defch1": "\u6bdb\u8863", "defch2": ""}, "sweet": {"gl": "adj.", "defch1": "\u751c\u7684;\u751c", "defch2": ""}, "swimming pool": {"gl": "phr.", "defch1": "\u6e38\u6cf3\u6c60", "defch2": ""}, "swimsuit": {"gl": "n.", "defch1": "\u6cf3\u88dd", "defch2": ""}, "swipe": {"gl": "v.", "defch1": "\u5237;\u5237(\u78c1\u5361);\u78b0\u64e6", "defch2": ""}, "swipe a card": {"gl": "phr.", "defch1": "\u5237\u5361", "defch2": ""}, "system": {"gl": "n.", "defch1": "\u7cfb\u7d71", "defch2": ""}, "tag": {"gl": "n.", "defch1": "\u6a19\u7c64", "defch2": ""}, "take a seat": {"gl": "phr.", "defch1": "\u5750\u4e00\u4e0b", "defch2": ""}, "take your time": {"gl": "n.", "defch1": "\u6162\u6162\u4f86", "defch2": ""}, "tax": {"gl": "n.", "defch1": "\u7a05;\u7a05", "defch2": ""}, "taxi": {"gl": "n.", "defch1": "\u8a08\u7a0b\u8eca", "defch2": ""}, "tennis court": {"gl": "phr.", "defch1": "\u7db2\u7403\u5834", "defch2": ""}, "terminal": {"gl": "n.", "defch1": "\u7d42\u9ede\u7ad9;\u6a5f\u5834\u822a\u5ec8", "defch2": ""}, "terrible": {"gl": "adj.", "defch1": "\u53ef\u6015\u7684", "defch2": ""}, "the day-long trip": {"gl": "n.", "defch1": "\u55ae\u65e5\u822a\u7a0b;\u4e00\u65e5\u904a", "defch2": ""}, "theme park": {"gl": "phr.", "defch1": "\u4e3b\u984c\u516c\u5712", "defch2": ""}, "ticket": {"gl": "n.", "defch1": "\u7968\u4e8c\u6280\u5b78\u6e2c\u8a66\u984c\u7528\u8a5e\u5f59;\u9580\u7968", "defch2": ""}, "ticket machine": {"gl": "phr.", "defch1": "(\u81ea\u52d5)\u552e\u7968\u6a5f;\u552e\u7968\u6a5f", "defch2": ""}, "ticket sensor": {"gl": "phr.", "defch1": "\u8eca\u7968\u611f\u61c9\u5668", "defch2": ""}, "tip": {"gl": "n.", "defch1": "\u670d\u52d9\u63d0\u793a", "defch2": ""}, "tire": {"gl": "n.", "defch1": "\u8f2a\u80ce", "defch2": ""}, "tissue paper": {"gl": "n.", "defch1": "\u9762\u7d19;\u7d19\u5dfe;\u8584\u885b\u751f\u7d19", "defch2": ""}, "toilet": {"gl": "n.", "defch1": "\u5ec1\u6240", "defch2": ""}, "toilet paper": {"gl": "phr.", "defch1": "\u885b\u751f\u7d19", "defch2": ""}, "Tokyo": {"gl": "prop.", "defch1": "\u6771\u4eac", "defch2": ""}, "toothpaste": {"gl": "n.", "defch1": "\u7259\u818f", "defch2": ""}, "Toronto": {"gl": "prop.", "defch1": "\u591a\u502b\u591a", "defch2": ""}, "total": {"gl": "n.", "defch1": "\u7e3d\u50f9;\u7e3d\u8a08", "defch2": ""}, "touch": {"gl": "v.", "defch1": "\u8f15\u5fae;\u89f8\u78b0", "defch2": ""}, "tough": {"gl": "adj.", "defch1": "\u56f0\u96e3\u7684;\u786c\u7684", "defch2": ""}, "tour": {"gl": "v.", "defch1": "\u65c5\u904a", "defch2": ""}, "tour guide": {"gl": "phr.", "defch1": "\u5c0e\u904a;\u65c5\u904a\u6307\u5357", "defch2": ""}, "touring": {"gl": "adj.", "defch1": "\u5de1\u6f14\u7684;\u5de1\u8ff4\u6f14\u51fa", "defch2": ""}, "tourism": {"gl": "n.", "defch1": "\u89c0\u5149\u5ba2", "defch2": ""}, "tourist spots": {"gl": "phr.", "defch1": "\u65c5\u904a\u666f\u9ede;\u65c5\u904a\u666f\u9ede", "defch2": ""}, "trade show": {"gl": "phr.", "defch1": "\u8cbf\u6613\u5c55\u89bd\u6703\r", "defch2": ""}, "traffic": {"gl": "v.", "defch1": "\u4ea4\u901a", "defch2": ""}, "train": {"gl": "n.", "defch1": "\u706b\u8eca;\u706b\u8eca", "defch2": ""}, "train station": {"gl": "n.", "defch1": "\u706b\u8eca\u7ad9", "defch2": ""}, "transfer": {"gl": "v.", "defch1": "\u8f49\u63db", "defch2": ""}, "transportation": {"gl": "n.", "defch1": "\u4ea4\u901a\u8fd0\u8f93;\u4ea4\u901a(\u8cbb);\u904b\u8f38", "defch2": ""}, "travel agency": {"gl": "phr.", "defch1": "\u65c5\u884c\u793e", "defch2": ""}, "traveler's check": {"gl": "phr.", "defch1": "\u65c5\u884c\u652f\u7968", "defch2": ""}, "trip": {"gl": "n.", "defch1": "\u65c5\u7a0b", "defch2": ""}, "tropical": {"gl": "adj.", "defch1": "\u71b1\u5e36\u7684", "defch2": ""}, "T-shirt": {"gl": "prop.", "defch1": "\u77ed\u8896\u5713\u9818\u886b", "defch2": ""}, "twin beds": {"gl": "phr.", "defch1": "\u5169\u5f35\u55ae\u4eba\u5e8a;\u5169\u5f35\u55ae\u4eba\u5e8a", "defch2": ""}, "twin room": {"gl": "n.", "defch1": "\u96d9\u4eba\u623f(\u5169\u5f35\u5e8a);\u96d9\u4eba\u623f", "defch2": ""}, "umbrella": {"gl": "n.", "defch1": "\u96e8\u5098", "defch2": ""}, "unfortunately": {"gl": "adv.", "defch1": "\u4e0d\u5e78\u5730;\u907a\u61be\u5730", "defch2": ""}, "uniform": {"gl": "n.", "defch1": "\u5236\u670d", "defch2": ""}, "unique": {"gl": "adj.", "defch1": "\u7368\u7279\u7684;\u7368\u7279\u7684", "defch2": ""}, "universe": {"gl": "n.", "defch1": "\u5b87\u5b99", "defch2": ""}, "upgrade": {"gl": "n.", "defch1": "\u5347\u7d1a", "defch2": ""}, "upstairs": {"gl": "adv.", "defch1": "\u5728\u6a13\u4e0a;\u6a13\u4e0a", "defch2": ""}, "vacancy": {"gl": "n.", "defch1": "\u7a7a\u7f3a;\u7a7a\u623f", "defch2": ""}, "valuable": {"gl": "adj.", "defch1": "\u6709\u50f9\u503c\u7684;\u8cb4\u91cd\u7269\u54c1;\u8ca1\u7522", "defch2": ""}, "value": {"gl": "n.", "defch1": "\u50f9\u503c", "defch2": ""}, "various": {"gl": "adj.", "defch1": "\u5404\u5f0f\u5404\u6a23\u7684;\u5404\u5f0f\u5404\u6a23\u7684", "defch2": ""}, "villa": {"gl": "n.", "defch1": "\u5225\u5885", "defch2": ""}, "VIP": {"gl": "abbr.", "defch1": "\u8cb4\u8cd3", "defch2": ""}, "visa": {"gl": "v.", "defch1": "\u7c3d\u8b49", "defch2": ""}, "visit": {"gl": "v.", "defch1": "\u53c3\u89c0", "defch2": ""}, "voice mail": {"gl": "n.", "defch1": "\u8a9e\u97f3\u4fe1\u7bb1", "defch2": ""}, "waiter": {"gl": "n.", "defch1": "\u7537\u670d\u52d9\u751f", "defch2": ""}, "wake-up call": {"gl": "phr.", "defch1": "(\u96fb\u8a71)\u559a\u9192\u670d\u52d9;\u559a\u9192\u670d\u52d9", "defch2": ""}, "water": {"gl": "n.", "defch1": "\u6c34", "defch2": ""}, "wedding reception": {"gl": "phr.", "defch1": "\u7d50\u5a5a\u559c\u5bb4", "defch2": ""}, "weight": {"gl": "n.", "defch1": "\u91cd\u91cf;\u79e4...\u9ad4\u91cd", "defch2": ""}, "well done": {"gl": "adj.", "defch1": "\u5168\u719f", "defch2": ""}, "while": {"gl": "conj.", "defch1": "\u7136\u800c;\u7576...\u7684\u6642\u5019;\u5118\u7ba1", "defch2": ""}, "window seat": {"gl": "phr.", "defch1": "\u9760\u7a97\u5ea7\u4f4d;\u9760\u7a97\u5ea7\u4f4d", "defch2": ""}, "wonder": {"gl": "v.", "defch1": "\u61f7\u7591", "defch2": ""}, "worst": {"gl": "adj.", "defch1": "\u6700\u5dee\u7684;\u6700\u5dee", "defch2": ""}, "wrong": {"gl": "adj.", "defch1": "\u932f\u8aa4\u7684;\u932f\u8aa4", "defch2": ""}, "X-ray machine": {"gl": "prop.", "defch1": "X\u5149\u6aa2\u6e2c\u6a5f", "defch2": ""}, "zoo": {"gl": "n.", "defch1": "\u52d5\u7269\u5712", "defch2": ""}}
+{
+    "a party of": {
+        "gl": "phr.",
+        "defch1": "\u4e00\u5925(\u7fa4)\u4eba\u4e00\u884c\u56db\u4eba",
+        "defch2": ""
+    },
+    "accept": {
+        "gl": "v.",
+        "defch1": "\u63a5\u53d7",
+        "defch2": ""
+    },
+    "accommodation": {
+        "gl": "n.",
+        "defch1": "\u4f4f\u8655;\u81b3\u5bbf",
+        "defch2": ""
+    },
+    "accompany": {
+        "gl": "v.",
+        "defch1": "\u966a\u4f34",
+        "defch2": ""
+    },
+    "ache": {
+        "gl": "v.",
+        "defch1": "\u75bc\u75db",
+        "defch2": ""
+    },
+    "actually": {
+        "gl": "adv.",
+        "defch1": "\u8aaa\u5be6\u5728\u7684;\u4e8b\u5be6\u4e0a",
+        "defch2": ""
+    },
+    "additional": {
+        "gl": "adj.",
+        "defch1": "\u984d\u5916\u7684",
+        "defch2": ""
+    },
+    "address": {
+        "gl": "n.",
+        "defch1": "\u5730\u5740",
+        "defch2": ""
+    },
+    "adjust": {
+        "gl": "v.",
+        "defch1": "\u8abf\u6574",
+        "defch2": ""
+    },
+    "advise": {
+        "gl": "v.",
+        "defch1": "\u5efa\u8b70;\u52f8\u544a;\u901a\u77e5;\u63a8\u85a6",
+        "defch2": ""
+    },
+    "Africa": {
+        "gl": "prop.",
+        "defch1": "\u975e\u6d32",
+        "defch2": ""
+    },
+    "air conditioning": {
+        "gl": "n.",
+        "defch1": "\u51b7\u6c23;\u7a7a\u6c23\u8abf\u7bc0\u7cfb\u7d71",
+        "defch2": ""
+    },
+    "airline": {
+        "gl": "n.",
+        "defch1": "\u822a\u7a7a\u516c\u53f8",
+        "defch2": ""
+    },
+    "airline service counter": {
+        "gl": "n.",
+        "defch1": "\u822a\u7a7a\u516c\u53f8\u670d\u52d9\u6ac3\u6aaf",
+        "defch2": ""
+    },
+    "airplane": {
+        "gl": "n.",
+        "defch1": "\u98db\u6a5f",
+        "defch2": ""
+    },
+    "airport": {
+        "gl": "n.",
+        "defch1": "\u6a5f\u5834",
+        "defch2": ""
+    },
+    "airsickness bag": {
+        "gl": "n.",
+        "defch1": "\u6688\u6a5f\u888b",
+        "defch2": ""
+    },
+    "aisle": {
+        "gl": "n.",
+        "defch1": "\u8d70\u9053",
+        "defch2": ""
+    },
+    "aisle seat": {
+        "gl": "n.",
+        "defch1": "\u9760\u8d70\u9053\u7684\u5ea7\u4f4d",
+        "defch2": ""
+    },
+    "alcohol": {
+        "gl": "n.",
+        "defch1": "\u542b\u6709\u9152\u7cbe\u98f2\u6599",
+        "defch2": ""
+    },
+    "allow": {
+        "gl": "v.",
+        "defch1": "\u5141\u8a31;\u7d66\u4e88",
+        "defch2": ""
+    },
+    "ancient": {
+        "gl": "adj.",
+        "defch1": "\u53e4\u8001\u7684",
+        "defch2": ""
+    },
+    "anniversary party": {
+        "gl": "n.",
+        "defch1": "\u5468\u5e74\u7d00\u5ff5\u6d3e\u5c0d",
+        "defch2": ""
+    },
+    "announce": {
+        "gl": "v.",
+        "defch1": "\u5ba3\u5e03;\u8072\u660e",
+        "defch2": ""
+    },
+    "annual meeting": {
+        "gl": "n.",
+        "defch1": "\u5e74\u5ea6\u6703\u8b70",
+        "defch2": ""
+    },
+    "annual sale": {
+        "gl": "n.",
+        "defch1": "\u9031\u5e74\u6176",
+        "defch2": ""
+    },
+    "answer the door": {
+        "gl": "phr.",
+        "defch1": "\u61c9\u9580",
+        "defch2": ""
+    },
+    "apologize": {
+        "gl": "v.",
+        "defch1": "\u9053\u6b49",
+        "defch2": ""
+    },
+    "appointment": {
+        "gl": "n.",
+        "defch1": "(\u8f03\u6b63\u5f0f\u7684)\u7d04\u6703",
+        "defch2": ""
+    },
+    "appreciate": {
+        "gl": "v.",
+        "defch1": "\u611f\u6fc0;\u611f\u8b1d",
+        "defch2": ""
+    },
+    "appropriate": {
+        "gl": "adj.",
+        "defch1": "\u6070\u7576\u7684",
+        "defch2": ""
+    },
+    "Arctic Ocean": {
+        "gl": "prop.",
+        "defch1": "\u5317\u6975\u6d77;\u5317\u51b0\u6d0b",
+        "defch2": ""
+    },
+    "area": {
+        "gl": "n.",
+        "defch1": "\u5730\u5340",
+        "defch2": ""
+    },
+    "armrest": {
+        "gl": "n.",
+        "defch1": "\u6276\u624b",
+        "defch2": ""
+    },
+    "arrange": {
+        "gl": "v.",
+        "defch1": "\u5b89\u6392;\u7c4c\u5099",
+        "defch2": ""
+    },
+    "arrival": {
+        "gl": "n.",
+        "defch1": "\u62b5\u9054;\u5165\u5883",
+        "defch2": ""
+    },
+    "arrival time": {
+        "gl": "n.",
+        "defch1": "\u5230\u9054\u6642\u9593",
+        "defch2": ""
+    },
+    "arrive": {
+        "gl": "v.",
+        "defch1": "\u62b5\u9054",
+        "defch2": ""
+    },
+    "as soon as possible": {
+        "gl": "phr.",
+        "defch1": "\u76e1\u5feb\u5730",
+        "defch2": ""
+    },
+    "Asia": {
+        "gl": "prop.",
+        "defch1": "\u4e9e\u6d32",
+        "defch2": ""
+    },
+    "assistant manager": {
+        "gl": "n.",
+        "defch1": "\u5354\u7406;\u8944\u7406",
+        "defch2": ""
+    },
+    "at least": {
+        "gl": "phr.",
+        "defch1": "\u6700\u5c11;\u81f3\u5c11",
+        "defch2": ""
+    },
+    "at once": {
+        "gl": "phr.",
+        "defch1": "\u99ac\u4e0a;\u7acb\u5373",
+        "defch2": ""
+    },
+    "Atlantic Ocean": {
+        "gl": "prop.",
+        "defch1": "\u5927\u897f\u6d0b",
+        "defch2": ""
+    },
+    "audio guide": {
+        "gl": "n.",
+        "defch1": "\u8a9e\u97f3\u5c0e\u89bd",
+        "defch2": ""
+    },
+    "audio tour": {
+        "gl": "n.",
+        "defch1": "\u8a9e\u97f3\u5c0e\u89bd",
+        "defch2": ""
+    },
+    "Australia": {
+        "gl": "prop.",
+        "defch1": "\u6fb3\u6d32",
+        "defch2": ""
+    },
+    "available": {
+        "gl": "adj.",
+        "defch1": "\u53ef\u7528\u7684;\u6709\u7a7a\u7684",
+        "defch2": ""
+    },
+    "avoid": {
+        "gl": "v.",
+        "defch1": "\u907f\u514d",
+        "defch2": ""
+    },
+    "B&B": {
+        "gl": "prop.",
+        "defch1": "\u6c11\u5bbf",
+        "defch2": ""
+    },
+    "baggage": {
+        "gl": "n.",
+        "defch1": "\u884c\u674e",
+        "defch2": ""
+    },
+    "baggage cart": {
+        "gl": "n.",
+        "defch1": "\u884c\u674e\u63a8\u8eca",
+        "defch2": ""
+    },
+    "baggage claim area": {
+        "gl": "n.",
+        "defch1": "\u884c\u674e\u9818\u53d6\u8655",
+        "defch2": ""
+    },
+    "bake": {
+        "gl": "v.",
+        "defch1": "\u70d8\u70e4",
+        "defch2": ""
+    },
+    "balcony": {
+        "gl": "n.",
+        "defch1": "\u967d\u81fa",
+        "defch2": ""
+    },
+    "ballroom": {
+        "gl": "n.",
+        "defch1": "\u5bb4\u6703\u5ef3",
+        "defch2": ""
+    },
+    "banquet": {
+        "gl": "n.",
+        "defch1": "\u5bb4\u6703",
+        "defch2": ""
+    },
+    "banquet hall": {
+        "gl": "n.",
+        "defch1": "\u5bb4\u6703\u5ef3",
+        "defch2": ""
+    },
+    "banquet room": {
+        "gl": "n.",
+        "defch1": "\u5bb4\u6703\u5ef3",
+        "defch2": ""
+    },
+    "bartender": {
+        "gl": "n.",
+        "defch1": "\u9152\u4fdd",
+        "defch2": ""
+    },
+    "bathtub": {
+        "gl": "n.",
+        "defch1": "\u6d74\u7f38",
+        "defch2": ""
+    },
+    "bay": {
+        "gl": "n.",
+        "defch1": "(\u6d77\u6216\u6e56\u6cca\u7684)\u7063",
+        "defch2": ""
+    },
+    "bed and breakfast": {
+        "gl": "n.",
+        "defch1": "\u6c11\u5bbf",
+        "defch2": ""
+    },
+    "bellboy": {
+        "gl": "n.",
+        "defch1": "\u884c\u674e\u54e1",
+        "defch2": ""
+    },
+    "bellhop": {
+        "gl": "n.",
+        "defch1": "\u4f8d\u8005",
+        "defch2": ""
+    },
+    "benefit": {
+        "gl": "n.",
+        "defch1": "\u597d\u8655;\u5229\u76ca",
+        "defch2": ""
+    },
+    "between": {
+        "gl": "prep.",
+        "defch1": "\u4e4b\u9593",
+        "defch2": ""
+    },
+    "bicycle": {
+        "gl": "n.",
+        "defch1": "\u81ea\u884c\u8eca",
+        "defch2": ""
+    },
+    "bill": {
+        "gl": "n.",
+        "defch1": "\u5e33\u55ae;(\u7f8e)\u9214\u7968",
+        "defch2": ""
+    },
+    "birthday party": {
+        "gl": "n.",
+        "defch1": "\u751f\u65e5\u6d3e\u5c0d(\u805a\u6703)",
+        "defch2": ""
+    },
+    "blanket": {
+        "gl": "n.",
+        "defch1": "\u6bdb\u6bef;\u6bef\u5b50",
+        "defch2": ""
+    },
+    "board": {
+        "gl": "n.",
+        "defch1": "\u767b\u4e0a(\u98db\u6a5f\u3001\u8239\u6216\u706b\u8eca)",
+        "defch2": ""
+    },
+    "boarding": {
+        "gl": "n.",
+        "defch1": "\u767b\u6a5f;\u4e0a\u8239(\u6216\u706b\u8eca)",
+        "defch2": ""
+    },
+    "boarding gate": {
+        "gl": "n.",
+        "defch1": "\u767b\u6a5f\u9580",
+        "defch2": ""
+    },
+    "boarding pass": {
+        "gl": "n.",
+        "defch1": "\u767b\u6a5f\u8b49",
+        "defch2": ""
+    },
+    "boat": {
+        "gl": "n.",
+        "defch1": "\u8239",
+        "defch2": ""
+    },
+    "book": {
+        "gl": "v.",
+        "defch1": "\u9810\u8a02;\u8a02\u623f;\u8a02\u4f4d",
+        "defch2": ""
+    },
+    "booklet": {
+        "gl": "n.",
+        "defch1": "\u5c0f\u518a\u5b50",
+        "defch2": ""
+    },
+    "Boston": {
+        "gl": "prop.",
+        "defch1": "\u6ce2\u58eb\u9813",
+        "defch2": ""
+    },
+    "boutique": {
+        "gl": "n.",
+        "defch1": "\u7cbe\u54c1\u5e97",
+        "defch2": ""
+    },
+    "Brazil": {
+        "gl": "prop.",
+        "defch1": "\u5df4\u897f",
+        "defch2": ""
+    },
+    "breakfast voucher": {
+        "gl": "n.",
+        "defch1": "\u65e9\u9910\u5238",
+        "defch2": ""
+    },
+    "briefcase": {
+        "gl": "n.",
+        "defch1": "\u516c\u4e8b\u5305",
+        "defch2": ""
+    },
+    "buffet": {
+        "gl": "n.",
+        "defch1": "\u81ea\u52a9\u9910",
+        "defch2": ""
+    },
+    "bus stop": {
+        "gl": "n.",
+        "defch1": "\u516c\u8eca\u505c\u9760\u7ad9",
+        "defch2": ""
+    },
+    "business card": {
+        "gl": "n.",
+        "defch1": "\u540d\u7247",
+        "defch2": ""
+    },
+    "business center": {
+        "gl": "n.",
+        "defch1": "\u5546\u52d9\u4e2d\u5fc3",
+        "defch2": ""
+    },
+    "business class": {
+        "gl": "n.",
+        "defch1": "\u5546\u52d9\u8259",
+        "defch2": ""
+    },
+    "by the way": {
+        "gl": "phr.",
+        "defch1": "\u9806\u5e36\u4e00\u63d0",
+        "defch2": ""
+    },
+    "cab": {
+        "gl": "n.",
+        "defch1": "\u8a08\u7a0b\u8eca",
+        "defch2": ""
+    },
+    "cabin": {
+        "gl": "n.",
+        "defch1": "\u5c0f\u5c4b;\u5ba2\u8259",
+        "defch2": ""
+    },
+    "cafe": {
+        "gl": "n.",
+        "defch1": "\u5496\u5561\u5ef3(\u9928)",
+        "defch2": ""
+    },
+    "camera": {
+        "gl": "n.",
+        "defch1": "\u76f8\u6a5f",
+        "defch2": ""
+    },
+    "campsite": {
+        "gl": "n.",
+        "defch1": "\u9732\u71df\u5730",
+        "defch2": ""
+    },
+    "Canada": {
+        "gl": "prop.",
+        "defch1": "\u52a0\u62ff\u5927",
+        "defch2": ""
+    },
+    "cancel": {
+        "gl": "v.",
+        "defch1": "\u53d6\u6d88",
+        "defch2": ""
+    },
+    "cancellation": {
+        "gl": "n.",
+        "defch1": "\u53d6\u6d88",
+        "defch2": ""
+    },
+    "capacity": {
+        "gl": "n.",
+        "defch1": "\u80fd\u529b;\u5bb9\u91cf;\u8cc7\u683c",
+        "defch2": ""
+    },
+    "capital": {
+        "gl": "n.",
+        "defch1": "\u9996\u90fd",
+        "defch2": ""
+    },
+    "captain": {
+        "gl": "n.",
+        "defch1": "\u8239\u9577;\u6a5f\u9577;\u968a\u9577",
+        "defch2": ""
+    },
+    "car rental": {
+        "gl": "n.",
+        "defch1": "\u79df\u8eca\u79df\u8cc3",
+        "defch2": ""
+    },
+    "carried mail": {
+        "gl": "phr.",
+        "defch1": "\u904b\u8f09\u90f5\u4ef6",
+        "defch2": ""
+    },
+    "carry-on": {
+        "gl": "adj.",
+        "defch1": "\u96a8\u8eab\u651c\u5e36\u7684",
+        "defch2": ""
+    },
+    "carry-on bag": {
+        "gl": "n.",
+        "defch1": "\u96a8\u8eab\u651c\u5e36\u7684\u5305",
+        "defch2": ""
+    },
+    "cart": {
+        "gl": "n.",
+        "defch1": "\u8cfc\u7269\u8eca",
+        "defch2": ""
+    },
+    "cash": {
+        "gl": "n.",
+        "defch1": "\u73fe\u91d1",
+        "defch2": ""
+    },
+    "cashier": {
+        "gl": "n.",
+        "defch1": "\u6536\u9280\u54e1",
+        "defch2": ""
+    },
+    "casino": {
+        "gl": "n.",
+        "defch1": "\u8ced\u5834",
+        "defch2": ""
+    },
+    "castle": {
+        "gl": "n.",
+        "defch1": "\u57ce\u5821",
+        "defch2": ""
+    },
+    "cell phone": {
+        "gl": "n.",
+        "defch1": "\u624b\u6a5f",
+        "defch2": ""
+    },
+    "change": {
+        "gl": "n.",
+        "defch1": "\u6539\u8b8a",
+        "defch2": ""
+    },
+    "change planes": {
+        "gl": "phr.",
+        "defch1": "\u8f49\u6a5f",
+        "defch2": ""
+    },
+    "charge": {
+        "gl": "n.",
+        "defch1": "\u6536\u8cbb;\u8cbb\u7528",
+        "defch2": ""
+    },
+    "chart": {
+        "gl": "n.",
+        "defch1": "\u5716\u8868",
+        "defch2": ""
+    },
+    "check": {
+        "gl": "n.",
+        "defch1": "\u652f\u7968;\u5e33\u55ae",
+        "defch2": ""
+    },
+    "check in": {
+        "gl": "phr.",
+        "defch1": "\u7c3d\u5230",
+        "defch2": ""
+    },
+    "check out": {
+        "gl": "phr.",
+        "defch1": "\u9000\u623f",
+        "defch2": ""
+    },
+    "check-in": {
+        "gl": "n.",
+        "defch1": "\u5831\u5230",
+        "defch2": ""
+    },
+    "check-in counter": {
+        "gl": "n.",
+        "defch1": "\u767b\u6a5f\u6ac3\u6aaf",
+        "defch2": ""
+    },
+    "check-out time": {
+        "gl": "phr.",
+        "defch1": "\u9000\u623f\u6642\u9593",
+        "defch2": ""
+    },
+    "chef": {
+        "gl": "n.",
+        "defch1": "\u9910\u5ef3\u5927\u5eda;\u4e3b\u5eda",
+        "defch2": ""
+    },
+    "child care": {
+        "gl": "n.",
+        "defch1": "\u6258\u5152\u670d\u52d9",
+        "defch2": ""
+    },
+    "children": {
+        "gl": "n.",
+        "defch1": "\u5c0f\u5b69(\u8907\u6578)",
+        "defch2": ""
+    },
+    "China": {
+        "gl": "prop.",
+        "defch1": "\u4e2d\u570b",
+        "defch2": ""
+    },
+    "Christmas party": {
+        "gl": "prop.",
+        "defch1": "\u8056\u8a95\u6d3e\u5c0d;\u8056\u8a95\u7bc0\u805a\u6703",
+        "defch2": ""
+    },
+    "church": {
+        "gl": "n.",
+        "defch1": "\u6559\u5802",
+        "defch2": ""
+    },
+    "city tour": {
+        "gl": "phr.",
+        "defch1": "\u5e02\u5340\u5c0e\u89bd(\u89c0\u5149)",
+        "defch2": ""
+    },
+    "claim": {
+        "gl": "n.",
+        "defch1": "\u5ba3\u544a",
+        "defch2": ""
+    },
+    "climate": {
+        "gl": "n.",
+        "defch1": "\u6c23\u5019",
+        "defch2": ""
+    },
+    "clothes": {
+        "gl": "n.",
+        "defch1": "\u8863\u670d",
+        "defch2": ""
+    },
+    "coach": {
+        "gl": "n.",
+        "defch1": "\u6559\u7df4;(\u666e\u901a)\u65c5\u5ba2\u8eca\u5ec2;\u5df4\u58eb",
+        "defch2": ""
+    },
+    "coat": {
+        "gl": "n.",
+        "defch1": "\u5916\u5957",
+        "defch2": ""
+    },
+    "cocktail": {
+        "gl": "n.",
+        "defch1": "\u96de\u5c3e\u9152",
+        "defch2": ""
+    },
+    "coffee shop": {
+        "gl": "phr.",
+        "defch1": "\u5496\u5561\u5e97",
+        "defch2": ""
+    },
+    "coffeemaker": {
+        "gl": "n.",
+        "defch1": "\u5496\u5561\u6a5f",
+        "defch2": ""
+    },
+    "coin": {
+        "gl": "n.",
+        "defch1": "\u786c\u5e63",
+        "defch2": ""
+    },
+    "compact": {
+        "gl": "n.",
+        "defch1": "\u5c0f\u8f4e\u8eca",
+        "defch2": ""
+    },
+    "company": {
+        "gl": "n.",
+        "defch1": "\u516c\u53f8",
+        "defch2": ""
+    },
+    "complaint": {
+        "gl": "n.",
+        "defch1": "\u62b1\u6028",
+        "defch2": ""
+    },
+    "complete": {
+        "gl": "adj.",
+        "defch1": "\u5b8c\u6210;\u5b8c\u6574\u7684;\u5168\u90e8\u7684",
+        "defch2": ""
+    },
+    "complicated": {
+        "gl": "adj.",
+        "defch1": "\u8907\u96dc\u7684",
+        "defch2": ""
+    },
+    "concierge": {
+        "gl": "n.",
+        "defch1": "\u670d\u52d9\u81fa\u4eba\u54e1",
+        "defch2": ""
+    },
+    "conference": {
+        "gl": "n.",
+        "defch1": "\u6b63\u5f0f\u7814\u8a0e\u6703(\u8b70);\u8a0e\u8ad6;\u6703\u8ac7",
+        "defch2": ""
+    },
+    "conference room": {
+        "gl": "phr.",
+        "defch1": "\u6703\u8b70\u5ba4",
+        "defch2": ""
+    },
+    "confirm": {
+        "gl": "v.",
+        "defch1": "\u78ba\u8a8d;\u8b49\u5be6;\u6279\u51c6",
+        "defch2": ""
+    },
+    "congratulation": {
+        "gl": "n.",
+        "defch1": "\u606d\u8cc0",
+        "defch2": ""
+    },
+    "connect": {
+        "gl": "v.",
+        "defch1": "\u9023\u63a5",
+        "defch2": ""
+    },
+    "connecting room": {
+        "gl": "n.",
+        "defch1": "\u9023\u901a\u623f",
+        "defch2": ""
+    },
+    "consume": {
+        "gl": "v.",
+        "defch1": "\u5403\u5b8c;\u559d\u5149;\u8017\u76e1",
+        "defch2": ""
+    },
+    "contact": {
+        "gl": "v.",
+        "defch1": "\u63a5\u89f8;\u8207...\u806f\u7e6b",
+        "defch2": ""
+    },
+    "continent": {
+        "gl": "n.",
+        "defch1": "\u5927\u9678;\u5927\u6d32",
+        "defch2": ""
+    },
+    "contract": {
+        "gl": "n.",
+        "defch1": "\u8a02\u5951\u7d04",
+        "defch2": ""
+    },
+    "control tower": {
+        "gl": "phr.",
+        "defch1": "\u63a7\u5236\u5854\u81fa",
+        "defch2": ""
+    },
+    "convenience": {
+        "gl": "n.",
+        "defch1": "\u65b9\u4fbf;\u5408\u5b9c",
+        "defch2": ""
+    },
+    "convenience store": {
+        "gl": "phr.",
+        "defch1": "\u4fbf\u5229\u5546\u5e97",
+        "defch2": ""
+    },
+    "cooperate": {
+        "gl": "v.",
+        "defch1": "\u5408\u4f5c",
+        "defch2": ""
+    },
+    "cooperation": {
+        "gl": "n.",
+        "defch1": "\u5408\u4f5c;\u5354\u529b",
+        "defch2": ""
+    },
+    "corner": {
+        "gl": "adj.",
+        "defch1": "(\u8857)\u89d2",
+        "defch2": ""
+    },
+    "cost": {
+        "gl": "v.",
+        "defch1": "\u8cbb\u7528;\u82b1\u8cbb",
+        "defch2": ""
+    },
+    "cottage": {
+        "gl": "n.",
+        "defch1": "\u5c71\u5be8",
+        "defch2": ""
+    },
+    "country": {
+        "gl": "n.",
+        "defch1": "\u570b\u5bb6",
+        "defch2": ""
+    },
+    "credit card": {
+        "gl": "phr.",
+        "defch1": "\u4fe1\u7528\u5361",
+        "defch2": ""
+    },
+    "cross": {
+        "gl": "v.",
+        "defch1": "\u7a7f\u904e",
+        "defch2": ""
+    },
+    "cruise": {
+        "gl": "v.",
+        "defch1": "\u4e58\u8239\u65c5\u884c;\u822a\u884c;\u6f2b\u904a",
+        "defch2": ""
+    },
+    "cruise ship": {
+        "gl": "phr.",
+        "defch1": "\u904a\u8f2a;\u904a\u8247",
+        "defch2": ""
+    },
+    "cuisine": {
+        "gl": "n.",
+        "defch1": "\u6599\u7406",
+        "defch2": ""
+    },
+    "currency": {
+        "gl": "n.",
+        "defch1": "\u8ca8\u5e63",
+        "defch2": ""
+    },
+    "customer": {
+        "gl": "n.",
+        "defch1": "\u9867\u5ba2",
+        "defch2": ""
+    },
+    "Customs": {
+        "gl": "prop.",
+        "defch1": "\u6d77\u95dc",
+        "defch2": ""
+    },
+    "cut": {
+        "gl": "v.",
+        "defch1": "\u5207\u5272;\u524a\u6e1b",
+        "defch2": ""
+    },
+    "declaration form": {
+        "gl": "phr.",
+        "defch1": "\u5831\u95dc\u8868\u683c",
+        "defch2": ""
+    },
+    "declare": {
+        "gl": "v.",
+        "defch1": "\u7533\u5831;\u5ba3\u544a;\u8072\u660e",
+        "defch2": ""
+    },
+    "decline": {
+        "gl": "n.",
+        "defch1": "\u8b1d\u7d55;\u5a49\u8a00\u62d2\u7d55;\u4e0b\u964d",
+        "defch2": ""
+    },
+    "delay": {
+        "gl": "v.",
+        "defch1": "\u5ef6\u9072;\u803d\u64f1;\u5ef6\u8aa4",
+        "defch2": ""
+    },
+    "delayed": {
+        "gl": "adj.",
+        "defch1": "\u5ef6\u9072\u7684",
+        "defch2": ""
+    },
+    "deliver": {
+        "gl": "v.",
+        "defch1": "\u6295\u905e;\u50b3\u905e;\u904b\u9001",
+        "defch2": ""
+    },
+    "demand": {
+        "gl": "v.",
+        "defch1": "\u8981\u6c42",
+        "defch2": ""
+    },
+    "depart": {
+        "gl": "v.",
+        "defch1": "\u51fa\u767c;\u555f\u7a0b",
+        "defch2": ""
+    },
+    "department": {
+        "gl": "n.",
+        "defch1": "\u90e8\u9580",
+        "defch2": ""
+    },
+    "department store": {
+        "gl": "phr.",
+        "defch1": "\u767e\u8ca8\u516c\u53f8",
+        "defch2": ""
+    },
+    "departure": {
+        "gl": "n.",
+        "defch1": "\u51fa\u5883",
+        "defch2": ""
+    },
+    "departure time": {
+        "gl": "phr.",
+        "defch1": "\u51fa\u767c\u6642\u9593",
+        "defch2": ""
+    },
+    "deposit": {
+        "gl": "v.",
+        "defch1": "\u5bc4\u5b58;\u8a02\u91d1;\u4fdd\u8b49\u91d1;\u62bc\u91d1;\u653e\u7f6e",
+        "defch2": ""
+    },
+    "describe": {
+        "gl": "v.",
+        "defch1": "\u63cf\u8ff0",
+        "defch2": ""
+    },
+    "designate": {
+        "gl": "adj.",
+        "defch1": "\u9078\u5b9a;\u6307\u6d3e(\u7684)",
+        "defch2": ""
+    },
+    "desk clerk": {
+        "gl": "phr.",
+        "defch1": "\u6ac3\u6aaf\u670d\u52d9\u54e1",
+        "defch2": ""
+    },
+    "develop": {
+        "gl": "v.",
+        "defch1": "\u4f7f\u6210\u9577;\u767c\u5c55",
+        "defch2": ""
+    },
+    "dial": {
+        "gl": "v.",
+        "defch1": "\u64a5(\u865f)",
+        "defch2": ""
+    },
+    "digital camera": {
+        "gl": "phr.",
+        "defch1": "\u6578\u4f4d\u76f8\u6a5f",
+        "defch2": ""
+    },
+    "dine": {
+        "gl": "v.",
+        "defch1": "\u7528\u9910",
+        "defch2": ""
+    },
+    "dining room": {
+        "gl": "n.",
+        "defch1": "\u9910\u5ef3",
+        "defch2": ""
+    },
+    "direct": {
+        "gl": "adv.",
+        "defch1": "\u76f4\u63a5\u7684;\u5f91\u76f4\u7684;\u76f4\u63a5\u5730",
+        "defch2": ""
+    },
+    "direct flight": {
+        "gl": "phr.",
+        "defch1": "\u76f4\u98db\u822a\u73ed(\u76f4\u822a)",
+        "defch2": ""
+    },
+    "direction": {
+        "gl": "n.",
+        "defch1": "\u65b9\u5411",
+        "defch2": ""
+    },
+    "directly": {
+        "gl": "adv.",
+        "defch1": "\u76f4\u63a5\u5730",
+        "defch2": ""
+    },
+    "discount": {
+        "gl": "v.",
+        "defch1": "\u6298\u6263",
+        "defch2": ""
+    },
+    "display": {
+        "gl": "v.",
+        "defch1": "\u5c55\u793a",
+        "defch2": ""
+    },
+    "dissatisfied": {
+        "gl": "adj.",
+        "defch1": "\u4e0d\u6eff\u610f\u7684",
+        "defch2": ""
+    },
+    "dock": {
+        "gl": "v.",
+        "defch1": "\u78bc\u982d;\u505c\u9760\u78bc\u982d",
+        "defch2": ""
+    },
+    "dollar": {
+        "gl": "n.",
+        "defch1": "\u5143",
+        "defch2": ""
+    },
+    "domestic terminal": {
+        "gl": "phr.",
+        "defch1": "\u570b\u5167\u7dda\u822a\u5ec8",
+        "defch2": ""
+    },
+    "doorman": {
+        "gl": "n.",
+        "defch1": "\u9580\u623f;\u9580\u5ef3\u4f8d\u8005",
+        "defch2": ""
+    },
+    "double": {
+        "gl": "v.",
+        "defch1": "\u96d9\u4eba\u623f;\u5169\u500d\u7684;\u52a0\u500d",
+        "defch2": ""
+    },
+    "double bed": {
+        "gl": "phr.",
+        "defch1": "\u96d9\u4eba\u5e8a",
+        "defch2": ""
+    },
+    "double room": {
+        "gl": "phr.",
+        "defch1": "\u96d9\u4eba\u623f",
+        "defch2": ""
+    },
+    "double-check": {
+        "gl": "phr.",
+        "defch1": "\u518d\u6b21\u78ba\u8a8d;\u4ed4\u7d30\u67e5\u6838",
+        "defch2": ""
+    },
+    "dress": {
+        "gl": "v.",
+        "defch1": "\u6253\u626e;\u88fd\u4f5c;\u88dd\u98fe",
+        "defch2": ""
+    },
+    "dress code": {
+        "gl": "phr.",
+        "defch1": "\u670d\u98fe\u898f\u5b9a;\u8457\u88dd\u6a19\u6e96",
+        "defch2": ""
+    },
+    "dressing": {
+        "gl": "n.",
+        "defch1": "\u8abf\u6599;\u88dd\u98fe",
+        "defch2": ""
+    },
+    "driver's license": {
+        "gl": "phr.",
+        "defch1": "\u99d5\u7167",
+        "defch2": ""
+    },
+    "drug store": {
+        "gl": "n.",
+        "defch1": "\u85e5\u599d\u5e97",
+        "defch2": ""
+    },
+    "dry-clean": {
+        "gl": "v.",
+        "defch1": "\u4e7e\u6d17",
+        "defch2": ""
+    },
+    "due": {
+        "gl": "adj.",
+        "defch1": "\u5230\u671f\u7684",
+        "defch2": ""
+    },
+    "duty-free shop": {
+        "gl": "phr.",
+        "defch1": "\u514d\u7a05\u5546\u5e97",
+        "defch2": ""
+    },
+    "earring": {
+        "gl": "n.",
+        "defch1": "\u8033\u74b0",
+        "defch2": ""
+    },
+    "easily": {
+        "gl": "adv.",
+        "defch1": "\u5bb9\u6613\u5730",
+        "defch2": ""
+    },
+    "economy": {
+        "gl": "n.",
+        "defch1": "\u7d93\u6fdf",
+        "defch2": ""
+    },
+    "economy class": {
+        "gl": "phr.",
+        "defch1": "\u7d93\u6fdf\u8259",
+        "defch2": ""
+    },
+    "effort": {
+        "gl": "n.",
+        "defch1": "\u52aa\u529b;\u76e1\u529b",
+        "defch2": ""
+    },
+    "elevator": {
+        "gl": "n.",
+        "defch1": "\u96fb\u68af",
+        "defch2": ""
+    },
+    "emergency": {
+        "gl": "n.",
+        "defch1": "\u7dca\u6025\u72c0\u6cc1",
+        "defch2": ""
+    },
+    "employ": {
+        "gl": "v.",
+        "defch1": "\u96c7\u7528",
+        "defch2": ""
+    },
+    "enjoyable": {
+        "gl": "adj.",
+        "defch1": "\u4ee4\u4eba\u6109\u5feb\u7684",
+        "defch2": ""
+    },
+    "entertainment": {
+        "gl": "n.",
+        "defch1": "\u5a1b\u6a02",
+        "defch2": ""
+    },
+    "especially": {
+        "gl": "adv.",
+        "defch1": "\u7279\u5225\u5730",
+        "defch2": ""
+    },
+    "Europe": {
+        "gl": "prop.",
+        "defch1": "\u6b50\u6d32",
+        "defch2": ""
+    },
+    "European": {
+        "gl": "prop.",
+        "defch1": "\u6b50\u6d32\u7684",
+        "defch2": ""
+    },
+    "exceed": {
+        "gl": "v.",
+        "defch1": "\u8d85\u904e",
+        "defch2": ""
+    },
+    "exchange": {
+        "gl": "n.",
+        "defch1": "\u514c\u63db",
+        "defch2": ""
+    },
+    "exchange rate": {
+        "gl": "phr.",
+        "defch1": "\u532f\u7387",
+        "defch2": ""
+    },
+    "exciting": {
+        "gl": "adj.",
+        "defch1": "\u4ee4\u4eba\u8208\u596e\u7684",
+        "defch2": ""
+    },
+    "excuse": {
+        "gl": "n.",
+        "defch1": "\u85c9\u53e3;\u85c9\u53e3",
+        "defch2": ""
+    },
+    "excuse me": {
+        "gl": "phr.",
+        "defch1": "\u4e0d\u597d\u610f\u601d;\u8acb\u554f",
+        "defch2": ""
+    },
+    "exhibition": {
+        "gl": "n.",
+        "defch1": "\u5c55\u89bd",
+        "defch2": ""
+    },
+    "exit": {
+        "gl": "n.",
+        "defch1": "\u51fa\u53e3",
+        "defch2": ""
+    },
+    "expect": {
+        "gl": "v.",
+        "defch1": "\u671f\u5f85;\u9810\u671f",
+        "defch2": ""
+    },
+    "experience": {
+        "gl": "n.",
+        "defch1": "\u7d93\u9a57;\u7d93\u6b77;\u7d93\u53d7",
+        "defch2": ""
+    },
+    "expiration date": {
+        "gl": "phr.",
+        "defch1": "\u5230\u671f(\u622a\u6b62)\u65e5;\u6709\u6548\u65e5\u671f",
+        "defch2": ""
+    },
+    "extra": {
+        "gl": "n.",
+        "defch1": "\u984d\u5916;\u9644\u52a0\u8cbb\u7528",
+        "defch2": ""
+    },
+    "facility": {
+        "gl": "n.",
+        "defch1": "\u8a2d\u65bd",
+        "defch2": ""
+    },
+    "family room": {
+        "gl": "phr.",
+        "defch1": "\u5bb6\u5ead\u5957\u623f",
+        "defch2": ""
+    },
+    "fare": {
+        "gl": "n.",
+        "defch1": "\u7968\u50f9;\u7968\u50f9",
+        "defch2": ""
+    },
+    "fasten": {
+        "gl": "v.",
+        "defch1": "\u7e6b\u7dca;\u6263\u4e0a;\u9582\u4f4f",
+        "defch2": ""
+    },
+    "ferry": {
+        "gl": "v.",
+        "defch1": "\u6e21\u8239;\u6e21\u8239",
+        "defch2": ""
+    },
+    "figure out": {
+        "gl": "phr.",
+        "defch1": "\u89e3\u6c7a",
+        "defch2": ""
+    },
+    "fine": {
+        "gl": "n.",
+        "defch1": "\u4e0a\u7b49\u7684;\u7f70\u6b3e",
+        "defch2": ""
+    },
+    "first class": {
+        "gl": "phr.",
+        "defch1": "\u982d\u7b49\u8259;\u982d\u7b49\u8259",
+        "defch2": ""
+    },
+    "fitness center": {
+        "gl": "phr.",
+        "defch1": "\u5065\u8eab\u4e2d\u5fc3",
+        "defch2": ""
+    },
+    "fix": {
+        "gl": "v.",
+        "defch1": "\u8655\u7406;\u4fee\u7406",
+        "defch2": ""
+    },
+    "flight attendant": {
+        "gl": "phr.",
+        "defch1": "\u7a7a\u670d\u54e1",
+        "defch2": ""
+    },
+    "fold": {
+        "gl": "v.",
+        "defch1": "\u6298\u758a",
+        "defch2": ""
+    },
+    "forbidden": {
+        "gl": "adj.",
+        "defch1": "\u88ab\u7981\u6b62\u7684;\u88ab\u7981\u6b62\u7684",
+        "defch2": ""
+    },
+    "force": {
+        "gl": "n.",
+        "defch1": "\u5f71\u97ff;\u5f37\u8feb;\u8aaa\u670d\u529b",
+        "defch2": ""
+    },
+    "foreign currency exchange": {
+        "gl": "phr.",
+        "defch1": "\u5916\u5e63\u514c\u63db",
+        "defch2": ""
+    },
+    "frequently": {
+        "gl": "adv.",
+        "defch1": "\u983b\u7e41\u5730;\u983b\u7e41",
+        "defch2": ""
+    },
+    "front desk": {
+        "gl": "phr.",
+        "defch1": "\u6ac3\u6aaf",
+        "defch2": ""
+    },
+    "front desk clerk": {
+        "gl": "phr.",
+        "defch1": "\u63a5\u5f85\u4eba\u54e1",
+        "defch2": ""
+    },
+    "full": {
+        "gl": "n.",
+        "defch1": "\u5b8c\u5168\u7684;\u6975\u76db\u6642",
+        "defch2": ""
+    },
+    "full-day tour": {
+        "gl": "phr.",
+        "defch1": "\u4e00\u65e5\u904a;\u4e00\u65e5\u904a",
+        "defch2": ""
+    },
+    "furnishings": {
+        "gl": "n.",
+        "defch1": "\u50a2\u4ff1\u64fa\u8a2d(\u591a\u7528\u8907\u6578)",
+        "defch2": ""
+    },
+    "gas": {
+        "gl": "n.",
+        "defch1": "\u6c7d\u6cb9",
+        "defch2": ""
+    },
+    "gas station": {
+        "gl": "n.",
+        "defch1": "\u52a0\u6cb9\u7ad9",
+        "defch2": ""
+    },
+    "gate": {
+        "gl": "n.",
+        "defch1": "\u767b\u6a5f\u9580;\u5927\u9580",
+        "defch2": ""
+    },
+    "get off": {
+        "gl": "phr.",
+        "defch1": "\u4e0b\u8eca",
+        "defch2": ""
+    },
+    "get seasick": {
+        "gl": "phr.",
+        "defch1": "\u6688\u8239",
+        "defch2": ""
+    },
+    "get to": {
+        "gl": "phr.",
+        "defch1": "\u62b5\u9054;\u62b5\u9054",
+        "defch2": ""
+    },
+    "gift shop": {
+        "gl": "phr.",
+        "defch1": "\u79ae\u54c1\u5e97",
+        "defch2": ""
+    },
+    "gloves": {
+        "gl": "n.",
+        "defch1": "\u624b\u5957",
+        "defch2": ""
+    },
+    "go crazy": {
+        "gl": "phr.",
+        "defch1": "\u767c\u760b;\u767c\u760b",
+        "defch2": ""
+    },
+    "go straight": {
+        "gl": "phr.",
+        "defch1": "\u76f4\u8d70;\u76f4\u8d70",
+        "defch2": ""
+    },
+    "golf course": {
+        "gl": "n.",
+        "defch1": "\u9ad8\u723e\u592b\u7403\u5834",
+        "defch2": ""
+    },
+    "graveyard": {
+        "gl": "n.",
+        "defch1": "\u5893\u5730",
+        "defch2": ""
+    },
+    "Great Wall of China": {
+        "gl": "prop.",
+        "defch1": "\u4e2d\u570b\u9577\u57ce",
+        "defch2": ""
+    },
+    "ground crew": {
+        "gl": "phr.",
+        "defch1": "\u5730\u52e4\u4eba\u54e1",
+        "defch2": ""
+    },
+    "group": {
+        "gl": "n.",
+        "defch1": "\u7fa4;\u5718\u9ad4",
+        "defch2": ""
+    },
+    "guest": {
+        "gl": "n.",
+        "defch1": "\u5ba2\u4eba;\u5ba2\u4eba",
+        "defch2": ""
+    },
+    "guest key": {
+        "gl": "phr.",
+        "defch1": "\u65c5\u5ba2\u9470\u5319",
+        "defch2": ""
+    },
+    "guesthouse": {
+        "gl": "n.",
+        "defch1": "\u62db\u5f85\u6240",
+        "defch2": ""
+    },
+    "guidebook": {
+        "gl": "n.",
+        "defch1": "\u5c0e\u89bd\u624b\u518a;\u6307\u5357",
+        "defch2": ""
+    },
+    "guided tour": {
+        "gl": "phr.",
+        "defch1": "\u5c08\u4eba\u5c0e\u89bd;\u6709\u5c0e\u904a\u966a\u540c\u7684\u65c5\u904a",
+        "defch2": ""
+    },
+    "gym": {
+        "gl": "n.",
+        "defch1": "\u5065\u8eab\u623f",
+        "defch2": ""
+    },
+    "hair dryer": {
+        "gl": "phr.",
+        "defch1": "\u5439\u98a8\u6a5f",
+        "defch2": ""
+    },
+    "half": {
+        "gl": "n.",
+        "defch1": "\u4e00\u534a",
+        "defch2": ""
+    },
+    "half price": {
+        "gl": "phr.",
+        "defch1": "\u534a\u50f9",
+        "defch2": ""
+    },
+    "hand": {
+        "gl": "n.",
+        "defch1": "\u905e\u7d66;\u624b",
+        "defch2": ""
+    },
+    "handle": {
+        "gl": "n.",
+        "defch1": "\u8655\u7406;\u61c9\u4ed8;\u628a\u624b",
+        "defch2": ""
+    },
+    "hang up": {
+        "gl": "phr.",
+        "defch1": "\u639b\u65b7\u96fb\u8a71",
+        "defch2": ""
+    },
+    "harbor": {
+        "gl": "n.",
+        "defch1": "\u6e2f\u53e3;\u6e2f\u7063",
+        "defch2": ""
+    },
+    "Hawaii": {
+        "gl": "prop.",
+        "defch1": "\u590f\u5a01\u5937",
+        "defch2": ""
+    },
+    "headphones": {
+        "gl": "n.",
+        "defch1": "\u982d\u6234\u5f0f\u8033\u6a5f",
+        "defch2": ""
+    },
+    "helicopter": {
+        "gl": "n.",
+        "defch1": "\u76f4\u5347\u6a5f;\u76f4\u5347\u6a5f",
+        "defch2": ""
+    },
+    "helpful": {
+        "gl": "adj.",
+        "defch1": "\u6709\u5e6b\u52a9\u7684",
+        "defch2": ""
+    },
+    "high-speed rail": {
+        "gl": "phr.",
+        "defch1": "\u9ad8\u901f\u9435\u8def;\u9ad8\u9435",
+        "defch2": ""
+    },
+    "high-speed train": {
+        "gl": "n.",
+        "defch1": "\u9ad8\u901f\u5217\u8eca",
+        "defch2": ""
+    },
+    "highway": {
+        "gl": "n.",
+        "defch1": "\u516c\u8def",
+        "defch2": ""
+    },
+    "hold a passport": {
+        "gl": "phr.",
+        "defch1": "\u6301\u6709\u8b77\u7167",
+        "defch2": ""
+    },
+    "hold on a second": {
+        "gl": "phr.",
+        "defch1": "\u8acb\u7a0d\u5f85;\u7b49\u4e00\u4e0b",
+        "defch2": ""
+    },
+    "honeymoon suite": {
+        "gl": "phr.",
+        "defch1": "\u871c\u6708\u5957\u623f",
+        "defch2": ""
+    },
+    "Hong Kong": {
+        "gl": "prop.",
+        "defch1": "\u9999\u6e2f",
+        "defch2": ""
+    },
+    "hospital": {
+        "gl": "n.",
+        "defch1": "\u91ab\u9662",
+        "defch2": ""
+    },
+    "hospitality": {
+        "gl": "n.",
+        "defch1": "\u6b3e\u5f85;\u597d\u5ba2",
+        "defch2": ""
+    },
+    "hostel": {
+        "gl": "n.",
+        "defch1": "\u9752\u5e74\u5bbf\u820d",
+        "defch2": ""
+    },
+    "hot spring": {
+        "gl": "phr.",
+        "defch1": "\u6eab\u6cc9",
+        "defch2": ""
+    },
+    "hot-air balloon": {
+        "gl": "phr.",
+        "defch1": "\u71b1\u6c23\u7403",
+        "defch2": ""
+    },
+    "hotel": {
+        "gl": "n.",
+        "defch1": "\u65c5\u9928",
+        "defch2": ""
+    },
+    "hotel room": {
+        "gl": "n.",
+        "defch1": "\u9152\u5e97\u623f\u9593;\u65c5\u9928\u623f\u9593",
+        "defch2": ""
+    },
+    "hotel shuttle": {
+        "gl": "phr.",
+        "defch1": "\u65c5\u9928\u63a5\u99c1\u8eca",
+        "defch2": ""
+    },
+    "hours": {
+        "gl": "n.",
+        "defch1": "\u5c0f\u6642;\u71df\u696d\u6642\u9593(\u591a\u7528\u8907\u6578)",
+        "defch2": ""
+    },
+    "housekeeping": {
+        "gl": "n.",
+        "defch1": "\u5ba2\u623f\u6e05\u6f54;\u5bb6\u52d9",
+        "defch2": ""
+    },
+    "however": {
+        "gl": "adv.",
+        "defch1": "\u7136\u800c;\u7136\u800c",
+        "defch2": ""
+    },
+    "identification": {
+        "gl": "n.",
+        "defch1": "\u8eab\u5206\u8b49\u4ef6;\u9451\u5b9a\u7e2e\u5beb\u70baID",
+        "defch2": ""
+    },
+    "immediately": {
+        "gl": "adv.",
+        "defch1": "\u7acb\u5373;\u99ac\u4e0a",
+        "defch2": ""
+    },
+    "immigration": {
+        "gl": "n.",
+        "defch1": "\u5165\u5883, \u79fb\u6c11(\u5c40)",
+        "defch2": ""
+    },
+    "in a hurry": {
+        "gl": "v.",
+        "defch1": "\u5306\u5306;\u8d95\u6642\u9593",
+        "defch2": ""
+    },
+    "in a rush": {
+        "gl": "phr.",
+        "defch1": "\u8d95\u6642\u9593;\u8d95\u6642\u9593",
+        "defch2": ""
+    },
+    "in back of": {
+        "gl": "phr.",
+        "defch1": "\u5728...\u5f8c\u9762",
+        "defch2": ""
+    },
+    "in cash": {
+        "gl": "phr.",
+        "defch1": "\u4ed8\u73fe\u91d1",
+        "defch2": ""
+    },
+    "in front of": {
+        "gl": "phr.",
+        "defch1": "\u5728...\u524d\u9762",
+        "defch2": ""
+    },
+    "in love": {
+        "gl": "phr.",
+        "defch1": "\u6200\u611b;\u6709\u76f8\u611b\u7684\u4eba;\u589c\u5165\u611b\u6cb3",
+        "defch2": ""
+    },
+    "in the meantime": {
+        "gl": "phr.",
+        "defch1": "\u540c\u6642;\u5728...\u671f\u9593\u4e4b\u5167",
+        "defch2": ""
+    },
+    "include": {
+        "gl": "v.",
+        "defch1": "\u5305\u62ec;\u5305\u62ec",
+        "defch2": ""
+    },
+    "inconvenience": {
+        "gl": "v.",
+        "defch1": "\u4e0d\u65b9\u4fbf;\u6253\u64fe",
+        "defch2": ""
+    },
+    "India": {
+        "gl": "prop.",
+        "defch1": "\u5370\u5ea6",
+        "defch2": ""
+    },
+    "Indian Ocean": {
+        "gl": "prop.",
+        "defch1": "\u5370\u5ea6\u6d0b",
+        "defch2": ""
+    },
+    "inform": {
+        "gl": "v.",
+        "defch1": "\u544a\u77e5;\u901a\u77e5",
+        "defch2": ""
+    },
+    "information board": {
+        "gl": "n.",
+        "defch1": "\u822a\u73ed\u8868;\u8cc7\u8a0a\u677f",
+        "defch2": ""
+    },
+    "information center": {
+        "gl": "phr.",
+        "defch1": "\u65c5\u904a\u670d\u52d9\u4e2d\u5fc3;\u8cc7\u8a0a\u4e2d\u5fc3",
+        "defch2": ""
+    },
+    "information counter": {
+        "gl": "phr.",
+        "defch1": "\u8a62\u554f\u8655;\u670d\u52d9\u81fa",
+        "defch2": ""
+    },
+    "information desk": {
+        "gl": "phr.",
+        "defch1": "\u670d\u52d9\u81fa;\u8a62\u554f\u8655",
+        "defch2": ""
+    },
+    "inside room": {
+        "gl": "phr.",
+        "defch1": "\u5167\u5411\u623f\u9593",
+        "defch2": ""
+    },
+    "international": {
+        "gl": "adj.",
+        "defch1": "\u570b\u969b\u6027\u7684;\u570b\u969b\u7684",
+        "defch2": ""
+    },
+    "international flight": {
+        "gl": "n.",
+        "defch1": "\u570b\u969b\u822a\u73ed",
+        "defch2": ""
+    },
+    "internet access": {
+        "gl": "phr.",
+        "defch1": "\u4e0a\u7db2;\u7db2\u969b\u7db2\u8def\u9023\u7dda\u5b58\u53d6",
+        "defch2": ""
+    },
+    "island": {
+        "gl": "n.",
+        "defch1": "\u5cf6\u5dbc;\u5cf6\u5dbc",
+        "defch2": ""
+    },
+    "Italy": {
+        "gl": "prop.",
+        "defch1": "\u7fa9\u5927\u5229",
+        "defch2": ""
+    },
+    "jealous": {
+        "gl": "adj.",
+        "defch1": "\u5ac9\u5992\u7684;\u5ac9\u5992\u7684",
+        "defch2": ""
+    },
+    "jeans": {
+        "gl": "n.",
+        "defch1": "\u725b\u4ed4\u8932",
+        "defch2": ""
+    },
+    "jet": {
+        "gl": "n.",
+        "defch1": "\u5674\u5c04;\u5674\u5c04",
+        "defch2": ""
+    },
+    "jet lag": {
+        "gl": "phr.",
+        "defch1": "\u65f6\u5dee\u95ee\u9898",
+        "defch2": ""
+    },
+    "join": {
+        "gl": "v.",
+        "defch1": "\u53c3\u52a0;\u9023\u7d50",
+        "defch2": ""
+    },
+    "journey": {
+        "gl": "n.",
+        "defch1": "\u65c5\u884c;\u65c5\u7a0b",
+        "defch2": ""
+    },
+    "key card": {
+        "gl": "phr.",
+        "defch1": "\u9580\u7981\u5361;\u958b\u9580\u7528\u78c1\u5361;\u9470\u5319\u5361",
+        "defch2": ""
+    },
+    "key chain": {
+        "gl": "phr.",
+        "defch1": "\u9470\u5319\u93c8",
+        "defch2": ""
+    },
+    "knife": {
+        "gl": "n.",
+        "defch1": "\u5200",
+        "defch2": ""
+    },
+    "lamp": {
+        "gl": "n.",
+        "defch1": "\u71c8;\u71c8",
+        "defch2": ""
+    },
+    "land": {
+        "gl": "v.",
+        "defch1": "\u571f\u5730;\u9678\u5730;\u964d\u843d",
+        "defch2": ""
+    },
+    "laundry": {
+        "gl": "n.",
+        "defch1": "\u6d17\u8863\u5e97;\u9001\u6d17(\u597d)\u7684\u8863\u670d",
+        "defch2": ""
+    },
+    "laundry service": {
+        "gl": "phr.",
+        "defch1": "\u6d17\u8863\u670d\u52d9",
+        "defch2": ""
+    },
+    "leave": {
+        "gl": "v.",
+        "defch1": "\u96e2\u958b",
+        "defch2": ""
+    },
+    "library": {
+        "gl": "n.",
+        "defch1": "\u5716\u66f8\u9928;\u5716\u66f8\u9928",
+        "defch2": ""
+    },
+    "life vest": {
+        "gl": "phr.",
+        "defch1": "\u6551\u751f\u8863",
+        "defch2": "lifejacket"
+    },
+    "limited": {
+        "gl": "adj.",
+        "defch1": "\u6709\u9650\u7684",
+        "defch2": ""
+    },
+    "listen to": {
+        "gl": "phr.",
+        "defch1": "\u807d\u5f9e",
+        "defch2": ""
+    },
+    "lobby": {
+        "gl": "n.",
+        "defch1": "\u524d\u5ef3;\u98ef\u5e97(\u65c5\u9928)\u5927\u5ef3",
+        "defch2": ""
+    },
+    "local": {
+        "gl": "adj.",
+        "defch1": "\u7576\u5730\u7684;\u7576\u5730\u5c45\u6c11",
+        "defch2": ""
+    },
+    "local call": {
+        "gl": "phr.",
+        "defch1": "\u5e02\u5167\u96fb\u8a71",
+        "defch2": ""
+    },
+    "locate": {
+        "gl": "v.",
+        "defch1": "\u4f4d\u65bc",
+        "defch2": ""
+    },
+    "lock": {
+        "gl": "v.",
+        "defch1": "\u9396",
+        "defch2": ""
+    },
+    "look forward to": {
+        "gl": "phr.",
+        "defch1": "\u671f\u5f85",
+        "defch2": ""
+    },
+    "lost and found": {
+        "gl": "phr.",
+        "defch1": "\u5931\u7269\u62db\u9818",
+        "defch2": ""
+    },
+    "lotion": {
+        "gl": "n.",
+        "defch1": "\u4e73\u6db2",
+        "defch2": ""
+    },
+    "lounge": {
+        "gl": "n.",
+        "defch1": "\u6703\u5ba2\u5ba4",
+        "defch2": ""
+    },
+    "lovely": {
+        "gl": "adj.",
+        "defch1": "\u7f8e\u597d\u7684",
+        "defch2": ""
+    },
+    "low-cost airline": {
+        "gl": "phr.",
+        "defch1": "\u5ec9\u50f9\u822a\u7a7a",
+        "defch2": ""
+    },
+    "luggage": {
+        "gl": "n.",
+        "defch1": "\u884c\u674e",
+        "defch2": ""
+    },
+    "luggage carousel": {
+        "gl": "n.",
+        "defch1": "\u884c\u674e\u50b3\u9001\u5e36",
+        "defch2": ""
+    },
+    "luggage cart": {
+        "gl": "n.",
+        "defch1": "\u884c\u674e\u63a8\u8eca;\u884c\u674e\u63a8\u8eca",
+        "defch2": ""
+    },
+    "machine": {
+        "gl": "n.",
+        "defch1": "\u6a5f\u5668",
+        "defch2": ""
+    },
+    "Machu Picchu": {
+        "gl": "prop.",
+        "defch1": "\u99ac\u4e18\u6bd4\u4e18",
+        "defch2": ""
+    },
+    "magazine": {
+        "gl": "n.",
+        "defch1": "\u96dc\u8a8c",
+        "defch2": ""
+    },
+    "maid": {
+        "gl": "n.",
+        "defch1": "\u5973\u50ad",
+        "defch2": ""
+    },
+    "maintenance": {
+        "gl": "n.",
+        "defch1": "\u4fdd\u990a;\u7dad\u4fee\u670d\u52d9",
+        "defch2": ""
+    },
+    "maintenance worker": {
+        "gl": "phr.",
+        "defch1": "\u7dad\u4fee\u5de5\u4eba",
+        "defch2": ""
+    },
+    "make sure": {
+        "gl": "phr.",
+        "defch1": "\u78ba\u4fdd;\u52d9\u5fc5;\u78ba\u8a8d;\u67e5\u660e",
+        "defch2": ""
+    },
+    "management": {
+        "gl": "n.",
+        "defch1": "\u7ba1\u7406;\u8cc7\u65b9",
+        "defch2": ""
+    },
+    "manager": {
+        "gl": "n.",
+        "defch1": "\u7d93\u7406;\u7d93\u7406",
+        "defch2": ""
+    },
+    "Manila": {
+        "gl": "prop.",
+        "defch1": "\u99ac\u5c3c\u62c9",
+        "defch2": ""
+    },
+    "Maokong Gondola": {
+        "gl": "prop.",
+        "defch1": "\u8c93\u7a7a\u7e9c\u8eca",
+        "defch2": ""
+    },
+    "map": {
+        "gl": "n.",
+        "defch1": "\u5730\u5716",
+        "defch2": ""
+    },
+    "massage": {
+        "gl": "v.",
+        "defch1": "\u6309\u6469;\u63a8\u62ff;\u99ac\u6bba\u96de",
+        "defch2": ""
+    },
+    "maximum": {
+        "gl": "n.",
+        "defch1": "\u6700\u5927\u7684;\u6700\u5927\u91cf",
+        "defch2": ""
+    },
+    "meal": {
+        "gl": "n.",
+        "defch1": "\u9910\u9ede",
+        "defch2": ""
+    },
+    "mean": {
+        "gl": "adj.",
+        "defch1": "\u610f\u601d;\u610f\u5473\u8457;\u5e73\u5747\u503c;\u5351\u52a3\u7684;",
+        "defch2": ""
+    },
+    "medium": {
+        "gl": "adj.",
+        "defch1": "\u4e94\u5206\u719f;\u534a\u719f;\u4e2d\u7b49",
+        "defch2": ""
+    },
+    "mention": {
+        "gl": "v.",
+        "defch1": "\u63d0\u5230",
+        "defch2": ""
+    },
+    "menu": {
+        "gl": "n.",
+        "defch1": "\u83dc\u55ae;\u83dc\u55ae",
+        "defch2": ""
+    },
+    "message": {
+        "gl": "n.",
+        "defch1": "\u8a0a\u606f",
+        "defch2": ""
+    },
+    "metal detector": {
+        "gl": "phr.",
+        "defch1": "\u91d1\u5c6c\u63a2\u6e2c\u5668",
+        "defch2": ""
+    },
+    "meter": {
+        "gl": "n.",
+        "defch1": "\u8a08\u91cf\u5668;(\u8a08\u8cbb)\u5100\u8868",
+        "defch2": ""
+    },
+    "Metro card": {
+        "gl": "prop.",
+        "defch1": "\u6377\u904b\u5361",
+        "defch2": ""
+    },
+    "Mexico": {
+        "gl": "prop.",
+        "defch1": "\u58a8\u897f\u54e5",
+        "defch2": ""
+    },
+    "Middle East": {
+        "gl": "prop.",
+        "defch1": "\u4e2d\u6771",
+        "defch2": ""
+    },
+    "mind": {
+        "gl": "n.",
+        "defch1": "\u7559\u610f;\u4ecb\u610f;\u53cd\u5c0d;\u7559\u610f;\u6ce8\u610f\u529b;\u60f3\u6cd5",
+        "defch2": ""
+    },
+    "minivan": {
+        "gl": "n.",
+        "defch1": "(\u8ff7\u4f60)\u5ec2\u578b\u8eca",
+        "defch2": ""
+    },
+    "miss": {
+        "gl": "v.",
+        "defch1": "\u932f\u904e;\u932f\u904e",
+        "defch2": ""
+    },
+    "misunderstanding": {
+        "gl": "n.",
+        "defch1": "\u8aa4\u6703;\u8aa4\u89e3",
+        "defch2": ""
+    },
+    "mix up": {
+        "gl": "phr.",
+        "defch1": "\u652a\u62cc;\u6df7\u5408;\u6df7\u6dc6;\u6df7\u4e82",
+        "defch2": ""
+    },
+    "mobile phone": {
+        "gl": "phr.",
+        "defch1": "\u624b\u6a5f",
+        "defch2": ""
+    },
+    "monument": {
+        "gl": "n.",
+        "defch1": "\u7d00\u5ff5\u7891;\u6b77\u53f2\u907a\u8de1",
+        "defch2": ""
+    },
+    "motel": {
+        "gl": "n.",
+        "defch1": "\u6c7d\u8eca\u65c5\u9928;\u6c7d\u8eca\u65c5\u9928",
+        "defch2": ""
+    },
+    "motorcycle": {
+        "gl": "n.",
+        "defch1": "\u6469\u6258\u8eca",
+        "defch2": ""
+    },
+    "mountain": {
+        "gl": "n.",
+        "defch1": "\u5c71",
+        "defch2": ""
+    },
+    "movie theater": {
+        "gl": "phr.",
+        "defch1": "\u96fb\u5f71\u9662",
+        "defch2": ""
+    },
+    "museum": {
+        "gl": "n.",
+        "defch1": "\u535a\u7269\u9928",
+        "defch2": ""
+    },
+    "national park": {
+        "gl": "phr.",
+        "defch1": "\u570b\u5bb6\u516c\u5712",
+        "defch2": ""
+    },
+    "nature": {
+        "gl": "n.",
+        "defch1": "\u81ea\u7136;\u672c\u8cea;\u57fa\u672c\u8cc7\u6599",
+        "defch2": ""
+    },
+    "near": {
+        "gl": "adj.",
+        "defch1": "\u63a5\u8fd1;\u9644\u8fd1",
+        "defch2": ""
+    },
+    "necessary": {
+        "gl": "adj.",
+        "defch1": "\u5fc5\u8981\u7684",
+        "defch2": ""
+    },
+    "New York City": {
+        "gl": "prop.",
+        "defch1": "\u7d10\u7d04\u5e02",
+        "defch2": ""
+    },
+    "next to": {
+        "gl": "phr.",
+        "defch1": "...\u5728...\u65c1\u908a",
+        "defch2": ""
+    },
+    "nightlight": {
+        "gl": "phr.",
+        "defch1": "\u591c\u9593\u7167\u660e\u71c8;\u5c0f\u591c\u71c8",
+        "defch2": ""
+    },
+    "noisy": {
+        "gl": "adj.",
+        "defch1": "\u55a7\u9b27\u7684",
+        "defch2": ""
+    },
+    "non-smoking": {
+        "gl": "phr.",
+        "defch1": "\u8acb\u52ff\u5438\u7159",
+        "defch2": ""
+    },
+    "non-smoking area": {
+        "gl": "phr.",
+        "defch1": "\u975e\u5438\u83f8\u5340;\u7981\u83f8\u5340",
+        "defch2": ""
+    },
+    "North America": {
+        "gl": "prop.",
+        "defch1": "\u5317\u7f8e\u6d32",
+        "defch2": ""
+    },
+    "note": {
+        "gl": "v.",
+        "defch1": "\u7b46\u8a18;\u6ce8\u610f;\u770b\u5230",
+        "defch2": ""
+    },
+    "ocean": {
+        "gl": "n.",
+        "defch1": "\u6d77\u6d0b",
+        "defch2": ""
+    },
+    "offer": {
+        "gl": "v.",
+        "defch1": "\u7d66\u4e88",
+        "defch2": ""
+    },
+    "officer": {
+        "gl": "n.",
+        "defch1": "\u5b98\u54e1;\u5b98\u54e1",
+        "defch2": ""
+    },
+    "on the internet": {
+        "gl": "phr.",
+        "defch1": "\u5728\u7db2\u8def\u4e0a",
+        "defch2": ""
+    },
+    "on the left": {
+        "gl": "phr.",
+        "defch1": "\u5728\u5de6\u908a;\u5728\u5de6\u908a",
+        "defch2": ""
+    },
+    "on the list": {
+        "gl": "phr.",
+        "defch1": "\u5728\u540d\u55ae\u4e0a;\u5728\u540d\u55ae\u4e0a",
+        "defch2": ""
+    },
+    "on the right": {
+        "gl": "phr.",
+        "defch1": "\u5728\u53f3\u908a;\u5728\u53f3\u908a",
+        "defch2": ""
+    },
+    "on time": {
+        "gl": "phr.",
+        "defch1": "\u6e96\u6642",
+        "defch2": ""
+    },
+    "one way": {
+        "gl": "phr.",
+        "defch1": "\u55ae\u7a0b;\u55ae\u884c\u9053\u7684",
+        "defch2": ""
+    },
+    "opening": {
+        "gl": "adj.",
+        "defch1": "\u958b\u53e3;\u7a7a\u7f3a;\u958b\u62d3;\u7b2c\u4e00;\u958b\u59cb\u7684",
+        "defch2": ""
+    },
+    "opposite": {
+        "gl": "prep.",
+        "defch1": "\u5c0d\u7acb",
+        "defch2": ""
+    },
+    "option": {
+        "gl": "n.",
+        "defch1": "\u9078\u9805",
+        "defch2": ""
+    },
+    "ordinary": {
+        "gl": "adj.",
+        "defch1": "\u666e\u901a\u7684;\u666e\u901a\u7684",
+        "defch2": ""
+    },
+    "organize": {
+        "gl": "v.",
+        "defch1": "\u5b89\u6392;\u7d44\u7e54",
+        "defch2": ""
+    },
+    "original": {
+        "gl": "n.",
+        "defch1": "\u539f\u59cb\u7684;\u539f\u7269",
+        "defch2": ""
+    },
+    "originally": {
+        "gl": "adv.",
+        "defch1": "\u8d77\u521d;\u539f\u5148\u5730",
+        "defch2": ""
+    },
+    "outside": {
+        "gl": "prep.",
+        "defch1": "\u5916\u9762\u7684",
+        "defch2": ""
+    },
+    "overhead compartment": {
+        "gl": "phr.",
+        "defch1": "\u982d\u9802\u7f6e\u7269\u8259",
+        "defch2": ""
+    },
+    "Pacific Ocean": {
+        "gl": "prop.",
+        "defch1": "\u592a\u5e73\u6d0b",
+        "defch2": ""
+    },
+    "package": {
+        "gl": "n.",
+        "defch1": "\u5305\u88f9",
+        "defch2": ""
+    },
+    "park": {
+        "gl": "n.",
+        "defch1": "\u505c\u8eca;\u6cca\u8eca;\u505c\u8eca\u5834;\u516c\u5712",
+        "defch2": ""
+    },
+    "parking lot": {
+        "gl": "phr.",
+        "defch1": "\u505c\u8eca\u5834",
+        "defch2": ""
+    },
+    "party": {
+        "gl": "n.",
+        "defch1": "\u4e00\u5925\u4eba;\u540c\u9ee8\u7684;\u6d3e\u5c0d",
+        "defch2": ""
+    },
+    "passenger": {
+        "gl": "n.",
+        "defch1": "\u4e58\u5ba2",
+        "defch2": ""
+    },
+    "passport": {
+        "gl": "n.",
+        "defch1": "\u8b77\u7167",
+        "defch2": ""
+    },
+    "password": {
+        "gl": "n.",
+        "defch1": "\u5bc6\u78bc",
+        "defch2": ""
+    },
+    "patience": {
+        "gl": "n.",
+        "defch1": "\u8010\u5fc3",
+        "defch2": ""
+    },
+    "pay": {
+        "gl": "n.",
+        "defch1": "\u4ed8\u6b3e;\u85aa\u4ff8;\u5831\u916c",
+        "defch2": ""
+    },
+    "permission": {
+        "gl": "n.",
+        "defch1": "\u8a31\u53ef",
+        "defch2": ""
+    },
+    "personal check": {
+        "gl": "phr.",
+        "defch1": "\u500b\u4eba\u652f\u7968",
+        "defch2": ""
+    },
+    "phone": {
+        "gl": "n.",
+        "defch1": "\u96fb\u8a71;\u96fb\u8a71",
+        "defch2": ""
+    },
+    "photo": {
+        "gl": "n.",
+        "defch1": "\u7167\u7247",
+        "defch2": ""
+    },
+    "pick up": {
+        "gl": "phr.",
+        "defch1": "\u62fe\u8d77;\u63a5\u96fb\u8a71",
+        "defch2": ""
+    },
+    "pillow": {
+        "gl": "n.",
+        "defch1": "\u6795\u982d",
+        "defch2": ""
+    },
+    "pilot": {
+        "gl": "n.",
+        "defch1": "\u99d5\u99db\u54e1;\u98db\u884c\u54e1",
+        "defch2": ""
+    },
+    "place": {
+        "gl": "n.",
+        "defch1": "\u5730\u9ede;\u4e0b\u6307\u793a;\u653e\u7f6e;\u64fa\u5217;\u4f4d\u7f6e",
+        "defch2": ""
+    },
+    "plane": {
+        "gl": "n.",
+        "defch1": "\u98db\u6a5f",
+        "defch2": ""
+    },
+    "plane ticket": {
+        "gl": "phr.",
+        "defch1": "\u98db\u6a5f\u7968",
+        "defch2": ""
+    },
+    "planet": {
+        "gl": "n.",
+        "defch1": "\u884c\u661f",
+        "defch2": ""
+    },
+    "plastic": {
+        "gl": "adj.",
+        "defch1": "\u5851\u81a0\u7684;\u5851\u81a0",
+        "defch2": ""
+    },
+    "platform": {
+        "gl": "n.",
+        "defch1": "\u5e73\u81fa",
+        "defch2": ""
+    },
+    "pleasant": {
+        "gl": "adj.",
+        "defch1": "\u4ee4\u4eba\u6109\u5feb\u7684",
+        "defch2": ""
+    },
+    "pole": {
+        "gl": "n.",
+        "defch1": "\u6975\u5730",
+        "defch2": ""
+    },
+    "pool": {
+        "gl": "v.",
+        "defch1": "\u6e38\u6cf3\u6c60;\u5171\u7528\u7269;\u96c6\u8cc7",
+        "defch2": ""
+    },
+    "port": {
+        "gl": "v.",
+        "defch1": "\u6e2f\u53e3",
+        "defch2": ""
+    },
+    "position": {
+        "gl": "n.",
+        "defch1": "\u8077\u52d9;\u65b9\u4f4d",
+        "defch2": ""
+    },
+    "postcard": {
+        "gl": "n.",
+        "defch1": "\u660e\u4fe1\u7247",
+        "defch2": ""
+    },
+    "potential": {
+        "gl": "adj.",
+        "defch1": "\u6f5b\u5728\u7684;\u6f5c\u5728",
+        "defch2": ""
+    },
+    "prefer": {
+        "gl": "v.",
+        "defch1": "\u504f\u597d",
+        "defch2": ""
+    },
+    "prepare": {
+        "gl": "v.",
+        "defch1": "\u6e96\u5099",
+        "defch2": ""
+    },
+    "present": {
+        "gl": "adj.",
+        "defch1": "\u73fe\u5728",
+        "defch2": ""
+    },
+    "presidential suite": {
+        "gl": "phr.",
+        "defch1": "\u7e3d\u7d71\u5957\u623f",
+        "defch2": ""
+    },
+    "press": {
+        "gl": "n.",
+        "defch1": "\u71a8\u5e73(\u8863\u670d)",
+        "defch2": ""
+    },
+    "previous": {
+        "gl": "adj.",
+        "defch1": "\u5148\u524d\u7684",
+        "defch2": ""
+    },
+    "price": {
+        "gl": "n.",
+        "defch1": "\u50f9\u683c",
+        "defch2": ""
+    },
+    "private": {
+        "gl": "adj.",
+        "defch1": "\u79c1\u4eba\u7684",
+        "defch2": ""
+    },
+    "private plane": {
+        "gl": "n.",
+        "defch1": "\u79c1\u4eba\u98db\u6a5f;\u5c08\u6a5f",
+        "defch2": ""
+    },
+    "procedure": {
+        "gl": "n.",
+        "defch1": "\u6b65\u9a5f;\u7a0b\u5e8f",
+        "defch2": ""
+    },
+    "professional": {
+        "gl": "adj.",
+        "defch1": "\u5c08\u696d\u7684;\u5c08\u696d\u7684",
+        "defch2": ""
+    },
+    "proof": {
+        "gl": "n.",
+        "defch1": "\u8b49\u64da;\u8b49\u660e",
+        "defch2": ""
+    },
+    "provide": {
+        "gl": "v.",
+        "defch1": "\u63d0\u4f9b",
+        "defch2": ""
+    },
+    "purse": {
+        "gl": "n.",
+        "defch1": "\u76ae\u5305;\u6350\u6b3e;\u734e\u91d1",
+        "defch2": ""
+    },
+    "put on": {
+        "gl": "phr.",
+        "defch1": "\u8209\u8fa6;\u4e0a\u6f14;\u555f\u52d5;\u7a7f\u4e0a",
+        "defch2": ""
+    },
+    "rail": {
+        "gl": "n.",
+        "defch1": "\u9435\u8ecc;\u9435\u8def",
+        "defch2": ""
+    },
+    "raincoat": {
+        "gl": "n.",
+        "defch1": "\u96e8\u8863",
+        "defch2": ""
+    },
+    "rare": {
+        "gl": "adj.",
+        "defch1": "\u4e09\u5206\u719f;\u751f\u7684",
+        "defch2": ""
+    },
+    "rate": {
+        "gl": "n.",
+        "defch1": "\u8cbb\u7528;\u50f9\u683c",
+        "defch2": ""
+    },
+    "reach": {
+        "gl": "v.",
+        "defch1": "\u806f\u7e6b;\u62b5\u9054",
+        "defch2": ""
+    },
+    "ready": {
+        "gl": "adj.",
+        "defch1": "\u6e96\u5099",
+        "defch2": ""
+    },
+    "realize": {
+        "gl": "v.",
+        "defch1": "\u7406\u89e3;\u9818\u6703",
+        "defch2": ""
+    },
+    "reasonable": {
+        "gl": "adj.",
+        "defch1": "\u53ef\u63a5\u53d7\u7684;\u5408\u7406\u7684;\u516c\u9053\u7684",
+        "defch2": ""
+    },
+    "receipt": {
+        "gl": "n.",
+        "defch1": "\u767c\u7968;\u6536\u64da",
+        "defch2": ""
+    },
+    "reception": {
+        "gl": "n.",
+        "defch1": "\u62db\u5f85\u6703;\u63a5\u5f85\u5340;\u63a5\u5f85;\u63a5\u53d7",
+        "defch2": ""
+    },
+    "receptionist": {
+        "gl": "n.",
+        "defch1": "\u63a5\u5f85\u54e1",
+        "defch2": ""
+    },
+    "recommend": {
+        "gl": "v.",
+        "defch1": "\u63a8\u85a6;\u5efa\u8b70",
+        "defch2": ""
+    },
+    "recreation": {
+        "gl": "n.",
+        "defch1": "\u4f11\u9592;\u5a1b\u6a02",
+        "defch2": ""
+    },
+    "refer to": {
+        "gl": "phr.",
+        "defch1": "\u53c3\u8003;\u63d0\u53ca",
+        "defch2": ""
+    },
+    "refrigerator": {
+        "gl": "n.",
+        "defch1": "\u51b0\u7bb1",
+        "defch2": ""
+    },
+    "register": {
+        "gl": "v.",
+        "defch1": "\u8a3b\u518a;\u767b\u8a18",
+        "defch2": ""
+    },
+    "registration": {
+        "gl": "v.",
+        "defch1": "\u767b\u8a18;\u8a3b\u518a",
+        "defch2": ""
+    },
+    "remote control": {
+        "gl": "phr.",
+        "defch1": "\u9059\u63a7(\u5668);\u9059\u63a7\u5668",
+        "defch2": ""
+    },
+    "rent": {
+        "gl": "v.",
+        "defch1": "\u79df\u7528;\u79df\u7528",
+        "defch2": ""
+    },
+    "repeat": {
+        "gl": "v.",
+        "defch1": "\u91cd\u8907;\u91cd\u8986",
+        "defch2": ""
+    },
+    "replace": {
+        "gl": "v.",
+        "defch1": "\u66f4\u63db;\u53d6\u4ee3",
+        "defch2": ""
+    },
+    "request": {
+        "gl": "n.",
+        "defch1": "\u8981\u6c42;\u8acb\u6c42",
+        "defch2": ""
+    },
+    "require": {
+        "gl": "v.",
+        "defch1": "\u8981\u6c42;\u9700\u8981",
+        "defch2": ""
+    },
+    "reservation": {
+        "gl": "n.",
+        "defch1": "\u9810\u7d04",
+        "defch2": ""
+    },
+    "reservation staff": {
+        "gl": "phr.",
+        "defch1": "\u9810\u8a02\u4eba\u54e1;\u9810\u8a02\u4eba\u54e1",
+        "defch2": ""
+    },
+    "reserve": {
+        "gl": "v.",
+        "defch1": "\u9810\u5b9a",
+        "defch2": ""
+    },
+    "responsible": {
+        "gl": "adj.",
+        "defch1": "\u9700\u8ca0\u8cac\u4efb\u7684;\u8cac\u4efb",
+        "defch2": ""
+    },
+    "responsible for": {
+        "gl": "phr.",
+        "defch1": "\u5c0d...\u8ca0\u8cac;\u8cac\u4efb",
+        "defch2": ""
+    },
+    "restaurant": {
+        "gl": "n.",
+        "defch1": "\u9910\u5ef3",
+        "defch2": ""
+    },
+    "right": {
+        "gl": "n.",
+        "defch1": "\u53f3\u5074;\u6b63\u78ba\u7684",
+        "defch2": ""
+    },
+    "ring": {
+        "gl": "n.",
+        "defch1": "\u9234\u8072;\u6212\u6307",
+        "defch2": ""
+    },
+    "road": {
+        "gl": "n.",
+        "defch1": "\u9053\u8def;\u9053\u8def",
+        "defch2": ""
+    },
+    "room": {
+        "gl": "n.",
+        "defch1": "\u7a7a\u9593;\u623f\u9593",
+        "defch2": ""
+    },
+    "room key": {
+        "gl": "phr.",
+        "defch1": "\u623f\u9593\u9470\u5319",
+        "defch2": ""
+    },
+    "room service": {
+        "gl": "phr.",
+        "defch1": "\u5ba2\u623f\u670d\u52d9;\u5ba2\u623f\u670d\u52d9",
+        "defch2": ""
+    },
+    "rope": {
+        "gl": "v.",
+        "defch1": "\u7e69\u7d22",
+        "defch2": ""
+    },
+    "route map": {
+        "gl": "phr.",
+        "defch1": "\u8def\u7dda\u5716",
+        "defch2": ""
+    },
+    "row": {
+        "gl": "n.",
+        "defch1": "\u4e00\u6392",
+        "defch2": ""
+    },
+    "runway": {
+        "gl": "n.",
+        "defch1": "\u98db\u6a5f\u8dd1\u9053;\u8dd1\u9053",
+        "defch2": ""
+    },
+    "Russia": {
+        "gl": "prop.",
+        "defch1": "\u4fc4\u570b",
+        "defch2": ""
+    },
+    "safe": {
+        "gl": "adj.",
+        "defch1": "\u5b89\u5168\u7684;\u4fdd\u96aa\u7bb1",
+        "defch2": ""
+    },
+    "safe deposit box": {
+        "gl": "phr.",
+        "defch1": "\u4fdd\u96aa\u7bb1;\u8cb4\u91cd\u7269\u54c1\u4fdd\u7ba1\u7bb1",
+        "defch2": ""
+    },
+    "sail": {
+        "gl": "v.",
+        "defch1": "\u8239\u5e06;\u822a\u884c",
+        "defch2": ""
+    },
+    "sale": {
+        "gl": "n.",
+        "defch1": "\u51fa\u552e;\u62cd\u8ce3;\u92b7\u552e\u696d\u52d9;\u92b7\u8def",
+        "defch2": ""
+    },
+    "San Francisco": {
+        "gl": "prop.",
+        "defch1": "\u820a\u91d1\u5c71",
+        "defch2": ""
+    },
+    "sauna": {
+        "gl": "n.",
+        "defch1": "\u6851\u62ff\u6d74;\u4e09\u6eab\u6696",
+        "defch2": ""
+    },
+    "scenery": {
+        "gl": "n.",
+        "defch1": "\u98a8\u666f",
+        "defch2": ""
+    },
+    "schedule": {
+        "gl": "v.",
+        "defch1": "\u6642\u523b\u8868;\u65e5\u7a0b\u8868;\u9810\u5b9a",
+        "defch2": ""
+    },
+    "sea plane": {
+        "gl": "n.",
+        "defch1": "\u6d77\u4e0a\u98db\u6a5f;\u6d77\u4e0a\u98db\u6a5f",
+        "defch2": ""
+    },
+    "seasick": {
+        "gl": "adj.",
+        "defch1": "\u6688\u8239;\u6688\u8239\u7684",
+        "defch2": ""
+    },
+    "season": {
+        "gl": "n.",
+        "defch1": "\u5b63\u7bc0",
+        "defch2": ""
+    },
+    "seat": {
+        "gl": "n.",
+        "defch1": "\u5ea7\u4f4d",
+        "defch2": ""
+    },
+    "seat belt": {
+        "gl": "phr.",
+        "defch1": "\u5b89\u5168\u5e36",
+        "defch2": ""
+    },
+    "section": {
+        "gl": "n.",
+        "defch1": "\u5340\u57df;\u90e8\u5206",
+        "defch2": ""
+    },
+    "security guard": {
+        "gl": "phr.",
+        "defch1": "\u8b66\u885b;\u4fdd\u5168(\u4eba\u54e1)",
+        "defch2": ""
+    },
+    "serve": {
+        "gl": "v.",
+        "defch1": "\u63d0\u4f9b;\u7aef\u4e0a;\u4f9b\u61c9;\u670d\u52d9",
+        "defch2": ""
+    },
+    "service": {
+        "gl": "n.",
+        "defch1": "\u670d\u52d9",
+        "defch2": ""
+    },
+    "set menu": {
+        "gl": "phr.",
+        "defch1": "\u5957\u9910",
+        "defch2": ""
+    },
+    "settle": {
+        "gl": "v.",
+        "defch1": "\u652f\u4ed8;\u7d50\u7b97;\u5b89\u9813",
+        "defch2": ""
+    },
+    "shampoo": {
+        "gl": "n.",
+        "defch1": "\u6d17\u9aee\u7cbe",
+        "defch2": ""
+    },
+    "shape": {
+        "gl": "n.",
+        "defch1": "\u5f62\u72c0;\u5f62\u72c0",
+        "defch2": ""
+    },
+    "sharp": {
+        "gl": "adj.",
+        "defch1": "\u92d2\u5229\u7684",
+        "defch2": ""
+    },
+    "ship": {
+        "gl": "n.",
+        "defch1": "\u8239",
+        "defch2": ""
+    },
+    "shirt": {
+        "gl": "n.",
+        "defch1": "\u896f\u886b",
+        "defch2": ""
+    },
+    "shoe": {
+        "gl": "n.",
+        "defch1": "\u978b\u5b50",
+        "defch2": ""
+    },
+    "shopping mall": {
+        "gl": "n.",
+        "defch1": "\u8cfc\u7269\u4e2d\u5fc3;\u5546\u5834",
+        "defch2": ""
+    },
+    "shorts": {
+        "gl": "n.",
+        "defch1": "\u77ed\u8932;\u77ed\u8932",
+        "defch2": ""
+    },
+    "shuttle bus": {
+        "gl": "phr.",
+        "defch1": "\u63a5\u99c1\u5df4\u58eb",
+        "defch2": ""
+    },
+    "sightseeing": {
+        "gl": "n.",
+        "defch1": "\u89c0\u5149",
+        "defch2": ""
+    },
+    "sightseeing tour": {
+        "gl": "phr.",
+        "defch1": "\u89c0\u5149\u65c5\u904a;\u89c0\u5149\u65c5\u904a",
+        "defch2": ""
+    },
+    "signature": {
+        "gl": "n.",
+        "defch1": "\u7c3d\u540d;\u7f72\u540d",
+        "defch2": ""
+    },
+    "Singapore": {
+        "gl": "prop.",
+        "defch1": "\u65b0\u52a0\u5761",
+        "defch2": ""
+    },
+    "single room": {
+        "gl": "phr.",
+        "defch1": "\u55ae\u4eba\u623f;\u55ae\u4eba\u623f",
+        "defch2": ""
+    },
+    "skip": {
+        "gl": "v.",
+        "defch1": "\u8df3\u904e",
+        "defch2": ""
+    },
+    "skirt": {
+        "gl": "n.",
+        "defch1": "\u88d9\u5b50",
+        "defch2": ""
+    },
+    "slip": {
+        "gl": "v.",
+        "defch1": "\u7d19\u689d;\u6ed1\u8de4;\u5931\u8db3",
+        "defch2": ""
+    },
+    "slippers": {
+        "gl": "n.",
+        "defch1": "\u62d6\u978b",
+        "defch2": ""
+    },
+    "slow down": {
+        "gl": "phr.",
+        "defch1": "\u6e1b\u901f;\u6162\u4e0b\u4f86",
+        "defch2": ""
+    },
+    "smoking area": {
+        "gl": "phr.",
+        "defch1": "\u5438\u83f8\u5340",
+        "defch2": ""
+    },
+    "sneakers": {
+        "gl": "n.",
+        "defch1": "\u7403\u978b",
+        "defch2": ""
+    },
+    "soap": {
+        "gl": "n.",
+        "defch1": "\u80a5\u7682",
+        "defch2": ""
+    },
+    "socks": {
+        "gl": "n.",
+        "defch1": "\u896a\u5b50;\u896a\u5b50",
+        "defch2": ""
+    },
+    "sofa bed": {
+        "gl": "phr.",
+        "defch1": "\u6c99\u767c\u5e8a",
+        "defch2": ""
+    },
+    "solar system": {
+        "gl": "n.",
+        "defch1": "\u592a\u967d\u7cfb",
+        "defch2": ""
+    },
+    "South America": {
+        "gl": "prop.",
+        "defch1": "\u5357\u7f8e\u6d32",
+        "defch2": ""
+    },
+    "souvenir": {
+        "gl": "n.",
+        "defch1": "\u7d00\u5ff5\u54c1",
+        "defch2": ""
+    },
+    "spa": {
+        "gl": "n.",
+        "defch1": "\u6c34\u7642",
+        "defch2": ""
+    },
+    "space": {
+        "gl": "n.",
+        "defch1": "\u592a\u7a7a;\u592a\u7a7a",
+        "defch2": ""
+    },
+    "special": {
+        "gl": "adj.",
+        "defch1": "\u7279\u9910;\u7279\u5225\u5c08\u9580\u7684;\u7279\u5225\u7684",
+        "defch2": ""
+    },
+    "spot": {
+        "gl": "n.",
+        "defch1": "\u666f\u9ede",
+        "defch2": ""
+    },
+    "staff": {
+        "gl": "v.",
+        "defch1": "\u5168\u9ad4\u8077\u54e1;\u54e1\u5de5",
+        "defch2": ""
+    },
+    "stage": {
+        "gl": "n.",
+        "defch1": "\u821e\u81fa",
+        "defch2": ""
+    },
+    "stair": {
+        "gl": "n.",
+        "defch1": "\u6a13\u68af",
+        "defch2": ""
+    },
+    "standard": {
+        "gl": "adj.",
+        "defch1": "\u6a19\u6e96",
+        "defch2": ""
+    },
+    "standard room": {
+        "gl": "phr.",
+        "defch1": "\u6a19\u6e96\u623f",
+        "defch2": ""
+    },
+    "standby": {
+        "gl": "n.",
+        "defch1": "\u5f85\u547d;\u5019\u88dc\u6a5f\u4f4d;\u5099\u7528\u54c1",
+        "defch2": ""
+    },
+    "starving": {
+        "gl": "adj.",
+        "defch1": "\u98e2\u9913\u7684",
+        "defch2": ""
+    },
+    "state": {
+        "gl": "n.",
+        "defch1": "\u5dde",
+        "defch2": ""
+    },
+    "station": {
+        "gl": "n.",
+        "defch1": "\u8eca\u7ad9",
+        "defch2": ""
+    },
+    "statue": {
+        "gl": "n.",
+        "defch1": "\u96d5\u50cf;\u96d5\u50cf",
+        "defch2": ""
+    },
+    "stay": {
+        "gl": "n.",
+        "defch1": "\u505c\u7559",
+        "defch2": ""
+    },
+    "steward": {
+        "gl": "n.",
+        "defch1": "\u670d\u52d9\u54e1",
+        "defch2": ""
+    },
+    "still": {
+        "gl": "adv.",
+        "defch1": "\u4ecd\u820a;\u975c\u6b62",
+        "defch2": ""
+    },
+    "store": {
+        "gl": "v.",
+        "defch1": "\u5b58\u653e;\u4fdd\u7ba1",
+        "defch2": ""
+    },
+    "stranger": {
+        "gl": "n.",
+        "defch1": "\u964c\u751f\u4eba",
+        "defch2": ""
+    },
+    "stressful": {
+        "gl": "adj.",
+        "defch1": "\u7dca\u5f35\u7684",
+        "defch2": ""
+    },
+    "subway": {
+        "gl": "n.",
+        "defch1": "\u5730\u9435",
+        "defch2": ""
+    },
+    "suit": {
+        "gl": "v.",
+        "defch1": "\u897f\u88dd;\u5957\u88dd;\u5957;\u7d44;\u8a34\u8a1f;\u5408\u9069",
+        "defch2": ""
+    },
+    "suitable": {
+        "gl": "adj.",
+        "defch1": "\u9069\u5408\u7684;\u9069\u5408",
+        "defch2": ""
+    },
+    "suitcase": {
+        "gl": "n.",
+        "defch1": "\u884c\u674e\u7bb1",
+        "defch2": ""
+    },
+    "suite": {
+        "gl": "n.",
+        "defch1": "\u5957\u623f",
+        "defch2": ""
+    },
+    "superior room": {
+        "gl": "phr.",
+        "defch1": "\u9ad8\u7d1a(\u7cbe\u7dfb)\u5ba2\u623f",
+        "defch2": ""
+    },
+    "supermarket": {
+        "gl": "n.",
+        "defch1": "\u8d85\u7d1a\u5e02\u5834;\u8d85\u7d1a\u5e02\u5834",
+        "defch2": ""
+    },
+    "supply": {
+        "gl": "n.",
+        "defch1": "\u88dc\u7d66\u54c1;\u63d0\u4f9b;\u88dc\u5145",
+        "defch2": ""
+    },
+    "sweater": {
+        "gl": "n.",
+        "defch1": "\u6bdb\u8863",
+        "defch2": ""
+    },
+    "sweet": {
+        "gl": "adj.",
+        "defch1": "\u751c\u7684;\u751c",
+        "defch2": ""
+    },
+    "swimming pool": {
+        "gl": "phr.",
+        "defch1": "\u6e38\u6cf3\u6c60",
+        "defch2": ""
+    },
+    "swimsuit": {
+        "gl": "n.",
+        "defch1": "\u6cf3\u88dd",
+        "defch2": ""
+    },
+    "swipe": {
+        "gl": "v.",
+        "defch1": "\u5237;\u5237(\u78c1\u5361);\u78b0\u64e6",
+        "defch2": ""
+    },
+    "swipe a card": {
+        "gl": "phr.",
+        "defch1": "\u5237\u5361",
+        "defch2": ""
+    },
+    "system": {
+        "gl": "n.",
+        "defch1": "\u7cfb\u7d71",
+        "defch2": ""
+    },
+    "tag": {
+        "gl": "n.",
+        "defch1": "\u6a19\u7c64",
+        "defch2": ""
+    },
+    "take a seat": {
+        "gl": "phr.",
+        "defch1": "\u5750\u4e00\u4e0b",
+        "defch2": ""
+    },
+    "take your time": {
+        "gl": "n.",
+        "defch1": "\u6162\u6162\u4f86",
+        "defch2": ""
+    },
+    "tax": {
+        "gl": "n.",
+        "defch1": "\u7a05;\u7a05",
+        "defch2": ""
+    },
+    "taxi": {
+        "gl": "n.",
+        "defch1": "\u8a08\u7a0b\u8eca",
+        "defch2": ""
+    },
+    "tennis court": {
+        "gl": "phr.",
+        "defch1": "\u7db2\u7403\u5834",
+        "defch2": ""
+    },
+    "terminal": {
+        "gl": "n.",
+        "defch1": "\u7d42\u9ede\u7ad9;\u6a5f\u5834\u822a\u5ec8",
+        "defch2": ""
+    },
+    "terrible": {
+        "gl": "adj.",
+        "defch1": "\u53ef\u6015\u7684",
+        "defch2": ""
+    },
+    "the day-long trip": {
+        "gl": "n.",
+        "defch1": "\u55ae\u65e5\u822a\u7a0b;\u4e00\u65e5\u904a",
+        "defch2": ""
+    },
+    "theme park": {
+        "gl": "phr.",
+        "defch1": "\u4e3b\u984c\u516c\u5712",
+        "defch2": ""
+    },
+    "ticket": {
+        "gl": "n.",
+        "defch1": "\u7968\u4e8c\u6280\u5b78\u6e2c\u8a66\u984c\u7528\u8a5e\u5f59;\u9580\u7968",
+        "defch2": ""
+    },
+    "ticket machine": {
+        "gl": "phr.",
+        "defch1": "(\u81ea\u52d5)\u552e\u7968\u6a5f;\u552e\u7968\u6a5f",
+        "defch2": ""
+    },
+    "ticket sensor": {
+        "gl": "phr.",
+        "defch1": "\u8eca\u7968\u611f\u61c9\u5668",
+        "defch2": ""
+    },
+    "tip": {
+        "gl": "n.",
+        "defch1": "\u670d\u52d9\u63d0\u793a",
+        "defch2": ""
+    },
+    "tire": {
+        "gl": "n.",
+        "defch1": "\u8f2a\u80ce",
+        "defch2": ""
+    },
+    "tissue paper": {
+        "gl": "n.",
+        "defch1": "\u9762\u7d19;\u7d19\u5dfe;\u8584\u885b\u751f\u7d19",
+        "defch2": ""
+    },
+    "toilet": {
+        "gl": "n.",
+        "defch1": "\u5ec1\u6240",
+        "defch2": ""
+    },
+    "toilet paper": {
+        "gl": "phr.",
+        "defch1": "\u885b\u751f\u7d19",
+        "defch2": ""
+    },
+    "Tokyo": {
+        "gl": "prop.",
+        "defch1": "\u6771\u4eac",
+        "defch2": ""
+    },
+    "toothpaste": {
+        "gl": "n.",
+        "defch1": "\u7259\u818f",
+        "defch2": ""
+    },
+    "Toronto": {
+        "gl": "prop.",
+        "defch1": "\u591a\u502b\u591a",
+        "defch2": ""
+    },
+    "total": {
+        "gl": "n.",
+        "defch1": "\u7e3d\u50f9;\u7e3d\u8a08",
+        "defch2": ""
+    },
+    "touch": {
+        "gl": "v.",
+        "defch1": "\u8f15\u5fae;\u89f8\u78b0",
+        "defch2": ""
+    },
+    "tough": {
+        "gl": "adj.",
+        "defch1": "\u56f0\u96e3\u7684;\u786c\u7684",
+        "defch2": ""
+    },
+    "tour": {
+        "gl": "v.",
+        "defch1": "\u65c5\u904a",
+        "defch2": ""
+    },
+    "tour guide": {
+        "gl": "phr.",
+        "defch1": "\u5c0e\u904a;\u65c5\u904a\u6307\u5357",
+        "defch2": ""
+    },
+    "touring": {
+        "gl": "adj.",
+        "defch1": "\u5de1\u6f14\u7684;\u5de1\u8ff4\u6f14\u51fa",
+        "defch2": ""
+    },
+    "tourism": {
+        "gl": "n.",
+        "defch1": "\u89c0\u5149\u5ba2",
+        "defch2": ""
+    },
+    "tourist spots": {
+        "gl": "phr.",
+        "defch1": "\u65c5\u904a\u666f\u9ede;\u65c5\u904a\u666f\u9ede",
+        "defch2": ""
+    },
+    "trade show": {
+        "gl": "phr.",
+        "defch1": "\u8cbf\u6613\u5c55\u89bd\u6703\r",
+        "defch2": ""
+    },
+    "traffic": {
+        "gl": "v.",
+        "defch1": "\u4ea4\u901a",
+        "defch2": ""
+    },
+    "train": {
+        "gl": "n.",
+        "defch1": "\u706b\u8eca;\u706b\u8eca",
+        "defch2": ""
+    },
+    "train station": {
+        "gl": "n.",
+        "defch1": "\u706b\u8eca\u7ad9",
+        "defch2": ""
+    },
+    "transfer": {
+        "gl": "v.",
+        "defch1": "\u8f49\u63db",
+        "defch2": ""
+    },
+    "transportation": {
+        "gl": "n.",
+        "defch1": "\u4ea4\u901a\u8fd0\u8f93;\u4ea4\u901a(\u8cbb);\u904b\u8f38",
+        "defch2": ""
+    },
+    "travel agency": {
+        "gl": "phr.",
+        "defch1": "\u65c5\u884c\u793e",
+        "defch2": ""
+    },
+    "traveler's check": {
+        "gl": "phr.",
+        "defch1": "\u65c5\u884c\u652f\u7968",
+        "defch2": ""
+    },
+    "trip": {
+        "gl": "n.",
+        "defch1": "\u65c5\u7a0b",
+        "defch2": ""
+    },
+    "tropical": {
+        "gl": "adj.",
+        "defch1": "\u71b1\u5e36\u7684",
+        "defch2": ""
+    },
+    "T-shirt": {
+        "gl": "prop.",
+        "defch1": "\u77ed\u8896\u5713\u9818\u886b",
+        "defch2": ""
+    },
+    "twin beds": {
+        "gl": "phr.",
+        "defch1": "\u5169\u5f35\u55ae\u4eba\u5e8a;\u5169\u5f35\u55ae\u4eba\u5e8a",
+        "defch2": ""
+    },
+    "twin room": {
+        "gl": "n.",
+        "defch1": "\u96d9\u4eba\u623f(\u5169\u5f35\u5e8a);\u96d9\u4eba\u623f",
+        "defch2": ""
+    },
+    "umbrella": {
+        "gl": "n.",
+        "defch1": "\u96e8\u5098",
+        "defch2": ""
+    },
+    "unfortunately": {
+        "gl": "adv.",
+        "defch1": "\u4e0d\u5e78\u5730;\u907a\u61be\u5730",
+        "defch2": ""
+    },
+    "uniform": {
+        "gl": "n.",
+        "defch1": "\u5236\u670d",
+        "defch2": ""
+    },
+    "unique": {
+        "gl": "adj.",
+        "defch1": "\u7368\u7279\u7684;\u7368\u7279\u7684",
+        "defch2": ""
+    },
+    "universe": {
+        "gl": "n.",
+        "defch1": "\u5b87\u5b99",
+        "defch2": ""
+    },
+    "upgrade": {
+        "gl": "n.",
+        "defch1": "\u5347\u7d1a",
+        "defch2": ""
+    },
+    "upstairs": {
+        "gl": "adv.",
+        "defch1": "\u5728\u6a13\u4e0a;\u6a13\u4e0a",
+        "defch2": ""
+    },
+    "vacancy": {
+        "gl": "n.",
+        "defch1": "\u7a7a\u7f3a;\u7a7a\u623f",
+        "defch2": ""
+    },
+    "valuable": {
+        "gl": "adj.",
+        "defch1": "\u6709\u50f9\u503c\u7684;\u8cb4\u91cd\u7269\u54c1;\u8ca1\u7522",
+        "defch2": ""
+    },
+    "value": {
+        "gl": "n.",
+        "defch1": "\u50f9\u503c",
+        "defch2": ""
+    },
+    "various": {
+        "gl": "adj.",
+        "defch1": "\u5404\u5f0f\u5404\u6a23\u7684;\u5404\u5f0f\u5404\u6a23\u7684",
+        "defch2": ""
+    },
+    "villa": {
+        "gl": "n.",
+        "defch1": "\u5225\u5885",
+        "defch2": ""
+    },
+    "VIP": {
+        "gl": "abbr.",
+        "defch1": "\u8cb4\u8cd3",
+        "defch2": ""
+    },
+    "visa": {
+        "gl": "v.",
+        "defch1": "\u7c3d\u8b49",
+        "defch2": ""
+    },
+    "visit": {
+        "gl": "v.",
+        "defch1": "\u53c3\u89c0",
+        "defch2": ""
+    },
+    "voice mail": {
+        "gl": "n.",
+        "defch1": "\u8a9e\u97f3\u4fe1\u7bb1",
+        "defch2": ""
+    },
+    "waiter": {
+        "gl": "n.",
+        "defch1": "\u7537\u670d\u52d9\u751f",
+        "defch2": ""
+    },
+    "wake-up call": {
+        "gl": "phr.",
+        "defch1": "(\u96fb\u8a71)\u559a\u9192\u670d\u52d9;\u559a\u9192\u670d\u52d9",
+        "defch2": ""
+    },
+    "water": {
+        "gl": "n.",
+        "defch1": "\u6c34",
+        "defch2": ""
+    },
+    "wedding reception": {
+        "gl": "phr.",
+        "defch1": "\u7d50\u5a5a\u559c\u5bb4",
+        "defch2": ""
+    },
+    "weight": {
+        "gl": "n.",
+        "defch1": "\u91cd\u91cf;\u79e4...\u9ad4\u91cd",
+        "defch2": ""
+    },
+    "well done": {
+        "gl": "adj.",
+        "defch1": "\u5168\u719f",
+        "defch2": ""
+    },
+    "while": {
+        "gl": "conj.",
+        "defch1": "\u7136\u800c;\u7576...\u7684\u6642\u5019;\u5118\u7ba1",
+        "defch2": ""
+    },
+    "window seat": {
+        "gl": "phr.",
+        "defch1": "\u9760\u7a97\u5ea7\u4f4d;\u9760\u7a97\u5ea7\u4f4d",
+        "defch2": ""
+    },
+    "wonder": {
+        "gl": "v.",
+        "defch1": "\u61f7\u7591",
+        "defch2": ""
+    },
+    "worst": {
+        "gl": "adj.",
+        "defch1": "\u6700\u5dee\u7684;\u6700\u5dee",
+        "defch2": ""
+    },
+    "wrong": {
+        "gl": "adj.",
+        "defch1": "\u932f\u8aa4\u7684;\u932f\u8aa4",
+        "defch2": ""
+    },
+    "X-ray machine": {
+        "gl": "prop.",
+        "defch1": "X\u5149\u6aa2\u6e2c\u6a5f",
+        "defch2": ""
+    },
+    "zoo": {
+        "gl": "n.",
+        "defch1": "\u52d5\u7269\u5712",
+        "defch2": ""
+    }
+}

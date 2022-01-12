@@ -1,0 +1,2192 @@
+{
+    "\u4e00\u5925(\u7fa4)\u4eba\u4e00\u884c\u56db\u4eba": {
+        "gl": "phr.",
+        "defch1": "\u306e\u30d1\u30fc\u30c6\u30a3\u30fc",
+        "defch2": "No p\u0101t\u012b",
+        "defch3": "a party of"
+    },
+    "\u63a5\u53d7": {
+        "gl": "v.",
+        "defch1": "\u53d7\u3051\u5165\u308c\u308b",
+        "defch2": "Ukeireru",
+        "defch3": "accept"
+    },
+    "\u4f4f\u8655;\u81b3\u5bbf": {
+        "gl": "n.",
+        "defch1": "\u5bbf\u6cca\u65bd\u8a2d",
+        "defch2": "Shukuhaku shisetsu",
+        "defch3": "accommodation"
+    },
+    "\u966a\u4f34": {
+        "gl": "v.",
+        "defch1": "\u540c\u884c",
+        "defch2": "D\u014dk\u014d",
+        "defch3": "accompany"
+    },
+    "\u75bc\u75db": {
+        "gl": "v.",
+        "defch1": "\u75db\u307f",
+        "defch2": "Itami",
+        "defch3": "ache"
+    },
+    "\u8aaa\u5be6\u5728\u7684;\u4e8b\u5be6\u4e0a": {
+        "gl": "adv.",
+        "defch1": "\u5b9f\u969b\u306b",
+        "defch2": "Jissai ni",
+        "defch3": "actually"
+    },
+    "\u984d\u5916\u7684": {
+        "gl": "adj.",
+        "defch1": "\u8ffd\u52a0",
+        "defch2": "Tsuika",
+        "defch3": "additional"
+    },
+    "\u5730\u5740": {
+        "gl": "n.",
+        "defch1": "\u4f4f\u6240",
+        "defch2": "J\u016bsho",
+        "defch3": "address"
+    },
+    "\u8abf\u6574": {
+        "gl": "v.",
+        "defch1": "\u8abf\u6574",
+        "defch2": "Ch\u014dsei",
+        "defch3": "adjust"
+    },
+    "\u5efa\u8b70;\u52f8\u544a;\u901a\u77e5;\u63a8\u85a6": {
+        "gl": "v.",
+        "defch1": "\u30a2\u30c9\u30d0\u30a4\u30b9",
+        "defch2": "Adobaisu",
+        "defch3": "advise"
+    },
+    "\u975e\u6d32": {
+        "gl": "prop.",
+        "defch1": "\u30a2\u30d5\u30ea\u30ab",
+        "defch2": "Afurika",
+        "defch3": "Africa"
+    },
+    "\u51b7\u6c23;\u7a7a\u6c23\u8abf\u7bc0\u7cfb\u7d71": {
+        "gl": "n.",
+        "defch1": "\u7a7a\u8abf",
+        "defch2": "K\u016bch\u014d",
+        "defch3": "air conditioning"
+    },
+    "\u822a\u7a7a\u516c\u53f8": {
+        "gl": "n.",
+        "defch1": "\u822a\u7a7a\u4f1a\u793e",
+        "defch2": "K\u014dk\u016bkaisha",
+        "defch3": "airline"
+    },
+    "\u822a\u7a7a\u516c\u53f8\u670d\u52d9\u6ac3\u6aaf": {
+        "gl": "n.",
+        "defch1": "\u822a\u7a7a\u4f1a\u793e\u306e\u30b5\u30fc\u30d3\u30b9\u30ab\u30a6\u30f3\u30bf\u30fc",
+        "defch2": "K\u014dk\u016bkaisha no s\u0101bisukaunt\u0101",
+        "defch3": "airline service counter"
+    },
+    "\u98db\u6a5f": {
+        "gl": "n.",
+        "defch1": "\u98db\u884c\u6a5f",
+        "defch2": "Hik\u014dki",
+        "defch3": "airplane"
+    },
+    "\u6a5f\u5834": {
+        "gl": "n.",
+        "defch1": "\u7a7a\u6e2f",
+        "defch2": "K\u016bk\u014d",
+        "defch3": "airport"
+    },
+    "\u6688\u6a5f\u888b": {
+        "gl": "n.",
+        "defch1": "\u4e57\u308a\u7269\u9154\u3044\u30d0\u30c3\u30b0",
+        "defch2": "Norimono-yoi baggu",
+        "defch3": "airsickness bag"
+    },
+    "\u8d70\u9053": {
+        "gl": "n.",
+        "defch1": "\u901a\u8def\u5074",
+        "defch2": "Ts\u016bro-gawa",
+        "defch3": "aisle"
+    },
+    "\u9760\u8d70\u9053\u7684\u5ea7\u4f4d": {
+        "gl": "n.",
+        "defch1": "\u901a\u8def\u5074\u306e\u5e2d",
+        "defch2": "Ts\u016bro-gawa no seki",
+        "defch3": "aisle seat"
+    },
+    "\u542b\u6709\u9152\u7cbe\u98f2\u6599": {
+        "gl": "n.",
+        "defch1": "\u30a2\u30eb\u30b3\u30fc\u30eb",
+        "defch2": "Aruk\u014dru",
+        "defch3": "alcohol"
+    },
+    "\u5141\u8a31;\u7d66\u4e88": {
+        "gl": "v.",
+        "defch1": "\u8a31\u53ef\u3059\u308b",
+        "defch2": "Kyoka suru",
+        "defch3": "allow"
+    },
+    "\u53e4\u8001\u7684": {
+        "gl": "adj.",
+        "defch1": "\u53e4\u4ee3",
+        "defch2": "Kodai",
+        "defch3": "ancient"
+    },
+    "\u5468\u5e74\u7d00\u5ff5\u6d3e\u5c0d": {
+        "gl": "n.",
+        "defch1": "\u7d50\u5a5a\u8a18\u5ff5\u65e5",
+        "defch2": "Kekkon kinenbi",
+        "defch3": "anniversary party"
+    },
+    "\u5ba3\u5e03;\u8072\u660e": {
+        "gl": "v.",
+        "defch1": "\u767a\u8868",
+        "defch2": "Happy\u014d",
+        "defch3": "announce"
+    },
+    "\u5e74\u5ea6\u6703\u8b70": {
+        "gl": "n.",
+        "defch1": "\u5e74\u6b21\u4f1a\u5408",
+        "defch2": "Nenji kaig\u014d",
+        "defch3": "annual meeting"
+    },
+    "\u9031\u5e74\u6176": {
+        "gl": "n.",
+        "defch1": "\u5e74\u9593\u8ca9\u58f2",
+        "defch2": "Nenkan hanbai",
+        "defch3": "annual sale"
+    },
+    "\u61c9\u9580": {
+        "gl": "phr.",
+        "defch1": "\u30c9\u30a2\u306b\u7b54\u3048\u308b",
+        "defch2": "Doa ni kotaeru",
+        "defch3": "answer the door"
+    },
+    "\u9053\u6b49": {
+        "gl": "v.",
+        "defch1": "\u8b1d\u7f6a",
+        "defch2": "Shazai",
+        "defch3": "apologize"
+    },
+    "(\u8f03\u6b63\u5f0f\u7684)\u7d04\u6703": {
+        "gl": "n.",
+        "defch1": "\u4e88\u5b9a",
+        "defch2": "Yotei",
+        "defch3": "appointment"
+    },
+    "\u611f\u6fc0;\u611f\u8b1d": {
+        "gl": "v.",
+        "defch1": "\u611f\u8b1d\u3059\u308b",
+        "defch2": "Kansha suru",
+        "defch3": "appreciate"
+    },
+    "\u6070\u7576\u7684": {
+        "gl": "adj.",
+        "defch1": "\u9069\u5207\u306a",
+        "defch2": "Tekisetsuna",
+        "defch3": "appropriate"
+    },
+    "\u5317\u6975\u6d77;\u5317\u51b0\u6d0b": {
+        "gl": "prop.",
+        "defch1": "\u5317\u6975\u6d77",
+        "defch2": "Hokkyoku umi",
+        "defch3": "Arctic Ocean"
+    },
+    "\u5730\u5340": {
+        "gl": "n.",
+        "defch1": "\u7bc4\u56f2",
+        "defch2": "Han'i",
+        "defch3": "area"
+    },
+    "\u6276\u624b": {
+        "gl": "n.",
+        "defch1": "\u30a2\u30fc\u30e0\u30ec\u30b9\u30c8",
+        "defch2": "\u0100muresuto",
+        "defch3": "armrest"
+    },
+    "\u5b89\u6392;\u7c4c\u5099": {
+        "gl": "v.",
+        "defch1": "\u6574\u3048\u308b",
+        "defch2": "Totonoeru",
+        "defch3": "arrange"
+    },
+    "\u62b5\u9054;\u5165\u5883": {
+        "gl": "n.",
+        "defch1": "\u5230\u7740",
+        "defch2": "T\u014dchaku",
+        "defch3": "arrival"
+    },
+    "\u5230\u9054\u6642\u9593": {
+        "gl": "n.",
+        "defch1": "\u5230\u7740\u6642\u523b",
+        "defch2": "T\u014dchaku jikoku",
+        "defch3": "arrival time"
+    },
+    "\u62b5\u9054": {
+        "gl": "v.",
+        "defch1": "\u5230\u7740",
+        "defch2": "T\u014dchaku",
+        "defch3": "arrive"
+    },
+    "\u76e1\u5feb\u5730": {
+        "gl": "phr.",
+        "defch1": "\u3067\u304d\u308b\u3060\u3051\u65e9\u304f",
+        "defch2": "Dekirudakehayaku",
+        "defch3": "as soon as possible"
+    },
+    "\u4e9e\u6d32": {
+        "gl": "prop.",
+        "defch1": "\u30a2\u30b8\u30a2",
+        "defch2": "Ajia",
+        "defch3": "Asia"
+    },
+    "\u5354\u7406;\u8944\u7406": {
+        "gl": "n.",
+        "defch1": "\u8ab2\u9577\u88dc\u4f50",
+        "defch2": "Kach\u014d hosa",
+        "defch3": "assistant manager"
+    },
+    "\u6700\u5c11;\u81f3\u5c11": {
+        "gl": "phr.",
+        "defch1": "\u5c11\u306a\u304f\u3068\u3082",
+        "defch2": "Sukunakutomo",
+        "defch3": "at least"
+    },
+    "\u99ac\u4e0a;\u7acb\u5373": {
+        "gl": "phr.",
+        "defch1": "\u4e00\u5ea6\u306b",
+        "defch2": "Ichido ni",
+        "defch3": "at once"
+    },
+    "\u5927\u897f\u6d0b": {
+        "gl": "prop.",
+        "defch1": "\u5927\u897f\u6d0b",
+        "defch2": "Taiseiy\u014d",
+        "defch3": "Atlantic Ocean"
+    },
+    "\u8a9e\u97f3\u5c0e\u89bd": {
+        "gl": "n.",
+        "defch1": "\u30aa\u30fc\u30c7\u30a3\u30aa\u30c4\u30a2\u30fc",
+        "defch2": "\u014cdiotsu\u0101",
+        "defch3": "audio tour"
+    },
+    "\u6fb3\u6d32": {
+        "gl": "prop.",
+        "defch1": "\u30aa\u30fc\u30b9\u30c8\u30e9\u30ea\u30a2",
+        "defch2": "\u014csutoraria",
+        "defch3": "Australia"
+    },
+    "\u53ef\u7528\u7684;\u6709\u7a7a\u7684": {
+        "gl": "adj.",
+        "defch1": "\u5229\u7528\u53ef\u80fd",
+        "defch2": "Riy\u014d kan\u014d",
+        "defch3": "available"
+    },
+    "\u907f\u514d": {
+        "gl": "v.",
+        "defch1": "\u907f\u3051\u308b",
+        "defch2": "Yokeru",
+        "defch3": "avoid"
+    },
+    "\u6c11\u5bbf": {
+        "gl": "n.",
+        "defch1": "\u30d9\u30c3\u30c9\uff06\u30d6\u30ec\u30c3\u30af\u30d5\u30a1\u30fc\u30b9\u30c8",
+        "defch2": "Beddo& burekkuf\u0101suto",
+        "defch3": "bed and breakfast"
+    },
+    "\u884c\u674e": {
+        "gl": "n.",
+        "defch1": "\u8377\u7269",
+        "defch2": "Nimotsu",
+        "defch3": "luggage"
+    },
+    "\u884c\u674e\u63a8\u8eca": {
+        "gl": "n.",
+        "defch1": "\u624b\u8377\u7269\u30ab\u30fc\u30c8",
+        "defch2": "Tenimotsu k\u0101to",
+        "defch3": "baggage cart"
+    },
+    "\u884c\u674e\u9818\u53d6\u8655": {
+        "gl": "n.",
+        "defch1": "\u624b\u8377\u7269\u53d7\u53d6\u5834",
+        "defch2": "Tenimotsu uketori-ba",
+        "defch3": "baggage claim area"
+    },
+    "\u70d8\u70e4": {
+        "gl": "v.",
+        "defch1": "\u713c\u304f",
+        "defch2": "Yaku",
+        "defch3": "bake"
+    },
+    "\u967d\u81fa": {
+        "gl": "n.",
+        "defch1": "\u30d0\u30eb\u30b3\u30cb\u30fc",
+        "defch2": "Barukon\u012b",
+        "defch3": "balcony"
+    },
+    "\u5bb4\u6703\u5ef3": {
+        "gl": "n.",
+        "defch1": "\u5bb4\u4f1a\u5834",
+        "defch2": "Enkai-ba",
+        "defch3": "banquet room"
+    },
+    "\u5bb4\u6703": {
+        "gl": "n.",
+        "defch1": "\u30d0\u30f3\u30b1\u30c3\u30c8",
+        "defch2": "Banketto",
+        "defch3": "banquet"
+    },
+    "\u9152\u4fdd": {
+        "gl": "n.",
+        "defch1": "\u30d0\u30fc\u30c6\u30f3\u30c0\u30fc",
+        "defch2": "B\u0101tend\u0101",
+        "defch3": "bartender"
+    },
+    "\u6d74\u7f38": {
+        "gl": "n.",
+        "defch1": "\u30d0\u30b9\u30bf\u30d6",
+        "defch2": "Basu tabu",
+        "defch3": "bathtub"
+    },
+    "(\u6d77\u6216\u6e56\u6cca\u7684)\u7063": {
+        "gl": "n.",
+        "defch1": "\u30d9\u30a4",
+        "defch2": "Bei",
+        "defch3": "bay"
+    },
+    "\u884c\u674e\u54e1": {
+        "gl": "n.",
+        "defch1": "\u30d9\u30eb\u30dc\u30fc\u30a4",
+        "defch2": "Berub\u014di",
+        "defch3": "bellboy"
+    },
+    "\u4f8d\u8005": {
+        "gl": "n.",
+        "defch1": "\u30d9\u30eb\u30dc\u30fc\u30a4",
+        "defch2": "Berub\u014di",
+        "defch3": "bellhop"
+    },
+    "\u597d\u8655;\u5229\u76ca": {
+        "gl": "n.",
+        "defch1": "\u5229\u70b9",
+        "defch2": "Riten",
+        "defch3": "benefit"
+    },
+    "\u4e4b\u9593": {
+        "gl": "prep.",
+        "defch1": "\u306e\u9593\u306b",
+        "defch2": "No ma ni",
+        "defch3": "between"
+    },
+    "\u81ea\u884c\u8eca": {
+        "gl": "n.",
+        "defch1": "\u81ea\u8ee2\u8eca",
+        "defch2": "Jitensha",
+        "defch3": "bicycle"
+    },
+    "\u5e33\u55ae;(\u7f8e)\u9214\u7968": {
+        "gl": "n.",
+        "defch1": "\u660e\u7d30\u66f8",
+        "defch2": "Meisai-sho",
+        "defch3": "bill"
+    },
+    "\u751f\u65e5\u6d3e\u5c0d(\u805a\u6703)": {
+        "gl": "n.",
+        "defch1": "\u8a95\u751f\u65e5\u4f1a",
+        "defch2": "Tanj\u014dbikai",
+        "defch3": "birthday party"
+    },
+    "\u6bdb\u6bef;\u6bef\u5b50": {
+        "gl": "n.",
+        "defch1": "\u6bdb\u5e03",
+        "defch2": "M\u014dfu",
+        "defch3": "blanket"
+    },
+    "\u767b\u4e0a(\u98db\u6a5f\u3001\u8239\u6216\u706b\u8eca)": {
+        "gl": "n.",
+        "defch1": "\u30dc\u30fc\u30c9",
+        "defch2": "B\u014ddo",
+        "defch3": "board"
+    },
+    "\u767b\u6a5f;\u4e0a\u8239(\u6216\u706b\u8eca)": {
+        "gl": "n.",
+        "defch1": "\u642d\u4e57",
+        "defch2": "T\u014dj\u014d",
+        "defch3": "boarding"
+    },
+    "\u767b\u6a5f\u9580": {
+        "gl": "n.",
+        "defch1": "\u642d\u4e57\u30b2\u30fc\u30c8",
+        "defch2": "T\u014dj\u014d g\u0113to",
+        "defch3": "boarding gate"
+    },
+    "\u767b\u6a5f\u8b49": {
+        "gl": "n.",
+        "defch1": "\u642d\u4e57\u5238",
+        "defch2": "T\u014dj\u014d-ken",
+        "defch3": "boarding pass"
+    },
+    "\u8239": {
+        "gl": "n.",
+        "defch1": "\u30dc\u30fc\u30c8",
+        "defch2": "B\u014dto",
+        "defch3": "boat"
+    },
+    "\u9810\u8a02;\u8a02\u623f;\u8a02\u4f4d": {
+        "gl": "v.",
+        "defch1": "\u672c",
+        "defch2": "Hon",
+        "defch3": "book"
+    },
+    "\u5c0f\u518a\u5b50": {
+        "gl": "n.",
+        "defch1": "\u518a\u5b50",
+        "defch2": "Sasshi",
+        "defch3": "booklet"
+    },
+    "\u6ce2\u58eb\u9813": {
+        "gl": "prop.",
+        "defch1": "\u30dc\u30b9\u30c8\u30f3",
+        "defch2": "Bosuton",
+        "defch3": "Boston"
+    },
+    "\u7cbe\u54c1\u5e97": {
+        "gl": "n.",
+        "defch1": "\u30d6\u30c6\u30a3\u30c3\u30af",
+        "defch2": "Butikku",
+        "defch3": "boutique"
+    },
+    "\u5df4\u897f": {
+        "gl": "prop.",
+        "defch1": "\u30d6\u30e9\u30b8\u30eb",
+        "defch2": "Burajiru",
+        "defch3": "Brazil"
+    },
+    "\u65e9\u9910\u5238": {
+        "gl": "n.",
+        "defch1": "\u671d\u98df\u30d0\u30a6\u30c1\u30e3\u30fc",
+        "defch2": "Ch\u014dshoku bauch\u0101",
+        "defch3": "breakfast voucher"
+    },
+    "\u516c\u4e8b\u5305": {
+        "gl": "n.",
+        "defch1": "\u30d6\u30ea\u30fc\u30d5\u30b1\u30fc\u30b9",
+        "defch2": "Bur\u012bfuk\u0113su",
+        "defch3": "briefcase"
+    },
+    "\u81ea\u52a9\u9910": {
+        "gl": "n.",
+        "defch1": "\u30d3\u30e5\u30c3\u30d5\u30a7",
+        "defch2": "Byuffe",
+        "defch3": "buffet"
+    },
+    "\u516c\u8eca\u505c\u9760\u7ad9": {
+        "gl": "n.",
+        "defch1": "\u30d0\u30b9\u306e\u308a\u3070",
+        "defch2": "Basu noriba",
+        "defch3": "bus stop"
+    },
+    "\u540d\u7247": {
+        "gl": "n.",
+        "defch1": "\u540d\u523a",
+        "defch2": "Meishi",
+        "defch3": "business card"
+    },
+    "\u5546\u52d9\u4e2d\u5fc3": {
+        "gl": "n.",
+        "defch1": "\u30d3\u30b8\u30cd\u30b9\u30bb\u30f3\u30bf\u30fc",
+        "defch2": "Bijinesusent\u0101",
+        "defch3": "business center"
+    },
+    "\u5546\u52d9\u8259": {
+        "gl": "n.",
+        "defch1": "\u30d3\u30b8\u30cd\u30b9\u30af\u30e9\u30b9",
+        "defch2": "Bijinesu kurasu",
+        "defch3": "business class"
+    },
+    "\u9806\u5e36\u4e00\u63d0": {
+        "gl": "phr.",
+        "defch1": "\u3068\u3053\u308d\u3067",
+        "defch2": "Tokorode",
+        "defch3": "by the way"
+    },
+    "\u8a08\u7a0b\u8eca": {
+        "gl": "n.",
+        "defch1": "\u30bf\u30af\u30b7\u30fc",
+        "defch2": "Takush\u012b",
+        "defch3": "cab"
+    },
+    "\u5c0f\u5c4b;\u5ba2\u8259": {
+        "gl": "n.",
+        "defch1": "\u30ad\u30e3\u30d3\u30f3",
+        "defch2": "Kyabin",
+        "defch3": "cabin"
+    },
+    "\u5496\u5561\u5ef3(\u9928)": {
+        "gl": "n.",
+        "defch1": "\u30ab\u30d5\u30a7",
+        "defch2": "Kafe",
+        "defch3": "cafe"
+    },
+    "\u76f8\u6a5f": {
+        "gl": "n.",
+        "defch1": "\u30ab\u30e1\u30e9",
+        "defch2": "Kamera",
+        "defch3": "camera"
+    },
+    "\u9732\u71df\u5730": {
+        "gl": "n.",
+        "defch1": "\u30ad\u30e3\u30f3\u30d7\u5834",
+        "defch2": "Kyanpuba",
+        "defch3": "campsite"
+    },
+    "\u52a0\u62ff\u5927": {
+        "gl": "prop.",
+        "defch1": "\u30ab\u30ca\u30c0",
+        "defch2": "Kanada",
+        "defch3": "Canada"
+    },
+    "\u53d6\u6d88": {
+        "gl": "n.",
+        "defch1": "\u30ad\u30e3\u30f3\u30bb\u30eb",
+        "defch2": "Kyanseru",
+        "defch3": "cancellation"
+    },
+    "\u80fd\u529b;\u5bb9\u91cf;\u8cc7\u683c": {
+        "gl": "n.",
+        "defch1": "\u5bb9\u91cf",
+        "defch2": "Y\u014dry\u014d",
+        "defch3": "capacity"
+    },
+    "\u9996\u90fd": {
+        "gl": "n.",
+        "defch1": "\u8cc7\u672c",
+        "defch2": "Shihon",
+        "defch3": "capital"
+    },
+    "\u8239\u9577;\u6a5f\u9577;\u968a\u9577": {
+        "gl": "n.",
+        "defch1": "\u30ad\u30e3\u30d7\u30c6\u30f3",
+        "defch2": "Kyaputen",
+        "defch3": "captain"
+    },
+    "\u79df\u8eca\u79df\u8cc3": {
+        "gl": "n.",
+        "defch1": "\u30ec\u30f3\u30bf\u30ab\u30fc",
+        "defch2": "Rentak\u0101",
+        "defch3": "car rental"
+    },
+    "\u904b\u8f09\u90f5\u4ef6": {
+        "gl": "phr.",
+        "defch1": "\u904b\u3070\u308c\u305f\u90f5\u4fbf",
+        "defch2": "Hakoba reta y\u016bbin",
+        "defch3": "carried mail"
+    },
+    "\u96a8\u8eab\u651c\u5e36\u7684": {
+        "gl": "adj.",
+        "defch1": "\u7d9a\u3051\u308b",
+        "defch2": "Tsudzukeru",
+        "defch3": "carry-on"
+    },
+    "\u96a8\u8eab\u651c\u5e36\u7684\u5305": {
+        "gl": "n.",
+        "defch1": "\u30ad\u30e3\u30ea\u30fc\u30aa\u30f3\u30d0\u30c3\u30b0",
+        "defch2": "Kyar\u012bonbaggu",
+        "defch3": "carry-on bag"
+    },
+    "\u8cfc\u7269\u8eca": {
+        "gl": "n.",
+        "defch1": "\u30ab\u30fc\u30c8",
+        "defch2": "K\u0101to",
+        "defch3": "cart"
+    },
+    "\u73fe\u91d1": {
+        "gl": "n.",
+        "defch1": "\u73fe\u91d1",
+        "defch2": "Genkin",
+        "defch3": "cash"
+    },
+    "\u6536\u9280\u54e1": {
+        "gl": "n.",
+        "defch1": "\u30ec\u30b8",
+        "defch2": "Reji",
+        "defch3": "cashier"
+    },
+    "\u8ced\u5834": {
+        "gl": "n.",
+        "defch1": "\u30ab\u30b8\u30ce",
+        "defch2": "Kajino",
+        "defch3": "casino"
+    },
+    "\u57ce\u5821": {
+        "gl": "n.",
+        "defch1": "\u57ce",
+        "defch2": "Shiro",
+        "defch3": "castle"
+    },
+    "\u624b\u6a5f": {
+        "gl": "n.",
+        "defch1": "\u643a\u5e2f\u96fb\u8a71",
+        "defch2": "Geitaidenwa",
+        "defch3": "cell phone"
+    },
+    "\u6539\u8b8a": {
+        "gl": "n.",
+        "defch1": "\u5909\u5316\u3059\u308b",
+        "defch2": "Henka suru",
+        "defch3": "change"
+    },
+    "\u8f49\u6a5f": {
+        "gl": "phr.",
+        "defch1": "\u98db\u884c\u6a5f\u3092\u5909\u3048\u308b",
+        "defch2": "Hik\u014dki o kaeru",
+        "defch3": "change planes"
+    },
+    "\u6536\u8cbb;\u8cbb\u7528": {
+        "gl": "n.",
+        "defch1": "\u5145\u96fb",
+        "defch2": "J\u016bden",
+        "defch3": "charge"
+    },
+    "\u5716\u8868": {
+        "gl": "n.",
+        "defch1": "\u30c1\u30e3\u30fc\u30c8",
+        "defch2": "Ch\u0101to",
+        "defch3": "chart"
+    },
+    "\u652f\u7968;\u5e33\u55ae": {
+        "gl": "n.",
+        "defch1": "\u30c1\u30a7\u30c3\u30af",
+        "defch2": "Chekku",
+        "defch3": "check"
+    },
+    "\u7c3d\u5230": {
+        "gl": "phr.",
+        "defch1": "\u30c1\u30a7\u30c3\u30af\u30a4\u30f3",
+        "defch2": "Chekkuin",
+        "defch3": "check in"
+    },
+    "\u9000\u623f": {
+        "gl": "phr.",
+        "defch1": "\u30c1\u30a7\u30c3\u30af\u30a2\u30a6\u30c8",
+        "defch2": "Chekkuauto",
+        "defch3": "check out"
+    },
+    "\u5831\u5230": {
+        "gl": "n.",
+        "defch1": "\u30c1\u30a7\u30c3\u30af\u30a4\u30f3",
+        "defch2": "Chekkuin",
+        "defch3": "check-in"
+    },
+    "\u767b\u6a5f\u6ac3\u6aaf": {
+        "gl": "n.",
+        "defch1": "\u30c1\u30a7\u30c3\u30af\u30a4\u30f3\u30ab\u30a6\u30f3\u30bf\u30fc",
+        "defch2": "Chekkuinkaunt\u0101",
+        "defch3": "check-in counter"
+    },
+    "\u9000\u623f\u6642\u9593": {
+        "gl": "phr.",
+        "defch1": "\u30c1\u30a7\u30c3\u30af\u30a2\u30a6\u30c8\u6642\u9593",
+        "defch2": "Chekkuauto jikan",
+        "defch3": "check-out time"
+    },
+    "\u9910\u5ef3\u5927\u5eda;\u4e3b\u5eda": {
+        "gl": "n.",
+        "defch1": "\u30b7\u30a7\u30d5",
+        "defch2": "Shefu",
+        "defch3": "chef"
+    },
+    "\u6258\u5152\u670d\u52d9": {
+        "gl": "n.",
+        "defch1": "\u80b2\u5150",
+        "defch2": "Ikuji",
+        "defch3": "child care"
+    },
+    "\u5c0f\u5b69(\u8907\u6578)": {
+        "gl": "n.",
+        "defch1": "\u5b50\u4f9b\u9054",
+        "defch2": "Kodomodachi",
+        "defch3": "children"
+    },
+    "\u4e2d\u570b": {
+        "gl": "prop.",
+        "defch1": "\u4e2d\u56fd",
+        "defch2": "Ch\u016bgoku",
+        "defch3": "China"
+    },
+    "\u8056\u8a95\u6d3e\u5c0d;\u8056\u8a95\u7bc0\u805a\u6703": {
+        "gl": "prop.",
+        "defch1": "\u30af\u30ea\u30b9\u30de\u30b9\u30d1\u30fc\u30c6\u30a3\u30fc",
+        "defch2": "Kurisumasup\u0101t\u012b",
+        "defch3": "Christmas party"
+    },
+    "\u6559\u5802": {
+        "gl": "n.",
+        "defch1": "\u6559\u4f1a",
+        "defch2": "Ky\u014dkai",
+        "defch3": "church"
+    },
+    "\u5e02\u5340\u5c0e\u89bd(\u89c0\u5149)": {
+        "gl": "phr.",
+        "defch1": "\u5e02\u5185\u89b3\u5149\u30c4\u30a2\u30fc",
+        "defch2": "Shinai kank\u014d tsu\u0101",
+        "defch3": "city tour"
+    },
+    "\u5ba3\u544a": {
+        "gl": "n.",
+        "defch1": "\u8acb\u6c42",
+        "defch2": "Seiky\u016b",
+        "defch3": "claim"
+    },
+    "\u6c23\u5019": {
+        "gl": "n.",
+        "defch1": "\u6c17\u5019",
+        "defch2": "Kik\u014d",
+        "defch3": "climate"
+    },
+    "\u8863\u670d": {
+        "gl": "n.",
+        "defch1": "\u670d",
+        "defch2": "Fuku",
+        "defch3": "clothes"
+    },
+    "\u6559\u7df4;(\u666e\u901a)\u65c5\u5ba2\u8eca\u5ec2;\u5df4\u58eb": {
+        "gl": "n.",
+        "defch1": "\u30b3\u30fc\u30c1",
+        "defch2": "K\u014dchi",
+        "defch3": "coach"
+    },
+    "\u5916\u5957": {
+        "gl": "n.",
+        "defch1": "\u30b3\u30fc\u30c8",
+        "defch2": "K\u014dto",
+        "defch3": "coat"
+    },
+    "\u96de\u5c3e\u9152": {
+        "gl": "n.",
+        "defch1": "\u30ab\u30af\u30c6\u30eb",
+        "defch2": "Kakuteru",
+        "defch3": "cocktail"
+    },
+    "\u5496\u5561\u5e97": {
+        "gl": "phr.",
+        "defch1": "\u30b3\u30fc\u30d2\u30fc\u30b7\u30e7\u30c3\u30d7",
+        "defch2": "K\u014dh\u012bshoppu",
+        "defch3": "coffee shop"
+    },
+    "\u5496\u5561\u6a5f": {
+        "gl": "n.",
+        "defch1": "\u30b3\u30fc\u30d2\u30fc\u30e1\u30fc\u30ab\u30fc",
+        "defch2": "K\u014dh\u012bm\u0113k\u0101",
+        "defch3": "coffeemaker"
+    },
+    "\u786c\u5e63": {
+        "gl": "n.",
+        "defch1": "\u30b3\u30a4\u30f3",
+        "defch2": "Koin",
+        "defch3": "coin"
+    },
+    "\u5c0f\u8f4e\u8eca": {
+        "gl": "n.",
+        "defch1": "\u30b3\u30f3\u30d1\u30af\u30c8",
+        "defch2": "Konpakuto",
+        "defch3": "compact"
+    },
+    "\u516c\u53f8": {
+        "gl": "n.",
+        "defch1": "\u4f1a\u793e",
+        "defch2": "Kaisha",
+        "defch3": "company"
+    },
+    "\u62b1\u6028": {
+        "gl": "n.",
+        "defch1": "\u82e6\u60c5\u6587\u53e5",
+        "defch2": "Kuj\u014d monku",
+        "defch3": "complaint"
+    },
+    "\u5b8c\u6210;\u5b8c\u6574\u7684;\u5168\u90e8\u7684": {
+        "gl": "adj.",
+        "defch1": "\u5b8c\u4e86",
+        "defch2": "Kanry\u014d",
+        "defch3": "complete"
+    },
+    "\u8907\u96dc\u7684": {
+        "gl": "adj.",
+        "defch1": "\u8907\u96d1",
+        "defch2": "Fukuzatsu",
+        "defch3": "complicated"
+    },
+    "\u670d\u52d9\u81fa\u4eba\u54e1": {
+        "gl": "n.",
+        "defch1": "\u30b3\u30f3\u30b7\u30a7\u30eb\u30b8\u30e5",
+        "defch2": "Konsheruju",
+        "defch3": "concierge"
+    },
+    "\u6b63\u5f0f\u7814\u8a0e\u6703(\u8b70);\u8a0e\u8ad6;\u6703\u8ac7": {
+        "gl": "n.",
+        "defch1": "\u4f1a\u8b70",
+        "defch2": "Kaigi",
+        "defch3": "conference"
+    },
+    "\u6703\u8b70\u5ba4": {
+        "gl": "phr.",
+        "defch1": "\u4f1a\u8b70\u5ba4",
+        "defch2": "Kaigijitsu",
+        "defch3": "conference room"
+    },
+    "\u78ba\u8a8d;\u8b49\u5be6;\u6279\u51c6": {
+        "gl": "v.",
+        "defch1": "\u78ba\u8a8d",
+        "defch2": "Kakunin",
+        "defch3": "confirm"
+    },
+    "\u606d\u8cc0": {
+        "gl": "n.",
+        "defch1": "\u304a\u3081\u3067\u3068\u3046\u3054\u3056\u3044\u307e\u3059",
+        "defch2": "Omedet\u014dgozaimasu",
+        "defch3": "congratulation"
+    },
+    "\u9023\u63a5": {
+        "gl": "v.",
+        "defch1": "\u63a5\u7d9a",
+        "defch2": "Setsuzoku",
+        "defch3": "connect"
+    },
+    "\u9023\u901a\u623f": {
+        "gl": "n.",
+        "defch1": "\u30b3\u30cd\u30af\u30c6\u30a3\u30f3\u30b0\u30eb\u30fc\u30e0",
+        "defch2": "Konekutingur\u016bmu",
+        "defch3": "connecting room"
+    },
+    "\u5403\u5b8c;\u559d\u5149;\u8017\u76e1": {
+        "gl": "v.",
+        "defch1": "\u6d88\u8cbb",
+        "defch2": "Sh\u014dhi",
+        "defch3": "consume"
+    },
+    "\u63a5\u89f8;\u8207...\u806f\u7e6b": {
+        "gl": "v.",
+        "defch1": "\u30b3\u30f3\u30bf\u30af\u30c8",
+        "defch2": "Kontakuto",
+        "defch3": "contact"
+    },
+    "\u5927\u9678;\u5927\u6d32": {
+        "gl": "n.",
+        "defch1": "\u5927\u9678",
+        "defch2": "Tairiku",
+        "defch3": "continent"
+    },
+    "\u8a02\u5951\u7d04": {
+        "gl": "n.",
+        "defch1": "\u5951\u7d04\u3059\u308b",
+        "defch2": "Keiyaku suru",
+        "defch3": "contract"
+    },
+    "\u63a7\u5236\u5854\u81fa": {
+        "gl": "phr.",
+        "defch1": "\u7ba1\u5236\u5854",
+        "defch2": "Kanseit\u014d",
+        "defch3": "control tower"
+    },
+    "\u65b9\u4fbf;\u5408\u5b9c": {
+        "gl": "n.",
+        "defch1": "\u5feb\u9069",
+        "defch2": "Kaiteki",
+        "defch3": "convenience"
+    },
+    "\u4fbf\u5229\u5546\u5e97": {
+        "gl": "phr.",
+        "defch1": "\u30b3\u30f3\u30d3\u30cb",
+        "defch2": "Konbini",
+        "defch3": "convenience store"
+    },
+    "\u5408\u4f5c": {
+        "gl": "v.",
+        "defch1": "\u5354\u529b\u3059\u308b",
+        "defch2": "Ky\u014dryoku suru",
+        "defch3": "cooperate"
+    },
+    "\u5408\u4f5c;\u5354\u529b": {
+        "gl": "n.",
+        "defch1": "\u5354\u529b",
+        "defch2": "Ky\u014dryoku",
+        "defch3": "cooperation"
+    },
+    "(\u8857)\u89d2": {
+        "gl": "adj.",
+        "defch1": "\u30b3\u30fc\u30ca\u30fc",
+        "defch2": "K\u014dn\u0101",
+        "defch3": "corner"
+    },
+    "\u8cbb\u7528;\u82b1\u8cbb": {
+        "gl": "v.",
+        "defch1": "\u6599\u91d1",
+        "defch2": "Ry\u014dkin",
+        "defch3": "cost"
+    },
+    "\u5c71\u5be8": {
+        "gl": "n.",
+        "defch1": "\u30b3\u30c6\u30fc\u30b8",
+        "defch2": "Kot\u0113ji",
+        "defch3": "cottage"
+    },
+    "\u570b\u5bb6": {
+        "gl": "n.",
+        "defch1": "\u56fd",
+        "defch2": "Kuni",
+        "defch3": "country"
+    },
+    "\u4fe1\u7528\u5361": {
+        "gl": "phr.",
+        "defch1": "\u30af\u30ec\u30b8\u30c3\u30c8\u30ab\u30fc\u30c9",
+        "defch2": "Kurejittok\u0101do",
+        "defch3": "credit card"
+    },
+    "\u7a7f\u904e": {
+        "gl": "v.",
+        "defch1": "\u30af\u30ed\u30b9",
+        "defch2": "Kurosu",
+        "defch3": "cross"
+    },
+    "\u4e58\u8239\u65c5\u884c;\u822a\u884c;\u6f2b\u904a": {
+        "gl": "v.",
+        "defch1": "\u30af\u30eb\u30fc\u30ba",
+        "defch2": "Kur\u016bzu",
+        "defch3": "cruise"
+    },
+    "\u904a\u8f2a;\u904a\u8247": {
+        "gl": "phr.",
+        "defch1": "\u30af\u30eb\u30fc\u30ba\u8239",
+        "defch2": "Kur\u016bzu-sen",
+        "defch3": "cruise ship"
+    },
+    "\u6599\u7406": {
+        "gl": "n.",
+        "defch1": "\u6599\u7406",
+        "defch2": "Ry\u014dri",
+        "defch3": "cuisine"
+    },
+    "\u8ca8\u5e63": {
+        "gl": "n.",
+        "defch1": "\u901a\u8ca8",
+        "defch2": "Ts\u016bka",
+        "defch3": "currency"
+    },
+    "\u9867\u5ba2": {
+        "gl": "n.",
+        "defch1": "\u304a\u5ba2\u69d8",
+        "defch2": "Okyakusama",
+        "defch3": "customer"
+    },
+    "\u6d77\u95dc": {
+        "gl": "prop.",
+        "defch1": "\u7a0e\u95a2",
+        "defch2": "Zeikan",
+        "defch3": "Customs"
+    },
+    "\u5207\u5272;\u524a\u6e1b": {
+        "gl": "v.",
+        "defch1": "\u5207\u308b",
+        "defch2": "Kiru",
+        "defch3": "cut"
+    },
+    "\u5831\u95dc\u8868\u683c": {
+        "gl": "phr.",
+        "defch1": "\u7533\u544a\u66f8",
+        "defch2": "Shinkoku-sho",
+        "defch3": "declaration form"
+    },
+    "\u7533\u5831;\u5ba3\u544a;\u8072\u660e": {
+        "gl": "v.",
+        "defch1": "\u5ba3\u8a00\u3059\u308b",
+        "defch2": "Sengen suru",
+        "defch3": "declare"
+    },
+    "\u8b1d\u7d55;\u5a49\u8a00\u62d2\u7d55;\u4e0b\u964d": {
+        "gl": "n.",
+        "defch1": "\u5374\u4e0b",
+        "defch2": "Kyakka",
+        "defch3": "decline"
+    },
+    "\u5ef6\u9072;\u803d\u64f1;\u5ef6\u8aa4": {
+        "gl": "v.",
+        "defch1": "\u9045\u308c",
+        "defch2": "Okure",
+        "defch3": "delay"
+    },
+    "\u5ef6\u9072\u7684": {
+        "gl": "adj.",
+        "defch1": "\u9045\u5ef6",
+        "defch2": "Chien",
+        "defch3": "delayed"
+    },
+    "\u6295\u905e;\u50b3\u905e;\u904b\u9001": {
+        "gl": "v.",
+        "defch1": "\u914d\u9054",
+        "defch2": "Haitatsu",
+        "defch3": "deliver"
+    },
+    "\u8981\u6c42": {
+        "gl": "v.",
+        "defch1": "\u8981\u6c42\u3059\u308b",
+        "defch2": "Y\u014dky\u016b suru",
+        "defch3": "demand"
+    },
+    "\u51fa\u767c;\u555f\u7a0b": {
+        "gl": "v.",
+        "defch1": "\u51fa\u767a",
+        "defch2": "Shuppatsu",
+        "defch3": "depart"
+    },
+    "\u90e8\u9580": {
+        "gl": "n.",
+        "defch1": "\u30c7\u30d1\u30fc\u30c8\u30e1\u30f3\u30c8",
+        "defch2": "Dep\u0101tomento",
+        "defch3": "department"
+    },
+    "\u767e\u8ca8\u516c\u53f8": {
+        "gl": "phr.",
+        "defch1": "\u30c7\u30d1\u30fc\u30c8",
+        "defch2": "Dep\u0101to",
+        "defch3": "department store"
+    },
+    "\u51fa\u5883": {
+        "gl": "n.",
+        "defch1": "\u51fa\u767a",
+        "defch2": "Shuppatsu",
+        "defch3": "departure"
+    },
+    "\u51fa\u767c\u6642\u9593": {
+        "gl": "phr.",
+        "defch1": "\u51fa\u767a\u6642\u9593",
+        "defch2": "Shuppatsu jikan",
+        "defch3": "departure time"
+    },
+    "\u5bc4\u5b58;\u8a02\u91d1;\u4fdd\u8b49\u91d1;\u62bc\u91d1;\u653e\u7f6e": {
+        "gl": "v.",
+        "defch1": "\u4fdd\u8a3c\u91d1",
+        "defch2": "Hosh\u014dkin",
+        "defch3": "deposit"
+    },
+    "\u63cf\u8ff0": {
+        "gl": "v.",
+        "defch1": "\u8aac\u660e",
+        "defch2": "Setsumei",
+        "defch3": "describe"
+    },
+    "\u9078\u5b9a;\u6307\u6d3e(\u7684)": {
+        "gl": "adj.",
+        "defch1": "\u6307\u5b9a\u3059\u308b",
+        "defch2": "Shitei suru",
+        "defch3": "designate"
+    },
+    "\u6ac3\u6aaf\u670d\u52d9\u54e1": {
+        "gl": "phr.",
+        "defch1": "\u30d5\u30ed\u30f3\u30c8\u4fc2",
+        "defch2": "Furonto-gakari",
+        "defch3": "desk clerk"
+    },
+    "\u4f7f\u6210\u9577;\u767c\u5c55": {
+        "gl": "v.",
+        "defch1": "\u767a\u5c55\u3055\u305b\u308b",
+        "defch2": "Hatten sa seru",
+        "defch3": "develop"
+    },
+    "\u64a5(\u865f)": {
+        "gl": "v.",
+        "defch1": "\u30c0\u30a4\u30e4\u30eb",
+        "defch2": "Daiyaru",
+        "defch3": "dial"
+    },
+    "\u6578\u4f4d\u76f8\u6a5f": {
+        "gl": "phr.",
+        "defch1": "\u30c7\u30b8\u30bf\u30eb\u30ab\u30e1\u30e9",
+        "defch2": "Dejitaru kamera",
+        "defch3": "digital camera"
+    },
+    "\u7528\u9910": {
+        "gl": "v.",
+        "defch1": "\u304a\u98df\u4e8b",
+        "defch2": "O shokuji",
+        "defch3": "dine"
+    },
+    "\u9910\u5ef3": {
+        "gl": "n.",
+        "defch1": "\u30c0\u30a4\u30cb\u30f3\u30b0\u30eb\u30fc\u30e0",
+        "defch2": "Dainingur\u016bmu",
+        "defch3": "dining room"
+    },
+    "\u76f4\u63a5\u7684;\u5f91\u76f4\u7684;\u76f4\u63a5\u5730": {
+        "gl": "adv.",
+        "defch1": "\u76f4\u63a5",
+        "defch2": "Chokusetsu",
+        "defch3": "direct"
+    },
+    "\u76f4\u98db\u822a\u73ed(\u76f4\u822a)": {
+        "gl": "phr.",
+        "defch1": "\u76f4\u884c\u4fbf",
+        "defch2": "Chokk\u014d-bin",
+        "defch3": "direct flight"
+    },
+    "\u65b9\u5411": {
+        "gl": "n.",
+        "defch1": "\u65b9\u5411",
+        "defch2": "H\u014dk\u014d",
+        "defch3": "direction"
+    },
+    "\u76f4\u63a5\u5730": {
+        "gl": "adv.",
+        "defch1": "\u76f4\u63a5",
+        "defch2": "Chokusetsu",
+        "defch3": "directly"
+    },
+    "\u6298\u6263": {
+        "gl": "v.",
+        "defch1": "\u5272\u5f15",
+        "defch2": "Waribiki",
+        "defch3": "discount"
+    },
+    "\u5c55\u793a": {
+        "gl": "v.",
+        "defch1": "\u753b\u9762",
+        "defch2": "Gamen",
+        "defch3": "display"
+    },
+    "\u4e0d\u6eff\u610f\u7684": {
+        "gl": "adj.",
+        "defch1": "\u4e0d\u6e80",
+        "defch2": "Fuman",
+        "defch3": "dissatisfied"
+    },
+    "\u78bc\u982d;\u505c\u9760\u78bc\u982d": {
+        "gl": "v.",
+        "defch1": "\u30c9\u30c3\u30af",
+        "defch2": "Dokku",
+        "defch3": "dock"
+    },
+    "\u5143": {
+        "gl": "n.",
+        "defch1": "\u30c9\u30eb",
+        "defch2": "Doru",
+        "defch3": "dollar"
+    },
+    "\u570b\u5167\u7dda\u822a\u5ec8": {
+        "gl": "phr.",
+        "defch1": "\u56fd\u5185\u7dda\u30bf\u30fc\u30df\u30ca\u30eb",
+        "defch2": "Kokunaisen t\u0101minaru",
+        "defch3": "domestic terminal"
+    },
+    "\u9580\u623f;\u9580\u5ef3\u4f8d\u8005": {
+        "gl": "n.",
+        "defch1": "\u30c9\u30a2\u30de\u30f3",
+        "defch2": "Doa man",
+        "defch3": "doorman"
+    },
+    "\u96d9\u4eba\u623f;\u5169\u500d\u7684;\u52a0\u500d": {
+        "gl": "v.",
+        "defch1": "\u30c0\u30d6\u30eb",
+        "defch2": "Daburu",
+        "defch3": "double"
+    },
+    "\u96d9\u4eba\u5e8a": {
+        "gl": "phr.",
+        "defch1": "\u30c0\u30d6\u30eb\u30d9\u30c3\u30c9",
+        "defch2": "Daburu beddo",
+        "defch3": "double bed"
+    },
+    "\u96d9\u4eba\u623f": {
+        "gl": "phr.",
+        "defch1": "\u30c0\u30d6\u30eb\u30eb\u30fc\u30e0",
+        "defch2": "Daburur\u016bmu",
+        "defch3": "double room"
+    },
+    "\u518d\u6b21\u78ba\u8a8d;\u4ed4\u7d30\u67e5\u6838": {
+        "gl": "phr.",
+        "defch1": "\u518d\u78ba\u8a8d",
+        "defch2": "Sai kakunin",
+        "defch3": "double-check"
+    },
+    "\u6253\u626e;\u88fd\u4f5c;\u88dd\u98fe": {
+        "gl": "v.",
+        "defch1": "\u30c9\u30ec\u30b9",
+        "defch2": "Doresu",
+        "defch3": "dress"
+    },
+    "\u670d\u98fe\u898f\u5b9a;\u8457\u88dd\u6a19\u6e96": {
+        "gl": "phr.",
+        "defch1": "\u30c9\u30ec\u30b9\u30b3\u30fc\u30c9",
+        "defch2": "Doresuk\u014ddo",
+        "defch3": "dress code"
+    },
+    "\u8abf\u6599;\u88dd\u98fe": {
+        "gl": "n.",
+        "defch1": "\u30c9\u30ec\u30c3\u30b7\u30f3\u30b0",
+        "defch2": "Doresshingu",
+        "defch3": "dressing"
+    },
+    "\u99d5\u7167": {
+        "gl": "phr.",
+        "defch1": "\u904b\u8ee2\u514d\u8a31\u8a3c",
+        "defch2": "Unten menkyosh\u014d",
+        "defch3": "driver's license"
+    },
+    "\u85e5\u599d\u5e97": {
+        "gl": "n.",
+        "defch1": "\u30c9\u30e9\u30c3\u30b0\u30b9\u30c8\u30a2",
+        "defch2": "Doraggusutoa",
+        "defch3": "drug store"
+    },
+    "\u4e7e\u6d17": {
+        "gl": "v.",
+        "defch1": "\u30c9\u30e9\u30a4\u30af\u30ea\u30fc\u30cb\u30f3\u30b0",
+        "defch2": "Doraikur\u012bningu",
+        "defch3": "dry-clean"
+    },
+    "\u5230\u671f\u7684": {
+        "gl": "adj.",
+        "defch1": "\u671f\u9650",
+        "defch2": "Kigen",
+        "defch3": "due"
+    },
+    "\u514d\u7a05\u5546\u5e97": {
+        "gl": "phr.",
+        "defch1": "\u514d\u7a0e\u5e97",
+        "defch2": "Menzei-ten",
+        "defch3": "duty-free shop"
+    },
+    "\u8033\u74b0": {
+        "gl": "n.",
+        "defch1": "\u30a4\u30e4\u30ea\u30f3\u30b0",
+        "defch2": "Iyaringu",
+        "defch3": "earring"
+    },
+    "\u5bb9\u6613\u5730": {
+        "gl": "adv.",
+        "defch1": "\u7c21\u5358\u306b",
+        "defch2": "Kantan ni",
+        "defch3": "easily"
+    },
+    "\u7d93\u6fdf": {
+        "gl": "n.",
+        "defch1": "\u7d4c\u6e08",
+        "defch2": "Keizai",
+        "defch3": "economy"
+    },
+    "\u7d93\u6fdf\u8259": {
+        "gl": "phr.",
+        "defch1": "\u30a8\u30b3\u30ce\u30df\u30fc\u30af\u30e9\u30b9",
+        "defch2": "Ekonom\u012bkurasu",
+        "defch3": "economy class"
+    },
+    "\u52aa\u529b;\u76e1\u529b": {
+        "gl": "n.",
+        "defch1": "\u52aa\u529b",
+        "defch2": "Doryoku",
+        "defch3": "effort"
+    },
+    "\u96fb\u68af": {
+        "gl": "n.",
+        "defch1": "\u30a8\u30ec\u30d9\u30fc\u30bf\u30fc",
+        "defch2": "Ereb\u0113t\u0101",
+        "defch3": "elevator"
+    },
+    "\u7dca\u6025\u72c0\u6cc1": {
+        "gl": "n.",
+        "defch1": "\u7dca\u6025",
+        "defch2": "Kinky\u016b",
+        "defch3": "emergency"
+    },
+    "\u96c7\u7528": {
+        "gl": "v.",
+        "defch1": "\u96c7\u7528\u3059\u308b",
+        "defch2": "Koy\u014d suru",
+        "defch3": "employ"
+    },
+    "\u4ee4\u4eba\u6109\u5feb\u7684": {
+        "gl": "adj.",
+        "defch1": "\u697d\u3057\u3044",
+        "defch2": "Tanosh\u012b",
+        "defch3": "enjoyable"
+    },
+    "\u5a1b\u6a02": {
+        "gl": "n.",
+        "defch1": "\u30a8\u30f3\u30bf\u30fc\u30c6\u30a4\u30e1\u30f3\u30c8",
+        "defch2": "Ent\u0101teimento",
+        "defch3": "entertainment"
+    },
+    "\u7279\u5225\u5730": {
+        "gl": "adv.",
+        "defch1": "\u7279\u306b",
+        "defch2": "Tokuni",
+        "defch3": "especially"
+    },
+    "\u6b50\u6d32": {
+        "gl": "prop.",
+        "defch1": "\u30e8\u30fc\u30ed\u30c3\u30d1",
+        "defch2": "Y\u014droppa",
+        "defch3": "Europe"
+    },
+    "\u6b50\u6d32\u7684": {
+        "gl": "prop.",
+        "defch1": "\u30e8\u30fc\u30ed\u30c3\u30d1\u4eba",
+        "defch2": "Y\u014droppa hito",
+        "defch3": "European"
+    },
+    "\u8d85\u904e": {
+        "gl": "v.",
+        "defch1": "\u8d85\u3048\u305f",
+        "defch2": "Koeta",
+        "defch3": "exceed"
+    },
+    "\u514c\u63db": {
+        "gl": "n.",
+        "defch1": "\u4e21\u66ff",
+        "defch2": "Ry\u014dgae",
+        "defch3": "exchange"
+    },
+    "\u532f\u7387": {
+        "gl": "phr.",
+        "defch1": "\u70ba\u66ff\u30ec\u30fc\u30c8",
+        "defch2": "Kawase r\u0113to",
+        "defch3": "exchange rate"
+    },
+    "\u4ee4\u4eba\u8208\u596e\u7684": {
+        "gl": "adj.",
+        "defch1": "\u30a8\u30ad\u30b5\u30a4\u30c6\u30a3\u30f3\u30b0",
+        "defch2": "Ekisaitingu",
+        "defch3": "exciting"
+    },
+    "\u85c9\u53e3;\u85c9\u53e3": {
+        "gl": "n.",
+        "defch1": "\u8a00\u3044\u8a33",
+        "defch2": "Iiwake",
+        "defch3": "excuse"
+    },
+    "\u4e0d\u597d\u610f\u601d;\u8acb\u554f": {
+        "gl": "phr.",
+        "defch1": "\u3059\u307f\u307e\u305b\u3093",
+        "defch2": "Sumimasen",
+        "defch3": "excuse me"
+    },
+    "\u5c55\u89bd": {
+        "gl": "n.",
+        "defch1": "\u30a8\u30ad\u30b7\u30d3\u30b7\u30e7\u30f3",
+        "defch2": "Ekishibishon",
+        "defch3": "exhibition"
+    },
+    "\u51fa\u53e3": {
+        "gl": "n.",
+        "defch1": "\u51fa\u53e3",
+        "defch2": "Deguchi",
+        "defch3": "exit"
+    },
+    "\u671f\u5f85;\u9810\u671f": {
+        "gl": "v.",
+        "defch1": "\u4e88\u60f3",
+        "defch2": "Yos\u014d",
+        "defch3": "expect"
+    },
+    "\u7d93\u9a57;\u7d93\u6b77;\u7d93\u53d7": {
+        "gl": "n.",
+        "defch1": "\u7d4c\u9a13",
+        "defch2": "Keiken",
+        "defch3": "experience"
+    },
+    "\u5230\u671f(\u622a\u6b62)\u65e5;\u6709\u6548\u65e5\u671f": {
+        "gl": "phr.",
+        "defch1": "\u6709\u52b9\u671f\u9650",
+        "defch2": "Y\u016bk\u014d kigen",
+        "defch3": "expiration date"
+    },
+    "\u984d\u5916;\u9644\u52a0\u8cbb\u7528": {
+        "gl": "n.",
+        "defch1": "\u8ffd\u52a0",
+        "defch2": "Tsuika",
+        "defch3": "extra"
+    },
+    "\u8a2d\u65bd": {
+        "gl": "n.",
+        "defch1": "\u65bd\u8a2d",
+        "defch2": "Shisetsu",
+        "defch3": "facility"
+    },
+    "\u5bb6\u5ead\u5957\u623f": {
+        "gl": "phr.",
+        "defch1": "\u30d5\u30a1\u30df\u30ea\u30fc\u30eb\u30fc\u30e0",
+        "defch2": "Famir\u012br\u016bmu",
+        "defch3": "family room"
+    },
+    "\u7968\u50f9;\u7968\u50f9": {
+        "gl": "n.",
+        "defch1": "\u904b\u8cc3",
+        "defch2": "Unchin",
+        "defch3": "fare"
+    },
+    "\u7e6b\u7dca;\u6263\u4e0a;\u9582\u4f4f": {
+        "gl": "v.",
+        "defch1": "\u56fa\u5b9a\u3059\u308b",
+        "defch2": "Kotei suru",
+        "defch3": "fasten"
+    },
+    "\u6e21\u8239;\u6e21\u8239": {
+        "gl": "v.",
+        "defch1": "\u30d5\u30a7\u30ea\u30fc",
+        "defch2": "Fer\u012b",
+        "defch3": "ferry"
+    },
+    "\u89e3\u6c7a": {
+        "gl": "phr.",
+        "defch1": "\u63a2\u3057\u51fa\u3059",
+        "defch2": "Sagashidasu",
+        "defch3": "figure out"
+    },
+    "\u4e0a\u7b49\u7684;\u7f70\u6b3e": {
+        "gl": "n.",
+        "defch1": "\u5927\u4e08\u592b",
+        "defch2": "Daij\u014dbu",
+        "defch3": "fine"
+    },
+    "\u982d\u7b49\u8259;\u982d\u7b49\u8259": {
+        "gl": "phr.",
+        "defch1": "\u30d5\u30a1\u30fc\u30b9\u30c8\u30af\u30e9\u30b9",
+        "defch2": "F\u0101sutokurasu",
+        "defch3": "first class"
+    },
+    "\u5065\u8eab\u4e2d\u5fc3": {
+        "gl": "phr.",
+        "defch1": "\u30d5\u30a3\u30c3\u30c8\u30cd\u30b9\u30bb\u30f3\u30bf\u30fc",
+        "defch2": "Fittonesusent\u0101",
+        "defch3": "fitness center"
+    },
+    "\u8655\u7406;\u4fee\u7406": {
+        "gl": "v.",
+        "defch1": "\u4fee\u7406",
+        "defch2": "Sh\u016bri",
+        "defch3": "fix"
+    },
+    "\u7a7a\u670d\u54e1": {
+        "gl": "phr.",
+        "defch1": "\u5ba2\u5ba4\u4e57\u52d9\u54e1",
+        "defch2": "Kyakushitsu j\u014dmu-in",
+        "defch3": "flight attendant"
+    },
+    "\u6298\u758a": {
+        "gl": "v.",
+        "defch1": "\u6298\u308a\u7573\u307f",
+        "defch2": "Oritatami",
+        "defch3": "fold"
+    },
+    "\u88ab\u7981\u6b62\u7684;\u88ab\u7981\u6b62\u7684": {
+        "gl": "adj.",
+        "defch1": "\u7981\u65ad",
+        "defch2": "Kindan",
+        "defch3": "forbidden"
+    },
+    "\u5f71\u97ff;\u5f37\u8feb;\u8aaa\u670d\u529b": {
+        "gl": "n.",
+        "defch1": "\u529b",
+        "defch2": "Chikara",
+        "defch3": "force"
+    },
+    "\u5916\u5e63\u514c\u63db": {
+        "gl": "phr.",
+        "defch1": "\u5916\u8ca8\u4e21\u66ff",
+        "defch2": "Gaika ry\u014dgae",
+        "defch3": "foreign currency exchange"
+    },
+    "\u983b\u7e41\u5730;\u983b\u7e41": {
+        "gl": "adv.",
+        "defch1": "\u983b\u7e41\u306b",
+        "defch2": "Hinpan ni",
+        "defch3": "frequently"
+    },
+    "\u6ac3\u6aaf": {
+        "gl": "phr.",
+        "defch1": "\u30d5\u30ed\u30f3\u30c8",
+        "defch2": "Furonto",
+        "defch3": "front desk"
+    },
+    "\u63a5\u5f85\u4eba\u54e1": {
+        "gl": "phr.",
+        "defch1": "\u30d5\u30ed\u30f3\u30c8\u4fc2",
+        "defch2": "Furonto-gakari",
+        "defch3": "front desk clerk"
+    },
+    "\u5b8c\u5168\u7684;\u6975\u76db\u6642": {
+        "gl": "n.",
+        "defch1": "\u6e80\u676f",
+        "defch2": "Manpai",
+        "defch3": "full"
+    },
+    "\u4e00\u65e5\u904a;\u4e00\u65e5\u904a": {
+        "gl": "phr.",
+        "defch1": "\u7d42\u65e5\u30c4\u30a2\u30fc",
+        "defch2": "Hinemosu tsu\u0101",
+        "defch3": "full-day tour"
+    },
+    "\u50a2\u4ff1\u64fa\u8a2d(\u591a\u7528\u8907\u6578)": {
+        "gl": "n.",
+        "defch1": "\u5bb6\u5177",
+        "defch2": "Kagu",
+        "defch3": "furnishings"
+    },
+    "\u6c7d\u6cb9": {
+        "gl": "n.",
+        "defch1": "\u30ac\u30b9",
+        "defch2": "Gasu",
+        "defch3": "gas"
+    },
+    "\u52a0\u6cb9\u7ad9": {
+        "gl": "n.",
+        "defch1": "\u30ac\u30bd\u30ea\u30f3\u30b9\u30bf\u30f3\u30c9",
+        "defch2": "Gasorinsutando",
+        "defch3": "gas station"
+    },
+    "\u767b\u6a5f\u9580;\u5927\u9580": {
+        "gl": "n.",
+        "defch1": "\u30b2\u30fc\u30c8",
+        "defch2": "G\u0113to",
+        "defch3": "gate"
+    },
+    "\u4e0b\u8eca": {
+        "gl": "phr.",
+        "defch1": "\u964d\u308a\u308b",
+        "defch2": "Oriru",
+        "defch3": "get off"
+    },
+    "\u6688\u8239": {
+        "gl": "phr.",
+        "defch1": "\u8239\u9154\u3044",
+        "defch2": "Fune-yoi",
+        "defch3": "get seasick"
+    },
+    "\u62b5\u9054;\u62b5\u9054": {
+        "gl": "phr.",
+        "defch1": "\u306b\u884c\u304f",
+        "defch2": "Ni iku",
+        "defch3": "get to"
+    },
+    "\u79ae\u54c1\u5e97": {
+        "gl": "phr.",
+        "defch1": "\u30ae\u30d5\u30c8\u30b7\u30e7\u30c3\u30d7",
+        "defch2": "Gifuto shoppu",
+        "defch3": "gift shop"
+    },
+    "\u624b\u5957": {
+        "gl": "n.",
+        "defch1": "\u624b\u888b",
+        "defch2": "Tebukuro",
+        "defch3": "gloves"
+    },
+    "\u767c\u760b;\u767c\u760b": {
+        "gl": "phr.",
+        "defch1": "\u5922\u4e2d\u306b\u306a\u308b",
+        "defch2": "Much\u016bninaru",
+        "defch3": "go crazy"
+    },
+    "\u76f4\u8d70;\u76f4\u8d70": {
+        "gl": "phr.",
+        "defch1": "\u771f\u3063\u76f4\u3050\u9032\u3093\u3067\u4e0b\u3055\u3044",
+        "defch2": "Massugu susunde kudasai",
+        "defch3": "go straight"
+    },
+    "\u9ad8\u723e\u592b\u7403\u5834": {
+        "gl": "n.",
+        "defch1": "\u30b4\u30eb\u30d5\u5834",
+        "defch2": "Gorufuba",
+        "defch3": "golf course"
+    },
+    "\u5893\u5730": {
+        "gl": "n.",
+        "defch1": "\u5893\u5730",
+        "defch2": "Bochi",
+        "defch3": "graveyard"
+    },
+    "\u4e2d\u570b\u9577\u57ce": {
+        "gl": "prop.",
+        "defch1": "\u4e07\u91cc\u306e\u9577\u57ce",
+        "defch2": "Banrinoch\u014dj\u014d",
+        "defch3": "Great Wall of China"
+    },
+    "\u5730\u52e4\u4eba\u54e1": {
+        "gl": "phr.",
+        "defch1": "\u5730\u4e0a\u30af\u30eb\u30fc",
+        "defch2": "Chij\u014d kur\u016b",
+        "defch3": "ground crew"
+    },
+    "\u7fa4;\u5718\u9ad4": {
+        "gl": "n.",
+        "defch1": "\u30b0\u30eb\u30fc\u30d7",
+        "defch2": "Gur\u016bpu",
+        "defch3": "group"
+    },
+    "\u5ba2\u4eba;\u5ba2\u4eba": {
+        "gl": "n.",
+        "defch1": "\u30b2\u30b9\u30c8",
+        "defch2": "Gesuto",
+        "defch3": "guest"
+    },
+    "\u65c5\u5ba2\u9470\u5319": {
+        "gl": "phr.",
+        "defch1": "\u30b2\u30b9\u30c8\u30ad\u30fc",
+        "defch2": "Gesutok\u012b",
+        "defch3": "guest key"
+    },
+    "\u62db\u5f85\u6240": {
+        "gl": "n.",
+        "defch1": "\u30b2\u30b9\u30c8\u30cf\u30a6\u30b9",
+        "defch2": "Gesutohausu",
+        "defch3": "guesthouse"
+    },
+    "\u5c0e\u89bd\u624b\u518a;\u6307\u5357": {
+        "gl": "n.",
+        "defch1": "\u30ac\u30a4\u30c9\u30d6\u30c3\u30af",
+        "defch2": "Gaidobukku",
+        "defch3": "guidebook"
+    },
+    "\u5c08\u4eba\u5c0e\u89bd;\u6709\u5c0e\u904a\u966a\u540c\u7684\u65c5\u904a": {
+        "gl": "phr.",
+        "defch1": "\u30ac\u30a4\u30c9\u4ed8\u304d\u30c4\u30a2\u30fc",
+        "defch2": "Gaido-tsuki tsu\u0101",
+        "defch3": "guided tour"
+    },
+    "\u5065\u8eab\u623f": {
+        "gl": "n.",
+        "defch1": "\u30b8\u30e0",
+        "defch2": "Jimu",
+        "defch3": "gym"
+    },
+    "\u5439\u98a8\u6a5f": {
+        "gl": "phr.",
+        "defch1": "\u30d8\u30a2\u30c9\u30e9\u30a4\u30e4\u30fc",
+        "defch2": "Headoraiy\u0101",
+        "defch3": "hair dryer"
+    },
+    "\u4e00\u534a": {
+        "gl": "n.",
+        "defch1": "\u534a\u5206",
+        "defch2": "Hanbun",
+        "defch3": "half"
+    },
+    "\u534a\u50f9": {
+        "gl": "phr.",
+        "defch1": "\u534a\u984d",
+        "defch2": "Hangaku",
+        "defch3": "half price"
+    },
+    "\u905e\u7d66;\u624b": {
+        "gl": "n.",
+        "defch1": "\u624b",
+        "defch2": "Te",
+        "defch3": "hand"
+    },
+    "\u8655\u7406;\u61c9\u4ed8;\u628a\u624b": {
+        "gl": "n.",
+        "defch1": "\u53d6\u308a\u6301\u3064",
+        "defch2": "Torimotsu",
+        "defch3": "handle"
+    },
+    "\u639b\u65b7\u96fb\u8a71": {
+        "gl": "phr.",
+        "defch1": "\u96fb\u8a71\u3092\u5207\u308b",
+        "defch2": "Denwa o kiru",
+        "defch3": "hang up"
+    },
+    "\u6e2f\u53e3;\u6e2f\u7063": {
+        "gl": "n.",
+        "defch1": "\u6e2f",
+        "defch2": "Minato",
+        "defch3": "harbor"
+    },
+    "\u590f\u5a01\u5937": {
+        "gl": "prop.",
+        "defch1": "\u30cf\u30ef\u30a4",
+        "defch2": "Hawai",
+        "defch3": "Hawaii"
+    },
+    "\u982d\u6234\u5f0f\u8033\u6a5f": {
+        "gl": "n.",
+        "defch1": "\u30d8\u30c3\u30c9\u30db\u30f3",
+        "defch2": "Heddohon",
+        "defch3": "headphones"
+    },
+    "\u76f4\u5347\u6a5f;\u76f4\u5347\u6a5f": {
+        "gl": "n.",
+        "defch1": "\u30d8\u30ea\u30b3\u30d7\u30bf\u30fc",
+        "defch2": "Herikoput\u0101",
+        "defch3": "helicopter"
+    },
+    "\u6709\u5e6b\u52a9\u7684": {
+        "gl": "adj.",
+        "defch1": "\u5f79\u306b\u7acb\u3063\u305f",
+        "defch2": "Yakunitatta",
+        "defch3": "helpful"
+    },
+    "\u9ad8\u901f\u9435\u8def;\u9ad8\u9435": {
+        "gl": "phr.",
+        "defch1": "\u9ad8\u901f\u9244\u9053",
+        "defch2": "K\u014dsoku tetsud\u014d",
+        "defch3": "high-speed rail"
+    },
+    "\u9ad8\u901f\u5217\u8eca": {
+        "gl": "n.",
+        "defch1": "\u9ad8\u901f\u5217\u8eca",
+        "defch2": "K\u014dsoku ressha",
+        "defch3": "high-speed train"
+    },
+    "\u516c\u8def": {
+        "gl": "n.",
+        "defch1": "\u9ad8\u901f\u9053\u8def",
+        "defch2": "K\u014dzokud\u014dro",
+        "defch3": "highway"
+    },
+    "\u6301\u6709\u8b77\u7167": {
+        "gl": "phr.",
+        "defch1": "\u30d1\u30b9\u30dd\u30fc\u30c8\u3092\u6240\u6301\u3059\u308b",
+        "defch2": "Pasup\u014dto o shoji suru",
+        "defch3": "hold a passport"
+    },
+    "\u8acb\u7a0d\u5f85;\u7b49\u4e00\u4e0b": {
+        "gl": "phr.",
+        "defch1": "\u3061\u3087\u3063\u3068\u5f85\u3063\u3066",
+        "defch2": "Chottomatte",
+        "defch3": "hold on a second"
+    },
+    "\u871c\u6708\u5957\u623f": {
+        "gl": "phr.",
+        "defch1": "\u30cf\u30cd\u30e0\u30fc\u30f3\u30b9\u30a4\u30fc\u30c8",
+        "defch2": "Hanem\u016bnsu\u012bto",
+        "defch3": "honeymoon suite"
+    },
+    "\u9999\u6e2f": {
+        "gl": "prop.",
+        "defch1": "\u9999\u6e2f",
+        "defch2": "Honkon",
+        "defch3": "Hong Kong"
+    },
+    "\u91ab\u9662": {
+        "gl": "n.",
+        "defch1": "\u75c5\u9662",
+        "defch2": "By\u014din",
+        "defch3": "hospital"
+    },
+    "\u6b3e\u5f85;\u597d\u5ba2": {
+        "gl": "n.",
+        "defch1": "\u304a\u3082\u3066\u306a\u3057",
+        "defch2": "Omotenashi",
+        "defch3": "hospitality"
+    },
+    "\u9752\u5e74\u5bbf\u820d": {
+        "gl": "n.",
+        "defch1": "\u30db\u30b9\u30c6\u30eb",
+        "defch2": "Hosuteru",
+        "defch3": "hostel"
+    },
+    "\u6eab\u6cc9": {
+        "gl": "phr.",
+        "defch1": "\u6e29\u6cc9",
+        "defch2": "Onsen",
+        "defch3": "hot spring"
+    },
+    "\u71b1\u6c23\u7403": {
+        "gl": "phr.",
+        "defch1": "\u71b1\u6c17\u7403",
+        "defch2": "Nekkiky\u016b",
+        "defch3": "hot-air balloon"
+    },
+    "\u65c5\u9928": {
+        "gl": "n.",
+        "defch1": "\u30db\u30c6\u30eb",
+        "defch2": "Hoteru",
+        "defch3": "hotel"
+    },
+    "\u9152\u5e97\u623f\u9593;\u65c5\u9928\u623f\u9593": {
+        "gl": "n.",
+        "defch1": "\u30db\u30c6\u30eb\u306e\u90e8\u5c4b",
+        "defch2": "Hoteru no heya",
+        "defch3": "hotel room"
+    },
+    "\u65c5\u9928\u63a5\u99c1\u8eca": {
+        "gl": "phr.",
+        "defch1": "\u30db\u30c6\u30eb\u30b7\u30e3\u30c8\u30eb",
+        "defch2": "Hoteru shatoru",
+        "defch3": "hotel shuttle"
+    },
+    "\u5c0f\u6642;\u71df\u696d\u6642\u9593(\u591a\u7528\u8907\u6578)": {
+        "gl": "n.",
+        "defch1": "\u6642\u9593",
+        "defch2": "Jikan",
+        "defch3": "hours"
+    },
+    "\u5ba2\u623f\u6e05\u6f54;\u5bb6\u52d9": {
+        "gl": "n.",
+        "defch1": "\u30cf\u30a6\u30b9\u30ad\u30fc\u30d4\u30f3\u30b0",
+        "defch2": "Hausuk\u012bpingu",
+        "defch3": "housekeeping"
+    },
+    "\u7136\u800c;\u7136\u800c": {
+        "gl": "adv.",
+        "defch1": "\u3067\u3082",
+        "defch2": "Demo",
+        "defch3": "however"
+    },
+    "\u8eab\u5206\u8b49\u4ef6;\u9451\u5b9a\u7e2e\u5beb\u70baID": {
+        "gl": "n.",
+        "defch1": "\u8eab\u5143",
+        "defch2": "Mimoto",
+        "defch3": "identification"
+    },
+    "\u7acb\u5373;\u99ac\u4e0a": {
+        "gl": "adv.",
+        "defch1": "\u3059\u3050\u306b",
+        "defch2": "Sugu ni",
+        "defch3": "immediately"
+    },
+    "\u5165\u5883, \u79fb\u6c11(\u5c40)": {
+        "gl": "n.",
+        "defch1": "\u79fb\u6c11",
+        "defch2": "Imin",
+        "defch3": "immigration"
+    },
+    "\u5306\u5306;\u8d95\u6642\u9593": {
+        "gl": "v.",
+        "defch1": "\u6025\u3044\u3067",
+        "defch2": "Isoide",
+        "defch3": "in a hurry"
+    },
+    "\u8d95\u6642\u9593;\u8d95\u6642\u9593": {
+        "gl": "phr.",
+        "defch1": "\u5927\u6025\u304e\u3067",
+        "defch2": "\u014cisogi de",
+        "defch3": "in a rush"
+    },
+    "\u5728...\u5f8c\u9762": {
+        "gl": "phr.",
+        "defch1": "\u80cc\u9762\u306e",
+        "defch2": "Haimen no",
+        "defch3": "in back of"
+    },
+    "\u4ed8\u73fe\u91d1": {
+        "gl": "phr.",
+        "defch1": "\u73fe\u91d1\u3067",
+        "defch2": "Genkin de",
+        "defch3": "in cash"
+    },
+    "\u5728...\u524d\u9762": {
+        "gl": "phr.",
+        "defch1": "\u306e\u524d\u306b",
+        "defch2": "No mae ni",
+        "defch3": "in front of"
+    },
+    "\u6200\u611b;\u6709\u76f8\u611b\u7684\u4eba;\u589c\u5165\u611b\u6cb3": {
+        "gl": "phr.",
+        "defch1": "\u604b\u611b\u4e2d",
+        "defch2": "Ren'ai-ch\u016b",
+        "defch3": "in love"
+    },
+    "\u540c\u6642;\u5728...\u671f\u9593\u4e4b\u5167": {
+        "gl": "phr.",
+        "defch1": "\u305d\u306e\u9593",
+        "defch2": "Sonoaida",
+        "defch3": "in the meantime"
+    },
+    "\u5305\u62ec;\u5305\u62ec": {
+        "gl": "v.",
+        "defch1": "\u542b\u3080",
+        "defch2": "Fukumu",
+        "defch3": "include"
+    },
+    "\u4e0d\u65b9\u4fbf;\u6253\u64fe": {
+        "gl": "v.",
+        "defch1": "\u4e0d\u4fbf",
+        "defch2": "Fuben",
+        "defch3": "inconvenience"
+    },
+    "\u5370\u5ea6": {
+        "gl": "prop.",
+        "defch1": "\u30a4\u30f3\u30c9",
+        "defch2": "Indo",
+        "defch3": "India"
+    },
+    "\u5370\u5ea6\u6d0b": {
+        "gl": "prop.",
+        "defch1": "\u30a4\u30f3\u30c9\u6d0b",
+        "defch2": "Indoy\u014d",
+        "defch3": "Indian Ocean"
+    },
+    "\u544a\u77e5;\u901a\u77e5": {
+        "gl": "v.",
+        "defch1": "\u77e5\u3089\u305b\u308b",
+        "defch2": "Shiraseru",
+        "defch3": "inform"
+    },
+    "\u822a\u73ed\u8868;\u8cc7\u8a0a\u677f": {
+        "gl": "n.",
+        "defch1": "\u60c5\u5831\u677f",
+        "defch2": "J\u014dh\u014d-ban",
+        "defch3": "information board"
+    },
+    "\u65c5\u904a\u670d\u52d9\u4e2d\u5fc3;\u8cc7\u8a0a\u4e2d\u5fc3": {
+        "gl": "phr.",
+        "defch1": "\u60c5\u5831\u30bb\u30f3\u30bf\u30fc",
+        "defch2": "J\u014dh\u014d sent\u0101",
+        "defch3": "information center"
+    },
+    "\u8a62\u554f\u8655;\u670d\u52d9\u81fa": {
+        "gl": "phr.",
+        "defch1": "\u30a4\u30f3\u30d5\u30a9\u30e1\u30fc\u30b7\u30e7\u30f3\u30ab\u30a6\u30f3\u30bf\u30fc",
+        "defch2": "Infom\u0113shonkaunt\u0101",
+        "defch3": "information counter"
+    },
+    "\u670d\u52d9\u81fa;\u8a62\u554f\u8655": {
+        "gl": "phr.",
+        "defch1": "\u30a4\u30f3\u30d5\u30a9\u30e1\u30fc\u30b7\u30e7\u30f3\u30c7\u30b9\u30af",
+        "defch2": "Infom\u0113shondesuku",
+        "defch3": "information desk"
+    },
+    "\u5167\u5411\u623f\u9593": {
+        "gl": "phr.",
+        "defch1": "\u90e8\u5c4b\u306e\u4e2d",
+        "defch2": "Heya no naka",
+        "defch3": "inside room"
+    },
+    "\u570b\u969b\u6027\u7684;\u570b\u969b\u7684": {
+        "gl": "adj.",
+        "defch1": "\u30a4\u30f3\u30bf\u30fc\u30ca\u30b7\u30e7\u30ca\u30eb",
+        "defch2": "Int\u0101nashonaru",
+        "defch3": "international"
+    },
+    "\u570b\u969b\u822a\u73ed": {
+        "gl": "n.",
+        "defch1": "\u56fd\u969b\u7dda",
+        "defch2": "Kokusaisen",
+        "defch3": "international flight"
+    },
+    "\u4e0a\u7db2;\u7db2\u969b\u7db2\u8def\u9023\u7dda\u5b58\u53d6": {
+        "gl": "phr.",
+        "defch1": "\u30a4\u30f3\u30bf\u30fc\u30cd\u30c3\u30c8\u30fb\u30a2\u30af\u30bb\u30b9",
+        "defch2": "Int\u0101netto akusesu",
+        "defch3": "internet access"
+    },
+    "\u5cf6\u5dbc;\u5cf6\u5dbc": {
+        "gl": "n.",
+        "defch1": "\u5c0f\u5cf6",
+        "defch2": "Kojima",
+        "defch3": "island"
+    },
+    "\u7fa9\u5927\u5229": {
+        "gl": "prop.",
+        "defch1": "\u30a4\u30bf\u30ea\u30a2",
+        "defch2": "Itaria",
+        "defch3": "Italy"
+    },
+    "\u5ac9\u5992\u7684;\u5ac9\u5992\u7684": {
+        "gl": "adj.",
+        "defch1": "\u5ac9\u59ac",
+        "defch2": "Shitto",
+        "defch3": "jealous"
+    },
+    "\u725b\u4ed4\u8932": {
+        "gl": "n.",
+        "defch1": "\u30b8\u30fc\u30f3\u30ba",
+        "defch2": "J\u012bnzu",
+        "defch3": "jeans"
+    },
+    "\u5674\u5c04;\u5674\u5c04": {
+        "gl": "n.",
+        "defch1": "\u30b8\u30a7\u30c3\u30c8",
+        "defch2": "Jetto",
+        "defch3": "jet"
+    },
+    "\u65f6\u5dee\u95ee\u9898": {
+        "gl": "phr.",
+        "defch1": "\u6642\u5dee\u307c\u3051",
+        "defch2": "Jisa boke",
+        "defch3": "jet lag"
+    },
+    "\u53c3\u52a0;\u9023\u7d50": {
+        "gl": "v.",
+        "defch1": "\u52a0\u5165",
+        "defch2": "Kany\u016b",
+        "defch3": "join"
+    },
+    "\u65c5\u884c;\u65c5\u7a0b": {
+        "gl": "n.",
+        "defch1": "\u65c5",
+        "defch2": "Tabi",
+        "defch3": "journey"
+    },
+    "\u9580\u7981\u5361;\u958b\u9580\u7528\u78c1\u5361;\u9470\u5319\u5361": {
+        "gl": "phr.",
+        "defch1": "\u30ad\u30fc\u30ab\u30fc\u30c9",
+        "defch2": "K\u012bk\u0101do",
+        "defch3": "key card"
+    },
+    "\u9470\u5319\u93c8": {
+        "gl": "phr.",
+        "defch1": "\u30ad\u30fc\u30db\u30eb\u30c0\u30fc",
+        "defch2": "K\u012bhorud\u0101",
+        "defch3": "key chain"
+    },
+    "\u5200": {
+        "gl": "n.",
+        "defch1": "\u30ca\u30a4\u30d5",
+        "defch2": "Naifu",
+        "defch3": "knife"
+    },
+    "\u71c8;\u71c8": {
+        "gl": "n.",
+        "defch1": "\u30e9\u30f3\u30d7",
+        "defch2": "Ranpu",
+        "defch3": "lamp"
+    },
+    "\u571f\u5730;\u9678\u5730;\u964d\u843d": {
+        "gl": "v.",
+        "defch1": "\u571f\u5730",
+        "defch2": "Tochi",
+        "defch3": "land"
+    },
+    "\u6d17\u8863\u5e97;\u9001\u6d17(\u597d)\u7684\u8863\u670d": {
+        "gl": "n.",
+        "defch1": "\u30e9\u30f3\u30c9\u30ea\u30fc",
+        "defch2": "Randor\u012b",
+        "defch3": "laundry"
+    },
+    "\u6d17\u8863\u670d\u52d9": {
+        "gl": "phr.",
+        "defch1": "\u30e9\u30f3\u30c9\u30ea\u30fc\u30b5\u30fc\u30d3\u30b9",
+        "defch2": "Randor\u012bs\u0101bisu",
+        "defch3": "laundry service"
+    },
+    "\u96e2\u958b": {
+        "gl": "v.",
+        "defch1": "\u96e2\u308c\u308b",
+        "defch2": "Hanareru",
+        "defch3": "leave"
+    },
+    "\u5716\u66f8\u9928;\u5716\u66f8\u9928": {
+        "gl": "n.",
+        "defch1": "\u56f3\u66f8\u9928",
+        "defch2": "Toshokan",
+        "defch3": "library"
+    },
+    "\u6551\u751f\u8863": {
+        "gl": "phr.",
+        "defch1": "\u6551\u547d\u80f4\u8863",
+        "defch2": "Ky\u016bmeid\u014di",
+        "defch3": "life vest"
+    },
+    "\u6709\u9650\u7684": {
+        "gl": "adj.",
+        "defch1": "\u9650\u5b9a",
+        "defch2": "Gentei",
+        "defch3": "limited"
+    },
+    "\u807d\u5f9e": {
+        "gl": "phr.",
+        "defch1": "\u805e\u304f",
+        "defch2": "Kiku",
+        "defch3": "listen to"
+    },
+    "\u524d\u5ef3;\u98ef\u5e97(\u65c5\u9928)\u5927\u5ef3": {
+        "gl": "n.",
+        "defch1": "\u30ed\u30d3\u30fc",
+        "defch2": "Rob\u012b",
+        "defch3": "lobby"
+    },
+    "\u7576\u5730\u7684;\u7576\u5730\u5c45\u6c11": {
+        "gl": "adj.",
+        "defch1": "\u30ed\u30fc\u30ab\u30eb",
+        "defch2": "R\u014dkaru",
+        "defch3": "local"
+    },
+    "\u5e02\u5167\u96fb\u8a71": {
+        "gl": "phr.",
+        "defch1": "\u5e02\u5185\u901a\u8a71",
+        "defch2": "Shinai ts\u016bwa",
+        "defch3": "local call"
+    },
+    "\u4f4d\u65bc": {
+        "gl": "v.",
+        "defch1": "\u898b\u3064\u3051\u308b",
+        "defch2": "Mitsukeru",
+        "defch3": "locate"
+    },
+    "\u9396": {
+        "gl": "v.",
+        "defch1": "\u30ed\u30c3\u30af",
+        "defch2": "Rokku",
+        "defch3": "lock"
+    },
+    "\u671f\u5f85": {
+        "gl": "phr.",
+        "defch1": "\u3092\u697d\u3057\u307f\u306b\u3057\u3066\u3044\u307e\u3059",
+        "defch2": "O tanoshiminishiteimasu",
+        "defch3": "look forward to"
+    },
+    "\u5931\u7269\u62db\u9818": {
+        "gl": "phr.",
+        "defch1": "\u907a\u5931\u7269\u53d6\u6271\u6240",
+        "defch2": "Ishitsubutsutoriatsukaijo",
+        "defch3": "lost and found"
+    },
+    "\u4e73\u6db2": {
+        "gl": "n.",
+        "defch1": "\u30ed\u30fc\u30b7\u30e7\u30f3",
+        "defch2": "R\u014dshon",
+        "defch3": "lotion"
+    },
+    "\u6703\u5ba2\u5ba4": {
+        "gl": "n.",
+        "defch1": "\u30e9\u30a6\u30f3\u30b8",
+        "defch2": "Raunji",
+        "defch3": "lounge"
+    },
+    "\u7f8e\u597d\u7684": {
+        "gl": "adj.",
+        "defch1": "\u7d20\u6674\u3089\u3057\u3044",
+        "defch2": "Subarash\u012b",
+        "defch3": "lovely"
+    },
+    "\u5ec9\u50f9\u822a\u7a7a": {
+        "gl": "phr.",
+        "defch1": "\u4f4e\u30b3\u30b9\u30c8\u822a\u7a7a\u4f1a\u793e",
+        "defch2": "Tei kosuto k\u014dk\u016bkaisha",
+        "defch3": "low-cost airline"
+    },
+    "\u884c\u674e\u50b3\u9001\u5e36": {
+        "gl": "n.",
+        "defch1": "\u30e9\u30b2\u30c3\u30b8\u30ab\u30eb\u30fc\u30bb\u30eb",
+        "defch2": "Ragejjikar\u016bseru",
+        "defch3": "luggage carousel"
+    },
+    "\u884c\u674e\u63a8\u8eca;\u884c\u674e\u63a8\u8eca": {
+        "gl": "n.",
+        "defch1": "\u8377\u7269\u30ab\u30fc\u30c8",
+        "defch2": "Nimotsu k\u0101to",
+        "defch3": "luggage cart"
+    },
+    "\u6a5f\u5668": {
+        "gl": "n.",
+        "defch1": "\u6a5f\u68b0",
+        "defch2": "Kikai",
+        "defch3": "machine"
+    },
+    "\u99ac\u4e18\u6bd4\u4e18": {
+        "gl": "prop.",
+        "defch1": "\u30de\u30c1\u30e5\u30d4\u30c1\u30e5",
+        "defch2": "Machupichu",
+        "defch3": "Machu Picchu"
+    },
+    "\u96dc\u8a8c": {
+        "gl": "n.",
+        "defch1": "\u30de\u30ac\u30b8\u30f3",
+        "defch2": "Magajin",
+        "defch3": "magazine"
+    },
+    "\u5973\u50ad": {
+        "gl": "n.",
+        "defch1": "\u30e1\u30a4\u30c9",
+        "defch2": "Meido",
+        "defch3": "maid"
+    }
+}
