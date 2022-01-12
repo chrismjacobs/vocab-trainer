@@ -10,6 +10,7 @@
                           <td>{{item.gl}}</td>
                           <td>{{item.defch1}}</td>
                           <td>{{item.defch2}}</td>
+                          <td>{{item.defch3}}</td>
                           <td>{{item.S}}</td>
                           <td>{{item.All}}</td>
                           <td v-if="item.backref && item.backref[1] !== 'Y'">{{item.backref}}</td>
