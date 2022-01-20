@@ -10,7 +10,7 @@
         "activities": ""
     },
     "Dictionary": {
-        "input": "Search dictionary by first letter",
+        "input": "Search dictionary by first letter or combination of letters",
         "dictTabs": "PICT - add pictures and sentences to words ; STAR - view/edit/clear star word list ; TEST - Hide vocab list and test with sound",
         "sortTabs": "Sort your vocab by difficulty; (--) Problem words (-) Weak words (0) Neutral words (+) Good words (++) Strong words"
     },
