@@ -512,6 +512,40 @@ export default {
       ]
     }
 
+    if (this.testType === 'typeTest') {
+      this.sound = 'sdEn'
+      this.soundOptions = [
+        { text: 'English', value: 'sdEn' },
+        { text: 'Chinese', value: 'sdCh' },
+        { text: 'None', value: 'sdOff' }
+      ]
+    }
+
+    if (this.$store.state.userProfile.vocab.includes('apan')) {
+      this.spellingOptions = [
+        { value: 'blanks', text: 'blank' },
+        { value: 'scramble', text: 'scramble' },
+        { value: 'all', text: 'show all' }
+      ]
+      if (this.testType === 'transCh') {
+        this.soundOptions = [
+          { text: 'Exam', value: 'sdEx' },
+          { text: 'Normal', value: 'sdOff' }
+        ]
+      } else if (this.testType === 'typeTest') {
+        this.soundOptions = [
+          { text: 'Japanese', value: 'sdEn' },
+          { text: 'Chinese', value: 'sdCh' },
+          { text: 'None', value: 'sdOff' }
+        ]
+        this.displayOptions = [
+          { text: 'Japanese', value: 'text_On' },
+          { text: 'Label', value: 'label_On' },
+          { text: 'None', value: 'all_Off' }
+        ]
+      }
+    }
+
     if (this.$store.getters.checkQuiz) {
       this.sortOptions.pop()
       this.sortOptions.pop()
@@ -521,14 +555,6 @@ export default {
     //   this.sortOptions.push({ value: 'q', text: 'QUIZ' })
     // }
 
-    if (this.testType === 'typeTest') {
-      this.sound = 'sdEn'
-      this.soundOptions = [
-        { text: 'English', value: 'sdEn' },
-        { text: 'Chinese', value: 'sdCh' },
-        { text: 'None', value: 'sdOff' }
-      ]
-    }
     // console.log(this.testType)
     console.log(this.$store.state.logsRecord.settings)
     if (this.$store.state.logsRecord.settings[this.testType]) {

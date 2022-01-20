@@ -12,7 +12,7 @@ import generalG from '../assets/json/generalG.json'
 import generalJW1 from '../assets/json/generalJW1.json'
 import generalBell from '../assets/json/generalBell.json'
 import generalAlice from '../assets/json/generalAlice.json'
-import jHotel from '../assets/json/japanHotel.json'
+import jTest from '../assets/json/JapanTest.json'
 import LNC1 from '../assets/json/LNCV.json'
 import presentation from '../assets/json/presentation.json'
 import food from '../assets/json/food.json'
@@ -40,7 +40,7 @@ export function dictionaries () {
     'presentation': presentation,
     'high': null,
     'food': food,
-    'JapanHotel': jHotel,
+    'JapanTest': jTest,
     'helpj': helpj
   }
   return dictionaries

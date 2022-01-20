@@ -25,7 +25,7 @@ const state = {
   helpMode: false,
   helpj: dictionaries().helpj,
   jwt: localStorage.token || '',
-  testJ: dictionaries().jHotel,
+  testJ: dictionaries().JapanHotel,
   master: dictionaries()[parseLocal(localStorage.userProfile).vocab],
   testActive: false,
   device: localStorage.device || '',
@@ -48,7 +48,8 @@ const state = {
     d: 'digital',
     c: 'culinary',
     g: 'general',
-    p: 'presentation'
+    p: 'presentation',
+    J: 'japanese'
   },
   scheme: {
     prime: 'prime',
@@ -820,6 +821,7 @@ const getters = {
       let vc = state.userProfile.vocab[0]
       let s3root = 'https://vocab-lms.s3-ap-northeast-1.amazonaws.com/public/'
       let s3 = s3root + state.audioLinks[vc]
+      // console.log(vc, s3)
       let mp3en = s3 + '_en/' + vocab + '.mp3'
       let mp3ch = s3 + '_ch/' + vocab + '.mp3'
       let origin = 'master'

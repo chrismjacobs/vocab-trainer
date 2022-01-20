@@ -118,6 +118,9 @@ export function wordFix (string, cut) {
       } else if (cut === 'blanks' && /[bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZaeiouAEIOU]/.test(character)) {
         character = '_'
         return character
+      } else if (cut === 'blanks' && store.state.userProfile.vocab.includes('apan')) {
+        character = '_'
+        return character
       } else if (/[ ]/.test(character)) {
         character = '&nbsp;&nbsp;'
         return character

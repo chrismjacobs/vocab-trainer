@@ -110,9 +110,9 @@ export default {
   },
   data () {
     return {
-      pageHead: 'Chinese >> English',
+      pageHead: this.titleCheck(),
       testType: 'transCh',
-      title: 'Chinese >> English',
+      title: this.titleCheck(),
       toolbarShow: true,
       max: 100,
       value: 20,
@@ -152,6 +152,13 @@ export default {
     }
   },
   methods: {
+    titleCheck: function () {
+      if (this.$store.state.userProfile.vocab.includes('apan')) {
+        return 'Chinese >> Japanese'
+      } else {
+        return 'Chinese >> English'
+      }
+    },
     recordAnswer: function (english, chinese, choice) {
       // console.log(english, chinese, choice)
       this.qCount += 1

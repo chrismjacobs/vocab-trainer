@@ -547,9 +547,56 @@ export default {
       let alArr = alphabet.split('')
 
       this.shuffle(alArr)
-      this.selected = [alArr[0], null, null]
+
+      if (!this.checkEnglish()) {
+        this.selected = [null, null, null]
+      } else {
+        this.selected = [alArr[0], null, null]
+      }
+    },
+    checkEnglish: function () {
+      // check if dictionary is english or not
+      // in this case Japanese
+      if ((this.vocabList).includes('apan')) {
+        return false
+      } else {
+        console.log('vocabList True', this.vocabList)
+        return true
+      }
+    },
+    filterTwo: function (row, filter) {
+      if (filter[0] === null && filter[1] === null && filter[2] == null) {
+        return true
+      } else if (filter[0] === '' && filter[1] === null && filter[2] == null) {
+        return true
+      } else if (filter[1] === '*') {
+        if (row.Star) {
+          return true
+        }
+      } else if (filter[1] === row.English) {
+        return true
+      } else if (filter[1] === 'p') {
+        if (row.Picture) {
+          return true
+        }
+      } else if (filter[1] != null) {
+        if (row.Gr === filter[1]) {
+          return true
+        }
+      } else if (filter[2] != null) {
+        if (row.totalScore === filter[2] && row.tested) {
+          return true
+        }
+      } else if (filter[0].trim() != null && filter[0].trim().length >= 1) {
+        if ((row.English).includes(filter[0])) {
+          return true
+        }
+      }
     },
     filterTable: function (row, filter) {
+      if (!this.checkEnglish()) {
+        return this.filterTwo(row, filter)
+      }
       if (filter[0] === null) {
         return false
       }
@@ -597,6 +644,8 @@ export default {
             return true
           }
         }
+      } else if (!this.checkEnglish) {
+        return true
       } else {
         return false
       }
@@ -721,8 +770,8 @@ export default {
   },
   created () {
     // this.alphabet()
-    this.randomLet()
     this.vocabList = this.$store.state.userProfile.vocab
+    this.randomLet()
     // this.tableItems = this.$store.getters.makeList
     // console.log(this.tableItems)
     if (!this.$store.getters.isAuthenticated) {

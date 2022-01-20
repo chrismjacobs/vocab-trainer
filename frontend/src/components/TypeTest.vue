@@ -32,6 +32,16 @@
                       </button>
                     </b-row>
 
+                    <b-row class="px-5" v-if="$store.state.userProfile.vocab.includes('apan') && $store.state.userProfile.userID === 1">
+                      <button class="answerBtn bg-grape-light" @click="cheat(item.English)" align="center">
+                          <h3>
+                            <div >
+                              <span> cheat </span>
+                            </div>
+                          </h3>
+                      </button>
+                    </b-row>
+
                     <b-row class="px-5 mt-3" v-if="settings.display !== 'all_Off'">
                       <button class="answerBtn bg-third" @click="playAudio(item.sdCh)" align="center" >
                           <h3>
@@ -192,6 +202,10 @@ export default {
     }
   },
   methods: {
+    cheat: function (word) {
+      var nospace = word.split(' ').join('')
+      this.currentAnswer = nospace
+    },
     recordAnswer: function (english, chinese, choice) {
       // score
       this.qCount += 1
@@ -362,7 +376,12 @@ export default {
       return this.$store.getters.makeList
     },
     inputStyle () {
+      console.log('Answer length', window.innerWidth)
       let width = this.answerLength + '0%'
+
+      if (window.innerWidth < 1000) {
+        width = '100%'
+      }
       return {'font-size': '30px', width: width, 'text-align': 'center', 'max-width': '100%'}
     },
     answerLength () {
