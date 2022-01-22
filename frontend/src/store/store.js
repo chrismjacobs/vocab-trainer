@@ -25,7 +25,7 @@ const state = {
   helpMode: false,
   helpj: dictionaries().helpj,
   jwt: localStorage.token || '',
-  testJ: dictionaries().JapanHotel,
+  testJ: dictionaries().JapanTest,
   master: dictionaries()[parseLocal(localStorage.userProfile).vocab],
   testActive: false,
   device: localStorage.device || '',
@@ -48,8 +48,10 @@ const state = {
     d: 'digital',
     c: 'culinary',
     g: 'general',
-    p: 'presentation',
-    J: 'japanese'
+    P: 'presentation',
+    J: 'japanesebasic',
+    p: 'japanesepersonal'
+
   },
   scheme: {
     prime: 'prime',

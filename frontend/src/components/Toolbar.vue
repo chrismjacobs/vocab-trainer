@@ -181,7 +181,8 @@ export default {
       ],
       spelling: '---',
       spellingOptions: [
-        { value: 'blanks', text: 'blank' },
+        { value: '---', text: 'blank' },
+        { value: 'blanks', text: 'spaces' },
         { value: 'showFL', text: 'first/last' },
         { value: 'const', text: '+ vowels' },
         { value: 'vowels', text: '- vowels' },
@@ -266,6 +267,7 @@ export default {
           }
         }
       } else if (this.sort === 'misc.') {
+        console.log('misc set')
         for (let item in vocabList) {
           if (vocabList[item].English.includes('-') ||
               vocabList[item].English.includes("'") ||
@@ -274,6 +276,7 @@ export default {
               vocabList[item].Gr === 'prop.' ||
               vocabList[item].Gr === 'abbr.'
           ) {
+            console.log('misc', vocabList[item])
             if (this.sound === 'sdTy' && vocabList[item].Gr === 'abbr.') {
               console.log('pass abbr.')
             } else {
@@ -289,7 +292,7 @@ export default {
         }
       }
       console.log(this.amendedList.length < 6, this.sort, this.special)
-      // check there are enought words available
+      // check there are enough words available
       if (this.amendedList.length < 6) {
         alert('Not enough words found to test this category')
         this.sort = '---'
@@ -299,8 +302,10 @@ export default {
         this.words = this.amendedList.length
       }
       if (this.testType === 'typeTest') {
+        console.log('make spelling')
         this.makeSpelling()
       } else {
+        console.log('make choices')
         this.makeChoices()
       }
     },
@@ -390,19 +395,24 @@ export default {
       let i = 0
       let newList = this.shuffle(this.amendedList)
 
-      while (i < this.words) {
+      while (this.testItemsRoot.length < this.words) {
         let randomItem = newList[i]
 
+        console.log(i, this.words, randomItem)
+        var assist = ['showFL', 'const', 'vowels', 'typos', 'scramble']
         if (!randomItem) {
           // this step is unnecessary now
-          // console.log('pass', randomItem)
-        } else if (this.spelling && randomItem.Gr === 'abbr.') {
-          // console.log('pass abbr')
+          console.log('pass random', randomItem)
+          i++
+        } else if (assist.includes(this.spelling) && randomItem.Gr === 'abbr.') {
+          // abreviations do not work with spelling assist
+          console.log('pass abbr')
+          i++
         } else {
           // CHANGE MADE new code for spelling set up
           let spell = '______________'
-          if (this.spelling) {
-            // console.log('CHECK', randomItem.Gr)
+          if (this.spelling !== '---') {
+            console.log('CHECK', randomItem.Gr)
             spell = wordFix(randomItem.English, this.spelling)
           }
 
@@ -523,7 +533,8 @@ export default {
 
     if (this.$store.state.userProfile.vocab.includes('apan')) {
       this.spellingOptions = [
-        { value: 'blanks', text: 'blank' },
+        { value: '---', text: 'blank' },
+        { value: 'blanks', text: 'spaces' },
         { value: 'scramble', text: 'scramble' },
         { value: 'all', text: 'show all' }
       ]

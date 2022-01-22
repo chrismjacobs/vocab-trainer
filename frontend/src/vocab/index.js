@@ -12,7 +12,8 @@ import generalG from '../assets/json/generalG.json'
 import generalJW1 from '../assets/json/generalJW1.json'
 import generalBell from '../assets/json/generalBell.json'
 import generalAlice from '../assets/json/generalAlice.json'
-import jTest from '../assets/json/JapanTest.json'
+import jTest from '../assets/json/JapanBasic.json'
+import personalJapanese from '../assets/json/personalJapanese.json'
 import LNC1 from '../assets/json/LNCV.json'
 import presentation from '../assets/json/presentation.json'
 import food from '../assets/json/food.json'
@@ -41,6 +42,7 @@ export function dictionaries () {
     'high': null,
     'food': food,
     'JapanTest': jTest,
+    'personalJapanese': personalJapanese,
     'helpj': helpj
   }
   return dictionaries
