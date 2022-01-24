@@ -45,7 +45,7 @@
 
       <div class="bg-grey" v-if="showTest">
        <div v-for="(item, key) in testItems" :key="key">
-          <div class="bg-second questionDiv" @mouseover="hover=true" @mouseleave="hover=false" :class="{ active: 'active1' }" v-if="testItems.indexOf(item) === filter" align="center">
+          <div class="bg-second questionDiv" @click="playAudio(item.sdQue)" @mouseover="hover=true" @mouseleave="hover=false" :class="{ active: 'active1' }" v-if="testItems.indexOf(item) === filter" align="center">
               <h3>
                 <span v-if="settings.sound !== 'sdEx' || hover == true"> {{ item.Question }} </span>
                 <span v-if="settings.sound == 'sdEx' || settings.sound == 'sdOn'"> <b-icon-soundwave></b-icon-soundwave></span>

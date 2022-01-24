@@ -13,8 +13,8 @@
 
       <div class="bg-grey">
             <div v-for="(item, key) in testItems" :key="key">
-                  <div v-if="testItems.indexOf(item) === filter">
-                          <button class="questionDiv bg-second"  @mouseover="hover=true" @mouseleave="hover=false" :class="{ active: hover }" >
+                  <div v-if="testItems.indexOf(item) === filter">""
+                          <button class="questionDiv bg-second"  @click="playAudio(item.sdEn)" @mouseover="hover=true" @mouseleave="hover=false" :class="{ active: hover }" >
                                 <span v-if="settings.sound !== 'sdEx' || hover == true"> {{ item.English }} </span>
                                 <span v-if="settings.label==='lbOn' && settings.sound !== 'sdEx'" > &nbsp; ({{item.Gr}}) </span>
                                 <span v-if="settings.sound == 'sdEx' || settings.sound == 'sdOn'"> <b-icon-soundwave></b-icon-soundwave></span>
