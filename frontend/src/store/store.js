@@ -25,7 +25,7 @@ const state = {
   helpMode: false,
   helpj: dictionaries().helpj,
   jwt: localStorage.token || '',
-  testJ: dictionaries().JapanTest,
+  testJ: dictionaries().japanBasic,
   master: dictionaries()[parseLocal(localStorage.userProfile).vocab],
   testActive: false,
   device: localStorage.device || '',
@@ -49,7 +49,7 @@ const state = {
     c: 'culinary',
     g: 'general',
     P: 'presentation',
-    J: 'japanesebasic',
+    b: 'japanesebasic',
     p: 'japanesepersonal'
 
   },
