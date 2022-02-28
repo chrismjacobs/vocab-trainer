@@ -15,7 +15,7 @@ import generalAlice from '../assets/json/generalAlice.json'
 import japanBasic from '../assets/json/japanBasic.json'
 import japanPersonal from '../assets/json/japanPersonal.json'
 import LNC1 from '../assets/json/LNCV.json'
-import presentation from '../assets/json/presentation.json'
+import Presentation from '../assets/json/Presentation.json'
 import food from '../assets/json/food.json'
 import helpj from '../assets/json/help.json'
 // import Bella from '../assets/json/BellaRedo.json'
@@ -38,7 +38,7 @@ export function dictionaries () {
     'generalJW1': generalJW1,
     'generalAlice': generalAlice,
     'LNC1': LNC1,
-    'presentation': presentation,
+    'Presentation': Presentation,
     'high': null,
     'food': food,
     'personalJapanese': japanPersonal,
