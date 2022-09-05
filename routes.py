@@ -40,17 +40,17 @@ def register():
     name = data['username'].strip()
 
     email = (data['email'].lower()).strip()
-    checkEmail = User.query.filter_by(email=email).first()
+    checkEmail = Users.query.filter_by(email=email).first()
     if checkEmail:
         print('EMAIL ERROR')
         return jsonify({'msg' : 'This email has been used already.', 'err': 1})
 
     hashed_password = bcrypt.generate_password_hash(data['password']).decode('utf-8')
-    newUser = User(username=name, email=email, password=hashed_password)
+    newUser = Users(username=name, email=email, password=hashed_password)
     db.session.add(newUser)
     db.session.commit()
 
-    user = User.query.filter_by(username=name).first()
+    user = Users.query.filter_by(username=name).first()
 
     response = {
         'msg' : 'Hi ' + data['username'] + ', you have been registered. Please log in to continue'
@@ -96,7 +96,7 @@ def login():
     data = request.get_json()
     pprint(data)
     skeleton = False
-    user = User.query.filter_by(email=data['userData']['email']).first()
+    user = Users.query.filter_by(email=data['userData']['email']).first()
 
     try:
         tokenSet = json.loads(user.extraStr)
@@ -125,7 +125,7 @@ def login():
     classmates = {}
 
     if user.classroom: # no action if classroom is not set
-        users = User.query.filter_by(classroom = user.classroom).all()
+        users = Users.query.filter_by(classroom = user.classroom).all()
         print('CLASSROOM', user.classroom)
         for u in users:
             print('maker')
@@ -187,7 +187,7 @@ def login():
 def get_records():
     print('RECORDS')
     userID = request.get_json()['userID']
-    user = User.query.get(userID)
+    user = Users.query.get(userID)
 
     rArray = redisDataGetter(user)
 
@@ -222,9 +222,9 @@ def getGroups():
         except:
             pass
         if intID == userID:
-            groups.append({'code': c, 'count': User.query.filter_by(classroom=c).count()})
+            groups.append({'code': c, 'count': Users.query.filter_by(classroom=c).count()})
         elif userID == 1 and c in codeList:
-            groups.append({'code': c, 'count': User.query.filter_by(classroom=c).count()})
+            groups.append({'code': c, 'count': Users.query.filter_by(classroom=c).count()})
 
     return jsonify({
         'classGroups' : groups
@@ -389,7 +389,7 @@ def instructorRedis():
         msg = 'setTests'
 
     elif action == 'getResults':
-        classList = User.query.filter_by(classroom=group).all()
+        classList = Users.query.filter_by(classroom=group).all()
         allData = redisData.hgetall(group)
         # not sure what this is for
         if allData and allData['notes']:
@@ -413,10 +413,10 @@ def get_class():
     print('GET CLASS')
 
     userID = request.get_json()['userID']
-    user = User.query.get(userID)
+    user = Users.query.get(userID)
     classroom = request.get_json()['classroom']
 
-    users = User.query.filter_by(classroom=classroom).all()
+    users = Users.query.filter_by(classroom=classroom).all()
 
     classDict = {}
 
@@ -472,7 +472,7 @@ def send_ticket_email(data, user):
 def requestToken():
     print('RESET PASSWORD')
     email = request.get_json()['email']
-    user = User.query.filter_by(email=email).first()
+    user = Users.query.filter_by(email=email).first()
 
     if not user:
         return jsonify({'msg': 'There is no account associated with this email', 'status': False})
@@ -499,7 +499,7 @@ def requestToken():
 def changePassword():
     print('RESET PASSWORD 2')
     data = request.get_json()['userData']
-    user = User.query.filter_by(email=data['email']).first()
+    user = Users.query.filter_by(email=data['email']).first()
 
     if not user:
         return jsonify({'msg': 'There is no account associated with this email', 'status': False})
@@ -611,7 +611,7 @@ def updateRecord():
     jwt = payload['jwt']
 
     userID = payload['userID']
-    user = User.query.get(userID)
+    user = Users.query.get(userID)
 
     if jwt != user.extraInfo:
         print ('jwt non match', jwt, user.extraInfo)
@@ -653,6 +653,11 @@ def updateAccount():
 
     if classroom_raw:
         classroom = classroom_raw.lower().strip()
+        try:
+            if " " in classroom:
+                classroom = classroom.replace(" ", "")
+        except:
+            print('REPLACE FAIL')
 
     if school_raw:
         school = school_raw.strip()
@@ -664,7 +669,7 @@ def updateAccount():
     if data['imageData']:
         storeB64(data['imageData'], data['userID'], 'profile')
 
-    current_user = User.query.get(data['userID'])
+    current_user = Users.query.get(data['userID'])
 
     #checkClass = Classroom.query.filter_by(code=classroom).first()
     returnData = redisData.hgetall('classcodes')
@@ -683,7 +688,7 @@ def updateAccount():
          return jsonify({'msg' : 'Sorry, there is no class with this code.', 'err': 1})
 
     email = (data['email'].lower()).strip()
-    checkEmail = User.query.filter_by(email=email).first()
+    checkEmail = Users.query.filter_by(email=email).first()
     if checkEmail and checkEmail != current_user:
         print('EMAIL ERROR')
         return jsonify({'msg' : 'This email has been used already.', 'err': 1})
@@ -710,7 +715,7 @@ def updateTicket():
     data = request.get_json()['userData']
     pprint(data)
 
-    current_user = User.query.get(data['userID'])
+    current_user = Users.query.get(data['userID'])
     print(current_user)
 
     count = Tickets.query.filter_by(user_id=current_user.id).count()
@@ -779,7 +784,7 @@ def addImage():
 
 def storeB64(fileData, uid, modeDict):
     print('STORE_B64', uid)
-    user = User.query.get(uid)
+    user = Users.query.get(uid)
 
     if fileData['image64'] and modeDict == 'profile':
         print('STORE AVATAR', modeDict)

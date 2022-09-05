@@ -18,7 +18,7 @@ def online(data):
     userProfile = data['userProfile']
     friends = data['friends']
     userID = userProfile['userID']
-    user = User.query.get(userID)
+    user = Users.query.get(userID)
     classroom = user.classroom
 
     """Check user isn't connected on anoter device"""
@@ -31,7 +31,7 @@ def online(data):
     checkClass = []
 
     if classroom:
-        users = User.query.filter_by(classroom=classroom).all()
+        users = Users.query.filter_by(classroom=classroom).all()
         for cu in checkUsers:
             checkClass.append(cu.connected)
 
@@ -81,7 +81,7 @@ def on_challenge(data):
     roomList = rooms(sid=sid)
     print(roomList)
 
-    user = User.query.get(userID)
+    user = Users.query.get(userID)
 
     jointroom = None
 
