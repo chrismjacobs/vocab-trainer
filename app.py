@@ -30,7 +30,7 @@ try:
     print('DEV_MODE')
 except:
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL') ## CRUCIAL SETTING
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_ALT') ## CRUCIAL SETTING
     app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
     app.config['DEBUG'] = False
     AWS_SECRET_ACCESS_KEY =  os.environ.get('AWS_SECRET_ACCESS_KEY')
