@@ -64,8 +64,12 @@ def register():
     return jsonify(response)
 
 def redisDataGetter(user):
-    rData = redisData.hgetall(user.id)
-    print('redis', rData.keys())
+
+    try:
+        rData = redisData.hgetall(user.id)
+        print('redis', rData.keys())
+    except Exception as e:
+        print('HGETALL', e)
 
     userRecord = {}
     logsRecord = {'friends': {}, 'settings': {}, 'logs': {}}
@@ -160,7 +164,13 @@ def login():
         user.extraInfo = token_string
         db.session.commit()
 
-    redisEmails = json.loads(redisData.hgetall('emails')['list'])
+    redisEmails = {}
+
+    try:
+        redisEmails = json.loads(redisData.hgetall('emails')['list'])
+    except Exception as e:
+        print('REDIS EMAIL EXCEPTION', e)
+
 
     msg = ''
 
@@ -445,7 +455,7 @@ def send_welcome_email(user):
                     sender=('VOCAB TRAINER','vocab1trainer@gmail.com'),
                     recipients=[user.email, 'cjx02121981@gmail.com'])
 
-        msg.body = 'Your email has been used to register an account with vocab-lms.herokuapp.com. We hope you enjoy building your vocabulary with our application. If you would like to talk to a developer about how to use the application, please contact Chris (LINE: chrisj0212).'
+        msg.body = 'Your email has been used to register an account with vocab-trainer.onrender.com. We hope you enjoy building your vocabulary with our application. If you would like to talk to a developer about how to use the application, please contact Chris (LINE: chrisj0212).'
         ## msg.html = "<img href='https://picsum.photos/1024/480'> </img>"
 
         mail.send(msg)

@@ -26,6 +26,7 @@ try:
     AWS_SECRET_ACCESS_KEY = config.BaseConfig.AWS_SECRET_ACCESS_KEY
     MAIL_PASSWORD = config.BaseConfig.MAIL_PASSWORD,
     REDIS_PASSWORD = config.BaseConfig.REDIS_PASSWORD
+    REDIS_ENDPOINT = config.BaseConfig.REDIS_ENDPOINT
     DEBUG = True
     print('DEV_MODE')
 except:
@@ -37,6 +38,7 @@ except:
     AWS_ACCESS_KEY_ID =  os.environ.get('AWS_ACCESS_KEY_ID')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     REDIS_PASSWORD = os.environ.get('REDIS_PASSWORD')
+    REDIS_ENDPOINT = os.environ.get('REDIS_ENDPOINT')
     DEBUG = False
 
 ## https://pythonhosted.org/Flask-Mail/
@@ -82,8 +84,8 @@ polly_client = boto3.Session(
     ).client('polly')
 
 redisData = redis.Redis(
-    host = 'redis-12011.c54.ap-northeast-1-2.ec2.cloud.redislabs.com',
-    port = 12011,
+    host = REDIS_ENDPOINT,
+    port = 12995,
     password = REDIS_PASSWORD,
     decode_responses = True # get python freiendlt format
 )
