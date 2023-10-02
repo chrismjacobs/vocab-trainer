@@ -45,7 +45,7 @@ except:
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     REDIS_PASSWORD = os.environ.get('REDIS_PASSWORD')
     REDIS_URL = os.environ.get('REDIS_URL')
-    DEBUG = False
+    DEBUG = True
 
 ## https://pythonhosted.org/Flask-Mail/
 app.config.update(dict(
