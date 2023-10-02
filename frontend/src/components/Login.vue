@@ -164,6 +164,11 @@ export default {
         _this.msgColor = 'text-alert'
         _this.report = false
         _this.showModal()
+      } else if (!this.form.email.includes('@')) {
+        _this.report = ''
+        _this.msg = 'Your email should be the full email address'
+        _this.msgColor = 'text-alert'
+        _this.showModal()
       } else {
         this.waiting = false
         this.$store.dispatch('login', { userData: this.form })
