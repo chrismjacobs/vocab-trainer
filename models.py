@@ -2,7 +2,7 @@ from datetime import datetime, timedelta
 from app import app, db, bcrypt, DEBUG
 from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
-from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
+# from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 
 
 class Users(db.Model): #import the model

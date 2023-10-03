@@ -1,6 +1,4 @@
-import redis
-import boto3
-import random
+
 import secrets
 import time
 import base64
@@ -16,7 +14,7 @@ from flask_mail import Message
 from app import app, db, bcrypt, s3_resource, s3_client, mail, polly_client, translate_client, redisData
 from pprint import pprint
 from models import *
-from PIL import Image
+# from PIL import Image
 bucket_name = 'vocab-lms'
 bucket = s3_resource.Bucket(bucket_name)
 DEBUG = app.config['DEBUG']

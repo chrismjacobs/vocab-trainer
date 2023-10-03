@@ -1,11 +1,11 @@
 
-from app import app, db, socketio, cors
+from app import app, db, socketio
 import json
-from pprint import pprint
+# from pprint import pprint
 from models import *
 from flask import request
 from flask_socketio import SocketIO, join_room, leave_room, send, emit, rooms
-from flask_cors import CORS
+# from flask_cors import CORS
 
 print('SOCKETS')
 
