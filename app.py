@@ -9,7 +9,13 @@ import requests
 import boto3
 from urllib.parse import urlparse
 import redis
+import logging
 
+logger = logging.getLogger("exchange bot")
+handler = logging.StreamHandler()
+logger.addHandler(handler)
+logger.setLevel(logging.DEBUG)
+logger.debug('Test Logger App')
 
 
 ##gunicorn==19.9.0
