@@ -1,5 +1,5 @@
 
-from app import app, db, socketio
+from app import app, db, socketio, logger
 import json
 # from pprint import pprint
 from models import *
@@ -15,6 +15,7 @@ def online(data):
 
     """User joins personal room"""
     print('user online')
+    logger.debug('USER ONLINE SOCKETS')
     userProfile = data['userProfile']
     friends = data['friends']
     userID = userProfile['userID']
