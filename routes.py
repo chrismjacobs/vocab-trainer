@@ -11,7 +11,7 @@ from datetime import datetime, timedelta
 from functools import wraps
 from flask import jsonify, render_template, request
 from flask_mail import Message
-from app import app, db, bcrypt, s3_resource, s3_client, mail, polly_client, translate_client, redisData
+from app import app, db, bcrypt, s3_resource, s3_client, mail, polly_client, translate_client, redisData, logger
 from pprint import pprint
 from models import *
 # from PIL import Image
@@ -19,6 +19,7 @@ bucket_name = 'vocab-lms'
 bucket = s3_resource.Bucket(bucket_name)
 DEBUG = app.config['DEBUG']
 
+logger.debug('routes test')
 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
@@ -157,7 +158,7 @@ def login():
 
     token_string = token.decode('UTF-8')
     print('TOKEN', token_string)
-
+    logger.debug('Token: ' + token_string)
     if not skeleton:
         user.extraInfo = token_string
         db.session.commit()
@@ -180,6 +181,8 @@ def login():
         msg = 'Welcome ' + user.username + ', you have been logged in with classroom: ' + user.classroom
 
     print(msg)
+
+    logger.debug('LOGIN MESSAGE ' +  msg)
 
     return jsonify({
         'token': token_string,
