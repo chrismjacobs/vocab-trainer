@@ -37,6 +37,7 @@ try:
     REDIS_PASSWORD = config.BaseConfig.REDIS_PASSWORD
     REDIS_URL = config.BaseConfig.REDIS_URL
     DEBUG = True
+    TESTING = True
     print('DEV_MODE')
 except:
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -52,6 +53,7 @@ except:
     REDIS_PASSWORD = os.environ.get('REDIS_PASSWORD')
     REDIS_URL = os.environ.get('REDIS_URL')
     DEBUG = True
+    TESTING = False
 
 ## https://pythonhosted.org/Flask-Mail/
 app.config.update(dict(
@@ -104,7 +106,16 @@ polly_client = boto3.Session(
 
 url = urlparse(REDIS_URL)
 
-redisData = redis.Redis(host=url.hostname, port=url.port, password=url.password, ssl=True, ssl_cert_reqs=None, decode_responses = True) # get python freiendlt format)
+# redisData = redis.Redis(host=url.hostname, port=url.port, password=url.password, ssl=True, ssl_cert_reqs=None, decode_responses = True) # get python freiendlt format)
+
+if REDIS_URL:
+    if TESTING:
+        redisData = redis.from_url(REDIS_URL, ssl_cert_reqs=None, decode_responses=True)
+    else:
+        ## For Render URL
+        redisData = redis.from_url(REDIS_URL, decode_responses=True)
+
+
 print(redisData)
 redisData.set('start', 'done')
 print(redisData.get('start'))
@@ -115,6 +126,8 @@ bcrypt = Bcrypt()
 
 socketio = SocketIO(app, cors_allowed_origins="*", manage_session=False)
 
+print('SOCKET', socketio)
+
 ## see documentation
 ## every api call with the prefix /api/ will be accepted cross platfrom
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
@@ -124,5 +137,5 @@ from sockets import *
 
 
 if __name__ == '__main__':
-    socketio.run(app, debug=True)
+    socketio.run(app)
     #app.run()
