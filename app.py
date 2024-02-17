@@ -65,7 +65,7 @@ app.config.update(dict(
     MAIL_PASSWORD = MAIL_PASSWORD,
     MAIL_SUPPRESS_SEND = False,
     MAIL_DEBUG = True,
-    TESTING = False
+    TESTING = False,
     DEBUG = DEBUG
 ))
 
