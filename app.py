@@ -115,6 +115,9 @@ if REDIS_URL:
         ## For Render URL
         redisData = redis.from_url(REDIS_URL, decode_responses=True)
 
+if REDIS_URL:
+    redisData = redis.from_url(REDIS_URL, decode_responses=True)
+
 
 print(redisData)
 redisData.set('start', 'done')
