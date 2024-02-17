@@ -46,7 +46,7 @@ except:
     app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_ALT')
 
     app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
-    app.config['DEBUG'] = False
+    app.config['DEBUG'] = True
     AWS_SECRET_ACCESS_KEY =  os.environ.get('AWS_SECRET_ACCESS_KEY')
     AWS_ACCESS_KEY_ID =  os.environ.get('AWS_ACCESS_KEY_ID')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
@@ -108,12 +108,12 @@ url = urlparse(REDIS_URL)
 
 # redisData = redis.Redis(host=url.hostname, port=url.port, password=url.password, ssl=True, ssl_cert_reqs=None, decode_responses = True) # get python freiendlt format)
 
-if REDIS_URL:
-    if TESTING:
-        redisData = redis.from_url(REDIS_URL, ssl_cert_reqs=None, decode_responses=True)
-    else:
-        ## For Render URL
-        redisData = redis.from_url(REDIS_URL, decode_responses=True)
+# if REDIS_URL:
+#     if TESTING:
+#         redisData = redis.from_url(REDIS_URL, ssl_cert_reqs=None, decode_responses=True)
+#     else:
+#         ## For Render URL
+#         redisData = redis.from_url(REDIS_URL, decode_responses=True)
 
 if REDIS_URL:
     redisData = redis.from_url(REDIS_URL, decode_responses=True)
