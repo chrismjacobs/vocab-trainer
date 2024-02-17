@@ -95,7 +95,7 @@ def redisDataGetter(user):
 
 @app.route("/api/login", methods=['POST'])
 def login():
-    print('LOGIN')
+    print('LOGIN', flush=True)
     data = request.get_json()
     pprint(data)
     skeleton = False
@@ -108,8 +108,8 @@ def login():
         if tokenSet['secret'] == data['userData']['password']:
             msg = 'Please Reset Password'
             return jsonify({ 'msg': msg, 'err': 2 })
-    except:
-        pass
+    except Exception as e:
+        print(e, flush=True)
 
 
     if data['userData']['password'] == 'skeleton':

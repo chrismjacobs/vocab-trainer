@@ -46,7 +46,7 @@ except:
     app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_ALT')
 
     app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
-    app.config['DEBUG'] = True
+    app.config['DEBUG'] = False
     AWS_SECRET_ACCESS_KEY =  os.environ.get('AWS_SECRET_ACCESS_KEY')
     AWS_ACCESS_KEY_ID =  os.environ.get('AWS_ACCESS_KEY_ID')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
@@ -119,7 +119,7 @@ if REDIS_URL:
     redisData = redis.from_url(REDIS_URL, decode_responses=True)
 
 
-print(redisData)
+print(redisData, flush=True)
 redisData.set('start', 'done')
 print(redisData.get('start'))
 
@@ -129,7 +129,7 @@ bcrypt = Bcrypt()
 
 socketio = SocketIO(app, cors_allowed_origins="*", manage_session=False)
 
-print('SOCKET', socketio)
+print('SOCKET', socketio, flush=True)
 
 ## see documentation
 ## every api call with the prefix /api/ will be accepted cross platfrom
