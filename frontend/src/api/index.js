@@ -6,8 +6,7 @@ let host = window.location.hostname
 if (host.includes('127') || host.includes('local')) {
   host = 'http://127.0.0.1:5000'
 } else {
-  page = window.location.href.split('/')[2] + '/'
-  host = 'https://' + page
+  host = 'https://' + host + '/'
 }
 
 export function register (userData) {
