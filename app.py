@@ -138,5 +138,7 @@ from sockets import *
 
 
 if __name__ == '__main__':
-    socketio.run(app, debug=DEBUG)
+    port=8080
+    host='0.0.0.0'
+    socketio.run(app, port=port, host=host, debug=DEBUG)
     #app.run()
