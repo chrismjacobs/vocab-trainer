@@ -65,8 +65,8 @@ app.config.update(dict(
     MAIL_PASSWORD = MAIL_PASSWORD,
     MAIL_SUPPRESS_SEND = False,
     MAIL_DEBUG = True,
-    TESTING = False,
-    DEBUG = DEBUG
+    TESTING = False
+    #DEBUG = DEBUG
 ))
 
 mail = Mail(app)
@@ -140,6 +140,6 @@ from sockets import *
 if __name__ == '__main__':
     port=8081
     host='127.0.0.1'
-    socketio.run(app)
+    socketio.run(app, debug=DEBUG)
     #socketio.run(app, port=port, host=host, debug=DEBUG)
     #app.run()
