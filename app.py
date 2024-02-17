@@ -23,8 +23,7 @@ logger.debug('Test Logger App')
 app = Flask(__name__,
         static_folder = "dist/static",
         instance_relative_config=True,
-        template_folder = "dist",
-        debug = True
+        template_folder = "dist"
         )
 
 # print(app.template_folder)  --> PRINT dist
@@ -54,7 +53,7 @@ except:
     REDIS_PASSWORD = os.environ.get('REDIS_PASSWORD')
     REDIS_URL = os.environ.get('REDIS_URL')
     DEBUG = True
-    TESTING = False
+    TESTING = True
 
 ## https://pythonhosted.org/Flask-Mail/
 app.config.update(dict(
@@ -66,7 +65,7 @@ app.config.update(dict(
     MAIL_PASSWORD = MAIL_PASSWORD,
     MAIL_SUPPRESS_SEND = False,
     MAIL_DEBUG = True,
-    TESTING = False
+    TESTING = True
 ))
 
 mail = Mail(app)
