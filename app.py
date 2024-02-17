@@ -18,14 +18,6 @@ logger.setLevel(logging.DEBUG)
 logger.debug('Test Logger App')
 
 
-##gunicorn==19.9.0
-##web: gunicorn run (py file):app (flask name)
-app = Flask(__name__,
-        static_folder = "dist/static",
-        instance_relative_config=True,
-        template_folder = "dist",
-        debug = DEBUG
-        )
 
 # print(app.template_folder)  --> PRINT dist
 try:
@@ -56,6 +48,14 @@ except:
     DEBUG = True
     TESTING = False
 
+##gunicorn==19.9.0
+##web: gunicorn run (py file):app (flask name)
+app = Flask(__name__,
+        static_folder = "dist/static",
+        instance_relative_config=True,
+        template_folder = "dist",
+        debug = DEBUG
+        )
 ## https://pythonhosted.org/Flask-Mail/
 app.config.update(dict(
     MAIL_SERVER = 'smtp.gmail.com',
