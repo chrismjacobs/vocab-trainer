@@ -66,6 +66,7 @@ app.config.update(dict(
     MAIL_SUPPRESS_SEND = False,
     MAIL_DEBUG = True,
     TESTING = False
+    DEBUG = DEBUG
 ))
 
 mail = Mail(app)
@@ -137,5 +138,5 @@ from sockets import *
 
 
 if __name__ == '__main__':
-    socketio.run(app)
+    socketio.run(app, debug=DEBUG)
     #app.run()
