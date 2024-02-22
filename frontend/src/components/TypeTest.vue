@@ -32,7 +32,7 @@
                       </button>
                     </b-row>
 
-                    <b-row class="px-5" v-if="$store.state.userProfile.vocab.includes('apan') && $store.state.userProfile.userID === 1">
+                    <b-row class="px-5" v-if="$store.state.userProfile.vocab.includes('apan') && $store.state.userProfile.userID === 2">
                       <button class="answerBtn bg-grape-light" @click="cheat(item.English)" align="center">
                           <h3>
                             <div >
