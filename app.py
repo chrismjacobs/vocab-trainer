@@ -38,6 +38,7 @@ try:
     REDIS_URL = config.BaseConfig.REDIS_URL
     DEBUG = True
     TESTING = True
+    LOCAL = True
     print('DEV_MODE')
 except:
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -54,6 +55,8 @@ except:
     REDIS_URL = os.environ.get('REDIS_URL')
     DEBUG = True
     TESTING = True
+    LOCAL - False
+
 
 ## https://pythonhosted.org/Flask-Mail/
 app.config.update(dict(
@@ -116,7 +119,11 @@ url = urlparse(REDIS_URL)
 #         redisData = redis.from_url(REDIS_URL, decode_responses=True)
 
 if REDIS_URL:
-    redisData = redis.from_url(REDIS_URL, decode_responses=True)
+    if LOCAL:
+        redisData = redis.from_url(REDIS_URL, ssl_cert_reqs=None, decode_responses=True)
+    else:
+        ## For Render URL
+        redisData = redis.from_url(REDIS_URL, decode_responses=True)
 
 
 print(redisData, flush=True)

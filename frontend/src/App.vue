@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="notranslate">
     <b-navbar toggleable>
       <b-navbar-brand @click="goTo('Home')"><span class="text-cream" > VOCAB TRAINER </span> </b-navbar-brand>
 
