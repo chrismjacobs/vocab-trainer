@@ -55,7 +55,7 @@ except:
     REDIS_URL = os.environ.get('REDIS_URL')
     DEBUG = True
     TESTING = True
-    LOCAL - False
+    LOCAL = False
 
 
 ## https://pythonhosted.org/Flask-Mail/
