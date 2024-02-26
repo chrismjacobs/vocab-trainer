@@ -74,7 +74,7 @@ def authenticate(**kwargs): # cls represents iteself in this case User
     user = Users.query.filter_by(email=email).first()
     print(user)
 
-    if password == user.email:
+    if user and password == user.email:
         print('PASS')
     elif not user or not bcrypt.check_password_hash(user.password, password):
         print('PASSWORD FAIL')

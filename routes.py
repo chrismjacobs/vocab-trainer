@@ -131,7 +131,7 @@ def login():
         users = Users.query.filter_by(classroom = user.classroom).all()
         print('CLASSROOM', user.classroom)
         for u in users:
-            print('maker')
+            #print('maker')
             if u.classroom == user.classroom and u is not user:
                 classmates[u.id] = u.username
 
