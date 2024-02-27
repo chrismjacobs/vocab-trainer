@@ -100,6 +100,10 @@ def login():
     pprint(data)
     skeleton = False
     user = Users.query.filter_by(email=data['userData']['email']).first()
+    users = Users.query.all()
+
+    # for u in users:
+    #     print(u.username)
 
     try:
         tokenSet = json.loads(user.extraStr)

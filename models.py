@@ -70,7 +70,7 @@ def authenticate(**kwargs): # cls represents iteself in this case User
 
     email = (email.lower()).strip()
 
-    print('CHECK USER')
+    print('CHECK USER', email)
     user = Users.query.filter_by(email=email).first()
     print(user)
 
