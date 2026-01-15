@@ -7,6 +7,7 @@ import ast
 import json
 import requests
 import jwt
+import os
 from datetime import datetime, timedelta
 from functools import wraps
 from flask import jsonify, render_template, request
@@ -16,17 +17,27 @@ from pprint import pprint
 from models import *
 # from PIL import Image
 bucket_name = 'vocab-lms'
-bucket = s3_resource.Bucket(bucket_name)
-DEBUG = app.config['DEBUG']
+
+# ---- Optional externals (S3/Redis) may not be configured in local dev.
+# Keep module import safe so the app can start without AWS/Redis.
+bucket = s3_resource.Bucket(bucket_name) if s3_resource else None
+DEBUG = bool(app.config.get('DEBUG', False))
+
+USE_VUE_DEV_SERVER = os.getenv("USE_VUE_DEV_SERVER", "0") == "1"
 
 logger.debug('routes test')
 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def catch_all(path):
-    if app.debug:
+    # Proxy to Vue dev server only when explicitly enabled.
+    # Otherwise serve the built SPA from /dist via Flask templates/static.
+    if app.debug and USE_VUE_DEV_SERVER:
         print('request 8080')
-        return requests.get('http://localhost:8080/{}'.format(path)).text
+        try:
+            return requests.get('http://localhost:8080/{}'.format(path), timeout=2).text
+        except Exception as e:
+            logger.warning("Vue dev server not reachable, falling back to built dist: %s", e)
     return render_template("index.html")
 
 
@@ -64,11 +75,16 @@ def register():
 
 def redisDataGetter(user):
 
+    # If Redis isn't configured, return safe empty records.
+    if not redisData:
+        return [{}, {'friends': {}, 'settings': {}, 'logs': {}}, {'dictRecord': {}, 'starRecord': {}, 'addRecord': {}}]
+
     try:
         rData = redisData.hgetall(user.id)
         print('redis', rData.keys())
     except Exception as e:
         print('HGETALL', e)
+        rData = {}
 
     userRecord = {}
     logsRecord = {'friends': {}, 'settings': {}, 'logs': {}}
@@ -92,6 +108,9 @@ def redisDataGetter(user):
     return [userRecord, logsRecord, setRecord]
 
 
+@app.get("/api/health")
+def health():
+    return {"ok": True}
 
 @app.route("/api/login", methods=['POST'])
 def login():
