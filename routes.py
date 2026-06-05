@@ -710,7 +710,7 @@ def updateAccount():
     newVocab = False
     print(returnData)
 
-    if returnData[classroom]:
+    if classroom in returnData:
          ## deal with checks
         print('classoom', classroom)
         jsonData = json.loads(returnData[classroom])

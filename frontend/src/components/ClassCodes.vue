@@ -13,6 +13,17 @@
       </div>
 
       <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Code</th>
+                        <th>Vocab</th>
+                        <th>Instructor</th>
+                        <th>Inst ID</th>
+                        <th>Limit</th>
+                        <th>Expiry</th>
+                        <th></th>
+                      </tr>
+                    </thead>
                     <tbody>
                         <tr>
                           <td>

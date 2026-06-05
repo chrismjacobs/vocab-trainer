@@ -1,71 +1,48 @@
-// api/index.js
-
+// src/api/index.js
 import axios from 'axios'
 
-let host = 'https://' + window.location.hostname
-if (host.includes('127') || host.includes('local')) {
-  host = 'http://127.0.0.1:5000'
-}
+const api = axios.create({
+  baseURL: '/api',
+  headers: { 'Content-Type': 'application/json' },
+})
 
-export function register (userData) {
-  return axios.post(host + '/api/register', userData)
-}
+// ---- Timing interceptor (no optional chaining)
+api.interceptors.request.use(function (cfg) {
+  cfg._t0 = performance.now()
+  return cfg
+})
+api.interceptors.response.use(
+  function (res) {
+    console.log(
+      res.config.url,
+      Math.round(performance.now() - res.config._t0),
+      'ms'
+    )
+    return res
+  },
+  function (err) {
+    var cfg = err.config || {}
+    var elapsed = performance.now() - (cfg._t0 || performance.now())
+    console.warn(cfg.url, 'failed', Math.round(elapsed), 'ms')
+    throw err
+  }
+)
 
-export function authenticate (userData) {
-  return axios.post(host + '/api/login', userData)
-}
-export function ticket (userData) {
-  return axios.post(host + '/api/ticket', userData)
-}
+// ---- API wrappers
+export function register (data)        { return api.post('/register', data) }
+export function authenticate (data)    { return api.post('/login', data) }
+export function ticket (data)          { return api.post('/ticket', data) }
+export function updateRecAPI (p)       { return api.post('/updateRecord', p) }
+export function addAudio (p)           { return api.post('/addAudio', p) }
+export function addImage (p)           { return api.post('/addImage', p) }
+export function checkFriend (p)        { return api.post('/checkFriend', p) }
+export function deleteFriend (p)       { return api.post('/deleteFriend', p) }
+export function updateAccount (p)      { return api.post('/updateAccount', p) }
+export function getRecordAPI (p)       { return api.post('/getRecord', p) }
+export function getClass (p)           { return api.post('/getClass', p) }
+export function getGroups (p)          { return api.post('/getGroups', p) }
+export function requestToken (p)       { return api.post('/requestToken', p) }
+export function changePassword (p)     { return api.post('/changePassword', p) }
+export function instructorRedis (p)    { return api.post('/instructorRedis', p) }
+export function classCodes (p)         { return api.post('/classCodes', p) }
 
-export function updateRecAPI (payload) {
-  return axios.post(host + '/api/updateRecord', payload)
-}
-
-export function addAudio (payload) {
-  return axios.post(host + '/api/addAudio', payload)
-}
-export function checkFriend (payload) {
-  return axios.post(host + '/api/checkFriend', payload)
-}
-
-export function deleteFriend (payload) {
-  return axios.post(host + '/api/deleteFriend', payload)
-}
-
-export function updateAccount (payload) {
-  // update SQL model and save image
-  return axios.post(host + '/api/updateAccount', payload)
-}
-
-export function getRecordAPI (payload) {
-  return axios.post(host + '/api/getRecord', payload)
-}
-
-export function getClass (payload) {
-  return axios.post(host + '/api/getClass', payload)
-}
-
-export function getGroups (payload) {
-  return axios.post(host + '/api/getGroups', payload)
-}
-
-export function addImage (payload) {
-  return axios.post(host + '/api/addImage', payload)
-}
-
-export function requestToken (payload) {
-  return axios.post(host + '/api/requestToken', payload)
-}
-
-export function changePassword (payload) {
-  return axios.post(host + '/api/changePassword', payload)
-}
-
-export function instructorRedis (payload) {
-  return axios.post(host + '/api/instructorRedis', payload)
-}
-
-export function classCodes (payload) {
-  return axios.post(host + '/api/classCodes', payload)
-}
