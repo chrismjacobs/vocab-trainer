@@ -6,7 +6,6 @@ from flask_cors import CORS
 from flask_mail import Mail
 import os
 import logging
-from urllib.parse import urlparse
 
 # ---- Logging
 logger = logging.getLogger("app")
@@ -104,11 +103,8 @@ if ENABLE_EXTERNALS:
         import redis
 
         if REDIS_URL:
-            url = urlparse(REDIS_URL)
-            # If your REDIS_URL is rediss:// require ssl_cert_reqs=None for dev
             redisData = redis.from_url(
                 REDIS_URL,
-                ssl_cert_reqs=None if url.scheme == "rediss" else None,
                 decode_responses=True,
             )
             print("Redis ping:", redisData.ping(), flush=True)
