@@ -98,7 +98,7 @@ if ENABLE_EXTERNALS:
             aws_secret_access_key=AWS_SECRET_ACCESS_KEY,
         ).client("polly")
     except Exception as e:
-        current_app.logger.exception("AWS init failed: %s", e)
+        app.logger.exception("AWS init failed: %s", e)
 
     try:
         import redis
@@ -113,7 +113,7 @@ if ENABLE_EXTERNALS:
             )
             print("Redis ping:", redisData.ping(), flush=True)
     except Exception as e:
-        current_app.logger.exception("Redis init failed: %s", e)
+        app.logger.exception("Redis init failed: %s", e)
 
 # ---- DB / Extensions
 db = SQLAlchemy(app)
