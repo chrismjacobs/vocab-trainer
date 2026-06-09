@@ -1,5 +1,48 @@
-<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>VCT</title><link rel=manifest href=/static/manifest.json><meta name=theme-color content=#3498db><meta name=apple-mobile-web-app-capable content=yes><meta name=apple-mobile-web-app-status-bar-style content=black-translucent><meta name=apple-mobile-web-app-title content=Vocab><link rel=apple-touch-icon href=/static/icon.svg><link href=/static/css/app.f381ee5639c83dbb77a1732c7ec89f13.css rel=stylesheet></head><body><div id=app></div><script>if ('serviceWorker' in navigator) {
+<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>VCT</title><link rel=manifest href=/static/manifest.json><meta name=theme-color content=#3498db><meta name=apple-mobile-web-app-capable content=yes><meta name=apple-mobile-web-app-status-bar-style content=black-translucent><meta name=apple-mobile-web-app-title content=Vocab><link rel=apple-touch-icon href=/static/icon.svg><link href=/static/css/app.f381ee5639c83dbb77a1732c7ec89f13.css rel=stylesheet></head><body><div id=loading><style>#loading {
+          position: fixed;
+          top: 0; left: 0;
+          width: 100%; height: 100%;
+          background: #2c3e50;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          z-index: 9999;
+          transition: opacity 0.4s ease;
+        }
+        #loading .vlogo {
+          font-size: 90px;
+          font-weight: bold;
+          color: #3498db;
+          font-family: Arial, sans-serif;
+          line-height: 1;
+        }
+        #loading .vtitle {
+          color: #ecf0f1;
+          font-size: 16px;
+          letter-spacing: 6px;
+          margin-top: 6px;
+          font-family: Arial, sans-serif;
+        }
+        #loading .vdots {
+          margin-top: 36px;
+          display: flex;
+          gap: 10px;
+        }
+        #loading .vdot {
+          width: 12px;
+          height: 12px;
+          background: #3498db;
+          border-radius: 50%;
+          animation: vpulse 1.2s infinite ease-in-out;
+        }
+        #loading .vdot:nth-child(2) { animation-delay: 0.2s; }
+        #loading .vdot:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes vpulse {
+          0%, 80%, 100% { transform: scale(0.4); opacity: 0.3; }
+          40% { transform: scale(1); opacity: 1; }
+        }</style><div class=vlogo>V</div><div class=vtitle>VOCAB TRAINER</div><div class=vdots><div class=vdot></div><div class=vdot></div><div class=vdot></div></div></div><div id=app></div><script>if ('serviceWorker' in navigator) {
         window.addEventListener('load', function () {
           navigator.serviceWorker.register('/sw.js')
         })
-      }</script><script type=text/javascript src=/static/js/manifest.0792353b0e8e7353d66f.js></script><script type=text/javascript src=/static/js/vendor.0c36fb958ea87f5b7315.js></script><script type=text/javascript src=/static/js/app.bc6c620111410c8b0b9d.js></script></body></html>
+      }</script><script type=text/javascript src=/static/js/manifest.0792353b0e8e7353d66f.js></script><script type=text/javascript src=/static/js/vendor.0c36fb958ea87f5b7315.js></script><script type=text/javascript src=/static/js/app.bded6c6c29e45b87aceb.js></script></body></html>

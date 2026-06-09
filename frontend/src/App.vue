@@ -325,6 +325,13 @@ export default {
       this.tableItems = this.$store.getters.makeList
     }
   },
+  mounted () {
+    var loader = document.getElementById('loading')
+    if (loader) {
+      loader.style.opacity = '0'
+      setTimeout(function () { loader.remove() }, 400)
+    }
+  },
   created () {
     if (!this.$store.state.userRecord && this.isAuthenticated) {
       // console.log('created: get api records')
