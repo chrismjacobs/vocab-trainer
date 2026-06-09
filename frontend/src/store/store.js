@@ -85,13 +85,41 @@ const actions = {
             skeleton: response.data.skeleton
           })
           context.commit('setMaster', { userProfile: response.data.userProfile })
-          // console.log(response.data)
+          context.dispatch('subscribePush', response.data.userProfile.userID)
           return response.data
         }
       })
       .catch(error => {
         console.log('Error Authenticating: ', error)
       })
+  },
+  subscribePush (context, userID) {
+    if (!('serviceWorker' in navigator) || !('PushManager' in window)) return
+    const VAPID_PUBLIC_KEY = 'BGT4CgEsk6JS3__6Qk4najCxjFj0ldMv8ApcR5geCg1zk9wXZsQDhd-q66Nt9VVWrZdGXp7CzPBf6AqaWRiJPBE'
+    Notification.requestPermission().then(function (permission) {
+      if (permission !== 'granted') return
+      navigator.serviceWorker.ready.then(function (reg) {
+        reg.pushManager.subscribe({
+          userVisibleOnly: true,
+          applicationServerKey: (function (base64String) {
+            var padding = '='.repeat((4 - base64String.length % 4) % 4)
+            var base64 = (base64String + padding).replace(/-/g, '+').replace(/_/g, '/')
+            var rawData = window.atob(base64)
+            var outputArray = new Uint8Array(rawData.length)
+            for (var i = 0; i < rawData.length; ++i) outputArray[i] = rawData.charCodeAt(i)
+            return outputArray
+          })(VAPID_PUBLIC_KEY)
+        }).then(function (subscription) {
+          return fetch('/api/push-subscribe', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ userID: userID, subscription: subscription })
+          })
+        }).catch(function (err) {
+          console.log('Push subscribe failed:', err)
+        })
+      })
+    })
   },
   register (context, userData) {
     console.log(userData)

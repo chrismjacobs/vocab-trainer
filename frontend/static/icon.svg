@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="80" fill="#2c3e50"/>
+  <text x="256" y="340" font-family="Arial, sans-serif" font-size="300" font-weight="bold"
+        text-anchor="middle" fill="#3498db">V</text>
+  <text x="256" y="430" font-family="Arial, sans-serif" font-size="72"
+        text-anchor="middle" fill="#ecf0f1" letter-spacing="8">VOCAB</text>
+</svg>

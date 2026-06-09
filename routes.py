@@ -10,9 +10,9 @@ import jwt
 import os
 from datetime import datetime, timedelta
 from functools import wraps
-from flask import jsonify, render_template, request
+from flask import jsonify, render_template, request, send_from_directory
 from flask_mail import Message
-from app import app, db, bcrypt, s3_resource, s3_client, mail, polly_client, translate_client, redisData, logger
+from app import app, db, bcrypt, s3_resource, s3_client, mail, polly_client, translate_client, redisData, logger, VAPID_PRIVATE_KEY, VAPID_PUBLIC_KEY
 from pprint import pprint
 from models import *
 # from PIL import Image
@@ -111,6 +111,27 @@ def redisDataGetter(user):
 @app.get("/api/health")
 def health():
     return {"ok": True}
+
+@app.route('/sw.js')
+def service_worker():
+    return send_from_directory('dist/static', 'sw.js', mimetype='application/javascript')
+
+@app.route('/manifest.json')
+def manifest():
+    return send_from_directory('dist/static', 'manifest.json', mimetype='application/json')
+
+@app.route('/api/push-subscribe', methods=['POST'])
+def push_subscribe():
+    data = request.get_json()
+    user_id = str(data['userID'])
+    subscription = data['subscription']
+    if redisData:
+        redisData.hset('push_subscriptions', user_id, json.dumps(subscription))
+    return jsonify({'status': 'ok'})
+
+@app.route('/api/vapid-public-key', methods=['GET'])
+def vapid_public_key():
+    return jsonify({'key': VAPID_PUBLIC_KEY})
 
 @app.route("/api/login", methods=['POST'])
 def login():
