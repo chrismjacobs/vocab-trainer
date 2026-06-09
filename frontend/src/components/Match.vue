@@ -59,6 +59,11 @@
               </b-row>
             </div>
 
+            <div v-if="classLoading" class="p-3 bg-cream text-prime" align="center">
+              <b-icon icon="people-fill" animation="throb" variant="prime" font-scale="2"></b-icon>
+              <span class="ml-2">Building class list...</span>
+            </div>
+
             <div class="bg-smoke text-prime p-2">
 
               <b-table
@@ -261,7 +266,8 @@ export default {
   },
   data () {
     return {
-      friends: [],
+      friends: [{ id: 100000, name: 'AI Bot', status: 1 }],
+      classLoading: true,
       fields: [
         {key: 'id'}
       ],
@@ -515,7 +521,10 @@ export default {
     }
   },
   created () {
-    this.friends = this.friendsGet
+    if (this.friendsGet && this.friendsGet.length > 0) {
+      this.friends = this.friendsGet
+      this.classLoading = false
+    }
     let _this = this
     window.onbeforeunload = function () {
       if (_this.isAuthenticated && _this.$store.state.updateStatus === false) {
@@ -561,14 +570,12 @@ export default {
       found.status = 0
     })
     _this.socket.on('onlineUsers', function (data) {
-      console.log('onlineUsers', data, {..._this.friends})
       if (data.friends) {
-        if (Object.keys(_this.friends).length === 0) {
-          _this.friends = data.friends
-        }
+        _this.friends = data.friends
+        _this.classLoading = false
       } else {
         let found = _this.friends.find(element => element.id === data.userID)
-        found.status = 1
+        if (found) found.status = 1
       }
     })
     _this.socket.on('busy', function (data) {
