@@ -18,6 +18,7 @@ import LNC1 from '../assets/json/LNCV.json'
 import Presentation from '../assets/json/Presentation.json'
 import food from '../assets/json/food.json'
 import helpj from '../assets/json/help.json'
+import helpzh from '../assets/json/help_zh.json'
 // import Bella from '../assets/json/BellaRedo.json'
 // import test from '../assets/json/vqc2.json'
 // import cul from '../assets/json/cul.json'
@@ -43,7 +44,8 @@ export function dictionaries () {
     'food': food,
     'personalJapanese': japanPersonal,
     'basicJapanese': japanBasic,
-    'helpj': helpj
+    'helpj': helpj,
+    'helpzh': helpzh
   }
   return dictionaries
 }

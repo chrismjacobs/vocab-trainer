@@ -21,6 +21,12 @@
                 <hr>
                 <b-nav-item @click="goTo('Account')"><div class="sideBtn bg-second"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp;Account </span></div></b-nav-item>
                 <b-nav-item @click="setHelp()"><div :class="setHelpClass('sideBtn ')"><b-icon-question-circle></b-icon-question-circle>  <span> &nbsp;Help Mode </span></div></b-nav-item>
+                <b-nav-item v-if="$store.state.helpMode">
+                  <div class="d-flex">
+                    <button :class="$store.state.helpLang === 'en' ? 'buttonDiv bg-prime text-cream flex-fill' : 'buttonDiv bg-cream text-prime flex-fill'" style="height:30px" @click="$store.commit('setHelpLang', 'en')">EN</button>
+                    <button :class="$store.state.helpLang === 'zh' ? 'buttonDiv bg-prime text-cream flex-fill' : 'buttonDiv bg-cream text-prime flex-fill'" style="height:30px" @click="$store.commit('setHelpLang', 'zh')">中文</button>
+                  </div>
+                </b-nav-item>
                 <b-nav-item v-if="checkQuiz()" @click="goTo('InstStud')"><div class="sideBtn bg-warning text-prime"><b-icon-check-square></b-icon-check-square>  <span> &nbsp;Quiz </span></div></b-nav-item>
                 <b-nav-item @click="goTo('Help')"><div class="sideBtn bg-peel text-prime"><b-icon-question-circle></b-icon-question-circle>  <span> &nbsp;Feedback </span></div></b-nav-item>
                 <b-nav-item @click="saveData()"><div class="sideBtn bg-cream text-prime"> <b-icon-cloud-upload></b-icon-cloud-upload><span> &nbsp;Save Data </span></div></b-nav-item>
@@ -88,6 +94,10 @@
                       <button v-if="$store.state.userProfile.userID === 1" class="buttonDiv mt-2 bg-safe text-prime px-1" style="height:50px; width:100%" @click="goTo('ClassCodes')"><b-icon-person-fill></b-icon-person-fill>  <span> &nbsp;CODES </span> </button>
                       <button v-if="checkQuiz()" class="buttonDiv mt-2 bg-warning text-prime px-1" style="height:50px; width:100%" @click="goTo('InstStud')"><b-icon-check-square></b-icon-check-square>  <span> &nbsp;Quiz </span> </button>
                       <button :class="setHelpClass('buttonDiv ')" style="height:50px; width:100%" @click="setHelp()"><b-icon-question-circle></b-icon-question-circle>  <span text=""> &nbsp;Help Mode</span> </button>
+                      <div v-if="$store.state.helpMode" class="d-flex mt-1">
+                        <button :class="$store.state.helpLang === 'en' ? 'buttonDiv bg-prime text-cream flex-fill' : 'buttonDiv bg-cream text-prime flex-fill'" style="height:30px" @click="$store.commit('setHelpLang', 'en')">EN</button>
+                        <button :class="$store.state.helpLang === 'zh' ? 'buttonDiv bg-prime text-cream flex-fill' : 'buttonDiv bg-cream text-prime flex-fill'" style="height:30px" @click="$store.commit('setHelpLang', 'zh')">中文</button>
+                      </div>
                       <button class="buttonDiv mt-2 bg-peel text-prime px-1" style="height:50px; width:100%" @click="sendEmail()"><b-icon-question-circle></b-icon-question-circle>  <span text=""> &nbsp;Feedback </span> </button>
                       <button class="buttonDiv mt-2 bg-black text-cream px-1" style="height:50px; width:100%" @click="logout()"><b-icon-power></b-icon-power>  <span text=""> &nbsp;Logout </span> </button>
                     </div>

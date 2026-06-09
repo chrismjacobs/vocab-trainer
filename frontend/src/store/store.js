@@ -23,7 +23,9 @@ const state = {
   updateStatus: true,
   skeleton: false,
   helpMode: false,
+  helpLang: 'en',
   helpj: dictionaries().helpj,
+  helpzh: dictionaries().helpzh,
   jwt: localStorage.token || '',
   testJ: dictionaries().japanBasic,
   master: dictionaries()[parseLocal(localStorage.userProfile).vocab],
@@ -569,7 +571,9 @@ const mutations = {
   },
   setHelp (state) {
     state.helpMode = !state.helpMode
-    // console.log('testActive', state.testActive)
+  },
+  setHelpLang (state, lang) {
+    state.helpLang = lang
   },
   sendRecords (state) {
     if (state.updateStatus || state.skeleton) {
@@ -681,8 +685,7 @@ const getters = {
     if (!state.helpMode) {
       return false
     } else {
-      console.log('helpMode', state.help)
-      return state.helpj
+      return state.helpLang === 'zh' ? state.helpzh : state.helpj
     }
   },
   classRecords (state) {
