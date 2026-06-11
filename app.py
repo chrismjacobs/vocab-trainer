@@ -154,24 +154,35 @@ def send_daily_notifications():
     redisData.expire(lock_key, 86400)
 
     from pywebpush import webpush, WebPushException
-    subscriptions = redisData.hgetall('push_subscriptions')
-    print(f"Sending daily notifications to {len(subscriptions)} subscribers", flush=True)
-    for user_id, sub_json in subscriptions.items():
-        try:
-            count = get_weekly_word_count(user_id)
-            body = f"You've practised {count} words this week. Keep it up!" if count > 0 else "Time to practise your vocab today!"
-            webpush(
-                subscription_info=json.loads(sub_json),
-                data=json.dumps({'title': 'Vocab Trainer', 'body': body, 'url': '/'}),
-                vapid_private_key=VAPID_PRIVATE_KEY,
-                vapid_claims={"sub": "mailto:vocab1trainer@gmail.com"}
-            )
-        except WebPushException as e:
-            print(f"Push failed for {user_id}: {e}", flush=True)
-            if '410' in str(e) or '404' in str(e):
-                redisData.hdel('push_subscriptions', user_id)
-        except Exception as e:
-            print(f"Notification error for {user_id}: {e}", flush=True)
+    all_subs = redisData.hgetall('push_subscriptions')
+    print(f"Sending daily notifications to {len(all_subs)} users", flush=True)
+    for user_id, subs_json in all_subs.items():
+        subs = json.loads(subs_json)
+        if not isinstance(subs, list):
+            subs = [subs]
+        count = get_weekly_word_count(user_id)
+        body = f"You've practised {count} words this week. Keep it up!" if count > 0 else "Time to practise your vocab today!"
+        active_subs = []
+        for sub in subs:
+            try:
+                webpush(
+                    subscription_info=sub,
+                    data=json.dumps({'title': 'Vocab Trainer', 'body': body, 'url': '/'}),
+                    vapid_private_key=VAPID_PRIVATE_KEY,
+                    vapid_claims={"sub": "mailto:vocab1trainer@gmail.com"}
+                )
+                active_subs.append(sub)
+            except WebPushException as e:
+                print(f"Push failed for {user_id}: {e}", flush=True)
+                if '410' not in str(e) and '404' not in str(e):
+                    active_subs.append(sub)
+            except Exception as e:
+                print(f"Notification error for {user_id}: {e}", flush=True)
+                active_subs.append(sub)
+        if active_subs:
+            redisData.hset('push_subscriptions', user_id, json.dumps(active_subs))
+        else:
+            redisData.hdel('push_subscriptions', user_id)
 
 try:
     from apscheduler.schedulers.gevent import GeventScheduler

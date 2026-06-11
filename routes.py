@@ -126,7 +126,14 @@ def push_subscribe():
     user_id = str(data['userID'])
     subscription = data['subscription']
     if redisData:
-        redisData.hset('push_subscriptions', user_id, json.dumps(subscription))
+        existing_raw = redisData.hget('push_subscriptions', user_id)
+        subs = json.loads(existing_raw) if existing_raw else []
+        if not isinstance(subs, list):
+            subs = [subs]
+        endpoint = subscription.get('endpoint')
+        if not any(s.get('endpoint') == endpoint for s in subs):
+            subs.append(subscription)
+        redisData.hset('push_subscriptions', user_id, json.dumps(subs))
     return jsonify({'status': 'ok'})
 
 @app.route('/api/vapid-public-key', methods=['GET'])
